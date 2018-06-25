@@ -27,9 +27,14 @@ import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.CDI;
 import javax.persistence.EntityManager;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.TransactionAdapter;
 
 public class CDITransactionAdapter extends TransactionAdapter {
+
+	public CDITransactionAdapter(Registry registry) {
+		super(registry);
+	}
 
 	@Override
 	protected void executeBeginTransaction() {

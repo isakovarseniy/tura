@@ -23,11 +23,18 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation;
 
 public class JpaExternalDisconnectMasterFromDetailOperation extends SpaExternalDisconnectMasterFromDetailOperation{
+	
+	
+	public JpaExternalDisconnectMasterFromDetailOperation(Registry registry,SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {

@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
@@ -34,10 +35,16 @@ import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Connection;
 import org.tura.platform.repository.persistence.ConnectionProcessor;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 public class SpaExternalDisconnectDetailFromMasterOperation extends SpaDisconnectDetailFromMasterOperation{
 	private boolean NOP;
 
+	public SpaExternalDisconnectDetailFromMasterOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
+	
+	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		if (NOP){

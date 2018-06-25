@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.tura.platform.repository.core.CommandProducer;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryCommandType;
@@ -34,10 +35,20 @@ import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaCommandProducer implements CommandProducer{
 
-	private String registry;
-	Repository masterProvider;
-	Repository detailProvider;
+	private String registryName;
+	private Repository masterProvider;
+	private Repository detailProvider;
+	private SpaObjectRegistry spaRegistry;
+	private Registry registry;
+	
 
+	public SpaCommandProducer( SpaObjectRegistry spaRegistry,String registryName,Registry registry) {
+		this.registryName = registryName;
+		this.spaRegistry = spaRegistry;
+		this.registry = registry;
+	}
+	
+	
 	public Repository getMasterProvider() {
 		return masterProvider;
 	}
@@ -58,19 +69,15 @@ public class SpaCommandProducer implements CommandProducer{
 	}
 
 
-	public SpaCommandProducer(String registry) {
-		this.registry = registry;
-	}
-
 	
 	@Override
 	public List<Object> removeObject(Object repositoryObject) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.removeObject, repositoryObject);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.removeObject, repositoryObject);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaRemoveObjectOperation();
+		SpaRepositoryCommand cmd = new SpaRemoveObjectOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.removeObject, repositoryObject);
 		list.add( cmd);
 		return list;
@@ -79,12 +86,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> removeInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaRemoveInternalOperation();
+		SpaRepositoryCommand cmd = new SpaRemoveInternalOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
 
 		list.add( cmd);
@@ -93,12 +100,12 @@ public class SpaCommandProducer implements CommandProducer{
 
 	@Override
 	public List<Object> addObject(Object repositoryObject) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.addObject, repositoryObject);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.addObject, repositoryObject);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaAddObjectOperation();
+		SpaRepositoryCommand cmd = new SpaAddObjectOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.addObject, repositoryObject);
 		list.add( cmd );
 		return list;
@@ -107,12 +114,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> addInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.addInternal, masterPk,masterProperty,detailObject,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.addInternal, masterPk,masterProperty,detailObject,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaAddInternalOperation();
+		SpaRepositoryCommand cmd = new SpaAddInternalOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.addInternal, masterPk,masterProperty,detailObject,detailProperty);
 		list.add( cmd );
 		return list;
@@ -121,12 +128,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> disconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaDisconnectMasterFromDetailOperation();
+		SpaRepositoryCommand cmd = new SpaDisconnectMasterFromDetailOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd );
 		return list;
@@ -135,12 +142,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaDisconnectDetailFromMasterOperation();
+		SpaRepositoryCommand cmd = new SpaDisconnectDetailFromMasterOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk,masterProperty,detailPk,detailProperty);
 		list.add(cmd );
 		return list;
@@ -149,12 +156,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaConnectMasterToDetailOperation();
+		SpaRepositoryCommand cmd = new SpaConnectMasterToDetailOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd);
 		return list;
@@ -163,12 +170,12 @@ public class SpaCommandProducer implements CommandProducer{
 	@Override
 	public List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaConnectDetailToMasterOperation();
+		SpaRepositoryCommand cmd = new SpaConnectDetailToMasterOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 
 		list.add( cmd);
@@ -177,12 +184,12 @@ public class SpaCommandProducer implements CommandProducer{
 
 	@Override
 	public List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException {
-		List<Object> list =   SpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.update, pk,property,value);
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.update, pk,property,value);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new SpaUpdateOperation();
+		SpaRepositoryCommand cmd = new SpaUpdateOperation(registry,spaRegistry);
 		cmd.checkCommand(RepositoryCommandType.update, pk,property,value);
 		list.add( cmd );
 		return list;

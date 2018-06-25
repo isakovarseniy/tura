@@ -21,48 +21,29 @@
  */
 package org.tura.example.ui.commons.service;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
+import javax.inject.Inject;
 
-import org.tura.platform.hr.objects.serialization.InitJPARepository;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.spa.SpaRepository;
 
 
 @Alternative
 @Priority(0)
 public class RepositoryProducer {
 	
-	private static  Logger logger = Logger.getLogger(RepositoryProducer.class.getName());
+	@Inject
+	Registry registry;
 
 	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
-    	long start = System.currentTimeMillis();
 
-		Registry.newInstance();
-		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		Repository repository = new BasicRepository();
-		
-		InitJPARepository init = new InitJPARepository(new SpaRepository());
-		if ( !init.isInitialized()){
-			init.initClassMapping();
-			init.initCommandProducer();
-			init.initProvider();
-			init.initEntityManagerProvider(new CDIEntityManagerProvider());
-			init.initialized();
-		}
-		Registry.getInstance().setTransactrionAdapter( new CDITransactionAdapter());
-    	
-		long elapsedTimeMillis = System.currentTimeMillis()-start;
-		logger.log (  Level.SEVERE,   " getRepository "+new Long(elapsedTimeMillis));
+		Repository repository = new BasicRepository(registry);
 		
     	return repository;
 	}

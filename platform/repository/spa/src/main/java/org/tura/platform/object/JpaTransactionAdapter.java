@@ -23,13 +23,15 @@ package org.tura.platform.object;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.TransactionAdapter;
 
 public class JpaTransactionAdapter extends TransactionAdapter{
 	
 	private EntityManager em;
 	
-	public JpaTransactionAdapter (EntityManager em){
+	public JpaTransactionAdapter (EntityManager em,Registry registry){
+		super(registry);
 		this.em = em;
 	}
 	

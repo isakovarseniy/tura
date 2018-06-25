@@ -47,16 +47,21 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	private Map<String, Map<Object, SpaControl>> cache = new HashMap<>();
 	private int sequence;
-	private String registry;
+	private String registryName;
+	private SpaObjectRegistry spaRegistry;
+	private Registry registry;
 
-	
-	public String getRegistry() {
-		return registry;
-	}
 
-	public void setRegistry(String registry) {
+	public void setRegistry(  SpaObjectRegistry spaRegistry, String registryName ,Registry registry) {
+		this.registryName = registryName;
+		this.spaRegistry = spaRegistry;
 		this.registry = registry;
 	}
+
+	public String getRegistryName() {
+		return registryName;
+	}
+
 
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
@@ -113,7 +118,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 				SpaRepositoryCommand cmd = (SpaRepositoryCommand) change;
 				List<String> listOfKnownObjects = cmd.getListOfKnownObjects();
 				injectSearchProviders(cmd, listOfKnownObjects);
-				cmd.setRegistry(registry);
+				cmd.setRegistry(registryName);
 				List<SpaControl> objects = cmd.prepare();
 				populateCache(objects);
 			}
@@ -148,7 +153,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	private CRUDProvider findCRUDProvider(SpaControl obj) throws Exception {
 		Class<?> clazz = Class.forName(obj.getType());
-		CRUDProvider provider = SpaObjectRegistry.getInstance().getRegistry(registry).findCRUDProvider(clazz);
+		CRUDProvider provider = spaRegistry.getRegistry(registryName).findCRUDProvider(clazz);
 		if (provider == null) {
 			throw new RepositoryException("Cannot find CRUDProvider for class " + clazz);
 		}
@@ -193,16 +198,16 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 	private PostCreateTrigger findPostCreateTrigger(String objectClass) throws Exception {
-		return SpaObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(objectClass);
+		return spaRegistry.getRegistry(registryName).findPostCreateTrigger(objectClass);
 	}
 
 	private SearchProvider findSearchProvider(String className) throws Exception {
-		SearchProvider provider = SpaObjectRegistry.getInstance().getRegistry(registry).findSearchProvider(className);
+		SearchProvider provider = spaRegistry.getRegistry(registryName).findSearchProvider(className);
 		if (provider == null) {
-			String repositoryClass = Registry.getInstance().findRepositoryClass(className);
-			Repository repository =  Registry.getInstance().findProvider(repositoryClass);
+			String repositoryClass = registry.findRepositoryClass(className);
+			Repository repository =  registry.findProvider(repositoryClass);
 			if (repository != null){
-				return new SearchProviderRepositoryWrapper(repository);
+				return new SearchProviderRepositoryWrapper(repository,spaRegistry);
 			}
 			throw new RepositoryException("Cannot find  SearchProvider for class " + className);
 		}
@@ -216,8 +221,8 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	protected Mapper findMapper(String persistanceClassName) throws RepositoryException{
 		
-		String repositoryClassName = Registry.getInstance().findRepositoryClass(persistanceClassName);
-		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClassName);
+		String repositoryClassName = registry.findRepositoryClass(persistanceClassName);
+		Mapper mapper = registry.findMapper(persistanceClassName, repositoryClassName);
 		if (mapper == null) {
 			throw new RepositoryException(
 					"Mapper not found from " + persistanceClassName + " to " + repositoryClassName);
@@ -251,7 +256,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
     public boolean equals(Object o) {
     	if (o instanceof  SpaRepository){
     		SpaRepository r = (SpaRepository) o;
-    		return r.registry.equals(this.registry);
+    		return r.registryName.equals(this.registryName);
     	}else{
     		return false;
     	}

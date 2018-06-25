@@ -23,10 +23,12 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class JpaAddObjectOperation extends SpaRepositoryCommand {
@@ -34,7 +36,10 @@ public class JpaAddObjectOperation extends SpaRepositoryCommand {
 	Object object;
 	String persistanceType;
 
-
+    public JpaAddObjectOperation(Registry registry,SpaObjectRegistry spaRegistry){
+    	super(registry,spaRegistry);
+    }
+	
 	public Object getObject() {
 		return object;
 	}

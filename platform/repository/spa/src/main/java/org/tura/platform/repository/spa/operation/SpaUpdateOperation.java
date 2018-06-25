@@ -56,6 +56,7 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaUpdateOperation extends SpaRepositoryCommand {
@@ -66,6 +67,11 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 	private Object value;
 	private String objectType;
 	private String persistanceType;
+	
+	
+	public SpaUpdateOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
@@ -104,7 +110,7 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 		value = parameters[2];
 
 		objectType = pk.getType();
-		persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
+		persistanceType =  registry.findPersistanceClass(objectType);
 		
 		this.knownObjects.add(persistanceType);
 		return true;

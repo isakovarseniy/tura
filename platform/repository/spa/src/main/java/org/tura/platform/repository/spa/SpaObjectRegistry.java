@@ -24,10 +24,8 @@ package org.tura.platform.repository.spa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.ServiceLoader;
 
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryCommandType;
@@ -43,29 +41,12 @@ public class SpaObjectRegistry implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	private static ServiceLoader<SpaRegistryResolver> loader = ServiceLoader.load(SpaRegistryResolver.class); 	
-
 	private Map<String, SpaRegistry> hash = new HashMap<>();
-
 	
 	public SpaObjectRegistry() {
 
 	}
 
-	public static SpaObjectRegistry newInstance() {
-		Iterator<SpaRegistryResolver> iterator = loader.iterator();
-		if (iterator != null && iterator.hasNext()){
-			SpaRegistryResolver resolver = iterator.next();
-			return resolver.resolve();
-		}
-		return null;
-	}
-
-	public static SpaObjectRegistry getInstance() {
-		return newInstance();
-	}
-
-	
 	
 	public SpaRegistry getRegistry(String name) {
 		SpaRegistry r = hash.get(name);

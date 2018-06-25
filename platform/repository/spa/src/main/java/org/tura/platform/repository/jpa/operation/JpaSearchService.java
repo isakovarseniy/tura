@@ -46,27 +46,31 @@ import com.octo.java.sql.query.SelectQuery;
 
 public class JpaSearchService implements SearchProvider {
 
-	private String registry;
+	private String registryName;
+	private SpaObjectRegistry spaRegistry;
+	private Registry registry;
 
-	public JpaSearchService(String registry) {
+	public JpaSearchService(SpaObjectRegistry spaRegistry,String registryName,Registry registry) {
+		this.registryName = registryName;
+		this.spaRegistry = spaRegistry;
 		this.registry = registry;
 	}
 
 	public EntityManager getEm() {
-		return SpaObjectRegistry.getInstance().getRegistry(registry).getEntityManagerProvider().getEntityManager();
+		return spaRegistry.getRegistry(registryName).getEntityManagerProvider().getEntityManager();
 	}
 
 	public String getRegistry() {
-		return registry;
+		return registryName;
 	}
 
 	public void setRegistry(String registry) {
-		this.registry = registry;
+		this.registryName = registry;
 	}
 
 	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
 		try {
-			return SpaObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
+			return spaRegistry.getRegistry(registryName).findPreQueryTrigger(repositoryClass);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -111,15 +115,15 @@ public class JpaSearchService implements SearchProvider {
 	@Override
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
-		RepositoryHelper helper = new RepositoryHelper();
+		RepositoryHelper helper = new RepositoryHelper(registry);
 
 		try {
 			SearchCriteria parentPersistenceObject = helper.checkSearchParam(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
 			SearchCriteria parentChildRelation = helper.checkSearchParam(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
 			SearchCriteria parentChildRelationType = helper.checkSearchParam(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
 
-			String repositoryClass = Registry.getInstance().findRepositoryClass(objectClass);
-			PersistanceMapper mapper = SpaObjectRegistry.getInstance().getRegistry(registry).findMapper(objectClass,repositoryClass);
+			String repositoryClass = registry.findRepositoryClass(objectClass);
+			PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(objectClass,repositoryClass);
 
 			if (
 					      parentPersistenceObject != null
@@ -131,7 +135,7 @@ public class JpaSearchService implements SearchProvider {
 				String property = (String) parentChildRelation.getValue();
 				Object persistenceObject = parentPersistenceObject.getValue();
 
-				List<?> list = new RepositoryHelper().findChildren(persistenceObject, relationType, property);
+				List<?> list = new RepositoryHelper(registry).findChildren(persistenceObject, relationType, property);
 				return new SearchResult(list, list.size());
 			}
 

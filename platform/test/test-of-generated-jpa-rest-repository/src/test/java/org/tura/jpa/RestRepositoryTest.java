@@ -64,12 +64,8 @@ public class RestRepositoryTest {
 		File[] libs1 = Maven.resolver().loadPomFromFile("pom.xml")
 				.resolve("org.tura.platform.test.generated-code:test-objects-repository-proxy:1.0")
 				.withTransitivity().as(File.class);
-		
-
-		 
 				
-				
-				WebArchive a =  ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
+		WebArchive a =  ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
 				.addAsLibraries(libs1[0])
 				.addAsWebInfResource("jbossas-ds.xml")
 				;

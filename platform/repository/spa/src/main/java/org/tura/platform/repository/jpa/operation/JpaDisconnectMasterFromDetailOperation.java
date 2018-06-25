@@ -24,6 +24,7 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
@@ -31,6 +32,7 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class JpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand {
@@ -42,6 +44,12 @@ public class JpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand
 	String detailClassName;
 	String relation;
 
+	public JpaDisconnectMasterFromDetailOperation(Registry registry,SpaObjectRegistry spaRegistry){
+		super(registry,spaRegistry);
+	}
+
+	
+	
 	public Object getMasterPk() {
 		return masterPk;
 	}

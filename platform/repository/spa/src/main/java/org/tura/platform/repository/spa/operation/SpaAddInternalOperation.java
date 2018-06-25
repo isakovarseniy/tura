@@ -56,6 +56,7 @@ import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaAddInternalOperation extends SpaRepositoryCommand {
@@ -68,6 +69,12 @@ public class SpaAddInternalOperation extends SpaRepositoryCommand {
 	private String masterType;
 	private String masterPersistanceType;
 
+	
+	public SpaAddInternalOperation(Registry registry, SpaObjectRegistry spaRegistry){
+		super(registry,spaRegistry);
+	}
+	
+	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
@@ -115,7 +122,7 @@ public class SpaAddInternalOperation extends SpaRepositoryCommand {
 
 		masterType = masterPk.getType();
 		
-		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+		masterPersistanceType =  registry.findPersistanceClass(masterType);
 
 		this.knownObjects.add(masterPersistanceType);
 		return true;

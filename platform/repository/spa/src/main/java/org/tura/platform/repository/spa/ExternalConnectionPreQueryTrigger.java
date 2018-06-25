@@ -44,9 +44,16 @@ import com.octo.java.sql.exp.Operator;
 
 public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 
+	private Registry registry;
+
+	public ExternalConnectionPreQueryTrigger(Registry registry){
+		this.registry = registry;
+	}
+	
+	
 	@Override
 	public void preQueryTrigger(List<SearchCriteria> searchCriteria, List<OrderCriteria> order)throws Exception {
-		RepositoryHelper helper = new RepositoryHelper();
+		RepositoryHelper helper = new RepositoryHelper(registry);
 		
 		SearchCriteria parentRepositoryObject  = helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
 		SearchCriteria parentChildRelation = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
@@ -76,10 +83,10 @@ public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 						sc.setComparator(Operator.EQ.name());
 						
 						Class<?> repositoryClass = parentRepositoryObject.getValue().getClass();
-						Mapper mapper =   new RepositoryHelper().findMapper(parentRepositoryObject.getValue().getClass());
+						Mapper mapper =   new RepositoryHelper(registry).findMapper(parentRepositoryObject.getValue().getClass());
 						Object pk = mapper.getPrimaryKeyFromRepositoryObject(parentRepositoryObject.getValue());
-						Repository repository = Registry.getInstance().findProvider(repositoryClass.getName());
-						String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
+						Repository repository = registry.findProvider(repositoryClass.getName());
+						String persistanceClass = registry.findPersistanceClass(repositoryClass.getName());
 						Object persistanceObject = repository.find(pk, persistanceClass);
 						
 						String name = "get" + WordUtils.capitalize(lnk.field2());

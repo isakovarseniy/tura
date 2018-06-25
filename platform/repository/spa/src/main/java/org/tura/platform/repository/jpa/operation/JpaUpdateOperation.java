@@ -25,10 +25,12 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class JpaUpdateOperation extends SpaRepositoryCommand {
@@ -37,6 +39,10 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
 	String className;
 	String property;
 	Object value;
+
+	public JpaUpdateOperation(Registry registry,SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
 
 	public Object getPk() {
 		return pk;
@@ -78,9 +84,9 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
 			String name = "set" + WordUtils.capitalize(getProperty());
 			Method m = object.getClass().getDeclaredMethod(name, getValue().getClass());
 			m.invoke(object, getValue());
-			
+
 			this.knownObjects.add(getClassName());
-			
+
 			return null;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -101,7 +107,6 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
 
 		this.knownObjects.add(className);
 
-		
 		return true;
 	}
 

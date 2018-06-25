@@ -29,6 +29,11 @@ public abstract class TransactionAdapter {
 	protected abstract void executeCommitTransaction();
 	protected abstract void executeRollbackTransaction();
 	
+	private Registry registry;
+
+	public TransactionAdapter(Registry registry ){
+		this.registry = registry;
+	}
 	
 	public void begin() throws Exception{
 		sendEvent(new BeforeBeginTransaction());
@@ -50,7 +55,7 @@ public abstract class TransactionAdapter {
 	}
 
 	private void sendEvent( RepositoryEvent event) throws Exception{
-		Set<Repository> set =  Registry.getInstance().getListOfRepositories();
+		Set<Repository> set =  registry.getListOfRepositories();
 		for (Repository repository : set){
 			if (repository instanceof RepositoryEventsListener){
 				((RepositoryEventsListener)repository).notify(event);
@@ -58,6 +63,6 @@ public abstract class TransactionAdapter {
 		}
 		
 	}
-	
+
 	
 }

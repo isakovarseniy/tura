@@ -39,6 +39,11 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	Map<String, Object> context = new HashMap<>();
 	static String REMOVE_OBJECTS = "REMOVE_OBJECTS";
+	
+	
+	public RepositoryObjectRemover(Registry registry){
+		super(registry);
+	}
 
 	public void remove(RemoveTopObjectData data) throws RepositoryException {
 		try {

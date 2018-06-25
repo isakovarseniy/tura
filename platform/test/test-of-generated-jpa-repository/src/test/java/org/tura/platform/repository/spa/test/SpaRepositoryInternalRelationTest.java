@@ -63,6 +63,10 @@ public class SpaRepositoryInternalRelationTest {
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
+	private Registry registry = new Registry();
+	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
+
+	
 	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
 
 		@SuppressWarnings("unchecked")
@@ -113,35 +117,35 @@ public class SpaRepositoryInternalRelationTest {
 	}
 	
 	private ProxyRepository getRepository() throws Exception {
-		Registry.newInstance();
-		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		Repository repository = new BasicRepository();
+
+		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 		
-		InitSPARepository init = new InitSPARepository(new SpaRepository());
+		InitSPARepository init = new InitSPARepository(new SpaRepository(),registry,spaRegistry);
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		
 		
 		Repository nutRepository = new NutRepository();
-        Registry.getInstance().addProvider("org.tura.jpa.test.DD1", nutRepository);
-        Registry.getInstance().addProvider("org.tura.jpa.test.C1", nutRepository);
-        Registry.getInstance().addProvider("org.tura.jpa.test.B1", nutRepository);
-        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
-        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
-        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.B1","org.tura.jpa.test.B1");
+        registry.addProvider("org.tura.jpa.test.DD1", nutRepository);
+        registry.addProvider("org.tura.jpa.test.C1", nutRepository);
+        registry.addProvider("org.tura.jpa.test.B1", nutRepository);
+        registry.addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
+        registry.addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
+        registry.addClassMapping("objects.test.serialazable.jpa.B1","org.tura.jpa.test.B1");
 
         
-		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
+		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService(registry,spaRegistry));
 
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService());
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService(registry,spaRegistry));
 		
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class, new CRUDService());
-        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, new SearchService());
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class, new CRUDService());
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, new SearchService(registry,spaRegistry));
         
 		return  new ProxyRepository(repository,stackProvider);
 		

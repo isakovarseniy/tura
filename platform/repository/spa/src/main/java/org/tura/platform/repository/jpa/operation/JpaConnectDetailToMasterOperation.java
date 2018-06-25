@@ -21,11 +21,17 @@
  */
 package org.tura.platform.repository.jpa.operation;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 public class JpaConnectDetailToMasterOperation extends JpaConnectMasterToDetailOperation {
+	
+	public JpaConnectDetailToMasterOperation(Registry registry,SpaObjectRegistry spaRegistry){
+		super(registry,spaRegistry);
+	}
 
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {

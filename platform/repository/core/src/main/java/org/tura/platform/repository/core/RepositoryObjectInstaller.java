@@ -40,6 +40,11 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 	Map<String, Object> context = new HashMap<>();
 	static String ADDED_OBJECTS = "ADDED_OBJECTS";
 
+	
+	public RepositoryObjectInstaller(Registry registry){
+		super(registry);
+	}
+	
 	public void add(AddTopObjectData data) throws RepositoryException {
 		try {
 			Object repositoryObject = data.getObject();
@@ -171,7 +176,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		cmpDetail.setDetailProvider(detailProvider);
 
 		
-		ConnectObjectRule rule = new ConnectObjectRule();
+		ConnectObjectRule rule = new ConnectObjectRule(registry);
 		rule.setMasterChanges(masterChanges);
 		rule.setMasterProvider(masterProvider);
 		rule.setDetailChanges(detailChanges);

@@ -23,16 +23,22 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
-public class JpaRemoveObjectOperation  extends SpaRepositoryCommand{
+public class JpaRemoveObjectOperation extends SpaRepositoryCommand {
 
 	Object object;
 	String persistanceType;
+
+	public JpaRemoveObjectOperation(Registry registry,SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
 
 	public Object getObject() {
 		return object;
@@ -59,13 +65,13 @@ public class JpaRemoveObjectOperation  extends SpaRepositoryCommand{
 		JpaSearchService sp = (JpaSearchService) this.providerHash.get(persistanceType);
 
 		Object pk = getPersistancePrimaryKey(getObject());
-		Object p = sp.find(pk,persistanceType);
-		if (p == null){
-			//Object was delited already
+		Object p = sp.find(pk, persistanceType);
+		if (p == null) {
+			// Object was delited already
 			return null;
 		}
 		sp.getEm().remove(p);
-		
+
 		return null;
 	}
 }

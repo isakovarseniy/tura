@@ -44,6 +44,7 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.test.Factory;
 import org.tura.platform.test.hr.model.DepartmentType;
@@ -62,6 +63,8 @@ public class FactoryDC implements Factory {
 	private EntityManager em;
 	private CommandStack sc;
 	private Repository repository ;
+	private Registry registry = new Registry();
+	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
 	private  EntityManagerProvider emProvider = new EntityManagerProvider(){
 
 		@Override
@@ -82,17 +85,16 @@ public class FactoryDC implements Factory {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(unit, config.getProperties());
 		em = emf.createEntityManager();
 
-		Registry.newInstance();
-		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		repository = new BasicRepository();
+		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		repository = new BasicRepository(registry);
 
-		InitJPARepository init = new InitJPARepository(new SpaRepository());
+		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry, spaRegistry);
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		init.initEntityManagerProvider(emProvider);
 
-		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
+		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
 		
 		sc = new CommandStack();
 		elResolver = new ELResolverImpl();

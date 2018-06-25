@@ -23,12 +23,19 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation;
 
 public class JpaExternalConnectDetailToMasterOperation extends SpaExternalConnectDetailToMasterOperation{
 
+	
+	public JpaExternalConnectDetailToMasterOperation(Registry registry,SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
+	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		super.prepare();

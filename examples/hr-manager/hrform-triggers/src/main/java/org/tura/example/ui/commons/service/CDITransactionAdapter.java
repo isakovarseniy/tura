@@ -21,21 +21,20 @@
  */
 package org.tura.example.ui.commons.service;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.CDI;
 import javax.persistence.EntityManager;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.TransactionAdapter;
 
 public class CDITransactionAdapter extends TransactionAdapter {
-	private static  Logger logger = Logger.getLogger(CDITransactionAdapter.class.getName());
+	public CDITransactionAdapter(Registry registry) {
+		super(registry);
+	}
 
-	
 	@Override
 	protected void executeBeginTransaction() {
 		EntityManager em = getEntityManager();
@@ -57,16 +56,12 @@ public class CDITransactionAdapter extends TransactionAdapter {
 	}
 
 	public static EntityManager getEntityManager(){
-    	long start = System.currentTimeMillis();
 		
 		BeanManager bm = CDI.current().getBeanManager();
 		@SuppressWarnings("unchecked")
 		Bean<EntityManager> bean = (Bean<EntityManager>) bm.getBeans(EntityManager.class).iterator().next();
 		CreationalContext<?> ctx = bm.createCreationalContext(bean);
 		EntityManager em = (EntityManager) bm.getReference(bean, EntityManager.class, ctx);
-
-		long elapsedTimeMillis = System.currentTimeMillis()-start;
-		logger.log (  Level.SEVERE,   " getEntityManager "+new Long(elapsedTimeMillis));
 		
 		return em;
 

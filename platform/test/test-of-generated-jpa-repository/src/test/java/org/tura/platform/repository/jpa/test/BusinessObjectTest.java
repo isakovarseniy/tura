@@ -49,6 +49,7 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.IndepObject1;
@@ -62,6 +63,9 @@ public class BusinessObjectTest {
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
+	
+	private Registry registry = new Registry();
+	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
 	
 	
 	private static EntityManagerProvider emProvider = new EntityManagerProvider(){
@@ -127,18 +131,17 @@ public class BusinessObjectTest {
 	}
 
 	private ProxyRepository getRepository() throws Exception {
-		Registry.newInstance();
-		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		Repository repository = new BasicRepository();
+		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository init = new InitJPARepository(new SpaRepository());
+		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry,spaRegistry);
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		init.initEntityManagerProvider(emProvider);
 
-		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
+		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
 
 		return new ProxyRepository(repository, stackProvider);
 
@@ -252,7 +255,7 @@ public class BusinessObjectTest {
 
 			o2 = o1.getIndepObject2().get(0);
 
-			Registry.getInstance().addSkipRelationRule(IndepObject1.class, "indepObject2");
+			registry.addSkipRelationRule(IndepObject1.class, "indepObject2");
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
 					IndepObject1.class.getName());

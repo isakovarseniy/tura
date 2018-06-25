@@ -33,6 +33,7 @@ import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
@@ -47,13 +48,20 @@ import com.octo.java.sql.query.SelectQuery;
 public class SearchService extends AbstaractSearchService implements RegistryAware{
 
 	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
-	private String registry;
+	private String registryName;
+	private Registry registry;
+	private SpaObjectRegistry spaRegistry;
+	
+	public SearchService(Registry registry,  SpaObjectRegistry spaRegistry){
+		this.registry = registry;
+		this.spaRegistry = spaRegistry;
+	}
 	
 	@Override
 	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
 
-		RepositoryHelper helper = new RepositoryHelper();
+		RepositoryHelper helper = new RepositoryHelper(registry);
 
 		try {
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
@@ -100,7 +108,7 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 
 	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
 		try {
-			PreQueryTrigger trigger = SpaObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
+			PreQueryTrigger trigger = spaRegistry.getRegistry(registryName).findPreQueryTrigger(repositoryClass);
 			return trigger;
 		} catch (Exception e) {
                 throw new RepositoryException(e);
@@ -108,11 +116,11 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	}
 
 	public String getRegistry() {
-		return registry;
+		return registryName;
 	}
 
 	public void setRegistry(String registry) {
-		this.registry = registry;
+		this.registryName = registry;
 	}
 
 }

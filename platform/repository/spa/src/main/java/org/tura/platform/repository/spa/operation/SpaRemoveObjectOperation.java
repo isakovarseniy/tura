@@ -31,6 +31,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaRemoveObjectOperation extends SpaRepositoryCommand{
@@ -38,6 +39,11 @@ public class SpaRemoveObjectOperation extends SpaRepositoryCommand{
 	private Object object;
 	private String objectType;
 	
+	
+	
+	public SpaRemoveObjectOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
+	}
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
@@ -65,7 +71,7 @@ public class SpaRemoveObjectOperation extends SpaRepositoryCommand{
 		object = parameters[0];
 
 		objectType = object.getClass().getName();
-		String persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
+		String persistanceType =  registry.findPersistanceClass(objectType);
 		
 		this.knownObjects.add(persistanceType);
 		return true;

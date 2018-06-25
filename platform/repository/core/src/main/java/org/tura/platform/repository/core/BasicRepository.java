@@ -40,16 +40,23 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class BasicRepository extends RepositoryHelper implements Repository {
 
+	private Registry registry;
+
+	public BasicRepository(Registry registry) {
+		super(registry);
+		this.registry = registry;
+	}
+
 	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findPostCreateTrigger(repositoryClass);
+		return registry.findPostCreateTrigger(repositoryClass);
 	}
 
 	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findPreQueryTrigger(repositoryClass);
+		return registry.findPreQueryTrigger(repositoryClass);
 	}
 
 	private TransactionAdapter getTransactrionAdapter() throws RepositoryException {
-		TransactionAdapter ta = Registry.getInstance().getTransactrionAdapter();
+		TransactionAdapter ta = registry.getTransactrionAdapter();
 		if (ta == null) {
 			throw new RepositoryException("Transaction adapter is not initailizated");
 		}
@@ -78,7 +85,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	}
 
 	private PrImaryKeyStrategy findPrImaryKeyStrategy() {
-		return Registry.getInstance().getPrImaryKeyStrategy();
+		return registry.getPrImaryKeyStrategy();
 	}
 
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
@@ -100,7 +107,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,registry);
 				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass)));
 
 				@SuppressWarnings("unchecked")
@@ -129,36 +136,36 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 			for (Object change : changes) {
 				if (change instanceof AddContainmentObjectData) {
-					new RepositoryObjectInstaller().add((AddContainmentObjectData) change);
+					new RepositoryObjectInstaller(registry).add((AddContainmentObjectData) change);
 					continue;
 				}
 				if (change instanceof AddObjectData) {
-					new RepositoryObjectInstaller().add((AddObjectData) change);
+					new RepositoryObjectInstaller(registry).add((AddObjectData) change);
 					continue;
 				}
 
 				if (change instanceof AddTopObjectData) {
-					new RepositoryObjectInstaller().add((AddTopObjectData) change);
+					new RepositoryObjectInstaller(registry).add((AddTopObjectData) change);
 					continue;
 				}
 
 				if (change instanceof RemoveContainmentObjectData) {
-					new RepositoryObjectRemover().remove((RemoveContainmentObjectData) change);
+					new RepositoryObjectRemover(registry).remove((RemoveContainmentObjectData) change);
 					continue;
 				}
 
 				if (change instanceof RemoveObjectData) {
-					new RepositoryObjectRemover().remove((RemoveObjectData) change);
+					new RepositoryObjectRemover(registry).remove((RemoveObjectData) change);
 					continue;
 				}
 
 				if (change instanceof RemoveTopObjectData) {
-					new RepositoryObjectRemover().remove((RemoveTopObjectData) change);
+					new RepositoryObjectRemover(registry).remove((RemoveTopObjectData) change);
 					continue;
 				}
 
 				if (change instanceof UpdateObjectData) {
-					new RepositoryObjectUpdate().update((UpdateObjectData) change);
+					new RepositoryObjectUpdate(registry).update((UpdateObjectData) change);
 					continue;
 				}
 

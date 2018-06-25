@@ -56,6 +56,7 @@ import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaConnectMasterToDetailOperation extends SpaRepositoryCommand {
@@ -73,7 +74,10 @@ public class SpaConnectMasterToDetailOperation extends SpaRepositoryCommand {
 	protected String extendedMasterType ;
 	protected String extendedDetailType ;
 	
-
+	public SpaConnectMasterToDetailOperation(Registry registry, SpaObjectRegistry spaRegistry){
+		super(registry,spaRegistry);
+	}
+	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
@@ -125,8 +129,8 @@ public class SpaConnectMasterToDetailOperation extends SpaRepositoryCommand {
 		masterType = masterPk.getType();
 		detailType = detailPk.getType();
 		
-		detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
-		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+		detailPersistanceType =  registry.findPersistanceClass(detailType);
+		masterPersistanceType =  registry.findPersistanceClass(masterType);
 		
 		extendedMasterType = extendedMasterPk.getPath().get(extendedMasterPk.getPath().size()-1).getType();
 		extendedDetailType = extendedDetailPk.getPath().get(extendedDetailPk.getPath().size()-1).getType();

@@ -48,18 +48,19 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	static String LOADED_OBJECTS = "LOADED_OBJECTS";
 	public static String RULES_LIST = "RULES_LIST";
 
-	List<SearchCriteria> search;
-	List<OrderCriteria> order;
-	Map<String, Object> context;
+	private List<SearchCriteria> search;
+	private List<OrderCriteria> order;
+	private Map<String, Object> context;
 
-	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context) {
+	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context,Registry registry) {
+		super(registry);
 		this.search = search;
 		this.order = order;
 		this.context = context;
 	}
 
 	private void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
-		Mapper mapper = Registry.getInstance().findMapper(persistenceObject.getClass().getName(),
+		Mapper mapper = registry.findMapper(persistenceObject.getClass().getName(),
 				repositoryObject.getClass().getName());
 		if (mapper == null) {
 			throw new RepositoryException("Cannot find mapper from " + persistenceObject.getClass().getName() + " to "
@@ -74,22 +75,22 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 	private PreQueryTrigger findPreQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findPreQueryTrigger(repositoryClass.getName());
+		return registry.findPreQueryTrigger(repositoryClass.getName());
 	}
 
 	private PostQueryTrigger findPostQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findPostQueryTrigger(repositoryClass.getName());
+		return registry.findPostQueryTrigger(repositoryClass.getName());
 	}
 
 	private boolean skipRelation(Object repositoryObject, Method method) {
-		return Registry.getInstance().skipRelation(repositoryObject.getClass(), method);
+		return registry.skipRelation(repositoryObject.getClass(), method);
 	}
 
 	private void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
-			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context);
+			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
 				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(object), true);
@@ -183,7 +184,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			SearchResult result = provider.find(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass.getName());
 
 			for (Object object : result.getSearchResult()) {
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context );
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry );
 				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy());
 				if (loadedObject != null){
 				   processor.connectRepositoryObjects(repositoryObject, loadedObject);

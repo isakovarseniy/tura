@@ -48,7 +48,13 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
 	protected Map<String, SearchProvider> providerHash = new HashMap<>();
 	protected List<String> knownObjects = new ArrayList<>();
-	protected String registry;
+	protected String registryName;
+	protected SpaObjectRegistry spaRegistry;
+	
+	public SpaRepositoryCommand(Registry registry,SpaObjectRegistry spaRegistry){
+		super(registry);
+		this.spaRegistry = spaRegistry;
+	}
 
 	public List<String> getListOfKnownObjects() {
 		return knownObjects;
@@ -59,14 +65,14 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 	}
 
 	protected PersistanceMapper findPersistanceMapper(Class<?> repositoryClass) throws RepositoryException {
-		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
+		String persistanceClassName = registry.findPersistanceClass(repositoryClass.getName());
 
-		PersistanceMapper mapper = SpaObjectRegistry.getInstance().getRegistry(registry)
+		PersistanceMapper mapper = spaRegistry.getRegistry(registryName)
 				.findMapper(persistanceClassName, repositoryClass.getName());
 		if (mapper == null) {
-			SpaRepository repository =  (SpaRepository) Registry.getInstance().findProvider(repositoryClass.getName());
+			SpaRepository repository =  (SpaRepository) registry.findProvider(repositoryClass.getName());
 			if (repository != null){
-				mapper = SpaObjectRegistry.getInstance().getRegistry(repository.getRegistry()).findMapper(persistanceClassName, repositoryClass.getName());
+				mapper = spaRegistry.getRegistry(repository.getRegistryName()).findMapper(persistanceClassName, repositoryClass.getName());
 				if (mapper != null){
 					return mapper;
 				}
@@ -99,7 +105,7 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 	}
 
 	public void setRegistry(String registry) {
-		this.registry = registry;
+		this.registryName = registry;
 	}
 	
 
@@ -117,7 +123,7 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
 	protected String getJpaPersistanceClassName(RepoKeyPath pk) throws RepositoryException {
 		String repositoryClass = pk.getPath().get(0).getType();
-		return Registry.getInstance().findPersistanceClass(repositoryClass);
+		return registry.findPersistanceClass(repositoryClass);
 	}
 
 	protected String getJpaRelationType(RepoKeyPath pk, String property) throws Exception {

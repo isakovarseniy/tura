@@ -27,6 +27,11 @@ import org.tura.platform.repository.data.UpdateObjectData;
 
 public class RepositoryObjectUpdate extends RepositoryHelper {
 
+	
+	public RepositoryObjectUpdate(Registry registry){
+		super( registry);
+	}
+	
 	public void update(UpdateObjectData data) throws RepositoryException {
 		try {
 			String repositoryClassName = data.getPk().getPath().get(data.getPk().getPath().size()-1).getType();

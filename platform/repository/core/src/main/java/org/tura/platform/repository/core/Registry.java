@@ -24,9 +24,7 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.ServiceLoader;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -38,8 +36,6 @@ public class Registry implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	private static ServiceLoader<RegistryResolver> loader = ServiceLoader.load(RegistryResolver.class); 	
-	
 	private Map<String, Repository> providers = new HashMap<>();
 	private Map<String, String> classMapper = new HashMap<>();
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
@@ -53,19 +49,6 @@ public class Registry implements Serializable{
 
 	public Registry() {
 
-	}
-
-	public static Registry newInstance() {
-		Iterator<RegistryResolver> iterator = loader.iterator();
-		if (iterator != null && iterator.hasNext()){
-			RegistryResolver resolver = iterator.next();
-			return resolver.resolve();
-		}
-		return null;
-	}
-
-	public static Registry getInstance() {
-		return newInstance();
 	}
 
 	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy){

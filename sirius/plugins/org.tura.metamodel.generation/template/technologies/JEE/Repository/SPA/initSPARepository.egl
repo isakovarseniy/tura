@@ -22,13 +22,13 @@ ${start}${percent}
  
      org.tura.platform.repository.spa.SpaRepository repository;
      private Registry registry;
-     private SpaObjectRegistry spaRegistry;;
+     private SpaObjectRegistry spaRegistry;
      
-     public InitSPARepository(SpaRepository repository){
+     public InitSPARepository(SpaRepository repository,Registry registry,SpaObjectRegistry spaRegistry){
          this.repository = repository;
-         this.repository.setRegistry("[%=component.artifactId%]");
-         registry = Registry.getInstance();
-         spaRegistry= SpaObjectRegistry.getInstance();
+         this.repository.setRegistry(spaRegistry,"[%=component.artifactId%]",registry);
+         this.registry = registry;
+         this.spaRegistry= spaRegistry;
      }
  
     public void initProvider(){
@@ -65,7 +65,7 @@ ${start}${percent}
 	         if ( rel.internal  ){
 	               continue;
 	         }%]
-             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.source).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger());
+             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.source).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry));
 	         [%
           }
 	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
@@ -73,7 +73,7 @@ ${start}${percent}
 	         if ( rel.internal  ){
 	               continue;
 	         }%]
-             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.target).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger());
+             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.target).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry));
 	         [%
           }
        }
@@ -82,11 +82,11 @@ ${start}${percent}
     }
 
      public void initCommandProducer(){
-        registry.addCommandProducer(repository,new org.tura.platform.repository.spa.operation.SpaCommandProducer("[%=component.artifactId%]"));
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation());
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectMasterToDetailOperation());
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectDetailFromMasterOperation());
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation());
+        registry.addCommandProducer(repository,new org.tura.platform.repository.spa.operation.SpaCommandProducer(spaRegistry,"[%=component.artifactId%]",registry));
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation(registry,spaRegistry));
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectMasterToDetailOperation(registry,spaRegistry));
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectDetailFromMasterOperation(registry,spaRegistry));
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation(registry,spaRegistry));
         
      }
  

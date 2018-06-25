@@ -41,10 +41,16 @@ import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
+	
+	protected Registry registry;
+	
+     public RepositoryHelper (Registry registry){
+    	 this.registry = registry;
+     }
 
 	public Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {
-			return Class.forName(Registry.getInstance().findPersistanceClass(repositoryClass));
+			return Class.forName(registry.findPersistanceClass(repositoryClass));
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -71,18 +77,18 @@ public class RepositoryHelper {
 	}
 
 	public Repository findProvider(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findProvider(repositoryClass);
+		return registry.findProvider(repositoryClass);
 	}
 
 	public Mapper findMapper(String repositoryClass) throws RepositoryException {
-		String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
-		return Registry.getInstance().findMapper(persistanceClass, repositoryClass);
+		String persistanceClass = registry.findPersistanceClass(repositoryClass);
+		return registry.findMapper(persistanceClass, repositoryClass);
 
 	}
 
 	public Mapper findMapper(Class<?> repositoryClass) throws RepositoryException {
-		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
-		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClass.getName());
+		String persistanceClassName = registry.findPersistanceClass(repositoryClass.getName());
+		Mapper mapper = registry.findMapper(persistanceClassName, repositoryClass.getName());
 		if (mapper == null) {
 			throw new RepositoryException(
 					"Mapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
@@ -91,7 +97,7 @@ public class RepositoryHelper {
 	}
 
 	public CommandProducer findCommandProducer(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findCommandProduce(repositoryClass);
+		return registry.findCommandProduce(repositoryClass);
 	}
 
 	public RepoKeyPath findPk(Object object) throws Exception {
@@ -124,14 +130,14 @@ public class RepositoryHelper {
 	}
 
 	public Object getPersistancePrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
-		String persistanceClass = Registry.getInstance().findRepositoryClass(repositoryObject.getClass().getName());
-		return Registry.getInstance().findMapper(persistanceClass, repositoryObject.getClass().getName())
+		String persistanceClass = registry.findRepositoryClass(repositoryObject.getClass().getName());
+		return registry.findMapper(persistanceClass, repositoryObject.getClass().getName())
 				.getPrimaryKeyFromRepositoryObject(repositoryObject);
 	}
 
 	public Object getPersistancePrimaryKey(Object persistanceObject) throws RepositoryException {
-		String repositoryClass = Registry.getInstance().findRepositoryClass(persistanceObject.getClass().getName());
-		return Registry.getInstance().findMapper(persistanceObject.getClass().getName(), repositoryClass)
+		String repositoryClass = registry.findRepositoryClass(persistanceObject.getClass().getName());
+		return registry.findMapper(persistanceObject.getClass().getName(), repositoryClass)
 				.getPrimaryKey(persistanceObject);
 	}
 

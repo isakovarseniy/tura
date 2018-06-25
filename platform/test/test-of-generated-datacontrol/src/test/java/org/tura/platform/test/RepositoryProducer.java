@@ -25,33 +25,25 @@ import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
+import javax.inject.Inject;
 
-import org.tura.platform.hr.objects.serialization.InitJPARepository;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.spa.SpaRepository;
 
 
 @Alternative
 @Priority(0)
 public class RepositoryProducer {
 	
+	@Inject
+	Registry registry;
+
+	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
 
-		Registry.newInstance();
-		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		Repository repository = new BasicRepository();
-		
-		InitJPARepository init = new InitJPARepository(new SpaRepository());
-		init.initClassMapping();
-		init.initCommandProducer();
-		init.initProvider();
-		init.initEntityManagerProvider(new CDIEntityManagerProvider());
-
-		Registry.getInstance().setTransactrionAdapter( new CDITransactionAdapter());
-    	
+		Repository repository = new BasicRepository(registry);
     	return repository;
 	}
 	
