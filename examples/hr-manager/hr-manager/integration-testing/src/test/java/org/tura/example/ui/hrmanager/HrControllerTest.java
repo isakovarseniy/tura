@@ -60,6 +60,7 @@ import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.Tree;
 import org.tura.platform.selenium.primefaces.ButtonPrimeFaces;
 import org.tura.platform.selenium.primefaces.InputTextPrimeFaces;
+import org.tura.platform.selenium.primefaces.Repeater;
 import org.tura.platform.selenium.primefaces.SeleniumActionExecutor;
 import org.tura.platform.selenium.primefaces.TableRow;
 import org.tura.platform.selenium.primefaces.TreeRow;
@@ -628,21 +629,39 @@ public class HrControllerTest {
 
 		assertEquals("Dir1", tr.getCell(0).getText());
 
-		tr.open();
+		new Repeater() {
+			public void action() {
+				Tree tree = filesPageObject.getContentTable();
+				TreeRow tr = (TreeRow) tree.getRow("0");
+				tr.open();
+			}
+		}.repeat(10);
+		
 		tr = (TreeRow) tree.getRow("0_0");
 		assertEquals("file1", tr.getCell(0).getText());
 
 		new SeleniumActionExecutor(driver,
 				FilesPageObject.getEmplFilesSearchCriteria()) {
 			public void action(WebDriver driver) {
-				MainHolderPageObject mainHolderPageObject = new MainHolderPageObject(
-						driver);
-				mainHolderPageObject.getEmployees().click();
-				EmployeesPageObject employeesPageObject = new EmployeesPageObject(
-						driver);
-				TableRow row = (TableRow) employeesPageObject
-						.getEmployeeTable().getRow(1);
-				row.click();
+				new Repeater() {
+					public void action() {
+						MainHolderPageObject mainHolderPageObject = new MainHolderPageObject(
+								driver);
+						mainHolderPageObject.getEmployees().click();
+					}
+				}.repeat(10);
+
+				new Repeater() {
+					public void action() {
+						EmployeesPageObject employeesPageObject = new EmployeesPageObject(
+								driver);
+						TableRow row = (TableRow) employeesPageObject
+								.getEmployeeTable().getRow(1);
+						row.click();
+					}
+				}.repeat(10);
+
+				
 			}
 		}.run();
 
@@ -806,21 +825,39 @@ public class HrControllerTest {
 			public void action(WebDriver driver) {
 				EmployeesPageObject employeesPage = new EmployeesPageObject(
 						driver);
-				employeesPage.getAddEmployee().click();
+				new Repeater() {
+					@Override
+					public void action() {
+						employeesPage.getAddEmployee().click();
+					}
+				}.repeat(10);
 			}
 		}.run();
 
 		EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
+        
+		new Repeater() {
+			public void action() {
+				Table empTable = (Table) employeesPage.getEmployeeTable();
+				empTable.getRow(0).getCell(0).click();
+			}
+		}.repeat(10);
 
 		Table empTable = (Table) employeesPage.getEmployeeTable();
-
-		empTable.getRow(0).getCell(0).click();
 		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(0)
 				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("FName 1");
 		inputText.setValue(Keys.RETURN);
 
-		empTable.getRow(0).getCell(1).click();
+		
+		new Repeater() {
+			public void action() {
+				Table empTable = (Table) employeesPage.getEmployeeTable();
+				empTable.getRow(0).getCell(1).click();
+			}
+		}.repeat(10);
+
+		
 		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(1)
 				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("LName 1");
@@ -829,21 +866,39 @@ public class HrControllerTest {
 		new SeleniumActionExecutor(driver,
 				EmployeesPageObject.getVehicleTableSearchCriteria()) {
 			public void action(WebDriver driver) {
-				EmployeesPageObject employeesPage = new EmployeesPageObject(
-						driver);
-				employeesPage.getAddVehicle().click();
+				new Repeater() {
+					public void action() {
+						EmployeesPageObject employeesPage = new EmployeesPageObject(
+								driver);
+						employeesPage.getAddVehicle().click();
+					}
+				}.repeat(10);
 			}
 		}.run();
 
-		Table vehicleTable = (Table) employeesPage.getVehicleTable();
+		new Repeater() {
+			public void action() {
+				Table vehicleTable = (Table) employeesPage.getVehicleTable();
+				vehicleTable.getRow(0).getCell(0).click();
+			}
+		}.repeat(10);
 
-		vehicleTable.getRow(0).getCell(0).click();
+		
+		Table vehicleTable = (Table) employeesPage.getVehicleTable();
 		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(0)
 				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("Honda");
 		inputText.setValue(Keys.RETURN);
 
-		vehicleTable.getRow(0).getCell(1).click();
+
+		new Repeater() {
+			public void action() {
+				Table vehicleTable = (Table) employeesPage.getVehicleTable();
+				vehicleTable.getRow(0).getCell(1).click();
+			}
+		}.repeat(10);
+		
+		vehicleTable = (Table) employeesPage.getVehicleTable();
 		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(1)
 				.findElement(By.cssSelector("input")), driver);
 		inputText.setValue("1234-567");
