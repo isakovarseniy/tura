@@ -273,9 +273,13 @@ public class TreeModel {
 					&& event.getSource() instanceof TreeDataControl) {
 				try {
 
-					if (selectedNode == null
-							|| (selectedNode != null && selectedNode
-									.getChildren().get(0).getData() instanceof Root)) {
+					if (      
+							   selectedNode == null
+							||(selectedNode != null && selectedNode.getChildren() == null) 
+							||(selectedNode != null && selectedNode.getChildren().size() == 0) 
+							|| (selectedNode != null && selectedNode.getChildren().get(0).getData() instanceof Root)
+						) 
+					{
 						return;
 					}
 
