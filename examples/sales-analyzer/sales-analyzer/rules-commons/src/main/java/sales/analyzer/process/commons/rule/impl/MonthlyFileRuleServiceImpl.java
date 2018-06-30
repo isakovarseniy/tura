@@ -36,7 +36,8 @@ public class MonthlyFileRuleServiceImpl {
 	    cmds.add( new InsertObjectCommand(model));
         cmds.add(new FireAllRulesCommand());
         
-        ExecutionResults results = rulesService.call(container, new BatchExecutionCommandImpl((List<GenericCommand<?>>) cmds));
+        @SuppressWarnings("unused")
+		ExecutionResults results = rulesService.call(container, new BatchExecutionCommandImpl((List<GenericCommand<?>>) cmds));
         
 		return model;
 	}
