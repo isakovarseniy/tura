@@ -37,6 +37,7 @@
 
     <system-properties>
        ${kieserver_properties}
+       <property name="TALEND_JOB_ROOT" value="${TALEND_JOB_ROOT}"/>	
     </system-properties>
 
 

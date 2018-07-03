@@ -35,6 +35,7 @@ public class SalesAnalyzerRecipe {
                           .setServerType("wildfly-10.1.0.Final")
                           .addConfigPath("h2/file-db")
                           .addConfigPath("kie-server")
+                          .addProperties("TALEND_JOB_ROOT", tura_home+"/examples/sales-analyzer/talend-jobs")
                           .run();
                   
                   

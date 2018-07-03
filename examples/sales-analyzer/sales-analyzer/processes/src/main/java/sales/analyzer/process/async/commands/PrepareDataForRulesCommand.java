@@ -5,7 +5,7 @@ import sales.analyzer.process.commons.Constants;
 public class PrepareDataForRulesCommand  extends RunTalendJobCommand {
 
 	public String getJob() {
-		return Constants.TALEND_JOB_ROOT+Constants.PREPARE_DATA_JOB;
+		return System.getProperty(Constants.TALEND_JOB_ROOT)+Constants.PREPARE_DATA_JOB;
 	}	
 	
 }

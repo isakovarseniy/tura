@@ -5,7 +5,7 @@ import sales.analyzer.process.commons.Constants;
 public class LoadFileCommand extends RunTalendJobCommand {
 	
 	public String getJob() {
-		return Constants.TALEND_JOB_ROOT+Constants.VALIDATION_JOB;
+		return  System.getProperty(Constants.TALEND_JOB_ROOT)+Constants.VALIDATION_JOB;
 	}
 
 }

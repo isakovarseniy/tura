@@ -4,7 +4,7 @@ public class Constants {
 	
 	public static String PARAM_FILE_PROCESSING_DATE = "fileProcessingDate";
 	public static String PARAM_HASH = "workItem";
-	public static String TALEND_JOB_ROOT = "/Users/arseniy/MyPrj/git/tura.4.2.2/examples/sales-analyzer/talend-jobs";
+	public static String TALEND_JOB_ROOT = "TALEND_JOB_ROOT";
 	public static String VALIDATION_JOB = "/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh --context_param session=${session} --context_param date='yyyy-MM-dd;${data}'";
 	public static String LOAD_MONTHLY_DATA_JOB = "/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh --context_param session=${session} --context_param date='yyyy-MM-dd;${data}'";
 	public static String PREPARE_DATA_JOB = "/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh --context_param session=${session} --context_param date='yyyy-MM-dd;${data}'";
