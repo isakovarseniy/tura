@@ -10,6 +10,7 @@ import org.tura.comfiguration.artifacts.jboss.Module;
 import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
 import org.tura.comfiguration.commons.CopyMonthlyFiles;
 import org.tura.comfiguration.commons.CopySalesAnalyzerDB;
+import org.tura.comfiguration.commons.JobPropertyFile;
 
 public class SalesAnalyzerRecipe {
 	
@@ -94,5 +95,46 @@ public class SalesAnalyzerRecipe {
 		                  .doDeploy();
 
                   
+                  new JobPropertyFile(tura_home,"Default.properties")
+                  		  .setApplication("sales-analyzer")
+                          .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts")
+                          .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+                          .run();
+
+                  new JobPropertyFile(tura_home,"Development.properties")
+                  		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
+
+                  new JobPropertyFile(tura_home,"Default.properties")
+		          		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
+
+                  new JobPropertyFile(tura_home,"Default.properties")
+		          		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
+                  
+                  new JobPropertyFile(tura_home,"Default.properties")
+		          		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
+
+                  new JobPropertyFile(tura_home,"Default.properties")
+		          		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
+
+                  new JobPropertyFile(tura_home,"Default.properties")
+		          		  .setApplication("sales-analyzer")
+		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts")
+		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .run();
 	}
 }

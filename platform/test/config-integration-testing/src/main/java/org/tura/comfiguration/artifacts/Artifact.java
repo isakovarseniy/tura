@@ -119,7 +119,7 @@ public class Artifact<T>  {
 	protected void collectProperties() throws Exception {
 
 		if (application == null || serverType == null || cfgPath == null) {
-			throw new RuntimeException();
+			return;
 		}
 		String path = application + "/" + serverType + "/properties";
 		InputStream resource = this.getClass().getClassLoader().getResourceAsStream(path+"/default.properties");
