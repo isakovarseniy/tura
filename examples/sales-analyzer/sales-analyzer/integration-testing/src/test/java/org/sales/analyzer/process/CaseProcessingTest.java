@@ -55,8 +55,8 @@ public class CaseProcessingTest {
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 
 			HashMap<String, Object> params = new HashMap<>();
-			params.put("city", "Toronto");
-			params.put("state", "Ontario");
+			params.put("city", 1000);
+			params.put("state", 2000);
 			params.put("product", "Product02");
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
@@ -83,7 +83,7 @@ public class CaseProcessingTest {
 			query.setExpression("SELECT pl.* FROM KIESERVER.PROCESSINSTANCELOG pl \n"
 					+ "INNER JOIN KIESERVER.MAPPEDVARIABLE mv  ON PL.PROCESSINSTANCEID = MV.PROCESSINSTANCEID\n"
 					+ "INNER JOIN KIESERVER.CASEDETAILS CD ON MV.VARIABLEID=CD.ID\n"
-					+ "WHERE CD.CITY='Toronto' AND CD.PRODUCT='Product02' AND CD.STATE='Ontario'");
+					+ "WHERE CD.CITY=1000 AND CD.PRODUCT='Product02' AND CD.STATE=2000");
 
 			queryClient.registerQuery(query);
 
@@ -93,7 +93,7 @@ public class CaseProcessingTest {
 			query.setTarget(Target.TASK.name());
 			query.setExpression("SELECT TSK.* FROM KIESERVER.TASK TSK \n"
 					+ "INNER JOIN KIESERVER.TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n"
-					+ "WHERE  INFO.CITY='Toronto' AND INFO.PRODUCT='Product02' AND INFO.STATE='Ontario'");
+					+ "WHERE  INFO.CITY=1000 AND INFO.PRODUCT='Product02' AND INFO.STATE=2000");
 
 			queryClient.registerQuery(query);
 

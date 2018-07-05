@@ -9,23 +9,24 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class BusinessInfo {
 
-	private String state;
-	private String city;
+	private Integer state;
+	private Integer city;
 	private String product;
 
-	public String getState() {
+
+	public Integer getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
 
-	public String getCity() {
+	public Integer getCity() {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(Integer city) {
 		this.city = city;
 	}
 
@@ -39,13 +40,13 @@ public class BusinessInfo {
 
 	public void writeExternal(ObjectOutput out) throws IOException {
 		if (state != null) {
-			out.writeUTF(state);
+			out.writeInt(state);
 		} else {
 			out.writeUTF("");
 		}
 
 		if (city != null) {
-			out.writeUTF(city);
+			out.writeInt(city);
 		} else {
 			out.writeUTF("");
 		}
@@ -59,8 +60,8 @@ public class BusinessInfo {
 	}
 
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-		state = in.readUTF();
-		city = in.readUTF();
+		state = in.readInt();
+		city = in.readInt();
 		product = in.readUTF();
 	}
 

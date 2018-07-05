@@ -35,9 +35,9 @@ public class SalesAnalyzerTaskEventListener implements TaskLifeCycleEventListene
 
 			VariableScopeInstance variableScopeInstance = (VariableScopeInstance) processInstance.getContextInstance(VariableScope.VARIABLE_SCOPE);
 			if (variableScopeInstance != null) {
-				String state = (String) variableScopeInstance.getVariable(Constants.VAR_STATE);
+				Integer state = (Integer) variableScopeInstance.getVariable(Constants.VAR_STATE);
 				String product = (String) variableScopeInstance.getVariable(Constants.VAR_PRODUCT);
-				String city = (String) variableScopeInstance.getVariable(Constants.VAR_CITY);
+				Integer city = (Integer) variableScopeInstance.getVariable(Constants.VAR_CITY);
 
 				TaskExtendedInfo taskInfo = new TaskExtendedInfo();
 				taskInfo.setProcessId(processInstance.getId());

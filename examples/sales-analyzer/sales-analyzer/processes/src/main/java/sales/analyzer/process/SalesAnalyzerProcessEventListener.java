@@ -50,9 +50,9 @@ public class SalesAnalyzerProcessEventListener implements  ProcessEventListener{
 			if (event.getNodeInstance().getNodeName().equals(Constants.PROCESS_CONSTRUCTOR)) {
 				VariableScopeInstance variableScopeInstance = (VariableScopeInstance) ((RuleFlowProcessInstance ) event.getProcessInstance()).getContextInstance(VariableScope.VARIABLE_SCOPE);
 				if (variableScopeInstance != null) {
-					String state = (String) variableScopeInstance.getVariable(Constants.VAR_STATE); 
+					Integer state = (Integer) variableScopeInstance.getVariable(Constants.VAR_STATE); 
 					String product = (String) variableScopeInstance.getVariable(Constants.VAR_PRODUCT); 
-					String city = (String) variableScopeInstance.getVariable(Constants.VAR_CITY); 
+					Integer city = (Integer) variableScopeInstance.getVariable(Constants.VAR_CITY); 
 					
 					CaseDetails caseDetails = new CaseDetails();
 					BusinessInfo info = new BusinessInfo();
