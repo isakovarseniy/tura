@@ -1,5 +1,6 @@
 package org.tura.comfiguration.recipe;
 
+import org.tura.comfiguration.artifacts.jboss.CopyFile;
 import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
@@ -136,5 +137,19 @@ public class SalesAnalyzerRecipe {
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts")
 		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
 		                  .run();
+                  
+                           new CopyFile()
+                           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/server-extension/1.0.0-SNAPSHOT/server-extension-1.0.0-SNAPSHOT.jar")
+                           		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
+                           		.setTargetName("server-ext-1.0.0-SNAPSHOT.jar")
+                           		.copyFromExternal();
+
+                           new CopyFile()
+                  	      		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/api-extension/1.0.0-SNAPSHOT/api-extension-1.0.0-SNAPSHOT.jar")
+                  	      		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
+                  	      		.setTargetName("api-1.0.0-SNAPSHOT.jar")
+                  	      		.copyFromExternal();
+
+                  
 	}
 }

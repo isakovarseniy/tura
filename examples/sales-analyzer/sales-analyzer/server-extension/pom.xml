@@ -12,5 +12,25 @@
 
 	<name>Sales Analyzer :: KIE server extension</name>
 
+	<dependencies>
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>api-extension</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server-api</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-kie-services</artifactId>
+		</dependency>
+
+	</dependencies>
+
+
+
 
 </project>
