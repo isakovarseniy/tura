@@ -141,13 +141,13 @@ public class SalesAnalyzerRecipe {
                            new CopyFile()
                            		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/server-extension/1.0.0-SNAPSHOT/server-extension-1.0.0-SNAPSHOT.jar")
                            		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
-                           		.setTargetName("server-ext-1.0.0-SNAPSHOT.jar")
+                           		.setTargetName("server-extension-1.0.0-SNAPSHOT.jar")
                            		.copyFromExternal();
 
                            new CopyFile()
                   	      		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/api-extension/1.0.0-SNAPSHOT/api-extension-1.0.0-SNAPSHOT.jar")
                   	      		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
-                  	      		.setTargetName("api-1.0.0-SNAPSHOT.jar")
+                  	      		.setTargetName("api-extension-1.0.0-SNAPSHOT.jar")
                   	      		.copyFromExternal();
 
                   
