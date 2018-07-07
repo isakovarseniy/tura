@@ -39,6 +39,8 @@
 	</repositories>
 
 	<modules>
+	    <module>api-extension</module>
+	    <module>server-extension</module>
 		<module>rules-commons</module>
 		<module>processes</module>
 		<module>config-integration-testing</module>
@@ -102,7 +104,17 @@
 				<version>${drools-version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>api-extension</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-api</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.kie.server</groupId>

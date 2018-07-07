@@ -54,7 +54,7 @@ public class Wget {
 			byte data[] = new byte[1024];
 			boolean fileComplete = false;
 			int count = 0;
-			try (ProgressBar pb = new ProgressBar("Test", size)) {
+			try (ProgressBar pb = new ProgressBar(saveAsFile, size)) {
 
 				while (!fileComplete) {
 					count = httpIn.read(data, 0, 1024);
@@ -62,8 +62,8 @@ public class Wget {
 						fileComplete = true;
 					} else {
 						bufferedOut.write(data, 0, count);
+						pb.stepBy(count);
 					}
-					pb.stepBy(count);
 				}
 			}
 		} catch (MalformedURLException e) {
