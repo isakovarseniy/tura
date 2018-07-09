@@ -202,6 +202,8 @@ operation type::Assosiation one2oneReposit2Persist(recipe,ingredient,model_mappe
 @template
 operation type::Assosiation one2ManyReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
      var hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
      %]
            org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
            java.util.Collection<[%=t2view.get(self.target).get("fullName")%]> obj[%=t2view.get(self.target).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
@@ -209,9 +211,16 @@ operation type::Assosiation one2ManyReposit2Persist(recipe,ingredient,model_mapp
            if( obj[%=t2view.get(self.target).get("class")%]List != null ){
 	           for (   [%=t2view.get(self.target).get("fullName")%]  obj[%=t2view.get(self.target).get("class")%] : obj[%=t2view.get(self.target).get("class")%]List ){
 	
-	              [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] = ([%=t2model.get(self.target).get("fullName")%])maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
+	              [%=t2model.get(self.target).get("fullName")%] spa[%=t2view.get(self.target).get("class")%] = ([%=t2model.get(self.target).get("fullName")%])maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
 	              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(spa[%=t2view.get(self.target).get("class")%] );
-	              spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+	              [%
+                   if ( self.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+                   %]       
+	                    spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+                    [%
+	                }
+	              %]
+	              
 	           }
            }
      [%

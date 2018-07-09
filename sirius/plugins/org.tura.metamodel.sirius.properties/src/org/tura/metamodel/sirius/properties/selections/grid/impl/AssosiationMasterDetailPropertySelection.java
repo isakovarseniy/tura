@@ -118,8 +118,14 @@ public class AssosiationMasterDetailPropertySelection extends GridProperty {
 
 			Link opt = (Link) base;
 
-			Type type  = (Type) ((Assosiation)  opt.eContainer()).getSource();
-
+			Object obj  = ((Assosiation) (opt.eContainer())).getSource();
+			Type type = null;
+			if ( obj instanceof Type ){
+				type = (Type) obj;
+			}else{
+				type = (Type) ((TypeReference) obj).getTypeRef();
+			}
+			
 			if (type == null)
 				return new HashMap<String, Object>();
 
@@ -145,8 +151,14 @@ public class AssosiationMasterDetailPropertySelection extends GridProperty {
 		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
 			Link opt = (Link) base;
 
-			Type type  = (Type) ((Assosiation)  opt.eContainer()).getTarget();
-
+			Object obj  = ((Assosiation) (opt.eContainer())).getTarget();
+			Type type = null;
+			if ( obj instanceof Type ){
+				type = (Type) obj;
+			}else{
+				type = (Type) ((TypeReference) obj).getTypeRef();
+			}
+			
 			if (type == null)
 				return new HashMap<String, Object>();
 

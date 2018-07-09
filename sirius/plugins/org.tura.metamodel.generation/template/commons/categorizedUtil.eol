@@ -1,3 +1,11 @@
+operation type::TypeReference findClassifier( hintUUID : String) { 
+      if (self.typeRef = null){
+         return null;
+      }  
+      return self.typeRef.findClassifier(hintUUID);
+}
+
+
 operation artifact::Categorized findClassifier( hintUUID : String) { 
 
       for (hint in self.getClassifiers()){

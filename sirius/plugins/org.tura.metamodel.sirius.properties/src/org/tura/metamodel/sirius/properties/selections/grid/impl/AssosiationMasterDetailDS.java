@@ -17,6 +17,7 @@ import type.Link;
 import type.Type;
 import type.TypeFactory;
 import type.TypePackage;
+import type.TypeReference;
 
 public class AssosiationMasterDetailDS  extends DataSource {
 
@@ -32,8 +33,13 @@ public class AssosiationMasterDetailDS  extends DataSource {
 		Link row = TypeFactory.eINSTANCE.createLink();
 		row.setUid(UUID.randomUUID().toString());
 
-
-		Type type = (Type) ((Assosiation) (property.getModel())).getSource();
+		Object obj  = ((Assosiation) (property.getModel())).getSource();
+		Type type = null;
+		if ( obj instanceof Type ){
+			type = (Type) obj;
+		}else{
+			type = (Type) ((TypeReference) obj).getTypeRef();
+		}
 
 		if (type == null)
 			return;
@@ -44,7 +50,12 @@ public class AssosiationMasterDetailDS  extends DataSource {
 			row.setMasterField(choicesOptions.get(0));
 		}
 
-		type = (Type) ((Assosiation) (property.getModel())).getTarget();
+		obj = ((Assosiation) (property.getModel())).getTarget();
+		if ( obj instanceof Type ){
+			type = (Type) obj;
+		}else{
+			type = (Type) ((TypeReference) obj).getTypeRef();
+		}
 
 		if (type == null)
 			return;

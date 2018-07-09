@@ -7,8 +7,15 @@
      
      
      if( self.type.toString() =="One2Many"  ){
-         masterType = self.source;
-         detailType = self.target;
+        masterType = self.source;
+	    if (masterType.isKindOf(type::TypeReference )){
+	         masterType = masterType.typeRef;
+	    }
+        detailType = self.target;
+	    if (detailType.isKindOf(type::TypeReference )){
+	         detailType = detailType.typeRef;
+	    }
+
          property = util.mergeAndCapitalize(detailType.name);
          if (self.containment.toString() == "Source"){
            containment=true;
@@ -16,7 +23,15 @@
      }
      if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
          masterType = self.source;
-         detailType = self.target;
+	    if (masterType.isKindOf(type::TypeReference )){
+	         masterType = masterType.typeRef;
+	    }
+         
+        detailType = self.target;
+	    if (detailType.isKindOf(type::TypeReference )){
+	         detailType = detailType.typeRef;
+	    }
+         
          property = util.mergeAndCapitalize(detailType.name);
          if (self.containment.toString() == "Source"){
            containment=true;
@@ -191,8 +206,9 @@ operation type::Assosiation  sourceSideNamesCalculation(){
     }
     var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
 
-     if (self.targetOperation.isDefined())
-         sourceMethodName = util.mergeAndCapitalize(self.targetOperation);
+     if (self.targetOperation.isDefined()){
+         targetMethodName = util.mergeAndCapitalize(self.targetOperation);
+     }
      var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
 
      var hash = new Native('java.util.HashMap');
@@ -230,8 +246,9 @@ operation type::Assosiation  targetSideNamesCalculation(){
   
   
      var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
-     if (self.targetOperation.isDefined())
-         sourceMethodName = util.mergeAndCapitalize(self.targetOperation);
+     if (self.targetOperation.isDefined()){
+         targetMethodName = util.mergeAndCapitalize(self.targetOperation);
+      }
      var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
   
      var target = self.target;
@@ -240,8 +257,9 @@ operation type::Assosiation  targetSideNamesCalculation(){
      }
   
      var sourceMethodName = util.mergeAndCapitalize(target.name);
-     if (self.sourceOperation.isDefined())
+     if (self.sourceOperation.isDefined()){
          sourceMethodName = util.mergeAndCapitalize(self.sourceOperation);
+      }
      var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
 
      var hash = new Native('java.util.HashMap');
