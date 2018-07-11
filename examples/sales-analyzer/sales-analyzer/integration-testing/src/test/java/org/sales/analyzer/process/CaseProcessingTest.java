@@ -4,7 +4,6 @@ import static org.junit.Assert.fail;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 
 import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -23,7 +22,7 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
 
-import sales.analyzer.api.model.impl.SalesAnalyzerListOfProcessInstances;
+import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.process.commons.Constants;
 
@@ -52,10 +51,7 @@ public class CaseProcessingTest {
 			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
 					null);
 			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
-			HashSet<Class<?>> newList = new HashSet<Class<?>>();
-			newList.add(SalesAnalyzerListOfProcessInstances.class);
-			newList.add(SalesAnalyzerProcessInstance.class);
-			config.addExtraClasses(newList);
+			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);

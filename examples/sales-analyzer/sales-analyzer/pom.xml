@@ -39,8 +39,9 @@
 	</repositories>
 
 	<modules>
-	    <module>api-extension</module>
-	    <module>server-extension</module>
+		<module>api-extension</module>
+		<module>services</module>
+		<module>server-extension</module>
 		<module>rules-commons</module>
 		<module>processes</module>
 		<module>config-integration-testing</module>
@@ -56,13 +57,23 @@
 				<version>${tura.platform.version}</version>
 			</dependency>
 
-
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>spa</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>core</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>commons-httpclient</groupId>
 				<artifactId>commons-httpclient</artifactId>
 				<version>${commons-httpclient-version}</version>
 			</dependency>
-
 
 			<dependency>
 				<groupId>org.keycloak</groupId>
@@ -355,21 +366,11 @@
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
-					<!-- execution>
-						<id>jakarta-oro-2.0.8</id>
-						<goals>
-							<goal>install-file</goal>
-						</goals>
-						<phase>clean</phase>
-						<configuration>
-							<groupId>org.talend.libraries</groupId>
-							<artifactId>jakarta-oro-2.0.8</artifactId>
-							<version>6.0.0</version>
-							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jakarta-oro-2.0.8.jar</file>
-							<generatePom>true</generatePom>
-						</configuration>
-					</execution-->
+					<!-- execution> <id>jakarta-oro-2.0.8</id> <goals> <goal>install-file</goal> 
+						</goals> <phase>clean</phase> <configuration> <groupId>org.talend.libraries</groupId> 
+						<artifactId>jakarta-oro-2.0.8</artifactId> <version>6.0.0</version> <packaging>jar</packaging> 
+						<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jakarta-oro-2.0.8.jar</file> 
+						<generatePom>true</generatePom> </configuration> </execution -->
 					<execution>
 						<id>jboss-serialization</id>
 						<goals>

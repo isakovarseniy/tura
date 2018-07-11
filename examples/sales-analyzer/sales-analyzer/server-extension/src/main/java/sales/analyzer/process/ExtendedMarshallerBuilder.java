@@ -12,8 +12,7 @@ import org.kie.server.api.marshalling.xstream.XStreamMarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sales.analyzer.api.model.impl.SalesAnalyzerListOfProcessInstances;
-import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
+import sales.analyzer.api.model.impl.ExtraClasses;
 
 public class ExtendedMarshallerBuilder implements MarshallerBuilder {
 
@@ -26,8 +25,7 @@ public class ExtendedMarshallerBuilder implements MarshallerBuilder {
 		if (classes != null) {
 			newList.addAll(classes);
 		}
-		newList.add(SalesAnalyzerListOfProcessInstances.class);
-		newList.add(SalesAnalyzerProcessInstance.class);
+		newList.addAll(ExtraClasses.list);
 
 		switch (format) {
 		case XSTREAM:
