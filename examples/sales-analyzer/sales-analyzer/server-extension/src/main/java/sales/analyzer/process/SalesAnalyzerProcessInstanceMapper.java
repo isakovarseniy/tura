@@ -11,6 +11,7 @@ import org.jbpm.services.api.query.QueryResultMapper;
 
 import sales.analyzer.api.model.impl.SalesAnalyzerListOfProcessInstances;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
+import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 
 public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<SalesAnalyzerProcessInstance>
 		implements QueryResultMapper<SalesAnalyzerListOfProcessInstances> {
@@ -45,7 +46,7 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 			if (dataSetResult != null) {
 
 				for (int i = 0; i < dataSetResult.getRowCount(); i++) {
-					Long processInstanceId = getColumnLongValue(dataSetResult, COLUMN_PROCESSINSTANCEID, i);
+					Long processInstanceId = getColumnLongValue(dataSetResult, "PROC_"+COLUMN_PROCESSINSTANCEID, i);
 					SalesAnalyzerProcessInstance pi = tmp.get(processInstanceId);
 					if (pi == null) {
 						pi = buildInstance(dataSetResult, i);
@@ -53,6 +54,11 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 
 						tmp.put(processInstanceId, pi);
 					}
+					SalesAnalyzerTaskInstance ti = buildTaskInstance(dataSetResult, i);
+					if (pi.getActiveUserTasks() == null) {
+						pi.setActiveUserTasks(new ArrayList<>());
+					}
+					pi.getActiveUserTasks().add(ti);
 				}
 			}
 			tmp = null;
@@ -67,14 +73,14 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 	@Override
 	protected SalesAnalyzerProcessInstance buildInstance(DataSet dataSetResult, int index) {
 		SalesAnalyzerProcessInstance pi = new SalesAnalyzerProcessInstance();
-		pi.setId(getColumnLongValue(dataSetResult, COLUMN_PROCESSINSTANCEID, index));
-		pi.setProcessId(getColumnStringValue(dataSetResult, COLUMN_PROCESSID, index));
-		pi.setProcessName(getColumnStringValue(dataSetResult, COLUMN_PROCESSNAME, index));
-		pi.setProcessVersion(getColumnStringValue(dataSetResult, COLUMN_PROCESSVERSION, index));
-		pi.setState(getColumnIntValue(dataSetResult, COLUMN_STATUS, index));
-		pi.setProcessInstanceDescription(getColumnStringValue(dataSetResult, COLUMN_PROCESSINSTANCEDESCRIPTION, index));
-		pi.setCorrelationKey(getColumnStringValue(dataSetResult, COLUMN_CORRELATIONKEY, index));
-		pi.setParentId(getColumnLongValue(dataSetResult, COLUMN_PARENTPROCESSINSTANCEID, index));
+		pi.setId(getColumnLongValue(dataSetResult, "PROC_"+COLUMN_PROCESSINSTANCEID, index));
+		pi.setProcessId(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_PROCESSID, index));
+		pi.setProcessName(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_PROCESSNAME, index));
+		pi.setProcessVersion(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_PROCESSVERSION, index));
+		pi.setState(getColumnIntValue(dataSetResult, "PROC_"+COLUMN_STATUS, index));
+		pi.setProcessInstanceDescription(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_PROCESSINSTANCEDESCRIPTION, index));
+		pi.setCorrelationKey(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_CORRELATIONKEY, index));
+		pi.setParentId(getColumnLongValue(dataSetResult, "PROC_"+COLUMN_PARENTPROCESSINSTANCEID, index));
 
 		int city = getColumnIntValue(dataSetResult, COLUMN_CITY, index);
 		int states = getColumnIntValue(dataSetResult, COLUMN_STATES, index);
@@ -85,10 +91,23 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 
 		return pi;
 	}
+	
+	protected SalesAnalyzerTaskInstance buildTaskInstance(DataSet dataSetResult, int index) {
+		SalesAnalyzerTaskInstance ti = new SalesAnalyzerTaskInstance();
+		ti.setId(getColumnLongValue(dataSetResult, "ID", index));
+		ti.setProcessId(getColumnStringValue(dataSetResult, COLUMN_TASK_PROCESSID, index));
+		ti.setActualOwner(getColumnStringValue(dataSetResult, COLUMN_ACTUALOWNER, index));
+		ti.setCreatedBy(getColumnStringValue(dataSetResult, COLUMN_CREATEDBY, index));
+		ti.setName(getColumnStringValue(dataSetResult, COLUMN_NAME, index));
+		ti.setStatus(getColumnStringValue(dataSetResult, COLUMN_STATUS, index));
+
+		return ti;
+	}
+	
 
 	@Override
 	public String getName() {
-		return "SalesAnalyzerProcessInstance";
+		return SalesAnalyzerProcessInstance.class.getSimpleName();
 	}
 
 	@Override
@@ -102,3 +121,4 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 	}
 
 }
+

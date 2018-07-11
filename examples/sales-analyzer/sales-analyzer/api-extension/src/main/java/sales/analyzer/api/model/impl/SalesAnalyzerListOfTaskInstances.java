@@ -2,11 +2,18 @@ package sales.analyzer.api.model.impl;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import org.kie.server.api.model.Wrapped;
+import org.kie.api.remote.Remotable;
+import org.kie.server.api.model.ItemList;
 
-public class SalesAnalyzerListOfTaskInstances implements Wrapped<List<SalesAnalyzerTaskInstance>> {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
+@Remotable
+public class SalesAnalyzerListOfTaskInstances implements ItemList<SalesAnalyzerTaskInstance> {
 
 	@XmlElement(name = "tasks")
 	List<SalesAnalyzerTaskInstance> tasks;
@@ -23,8 +30,9 @@ public class SalesAnalyzerListOfTaskInstances implements Wrapped<List<SalesAnaly
 
 	}
 
+
 	@Override
-	public List<SalesAnalyzerTaskInstance> unwrap() {
+	public List<SalesAnalyzerTaskInstance> getItems() {
 		return tasks;
 	}
 

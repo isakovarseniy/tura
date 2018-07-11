@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.kie.api.remote.Remotable;
-import org.kie.server.api.model.Wrapped;
+import org.kie.server.api.model.ItemList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 @Remotable
-public class SalesAnalyzerListOfProcessInstances implements Wrapped<List<SalesAnalyzerProcessInstance>> {
+public class SalesAnalyzerListOfProcessInstances implements ItemList<SalesAnalyzerProcessInstance> {
 
 	@XmlElement(name = "processes")
 	List<SalesAnalyzerProcessInstance> processes;
@@ -30,9 +30,11 @@ public class SalesAnalyzerListOfProcessInstances implements Wrapped<List<SalesAn
 		this.processes = processes;
 	}
 
+
 	@Override
-	public List<SalesAnalyzerProcessInstance> unwrap() {
+	public List<SalesAnalyzerProcessInstance> getItems() {
 		return processes;
 	}
 
 }
+

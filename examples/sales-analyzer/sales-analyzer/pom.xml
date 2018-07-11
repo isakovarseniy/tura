@@ -62,13 +62,13 @@
 				<artifactId>spa</artifactId>
 				<version>${tura.platform.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.tura.platform.repository</groupId>
 				<artifactId>core</artifactId>
 				<version>${tura.platform.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>commons-httpclient</groupId>
 				<artifactId>commons-httpclient</artifactId>
@@ -149,6 +149,12 @@
 			<dependency>
 				<groupId>sales-analyzer</groupId>
 				<artifactId>processes</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>services</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

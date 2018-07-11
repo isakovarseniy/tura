@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.kie.server.api.model.instance.TaskSummary;
 
 import org.kie.api.remote.Remotable;
 
@@ -47,7 +46,7 @@ public class SalesAnalyzerProcessInstance {
 	private Long parentId;
 
 	@XmlElement(name = "active-user-tasks")
-	private List<TaskSummary> activeUserTasks;
+	private List<SalesAnalyzerTaskInstance> activeUserTasks;
 
 	@XmlElement(name = "process-instance-variables")
 	private Map<String, Object> variables;
@@ -152,11 +151,11 @@ public class SalesAnalyzerProcessInstance {
 		this.variables = variables;
 	}
 
-	public List<TaskSummary> getActiveUserTasks() {
+	public List<SalesAnalyzerTaskInstance> getActiveUserTasks() {
 		return activeUserTasks;
 	}
 
-	public void setActiveUserTasks(List<TaskSummary> activeUserTasks) {
+	public void setActiveUserTasks(List<SalesAnalyzerTaskInstance> activeUserTasks) {
 		this.activeUserTasks = activeUserTasks;
 	}
 
@@ -259,7 +258,7 @@ public class SalesAnalyzerProcessInstance {
 			return this;
 		}
 
-		public Builder activeUserTasks(List<TaskSummary> activeUserTasks) {
+		public Builder activeUserTasks(List<SalesAnalyzerTaskInstance> activeUserTasks) {
 			processInstance.setActiveUserTasks(activeUserTasks);
 			return this;
 		}
@@ -281,3 +280,4 @@ public class SalesAnalyzerProcessInstance {
 	}
 
 }
+

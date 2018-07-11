@@ -66,6 +66,13 @@
 			<groupId>sales-analyzer</groupId>
 			<artifactId>rules-commons</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>services</artifactId>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>

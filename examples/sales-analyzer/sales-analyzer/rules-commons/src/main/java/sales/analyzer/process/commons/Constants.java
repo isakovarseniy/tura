@@ -32,19 +32,18 @@ public class Constants {
 	public static final String QUERY_PROCESS_BY_SEARCH_CRITERIA = "getProcessBySearchCriteria";
 	public static final String QUERY_TASK_BY_SEARCH_CRITERIA = "getTaskBySearchCriteria";
 	
-	public static final String QUERY_KIESERVICE_HINT = "queryKieserviceHint";
-	
 	public static final String BUILDER_SUFFIX = "BUILDER_SUFFIX";
 	public static final String NUMBER_OF_ROWS_SUFFIX = "NUMBER_OF_ROWS_SUFFIX";
 	
 	
 	
-	public static final String COLUMN_PROCESSINSTANCE_ID = "COLUMN_PROCESSINSTANCE_ID";
-	public static final String COLUMN_TASK_ID = "COLUMN_TASK_ID";
+	public static final String PARAMETER_PROCESSINSTANCE_ID = "PARAMETER_PROCESSINSTANCE_ID";
+	public static final String PARAMETER_TASK_ID = "PARAMETER_TASK_ID";
 	
-	public static final String COLUMN_CITY = "COLUMN_CITY";
-	public static final String COLUMN_STATE = "COLUMN_STATE";
-	public static final String COLUMN_PRODUCT = "COLUMN_PRODUCT";
+	public static final String PARAMETER_CITY = "PARAMETER_CITY";
+	public static final String PARAMETER_STATE = "PARAMETER_STATE";
+	public static final String PARAMETER_PRODUCT = "PARAMETER_PRODUCT";
 
 	
 }
+
