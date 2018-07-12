@@ -1,4 +1,4 @@
-package sales.analyzer.process;
+package sales.analyzer.process.query.mapper;
 
 import java.util.HashSet;
 import java.util.Set;

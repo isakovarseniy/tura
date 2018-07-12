@@ -50,7 +50,16 @@ public class SalesAnalyzerTaskInstance {
 	private String containerId;
 	@XmlElement(name = "task-parent-id")
 	private Long parentId;
+	@XmlElement(name = "process")
+	private SalesAnalyzerProcessInstance process;
 
+	public SalesAnalyzerProcessInstance getProcess() {
+		return process;
+	}
+	public void setProcess(SalesAnalyzerProcessInstance process) {
+		this.process = process;
+	}
+	
 	public Long getId() {
 		return id;
 	}
