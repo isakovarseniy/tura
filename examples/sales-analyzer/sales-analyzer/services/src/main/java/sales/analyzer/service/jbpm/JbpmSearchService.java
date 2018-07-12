@@ -78,17 +78,17 @@ public class JbpmSearchService extends AbstaractSearchService {
 		RepositoryHelper helper = new RepositoryHelper(null);
 
 		HashMap<String, Object> parameters = new HashMap<>();
-		SearchCriteria sc = helper.extractAndRemove(Constants.VAR_CITY, searchCriteria);
+		SearchCriteria sc = helper.checkSearchParam(Constants.VAR_CITY, searchCriteria);
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_CITY, sc.getValue());
 		}
 
-		sc = helper.extractAndRemove(Constants.VAR_STATE, searchCriteria);
+		sc = helper.checkSearchParam(Constants.VAR_STATE, searchCriteria);
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_STATE, sc.getValue());
 		}
 
-		sc = helper.extractAndRemove(Constants.VAR_PRODUCT, searchCriteria);
+		sc = helper.checkSearchParam(Constants.VAR_PRODUCT, searchCriteria);
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_PRODUCT, sc.getValue());
 		}
@@ -113,8 +113,9 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Unknown object" + objectClass);
 		}
 
-		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX, mapper,
-				query + Constants.BUILDER_SUFFIX, 0, 10, SalesAnalyzerRowsNumber.class);
+		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX, SalesAnalyzerRowsNumber.class.getSimpleName(),
+				query + Constants.BUILDER_SUFFIX, parameters ,0, 10, SalesAnalyzerRowsNumber.class);
+		
 		if (rows == null || rows.isEmpty()) {
 			return null;
 		}
@@ -122,7 +123,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Wrong value for rows numbers");
 		}
 
-		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, startIndex,
+		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters ,startIndex,
 				endIndex - startIndex, clazz);
 
 		ArrayList<Object> result = new ArrayList<>();

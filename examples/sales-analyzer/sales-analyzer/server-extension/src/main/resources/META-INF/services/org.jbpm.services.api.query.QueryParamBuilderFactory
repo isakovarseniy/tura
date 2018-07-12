@@ -1,5 +1,3 @@
-sales.analyzer.process.query.builder.CityColumnBuilderFactory
-sales.analyzer.process.query.builder.ProductColumnBuilderFactory
-sales.analyzer.process.query.builder.StateColumnBuilderFactory
+sales.analyzer.process.query.builder.SearchCriteriaBuilderFactory
 sales.analyzer.process.query.builder.TaskIdColumnBuilderFactory
 sales.analyzer.process.query.builder.ProcessInstanceIdColumnFactory

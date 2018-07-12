@@ -21,7 +21,7 @@ public class ProcessInstanceIdColumnBuilder implements QueryParamBuilder<ColumnF
 		if (built) {
 			return null;
 		}
-		String columnName = "processInstanceId";
+		String columnName = "PROC_ID";
 
 		ColumnFilter filter = FilterFactory.AND(
 				FilterFactory.equalsTo(((Number) parameters.get(Constants.PARAMETER_PROCESSINSTANCE_ID)).longValue()));

@@ -57,7 +57,6 @@ public class SalesAnalyzerTaskInstanceMapper extends AbstractQueryMapper<SalesAn
 						tmp2.put(processInstanceId, pi);
 					}
 					ti.setProcess(pi);
-					pi.getActiveUserTasks().add(ti);
 				}
 			}
 			tmp = null;
@@ -121,3 +120,4 @@ public class SalesAnalyzerTaskInstanceMapper extends AbstractQueryMapper<SalesAn
 	}
 
 }
+

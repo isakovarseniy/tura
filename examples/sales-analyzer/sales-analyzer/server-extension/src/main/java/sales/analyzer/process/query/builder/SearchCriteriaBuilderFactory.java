@@ -7,7 +7,7 @@ import org.jbpm.services.api.query.QueryParamBuilderFactory;
 
 import sales.analyzer.process.commons.Constants;
 
-public class ProductColumnBuilderFactory implements QueryParamBuilderFactory{
+public class SearchCriteriaBuilderFactory implements QueryParamBuilderFactory{
 
 	@Override
 	public boolean accept(String identifier) {
@@ -22,7 +22,7 @@ public class ProductColumnBuilderFactory implements QueryParamBuilderFactory{
 
 	@Override
 	public QueryParamBuilder<?> newInstance(Map<String, Object> parameters) {
-		return new ProductColumnBuilder(parameters);
+		return new SearchCriteriaBuilder(parameters);
 	}
 
 }
