@@ -16,17 +16,27 @@
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>api-extension</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-kie-services</artifactId>
+			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server-services-common</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
 
 	</dependencies>
 

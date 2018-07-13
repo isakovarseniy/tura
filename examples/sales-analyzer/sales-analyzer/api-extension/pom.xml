@@ -21,12 +21,14 @@
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server-client</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-services-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
