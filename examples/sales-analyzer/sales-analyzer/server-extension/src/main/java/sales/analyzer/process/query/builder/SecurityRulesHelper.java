@@ -16,12 +16,19 @@ public class SecurityRulesHelper {
 	public static String COLUMN_PRODUCT ="PRODUCT";
 	public static String COLUMN_ACTUALOWNER_ID="ACTUALOWNER_ID";
 	
-	public static List<ColumnFilter> securityBoundaries( UserPreferences preferences) {
+	public static List<ColumnFilter> securityBoundaries( UserPreferences preferences, String username) {
 		List<ColumnFilter> filters = new ArrayList<>();
-		if ( preferences.isSuperAdmin() ) {
+		if (username == null) {
+			return blockEverything();
+		}
+		
+		if ( preferences != null && preferences.isSuperAdmin() ) {
 			return filters;
 		}else {
-			if (preferences == null || preferences.getStates() == null  || preferences.getCities() == null) {
+			if (
+			     preferences == null || preferences.getStates() == null  || preferences.getCities() == null
+			  || preferences.getStates().size() == 0 || preferences.getCities().size() == 0)
+			{
 				return blockEverything();
 			}
 			

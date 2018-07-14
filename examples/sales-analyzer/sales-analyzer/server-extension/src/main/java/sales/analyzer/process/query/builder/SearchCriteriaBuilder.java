@@ -39,13 +39,13 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		UserGroupCallback userGroupCallback = UserDataServiceProvider.getUserGroupCallback();
 		
 		ArrayList<ColumnFilter> filters = new ArrayList<>();
-		String username = "undefined";
+		String username = null;
 		if (!bypassAuthUser) {
 			username = identityProvider.getName();
 		}
 
-			UserPreferences preferences = (UserPreferences) parameters.get(Constants.PARAMETER_USER_PREFERENCES);
-			filters.addAll(SecurityRulesHelper.securityBoundaries(preferences));
+		UserPreferences preferences = (UserPreferences) parameters.get(Constants.PARAMETER_USER_PREFERENCES);
+		filters.addAll(SecurityRulesHelper.securityBoundaries(preferences,username));
 		
 		/*
 		  (t.taskData.actualOwner.id = :userId or t.taskData.actualOwner is null) and

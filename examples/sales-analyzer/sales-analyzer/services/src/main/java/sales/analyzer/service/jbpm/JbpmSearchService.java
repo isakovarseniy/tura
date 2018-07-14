@@ -116,6 +116,9 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Unknown object" + objectClass);
 		}
 
+		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences());
+		
+		
 		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX, SalesAnalyzerRowsNumber.class.getSimpleName(),
 				query + Constants.BUILDER_SUFFIX, parameters ,0, 10, SalesAnalyzerRowsNumber.class);
 		
@@ -129,6 +132,9 @@ public class JbpmSearchService extends AbstaractSearchService {
 		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters ,startIndex,
 				endIndex - startIndex, clazz);
 
+		if (instances == null) {
+			return new SearchResult(new ArrayList<>(), 0);
+		}
 		ArrayList<Object> result = new ArrayList<>();
 		result.addAll(instances);
 

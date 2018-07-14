@@ -1,6 +1,7 @@
 package org.sales.analyzer.process;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
@@ -32,11 +33,15 @@ import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.jbpm.JbpmSearchService;
+import sales.analyzer.service.jbpm.UserReferencesProvider;
+import sales.analyzer.user.UserPreferences;
 
 @RunWith(Arquillian.class)
 public class JbpmSearchServiceTest {
 
 	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
+	
+	private static UserPreferences pref ;
 
 	@Before
 	public void buildAndDeployArtifacts() throws Exception {
@@ -52,6 +57,9 @@ public class JbpmSearchServiceTest {
 	@RunAsClient
 	public void t0000_runCase() {
 		try {
+			pref = new UserPreferences();
+			pref.setSuperAdmin(true);
+			
 			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
 					null);
 			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
@@ -68,35 +76,45 @@ public class JbpmSearchServiceTest {
 			
 			Long procesInsatnceId1 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
-			
+			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
 			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
 			
-			JbpmSearchService service = new JbpmSearchService(client);
+			JbpmSearchService service = new JbpmSearchService(client, provider);
 			SalesAnalyzerProcessInstance instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId, SalesAnalyzerProcessInstance.class.getName());
 			assertEquals(procesInsatnceId, instance.getId());
 			assertEquals(1, instance.getActiveUserTasks().size());
 			SalesAnalyzerTaskInstance ti = instance.getActiveUserTasks().get(0);
 			assertNotNull(ti.getId());
 
-			service = new JbpmSearchService(client);
+			service = new JbpmSearchService(client, provider);
 			instance =(SalesAnalyzerProcessInstance) service.find(-987, SalesAnalyzerProcessInstance.class.getName());
 			assertNull(instance);
 			
-			service = new JbpmSearchService(client);
+			service = new JbpmSearchService(client, provider);
 			instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId1, SalesAnalyzerProcessInstance.class.getName());
 			assertEquals(procesInsatnceId1, instance.getId());
 			assertEquals(1, instance.getActiveUserTasks().size());
 			ti = instance.getActiveUserTasks().get(0);
 			assertNotNull(ti.getId());
 			
+			pref.setSuperAdmin(false);
+			service = new JbpmSearchService(client, provider);
+			instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId1, SalesAnalyzerProcessInstance.class.getName());
+			assertNull(instance);
+
 			
-			service = new JbpmSearchService(client);
+			pref.setSuperAdmin(true);
+			
+			service = new JbpmSearchService(client, provider);
 			SalesAnalyzerTaskInstance taskInstance =(SalesAnalyzerTaskInstance) service.find(ti.getId(), SalesAnalyzerTaskInstance.class.getName());
 			assertEquals(taskInstance.getId(), ti.getId());
 			SalesAnalyzerProcessInstance pi = taskInstance.getProcess();
 			assertEquals(procesInsatnceId1, pi.getId());
 			
-			
+			pref.setSuperAdmin(false);
+			taskInstance =(SalesAnalyzerTaskInstance) service.find(ti.getId(), SalesAnalyzerTaskInstance.class.getName());
+			assertNull(taskInstance);
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,6 +126,11 @@ public class JbpmSearchServiceTest {
 	@RunAsClient
 	public void t0001_runCase() {
 		try {
+			pref = new UserPreferences();
+			pref.setSuperAdmin(true);
+			
+			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
+	
 			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
 					null);
 			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
@@ -139,6 +162,14 @@ public class JbpmSearchServiceTest {
 			@SuppressWarnings("unused")
 			Long procesInsatnceId2 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
+			params = new HashMap<>();
+			params.put("city", 1501);
+			params.put("state", 2502);
+			params.put("product", "Product05");
+			@SuppressWarnings("unused")
+			Long procesInsatnceId3 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
+
+			
 			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
 			
 			
@@ -160,10 +191,10 @@ public class JbpmSearchServiceTest {
 			orc.setOrder(Order.DESC.name());
 			
 			
-			JbpmSearchService service = new JbpmSearchService(client);
+			JbpmSearchService service = new JbpmSearchService(client, provider);
 			service.setMapper(new ProcessMapper());
 			SearchResult result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerProcessInstance.class.getName());
-			
+			assertNotEquals(0, result.getSearchResult().size());
 			
 			for (Object o : result.getSearchResult()) {
 				SalesAnalyzerProcessInstance pi = (SalesAnalyzerProcessInstance) o;
@@ -174,6 +205,7 @@ public class JbpmSearchServiceTest {
 
 			service.setMapper(new TaskMapper());
 			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
+			assertNotEquals(0, result.getSearchResult().size());
 			for (Object o : result.getSearchResult()) {
 				SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
 				SalesAnalyzerProcessInstance pi = ti.getProcess();
@@ -189,11 +221,33 @@ public class JbpmSearchServiceTest {
 
 			service.setMapper(new TaskMapper());
 			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
+			assertNotEquals(0, result.getSearchResult().size());
 			for (Object o : result.getSearchResult()) {
 				SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
 				SalesAnalyzerProcessInstance pi = ti.getProcess();
 				assertEquals(pi.getProduct(), "Product05");
 			}
+			pref.setSuperAdmin(false);
+			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
+			assertEquals(0, result.getSearchResult().size());
+			
+			ArrayList<Integer> allowerStates = new ArrayList<>();
+			allowerStates.add(2502);
+			
+			ArrayList<Integer> allowerCities = new ArrayList<>();
+			allowerCities.add(1500);
+			pref.setStates(allowerStates);
+			pref.setCities(allowerCities);
+			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
+			assertNotEquals(0, result.getSearchResult().size());
+			for (Object o : result.getSearchResult()) {
+				SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
+				SalesAnalyzerProcessInstance pi = ti.getProcess();
+				assertEquals(pi.getProduct(), "Product05");
+				assertEquals(pi.getCity(), new Integer (1500));
+				assertEquals(pi.getStates(), new Integer( 2502));
+			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -238,7 +292,14 @@ public class JbpmSearchServiceTest {
 		}
 		
 	}
-	
+	class UserPeferencesProviderImpl implements UserReferencesProvider{
+		
+		@Override
+		public UserPreferences getUserPreferences() {
+			return JbpmSearchServiceTest.pref;
+		}
+		
+	}
 	
 }
 
