@@ -25,10 +25,11 @@ import sales.analyzer.process.commons.Constants;
 public class JbpmSearchService extends AbstaractSearchService {
 
 	private QueryServicesClient queryClient;
+	private UserReferencesProvider prefRef;
 
-	public JbpmSearchService(KieServicesClient client) {
+	public JbpmSearchService(KieServicesClient client ,UserReferencesProvider prefRef) {
 		queryClient = client.getServicesClient(QueryServicesClient.class);
-
+		this.prefRef = prefRef;
 	}
 
 	@Override
@@ -54,6 +55,8 @@ public class JbpmSearchService extends AbstaractSearchService {
 		if (query == null || mapper == null || clazz == null) {
 			throw new RuntimeException("Unknown object" + objectClass);
 		}
+
+		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences());
 
 		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters, 0, 100,
 				clazz);

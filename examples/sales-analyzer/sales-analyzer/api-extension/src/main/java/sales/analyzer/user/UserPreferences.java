@@ -17,6 +17,8 @@ public class UserPreferences {
 	private List<Integer> statesForAdmin;
 	private List<Integer> citiesForAdmin;
 	private List<String> permissions;
+	private List<Integer> states;
+	private List<Integer> cities;
 	
 	public boolean isAdminForStates() {
 		if (statesForAdmin != null && statesForAdmin.size() > 0) {
@@ -57,6 +59,18 @@ public class UserPreferences {
 	}
 	public boolean isPermissionEnabled(String permissionName) {
 		return permissions.contains(permissionName);
+	}
+	public List<Integer> getStates() {
+		return states;
+	}
+	public void setStates(List<Integer> states) {
+		this.states = states;
+	}
+	public List<Integer> getCities() {
+		return cities;
+	}
+	public void setCities(List<Integer> cities) {
+		this.cities = cities;
 	}
 	
 	

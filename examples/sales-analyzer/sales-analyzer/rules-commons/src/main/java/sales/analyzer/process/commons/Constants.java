@@ -35,11 +35,9 @@ public class Constants {
 	public static final String BUILDER_SUFFIX = "BUILDER_SUFFIX";
 	public static final String NUMBER_OF_ROWS_SUFFIX = "NUMBER_OF_ROWS_SUFFIX";
 	
-	
-	
 	public static final String PARAMETER_PROCESSINSTANCE_ID = "PARAMETER_PROCESSINSTANCE_ID";
 	public static final String PARAMETER_TASK_ID = "PARAMETER_TASK_ID";
-	
+	public static final String PARAMETER_USER_PREFERENCES = "PARAMETER_USER_PREFERENCES";
 	public static final String PARAMETER_CITY = "PARAMETER_CITY";
 	public static final String PARAMETER_STATE = "PARAMETER_STATE";
 	public static final String PARAMETER_PRODUCT = "PARAMETER_PRODUCT";

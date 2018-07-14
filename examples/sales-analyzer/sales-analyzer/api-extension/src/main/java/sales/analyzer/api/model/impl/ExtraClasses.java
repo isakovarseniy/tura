@@ -2,6 +2,8 @@ package sales.analyzer.api.model.impl;
 
 import java.util.HashSet;
 
+import sales.analyzer.user.UserPreferences;
+
 public class ExtraClasses {
 
 	public static HashSet<Class<?>> list = new HashSet<>();
@@ -13,6 +15,7 @@ public class ExtraClasses {
 		list.add(SalesAnalyzerRowsNumber.class);
 		list.add(SalesAnalyzerTaskInstance.class);
 		list.add(SalesAnalyzerListOfRowsNumber.class);
+		list.add(UserPreferences.class);
 
 	}
 

@@ -16,6 +16,7 @@ import org.kie.server.services.impl.KieServerImpl;
 import org.kie.server.services.impl.KieServerLocator;
 
 import sales.analyzer.process.commons.Constants;
+import sales.analyzer.user.UserPreferences;
 
 public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 	private Map<String, Object> parameters;
@@ -37,21 +38,23 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		Boolean bypassAuthUser = Boolean.parseBoolean(registry.getConfig().getConfigItemValue(KieServerConstants.CFG_BYPASS_AUTH_USER, "false"));
 		UserGroupCallback userGroupCallback = UserDataServiceProvider.getUserGroupCallback();
 		
-		
 		ArrayList<ColumnFilter> filters = new ArrayList<>();
 		String username = "undefined";
 		if (!bypassAuthUser) {
 			username = identityProvider.getName();
 		}
+
+			UserPreferences preferences = (UserPreferences) parameters.get(Constants.PARAMETER_USER_PREFERENCES);
+			filters.addAll(SecurityRulesHelper.securityBoundaries(preferences));
 		
 		/*
 		  (t.taskData.actualOwner.id = :userId or t.taskData.actualOwner is null) and
 		 */
 		 {
 			 ColumnFilter f1 = FilterFactory.equalsTo(username);
-			 f1.setColumnId("ACTUALOWNER_ID");
+			 f1.setColumnId(SecurityRulesHelper.COLUMN_ACTUALOWNER_ID);
 			 ColumnFilter f2 = FilterFactory.isNull();
-			 f2.setColumnId("ACTUALOWNER_ID");
+			 f2.setColumnId(SecurityRulesHelper.COLUMN_ACTUALOWNER_ID);
 			 ColumnFilter filter = FilterFactory.OR(f1,f2);
 			 filters.add(filter);
 		 }
@@ -61,15 +64,15 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		 {
 			 List<String> groups = userGroupCallback.getGroupsForUser(username,null,null);
 			 ColumnFilter f1 = FilterFactory.equalsTo(username);
-			 f1.setColumnId("ORG_ID");
-			 ColumnFilter f2 = FilterFactory.in("ORG_ID",groups);
+			 f1.setColumnId(SecurityRulesHelper.COLUMN_ORG_ID);
+			 ColumnFilter f2 = FilterFactory.in(SecurityRulesHelper.COLUMN_ORG_ID,groups);
 			 ColumnFilter filter = FilterFactory.OR(f1,f2);
 			 filters.add(filter);
 		 }
 		
 
 		if (parameters.get(Constants.PARAMETER_CITY) != null) {
-			String columnName = "CITY";
+			String columnName = SecurityRulesHelper.COLUMN_CITY;
 
 			ColumnFilter filter = FilterFactory
 					.equalsTo(((Number) parameters.get(Constants.PARAMETER_CITY)).longValue());
@@ -79,7 +82,7 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		}
 
 		if (parameters.get(Constants.PARAMETER_STATE) != null) {
-			String columnName = "STATES";
+			String columnName = SecurityRulesHelper.COLUMN_STATE;
 
 			ColumnFilter filter = FilterFactory
 					.equalsTo(((Number) parameters.get(Constants.PARAMETER_STATE)).longValue());
@@ -89,7 +92,7 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		}
 
 		if (parameters.get(Constants.PARAMETER_PRODUCT) != null) {
-			String columnName = "PRODUCT";
+			String columnName = SecurityRulesHelper.COLUMN_PRODUCT;
 
 			ColumnFilter filter = FilterFactory.equalsTo(((String) parameters.get(Constants.PARAMETER_PRODUCT)));
 			filter.setColumnId(columnName);

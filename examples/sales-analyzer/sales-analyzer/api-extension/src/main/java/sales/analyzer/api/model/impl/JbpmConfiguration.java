@@ -8,7 +8,7 @@ import org.kie.server.client.QueryServicesClient;
 import sales.analyzer.process.commons.Constants;
 
 
-public class SalesAnalyzerConfiguration {
+public class JbpmConfiguration {
 
 	
 	private static String PROCESS_QUERY = "SELECT \n"+

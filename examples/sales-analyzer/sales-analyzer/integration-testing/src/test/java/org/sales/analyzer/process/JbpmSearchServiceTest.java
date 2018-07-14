@@ -27,7 +27,7 @@ import org.tura.platform.repository.core.SearchResult;
 import com.octo.java.sql.query.SelectQuery.Order;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
-import sales.analyzer.api.model.impl.SalesAnalyzerConfiguration;
+import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
@@ -69,7 +69,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId1 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
 			
-			SalesAnalyzerConfiguration.init(client, "java:jboss/datasources/ExampleDS");
+			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
 			
 			JbpmSearchService service = new JbpmSearchService(client);
 			SalesAnalyzerProcessInstance instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId, SalesAnalyzerProcessInstance.class.getName());
@@ -139,7 +139,7 @@ public class JbpmSearchServiceTest {
 			@SuppressWarnings("unused")
 			Long procesInsatnceId2 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
-			SalesAnalyzerConfiguration.init(client, "java:jboss/datasources/ExampleDS");
+			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
 			
 			
 			ArrayList<SearchCriteria> searchCriteria = new ArrayList<>();
