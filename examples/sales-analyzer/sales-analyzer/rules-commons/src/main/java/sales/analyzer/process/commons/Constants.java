@@ -11,11 +11,7 @@ public class Constants {
 	public static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	public static String  EXECUTION_ERROR = "Result";
 	
-	public static final String KEYCLOAK_SERVER_URL = "http://localhost:8080/auth/realms/sales-analyzer/protocol/openid-connect/token";
-	public static final String KEYCLOAK_CLIENT_ID = "service-access";
 	public static final String CONTAINER_ID = "sales-analyzer-container";
-	public static final String USERNAME = "sales-manager";
-	public static final String PASSWORD = "sales01";
 
 	public static final String CASE_INVESTIGATION_PROCESS = "sales.analyzer.SalesDropInvestigation";
 	public static final  String SALES_DROP_INVESTIGATION_PROCESS_ID = "sales.analyzer.SalesDropInvestigation";

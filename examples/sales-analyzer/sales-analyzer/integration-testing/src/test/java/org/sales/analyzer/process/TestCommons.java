@@ -19,7 +19,12 @@ public class TestCommons {
 	public static final String HEALTH_CHECK_PROCESS_ID = "sales.analyzer.HealthCheck";
 	public static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
 	public static final String KIE_SERVER_URL = "http://localhost:8080/kie-server/services/rest/server";
+	public static final String KEYCLOAK_SERVER_URL = "http://localhost:8080/auth/realms/sales-analyzer/protocol/openid-connect/token";
+	public static final String KEYCLOAK_CLIENT_ID = "service-access";
+	public static final String USERNAME = "sales-manager";
+	public static final String PASSWORD = "sales01";
 
+	
 	public void buildAndDeployArtifacts() throws Exception {
 		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL,
 				null, null);
@@ -64,12 +69,12 @@ public class TestCommons {
 	public String getToken() throws Exception{
 		HttpClient client = new HttpClient();
 
-		PostMethod postMethod = new PostMethod(Constants.KEYCLOAK_SERVER_URL);
+		PostMethod postMethod = new PostMethod(KEYCLOAK_SERVER_URL);
 
 		postMethod.addParameter("grant_type", "password");
-		postMethod.addParameter("client_id", Constants.KEYCLOAK_CLIENT_ID);
-		postMethod.addParameter("username", Constants.USERNAME);
-		postMethod.addParameter("password", Constants.PASSWORD);
+		postMethod.addParameter("client_id", KEYCLOAK_CLIENT_ID);
+		postMethod.addParameter("username", USERNAME);
+		postMethod.addParameter("password", PASSWORD);
 
 			int statusCode = client.executeMethod(postMethod);
 

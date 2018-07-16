@@ -21,6 +21,7 @@ import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerRowsNumber;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
+import sales.analyzer.service.UserReferencesProvider;
 
 public class JbpmSearchService extends AbstaractSearchService {
 

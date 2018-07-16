@@ -1,4 +1,4 @@
-package sales.analyzer.service.jbpm;
+package sales.analyzer.service;
 
 import sales.analyzer.user.UserPreferences;
 

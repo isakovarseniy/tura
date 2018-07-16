@@ -43,6 +43,10 @@
 			<artifactId>core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-admin-client</artifactId>
+		</dependency>
 
 
 
