@@ -19,11 +19,21 @@ public class TestCommons {
 	public static final String HEALTH_CHECK_PROCESS_ID = "sales.analyzer.HealthCheck";
 	public static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
 	public static final String KIE_SERVER_URL = "http://localhost:8080/kie-server/services/rest/server";
-	public static final String KEYCLOAK_SERVER_URL = "http://localhost:8080/auth/realms/sales-analyzer/protocol/openid-connect/token";
+	public static String KEYCLOAK_URL = "http://localhost:8080/auth";
+	public static final String KEYCLOAK_SERVER_URL = KEYCLOAK_URL+"/realms/sales-analyzer/protocol/openid-connect/token";
 	public static final String KEYCLOAK_CLIENT_ID = "service-access";
 	public static final String USERNAME = "sales-manager";
 	public static final String PASSWORD = "sales01";
 
+	public static String KEYCLOAK_ADMIN_REALM = "master";
+	public static String KEYCLOAK_ADMIN_CLIENTID = "realm-management";
+	public static String CLIENT_SECRET = "8c0c15e2-eb8b-46d1-88eb-b81347e10546";
+	public static String ADMIN_USER = "admin";
+	public static String ADMIN_PASSWORD = "qwerty";
+	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	
+	
+	
+	
 	
 	public void buildAndDeployArtifacts() throws Exception {
 		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL,
@@ -84,7 +94,7 @@ public class TestCommons {
 				byte[] responseBody = postMethod.getResponseBody();
 				String response = new String(responseBody,"UTF-8");
 				
-				String t = "\"access_token\": \""; 
+				String t = "\"access_token\": \"";
 				int i = response.indexOf(t)+t.length()+1;
 				String accessToken = response.substring(i);
 				i = accessToken.indexOf("\"");
@@ -95,3 +105,4 @@ public class TestCommons {
 	}
 
 }
+

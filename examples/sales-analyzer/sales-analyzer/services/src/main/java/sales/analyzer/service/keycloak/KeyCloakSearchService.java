@@ -5,37 +5,93 @@ import java.util.List;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
+import org.keycloak.representations.idm.RoleRepresentation;
+import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
 
-public class KeyCloakSearchService extends AbstaractSearchService{
+import sales.analyzer.process.commons.Constants;
 
-	public KeyCloakSearchService(){
-//		Keycloak keycloak = KeycloakBuilder.builder() //
-//				.serverUrl(serverUrl) //
-//				.realm(realm) //
-//				.grantType(OAuth2Constants.PASSWORD) //
-//				.clientId(clientId) //
-//				.clientSecret(clientSecret) //
-//				.username("idm-admin") //
-//				.password("admin") //
-//				.build();
+public class KeyCloakSearchService extends AbstaractSearchService {
+
+
+	private Keycloak keycloak;
+	private String managedRealm;
+
+	public KeyCloakSearchService(String serverUrl, String adminRealm, String adminClientId, String clientSecret,
+			String adminUser, String adminPassword , String managedRealm) {
+
+		this.managedRealm = managedRealm;
+
+		keycloak = KeycloakBuilder.builder()
+					.serverUrl(serverUrl)
+					.realm(adminRealm)
+					.clientId(adminClientId)
+					.grantType(OAuth2Constants.PASSWORD)
+					.clientSecret(clientSecret)
+					.username(adminUser)
+					.password(adminPassword)
+					.build();
+
 	}
-	
+
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
-		// TODO Auto-generated method stub
-		return null;
+		if (UserRepresentation.class.getName().equals(objectClass)) {
+			return keycloak.realm(managedRealm).users().get((String) pk).toRepresentation();
+
+		}
+		if (RoleRepresentation.class.getName().equals(objectClass)) {
+			return keycloak.realm(managedRealm).roles().get((String) pk).toRepresentation();
+		}
+		throw new RuntimeException("Unknown object" + objectClass);
 	}
 
 	@Override
 	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
-		// TODO Auto-generated method stub
-		return null;
+		if (UserRepresentation.class.getName().equals(objectClass)) {
+			RepositoryHelper helper = new RepositoryHelper(null);
+
+			String username = null;
+			SearchCriteria sc = helper.checkSearchParam(Constants.VAR_USERNAME, searchCriteria);
+			if (sc != null) {
+				username = (String) sc.getValue();
+			}
+
+			String firstName = null;
+			sc = helper.checkSearchParam(Constants.VAR_FIRSTNAME, searchCriteria);
+			if (sc != null) {
+				firstName = (String) sc.getValue();
+			}
+
+			String lastName = null;
+			sc = helper.checkSearchParam(Constants.VAR_LASTNAME, searchCriteria);
+			if (sc != null) {
+				lastName = (String) sc.getValue();
+			}
+
+			String email = null;
+			sc = helper.checkSearchParam(Constants.VAR_EMAIL, searchCriteria);
+			if (sc != null) {
+				email = (String) sc.getValue();
+			}
+
+			List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
+					email, startIndex, endIndex - startIndex);
+			return new SearchResult(ls, keycloak.realm(managedRealm).users().count());
+
+		}
+		if (RoleRepresentation.class.getName().equals(objectClass)) {
+			List<RoleRepresentation> ls = keycloak.realm(managedRealm).roles().list();
+			return new SearchResult(ls, ls.size());
+		}
+		throw new RuntimeException("Unknown object" + objectClass);
 	}
 
 }
+
