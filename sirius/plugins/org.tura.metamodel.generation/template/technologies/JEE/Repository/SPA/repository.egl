@@ -63,7 +63,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
-       if (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")) ){
+        
+       if (
+       (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")))  
+       and 
+       (not  type.findClassifier(util.getHint(model_mapper,"Adapter")))       
+       ){
            continue;
         }
         

@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.sirius.diagram.ContainerLayout;
 import org.eclipse.sirius.diagram.description.ConditionalContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.ContainerMapping;
+import org.eclipse.sirius.diagram.description.DescriptionFactory;
 import org.eclipse.sirius.diagram.description.style.ContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.style.FlatContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.style.StyleFactory;
@@ -41,7 +42,38 @@ public class TypeConfigurator implements ContainerConfigurator {
 		return "type.Type";
 	}
 
+	
+	public List<ConditionalContainerStyleDescription> getConditionalStyle() {
+		ConditionalContainerStyleDescription conditionalNoAdapter = DescriptionFactory.eINSTANCE
+				.createConditionalContainerStyleDescription();
+		conditionalNoAdapter.setPredicateExpression("service:checkIfNotAdapterType");
+		conditionalNoAdapter.setStyle(getBaseStyle());
+
+		ConditionalContainerStyleDescription conditionalAdapter = DescriptionFactory.eINSTANCE
+				.createConditionalContainerStyleDescription();
+		conditionalAdapter.setPredicateExpression("service:checkIfAdapterType");
+		conditionalAdapter.setStyle(getConditionalAdapter());
+		
+		ArrayList<ConditionalContainerStyleDescription> ls = new ArrayList<ConditionalContainerStyleDescription>();
+		ls.add(conditionalNoAdapter);
+		ls.add(conditionalAdapter);
+		
+		return ls;
+	}
+	
+	
 	public ContainerStyleDescription getStyle() {
+		return null;
+	}	
+	private ContainerStyleDescription getConditionalAdapter() {
+		ContainerStyleDescription style = getBaseStyle();
+		SystemColor borderColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setBorderColor(borderColor);
+		return style;
+	}
+	
+	
+	private ContainerStyleDescription getBaseStyle() {
 		FlatContainerStyleDescription style = StyleFactory.eINSTANCE.createFlatContainerStyleDescription();
 		style.setLabelExpression("aql:self.name");
 		style.setLabelSize(12);
@@ -53,6 +85,7 @@ public class TypeConfigurator implements ContainerConfigurator {
 		return style;
 	}
 
+	
 	public ContainerLayout getContainerLayout() {
 		return ContainerLayout.VERTICAL_STACK;
 	}
@@ -109,7 +142,4 @@ public class TypeConfigurator implements ContainerConfigurator {
 		return tool;
 	}
 
-	public List<ConditionalContainerStyleDescription> getConditionalStyle() {
-		return null;
-	}
 }

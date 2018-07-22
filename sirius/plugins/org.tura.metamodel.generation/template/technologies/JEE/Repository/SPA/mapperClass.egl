@@ -16,8 +16,18 @@ ${start}${percent}
  package [%=t2view.get(type).get("package")%].mapper;
  
  
- public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
+ public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper, org.tura.platform.repository.core.AdapterLoaderAware{
  
+ 
+            private org.tura.platform.repository.core.AdapterLoader loader;
+            
+            public void setAdapterLoader(org.tura.platform.repository.core.AdapterLoader loader){
+               this.loader=loader;
+            }
+
+		    public AdapterLoader getAdapterLoader() {
+		        return this.loader;
+		    }
  
         	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws org.tura.platform.repository.core.RepositoryException {
 	    	try{
@@ -104,7 +114,14 @@ ${start}${percent}
 	    }
 	    
 	    public Object copyFromRepository2Persistence( Object repositoryObject){
-		    [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
+	       [%
+             if ( not type.findClassifier(util.getHint(model_mapper,"Adapter"))  ){%]
+		      [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
+	       [%
+	       }else{%]
+		    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) loader.getAdapter( [%=t2model.get(type).get("fullName")%].class);
+	       [%}
+	       %]
 		    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
 		    if ( obj != null){
 
@@ -193,8 +210,8 @@ operation type::Assosiation one2oneReposit2Persist(recipe,ingredient,model_mappe
            [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] =( [%=t2model.get(self.target).get("fullName")%] ) maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
            
            if (spa[%=t2model.get(self.target).get("class")%] != null ){
-	           [%=trg%].set[%=hash.get("sourceMethodName")%](spa[%=t2view.get(self.target).get("class")%] );
-	           spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+	           [%=trg%].set[%=hash.get("sourceMethodName")%](spa[%=t2model.get(self.target).get("class")%] );
+	           spa[%=t2model.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
            }
      [%
 } 

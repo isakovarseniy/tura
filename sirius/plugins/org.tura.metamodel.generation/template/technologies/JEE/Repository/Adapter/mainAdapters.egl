@@ -1,0 +1,60 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ ${percent}${end}
+
+[%
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var alltypes = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+     var templateStore = new Native('java.util.HashMap');
+
+     var type;
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+
+     if (types <> null and types.size <> 0 ){
+        var typeCollection = new Native("java.util.ArrayList"); 
+	    for (type in types){
+	         if ( not type.findClassifier(util.getHint(model_mapper,"Adapter")) ){
+	               continue;
+	         }
+		     type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+	    
+	    for (type in typeCollection){
+	    
+	     if ( not type.findClassifier(util.getHint(model_mapper,"Adapter"))  ){
+               continue;
+         }
+	    
+	        type.mappingType2Java(recipe,ingredient);
+	    
+            var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+	    
+	        hash.put("tp",type);
+		    hash.put("recipe",recipe);
+		    hash.put("ingredient",ingredient);
+		    hash.put("component",component);
+		    hash.put("model_mapper",model_mapper);
+		    hash.put("path",path);
+			    
+		    util.populateTechnologies(hash,model_mapper);
+	
+		    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/Adapter/adapterClass.egl",hash,TemplateFactory,templateStore);
+		    init.setFormatter(f);
+		    var buffer = init.process();
+		    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class+".java",buffer);   
+	    
+        }
+
+   }    
+
+    
+%]

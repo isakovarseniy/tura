@@ -25,6 +25,14 @@
               <parameters uid="f18659ab-efc4-4d26-83b2-76b17b82c895" name="Package"/>
             </modelQuery>
           </artifacts>
+          <artifacts uid="68246b4d-fccf-4565-a0c6-df4c18a8f205" name="Adapter generation" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/Adapter/mainAdapters.egl">
+            <configVariables uid="51ef86de-9079-41f2-8890-c4bce1182c2c" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
+            <modelQuery uid="47a3e12d-a07a-4141-b1a8-2e470cffcd50" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Adapter}')->size()>0)">
+              <parameters uid="b7bad5a3-e701-4cd2-b1a0-17687a16bbf1" name="Repository"/>
+              <parameters uid="5a0f22db-a0e8-4b1d-aec7-46f6103b35a9" name="Package"/>
+            </modelQuery>
+            <hints uid="e728a19a-92c7-4ca5-a801-d7057af7eb06" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="JPA objects">
           <artifacts uid="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Persistence model generator" template="platform:/plugin/org.tura.metamodel.generation/template/pit/ORM/mainEntity.egl">
@@ -97,6 +105,7 @@
             <hints uid="be8cfd6c-9fe9-4b5b-8a5f-0ebb59581505" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="dd94bc3d-34bc-4670-b0c4-1e00aef04745" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <hints uid="252afd5b-810b-4d81-b363-b94d29cba704" name="OneWayAssociation" hint="092db6fe-1f0f-4f02-9ed8-c355d477f214"/>
+            <hints uid="506df12b-04c8-4de0-9604-ce075d440e57" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
@@ -454,6 +463,7 @@
         </techLeafs>
         <techLeafs uid="8799e862-e16e-4455-84a6-d3169ada402e" name="Repository">
           <hints uid="092db6fe-1f0f-4f02-9ed8-c355d477f214" name="OneWayAssociation"/>
+          <hints uid="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9" name="Adapter"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
         </techLeafs>
@@ -887,6 +897,39 @@
             <classifiers uid="24d2a431-ab23-4ec7-8a7c-bff47778eaa8" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="933cbce5-5452-43c1-8c02-6d3209f219b1" name="spaObj4" pk="true"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="aeb6520e-8a27-40a2-9ae4-bae9559260b8" name="Q1">
+            <classifiers uid="1ce0a2c3-dcca-4c1e-a81f-7e071238d471" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <classifiers uid="7a030b96-ebb6-4e22-86d8-2dd089e85783" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="ffaa014d-a207-48c7-905d-2fc7fba9e9cb" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="5a96f96b-2536-474f-8582-119eebffc3cd" name="W1">
+            <classifiers uid="421fd796-433c-4975-80d7-eb44bd0762f6" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
+            <classifiers uid="92882165-3953-43ad-8cd6-17bda9339767" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="6088bdff-f681-45bb-909c-67b316d0c4e8" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="9f60d605-698a-4e3b-9b9e-f4d19144cf6a" name="parentId"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="5b33f6ee-3e69-4652-adcd-fe4a3ebc307c" name="W2">
+            <classifiers uid="64cf4e3b-d1ab-4d93-b24b-e33724871318" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <classifiers uid="cd680686-ac32-472c-a9d1-aa964255443d" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="470ac240-1312-4bc8-9690-f3101307bd0f" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="c9848f93-d8a8-441c-83a0-dc61fc7c95ca" name="W3">
+            <classifiers uid="83c4d134-0f41-4dc5-b374-e34fc28fa16d" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <classifiers uid="e775a9ea-221d-4867-8c4b-b805e9cb993c" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="5389b6db-c2f6-4c93-9650-98bb100e8414" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="f7fbee91-5ddc-4851-beb0-90d3fe53d0fd" name="Q2">
+            <classifiers uid="14a0eb83-f7d7-4957-88b8-0af61294b7bf" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="d0f95520-14e8-4b1a-b079-84450eb14b26" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="63a10ddc-66f6-4f59-9d5c-690d4815c91b" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c967afc9-9bee-410e-81fa-b2392b5c9ed7" name="parentId"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="a4863d44-83f3-4dc2-9e61-0551dad4da49" name="Q3">
+            <classifiers uid="f8a2e49e-1374-4deb-a1d3-28c8ad1bb879" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <classifiers uid="8fadd586-e9a6-4223-b60b-ba2ce61df885" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="6c33666c-8530-4c2a-a6f6-def2000ea3e8" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="61f1615b-5222-4e6a-803a-7bb60ab94912" name="parentId"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
           </relationships>
@@ -989,6 +1032,17 @@
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="713d0bd6-3f20-49a9-bac1-ca65ea350eb3" source="237807c3-2504-401e-8b2b-60b51ad5e0d3" target="3b60620c-a443-4b39-8de6-2f13311ecef0">
             <links uid="16890048-38fb-4eed-a9b2-8090ba04a490" masterField="4d7df00a-76f4-42ac-bc02-24f201605f65" detailField="a2706e6a-566b-4e2c-a227-7e533b7e9526"/>
+          </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="2e4649b5-b694-4dd4-b36a-184ca3766007" source="aeb6520e-8a27-40a2-9ae4-bae9559260b8" target="5a96f96b-2536-474f-8582-119eebffc3cd">
+            <links uid="b9f73417-c68f-4b82-8783-904e1d72ba2d" masterField="ffaa014d-a207-48c7-905d-2fc7fba9e9cb" detailField="9f60d605-698a-4e3b-9b9e-f4d19144cf6a"/>
+          </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="8c1c00b0-49f7-4987-ab10-1455bdf52b9a" source="5a96f96b-2536-474f-8582-119eebffc3cd" target="5b33f6ee-3e69-4652-adcd-fe4a3ebc307c" internal="true"/>
+          <relationships xsi:type="tura.type:Assosiation" uid="d691b1b3-7786-40ad-9eb8-f1dfff0ab6fd" source="5a96f96b-2536-474f-8582-119eebffc3cd" target="c9848f93-d8a8-441c-83a0-dc61fc7c95ca" type="One2Many" internal="true"/>
+          <relationships xsi:type="tura.type:Assosiation" uid="8da41092-63f2-4091-b04e-c76faf54ddd0" source="5b33f6ee-3e69-4652-adcd-fe4a3ebc307c" target="f7fbee91-5ddc-4851-beb0-90d3fe53d0fd">
+            <links uid="5ce74fd6-9152-4f62-9a8a-4901874c69c1" masterField="470ac240-1312-4bc8-9690-f3101307bd0f" detailField="c967afc9-9bee-410e-81fa-b2392b5c9ed7"/>
+          </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="0329d74a-df76-4b4d-9f3e-c9d41837b73f" source="c9848f93-d8a8-441c-83a0-dc61fc7c95ca" target="a4863d44-83f3-4dc2-9e61-0551dad4da49">
+            <links uid="9fc14918-f14b-448a-b7ac-af2d320188ba" masterField="5389b6db-c2f6-4c93-9650-98bb100e8414" detailField="61f1615b-5222-4e6a-803a-7bb60ab94912"/>
           </relationships>
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
@@ -1919,7 +1973,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="4b93b91d-9c85-4c11-b2bc-b3a408a5c625" order="2" uid="5e256603-d102-4f0d-8e8c-c84f06472728" name="SPA persistance" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bdc9e7c3-2ed8-449f-a3a1-6c8e169e0943" name="Pesistence model for not JPA objects" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.spa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="4" uid="bdc9e7c3-2ed8-449f-a3a1-6c8e169e0943" name="Pesistence model for not JPA objects" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.spa.test">
                         <mappers uid="113c9084-de07-467a-826c-ce7e6e469bed" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="5c342b9e-e354-4532-8aaa-efddf986fd9d" name="Query package" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
                             <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Testing repository"/>
@@ -1930,12 +1984,23 @@
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="75cc7b4f-e073-422c-b831-9c89301de24c" name="Query class" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Data control commands"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Search criteria"/>
+                          </queries>
                         </mappers>
                         <mappers uid="8af2086a-e7d3-4a93-8b75-2d992d5f9a84" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-spa/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                        </mappers>
+                        <mappers uid="a89aa2ab-6d8e-4713-8ad7-5aae4b9d364b" artifactRef="68246b4d-fccf-4565-a0c6-df4c18a8f205" name="Adapter generation">
+                          <queries uid="d3553ed7-f8e3-4afc-87f0-fee4e645aff1" name="Query package" queryRef="47a3e12d-a07a-4141-b1a8-2e470cffcd50">
+                            <variables queryParamRef="b7bad5a3-e701-4cd2-b1a0-17687a16bbf1" value="Testing repository"/>
+                            <variables queryParamRef="5a0f22db-a0e8-4b1d-aec7-46f6103b35a9" value="JPA test package"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -2750,7 +2815,7 @@
               </mappers>
               <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
                 <mapper uid="af4ffe3b-0786-4855-81cb-e5712863f276">
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="c4dea937-b888-4435-b930-3715b01c5038" mappedToPackageName="java.util" mappedToClassName="List"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="c4dea937-b888-4435-b930-3715b01c5038" mappedToPackageName="java.util" mappedToClassName="List" artifactId="" groupId="" version=""/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="71ad446e-a2b1-4a34-b3e7-9a507676108f" mappedToPackageName="java.util" mappedToClassName="List"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="0b15e255-6c03-447d-baec-bac82427d639" uid="8360be6b-4660-4335-8a33-eaa286634e0f" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="SearchCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="45e54a84-60e2-47e4-8159-5c815a3c346e" uid="9dd83f36-fe0f-4148-ae5a-628304b48938" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="CreateCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
@@ -2824,6 +2889,7 @@
               <mappers uid="f89a0c2c-e5f4-43d6-9b6a-49624ffd72a4" name="JPA package for DomainObject">
                 <mapper uid="4b93b91d-9c85-4c11-b2bc-b3a408a5c625">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="aa1411cb-972d-4562-b071-f98bc59ae86f" mappedToPackageName="org.tura.jpa.test" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="3b097b09-0634-4995-88fd-d29f08a6dd3f" mappedToPackageName="org.tura.platform.datacontrol.commons" mappedToClassName="SearchCriteria" artifactId="commons" groupId="org.tura.platform.datacontrol" version="2.0"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>

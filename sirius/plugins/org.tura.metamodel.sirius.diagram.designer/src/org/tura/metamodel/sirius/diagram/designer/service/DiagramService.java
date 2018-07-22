@@ -698,6 +698,26 @@ public class DiagramService {
 		return false;
 	}
 	
+	public boolean checkIfAdapterType(Type assosiation){
+		for ( Classifier c :assosiation.getClassifiers()){
+			if ( c.getHint().getName().equals("Adapter")){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkIfNotAdapterType(Type assosiation){
+		for ( Classifier c :assosiation.getClassifiers()){
+			if ( c.getHint().getName().equals("Adapter")){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	
+	
 	public boolean checkIfNoInternalRelations(DataControl dc){
 		for (  RelationMapper r:  dc.getRelationMappers()){
 			if (r.getDataControlRef() != null){

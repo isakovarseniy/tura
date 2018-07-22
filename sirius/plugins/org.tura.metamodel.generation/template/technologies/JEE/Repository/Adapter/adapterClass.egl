@@ -1,0 +1,618 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+package [%=tp.~package%];
+
+
+public abstract class  [%=tp.~class%] {
+
+	public abstract Object getObject( String event);
+	public abstract Object delegateGet( String event);
+	public abstract Object delegateSet( String event, Object obj);
+	public abstract Object delegateAdd( String event, int i , Object obj);
+	public abstract Object delegateRemove( String event, int i );
+	public abstract Object delegateGet( String event, int i);
+
+[%
+    
+    var type = tp;
+    while (1 == 1){
+    
+		for ( field in type.attributes){
+		     if (type.~skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+		    field.typeRef.mappingType2Java(recipe,ingredient);
+%]
+
+          protected boolean [%=util.mergeAndUnCapitalize(field.name)%]DirectMapping = true;  
+		  public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
+		    	if ([%=util.mergeAndUnCapitalize(field.name)%]DirectMapping ){
+			    	try{
+		    		return  ([%=field.typeRef.~fullName%] ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=util.mergeAndCapitalize(field.name)%]"),"get[%=util.mergeAndCapitalize(field.name)%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+		    		return ([%=field.typeRef.~fullName%] ) delegateGet("get[%=util.mergeAndCapitalize(field.name)%]");
+		    	}
+          }
+
+		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
+		    	if ([%=util.mergeAndUnCapitalize(field.name)%]DirectMapping ){
+		    	   try{
+			            org.tura.platform.datacontrol.commons.Reflection.callTyped(getObject("set[%=util.mergeAndCapitalize(field.name)%]"), "set[%=util.mergeAndCapitalize(field.name)%]"  ,   [%=field.typeRef.~fullName%].class, [%=util.mergeAndUnCapitalize(field.name)%]  );
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		            
+		        } else {
+		            delegateSet("set[%=util.mergeAndCapitalize(field.name)%]", [%=util.mergeAndUnCapitalize(field.name)%]);
+		        }
+          }
+[%		    
+		}
+		
+ 	 var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+ 	 for ( rel in assosiations  ){
+
+         if ( not rel.internal  ){
+               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+               continue;
+         }
+ 	 
+ 	 
+	  	 switch  (rel.type.toString()){
+	         case "One2One" :  %][%=rel.one2oneSrc(recipe,ingredient,model_mapper)%][%
+	         case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper)%][%
+	         case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper)%][%
+	     }
+         
+     }			
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      for (rel in assosiations){
+
+         if ( not rel.internal  ){
+               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+               continue;
+         }
+      
+      
+	  	 switch  (rel.type.toString()){
+	         case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper)%][%
+	         case "One2Many" : %][%=rel.one2manyTrg(recipe,ingredient,model_mapper)%][%
+	         case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper)%][%
+	     }
+      }		
+      
+    if (type.~extension.isDefined()){
+       type = type.~extension;
+    }else{
+       break;
+    }
+      
+}		    
+%]
+}        
+      
+[%
+
+
+@template
+operation type::Assosiation one2oneSrc(recipe,ingredient,model_mapper){
+          %][%=self.one2oneSrcRel(recipe,ingredient,model_mapper)%][%
+
+} 
+
+@template
+operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper){
+          %][%=self.one2manySrcRel(recipe,ingredient,model_mapper)%][%
+} 
+
+@template
+operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper){
+          %][%=self.many2manySrcRel(recipe,ingredient,model_mapper)%][%
+} 
+
+operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper){
+          %][%=self.one2oneTrgRel(recipe,ingredient,model_mapper)%][%
+} 
+
+@template
+operation type::Assosiation one2manyTrg(recipe,ingredient,model_mapper){
+          %][%=self.one2manyTrgRel(recipe,ingredient,model_mapper)%][%
+} 
+
+@template
+operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper){
+          %][%=self.many2manyTrgRel(recipe,ingredient,model_mapper)%][%
+} 
+
+
+
+
+@template
+operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+
+     hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     %]
+
+       protected boolean [%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping = true;  
+       public [%=hash.get("target").~fullName%] get[%=hash.get("sourceMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping ){
+		    	   try{
+			    		return  ([%=hash.get("target").~fullName%] ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("sourceMethodName")%]"),"get[%=hash.get("sourceMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+		    		return ([%=hash.get("target").~fullName%] ) delegateGet("get[%=hash.get("sourceMethodName")%]");
+		    	}
+          }
+     
+     public void set[%=hash.get("sourceMethodName")%] ([%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+		    	if ( [%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping ){
+		    	   try{
+			            org.tura.platform.datacontrol.commons.Reflection.callTyped(getObject("set[%=hash.get("sourceMethodName")%]"), "set[%=hash.get("sourceMethodName")%]"  ,   [%=hash.get("target").~fullName%].class, [%=hash.get("sourceProperty")%]  );
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		        } else {
+		            delegateSet("set[%=hash.get("sourceMethodName")%]", [%=hash.get("sourceProperty")%]);
+		        }
+          }
+     [%  
+}
+
+
+@template
+operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+     
+
+     hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+
+     %]
+     
+     protected boolean [%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping = true;  
+	@SuppressWarnings("unchecked")
+     public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping ){
+		    	 try{
+			    		return  (java.util.List<[%=hash.get("target").~fullName%]> ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("sourceMethodName")%]"),"get[%=hash.get("sourceMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+    	return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+		            delegateAdd("get[%=hash.get("sourceMethodName")%]",  i ,  [%=hash.get("sourceProperty")%] );
+    		}
+
+       		@Override
+       	    public [%=hash.get("target").~fullName%] remove(int index) {
+		            return ([%=hash.get("target").~fullName%]) delegateRemove("get[%=hash.get("sourceMethodName")%]",  index  );
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("target").~fullName%] get(int index) {
+		             return ([%=hash.get("target").~fullName%]) delegateGet("get[%=hash.get("sourceMethodName")%]",  index  );
+			}
+
+			@Override
+			public int size() {
+		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("sourceMethodName")%]")).size();
+			}
+    		
+		};
+	   }
+     }
+     [%
+}
+
+
+@template
+operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+     
+
+     hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     %]
+     protected boolean [%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping = true;  
+	@SuppressWarnings("unchecked")
+     public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping ){
+		    	 try{
+			    		return  (java.util.List<[%=hash.get("target").~fullName%]> ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("sourceMethodName")%]"),"get[%=hash.get("sourceMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+    	return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+		            delegateAdd("get[%=hash.get("sourceMethodName")%]",  i ,  [%=hash.get("sourceProperty")%] );
+    		}
+
+       		@Override
+       	    public [%=hash.get("target").~fullName%] remove(int index) {
+		            return ([%=hash.get("target").~fullName%]) delegateRemove("get[%=hash.get("sourceMethodName")%]",  index  );
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("target").~fullName%] get(int index) {
+		             return ([%=hash.get("target").~fullName%]) delegateGet("get[%=hash.get("sourceMethodName")%]",  index  );
+			}
+
+			@Override
+			public int size() {
+		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("sourceMethodName")%]")).size();
+			}
+    		
+		};
+	   }
+     }
+     [%
+}
+
+
+
+@template
+operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
+
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     %]
+     
+       protected boolean [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping = true;  
+       public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
+		    	   try{
+			    		return  ([%=hash.get("source").~fullName%] ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("targetMethodName")%]"),"get[%=hash.get("targetMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+		    		return ([%=hash.get("source").~fullName%] ) delegateGet("get[%=hash.get("targetMethodName")%]");
+		    	}
+          }
+     
+     public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+		    	if ( [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
+		    	   try{
+			            org.tura.platform.datacontrol.commons.Reflection.callTyped(getObject("set[%=hash.get("targetMethodName")%]"), "set[%=hash.get("targetMethodName")%]"  ,   [%=hash.get("source").~fullName%].class, [%=hash.get("targetProperty")%]  );
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		        } else {
+		            delegateSet("set[%=hash.get("targetMethodName")%]", [%=hash.get("targetProperty")%]);
+		        }
+      }
+[%  
+}
+
+
+
+@template
+operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.target.uid ){
+     %]   Should not have this !!!!  [%
+     }else{
+     %]
+       protected boolean [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping = true;  
+       public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
+		    	   try{
+			    		return  ([%=hash.get("source").~fullName%] ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("targetMethodName")%]"),"get[%=hash.get("targetMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+		    		return ([%=hash.get("source").~fullName%] ) delegateGet("get[%=hash.get("targetMethodName")%]");
+		    	}
+          }
+     
+     public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+		    	if ( [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
+		    	   try{
+			            org.tura.platform.datacontrol.commons.Reflection.callTyped(getObject("set[%=hash.get("targetMethodName")%]"), "set[%=hash.get("targetMethodName")%]"  ,   [%=hash.get("source").~fullName%].class, [%=hash.get("targetProperty")%]  );
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		        } else {
+		            delegateSet("set[%=hash.get("targetMethodName")%]", [%=hash.get("targetProperty")%]);
+		        }
+      }
+     [%
+     }
+}
+
+
+@template
+operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+     
+
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.target.uid ){
+     %]
+     [%
+     }else{
+     %]
+     protected boolean [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping = true;  
+	@SuppressWarnings("unchecked")
+     public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
+		    	if ([%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
+		    	 try{
+			    		return  (java.util.List<[%=hash.get("source").~fullName%]> ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=hash.get("targetMethodName")%]"),"get[%=hash.get("targetMethodName")%]");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+		    	}else{
+    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+		            delegateAdd("get[%=hash.get("targetMethodName")%]",  i ,  [%=hash.get("targetProperty")%] );
+    		}
+
+       		@Override
+       	    public [%=hash.get("source").~fullName%] remove(int index) {
+		            return ([%=hash.get("source").~fullName%]) delegateRemove("get[%=hash.get("targetMethodName")%]",  index  );
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("source").~fullName%] get(int index) {
+		             return ([%=hash.get("source").~fullName%]) delegateGet("get[%=hash.get("targetMethodName")%]",  index  );
+			}
+
+			@Override
+			public int size() {
+		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("targetMethodName")%]")).size();
+			}
+    		
+		};
+	   }
+     }
+     
+     
+     
+     
+     
+     
+     
+     
+     @Override
+     public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
+    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+    		   try{
+			    	if ( object.getAttached() == null || !object.getAttached()){
+	    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
+		    	            return;
+		    	    	}
+		    	    	
+	          	        org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+		    	    	command.setMaster( ([%=util.mergeAndCapitalize(masterType.~class)%]Proxy) [%=hash.get("targetProperty")%]);
+		    	        command.setDetail(  [%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this);
+			            command.setRelationType("Many2Many");
+			            command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			            command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+			            command.setStackProvider(stackProvider);
+		
+		    	        if (command.prepare()){
+		    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+		    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
+		    	        }
+		          }catch(Exception e){
+		            throw new RuntimeException(e);
+		          }
+    		}
+
+       		@Override
+       	    public [%=hash.get("source").~fullName%] remove(int index) {
+       	     try{
+		    	  if ( object.getAttached() == null || !object.getAttached()){
+	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
+	    	            return m;
+	    	    	}
+	    	    	
+	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	    	    	command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
+	    	        command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
+			        command.setRelationType("Many2Many");
+			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+		            command.setStackProvider(stackProvider);
+	
+	    	        if (command.prepare()){
+	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
+	    	            return m;
+	    	        }
+	    	        return null;
+		          }catch(Exception e){
+		            throw new RuntimeException(e);
+		          }
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("source").~fullName%] get(int index) {
+				[%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
+				if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
+					return [%=hash.get("targetProperty")%];
+				}else{
+				   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index),stackProvider);
+				}
+			}
+
+			@Override
+			public int size() {
+				return object.get[%=hash.get("targetMethodName")%]().size();
+			}
+    		
+		};
+     }
+     [%
+     }
+}
+
+@template
+operation type::Assosiation  sourceNoAssociation(recipe,ingredient){
+
+}
+@template
+operation type::Assosiation  targetNoAssociation(recipe,ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+
+	     for (lnk in self.links){
+	         lnk.detailField.typeRef.mappingType2Java(recipe,ingredient);
+                %]
+
+                protected boolean [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]DirectMapping = true;  
+
+                public void set[%=util.mergeAndCapitalize(lnk.detailField.name)%]( [%=lnk.detailField.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]){
+
+			    	if ([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]DirectMapping ){
+				    	try{
+				    		  org.tura.platform.datacontrol.commons.Reflection.callTyped(getObject("set[%=util.mergeAndCapitalize(lnk.detailField.name)%]"),"set[%=util.mergeAndCapitalize(lnk.detailField.name)%]" , [%=lnk.detailField.typeRef.~fullName%].class , [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]  );
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+			    	}else{
+			    		  delegateSet("set[%=util.mergeAndCapitalize(lnk.detailField.name)%]", [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
+			    	}
+
+                }
+                
+                public  [%=lnk.detailField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(lnk.detailField.name)%]( ){
+			    	if ([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]DirectMapping ){
+				    	try{
+				    		return  ([%=lnk.detailField.typeRef.~fullName%] ) org.tura.platform.datacontrol.commons.Reflection.call(getObject("get[%=util.mergeAndCapitalize(lnk.detailField.name)%]"),"get[%=util.mergeAndCapitalize(lnk.detailField.name)%]");
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+			    	}else{
+			    		return ([%=lnk.detailField.typeRef.~fullName%] ) delegateGet("get[%=util.mergeAndCapitalize(lnk.detailField.name)%]");
+			    	}
+                }
+                [%
+	     }
+}
+
+
+
+
+%]
