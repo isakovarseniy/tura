@@ -55,6 +55,16 @@ public class RepositoryHelper {
 			throw new RepositoryException(e);
 		}
 	}
+	
+	public Object getAdapter(Class<?> repositoryClass) throws RepositoryException {
+		AdapterLoader loader = registry.getLoader(repositoryClass.getName());
+		if (loader != null) {
+			return loader.getAdapter(repositoryClass);
+		} else {
+			return null;
+		}
+	}
+	
 
 	public Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
 			throws ClassNotFoundException, NoSuchMethodException, SecurityException, Exception {

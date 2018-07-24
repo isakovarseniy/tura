@@ -71,7 +71,7 @@ public class SpaObjectRegistry implements Serializable{
 		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
 		private String registry;
 		private EntityManagerProvider entityManagerProvider;
-		private AdapterLoader loader;
+		private Map<String, AdapterLoader> loaders = new HashMap<>();
 
 		private boolean initialized = false;
 		
@@ -170,7 +170,7 @@ public class SpaObjectRegistry implements Serializable{
 		public PersistanceMapper findMapper(String persistanceClass, String repositoryClass) {
 			PersistanceMapper m =  mappers.get(persistanceClass + "2" + repositoryClass);
 			if (m instanceof AdapterLoaderAware){
-				((AdapterLoaderAware) m).setAdapterLoader(loader);
+				((AdapterLoaderAware) m).setAdapterLoader(loaders.get(persistanceClass) );
 			}
 			return m;
 		}
@@ -199,12 +199,8 @@ public class SpaObjectRegistry implements Serializable{
 			return list;
 		}
 
-		public AdapterLoader getLoader() {
-			return loader;
-		}
-
-		public void setLoader(AdapterLoader loader) {
-			this.loader = loader;
+		public void addLoader( String className, AdapterLoader loader) {
+			this.loaders.put(className, loader);
 		}
 	}
 }

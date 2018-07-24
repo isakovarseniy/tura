@@ -46,6 +46,8 @@ public class Registry implements Serializable{
 	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
+	private Map<String, AdapterLoader> loaders = new HashMap<>();
+	
 
 	public Registry() {
 
@@ -170,6 +172,15 @@ public class Registry implements Serializable{
 
 	public void setTransactrionAdapter(TransactionAdapter transactrionAdapter) {
 		this.transactrionAdapter = transactrionAdapter;
+	}
+	
+	public void addLoader( String className, AdapterLoader loader) {
+		this.loaders.put(className, loader);
+	}
+	
+   
+	public AdapterLoader getLoader( String className) {
+		return loaders.get(className);
 	}
 	
 }
