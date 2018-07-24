@@ -17,11 +17,6 @@ package [%=tp.~package%];
 public abstract class  [%=tp.~class%] {
 
 	public abstract Object getObject( String event);
-	public abstract Object delegateGet( String event);
-	public abstract Object delegateSet( String event, Object obj);
-	public abstract Object delegateAdd( String event, int i , Object obj);
-	public abstract Object delegateRemove( String event, int i );
-	public abstract Object delegateGet( String event, int i);
 
 [%
     
@@ -44,9 +39,11 @@ public abstract class  [%=tp.~class%] {
 						throw new RuntimeException(e);
 					}
 		    	}else{
-		    		return ([%=field.typeRef.~fullName%] ) delegateGet("get[%=util.mergeAndCapitalize(field.name)%]");
+		    		return ([%=field.typeRef.~fullName%] ) delegateGet[%=util.mergeAndCapitalize(field.name)%]();
 		    	}
           }
+		  protected abstract   [%=field.typeRef.~fullName%]   delegateGet[%=util.mergeAndCapitalize(field.name)%]();
+
 
 		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
 		    	if ([%=util.mergeAndUnCapitalize(field.name)%]DirectMapping ){
@@ -57,9 +54,11 @@ public abstract class  [%=tp.~class%] {
 					}
 		            
 		        } else {
-		            delegateSet("set[%=util.mergeAndCapitalize(field.name)%]", [%=util.mergeAndUnCapitalize(field.name)%]);
+		            delegateSet[%=util.mergeAndCapitalize(field.name)%]( [%=util.mergeAndUnCapitalize(field.name)%]);
 		        }
           }
+          
+          protected abstract void delegateSet[%=util.mergeAndCapitalize(field.name)%] ([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]);
 [%		    
 		}
 		
@@ -172,9 +171,10 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		    	}else{
-		    		return ([%=hash.get("target").~fullName%] ) delegateGet("get[%=hash.get("sourceMethodName")%]");
+		    		return ([%=hash.get("target").~fullName%] ) delegateGet[%=hash.get("sourceMethodName")%]();
 		    	}
           }
+     protected abstract  [%=hash.get("target").~fullName%] delegateGet[%=hash.get("sourceMethodName")%]();
      
      public void set[%=hash.get("sourceMethodName")%] ([%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
 		    	if ( [%=util.mergeAndUnCapitalize(hash.get("sourceMethodName"))%]DirectMapping ){
@@ -184,9 +184,12 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		        } else {
-		            delegateSet("set[%=hash.get("sourceMethodName")%]", [%=hash.get("sourceProperty")%]);
+		            delegateSet[%=hash.get("sourceMethodName")%]( [%=hash.get("sourceProperty")%]);
 		        }
           }
+          
+     protected abstract void delegateSet[%=hash.get("sourceMethodName")%] ([%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]);
+          
      [%  
 }
 
@@ -228,28 +231,34 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-		            delegateAdd("get[%=hash.get("sourceMethodName")%]",  i ,  [%=hash.get("sourceProperty")%] );
+		            delegateAdd[%=hash.get("sourceMethodName")%](  i ,  [%=hash.get("sourceProperty")%] );
     		}
 
        		@Override
        	    public [%=hash.get("target").~fullName%] remove(int index) {
-		            return ([%=hash.get("target").~fullName%]) delegateRemove("get[%=hash.get("sourceMethodName")%]",  index  );
+		            return ([%=hash.get("target").~fullName%]) delegateRemove[%=hash.get("sourceMethodName")%]( index  );
     	    }
 
     		
 			@Override
 			public [%=hash.get("target").~fullName%] get(int index) {
-		             return ([%=hash.get("target").~fullName%]) delegateGet("get[%=hash.get("sourceMethodName")%]",  index  );
+		             return ([%=hash.get("target").~fullName%]) delegateGet[%=hash.get("sourceMethodName")%](  index  );
 			}
 
 			@Override
 			public int size() {
-		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("sourceMethodName")%]")).size();
+		        return   delegateGet[%=hash.get("sourceMethodName")%]Size();
 			}
     		
 		};
 	   }
      }
+     
+     protected abstract void delegateAdd[%=hash.get("sourceMethodName")%](  int i , [%=hash.get("target").~fullName%] obj );
+     protected abstract [%=hash.get("target").~fullName%] delegateRemove[%=hash.get("sourceMethodName")%](  int i );
+     protected abstract [%=hash.get("target").~fullName%] delegateGet[%=hash.get("sourceMethodName")%](  int  i);
+     protected abstract int delegateGet[%=hash.get("sourceMethodName")%]Size();
+     
      [%
 }
 
@@ -289,28 +298,34 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-		            delegateAdd("get[%=hash.get("sourceMethodName")%]",  i ,  [%=hash.get("sourceProperty")%] );
+		            delegateAdd[%=hash.get("sourceMethodName")%]( i ,  [%=hash.get("sourceProperty")%] );
     		}
 
        		@Override
        	    public [%=hash.get("target").~fullName%] remove(int index) {
-		            return ([%=hash.get("target").~fullName%]) delegateRemove("get[%=hash.get("sourceMethodName")%]",  index  );
+		            return ([%=hash.get("target").~fullName%]) delegateRemove[%=hash.get("sourceMethodName")%]( index  );
     	    }
 
     		
 			@Override
 			public [%=hash.get("target").~fullName%] get(int index) {
-		             return ([%=hash.get("target").~fullName%]) delegateGet("get[%=hash.get("sourceMethodName")%]",  index  );
+		             return ([%=hash.get("target").~fullName%]) delegateGet[%=hash.get("sourceMethodName")%](  index  );
 			}
 
 			@Override
 			public int size() {
-		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("sourceMethodName")%]")).size();
+		        return   delegateGet[%=hash.get("sourceMethodName")%]Size();
 			}
     		
 		};
 	   }
      }
+     protected abstract void delegateAdd[%=hash.get("sourceMethodName")%](  int i, [%=hash.get("target").~fullName%] obj );
+     protected abstract [%=hash.get("target").~fullName%] delegateRemove[%=hash.get("sourceMethodName")%](  int  i);
+     protected abstract [%=hash.get("target").~fullName%] delegateGet[%=hash.get("sourceMethodName")%](  int i);
+     protected abstract int delegateGet[%=hash.get("sourceMethodName")%]Size(  );
+     
+     
      [%
 }
 
@@ -347,9 +362,12 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		    	}else{
-		    		return ([%=hash.get("source").~fullName%] ) delegateGet("get[%=hash.get("targetMethodName")%]");
+		    		return ([%=hash.get("source").~fullName%] ) delegateGet[%=hash.get("targetMethodName")%]();
 		    	}
           }
+
+     protected abstract [%=hash.get("source").~fullName%] delegateGet[%=hash.get("targetMethodName")%]();
+
      
      public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
 		    	if ( [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
@@ -359,9 +377,12 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		        } else {
-		            delegateSet("set[%=hash.get("targetMethodName")%]", [%=hash.get("targetProperty")%]);
+		            delegateSet[%=hash.get("targetMethodName")%]( [%=hash.get("targetProperty")%]);
 		        }
       }
+      
+     protected abstract void delegateSet[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]);
+      
 [%  
 }
 
@@ -400,9 +421,11 @@ operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		    	}else{
-		    		return ([%=hash.get("source").~fullName%] ) delegateGet("get[%=hash.get("targetMethodName")%]");
+		    		return ([%=hash.get("source").~fullName%] ) delegateGet[%=hash.get("targetMethodName")%]();
 		    	}
           }
+
+     protected abstract  [%=hash.get("source").~fullName%] delegateGet[%=hash.get("targetMethodName")%]();
      
      public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
 		    	if ( [%=util.mergeAndUnCapitalize(hash.get("targetMethodName"))%]DirectMapping ){
@@ -412,9 +435,11 @@ operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
 						throw new RuntimeException(e);
 					}
 		        } else {
-		            delegateSet("set[%=hash.get("targetMethodName")%]", [%=hash.get("targetProperty")%]);
+		            delegateSet[%=hash.get("targetMethodName")%]( [%=hash.get("targetProperty")%]);
 		        }
       }
+     protected abstract void delegateSet[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]);
+
      [%
      }
 }
@@ -459,112 +484,33 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
-		            delegateAdd("get[%=hash.get("targetMethodName")%]",  i ,  [%=hash.get("targetProperty")%] );
+		            delegateAdd[%=hash.get("targetMethodName")%](  i ,  [%=hash.get("targetProperty")%] );
     		}
 
        		@Override
        	    public [%=hash.get("source").~fullName%] remove(int index) {
-		            return ([%=hash.get("source").~fullName%]) delegateRemove("get[%=hash.get("targetMethodName")%]",  index  );
+		            return ([%=hash.get("source").~fullName%]) delegateRemove[%=hash.get("targetMethodName")%](  index  );
     	    }
 
     		
 			@Override
 			public [%=hash.get("source").~fullName%] get(int index) {
-		             return ([%=hash.get("source").~fullName%]) delegateGet("get[%=hash.get("targetMethodName")%]",  index  );
+		             return ([%=hash.get("source").~fullName%]) delegateGet[%=hash.get("targetMethodName")%](  index  );
 			}
 
 			@Override
 			public int size() {
-		        return   ((java.util.List<?>)delegateGet("get[%=hash.get("targetMethodName")%]")).size();
+		        return   delegateGet[%=hash.get("targetMethodName")%]Size();
 			}
     		
 		};
 	   }
      }
+     protected abstract void delegateAdd[%=hash.get("targetMethodName")%](  int i, [%=hash.get("source").~fullName%] obj );
+     protected abstract [%=hash.get("source").~fullName%] delegateRemove[%=hash.get("targetMethodName")%](  int i);
+     protected abstract [%=hash.get("source").~fullName%] delegateGet[%=hash.get("targetMethodName")%](  int  i);
+     protected abstract int delegateGet[%=hash.get("targetMethodName")%]Size( );
      
-     
-     
-     
-     
-     
-     
-     
-     @Override
-     public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
-    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
-    		
-    		@Override
-    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
-    		   try{
-			    	if ( object.getAttached() == null || !object.getAttached()){
-	    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
-		    	            return;
-		    	    	}
-		    	    	
-	          	        org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-		    	    	command.setMaster( ([%=util.mergeAndCapitalize(masterType.~class)%]Proxy) [%=hash.get("targetProperty")%]);
-		    	        command.setDetail(  [%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this);
-			            command.setRelationType("Many2Many");
-			            command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			            command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-			            command.setStackProvider(stackProvider);
-		
-		    	        if (command.prepare()){
-		    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-		    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
-		    	        }
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-    		}
-
-       		@Override
-       	    public [%=hash.get("source").~fullName%] remove(int index) {
-       	     try{
-		    	  if ( object.getAttached() == null || !object.getAttached()){
-	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
-	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
-	    	            return m;
-	    	    	}
-	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	    	    	command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
-	    	        command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
-			        command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-		            command.setStackProvider(stackProvider);
-	
-	    	        if (command.prepare()){
-	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
-	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
-	    	            return m;
-	    	        }
-	    	        return null;
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-    	    }
-
-    		
-			@Override
-			public [%=hash.get("source").~fullName%] get(int index) {
-				[%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
-				if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
-					return [%=hash.get("targetProperty")%];
-				}else{
-				   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index),stackProvider);
-				}
-			}
-
-			@Override
-			public int size() {
-				return object.get[%=hash.get("targetMethodName")%]().size();
-			}
-    		
-		};
-     }
      [%
      }
 }
@@ -592,10 +538,13 @@ operation type::Assosiation  targetNoAssociation(recipe,ingredient){
 							throw new RuntimeException(e);
 						}
 			    	}else{
-			    		  delegateSet("set[%=util.mergeAndCapitalize(lnk.detailField.name)%]", [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
+			    		  delegateSet[%=util.mergeAndCapitalize(lnk.detailField.name)%]( [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
 			    	}
 
                 }
+
+                protected abstract  void delegateSet[%=util.mergeAndCapitalize(lnk.detailField.name)%]( [%=lnk.detailField.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
+
                 
                 public  [%=lnk.detailField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(lnk.detailField.name)%]( ){
 			    	if ([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]DirectMapping ){
@@ -605,9 +554,12 @@ operation type::Assosiation  targetNoAssociation(recipe,ingredient){
 							throw new RuntimeException(e);
 						}
 			    	}else{
-			    		return ([%=lnk.detailField.typeRef.~fullName%] ) delegateGet("get[%=util.mergeAndCapitalize(lnk.detailField.name)%]");
+			    		return ([%=lnk.detailField.typeRef.~fullName%] ) delegateGet[%=util.mergeAndCapitalize(lnk.detailField.name)%]();
 			    	}
                 }
+                
+                protected abstract   [%=lnk.detailField.typeRef.~fullName%] delegateGet[%=util.mergeAndCapitalize(lnk.detailField.name)%]( );
+                
                 [%
 	     }
 }

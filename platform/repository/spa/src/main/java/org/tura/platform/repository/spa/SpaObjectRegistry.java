@@ -27,6 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.core.AdapterLoader;
+import org.tura.platform.repository.core.AdapterLoaderAware;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
@@ -69,6 +71,7 @@ public class SpaObjectRegistry implements Serializable{
 		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
 		private String registry;
 		private EntityManagerProvider entityManagerProvider;
+		private AdapterLoader loader;
 
 		private boolean initialized = false;
 		
@@ -165,7 +168,11 @@ public class SpaObjectRegistry implements Serializable{
 		}
 
 		public PersistanceMapper findMapper(String persistanceClass, String repositoryClass) {
-			return mappers.get(persistanceClass + "2" + repositoryClass);
+			PersistanceMapper m =  mappers.get(persistanceClass + "2" + repositoryClass);
+			if (m instanceof AdapterLoaderAware){
+				((AdapterLoaderAware) m).setAdapterLoader(loader);
+			}
+			return m;
 		}
 
 		public CRUDProvider findCRUDProvider(Class<?> clazz) {
@@ -190,6 +197,14 @@ public class SpaObjectRegistry implements Serializable{
 				}
 			}
 			return list;
+		}
+
+		public AdapterLoader getLoader() {
+			return loader;
+		}
+
+		public void setLoader(AdapterLoader loader) {
+			this.loader = loader;
 		}
 	}
 }
