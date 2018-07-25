@@ -32,6 +32,7 @@ import javax.persistence.Query;
 import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
@@ -166,6 +167,10 @@ public class JpaSearchService implements SearchProvider {
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
+	}
+
+	@Override
+	public void setAdapterLoader(AdapterLoader loader) {
 	}
 
 }

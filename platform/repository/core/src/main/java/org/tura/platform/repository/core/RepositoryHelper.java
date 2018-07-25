@@ -19,6 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.core;
 
 import java.lang.annotation.Annotation;
@@ -41,12 +62,12 @@ import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
-	
+
 	protected Registry registry;
-	
-     public RepositoryHelper (Registry registry){
-    	 this.registry = registry;
-     }
+
+	public RepositoryHelper(Registry registry) {
+		this.registry = registry;
+	}
 
 	public Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {
@@ -55,16 +76,15 @@ public class RepositoryHelper {
 			throw new RepositoryException(e);
 		}
 	}
-	
+
 	public Object getAdapter(Class<?> repositoryClass) throws RepositoryException {
 		AdapterLoader loader = registry.getLoader(repositoryClass.getName());
 		if (loader != null) {
-			return loader.getAdapter(repositoryClass);
+			return loader.newAdapter(repositoryClass);
 		} else {
 			return null;
 		}
 	}
-	
 
 	public Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
 			throws ClassNotFoundException, NoSuchMethodException, SecurityException, Exception {
@@ -168,8 +188,8 @@ public class RepositoryHelper {
 
 	public SearchCriteria extractAndRemove(String parameter, List<SearchCriteria> search) {
 		SearchCriteria result = null;
-		for ( SearchCriteria sc : search){
-			if (sc.getName().equals(parameter)){
+		for (SearchCriteria sc : search) {
+			if (sc.getName().equals(parameter)) {
 				search.remove(sc);
 				result = sc;
 				break;
@@ -180,15 +200,15 @@ public class RepositoryHelper {
 
 	public SearchCriteria checkSearchParam(String parameter, List<SearchCriteria> search) {
 		SearchCriteria result = null;
-		for ( SearchCriteria sc : search){
-			if (sc.getName().equals(parameter)){
+		for (SearchCriteria sc : search) {
+			if (sc.getName().equals(parameter)) {
 				result = sc;
 				break;
 			}
 		}
 		return result;
-	}	
-	
+	}
+
 	public List<?> findChildren(Object persistenceObject, String relationType, String property) throws Exception {
 
 		if ("One2Many".equals(relationType)) {
@@ -200,7 +220,7 @@ public class RepositoryHelper {
 				relationType = "Many2One";
 			}
 		}
-		return PersistanceRelationBuilder.build( relationType).getChildren(persistenceObject, property);
+		return PersistanceRelationBuilder.build(relationType).getChildren(persistenceObject, property);
 	}
 
 	private boolean findAnnotationType(Method method) {
@@ -220,6 +240,5 @@ public class RepositoryHelper {
 		return one2many;
 
 	}
-	
-	
+
 }

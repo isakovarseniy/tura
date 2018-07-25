@@ -26,7 +26,7 @@ import java.util.List;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
-public interface SearchProvider {
+public interface SearchProvider extends AdapterLoaderAware {
 
 	SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException ;

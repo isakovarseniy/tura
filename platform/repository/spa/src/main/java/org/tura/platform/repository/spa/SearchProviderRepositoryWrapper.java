@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
@@ -56,6 +57,10 @@ public class SearchProviderRepositoryWrapper implements SearchProvider {
 			throw new RepositoryException(e);
 
 		}
+	}
+
+	@Override
+	public void setAdapterLoader(AdapterLoader loader) {
 	}
 
 }

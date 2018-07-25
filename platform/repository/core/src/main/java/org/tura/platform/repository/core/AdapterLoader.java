@@ -21,7 +21,11 @@
  */
 package org.tura.platform.repository.core;
 
-public interface AdapterLoader{
+public interface AdapterLoader {
 
-   Object getAdapter( Class<?> clazz);
+	Object newAdapter(Class<?> clazz);
+
+	Object wrapObject(Object obj);
+
+	Object unWrapObject(Object obj);
 }

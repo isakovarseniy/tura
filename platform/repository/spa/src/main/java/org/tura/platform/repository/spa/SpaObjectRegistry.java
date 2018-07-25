@@ -19,6 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.spa;
 
 import java.io.Serializable;
@@ -39,17 +60,16 @@ import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class SpaObjectRegistry implements Serializable{
+public class SpaObjectRegistry implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Map<String, SpaRegistry> hash = new HashMap<>();
-	
+
 	public SpaObjectRegistry() {
 
 	}
 
-	
 	public SpaRegistry getRegistry(String name) {
 		SpaRegistry r = hash.get(name);
 		if (r == null) {
@@ -74,16 +94,15 @@ public class SpaObjectRegistry implements Serializable{
 		private Map<String, AdapterLoader> loaders = new HashMap<>();
 
 		private boolean initialized = false;
-		
-		public void initialized (){
+
+		public void initialized() {
 			this.initialized = true;
 		}
-		
-		public boolean isInitialized(){
+
+		public boolean isInitialized() {
 			return this.initialized;
 		}
 
-		
 		public EntityManagerProvider getEntityManagerProvider() {
 			return entityManagerProvider;
 		}
@@ -168,15 +187,19 @@ public class SpaObjectRegistry implements Serializable{
 		}
 
 		public PersistanceMapper findMapper(String persistanceClass, String repositoryClass) {
-			PersistanceMapper m =  mappers.get(persistanceClass + "2" + repositoryClass);
-			if (m instanceof AdapterLoaderAware){
-				((AdapterLoaderAware) m).setAdapterLoader(loaders.get(persistanceClass) );
+			PersistanceMapper m = mappers.get(persistanceClass + "2" + repositoryClass);
+			if (m instanceof AdapterLoaderAware) {
+				((AdapterLoaderAware) m).setAdapterLoader(loaders.get(persistanceClass));
 			}
 			return m;
 		}
 
 		public CRUDProvider findCRUDProvider(Class<?> clazz) {
-			return crudProviders.get(clazz);
+			CRUDProvider provider = crudProviders.get(clazz);
+			if (provider != null) {
+				provider.setAdapterLoader(loaders.get(clazz.getName()));
+			}
+			return provider;
 		}
 
 		public SearchProvider findSearchProvider(String className) throws Exception {
@@ -185,7 +208,11 @@ public class SpaObjectRegistry implements Serializable{
 		}
 
 		public SearchProvider findSearchProvider(Class<?> clazz) {
-			return searchProviders.get(clazz);
+			SearchProvider provider = searchProviders.get(clazz);
+			if (provider != null) {
+				provider.setAdapterLoader(loaders.get(clazz.getName()));
+			}
+			return provider;
 		}
 
 		public List<Object> findCommand(RepositoryCommandType cmdType, Object... parameters)
@@ -199,7 +226,7 @@ public class SpaObjectRegistry implements Serializable{
 			return list;
 		}
 
-		public void addLoader( String className, AdapterLoader loader) {
+		public void addLoader(String className, AdapterLoader loader) {
 			this.loaders.put(className, loader);
 		}
 	}

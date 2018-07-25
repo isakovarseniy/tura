@@ -19,8 +19,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.spa;
+package org.tura.platform.repository.mixed.test;
 
-public interface SpaRegistryResolver {
-	SpaObjectRegistry resolve();
+import org.josql.Query;
+
+public interface WrapperHook {
+	void fixParameters(Query query);
 }
+

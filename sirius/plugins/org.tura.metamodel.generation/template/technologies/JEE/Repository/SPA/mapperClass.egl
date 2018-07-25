@@ -119,7 +119,7 @@ ${start}${percent}
 		      [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
 	       [%
 	       }else{%]
-		    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) loader.getAdapter( [%=t2model.get(type).get("fullName")%].class);
+		    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) loader.newAdapter( [%=t2model.get(type).get("fullName")%].class);
 	       [%}
 	       %]
 		    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;

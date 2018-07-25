@@ -44,7 +44,7 @@ import com.octo.java.sql.exp.Operator;
 
 public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 
-	private Registry registry;
+	protected Registry registry;
 
 	public ExternalConnectionPreQueryTrigger(Registry registry){
 		this.registry = registry;

@@ -19,6 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.spa.test;
 
 import java.util.ArrayList;
@@ -33,12 +54,14 @@ import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
+import org.tura.platform.repository.core.Adapter;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.mixed.test.WrapperHook;
 import org.tura.platform.repository.spa.AbstaractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
@@ -46,13 +69,15 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 import com.octo.java.sql.query.SelectQuery;
 
 public class SearchService extends AbstaractSearchService implements RegistryAware{
+	
+	public static String TARGET_CLASS = "TARGET_CLASS";
 
 	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
 	private String registryName;
 	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
 	
-	public SearchService(Registry registry,  SpaObjectRegistry spaRegistry){
+	public SearchService(Registry registry, SpaObjectRegistry spaRegistry){
 		this.registry = registry;
 		this.spaRegistry = spaRegistry;
 	}
@@ -75,6 +100,12 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 			
 			
 			Class<?> baseClass = Class.forName(objectClass);
+			if (Adapter.class.isAssignableFrom(baseClass)) {
+			 SearchCriteria sc = helper.extractAndRemove(TARGET_CLASS,searchCriteria);
+			 baseClass = Class.forName((String)sc.getValue());
+			}
+			
+			
 			SelectQuery select = DefaulQueryFactory.builder(searchCriteria, orderCriteria, baseClass);
 			Query query = new Query();
 
@@ -83,6 +114,10 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 
 			for (String param : select.getParams().keySet()) {
 				query.setVariable(param, select.getParams().get(param));
+			}
+			
+			if (preQueryTrigger instanceof WrapperHook) {
+				((WrapperHook)preQueryTrigger).fixParameters(query);
 			}
 
 			Map<Object, Object> h = base.get(objectClass);
@@ -111,7 +146,7 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 			PreQueryTrigger trigger = spaRegistry.getRegistry(registryName).findPreQueryTrigger(repositoryClass);
 			return trigger;
 		} catch (Exception e) {
-                throw new RepositoryException(e);
+            throw new RepositoryException(e);
 		}
 	}
 
@@ -124,3 +159,4 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	}
 
 }
+

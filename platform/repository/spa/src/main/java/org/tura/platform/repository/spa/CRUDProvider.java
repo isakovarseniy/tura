@@ -21,7 +21,9 @@
  */
 package org.tura.platform.repository.spa;
 
-public interface CRUDProvider {
+import org.tura.platform.repository.core.AdapterLoaderAware;
+
+public interface CRUDProvider  extends AdapterLoaderAware{
 
 	void execute(SpaControl control) throws Exception;
 
