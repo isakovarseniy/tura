@@ -66,11 +66,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	public Object create(String repositoryClass) throws RepositoryException {
 		try {
 			findPersistanceClass(repositoryClass);
-			Class<?> clazz =  Class.forName(repositoryClass);
-			Object repositoryObject = getAdapter(clazz);
-			if (repositoryObject == null){
-				repositoryObject = Class.forName(repositoryClass).newInstance();
-			}
+			Object repositoryObject = Class.forName(repositoryClass).newInstance();
 
 			PrImaryKeyStrategy prImaryKeyStrategy = findPrImaryKeyStrategy();
 			if (prImaryKeyStrategy != null) {

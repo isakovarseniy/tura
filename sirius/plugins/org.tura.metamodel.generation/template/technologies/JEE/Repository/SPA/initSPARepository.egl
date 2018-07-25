@@ -35,12 +35,15 @@ ${start}${percent}
     
        [%
          for(type in typeCollection){
-		       if (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")) ){
-		           continue;
-		        }
+		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"Domain Object")) 
+		             or
+                     type.findClassifier(util.getHint(model_mapper,"Adapter"))       
+		       ){
        %] 
         registry.addProvider("[%=t2model.get(type).get("fullName")%]",repository);
        [%
+          }
        }
        %] 
     }
@@ -49,9 +52,11 @@ ${start}${percent}
     
        [%
          for(type in typeCollection){
-		       if (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")) ){
-		           continue;
-		        }
+		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"Domain Object")) 
+		             or
+                     type.findClassifier(util.getHint(model_mapper,"Adapter"))       
+		       ){
        %] 
         registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
         registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
@@ -76,6 +81,7 @@ ${start}${percent}
              spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.target).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry));
 	         [%
           }
+        }
        }
        %] 
     

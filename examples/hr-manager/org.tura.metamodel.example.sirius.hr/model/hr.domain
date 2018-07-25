@@ -1033,7 +1033,7 @@
           <relationships xsi:type="tura.type:Assosiation" uid="713d0bd6-3f20-49a9-bac1-ca65ea350eb3" source="237807c3-2504-401e-8b2b-60b51ad5e0d3" target="3b60620c-a443-4b39-8de6-2f13311ecef0">
             <links uid="16890048-38fb-4eed-a9b2-8090ba04a490" masterField="4d7df00a-76f4-42ac-bc02-24f201605f65" detailField="a2706e6a-566b-4e2c-a227-7e533b7e9526"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="2e4649b5-b694-4dd4-b36a-184ca3766007" source="aeb6520e-8a27-40a2-9ae4-bae9559260b8" target="5a96f96b-2536-474f-8582-119eebffc3cd">
+          <relationships xsi:type="tura.type:Assosiation" uid="2e4649b5-b694-4dd4-b36a-184ca3766007" source="aeb6520e-8a27-40a2-9ae4-bae9559260b8" target="5a96f96b-2536-474f-8582-119eebffc3cd" containment="Non">
             <links uid="b9f73417-c68f-4b82-8783-904e1d72ba2d" masterField="ffaa014d-a207-48c7-905d-2fc7fba9e9cb" detailField="9f60d605-698a-4e3b-9b9e-f4d19144cf6a"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="8c1c00b0-49f7-4987-ab10-1455bdf52b9a" source="5a96f96b-2536-474f-8582-119eebffc3cd" target="5b33f6ee-3e69-4652-adcd-fe4a3ebc307c" internal="true"/>

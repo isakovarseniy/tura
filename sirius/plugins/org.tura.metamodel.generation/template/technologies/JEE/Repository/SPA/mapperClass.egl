@@ -205,6 +205,7 @@ operation type::Assosiation one2oneReposit2Persist(recipe,ingredient,model_mappe
      var hash = self.sourceSideNamesCalculation();
      %]
            org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
+           ((AdapterLoaderAware) maper[%=t2view.get(self.target).get("class")%]).setAdapterLoader(loader);
            [%=t2view.get(self.target).get("fullName")%] obj[%=t2view.get(self.target).get("class")%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
            
            [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] =( [%=t2model.get(self.target).get("fullName")%] ) maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
@@ -223,6 +224,7 @@ operation type::Assosiation one2ManyReposit2Persist(recipe,ingredient,model_mapp
      
      %]
            org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
+           ((AdapterLoaderAware) maper[%=t2view.get(self.target).get("class")%]).setAdapterLoader(loader);
            java.util.Collection<[%=t2view.get(self.target).get("fullName")%]> obj[%=t2view.get(self.target).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
 
            if( obj[%=t2view.get(self.target).get("class")%]List != null ){
