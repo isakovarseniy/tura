@@ -87,7 +87,7 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedPk,persistanceObject);
 			
 			String methodName = "set"+WordUtils.capitalize(property);
-			Method m = extendedPersistanceMasterObject.getClass().getDeclaredMethod(methodName, value.getClass());
+			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, value.getClass());
 			m.invoke(extendedPersistanceMasterObject, value);
 
 			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk), OperationLevel.UPDATE);

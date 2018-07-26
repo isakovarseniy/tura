@@ -32,14 +32,14 @@ public class One2One implements RelOperation {
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
 		String name = "set"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, detail.getClass());
+		Method m = master.getClass().getMethod(name, detail.getClass());
 		m.invoke(master, detail);
 	}
 
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		String name = "set"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, detail.getClass());
+		Method m = master.getClass().getMethod(name, detail.getClass());
 		m.invoke(master, new Object[]{null});
 	}
 
@@ -49,7 +49,7 @@ public class One2One implements RelOperation {
 	@Override
 	public List getChildren(Object object, String property) throws Exception {
 		String methodName = "get"+WordUtils.capitalize(property);
-		Method method = object.getClass().getDeclaredMethod(methodName, new Class[]{});
+		Method method = object.getClass().getMethod(methodName, new Class[]{});
 		
 		Object obj = method.invoke(object, new Object[]{});
 		List list = new ArrayList<>();

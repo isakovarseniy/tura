@@ -60,8 +60,12 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 	private void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
-		Mapper mapper = registry.findMapper(persistenceObject.getClass().getName(),
-				repositoryObject.getClass().getName());
+		String persistanceType = persistenceObject.getClass().getName();
+		if (persistenceObject instanceof Adapter){
+			persistanceType = ((Adapter)persistenceObject).getObjectType();
+		}
+
+		Mapper mapper = registry.findMapper(persistanceType,repositoryObject.getClass().getName());
 		if (mapper == null) {
 			throw new RepositoryException("Cannot find mapper from " + persistenceObject.getClass().getName() + " to "
 					+ repositoryObject.getClass().getName());

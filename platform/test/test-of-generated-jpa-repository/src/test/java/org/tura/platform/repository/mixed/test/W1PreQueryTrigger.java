@@ -24,12 +24,16 @@ package org.tura.platform.repository.mixed.test;
 import java.util.List;
 
 import org.josql.Query;
+import org.tura.jpa.test.Q1;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryHelper;
+import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger;
 import org.tura.platform.repository.spa.test.SearchService;
+
+import com.octo.java.sql.exp.Operator;
 
 public class W1PreQueryTrigger extends ExternalConnectionPreQueryTrigger implements WrapperHook{
 
@@ -47,15 +51,19 @@ public class W1PreQueryTrigger extends ExternalConnectionPreQueryTrigger impleme
 		
 		
 		RepositoryHelper helper = new RepositoryHelper(registry);
-		sc = helper.checkSearchParam("parentId",searchCriteria);
+		sc = helper.checkSearchParam(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
 		if (sc != null) {
-			sc.setName("getHash().get(:fld)");
+			Q1 q1 = (Q1) sc.getValue();
+			SearchCriteria s = new SearchCriteria();
+			s.setName("parentId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(q1.getObjId());
+			searchCriteria.add(s);
 		}
 	}
 
 	@Override
 	public void fixParameters(Query query) {
-		query.setVariable("fld", "parentId");
 	}	
 }
 

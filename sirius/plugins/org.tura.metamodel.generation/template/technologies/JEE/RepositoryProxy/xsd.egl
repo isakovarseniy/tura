@@ -195,9 +195,14 @@ operation  type::Assosiation isConnectionAnnotationExists(model_mapper){
 
   var entityObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Entity Object"));
   var domainObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Domain Object"));
+  var adapterObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Adapter"));
+  domainObjectSrc = domainObjectSrc or adapterObjectSrc;
+
 
   var entityObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Entity Object"));
   var domainObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Domain Object"));
+  var adapterObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Adapter"));
+  domainObjectTrg = domainObjectTrg or adapterObjectTrg;
   
   if (entityObjectSrc and  entityObjectTrg ){
      return false;
@@ -210,7 +215,7 @@ operation  type::Assosiation isConnectionAnnotationExists(model_mapper){
   if (domainObjectSrc and  entityObjectTrg ){
      return true;
   }
-
+  
   if  (domainObjectSrc and domainObjectTrg and not self.internal){
      return true;
   }

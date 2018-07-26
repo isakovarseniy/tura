@@ -48,6 +48,7 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.Adapter;
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.RepositoryException;
@@ -71,26 +72,37 @@ public abstract class AbstaractSearchService implements SearchProvider {
 	public void setAdapterLoader(AdapterLoader loader) {
 		this.loader = loader;
 	}
+	
+	
+	private boolean isAdapterNeeded(String objectClass){
+		try{
+			Class<?> clazz = Class.forName(objectClass);
+			if (Adapter.class.isAssignableFrom(clazz)){
+				return true;
+			}
+			return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+	}
 
 	public Object find(Object pk, String objectClass) {
 		if (cache != null) {
 			SpaControl control = cache.get(pk);
 			if (control != null) {
-				Object obj = control.getObject();
-				if (obj instanceof AdapterLoader) {
-					return loader.wrapObject(obj);
-				}
 				return control.getObject();
 			} else {
+				boolean needAdpter = isAdapterNeeded(objectClass);
 				Object obj = serviceCall(pk, objectClass);
-				if (obj instanceof AdapterLoader) {
+				if (needAdpter) {
 					return loader.wrapObject(obj);
 				}
 				return obj;
 			}
 		} else {
+			boolean needAdpter = isAdapterNeeded(objectClass);
 			Object obj = serviceCall(pk, objectClass);
-			if (obj instanceof AdapterLoader) {
+			if (needAdpter) {
 				return loader.wrapObject(obj);
 			}
 			return obj;
@@ -99,27 +111,33 @@ public abstract class AbstaractSearchService implements SearchProvider {
 
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
+		boolean needAdpter = isAdapterNeeded(objectClass);
 		SearchResult result = serviceCall(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 		List<Object> list = new ArrayList<>();
 		for (Object obj : result.getSearchResult()) {
-			Object pk = mapper.getPrimaryKey(obj);
+			Object pk = null;
+			if (needAdpter){
+				pk = mapper.getPrimaryKey( loader.wrapObject(obj));
+			}else{
+				pk = mapper.getPrimaryKey(obj);
+			}
 			if (cache != null) {
 				SpaControl control = cache.get(pk);
 				if (control != null) {
-					Object o = control.getObject();
-					if (o instanceof AdapterLoader) {
-						o = loader.wrapObject(obj);
-					}
-					list.add(o);
+					list.add(control.getObject());
+					continue;
 				} else {
-					if (obj instanceof AdapterLoader) {
+					if (needAdpter) {
 						list.add(loader.wrapObject(obj));
+						continue;
 					}
 					list.add(obj);
+					continue;
 				}
 			} else {
-				if (obj instanceof AdapterLoader) {
+				if (needAdpter) {
 					list.add(loader.wrapObject(obj));
+					continue;
 				}
 				list.add(obj);
 			}

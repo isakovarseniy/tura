@@ -81,10 +81,10 @@ public class CRUDService implements CRUDProvider{
 	
 	
 	private void insert(SpaControl control) throws Exception {
-		 Map<Object,Object> h = SearchService.base.get(control.getObject().getClass().getName());
+		 Map<Object,Object> h = SearchService.base.get(control.getType());
 		 if (h == null){
 			 h = new HashMap<>();
-			 SearchService.base.put(control.getObject().getClass().getName(), h);
+			 SearchService.base.put(control.getType(), h);
 		 }
 		 Object obj = h.get(control.getKey());
 		 if (obj != null) {
@@ -101,7 +101,7 @@ public class CRUDService implements CRUDProvider{
 	}
 	
 	private void update(SpaControl control) throws Exception {
-		 Map<Object,Object> h = SearchService.base.get(control.getObject().getClass().getName());
+		 Map<Object,Object> h = SearchService.base.get(control.getType());
 		 Object obj = h.get(control.getKey());
 		 if (obj == null) {
 			 throw new Exception("Could not find an object");
@@ -116,7 +116,7 @@ public class CRUDService implements CRUDProvider{
 	}
 
 	private void delete(SpaControl control) throws Exception {
-		 Map<Object,Object> h = SearchService.base.get(control.getObject().getClass().getName());
+		 Map<Object,Object> h = SearchService.base.get(control.getType());
 		 Object obj = h.get(control.getKey());
 		 if (obj == null) {
 			 throw new Exception("Could not find an object to delete");

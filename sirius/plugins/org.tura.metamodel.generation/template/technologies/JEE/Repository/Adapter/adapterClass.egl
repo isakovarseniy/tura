@@ -14,9 +14,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 package [%=tp.~package%];
 
 
-public abstract class  [%=tp.~class%] {
+public abstract class  [%=tp.~class%] implements org.tura.platform.repository.core.Adapter{
 
 	public abstract Object getObject( String event);
+	public String getObjectType(){
+	          return "[%=tp.~package%].[%=tp.~class%]";
+	}
 
 [%
     

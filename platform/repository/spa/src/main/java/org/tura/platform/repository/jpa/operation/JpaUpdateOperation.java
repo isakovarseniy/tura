@@ -82,7 +82,7 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
 			JpaSearchService sp = (JpaSearchService) this.providerHash.get(className);
 			Object object = sp.find(getPk(), getClassName());
 			String name = "set" + WordUtils.capitalize(getProperty());
-			Method m = object.getClass().getDeclaredMethod(name, getValue().getClass());
+			Method m = object.getClass().getMethod(name, getValue().getClass());
 			m.invoke(object, getValue());
 
 			this.knownObjects.add(getClassName());

@@ -42,10 +42,10 @@ public class PersistanceRelationBuilder {
 			String detailProperty) throws Exception {
 
 		String masterMethodName = "get" + WordUtils.capitalize(masterProperty);
-		Method masterMethod = masterClazz.getDeclaredMethod(masterMethodName);
+		Method masterMethod = masterClazz.getMethod(masterMethodName);
 
 		String detailMethodName = "get" + WordUtils.capitalize(detailProperty);
-		Method detailMethod = detailClazz.getDeclaredMethod(detailMethodName);
+		Method detailMethod = detailClazz.getMethod(detailMethodName);
 
 		boolean masterIsListResult = false;
 		Type returnType = masterMethod.getGenericReturnType();
@@ -90,7 +90,7 @@ public class PersistanceRelationBuilder {
 	public static RelOperation build(Class<?> masterClazz, String masterProperty) throws Exception {
 		
 		String masterMethodName = "get" + WordUtils.capitalize(masterProperty);
-		Method masterMethod = masterClazz.getDeclaredMethod(masterMethodName);
+		Method masterMethod = masterClazz.getMethod(masterMethodName);
 		Connection connection = masterMethod.getAnnotation(Connection.class);
 		Association association = masterMethod.getAnnotation(Association.class);
 		if (connection != null ){

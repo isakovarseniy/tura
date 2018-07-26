@@ -21,6 +21,8 @@
  */
 package org.tura.platform.repository.spa;
 
+import org.tura.platform.repository.core.Adapter;
+
 public class SpaControl implements Comparable<SpaControl>{
 	
 	private OperationLevel level;
@@ -35,6 +37,9 @@ public class SpaControl implements Comparable<SpaControl>{
 		this.key = key;
 		this.level = level;
 		this.type = object.getClass().getName();
+		if (object instanceof Adapter){
+			this.type = ((Adapter)object).getObjectType();
+		}
 	}
 	
 	

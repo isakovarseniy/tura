@@ -23,13 +23,15 @@ package org.tura.platform.repository.mixed.test;
 
 import org.tura.jpa.test.W1;
 import org.tura.jpa.test.W2;
+import org.tura.platform.repository.core.Adapter;
 
-public class W2Adapter extends W2 {
+public class W2Adapter extends W2 implements Adapter{
 	
 	private W2Source w2Source;
 	public W2Adapter( Object obj){
 		this.w2Source = (W2Source) obj;
 	    w1DirectMapping = false;
+	    objIdDirectMapping = false;
 		
 	}
 	
@@ -44,13 +46,12 @@ public class W2Adapter extends W2 {
 
 	@Override
 	protected Long delegateGetObjId() {
-		throw new RuntimeException();
+		return (Long) w2Source.getHash().get("objId");
 	}
 
 	@Override
 	protected void delegateSetObjId(Long objId) {
-		throw new RuntimeException();
-		
+		 w2Source.getHash().put("objId", objId);
 	}
 
 	@Override
@@ -62,6 +63,11 @@ public class W2Adapter extends W2 {
 	protected void delegateSetW1(W1 w1) {
 		W1Adapter w = (W1Adapter) w1;
 		w2Source.getHash().put("W1",w.getObj());
+	}
+
+	@Override
+	public String getObjectType() {
+		return W2.class.getName();
 	}
 
 

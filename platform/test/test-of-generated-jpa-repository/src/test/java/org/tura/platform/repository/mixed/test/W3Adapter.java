@@ -23,12 +23,15 @@ package org.tura.platform.repository.mixed.test;
 
 import org.tura.jpa.test.W1;
 import org.tura.jpa.test.W3;
+import org.tura.platform.repository.core.Adapter;
 
-public class W3Adapter extends W3{
+public class W3Adapter extends W3 implements Adapter{
 
 	private W3Source w3Source;
 	public W3Adapter( Object obj){
 		this.w3Source = (W3Source) obj;
+		objIdDirectMapping = false;
+		w1DirectMapping = false;
 	}
 	
 	public W3Source getObj() {
@@ -42,12 +45,12 @@ public class W3Adapter extends W3{
 
 	@Override
 	protected Long delegateGetObjId() {
-        throw new RuntimeException();
+		return (Long) w3Source.getHash().get("objId");
 	}
 
 	@Override
 	protected void delegateSetObjId(Long objId) {
-        throw new RuntimeException();
+		 w3Source.getHash().put("objId", objId);
 	}
 
 	@Override
@@ -59,6 +62,11 @@ public class W3Adapter extends W3{
 	protected void delegateSetW1(W1 w1) {
 		W1Adapter w = (W1Adapter) w1;
 		w3Source.getHash().put("W1",w.getObj());
+	}
+
+	@Override
+	public String getObjectType() {
+		return null;
 	}
 
 

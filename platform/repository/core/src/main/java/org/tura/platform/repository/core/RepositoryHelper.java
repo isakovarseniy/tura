@@ -157,16 +157,19 @@ public class RepositoryHelper {
 	}
 
 	public Object getPersistancePrimaryKey(Object persistanceObject) throws RepositoryException {
-		String repositoryClass = registry.findRepositoryClass(persistanceObject.getClass().getName());
-		return registry.findMapper(persistanceObject.getClass().getName(), repositoryClass)
-				.getPrimaryKey(persistanceObject);
+		String persistanceType = persistanceObject.getClass().getName();
+		if (persistanceObject instanceof Adapter){
+			persistanceType = ((Adapter)persistanceObject).getObjectType();
+		}
+		String repositoryClass = registry.findRepositoryClass(persistanceType);
+		return registry.findMapper(persistanceType, repositoryClass).getPrimaryKey(persistanceObject);
 	}
 
 	public List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
 		final List<Method> methods = new ArrayList<Method>();
 		Class<?> klass = type;
 		while (klass != Object.class) {
-			final List<Method> allMethods = new ArrayList<Method>(Arrays.asList(klass.getDeclaredMethods()));
+			final List<Method> allMethods = new ArrayList<Method>(Arrays.asList(klass.getMethods()));
 			for (final Method method : allMethods) {
 				if (method.isAnnotationPresent(annotation)) {
 					methods.add(method);
@@ -204,7 +207,7 @@ public class RepositoryHelper {
 
 		if ("One2Many".equals(relationType)) {
 			String methodName = "get" + WordUtils.capitalize((String) property);
-			Method m = persistenceObject.getClass().getDeclaredMethod(methodName);
+			Method m = persistenceObject.getClass().getMethod(methodName);
 			if (findAnnotationType(m)) {
 				relationType = "One2Many";
 			} else {

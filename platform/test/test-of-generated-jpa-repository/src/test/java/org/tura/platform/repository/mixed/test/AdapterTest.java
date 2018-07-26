@@ -36,6 +36,7 @@ import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -56,6 +57,8 @@ import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.Q1;
+import objects.test.serialazable.jpa.Q2;
+import objects.test.serialazable.jpa.Q3;
 import objects.test.serialazable.jpa.W1;
 import objects.test.serialazable.jpa.W2;
 import objects.test.serialazable.jpa.W3;
@@ -179,7 +182,6 @@ public class AdapterTest {
 			W1 w1 = (W1) repository.create(W1.class.getName());
 			
 			repository.insert(o1, Q1.class.getName());
-			repository.applyChanges(null);
 			
 			W2 w2 = (W2) repository.create(W2.class.getName());
 			W3 w3 = (W3) repository.create(W3.class.getName());
@@ -198,10 +200,71 @@ public class AdapterTest {
 			
 			assertEquals(1, result.getSearchResult().size());
 			
+			o1 = (Q1) result.getSearchResult().get(0);
+			
+			w2 = o1.getW1().getW2();
+			
+			Q2 q2 = (Q2) repository.create(Q2.class.getName());
+			
+			w2.setQ2(q2);
+			
+			w3 = o1.getW1().getW3().get(0);
+			
+			Q3 q3 = (Q3) repository.create(Q3.class.getName());
+			
+			w3.setQ3(q3);
+			
+			repository.applyChanges(null);
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
+	
+	@Test
+	@Ignore
+	public void twoDifferentPersistenceProvidersObjectTest1() {
+//Make it works with containment objects between Q1 and W1
+//Or we can generate datacontrol in specific way
+//to execute 		repository.insert(w1, W1.class.getName());
+//Actually should wokr
+ 		
+		try {
+			ProxyRepository repository = getRepository();
+			
+			Q1 o1 = (Q1) repository.create(Q1.class.getName());
+			W1 w1 = (W1) repository.create(W1.class.getName());
+			
+			W2 w2 = (W2) repository.create(W2.class.getName());
+			W3 w3 = (W3) repository.create(W3.class.getName());
+
+			w1.setW2(w2);
+			w1.getW3().add(w3);
+
+			repository.insert(o1, Q1.class.getName());
+			repository.insert(w1, W1.class.getName());
+
+			o1.setW1(w1);
+
+			
+			repository.applyChanges(null);
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q1.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
 	
 }

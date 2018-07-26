@@ -384,6 +384,7 @@
             <hints uid="31c5ffec-212d-455b-b2ff-2b5f104b7400" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <hints uid="552ab1f5-73f2-45f9-b2b4-24c4c770581f" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="9379af2d-cb7e-427b-bca4-54bc3a276534" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <hints uid="1da25370-2992-4dd6-875e-3ecd13e642bf" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="7cb48e41-65d4-45d5-b623-dcaafe6eef0b" name="REST artifacts">
@@ -1206,6 +1207,7 @@
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
+          <types xsi:type="tura.type:Type" uid="9e7e7a8d-b69d-4310-8b95-88e627edea6f" name="Adapter"/>
         </repositoryPackages>
         <repositoryPackages uid="8b2f19ce-5825-4dfa-9cbc-38cf930f1eb8" name="Additioal Libraries">
           <types xsi:type="tura.type:Type" uid="62208057-97e3-47b4-bf8e-15b72980f8fe" name="Unit Test"/>
@@ -1988,6 +1990,11 @@
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Data control commands"/>
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Search criteria"/>
+                          </queries>
+                          <queries uid="c0ae85be-f033-4a4b-b66e-dc30449cf025" name="Query class" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Data control commands"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Adapter"/>
                           </queries>
                         </mappers>
                         <mappers uid="8af2086a-e7d3-4a93-8b75-2d992d5f9a84" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-spa/builder.sh">
@@ -2890,6 +2897,7 @@
                 <mapper uid="4b93b91d-9c85-4c11-b2bc-b3a408a5c625">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="aa1411cb-972d-4562-b071-f98bc59ae86f" mappedToPackageName="org.tura.jpa.test" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="3b097b09-0634-4995-88fd-d29f08a6dd3f" mappedToPackageName="org.tura.platform.datacontrol.commons" mappedToClassName="SearchCriteria" artifactId="commons" groupId="org.tura.platform.datacontrol" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="9e7e7a8d-b69d-4310-8b95-88e627edea6f" uid="a091863d-974b-4e55-95c9-8e2f4a4df1dd" mappedToPackageName="org.tura.platform.repository.core" mappedToClassName="Adapter" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>

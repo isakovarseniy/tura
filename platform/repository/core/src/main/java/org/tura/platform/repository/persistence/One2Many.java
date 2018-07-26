@@ -34,12 +34,12 @@ public class One2Many implements RelOperation{
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
 		String name = "get"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
+		Method m = master.getClass().getMethod(name, new Class<?>[]{} );
 		List list = (List) m.invoke(master, new Object[]{});
 		if (list == null){
 			list = new ArrayList<>();
 			name = "set"+WordUtils.capitalize(property);
-			m = master.getClass().getDeclaredMethod(name, Collection.class );
+			m = master.getClass().getMethod(name, Collection.class );
 			m.invoke(master, list);
 		}
 		list.add(detail);
@@ -50,7 +50,7 @@ public class One2Many implements RelOperation{
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		String name = "get"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
+		Method m = master.getClass().getMethod(name, new Class<?>[]{} );
 		List list = (List) m.invoke(master, new Object[]{});
 		list.remove(detail);
 		
@@ -60,7 +60,7 @@ public class One2Many implements RelOperation{
 	@Override
 	public List getChildren(Object object, String property) throws Exception {
 		String methodName = "get"+WordUtils.capitalize(property);
-		Method method = object.getClass().getDeclaredMethod(methodName, new Class[]{});
+		Method method = object.getClass().getMethod(methodName, new Class[]{});
 		
 		List list = (List) method.invoke(object);
 		if (list == null){

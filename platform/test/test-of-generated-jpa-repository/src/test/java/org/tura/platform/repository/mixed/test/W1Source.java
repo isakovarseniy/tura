@@ -42,8 +42,10 @@ public class W1Source {
 	public void setHash(Map<String, Object> hash) {
 		this.hash = hash;
 	}
+	
+	public Long getParentId(){
+		return (Long) hash.get("parentId");
+	}
 
-	
-	
 	
 }

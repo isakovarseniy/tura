@@ -56,11 +56,11 @@ public class ConnectionProcessor implements RelOperation{
 		
 		for ( Link lnk : connection.links()) {
 			String srcName = "get"+WordUtils.capitalize(lnk.field1());
-			Method srcM = master.getClass().getDeclaredMethod(srcName, new Class<?>[]{} );
+			Method srcM = master.getClass().getMethod(srcName, new Class<?>[]{} );
 			Object value = srcM.invoke(master);
 			
 			String trgName = "set"+WordUtils.capitalize(lnk.field2());
-			Method trgM = detail.getClass().getDeclaredMethod(trgName, new Class<?>[]{value.getClass()});
+			Method trgM = detail.getClass().getMethod(trgName, new Class<?>[]{value.getClass()});
 			
 			trgM.invoke(detail, value);
 			
@@ -76,10 +76,10 @@ public class ConnectionProcessor implements RelOperation{
 		
 		for ( Link lnk : connection.links()) {
 			String trgGetName = "get"+WordUtils.capitalize(lnk.field1());
-			Method trgGetM = master.getClass().getDeclaredMethod(trgGetName, new Class<?>[]{} );
+			Method trgGetM = master.getClass().getMethod(trgGetName, new Class<?>[]{} );
 			
 			String trgSetName = "set"+WordUtils.capitalize(lnk.field2());
-			Method trgM = detail.getClass().getDeclaredMethod(trgSetName, new Class<?>[]{trgGetM.getReturnType()});
+			Method trgM = detail.getClass().getMethod(trgSetName, new Class<?>[]{trgGetM.getReturnType()});
 			trgM.invoke(detail, new Object[] {null});
 
 			

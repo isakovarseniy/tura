@@ -100,6 +100,9 @@ public class W1Adapter extends W1 {
 	protected int delegateGetW3Size() {
 		@SuppressWarnings("unchecked")
 		List<W3Source> w3SourceList =    (List<W3Source>) w1Source.getHash().get("W3");
+		if (w3SourceList == null){
+			return 0;
+		}
 		return w3SourceList.size();
 	}
 

@@ -82,7 +82,7 @@ public class One2OneRelationAdapter extends RelationAdapter {
 
 	private Method getLocalSetMethod() throws Exception {
 		String  methodName = "set"+method.getName().substring(3);
-		Method m = clazz.getDeclaredMethod(methodName, method.getReturnType());
+		Method m = clazz.getMethod(methodName, method.getReturnType());
 		return m;
 	}
 	
