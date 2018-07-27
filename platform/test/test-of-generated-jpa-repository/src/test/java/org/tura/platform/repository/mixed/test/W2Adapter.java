@@ -70,5 +70,16 @@ public class W2Adapter extends W2 implements Adapter{
 		return W2.class.getName();
 	}
 
+	
+	@Override
+	protected boolean delegateEquals(Object o) {
+		if (o instanceof W2){
+			Object pk1 =  ((W2) o).getObjId();
+			Object pk2 =  this.getObjId();
+			return pk1.equals(pk2);
+		}
+		return false;
+	}
+
 
 }

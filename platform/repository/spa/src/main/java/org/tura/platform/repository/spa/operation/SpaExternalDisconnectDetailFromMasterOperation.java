@@ -83,6 +83,7 @@ public class SpaExternalDisconnectDetailFromMasterOperation extends SpaDisconnec
 					
 					this.knownObjects.add(masterPersistanceType);
 					this.knownObjects.add(detailPersistanceType);
+					NOP = false;
 					return true;
 				}else{
 					NOP = true;

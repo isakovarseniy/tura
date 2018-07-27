@@ -21,8 +21,7 @@
  */
 package org.tura.platform.repository.mixed.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -216,7 +215,65 @@ public class AdapterTest {
 			
 			repository.applyChanges(null);
 			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q1.class.getName());
 			
+			
+			assertEquals(1, result.getSearchResult().size());
+			
+			o1 = (Q1) result.getSearchResult().get(0);
+			
+			w2 = o1.getW1().getW2();
+			
+			q2 = w2.getQ2();
+			assertNotNull(q2);
+			
+			w3 = o1.getW1().getW3().get(0);
+			
+			q3 =w3.getQ3();	
+			assertNotNull(q3);
+			
+			w2.setQ2(null);
+			o1.getW1().getW3().remove(w3);
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q1.class.getName());
+			
+			o1 = (Q1) result.getSearchResult().get(0);
+			assertNull(o1.getW1().getW2().getQ2() );
+			assertEquals(0,o1.getW1().getW3().size() );
+			
+			
+			o1.setW1(null);
+			
+			repository.applyChanges(null);
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q1.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			
+			o1 = (Q1) result.getSearchResult().get(0);
+			assertNull(o1.getW1());
+			
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q2.class.getName());
+			
+			assertEquals(0, result.getNumberOfRows());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Q3.class.getName());
+			
+			assertEquals(0, result.getNumberOfRows());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, W1.class.getName());
+			
+			assertEquals(1, result.getNumberOfRows());
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

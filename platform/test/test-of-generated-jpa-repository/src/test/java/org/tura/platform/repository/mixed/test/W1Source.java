@@ -43,9 +43,4 @@ public class W1Source {
 		this.hash = hash;
 	}
 	
-	public Long getParentId(){
-		return (Long) hash.get("parentId");
-	}
-
-	
 }

@@ -81,6 +81,7 @@ public class SpaExternalConnectDetailToMasterOperation extends SpaConnectDetailT
 					
 					this.knownObjects.add(masterPersistanceType);
 					this.knownObjects.add(detailPersistanceType);
+					NOP = false;
 					return true;
 				}else{
 					NOP = true;

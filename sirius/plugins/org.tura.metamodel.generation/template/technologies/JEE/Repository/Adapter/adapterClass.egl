@@ -21,6 +21,15 @@ public abstract class  [%=tp.~class%] implements org.tura.platform.repository.co
 	          return "[%=tp.~package%].[%=tp.~class%]";
 	}
 
+    protected abstract boolean delegateEquals(Object o);
+
+    @Override
+    public boolean equals(Object o){
+    	return delegateEquals(o);
+    }
+
+
+
 [%
     
     var type = tp;

@@ -117,5 +117,15 @@ public class W1Adapter extends W1 {
 		return (Long) w1Source.getHash().get("parentId");
 	}
 
+	@Override
+	protected boolean delegateEquals(Object o) {
+		if (o instanceof W1){
+			Object pk1 =  ((W1) o).getObjId();
+			Object pk2 =  this.getObjId();
+			return pk1.equals(pk2);
+		}
+		return false;
+	}
+
 
 }

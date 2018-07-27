@@ -26,20 +26,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.RepositoryHelper;
 
 public class One2One implements RelOperation {
 
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
 		String name = "set"+WordUtils.capitalize(property);
-		Method m = master.getClass().getMethod(name, detail.getClass());
+		Class<?> type = RepositoryHelper.getObjectType(detail);
+		Method m = master.getClass().getMethod(name, type);
 		m.invoke(master, detail);
 	}
 
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		String name = "set"+WordUtils.capitalize(property);
-		Method m = master.getClass().getMethod(name, detail.getClass());
+		Class<?> type = RepositoryHelper.getObjectType(detail);
+		Method m = master.getClass().getMethod(name, type);
 		m.invoke(master, new Object[]{null});
 	}
 

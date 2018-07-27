@@ -110,15 +110,15 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 			Query query = new Query();
 
 			String strQuery = select.toSql(new JOSQLExpressionBuilder());
+			if (preQueryTrigger instanceof WrapperHook) {
+				((WrapperHook)preQueryTrigger).fixParameters(query);
+			}
 			query.parse(strQuery);
 
 			for (String param : select.getParams().keySet()) {
 				query.setVariable(param, select.getParams().get(param));
 			}
 			
-			if (preQueryTrigger instanceof WrapperHook) {
-				((WrapperHook)preQueryTrigger).fixParameters(query);
-			}
 
 			Map<Object, Object> h = base.get(objectClass);
 			if (h != null) {

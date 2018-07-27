@@ -22,6 +22,7 @@
 package org.tura.platform.repository.mixed.test;
 
 import java.util.List;
+import java.util.Map;
 
 import org.josql.Query;
 import org.tura.jpa.test.Q1;
@@ -40,6 +41,11 @@ public class W1PreQueryTrigger extends ExternalConnectionPreQueryTrigger impleme
 	public W1PreQueryTrigger(Registry registry) {
 		super(registry);
 	}
+	
+    public Long getParentId(Map<String,Object> hash) {
+    	return (Long) hash.get ("parentId");
+    	
+    }
 
 	public void preQueryTrigger(List<SearchCriteria> searchCriteria, List<OrderCriteria> order)throws Exception {
 		
@@ -55,7 +61,7 @@ public class W1PreQueryTrigger extends ExternalConnectionPreQueryTrigger impleme
 		if (sc != null) {
 			Q1 q1 = (Q1) sc.getValue();
 			SearchCriteria s = new SearchCriteria();
-			s.setName("parentId");
+			s.setName("getParentId(hash)");
 			s.setComparator(Operator.EQ.name());
 			s.setValue(q1.getObjId());
 			searchCriteria.add(s);
@@ -64,6 +70,7 @@ public class W1PreQueryTrigger extends ExternalConnectionPreQueryTrigger impleme
 
 	@Override
 	public void fixParameters(Query query) {
+		query.addFunctionHandler(this);
 	}	
 }
 

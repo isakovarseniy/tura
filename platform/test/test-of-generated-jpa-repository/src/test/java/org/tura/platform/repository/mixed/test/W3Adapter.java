@@ -25,15 +25,16 @@ import org.tura.jpa.test.W1;
 import org.tura.jpa.test.W3;
 import org.tura.platform.repository.core.Adapter;
 
-public class W3Adapter extends W3 implements Adapter{
+public class W3Adapter extends W3 implements Adapter {
 
 	private W3Source w3Source;
-	public W3Adapter( Object obj){
+
+	public W3Adapter(Object obj) {
 		this.w3Source = (W3Source) obj;
 		objIdDirectMapping = false;
 		w1DirectMapping = false;
 	}
-	
+
 	public W3Source getObj() {
 		return w3Source;
 	}
@@ -50,18 +51,22 @@ public class W3Adapter extends W3 implements Adapter{
 
 	@Override
 	protected void delegateSetObjId(Long objId) {
-		 w3Source.getHash().put("objId", objId);
+		w3Source.getHash().put("objId", objId);
 	}
 
 	@Override
 	protected W1 delegateGetW1() {
-		return  new W1Adapter( w3Source.getHash().get("W1"));
+		return new W1Adapter(w3Source.getHash().get("W1"));
 	}
 
 	@Override
 	protected void delegateSetW1(W1 w1) {
 		W1Adapter w = (W1Adapter) w1;
-		w3Source.getHash().put("W1",w.getObj());
+		if (w1 != null) {
+			w3Source.getHash().put("W1", w.getObj());
+		}else{
+			w3Source.getHash().remove("W1");
+		}
 	}
 
 	@Override
@@ -69,5 +74,14 @@ public class W3Adapter extends W3 implements Adapter{
 		return null;
 	}
 
-
+	@Override
+	protected boolean delegateEquals(Object o) {
+		if (o instanceof W3){
+			Object pk1 =  ((W3) o).getObjId();
+			Object pk2 =  this.getObjId();
+			return pk1.equals(pk2);
+		}
+		return false;
+	}
+	
 }

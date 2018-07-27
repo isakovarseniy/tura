@@ -234,5 +234,18 @@ public class RepositoryHelper {
 		return one2many;
 
 	}
+	
+	public static Class<?> getObjectType( Object obj){
+		if  (obj instanceof Adapter){
+			try {
+				return  Class.forName( ((Adapter) obj).getObjectType());
+			} catch (ClassNotFoundException e) {
+				throw new RuntimeException(e);
+			}
+		}else{
+			return obj.getClass();
+		}
+	}
+	
 
 }
