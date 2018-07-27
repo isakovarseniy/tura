@@ -24,6 +24,9 @@ package org.tura.platform.repository.mixed.test;
 import org.tura.jpa.test.W1;
 import org.tura.jpa.test.W2;
 import org.tura.jpa.test.W3;
+import org.tura.jpa.test.W4;
+import org.tura.jpa.test.W5;
+import org.tura.jpa.test.W6;
 import org.tura.platform.repository.core.AdapterLoader;
 
 
@@ -34,13 +37,22 @@ public class SPAAdapterLoader  implements AdapterLoader{
 		if (W1.class.equals(clazz)){
 			return new W1Adapter(new W1Source());
 		}
-		
 		if (W2.class.equals(clazz)){
 			return new W2Adapter(new W2Source());
 		}
 		if (W3.class.equals(clazz)){
 			return new W3Adapter(new W3Source());
 		}
+		if (W4.class.equals(clazz)){
+			return new W4Adapter(new W4Source());
+		}
+		if (W5.class.equals(clazz)){
+			return new W5Adapter(new W5Source());
+		}
+		if (W6.class.equals(clazz)){
+			return new W6Adapter(new W6Source());
+		}
+		
 		throw new RuntimeException("Unsupportable class "+clazz );
 	}
 
@@ -48,18 +60,24 @@ public class SPAAdapterLoader  implements AdapterLoader{
 	public Object wrapObject(Object obj) {
 		if (obj instanceof W1Source){
 			return new W1Adapter(obj);
-		}else{
-			throw new RuntimeException("Unsupportable class "+obj.getClass().getName() );
 		}
+		if (obj instanceof W4Source){
+			return new W4Adapter(obj);
+		}
+		
+	   throw new RuntimeException("Unsupportable class "+obj.getClass().getName() );
 	}
 
 	@Override
 	public Object unWrapObject(Object obj) {
 		if (obj instanceof W1Adapter){
 			return  ((W1Adapter) obj).getObj();
-		}else{
-			throw new RuntimeException("Unsupportable class "+obj.getClass().getName() );
 		}
+		if (obj instanceof W4Adapter){
+			return  ((W4Adapter) obj).getObj();
+		}
+
+		throw new RuntimeException("Unsupportable class "+obj.getClass().getName() );
 	}
 
 }

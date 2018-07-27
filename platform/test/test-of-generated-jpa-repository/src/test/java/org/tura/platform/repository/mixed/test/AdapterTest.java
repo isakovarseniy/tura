@@ -35,7 +35,6 @@ import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -58,9 +57,13 @@ import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.Q1;
 import objects.test.serialazable.jpa.Q2;
 import objects.test.serialazable.jpa.Q3;
+import objects.test.serialazable.jpa.Q4;
 import objects.test.serialazable.jpa.W1;
 import objects.test.serialazable.jpa.W2;
 import objects.test.serialazable.jpa.W3;
+import objects.test.serialazable.jpa.W4;
+import objects.test.serialazable.jpa.W5;
+import objects.test.serialazable.jpa.W6;
 
 public class AdapterTest {
 
@@ -156,7 +159,12 @@ public class AdapterTest {
         spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W1.class, new CRUDService());
         spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W1.class, new SearchService(registry,spaRegistry));
 
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W4.class, new CRUDService());
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W4.class, new SearchService(registry,spaRegistry));
+
         spaRegistry.getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.W1.class,  new W1PreQueryTrigger(registry));
+        spaRegistry.getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.W4.class,  new W4PreQueryTrigger(registry));
+        
         
         spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W1.class.getName(), new SPAAdapterLoader());
         registry.addLoader(W1.class.getName(), new SPAAdapterLoader());
@@ -167,6 +175,14 @@ public class AdapterTest {
         spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W3.class.getName(), new SPAAdapterLoader());
         registry.addLoader(W3.class.getName(), new SPAAdapterLoader());
 
+        spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W4.class.getName(), new SPAAdapterLoader());
+        registry.addLoader(W4.class.getName(), new SPAAdapterLoader());
+
+        spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W5.class.getName(), new SPAAdapterLoader());
+        registry.addLoader(W5.class.getName(), new SPAAdapterLoader());
+
+        spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W6.class.getName(), new SPAAdapterLoader());
+        registry.addLoader(W6.class.getName(), new SPAAdapterLoader());
         
         return new ProxyRepository(repository, stackProvider);
 
@@ -282,40 +298,35 @@ public class AdapterTest {
 	}
 	
 	@Test
-	@Ignore
 	public void twoDifferentPersistenceProvidersObjectTest1() {
-//Make it works with containment objects between Q1 and W1
-//Or we can generate datacontrol in specific way
-//to execute 		repository.insert(w1, W1.class.getName());
-//Actually should wokr
- 		
 		try {
 			ProxyRepository repository = getRepository();
 			
-			Q1 o1 = (Q1) repository.create(Q1.class.getName());
-			W1 w1 = (W1) repository.create(W1.class.getName());
+			Q4 o4 = (Q4) repository.create(Q4.class.getName());
+			W4 w4 = (W4) repository.create(W4.class.getName());
 			
-			W2 w2 = (W2) repository.create(W2.class.getName());
-			W3 w3 = (W3) repository.create(W3.class.getName());
+			W5 w5 = (W5) repository.create(W5.class.getName());
+			W6 w6 = (W6) repository.create(W6.class.getName());
 
-			w1.setW2(w2);
-			w1.getW3().add(w3);
+			w4.setW5(w5);
+			w4.getW6().add(w6);
+			o4.setW4(w4);
 
-			repository.insert(o1, Q1.class.getName());
-			repository.insert(w1, W1.class.getName());
-
-			o1.setW1(w1);
+			repository.insert(o4, Q4.class.getName());
 
 			
 			repository.applyChanges(null);
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
-					100, Q1.class.getName());
+					100, Q4.class.getName());
 			
 			assertEquals(1, result.getSearchResult().size());
-			
-			
-			
+			o4 = (Q4) result.getSearchResult().get(0);
+			w4 = o4.getW4();
+			assertNotNull(w4);
+			assertNotNull(w4.getW5());
+			assertEquals(1, w4.getW6().size());
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
