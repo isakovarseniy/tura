@@ -83,7 +83,7 @@ public class JbpmSearchServiceTest {
 			SalesAnalyzerProcessInstance instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId, SalesAnalyzerProcessInstance.class.getName());
 			assertEquals(procesInsatnceId, instance.getId());
 			assertEquals(1, instance.getActiveUserTasks().size());
-			SalesAnalyzerTaskInstance ti = instance.getActiveUserTasks().get(0);
+			SalesAnalyzerTaskInstance ti = instance.getActiveUserTasks().iterator().next();
 			assertNotNull(ti.getId());
 
 			service = new JbpmSearchService(client, provider);
@@ -94,7 +94,7 @@ public class JbpmSearchServiceTest {
 			instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId1, SalesAnalyzerProcessInstance.class.getName());
 			assertEquals(procesInsatnceId1, instance.getId());
 			assertEquals(1, instance.getActiveUserTasks().size());
-			ti = instance.getActiveUserTasks().get(0);
+			ti = instance.getActiveUserTasks().iterator().next();
 			assertNotNull(ti.getId());
 			
 			pref.setSuperAdmin(false);

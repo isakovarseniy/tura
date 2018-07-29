@@ -1,5 +1,6 @@
 package sales.analyzer.api.model.impl;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class SalesAnalyzerProcessInstance {
 	private Long parentId;
 
 	@XmlElement(name = "active-user-tasks")
-	private List<SalesAnalyzerTaskInstance> activeUserTasks;
+	private Collection<SalesAnalyzerTaskInstance> activeUserTasks;
 
 	@XmlElement(name = "process-instance-variables")
 	private Map<String, Object> variables;
@@ -151,11 +152,11 @@ public class SalesAnalyzerProcessInstance {
 		this.variables = variables;
 	}
 
-	public List<SalesAnalyzerTaskInstance> getActiveUserTasks() {
+	public Collection<SalesAnalyzerTaskInstance> getActiveUserTasks() {
 		return activeUserTasks;
 	}
 
-	public void setActiveUserTasks(List<SalesAnalyzerTaskInstance> activeUserTasks) {
+	public void setActiveUserTasks(Collection<SalesAnalyzerTaskInstance> activeUserTasks) {
 		this.activeUserTasks = activeUserTasks;
 	}
 
