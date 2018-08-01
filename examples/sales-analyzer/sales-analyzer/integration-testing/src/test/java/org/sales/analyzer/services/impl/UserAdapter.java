@@ -65,6 +65,19 @@ public class UserAdapter extends User{
 	}
 
 	@Override
+	protected String delegateGetUsername() {
+		throw new RuntimeException("Unsupported call");
+	}
+
+
+	@Override
+	protected void delegateSetUsername(String username) {
+		throw new RuntimeException("Unsupported call");
+	}
+	
+	
+	
+	@Override
 	protected void delegateAddRoleReference(int i, RoleRef obj) {
 		userRepresentation.getRealmRoles().add(obj.getRoleRef());
 	}
@@ -94,6 +107,8 @@ public class UserAdapter extends User{
 		}
 		return userRepresentation.getRealmRoles().size();
 	}
+
+
 
 }
 
