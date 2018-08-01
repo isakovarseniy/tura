@@ -36,6 +36,8 @@ ${start}${percent}
        [%
          for(type in typeCollection){
 		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"SPA Object"))
+		             or 
 		             type.findClassifier(util.getHint(model_mapper,"Domain Object")) 
 		             or
                      type.findClassifier(util.getHint(model_mapper,"Adapter"))       
@@ -53,6 +55,8 @@ ${start}${percent}
        [%
          for(type in typeCollection){
 		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"SPA Object"))
+		             or 
 		             type.findClassifier(util.getHint(model_mapper,"Domain Object")) 
 		             or
                      type.findClassifier(util.getHint(model_mapper,"Adapter"))       

@@ -65,6 +65,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         }
 
        if (
+		type.findClassifier(util.getHint(model_mapper,"SPA Object"))
+		or 
          type.findClassifier(util.getHint(model_mapper,"Domain Object"))  
        or 
          type.findClassifier(util.getHint(model_mapper,"Adapter"))       

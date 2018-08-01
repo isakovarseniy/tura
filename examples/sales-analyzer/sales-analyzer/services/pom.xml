@@ -58,6 +58,14 @@
 			<artifactId>resteasy-jackson2-provider</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>keycloak-persistence-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 

@@ -13,6 +13,8 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
+import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
+import org.tura.salesanalyzer.persistence.keycloak.User;
 
 import sales.analyzer.process.commons.Constants;
 
@@ -54,7 +56,7 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 	@Override
 	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
-		if (UserRepresentation.class.getName().equals(objectClass)) {
+		if (User.class.getName().equals(objectClass)) {
 			RepositoryHelper helper = new RepositoryHelper(null);
 
 			String username = null;

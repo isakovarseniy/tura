@@ -164,6 +164,55 @@
 			<artifactId>api-extension</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>db-persistence-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>jpa-persistence-repository</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>keycloak-persistence-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>proxy-repository</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>serialized-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>spa-persistence-repository</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 
 
 	</dependencies>

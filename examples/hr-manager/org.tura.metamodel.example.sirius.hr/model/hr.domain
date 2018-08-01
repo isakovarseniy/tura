@@ -106,6 +106,7 @@
             <hints uid="dd94bc3d-34bc-4670-b0c4-1e00aef04745" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <hints uid="252afd5b-810b-4d81-b363-b94d29cba704" name="OneWayAssociation" hint="092db6fe-1f0f-4f02-9ed8-c355d477f214"/>
             <hints uid="506df12b-04c8-4de0-9604-ce075d440e57" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
+            <hints uid="738f3f3f-578c-4480-bda8-2ebc9b9ba44e" name="SPA Object" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
@@ -465,6 +466,7 @@
         <techLeafs uid="8799e862-e16e-4455-84a6-d3169ada402e" name="Repository">
           <hints uid="092db6fe-1f0f-4f02-9ed8-c355d477f214" name="OneWayAssociation"/>
           <hints uid="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9" name="Adapter"/>
+          <hints uid="a33bf8db-5036-434d-9670-c89e8aa7ef73" name="SPA Object"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
         </techLeafs>
@@ -1646,10 +1648,13 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e4aed0d2-adad-49c3-8017-ece84ca52b5c" name="id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="df4e2cf4-ed85-4ae3-9f9f-bc08d2b42f60" name="firstName"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="48dc0662-e8d6-4f72-beca-35c5ecfc58a5" name="lastName"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="07b7c794-d067-4724-8fb4-cede094c35ac" name="username"/>
           </types>
           <types xsi:type="tura.type:Type" uid="6f829f95-55fd-4dfe-b375-05f257bb2802" name="Role">
             <classifiers uid="9d43215f-3af0-46a8-a96e-be31f18791d8" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <classifiers uid="7ee2fdff-ff7a-416c-9890-ccfe69ccef3e" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d777ee00-48b7-4ef6-adf7-1017e7707670" name="id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e0888675-798b-4fa6-85d4-eb112b307250" name="name"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="4393d2b0-f16e-4f42-be7e-d9bf176518d9" typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
           <types xsi:type="tura.type:Type" uid="7a82cb48-e500-41cb-8021-7de9210e317a" name="Role reference">

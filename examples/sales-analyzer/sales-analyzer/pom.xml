@@ -27,6 +27,8 @@
 		<tura.platform.version>2.0</tura.platform.version>
 		<reasteasy.version>3.0.8.Final</reasteasy.version>
 		<resteasy-jackson2-provider>3.0.12.Final</resteasy-jackson2-provider>
+		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
+		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
 	</properties>
 
 	<repositories>
@@ -53,6 +55,21 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>${version.hibernate-jpa-2.1-api}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${version.hibernate-entitymanager}</version>
+			</dependency>
+
+
 
 			<dependency>
 				<groupId>org.jboss.resteasy</groupId>
