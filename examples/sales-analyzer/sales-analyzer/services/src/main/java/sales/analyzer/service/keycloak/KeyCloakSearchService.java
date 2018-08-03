@@ -13,7 +13,6 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
-import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
 
 import sales.analyzer.process.commons.Constants;

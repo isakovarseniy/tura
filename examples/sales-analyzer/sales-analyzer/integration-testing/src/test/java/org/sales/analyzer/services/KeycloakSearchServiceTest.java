@@ -39,6 +39,7 @@ import org.tura.salesanalyzer.serialized.keycloak.InitSPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 
+import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
 @RunWith(Arquillian.class)
@@ -134,9 +135,14 @@ public class KeycloakSearchServiceTest {
 				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
 				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
 
+		KeyCloakCRUDService crud = new KeyCloakCRUDService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
+				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
+				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
+		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
-		// spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,
-		// new CRUDService());
+		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,crud);
+		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(RoleRepresentation.class,crud);
+		
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addSearchProvider(org.tura.salesanalyzer.persistence.keycloak.User.class, ks);
 		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, ks);
