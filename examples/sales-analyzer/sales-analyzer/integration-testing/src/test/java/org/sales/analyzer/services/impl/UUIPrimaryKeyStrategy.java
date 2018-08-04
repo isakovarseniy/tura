@@ -21,8 +21,13 @@
  */
 package org.sales.analyzer.services.impl;
 
+import java.util.UUID;
+
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
+import org.tura.salesanalyzer.serialized.keycloak.Role;
+import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
+import org.tura.salesanalyzer.serialized.keycloak.User;
 
 public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 	public static long id =-100L;
@@ -31,6 +36,20 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 	public void generatePk(Object o) {
 		try{
 			
+		if (o instanceof Role) {
+			((Role)o).setId(UUID.randomUUID().toString());
+			return;
+		}
+		if (o instanceof RoleReference) {
+			((RoleReference)o).setId(UUID.randomUUID().toString());
+			return;
+		}
+		if (o instanceof User) {
+			((User)o).setId(UUID.randomUUID().toString());
+			return;
+		}
+		
+		
 		Reflection.callTyped(o, "setObjId", Long.class,id);
 		id= id+1;
 		

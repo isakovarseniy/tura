@@ -41,7 +41,7 @@ public class RoleRefAdapter extends RoleRef {
 
 	@Override
 	protected void delegateSetId(String id) {
-		throw new RuntimeException("Prohibited to change primary key");
+		this.role=id;
 	}
 
 	@Override

@@ -28,6 +28,7 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
@@ -95,12 +96,14 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			Repository provider = findProvider(repositoryClass);
 			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
 
+			List<SearchCriteria> newSearch = prepareSearchCriteria(searchCriteria);
+			
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
 			if (preQueryTrigger != null) {
-				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
+				preQueryTrigger.preQueryTrigger(newSearch, orderCriteria);
 			}
 
-			SearchResult result = provider.find(searchCriteria, orderCriteria, startIndex, endIndex,
+			SearchResult result = provider.find(newSearch, orderCriteria, startIndex, endIndex,
 					persistanceClass.getName());
 
 			List<Object> records = new ArrayList<>();
@@ -128,6 +131,17 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		}
 
 	}
+	
+	private List<SearchCriteria> prepareSearchCriteria(List<SearchCriteria> search) {
+		List<SearchCriteria> newSearch = new ArrayList<>();
+		for (SearchCriteria sc : search){
+			if (sc.getParentClass() == null && sc.getProperty() == null){
+				newSearch.add(sc);
+			}
+		}
+		
+		return newSearch;
+	}	
 
 	@SuppressWarnings("rawtypes")
 	public void applyChanges(List changes) throws RepositoryException {

@@ -27,6 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "SearchCriteria")
 public class SearchCriteria {
 
+	private String parentClass;
+	private String property; 
 	private String name;
 	private String comparator;
 	private Object value;
@@ -72,5 +74,23 @@ public class SearchCriteria {
 	}
 	public void setComparator(String comparator) {
 		this.comparator = comparator;
+	}
+
+	@XmlElement
+	public String getParentClass() {
+		return parentClass;
+	}
+
+	public void setParentClass(String parentClass) {
+		this.parentClass = parentClass;
+	}
+
+	@XmlElement
+	public String getProperty() {
+		return property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
 	}
 }

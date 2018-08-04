@@ -1,5 +1,7 @@
 package org.sales.analyzer.services.impl;
 
+import java.util.ArrayList;
+
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
@@ -79,6 +81,9 @@ public class UserAdapter extends User{
 	
 	@Override
 	protected void delegateAddRoleReference(int i, RoleRef obj) {
+		if (userRepresentation.getRealmRoles() == null) {
+			userRepresentation.setRealmRoles(new ArrayList<>());
+		}
 		userRepresentation.getRealmRoles().add(obj.getRoleRef());
 	}
 

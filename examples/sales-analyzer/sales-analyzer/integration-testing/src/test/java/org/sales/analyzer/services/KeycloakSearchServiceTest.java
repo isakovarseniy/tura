@@ -1,9 +1,12 @@
 package org.sales.analyzer.services;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -37,12 +40,16 @@ import org.tura.salesanalyzer.serialized.db.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
 import org.tura.salesanalyzer.serialized.keycloak.InitSPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
+import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 
+import com.octo.java.sql.exp.Operator;
+
+import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
@@ -149,6 +156,9 @@ public class KeycloakSearchServiceTest {
 
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader());
+		spaRegistry.getRegistry("spa-persistence-repository")
+		        .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader());
+
 		registry.addLoader(User.class.getName(), new SPAAdapterLoader());
 
 		return new ProxyRepository(repository, stackProvider);
@@ -161,6 +171,7 @@ public class KeycloakSearchServiceTest {
 		try {
 
 			ProxyRepository repository = getRepository();
+			@SuppressWarnings("unused")
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, User.class.getName());
 
@@ -178,6 +189,67 @@ public class KeycloakSearchServiceTest {
 		}
 	}
 
+
+	@Test
+//	@RunAsClient
+	public void t0000_createUsersAndRoles() {
+		try {
+
+			ProxyRepository repository = getRepository();
+			Role role = (Role) repository.create(Role.class.getName());
+			String roleName = UUID.randomUUID().toString();
+			role.setName(roleName);
+			repository.insert(role, Role.class.getName());
+			repository.applyChanges(null);
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					Role.class.getName());
+			boolean found = false;
+			for (Object obj : result.getSearchResult()) {
+				role = (Role) obj;
+				if (role.getName().equals(roleName)) {
+					found = true;
+				}
+			}
+			assertTrue(found);
+			
+			User user = (User) repository.create(User.class.getName());
+			String userName = UUID.randomUUID().toString();
+			user.setUsername(userName);
+			repository.insert(user, User.class.getName());
+			repository.applyChanges(null);
+
+			ArrayList<SearchCriteria> search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_USERNAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(userName);
+			search.add(sc);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user =  (User) result.getSearchResult().get(0);
+			assertEquals(userName,user.getUsername());
+			
+			RoleReference roleref = (RoleReference) repository.create(RoleReference.class.getName());
+			user.getRoleReference().add(roleref);
+			roleref.setRole(role);
+			repository.applyChanges(null);
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user =  (User) result.getSearchResult().get(0);
+			assertEquals(userName,user.getUsername());
+			assertEquals(1, user.getRoleReference().size());
+			
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
 	// @Test
 	// @RunAsClient
 	// public void t0000_searchUsers() {
@@ -230,3 +302,4 @@ public class KeycloakSearchServiceTest {
 	// }
 
 }
+

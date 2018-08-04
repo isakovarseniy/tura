@@ -1,5 +1,6 @@
 package sales.analyzer.service.keycloak;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.keycloak.OAuth2Constants;
@@ -42,9 +43,8 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
-		if (UserRepresentation.class.getName().equals(objectClass)) {
+		if (User.class.getName().equals(objectClass)) {
 			return keycloak.realm(managedRealm).users().get((String) pk).toRepresentation();
-
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
 			return keycloak.realm(managedRealm).roles().get((String) pk).toRepresentation();
@@ -57,34 +57,50 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
 		if (User.class.getName().equals(objectClass)) {
 			RepositoryHelper helper = new RepositoryHelper(null);
+			boolean criteria = false;
 
 			String username = null;
 			SearchCriteria sc = helper.checkSearchParam(Constants.VAR_USERNAME, searchCriteria);
 			if (sc != null) {
 				username = (String) sc.getValue();
+				criteria = true;
 			}
 
 			String firstName = null;
 			sc = helper.checkSearchParam(Constants.VAR_FIRSTNAME, searchCriteria);
 			if (sc != null) {
 				firstName = (String) sc.getValue();
+				criteria = true;
 			}
 
 			String lastName = null;
 			sc = helper.checkSearchParam(Constants.VAR_LASTNAME, searchCriteria);
 			if (sc != null) {
 				lastName = (String) sc.getValue();
+				criteria = true;
 			}
 
 			String email = null;
 			sc = helper.checkSearchParam(Constants.VAR_EMAIL, searchCriteria);
 			if (sc != null) {
 				email = (String) sc.getValue();
+				criteria = true;
 			}
-
-			List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
-					email, startIndex, endIndex - startIndex);
-			return new SearchResult(ls, keycloak.realm(managedRealm).users().count());
+			if(criteria) {
+				List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
+						email, 0, 500);
+				ArrayList<UserRepresentation> list =   new ArrayList<UserRepresentation>();
+				int y = Math.min(ls.size(), endIndex);
+				for (int i = startIndex ; i < y; i++) {
+					list.add(ls.get(i));
+				}
+				return new SearchResult(list, ls.size());
+				
+			}else {
+				List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
+						email, startIndex, endIndex-startIndex);
+				return new SearchResult(ls, keycloak.realm(managedRealm).users().count());
+			}
 
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {

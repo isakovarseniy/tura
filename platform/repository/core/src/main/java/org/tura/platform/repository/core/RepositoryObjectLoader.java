@@ -203,6 +203,10 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		List<SearchCriteria> newSearch = new ArrayList<>();
 		for (SearchCriteria sc : search) {
 			if (!PARENT_PERSISTANCE_OBJECT.equals(sc.getName())) {
+				if ( 
+						sc.getParentClass() != null && sc.getProperty() != null
+						&& sc.getParentClass().equals(repositoryObject.getClass().getName()) && sc.getProperty().equals(property)
+                   )	
 				newSearch.add(sc);
 			}
 		}
