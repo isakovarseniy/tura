@@ -37,10 +37,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
           while (1 == 1){
           
 		for ( field in tp.attributes){
+		     field.typeRef.mappingType2XML(recipe,ingredient);
+		
 		     if (type.~skipAttributes.contains(field) and not type.~bindedAttribute.contains(field)){
+		    %] <xs:element name="transient[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=getNamespace(field.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=field.typeRef.~class%]"> [%
+            %]
+	          <xs:annotation>
+				 <xs:appinfo>
+					<annox:annotate>@javax.xml.bind.annotation.XmlTransient</annox:annotate>
+				</xs:appinfo>
+				 <xs:appinfo>
+					<annox:annotate>@com.fasterxml.jackson.annotation.JsonIgnore</annox:annotate>
+				</xs:appinfo>
+			  </xs:annotation>
+              [%
+		     %]</xs:element>[%
+
 		        continue; 
 		     }   
-		    field.typeRef.mappingType2XML(recipe,ingredient);
 		    %] <xs:element name="[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=getNamespace(field.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=field.typeRef.~class%]"/>
 		    [%
 			}

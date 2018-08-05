@@ -10,6 +10,18 @@
  			[%}
  }
  
+ @template
+ operation saveLink (type,skipAttributes, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+        	%][%=outObj%].setTransient[%=util.mergeAndUnCapitalize(field.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]()  );[%
+		     }else{
+		        continue; 
+		     }   
+        }
+ }
+ 
  
 @template
  operation serializerDetails (rel, inObj, outObj){

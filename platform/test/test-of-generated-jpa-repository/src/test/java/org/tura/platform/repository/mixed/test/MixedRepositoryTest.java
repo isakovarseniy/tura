@@ -59,6 +59,7 @@ import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
 import objects.test.serialazable.jpa.A3;
 import objects.test.serialazable.jpa.A4;
+import objects.test.serialazable.jpa.A5;
 import objects.test.serialazable.jpa.B1;
 import objects.test.serialazable.jpa.B2;
 import objects.test.serialazable.jpa.C1;
@@ -70,6 +71,7 @@ import objects.test.serialazable.jpa.JPAObject1;
 import objects.test.serialazable.jpa.JPAObject2;
 import objects.test.serialazable.jpa.JPAObject3;
 import objects.test.serialazable.jpa.JPAObject4;
+import objects.test.serialazable.jpa.P1;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.SPAObject2;
@@ -446,7 +448,27 @@ public class MixedRepositoryTest {
 			assertEquals(f1.getObjId(), f1_.getObjId());
 			assertEquals(f1.getComment(), f1_.getComment());
 			
+			A5 a5 = (A5) repository.create(A5.class.getName());
+			a1.setA5(a5);
 			
+			P1 p1 = (P1) repository.create(P1.class.getName());
+			repository.insert(p1, P1.class.getName());
+			a1.setA5(a5);
+			a5.setP1(p1);
+			
+			repository.applyChanges(null);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,100, DD1.class.getName());
+			dd1_ = (DD1) result.getSearchResult().get(0);
+			a1_ = dd1_.getA1();
+			assertNotNull(a1_.getA5().getP1());
+			assertEquals(p1.getObjId(), a1_.getA5().getP1().getObjId());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,100, P1.class.getName());
+			assertEquals(1, result.getSearchResult().size(), 1);
+			P1 p1_ = (P1) result.getSearchResult().get(0);
+			assertNull( p1_.getA5() );
+			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

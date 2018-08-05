@@ -23,6 +23,7 @@ package org.tura.platform.repository.jpa.operation;
 
 import static com.octo.java.sql.query.Query.c;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -149,6 +150,11 @@ public class JpaSearchService implements SearchProvider {
 			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
 			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
 
+			SearchCriteria sc = helper.extractAndRemove(RepositoryObjectLoader.SKIP_QUERY, searchCriteria);
+			if (sc != null){
+				return new SearchResult(new ArrayList<>(), 0);
+			}
+			
 			List<?> searchResult = findObjectsQuery(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 			long numberOfRows = findNumberOfRowsQuery(searchCriteria, orderCriteria, objectClass);
 

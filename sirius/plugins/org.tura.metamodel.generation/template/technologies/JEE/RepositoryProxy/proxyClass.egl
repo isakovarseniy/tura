@@ -394,6 +394,8 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 			command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 
 	        command.prepare();
+	        object.set[%=hash.get("sourceMethodName")%](null);
+	        
 	        }
 	          if ([%=hash.get("sourceProperty")%] != null){
 	          	org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
@@ -711,6 +713,8 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 			    command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 			    
 		        command.prepare();
+		        object.set[%=hash.get("targetMethodName")%](  null );
+		        
 		        }
 		
 		           if ([%=hash.get("targetProperty")%] != null){

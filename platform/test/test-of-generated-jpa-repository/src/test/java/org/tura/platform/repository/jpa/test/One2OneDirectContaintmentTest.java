@@ -21,8 +21,7 @@
  */
 package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -205,6 +204,7 @@ public class One2OneDirectContaintmentTest {
 			
 			o1 = (One2One1A) result.getSearchResult().get(0);
 			o1.setOne2One1B(null);
+			assertNull(o1.getOne2One1B());
 
 			repository.applyChanges(null);
 			

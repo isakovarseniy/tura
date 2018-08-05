@@ -132,9 +132,11 @@ public class SpaRepositoryInternalRelationTest {
         registry.addProvider("org.tura.jpa.test.DD1", nutRepository);
         registry.addProvider("org.tura.jpa.test.C1", nutRepository);
         registry.addProvider("org.tura.jpa.test.B1", nutRepository);
+        registry.addProvider("org.tura.jpa.test.P1", nutRepository);
         registry.addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
         registry.addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
         registry.addClassMapping("objects.test.serialazable.jpa.B1","org.tura.jpa.test.B1");
+        registry.addClassMapping("objects.test.serialazable.jpa.P1","org.tura.jpa.test.P1");
 
         
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));

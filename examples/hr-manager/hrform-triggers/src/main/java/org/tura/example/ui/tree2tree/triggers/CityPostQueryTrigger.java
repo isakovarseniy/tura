@@ -1,7 +1,7 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2017, Arseniy Isakov
+ * Copyright (c) 2012 - 2018, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
  * http://sourceforge.net/p/tura/wiki/Home/
@@ -19,7 +19,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 
 package org.tura.example.ui.tree2tree.triggers;
 

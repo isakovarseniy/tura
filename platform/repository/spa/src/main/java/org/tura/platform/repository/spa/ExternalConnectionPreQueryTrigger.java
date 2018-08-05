@@ -29,9 +29,7 @@ import org.apache.commons.lang.WordUtils;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.annotation.Association;
@@ -57,6 +55,7 @@ public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 		
 		SearchCriteria parentRepositoryObject  = helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
 		SearchCriteria parentChildRelation = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
+		SearchCriteria parentPersistanceObject = helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
 	
 		if (parentRepositoryObject !=null){
 			Object obj = parentRepositoryObject.getValue();
@@ -82,17 +81,25 @@ public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 						sc.setName(lnk.field1());
 						sc.setComparator(Operator.EQ.name());
 						
-						Class<?> repositoryClass = parentRepositoryObject.getValue().getClass();
-						Mapper mapper =   new RepositoryHelper(registry).findMapper(parentRepositoryObject.getValue().getClass());
-						Object pk = mapper.getPrimaryKeyFromRepositoryObject(parentRepositoryObject.getValue());
-						Repository repository = registry.findProvider(repositoryClass.getName());
-						String persistanceClass = registry.findPersistanceClass(repositoryClass.getName());
-						Object persistanceObject = repository.find(pk, persistanceClass);
-						
-						String name = "get" + WordUtils.capitalize(lnk.field2());
-						Object value = Reflection.call(persistanceObject, name);
-						sc.setValue(value);
-						searchCriteria.add(sc);
+						if (parentPersistanceObject != null  && parentPersistanceObject.getValue() != null){
+							Object persistanceObject = parentPersistanceObject.getValue();
+							String name = "get" + WordUtils.capitalize(lnk.field2());
+							Object value = Reflection.call(persistanceObject, name);
+							sc.setValue(value);
+							searchCriteria.add(sc);
+						}else{
+							String name = "getTransient" + lnk.field2();
+							Object repositoryObject = parentRepositoryObject.getValue();
+							Object value = Reflection.call(repositoryObject, name);
+							if (value == null){
+								sc.setName(RepositoryObjectLoader.SKIP_QUERY);
+								sc.setValue(true);
+								searchCriteria.add(sc);
+								return ;
+							}
+							sc.setValue(value);
+							searchCriteria.add(sc);
+						}
 					}
 				}
 			}

@@ -43,6 +43,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	public static String PARENT_REPOSITORY_OBJECT = "parentRepositoryObject";
 	public static String PARENT_CHIELD_RELATION = "parentChildRelatioin";
 	public static String PARENT_CHIELD_RELATION_TYPE = "parentChildRelatioinType";
+	public static String SKIP_QUERY = "skipQuery";
 	
 	
 	static String LOADED_OBJECTS = "LOADED_OBJECTS";
