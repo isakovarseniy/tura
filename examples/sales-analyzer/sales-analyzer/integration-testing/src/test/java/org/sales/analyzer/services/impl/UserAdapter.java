@@ -1,6 +1,7 @@
 package org.sales.analyzer.services.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
@@ -10,9 +11,18 @@ public class UserAdapter extends User{
 
 	
 	private UserRepresentation userRepresentation;
+	private List<RoleRef> roles = new ArrayList<>();
+	private List<RoleRef> addRoles = new ArrayList<>();
+	private List<RoleRef> removeRoles = new ArrayList<>();
 
 	public UserAdapter(UserRepresentation userRepresentation) {
 		this.userRepresentation = userRepresentation;
+		if (userRepresentation.getRealmRoles() != null) {
+			for (String r : userRepresentation.getRealmRoles()) {
+				roles.add(new RoleRefAdapter(r));
+			}
+		}
+		
 	  roleReferenceDirectMapping = false;
 	}
 	
@@ -81,36 +91,42 @@ public class UserAdapter extends User{
 	
 	@Override
 	protected void delegateAddRoleReference(int i, RoleRef obj) {
-		if (userRepresentation.getRealmRoles() == null) {
-			userRepresentation.setRealmRoles(new ArrayList<>());
-		}
-		userRepresentation.getRealmRoles().add(obj.getRoleRef());
+		roles.add(obj);
+		addRoles.add(obj);
 	}
 
 	@Override
 	protected RoleRef delegateRemoveRoleReference(int i) {
-		String role = userRepresentation.getRealmRoles().remove(i);
+		RoleRef role = roles.remove(i);
 		if (role != null) {
-			new RoleRefAdapter(role);
+			if (addRoles.contains(role)) {
+				addRoles.remove(role);
+			}else {
+				removeRoles.add(role);
+			}
+			return role;
 		}
 		return null;
 	}
 
 	@Override
 	protected RoleRef delegateGetRoleReference(int i) {
-		String role = userRepresentation.getRealmRoles().get(i);
-		if (role != null) {
-			new RoleRefAdapter(role);
-		}
-		return null;
+		return roles.get(i);
 	}
 
 	@Override
 	protected int delegateGetRoleReferenceSize() {
-		if (userRepresentation.getRealmRoles() == null) {
-			return 0;
-		}
-		return userRepresentation.getRealmRoles().size();
+		return roles.size();
+	}
+
+
+	public List<RoleRef> getAddRoles() {
+		return addRoles;
+	}
+
+
+	public List<RoleRef> getRemoveRoles() {
+		return removeRoles;
 	}
 
 

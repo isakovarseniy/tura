@@ -210,14 +210,16 @@ operation  type::Assosiation isConnectionAnnotationExists(model_mapper){
   var entityObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Entity Object"));
   var domainObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Domain Object"));
   var adapterObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Adapter"));
-  domainObjectSrc = domainObjectSrc or adapterObjectSrc;
+  var spaObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"SPA Object"));
+  domainObjectSrc = domainObjectSrc or adapterObjectSrc or spaObjectSrc;
 
 
   var entityObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Entity Object"));
   var domainObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Domain Object"));
   var adapterObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Adapter"));
-  domainObjectTrg = domainObjectTrg or adapterObjectTrg;
-  
+  var spaObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"SPA Object"));
+  domainObjectTrg = domainObjectTrg or adapterObjectTrg or spaObjectTrg;
+
   if (entityObjectSrc and  entityObjectTrg ){
      return false;
   }

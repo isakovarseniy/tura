@@ -7,6 +7,7 @@ import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.representations.idm.RoleRepresentation;
+import org.keycloak.representations.idm.RoleRepresentationPK;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -47,7 +48,8 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 			return keycloak.realm(managedRealm).users().get((String) pk).toRepresentation();
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
-			return keycloak.realm(managedRealm).roles().get((String) pk).toRepresentation();
+			RoleRepresentationPK objPK = (RoleRepresentationPK) pk;
+			return keycloak.realm(managedRealm).roles().get(objPK.getName()).toRepresentation();
 		}
 		throw new RuntimeException("Unknown object" + objectClass);
 	}

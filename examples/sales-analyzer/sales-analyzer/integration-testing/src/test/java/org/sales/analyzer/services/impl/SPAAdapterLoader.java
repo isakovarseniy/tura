@@ -1,5 +1,9 @@
 package org.sales.analyzer.services.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
@@ -34,7 +38,21 @@ public class SPAAdapterLoader implements AdapterLoader {
 	@Override
 	public Object unWrapObject(Object obj) {
 		if (obj instanceof UserAdapter) {
-			return ((UserAdapter) obj).getObj();
+			HashMap<String ,Object> map = new HashMap<>();
+			map.put("userRef", ((UserAdapter) obj).getObj());
+			
+			List<String> addRole = new ArrayList<>();
+			for (RoleRef r :  ((UserAdapter) obj).getAddRoles()) {
+				addRole.add(r.getRoleRef());
+			}
+			List<String> removeRole = new ArrayList<>();
+			for (RoleRef r :  ((UserAdapter) obj).getRemoveRoles()) {
+				removeRole.add(r.getRoleRef());
+			}
+			map.put("addRole", addRole);
+			map.put("removeRole", removeRole);
+			
+			return map;
 		}
 		if (obj instanceof RoleRefAdapter) {
 			return ((RoleRefAdapter) obj).getObj();

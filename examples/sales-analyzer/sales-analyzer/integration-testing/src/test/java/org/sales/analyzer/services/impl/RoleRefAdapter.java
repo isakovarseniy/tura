@@ -6,6 +6,7 @@ import org.tura.salesanalyzer.persistence.keycloak.User;
 public class RoleRefAdapter extends RoleRef {
 
 	private String role;
+	private String id;
 	private User user;
 
 	public RoleRefAdapter(String role) {
@@ -36,12 +37,12 @@ public class RoleRefAdapter extends RoleRef {
 
 	@Override
 	protected String delegateGetId() {
-		return role;
+		return id;
 	}
 
 	@Override
 	protected void delegateSetId(String id) {
-		this.role=id;
+		this.id=id;
 	}
 
 	@Override
@@ -56,7 +57,7 @@ public class RoleRefAdapter extends RoleRef {
 
 	@Override
 	protected void delegateSetRoleRef(String roleRef) {
-		throw new RuntimeException("Prohibited to change primary key");
+		this.role=roleRef;
 	}
 
 	@Override

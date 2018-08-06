@@ -142,6 +142,11 @@ public class KeycloakSearchServiceTest {
 				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
 				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
 
+		KeyCloakSearchService ks1 = new KeyCloakSearchService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
+				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
+				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
+
+		
 		KeyCloakCRUDService crud = new KeyCloakCRUDService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
 				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
 				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
@@ -150,9 +155,8 @@ public class KeycloakSearchServiceTest {
 		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,crud);
 		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(RoleRepresentation.class,crud);
 		
-		spaRegistry.getRegistry("spa-persistence-repository")
-				.addSearchProvider(org.tura.salesanalyzer.persistence.keycloak.User.class, ks);
-		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, ks);
+		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(org.tura.salesanalyzer.persistence.keycloak.User.class, ks);
+		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, ks1);
 
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader());
@@ -197,7 +201,7 @@ public class KeycloakSearchServiceTest {
 
 			ProxyRepository repository = getRepository();
 			Role role = (Role) repository.create(Role.class.getName());
-			String roleName = UUID.randomUUID().toString();
+			String roleName = "role_"+UUID.randomUUID().toString();
 			role.setName(roleName);
 			repository.insert(role, Role.class.getName());
 			repository.applyChanges(null);

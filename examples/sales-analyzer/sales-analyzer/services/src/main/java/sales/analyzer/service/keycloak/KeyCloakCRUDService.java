@@ -1,5 +1,9 @@
 package sales.analyzer.service.keycloak;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
@@ -90,20 +94,38 @@ public class KeyCloakCRUDService implements CRUDProvider{
 		keycloak.realm(managedRealm).roles().create(role);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void insertUser(SpaControl control) throws Exception {
-		UserRepresentation user = (UserRepresentation) loader.unWrapObject(control.getObject());
+		Map<String,Object> map = (Map) loader.unWrapObject(control.getObject());
+		UserRepresentation user = (UserRepresentation) map.get("userRef");
 		keycloak.realm(managedRealm).users().create(user);
 	}
 	
 	private void  updateRole(SpaControl control) throws Exception {
 		RoleRepresentation role = (RoleRepresentation) control.getObject();
-		keycloak.realm(managedRealm).roles().get(role.getName()).update(role);;
+		keycloak.realm(managedRealm).roles().get(role.getName()).update(role);
 
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void  updateUser(SpaControl control) throws Exception {
-		UserRepresentation user = (UserRepresentation) loader.unWrapObject(control.getObject());
+		Map<String,Object> map = (Map) loader.unWrapObject(control.getObject());
+		UserRepresentation user = (UserRepresentation) map.get("userRef");
+		List<String>addRoles =  (List<String>) map.get("addRole");
+		List<String>removeRoles =  (List<String>) map.get("removeRole");
 		keycloak.realm(managedRealm).users().get(user.getId()).update(user);
+		
+		List <RoleRepresentation> add = new ArrayList<>();
+		for ( String role : addRoles) {
+			add.add(keycloak.realm(managedRealm).roles().get(role).toRepresentation()  );
+		}
+		
+		List <RoleRepresentation> remove = new ArrayList<>();
+		for ( String role : removeRoles) {
+			remove.add(keycloak.realm(managedRealm).roles().get(role).toRepresentation()  );
+		}
+		keycloak.realm(managedRealm).users().get(user.getId()).roles().realmLevel().add(add);
+		keycloak.realm(managedRealm).users().get(user.getId()).roles().realmLevel().remove(remove);
 	}
 	
 	private void  deleteRole(SpaControl control) throws Exception {
@@ -111,8 +133,10 @@ public class KeyCloakCRUDService implements CRUDProvider{
 		keycloak.realm(managedRealm).roles().deleteRole(role.getName());
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void  deleteUser(SpaControl control) throws Exception {
-		UserRepresentation user = (UserRepresentation) loader.unWrapObject(control.getObject());
+		Map<String,Object> map = (Map) loader.unWrapObject(control.getObject());
+		UserRepresentation user = (UserRepresentation) map.get("userRef");
 		keycloak.realm(managedRealm).users().delete(user.getId());
 	}
 }
