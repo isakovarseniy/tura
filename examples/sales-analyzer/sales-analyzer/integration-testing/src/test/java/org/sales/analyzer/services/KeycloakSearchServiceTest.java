@@ -21,6 +21,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.keycloak.OAuth2Constants;
+import org.keycloak.admin.client.Keycloak;
+import org.keycloak.admin.client.KeycloakBuilder;
+import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.sales.analyzer.process.TestCommons;
 import org.sales.analyzer.services.impl.SPAAdapterLoader;
@@ -138,18 +142,22 @@ public class KeycloakSearchServiceTest {
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
 
-		KeyCloakSearchService ks = new KeyCloakSearchService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
-				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
-				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
-
-		KeyCloakSearchService ks1 = new KeyCloakSearchService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
-				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
-				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
-
+		Keycloak keycloak = KeycloakBuilder.builder()
+						.serverUrl(TestCommons.KEYCLOAK_URL)
+						.realm(TestCommons.KEYCLOAK_ADMIN_REALM)
+						.clientId(TestCommons.KEYCLOAK_ADMIN_CLIENTID)
+						.grantType(OAuth2Constants.PASSWORD)
+						.clientSecret(TestCommons.CLIENT_SECRET)
+						.username(TestCommons.ADMIN_USER)
+						.password(TestCommons.ADMIN_PASSWORD)
+						.build();
+		RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
 		
-		KeyCloakCRUDService crud = new KeyCloakCRUDService(TestCommons.KEYCLOAK_URL, TestCommons.KEYCLOAK_ADMIN_REALM,
-				TestCommons.KEYCLOAK_ADMIN_CLIENTID, TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER,
-				TestCommons.ADMIN_PASSWORD, TestCommons.KEYCLOAK_MANAGED_REALM);
+		KeyCloakSearchService ks = new KeyCloakSearchService(realmResource);
+
+		KeyCloakSearchService ks1 = new KeyCloakSearchService(realmResource);
+
+		KeyCloakCRUDService crud = new KeyCloakCRUDService(realmResource);
 		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
 		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,crud);
@@ -159,11 +167,11 @@ public class KeycloakSearchServiceTest {
 		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, ks1);
 
 		spaRegistry.getRegistry("spa-persistence-repository")
-				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader());
+				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader(realmResource));
 		spaRegistry.getRegistry("spa-persistence-repository")
-		        .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader());
+		    .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
 
-		registry.addLoader(User.class.getName(), new SPAAdapterLoader());
+		registry.addLoader(User.class.getName(), new SPAAdapterLoader(realmResource));
 
 		return new ProxyRepository(repository, stackProvider);
 
@@ -231,7 +239,7 @@ public class KeycloakSearchServiceTest {
 			search.add(sc);
 			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
 			assertEquals(1, result.getNumberOfRows());
-			user =  (User) result.getSearchResult().get(0);
+			user = (User) result.getSearchResult().get(0);
 			assertEquals(userName,user.getUsername());
 			
 			RoleReference roleref = (RoleReference) repository.create(RoleReference.class.getName());
@@ -241,7 +249,7 @@ public class KeycloakSearchServiceTest {
 			
 			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
 			assertEquals(1, result.getNumberOfRows());
-			user =  (User) result.getSearchResult().get(0);
+			user = (User) result.getSearchResult().get(0);
 			assertEquals(userName,user.getUsername());
 			assertEquals(1, user.getRoleReference().size());
 			

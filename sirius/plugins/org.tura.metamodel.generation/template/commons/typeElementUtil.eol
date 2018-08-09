@@ -1,3 +1,20 @@
+operation type::TypeElement isInternal( ) { 
+         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid  and t.internal);
+         if (assosiations.size() > 0){
+            return true;
+         }
+         return false;
+}
+operation type::TypeReference isInternal( ) { 
+         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid  and t.internal);
+         if (assosiations.size() > 0){
+            return true;
+         }
+         return  self.typeRef.isInternal();
+}
+
+
+
 operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient) { 
       self.mappingType2XML(recipe,ingredient,"ALL");
 }

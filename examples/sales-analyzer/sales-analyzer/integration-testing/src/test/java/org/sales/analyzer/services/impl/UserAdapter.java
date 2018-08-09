@@ -3,34 +3,37 @@ package org.sales.analyzer.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.keycloak.admin.client.resource.RealmResource;
+import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
 
-public class UserAdapter extends User{
+public class UserAdapter extends User {
 
-	
 	private UserRepresentation userRepresentation;
 	private List<RoleRef> roles = new ArrayList<>();
 	private List<RoleRef> addRoles = new ArrayList<>();
 	private List<RoleRef> removeRoles = new ArrayList<>();
 
-	public UserAdapter(UserRepresentation userRepresentation) {
+	public UserAdapter(UserRepresentation userRepresentation, RealmResource realmResource) {
 		this.userRepresentation = userRepresentation;
-		if (userRepresentation.getRealmRoles() != null) {
-			for (String r : userRepresentation.getRealmRoles()) {
-				roles.add(new RoleRefAdapter(r));
+		if (this.userRepresentation.getId() != null) {
+			List<RoleRepresentation> realRoles = realmResource.users().get(this.userRepresentation.getId()).roles()
+					.realmLevel().listAll();
+			if (realRoles != null) {
+				for (RoleRepresentation r : realRoles) {
+					roles.add(new RoleRefAdapter(r.getName()));
+				}
 			}
 		}
-		
-	  roleReferenceDirectMapping = false;
+		roleReferenceDirectMapping = false;
 	}
-	
-	
+
 	public UserRepresentation getObj() {
 		return userRepresentation;
 	}
-	
+
 	@Override
 	public Object getObject(String event) {
 		return userRepresentation;
@@ -38,7 +41,7 @@ public class UserAdapter extends User{
 
 	@Override
 	protected boolean delegateEquals(Object o) {
-		if (o instanceof User){
+		if (o instanceof User) {
 			Object pk1 = ((User) o).getId();
 			Object pk2 = this.getId();
 			return pk1.equals(pk2);
@@ -81,14 +84,11 @@ public class UserAdapter extends User{
 		throw new RuntimeException("Unsupported call");
 	}
 
-
 	@Override
 	protected void delegateSetUsername(String username) {
 		throw new RuntimeException("Unsupported call");
 	}
-	
-	
-	
+
 	@Override
 	protected void delegateAddRoleReference(int i, RoleRef obj) {
 		roles.add(obj);
@@ -101,7 +101,7 @@ public class UserAdapter extends User{
 		if (role != null) {
 			if (addRoles.contains(role)) {
 				addRoles.remove(role);
-			}else {
+			} else {
 				removeRoles.add(role);
 			}
 			return role;
@@ -119,17 +119,13 @@ public class UserAdapter extends User{
 		return roles.size();
 	}
 
-
 	public List<RoleRef> getAddRoles() {
 		return addRoles;
 	}
 
-
 	public List<RoleRef> getRemoveRoles() {
 		return removeRoles;
 	}
-
-
 
 }
 

@@ -41,7 +41,6 @@ import org.tura.platform.repository.core.RepositoryEventsListener;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.triggers.PostCreateTrigger;
 
 public class SpaRepository implements Repository, RepositoryEventsListener {
 
@@ -67,10 +66,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	public Object create(String objectClass) throws RepositoryException {
 		try {
 			Object obj = Class.forName(objectClass).newInstance();
-			PostCreateTrigger trigger = findPostCreateTrigger(objectClass);
-			if (trigger != null) {
-				trigger.postCreate(obj);
-			}
 			return obj;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -195,10 +190,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	private void rallback() {
 		cleanupCache();
-	}
-
-	private PostCreateTrigger findPostCreateTrigger(String objectClass) throws Exception {
-		return spaRegistry.getRegistry(registryName).findPostCreateTrigger(objectClass);
 	}
 
 	private SearchProvider findSearchProvider(String className) throws Exception {

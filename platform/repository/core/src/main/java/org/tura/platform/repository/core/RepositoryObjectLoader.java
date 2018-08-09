@@ -79,13 +79,6 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		return repositoryClass.newInstance();
 	}
 
-	private PreQueryTrigger findPreQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
-		return registry.findPreQueryTrigger(repositoryClass.getName());
-	}
-
-	private PostQueryTrigger findPostQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
-		return registry.findPostQueryTrigger(repositoryClass.getName());
-	}
 
 	private boolean skipRelation(Object repositoryObject, Method method) {
 		return registry.skipRelation(repositoryObject.getClass(), method);
@@ -181,11 +174,15 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject,assosiation, method.getName().substring(3));
-			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryObject.getClass());
+			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryObject.getClass(), assosiation.mappedBy());
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(newSearch, order);
 			}
-
+			SearchCriteria sc = extractAndRemove(RepositoryObjectLoader.SKIP_QUERY, newSearch);
+			if (sc != null){
+				continue;
+			}
+			
 			SearchResult result = provider.find(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass.getName());
 
 			for (Object object : result.getSearchResult()) {

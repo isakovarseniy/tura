@@ -3,9 +3,7 @@ package sales.analyzer.service.keycloak;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.keycloak.OAuth2Constants;
-import org.keycloak.admin.client.Keycloak;
-import org.keycloak.admin.client.KeycloakBuilder;
+import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.RoleRepresentationPK;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -22,34 +20,22 @@ import sales.analyzer.process.commons.Constants;
 public class KeyCloakSearchService extends AbstaractSearchService {
 
 
-	private Keycloak keycloak;
-	private String managedRealm;
+	private RealmResource realmResource;
 
-	public KeyCloakSearchService(String serverUrl, String adminRealm, String adminClientId, String clientSecret,
-			String adminUser, String adminPassword , String managedRealm) {
+	public KeyCloakSearchService(RealmResource realmResource) {
 
-		this.managedRealm = managedRealm;
-
-		keycloak = KeycloakBuilder.builder()
-					.serverUrl(serverUrl)
-					.realm(adminRealm)
-					.clientId(adminClientId)
-					.grantType(OAuth2Constants.PASSWORD)
-					.clientSecret(clientSecret)
-					.username(adminUser)
-					.password(adminPassword)
-					.build();
+		this.realmResource = realmResource;
 
 	}
 
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
 		if (User.class.getName().equals(objectClass)) {
-			return keycloak.realm(managedRealm).users().get((String) pk).toRepresentation();
+			return realmResource.users().get((String) pk).toRepresentation();
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
 			RoleRepresentationPK objPK = (RoleRepresentationPK) pk;
-			return keycloak.realm(managedRealm).roles().get(objPK.getName()).toRepresentation();
+			return realmResource.roles().get(objPK.getName()).toRepresentation();
 		}
 		throw new RuntimeException("Unknown object" + objectClass);
 	}
@@ -89,9 +75,9 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 				criteria = true;
 			}
 			if(criteria) {
-				List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
+				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName,
 						email, 0, 500);
-				ArrayList<UserRepresentation> list =   new ArrayList<UserRepresentation>();
+				ArrayList<UserRepresentation> list = new ArrayList<UserRepresentation>();
 				int y = Math.min(ls.size(), endIndex);
 				for (int i = startIndex ; i < y; i++) {
 					list.add(ls.get(i));
@@ -99,14 +85,14 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 				return new SearchResult(list, ls.size());
 				
 			}else {
-				List<UserRepresentation> ls = keycloak.realm(managedRealm).users().search(username, firstName, lastName,
+				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName,
 						email, startIndex, endIndex-startIndex);
-				return new SearchResult(ls, keycloak.realm(managedRealm).users().count());
+				return new SearchResult(ls, realmResource.users().count());
 			}
 
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
-			List<RoleRepresentation> ls = keycloak.realm(managedRealm).roles().list();
+			List<RoleRepresentation> ls = realmResource.roles().list();
 			return new SearchResult(ls, ls.size());
 		}
 		throw new RuntimeException("Unknown object" + objectClass);

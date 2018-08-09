@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
@@ -11,10 +12,16 @@ import org.tura.salesanalyzer.persistence.keycloak.User;
 
 public class SPAAdapterLoader implements AdapterLoader {
 
+	
+	private RealmResource realmResource;
+	public SPAAdapterLoader(RealmResource realmResource) {
+		this.realmResource = realmResource;
+	}
+	
 	@Override
 	public Object newAdapter(Class<?> clazz) {
 		if (User.class.equals(clazz)) {
-			return new UserAdapter(new UserRepresentation());
+			return new UserAdapter(new UserRepresentation(),realmResource);
 		}
 		if (RoleRef.class.equals(clazz)) {
 			return new RoleRefAdapter(null);
@@ -26,7 +33,7 @@ public class SPAAdapterLoader implements AdapterLoader {
 	@Override
 	public Object wrapObject(Object obj) {
 		if (obj instanceof UserRepresentation) {
-			return new UserAdapter((UserRepresentation) obj);
+			return new UserAdapter((UserRepresentation) obj,realmResource);
 		}
 		if (obj instanceof String) {
 			return new RoleRefAdapter((String) obj);
@@ -42,11 +49,11 @@ public class SPAAdapterLoader implements AdapterLoader {
 			map.put("userRef", ((UserAdapter) obj).getObj());
 			
 			List<String> addRole = new ArrayList<>();
-			for (RoleRef r :  ((UserAdapter) obj).getAddRoles()) {
+			for (RoleRef r : ((UserAdapter) obj).getAddRoles()) {
 				addRole.add(r.getRoleRef());
 			}
 			List<String> removeRole = new ArrayList<>();
-			for (RoleRef r :  ((UserAdapter) obj).getRemoveRoles()) {
+			for (RoleRef r : ((UserAdapter) obj).getRemoveRoles()) {
 				removeRole.add(r.getRoleRef());
 			}
 			map.put("addRole", addRole);
@@ -62,3 +69,4 @@ public class SPAAdapterLoader implements AdapterLoader {
 	}
 
 }
+

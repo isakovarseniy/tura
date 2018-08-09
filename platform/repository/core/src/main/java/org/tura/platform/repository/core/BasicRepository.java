@@ -47,13 +47,6 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		this.registry = registry;
 	}
 
-	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
-		return registry.findPostCreateTrigger(repositoryClass);
-	}
-
-	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		return registry.findPreQueryTrigger(repositoryClass);
-	}
 
 	private TransactionAdapter getTransactrionAdapter() throws RepositoryException {
 		TransactionAdapter ta = registry.getTransactrionAdapter();

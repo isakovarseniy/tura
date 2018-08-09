@@ -162,8 +162,9 @@ public class AdapterTest {
         spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W4.class, new CRUDService());
         spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W4.class, new SearchService(registry,spaRegistry));
 
-        spaRegistry.getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.W1.class,  new W1PreQueryTrigger(registry));
-        spaRegistry.getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.W4.class,  new W4PreQueryTrigger(registry));
+        registry.addTrigger( Q1.class.getName() ,  W1.class.getName(),  new W1PreQueryTrigger(registry));
+        registry.addTrigger( W1.class.getName(),  new W1PreQueryTrigger(registry));
+        registry.addTrigger(Q4.class.getName(), W4.class.getName(),  new W4PreQueryTrigger(registry));
         
         
         spaRegistry.getRegistry("test-spa-repository").addLoader(org.tura.jpa.test.W1.class.getName(), new SPAAdapterLoader());

@@ -75,11 +75,9 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
 	private String registryName;
 	private Registry registry;
-	private SpaObjectRegistry spaRegistry;
 	
 	public SearchService(Registry registry, SpaObjectRegistry spaRegistry){
 		this.registry = registry;
-		this.spaRegistry = spaRegistry;
 	}
 	
 	@Override
@@ -89,22 +87,24 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 		RepositoryHelper helper = new RepositoryHelper(registry);
 
 		try {
-			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
-			if (preQueryTrigger != null) {
-				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
-			}
+
 			helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
+			SearchCriteria sc =  helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
 			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
 			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
-			
+
+			PreQueryTrigger preQueryTrigger;
+			if ( sc == null){
+				 preQueryTrigger = helper.findPreQueryTrigger(helper.findRepositoryClass( objectClass).getName());
+			}else{
+				 preQueryTrigger = helper.findPreQueryTrigger(sc.getValue().getClass().getName(),  helper.findRepositoryClass( objectClass).getName());
+			}
 			
 			Class<?> baseClass = Class.forName(objectClass);
 			if (Adapter.class.isAssignableFrom(baseClass)) {
-			 SearchCriteria sc = helper.extractAndRemove(TARGET_CLASS,searchCriteria);
+			 sc = helper.extractAndRemove(TARGET_CLASS,searchCriteria);
 			 baseClass = Class.forName((String)sc.getValue());
 			}
-			
 			
 			SelectQuery select = DefaulQueryFactory.builder(searchCriteria, orderCriteria, baseClass);
 			Query query = new Query();
@@ -139,15 +139,6 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
 		return base.get(objectClass).get(pk);
-	}
-
-	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		try {
-			PreQueryTrigger trigger = spaRegistry.getRegistry(registryName).findPreQueryTrigger(repositoryClass);
-			return trigger;
-		} catch (Exception e) {
-            throw new RepositoryException(e);
-		}
 	}
 
 	public String getRegistry() {

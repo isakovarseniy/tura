@@ -60,6 +60,9 @@ import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.triggers.PostCreateTrigger;
+import org.tura.platform.repository.triggers.PostQueryTrigger;
+import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class RepositoryHelper {
 
@@ -72,6 +75,14 @@ public class RepositoryHelper {
 	public Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {
 			return Class.forName(registry.findPersistanceClass(repositoryClass));
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+	}
+	
+	public Class<?> findRepositoryClass(String persistanceClass) throws RepositoryException {
+		try {
+			return Class.forName(registry.findRepositoryClass(persistanceClass));
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -247,5 +258,28 @@ public class RepositoryHelper {
 		}
 	}
 	
+	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
+		return registry.findPostCreateTrigger(repositoryClass);
+	}
+
+	public PreQueryTrigger findPreQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
+		return findPreQueryTrigger(repositoryClass.getName());
+	}
+
+	public PreQueryTrigger findPreQueryTrigger(String parentClass,  String childClass) throws RepositoryException {
+		return registry.findPreQueryTrigger(parentClass,childClass);
+	}
+	
+	public PreQueryTrigger findPreQueryTrigger(Class<?> parentClass,  Class<?>  childClass) throws RepositoryException {
+		return findPreQueryTrigger(parentClass.getName(),childClass.getName());
+	}
+	
+	public PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
+		return registry.findPreQueryTrigger(repositoryClass);
+	}
+
+	public PostQueryTrigger findPostQueryTrigger(Class<?> repositoryClass) throws RepositoryException {
+		return registry.findPostQueryTrigger(repositoryClass.getName());
+	}
 
 }

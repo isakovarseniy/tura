@@ -56,9 +56,6 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
-import org.tura.platform.repository.triggers.PostCreateTrigger;
-import org.tura.platform.repository.triggers.PostQueryTrigger;
-import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class SpaObjectRegistry implements Serializable {
 
@@ -81,9 +78,6 @@ public class SpaObjectRegistry implements Serializable {
 
 	public class SpaRegistry {
 
-		private Map<Class<?>, PostCreateTrigger> postCreateTriggers = new HashMap<>();
-		private Map<Class<?>, PreQueryTrigger> preQueryTriggers = new HashMap<>();
-		private Map<Class<?>, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 		private List<Class<?>> spaClasses = new ArrayList<>();
 		private Map<Class<?>, CRUDProvider> crudProviders = new HashMap<>();
 		private Map<String, PersistanceMapper> mappers = new HashMap<>();
@@ -92,16 +86,6 @@ public class SpaObjectRegistry implements Serializable {
 		private String registry;
 		private EntityManagerProvider entityManagerProvider;
 		private Map<String, AdapterLoader> loaders = new HashMap<>();
-
-		private boolean initialized = false;
-
-		public void initialized() {
-			this.initialized = true;
-		}
-
-		public boolean isInitialized() {
-			return this.initialized;
-		}
 
 		public EntityManagerProvider getEntityManagerProvider() {
 			return entityManagerProvider;
@@ -143,39 +127,6 @@ public class SpaObjectRegistry implements Serializable {
 
 		public void addSpaClass(Class<?> spaClass) throws Exception {
 			spaClasses.add(spaClass);
-		}
-
-		public void addTrigger(Class<?> clazz, Object trigger) {
-
-			if (trigger instanceof PostCreateTrigger) {
-				postCreateTriggers.put(clazz, (PostCreateTrigger) trigger);
-			}
-			if (trigger instanceof PreQueryTrigger) {
-				preQueryTriggers.put(clazz, (PreQueryTrigger) trigger);
-			}
-
-			if (trigger instanceof PostQueryTrigger) {
-				postQueryTriggers.put(clazz, (PostQueryTrigger) trigger);
-			}
-		}
-
-		public PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws Exception {
-			Class<?> clazz = Class.forName(repositoryClass);
-			return postCreateTriggers.get(clazz);
-		}
-
-		public PostCreateTrigger findPostCreateTrigger(Class<?> clazz) {
-			return postCreateTriggers.get(clazz);
-		}
-
-		public PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws Exception {
-			Class<?> clazz = Class.forName(repositoryClass);
-			return preQueryTriggers.get(clazz);
-		}
-
-		public PostQueryTrigger findPostQueryTrigger(String repositoryClass) throws Exception {
-			Class<?> clazz = Class.forName(repositoryClass);
-			return postQueryTriggers.get(clazz);
 		}
 
 		public boolean isClassRegistered(String jpaClass) throws Exception {

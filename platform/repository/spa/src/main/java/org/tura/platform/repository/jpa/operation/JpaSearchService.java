@@ -23,7 +23,6 @@ package org.tura.platform.repository.jpa.operation;
 
 import static com.octo.java.sql.query.Query.c;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -42,7 +41,6 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -68,14 +66,6 @@ public class JpaSearchService implements SearchProvider {
 
 	public void setRegistry(String registry) {
 		this.registryName = registry;
-	}
-
-	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		try {
-			return spaRegistry.getRegistry(registryName).findPreQueryTrigger(repositoryClass);
-		} catch (Exception e) {
-			throw new RepositoryException(e);
-		}
 	}
 
 	protected List<?> findObjectsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
@@ -120,9 +110,11 @@ public class JpaSearchService implements SearchProvider {
 		RepositoryHelper helper = new RepositoryHelper(registry);
 
 		try {
-			SearchCriteria parentPersistenceObject = helper.checkSearchParam(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
-			SearchCriteria parentChildRelation = helper.checkSearchParam(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
-			SearchCriteria parentChildRelationType = helper.checkSearchParam(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
+			
+			SearchCriteria parentPersistenceObject = helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
+			SearchCriteria parentChildRelation = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
+			SearchCriteria parentChildRelationType = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
 
 			String repositoryClass = registry.findRepositoryClass(objectClass);
 			PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(objectClass,repositoryClass);
@@ -139,20 +131,6 @@ public class JpaSearchService implements SearchProvider {
 
 				List<?> list = new RepositoryHelper(registry).findChildren(persistenceObject, relationType, property);
 				return new SearchResult(list, list.size());
-			}
-
-			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
-			if (preQueryTrigger != null) {
-				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
-			}
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
-
-			SearchCriteria sc = helper.extractAndRemove(RepositoryObjectLoader.SKIP_QUERY, searchCriteria);
-			if (sc != null){
-				return new SearchResult(new ArrayList<>(), 0);
 			}
 			
 			List<?> searchResult = findObjectsQuery(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);

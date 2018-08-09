@@ -47,7 +47,6 @@ public class Registry implements Serializable{
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
 	private Map<String, AdapterLoader> loaders = new HashMap<>();
-	
 
 	public Registry() {
 
@@ -92,6 +91,14 @@ public class Registry implements Serializable{
 		}
 	}
 
+	public void addTrigger(String parentClass,  String childClass,  Object trigger) {
+		if (trigger instanceof PreQueryTrigger) {
+			preQueryTriggers.put(parentClass+"2"+childClass, (PreQueryTrigger) trigger);
+			return;
+		}
+		throw new RuntimeException("Only PreQueryTrigger allowed");
+	}	
+	
 	public void addMapper(String repositoryClass, String persistanceClass, Mapper mapper) {
 		mappers.put(persistanceClass + "2" + repositoryClass, mapper);
 	}
@@ -133,7 +140,6 @@ public class Registry implements Serializable{
 			throw new RepositoryException("Unsupporable class repository class for  " + persistanceClass);
 		}
 		return repositoryClass;
-
 	}
 	
     Set<Repository> getListOfRepositories(){
@@ -142,6 +148,10 @@ public class Registry implements Serializable{
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
 		return postCreateTriggers.get(repositoryClass);
+	}
+
+	public PreQueryTrigger findPreQueryTrigger(String parentClass,  String childClass) {
+		return preQueryTriggers.get( parentClass+"2"+childClass);
 	}
 
 	public PreQueryTrigger findPreQueryTrigger(String repositoryClass) {

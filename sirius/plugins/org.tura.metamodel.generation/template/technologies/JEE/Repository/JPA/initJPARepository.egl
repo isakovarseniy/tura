@@ -32,14 +32,6 @@ ${start}${percent}
      }
  
  
-    public void initialized(){
-     spaRegistry.getRegistry("[%=component.artifactId%]").initialized();
-    }
-    
-    public boolean  isInitialized(){
-         return  spaRegistry.getRegistry("[%=component.artifactId%]").isInitialized();
-    }
-    
     
     public void initProvider(){
     
@@ -58,6 +50,7 @@ ${start}${percent}
      public void initClassMapping() throws Exception{
     
        [%
+         var triggers = new Native('java.util.ArrayList');
          for(type in typeCollection){
 		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
 		           continue;
@@ -77,17 +70,54 @@ ${start}${percent}
 	      for (rel in assosiations){
 	         if ( rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
 	               continue;
-	         }%]
-             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.source).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry));
-	         [%
+	         }
+	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
+	         rel.target.mappingType2Java(recipe,ingredient,'VIEW');
+
+	         var t1 =rel.source.~fullName+rel.target.~fullName;
+	         var t2 = rel.target.~fullName+rel.source.~fullName;
+	         
+	         var directTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+	         var oppositTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+ 
+             if(rel.target.isInternal() ){
+                directTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
+             }
+	         if ( not triggers.contains(t1)){
+               %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
+               triggers.add(t1);
+	         }
+	         if ( not triggers.contains(t2)){
+               %]registry.addTrigger([%=rel.target.~fullName%].class.getName(),  [%=rel.source.~fullName%].class.getName() , new [%=oppositTrigger%]);[%
+               triggers.add(t2);
+	         }
           }
 	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
 	      for (rel in assosiations){
 	         if ( rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
 	               continue;
-	         }%]
-             spaRegistry.getRegistry("[%=component.artifactId%]").addTrigger([%=t2model.get(rel.target).get("fullName")%].class, new org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry));
-	         [%
+	         }
+	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
+	         rel.target.mappingType2Java(recipe,ingredient,'VIEW');
+	         
+	         var t1 =rel.source.~fullName+rel.target.~fullName;
+	         var t2 = rel.target.~fullName+rel.source.~fullName;
+	         
+	         var directTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+	         var oppositTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+ 
+             if(rel.target.isInternal() ){
+                oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
+             }
+	         
+	         if ( not triggers.contains(t1)){
+               %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
+               triggers.add(t1);
+	         }
+	         if ( not triggers.contains(t2)){
+               %]registry.addTrigger([%=rel.target.~fullName%].class.getName(),  [%=rel.source.~fullName%].class.getName() , new [%=oppositTrigger%]);[%
+               triggers.add(t2);
+	         }
           }
        }
        %] 
