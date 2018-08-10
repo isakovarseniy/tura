@@ -1,12 +1,12 @@
 operation type::TypeElement isInternal( ) { 
-         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid  and t.internal);
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.internal);
          if (assosiations.size() > 0){
             return true;
          }
          return false;
 }
 operation type::TypeReference isInternal( ) { 
-         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid  and t.internal);
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.internal);
          if (assosiations.size() > 0){
             return true;
          }

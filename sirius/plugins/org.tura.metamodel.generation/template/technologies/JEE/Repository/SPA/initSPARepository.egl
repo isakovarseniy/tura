@@ -87,15 +87,23 @@ ${start}${percent}
 	         
 	         var directTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
 	         var oppositTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+
 	         
 	         if(rel.target.isInternal() ){
-                oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
-             }
-             
-	         if(rel.source.isInternal() ){
                 directTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
              }
              
+	         if(rel.source.isInternal() ){
+                oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
+             }
+             
+"SPA1".println();	         
+rel.source.name.print();
+rel.target.name.println();
+"directTrigger->".print();
+directTrigger.println();
+"oppositTrigger->".print();
+oppositTrigger.println();
 	         
 	         if ( not triggers.contains(t1)){
                %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
@@ -131,7 +139,14 @@ ${start}${percent}
 	         if(rel.source.isInternal() ){
                 oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
              }
-	         
+	
+"SPA2".println();	         
+rel.source.name.print();
+rel.target.name.println();
+"directTrigger->".print();
+directTrigger.println();
+"oppositTrigger->".print();
+oppositTrigger.println();
 	         
 	         
 	         if ( not triggers.contains(t1)){
