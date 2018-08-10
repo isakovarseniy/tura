@@ -42,7 +42,7 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
-import org.tura.salesanalyzer.serialized.keycloak.InitSPARepository;
+import org.tura.salesanalyzer.serialized.jbpm.InitSPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
@@ -53,7 +53,7 @@ import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
@@ -203,7 +203,7 @@ public class KeycloakSearchServiceTest {
 
 
 	@Test
-//	@RunAsClient
+	@RunAsClient
 	public void t0000_createUsersAndRoles() {
 		try {
 
@@ -251,7 +251,9 @@ public class KeycloakSearchServiceTest {
 			assertEquals(1, result.getNumberOfRows());
 			user = (User) result.getSearchResult().get(0);
 			assertEquals(userName,user.getUsername());
-			assertEquals(1, user.getRoleReference().size());
+			
+// 3 roles becouse keycloak assign 2 roles automaticaly(  offline_access, uma_authorisation )			
+			assertEquals(3, user.getRoleReference().size());
 			
 
 			
@@ -260,58 +262,5 @@ public class KeycloakSearchServiceTest {
 			fail();
 		}
 	}
-	
-	
-	// @Test
-	// @RunAsClient
-	// public void t0000_searchUsers() {
-	// try {
-	// KeyCloakSearchService ks =new KeyCloakSearchService(TestCommons.KEYCLOAK_URL,
-	// TestCommons.KEYCLOAK_ADMIN_REALM, TestCommons.KEYCLOAK_ADMIN_CLIENTID,
-	// TestCommons.CLIENT_SECRET, TestCommons.ADMIN_USER, TestCommons.ADMIN_PASSWORD
-	// , TestCommons.KEYCLOAK_MANAGED_REALM);
-	//
-	// SearchResult result = ks.find(new ArrayList<>(), new ArrayList<>(), 0, 100,
-	// UserRepresentation.class.getName());
-	// assertNotEquals(0, result.getNumberOfRows());
-	//
-	// UserRepresentation r = (UserRepresentation) result.getSearchResult().get(0);
-	//
-	// UserRepresentation obj = (UserRepresentation) ks.find(r.getId(),
-	// UserRepresentation.class.getName());
-	// assertNotNull(obj);
-	// assertEquals(obj.getId(), r.getId());
-	//
-	//
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// fail();
-	// }
-	// }
-	//
-	// @Test
-	// @RunAsClient
-	// public void t0000_searchRoles() {
-	// try {
-	//
-	// SearchResult result = ks.find(new ArrayList<>(), new ArrayList<>(), 0, 100,
-	// RoleRepresentation.class.getName());
-	// assertNotEquals(0, result.getNumberOfRows());
-	//
-	//
-	// RoleRepresentation r = (RoleRepresentation) result.getSearchResult().get(1);
-	//
-	// RoleRepresentation obj = (RoleRepresentation) ks.find(r.getName(),
-	// RoleRepresentation.class.getName());
-	// assertNotNull(obj);
-	// assertEquals(obj.getId(), r.getId());
-	//
-	//
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// fail();
-	// }
-	// }
-
 }
 
