@@ -11,6 +11,7 @@ public class RoleRefAdapter extends RoleRef {
 
 	public RoleRefAdapter(String role) {
 		this.role = role;
+		this.id = role;
 		idDirectMapping = false;
 		userDirectMapping = false;
 		roleRefDirectMapping = false;

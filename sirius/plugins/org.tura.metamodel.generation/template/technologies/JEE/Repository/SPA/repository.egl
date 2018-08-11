@@ -83,11 +83,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
+	    if (type.~primaryKey.size() >1 ){
+	         type.mappingType2Java(recipe,ingredient,'MODEL');
+		    var entitypk : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/entitypk.egl",hash,TemplateFactory);
+		    entitypk.setFormatter(f);
+		    var buffer = entitypk.process();
+		    util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") + "PK.java",buffer);   
+		
+		}
+		
 		
 	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/SPA/mapperClass.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"Mapper.java",buffer);   
+ 		
+ 		
+ 		
+ 		
  		
  		savepackage = t2view.get(type).get("package");
         }

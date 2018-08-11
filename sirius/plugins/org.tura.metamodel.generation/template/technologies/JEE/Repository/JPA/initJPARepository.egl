@@ -83,13 +83,6 @@ ${start}${percent}
              if(rel.target.isInternal() ){
                 directTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
              }
-"JPA1".println();	         
-rel.source.name.print();
-rel.target.name.println();
-"directTrigger->".print();
-directTrigger.println();
-"oppositTrigger->".print();
-oppositTrigger.println();
              
 	         if ( not triggers.contains(t1)){
                %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
@@ -117,13 +110,6 @@ oppositTrigger.println();
              if(rel.source.isInternal() ){
                 oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
              }
-"JPA2".println();	         
-rel.source.name.print();
-rel.target.name.println();
-"directTrigger->".print();
-directTrigger.println();
-"oppositTrigger->".print();
-oppositTrigger.println();
 	         
 	         if ( not triggers.contains(t1)){
                %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%

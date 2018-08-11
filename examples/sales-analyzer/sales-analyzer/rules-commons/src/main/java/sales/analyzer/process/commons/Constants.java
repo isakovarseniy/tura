@@ -27,6 +27,9 @@ public class Constants {
 	public static final String VAR_LASTNAME = "lastName";
 	public static final String VAR_EMAIL = "email";
 
+	public static final String VAR_ROLE_NAME = "name";
+	
+	
 	public static final String QUERY_PROCESS_BY_PK = "getProcessByPK";
 	public static final String QUERY_TASK_BY_PK = "getTaskByPK";
 

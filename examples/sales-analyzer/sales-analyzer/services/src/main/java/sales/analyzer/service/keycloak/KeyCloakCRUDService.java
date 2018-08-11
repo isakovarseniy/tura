@@ -75,6 +75,7 @@ public class KeyCloakCRUDService implements CRUDProvider{
 	
 	private void insertRole(SpaControl control) throws Exception {
 		RoleRepresentation role = (RoleRepresentation) control.getObject();
+		role.setId(null);
 		realmResource.roles().create(role);
 	}
 	
@@ -82,6 +83,7 @@ public class KeyCloakCRUDService implements CRUDProvider{
 	private void insertUser(SpaControl control) throws Exception {
 		Map<String,Object> map = (Map) loader.unWrapObject(control.getObject());
 		UserRepresentation user = (UserRepresentation) map.get("userRef");
+		user.setId(null);
 		realmResource.users().create(user);
 	}
 	

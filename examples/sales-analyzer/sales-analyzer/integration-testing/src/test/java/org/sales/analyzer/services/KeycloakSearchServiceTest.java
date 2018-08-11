@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -40,6 +41,8 @@ import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.salesanalyzer.serialized.db.Permission;
+import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
 import org.tura.salesanalyzer.serialized.jbpm.InitSPARepository;
@@ -53,7 +56,7 @@ import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
@@ -221,6 +224,7 @@ public class KeycloakSearchServiceTest {
 				role = (Role) obj;
 				if (role.getName().equals(roleName)) {
 					found = true;
+					break;
 				}
 			}
 			assertTrue(found);
@@ -255,12 +259,88 @@ public class KeycloakSearchServiceTest {
 // 3 roles becouse keycloak assign 2 roles automaticaly(  offline_access, uma_authorisation )			
 			assertEquals(3, user.getRoleReference().size());
 			
+			String[] rolesArray = new String[] {  "uma_authorization", "offline_access",   roleName};
+			List<String>  arrayList = Arrays.asList(rolesArray);
 
+			int i =0;
+			for (RoleReference rf : user.getRoleReference()  ) {
+				Role role0 = rf.getRole();
+				if ( arrayList.contains(role0.getName())) {
+					i++;
+				}
+			}
+			assertEquals(i, 3);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
+	
+	@Test
+	public void userProfileTest() {
+		try {
+			ProxyRepository repository = getRepository();
+			Role role = (Role) repository.create(Role.class.getName());
+			String roleName = "role_"+UUID.randomUUID().toString();
+			role.setName(roleName);
+			repository.insert(role, Role.class.getName());
+			repository.applyChanges(null);
+			
+			
+			Permission perm1 = (Permission) repository.create(Permission.class.getName());
+			perm1.setName("Perm1");
+			repository.insert(perm1, Permission.class.getName());
+			
+			Permission perm2 = (Permission) repository.create(Permission.class.getName());
+			perm2.setName("Perm2");
+			repository.insert(perm2, Permission.class.getName());
+			
+			repository.applyChanges(null);
+			
+			PermissionReferences permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef);
+			permRef.setPermission(perm1);
+			
+			permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef);
+			permRef.setPermission(perm2);
+			
+			repository.applyChanges(null);
+			
+			
+			ArrayList<SearchCriteria> search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_ROLE_NAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(roleName);
+			search.add(sc);
+			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+			role = (Role) result.getSearchResult().get(0);
+			
+			assertEquals(2, role.getPermissionReferences().size());
+			
+			
+			String[] permArray = new String[] {  "Perm1", "Perm2"};
+			List<String>  arrayList = Arrays.asList(permArray);
+
+			int i = 0;
+			for (PermissionReferences ref : role.getPermissionReferences()) {
+				if (arrayList.contains(ref.getPermission().getName())) {
+					i++;
+				}
+			}
+		
+			assertEquals(i, 2);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
 }
 

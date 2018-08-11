@@ -1677,7 +1677,7 @@
           <types xsi:type="tura.type:TypeReference" uid="b06e830e-8815-4e00-83a2-7846ac8480a7" typeRef="807d71a4-b40c-49c9-92e7-0b169c806fb6"/>
           <types xsi:type="tura.type:TypeReference" uid="033c7e48-74b5-430c-b6c4-9f501fcd687f" typeRef="00a3bfab-96ef-4ea6-a464-32d528d29202"/>
           <relationships xsi:type="tura.type:Assosiation" uid="e9ba1585-cbca-4c68-adf7-5bf3513b9e97" source="6f829f95-55fd-4dfe-b375-05f257bb2802" target="4393d2b0-f16e-4f42-be7e-d9bf176518d9" type="One2Many">
-            <links uid="7faa0fc0-8e63-4998-91c9-ab166c36b333" masterField="d777ee00-48b7-4ef6-adf7-1017e7707670" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
+            <links uid="7faa0fc0-8e63-4998-91c9-ab166c36b333" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="d865e35e-4be3-4e71-bfd9-54977da637dc" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="7a82cb48-e500-41cb-8021-7de9210e317a" type="One2Many" internal="true"/>
           <relationships xsi:type="tura.type:Assosiation" uid="48b43368-3a8d-4d97-b86c-491997fa45a8" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="f3eb9e2b-0119-4481-9c07-23c410bfa708" type="One2Many">
@@ -1764,6 +1764,7 @@
             <classifiers uid="fbc47f3d-c353-409d-ac79-516b48480bfb" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a5a59ca3-aa78-4e58-bef4-7619985af025" name="obj_id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fbf7250e-f223-40c6-a83f-26ed0f13849d" name="description"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="62389bf5-7561-497a-85dd-c6825fa93aa6" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="8ca8ec6f-a4ba-4e37-b940-4f4d483b898d" name="Country Reference">
             <classifiers uid="4aba1641-1eff-4ee3-bf3f-cfefa05423c6" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
@@ -1806,7 +1807,7 @@
             <links uid="9979f35a-5726-45d8-a057-886da7b9921c" masterField="324d156d-790c-417c-9247-ec692d4226af" detailField="c4834f2d-1375-4aed-815b-0667de1bad3a"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="fae2fdff-4646-45e2-893e-2b84aac825ac" source="6e7a4782-a64c-446c-bccb-6386f4ff5cf6" target="d145e66d-8468-4309-ae17-4bc85378d672" type="One2Many">
-            <links uid="2e192868-7410-4655-acde-e3f51645f079" masterField="d777ee00-48b7-4ef6-adf7-1017e7707670" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
+            <links uid="2e192868-7410-4655-acde-e3f51645f079" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="5f28d08a-03d0-4c87-a79a-6ef34ad8eaf2" source="93fd5d1e-a335-4092-85ed-7c14c0cc97b2" target="019fce0b-b5a7-4882-8c03-52c94f2b11f8" type="One2Many">
             <links uid="31910ae8-0bff-4308-9bc0-91a295a23d0c" masterField="be8d4d6a-9e99-401d-9f7a-a43aac438d32" detailField="657a5039-6930-4a75-a0ae-d0c1c7f41486"/>
