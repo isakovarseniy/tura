@@ -30,6 +30,7 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target({ METHOD})
 public @interface Association {
+	String id();
 	Class<?> mappedBy();
 	String property();
 	boolean  containment() default false;

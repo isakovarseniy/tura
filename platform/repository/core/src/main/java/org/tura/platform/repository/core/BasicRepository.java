@@ -103,7 +103,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,registry);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass)));
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass) ,new ObjectGraph()));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);

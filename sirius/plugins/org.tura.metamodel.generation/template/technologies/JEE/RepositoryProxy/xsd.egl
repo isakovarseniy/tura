@@ -80,7 +80,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 				 [%
 				 hash.get("target").mappingType2Java(recipe,ingredient);
 				 %]
-					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](  id="[%=rel.uid%]", mappedBy=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
 				</xs:appinfo>
 				[%=rel.connectionAnnotation(model_mapper,"src")%]
 			  </xs:annotation>
@@ -107,7 +107,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			 	[%
 				 hash.get("source").mappingType2Java(recipe,ingredient);
 				 %]
-				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](id="[%=rel.uid%]", mappedBy=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
 			</xs:appinfo>
 				[%=rel.connectionAnnotation(model_mapper,"trg")%]
 		  </xs:annotation>

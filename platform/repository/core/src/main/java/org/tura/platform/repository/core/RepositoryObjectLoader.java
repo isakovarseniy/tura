@@ -84,23 +84,30 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		return registry.skipRelation(repositoryObject.getClass(), method);
 	}
 
-	private void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
+	private void internalLoader(Object repositoryObject, boolean fromInternalClass,ObjectGraph graph) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
+			Internal internal = method.getAnnotation(Internal.class);
+			String id = internal.id();
+			if( !graph.addBranch(id) ){
+				continue;
+			}
+			
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
-				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(object), true);
+				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(object), true,graph);
 			}
-			if (fromInternalClass) {
-				query(repositoryObject, null);
-			}
+			graph.removeLastBranch(id);
+		}
+		if (fromInternalClass) {
+			query(repositoryObject, null,graph);
 		}
 	}
 
 	
-	public void  internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass) throws Exception {
+	public void  internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass , ObjectGraph graph) throws Exception {
         String key = LOADED_OBJECTS+repositoryObject.getClass().getName();
         
 		@SuppressWarnings("unchecked")
@@ -113,12 +120,12 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
         	return ;
         }else{
         	loadedObjects.add(persistenceObjectPK);
-        	internalLoader(repositoryObject,fromInternalClass);
+        	internalLoader(repositoryObject,fromInternalClass,graph);
         }
 	}
 	
 	
-	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass) throws RepositoryException {
+	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass,ObjectGraph graph) throws RepositoryException {
         String key = LOADED_OBJECTS+repositoryClass.getName();
 
 		@SuppressWarnings("unchecked")
@@ -131,17 +138,17 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
             	return null;
             }else{
             	loadedObjects.add(persistenceObjectPK);
-            	return loader(persistenceObject,repositoryClass);
+            	return loader(persistenceObject,repositoryClass,graph);
             }
 	}	
 	
 	
-	private  Object loader(Object persistenceObject, Class<?> repositoryClass) throws RepositoryException {
+	private  Object loader(Object persistenceObject, Class<?> repositoryClass,ObjectGraph graph) throws RepositoryException {
 		try {
 			Object repositoryObject = instantiateObject(repositoryClass);
 			populate(persistenceObject,repositoryObject);
-			internalLoader(repositoryObject, false);
-			query(repositoryObject, persistenceObject);
+			internalLoader(repositoryObject, false,graph);
+			query(repositoryObject, persistenceObject,graph);
 
 			PostQueryTrigger postQueryTrigger = findPostQueryTrigger(repositoryClass);
 			if (postQueryTrigger != null) {
@@ -153,7 +160,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		}
 	}
 
-	private void query(Object repositoryObject, Object persistenceObject) throws Exception {
+	private void query(Object repositoryObject, Object persistenceObject,ObjectGraph graph) throws Exception {
 
 		List<Method> assosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Association.class);
 
@@ -161,7 +168,12 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			if (skipRelation(repositoryObject, method)) {
 				continue;
 			}
+			
 			Association assosiation = method.getAnnotation(Association.class);
+			String id = assosiation.id();
+			if( !graph.addBranch(id) ){
+				continue;
+			}
 			
 			InternalClass ic = assosiation.mappedBy().getAnnotation(InternalClass.class);
 			if (ic != null ){
@@ -187,11 +199,14 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 			for (Object object : result.getSearchResult()) {
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry );
-				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy());
+				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy(),graph);
 				if (loadedObject != null){
 				   processor.connectRepositoryObjects(repositoryObject, loadedObject);
 				}
 			}
+			
+			graph.removeLastBranch(id);
+			
 		}
 	}
 

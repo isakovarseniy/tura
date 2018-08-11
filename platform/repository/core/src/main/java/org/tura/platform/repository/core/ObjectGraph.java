@@ -19,21 +19,34 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core.annotation;
+package org.tura.platform.repository.core;
 
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.util.Stack;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+public class ObjectGraph {
+	
+	Stack<String> tree = new Stack<>();
+		
+	public ObjectGraph (  ){
+	}
 
-@Retention(RUNTIME)
-@Target({ METHOD})
-public @interface Internal {
-	String id();
-	Class<?> mappedBy();
-	String property();
-	boolean  containment() default false;
-	String type();
+	public ObjectGraph ( ObjectGraph graph ){
+		tree.addAll(graph.tree);
+	}
 
+	public boolean addBranch(String branch){
+		if (tree.contains(branch)){
+			return false;
+		}
+		tree.push(branch);
+		return true;
+	}
+	
+	public void removeLastBranch(String branch) throws RepositoryException{
+		String id = tree.pop();
+		if (!branch.equals(id)){
+			throw new RepositoryException("Wrong branch");
+		}
+	}
+	
 }

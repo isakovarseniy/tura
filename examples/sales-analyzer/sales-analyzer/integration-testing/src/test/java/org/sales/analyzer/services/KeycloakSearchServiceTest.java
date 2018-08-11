@@ -56,7 +56,7 @@ import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
