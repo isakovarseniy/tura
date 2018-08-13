@@ -152,10 +152,11 @@ ${start}${percent}
 
      public void initCommandProducer(){
         registry.addCommandProducer(repository,new org.tura.platform.repository.spa.operation.SpaCommandProducer(spaRegistry,"[%=component.artifactId%]",registry));
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation(registry,spaRegistry));
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectMasterToDetailOperation(registry,spaRegistry));
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectDetailFromMasterOperation(registry,spaRegistry));
-		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation(registry,spaRegistry));
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(org.tura.platform.repository.spa.operation.SpaExternalConnectMasterToDetailOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(org.tura.platform.repository.spa.operation.SpaExternalDisconnectDetailFromMasterOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new org.tura.platform.repository.jpa.operation.SpaOperationsInstantiator(registry,spaRegistry));
         
      }
  

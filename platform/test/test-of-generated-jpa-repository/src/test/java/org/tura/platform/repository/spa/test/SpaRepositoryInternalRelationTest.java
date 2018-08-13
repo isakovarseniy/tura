@@ -140,14 +140,16 @@ public class SpaRepositoryInternalRelationTest {
 
         
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService(registry,spaRegistry));
-
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService(registry,spaRegistry));
+		spaRegistry.getRegistry("test-spa-repository").addInstantiator(new TestServiceInstantiator(registry, spaRegistry));
 		
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, SearchService.class);
+
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
+		
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, SearchService.class);
         
 		return  new ProxyRepository(repository,stackProvider);
 		
@@ -156,7 +158,7 @@ public class SpaRepositoryInternalRelationTest {
 	@Test
 	public void t0000_saveAndRemoveObject() {
 		try {
-			SearchService.base.clear();
+			SearchBase.base.clear();
 			
 			ProxyRepository repository = getRepository();
 			
@@ -225,7 +227,7 @@ public class SpaRepositoryInternalRelationTest {
 	@Test
 	public void t0000_saveObject2() {
 		try {
-			SearchService.base.clear();
+			SearchBase.base.clear();
 			ProxyRepository repository = getRepository();
 			A1 a1 = (A1) repository.create(A1.class.getName());
 			repository.insert(a1, A1.class.getName());

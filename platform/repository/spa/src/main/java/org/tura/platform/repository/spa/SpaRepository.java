@@ -62,6 +62,10 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 
+	public Map<Object, SpaControl> getCache(String objectName){
+		return cache.get(objectName);
+	}
+	
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
 		try {

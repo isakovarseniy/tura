@@ -50,6 +50,7 @@ import java.util.Map;
 
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.AdapterLoaderAware;
+import org.tura.platform.repository.core.Instantiator;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
@@ -79,14 +80,20 @@ public class SpaObjectRegistry implements Serializable {
 	public class SpaRegistry {
 
 		private List<Class<?>> spaClasses = new ArrayList<>();
-		private Map<Class<?>, CRUDProvider> crudProviders = new HashMap<>();
+		private Map<Class<?>, Class<? extends CRUDProvider>> crudProviders = new HashMap<>();
 		private Map<String, PersistanceMapper> mappers = new HashMap<>();
-		private Map<Class<?>, SearchProvider> searchProviders = new HashMap<>();
-		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
+		private Map<Class<?>, Class<? extends SearchProvider>> searchProviders = new HashMap<>();
+		private List<Class<? extends SpaRepositoryCommand>> externalCommands = new ArrayList<>();
 		private String registry;
 		private EntityManagerProvider entityManagerProvider;
 		private Map<String, AdapterLoader> loaders = new HashMap<>();
+		private List<Instantiator> instantiators = new ArrayList<>(); 
 
+		SpaRegistry(String registry) {
+			this.registry = registry;
+		}
+
+		
 		public EntityManagerProvider getEntityManagerProvider() {
 			return entityManagerProvider;
 		}
@@ -95,11 +102,13 @@ public class SpaObjectRegistry implements Serializable {
 			this.entityManagerProvider = entityManagerProvider;
 		}
 
-		SpaRegistry(String registry) {
-			this.registry = registry;
-		}
 
-		public void addExternalCommand(SpaRepositoryCommand cmd) {
+		public void addInstantiator(Instantiator instantiator){
+			instantiators.add(instantiator);
+		}
+		
+		
+		public void addExternalCommand(Class<? extends SpaRepositoryCommand> cmd) {
 			externalCommands.add(cmd);
 		}
 
@@ -107,17 +116,11 @@ public class SpaObjectRegistry implements Serializable {
 			mappers.put(persistanceClass + "2" + repositoryClass, mapper);
 		}
 
-		public void addCRUDProvider(Class<?> clazz, CRUDProvider provider) {
-			if (RegistryAware.class.isAssignableFrom(provider.getClass())) {
-				((RegistryAware) provider).setRegistry(registry);
-			}
+		public void addCRUDProvider(Class<?> clazz, Class<? extends CRUDProvider> provider) {
 			crudProviders.put(clazz, provider);
 		}
 
-		public void addSearchProvider(Class<?> clazz, SearchProvider provider) {
-			if (RegistryAware.class.isAssignableFrom(provider.getClass())) {
-				((RegistryAware) provider).setRegistry(registry);
-			}
+		public void addSearchProvider(Class<?> clazz, Class< ? extends SearchProvider> provider) {
 			searchProviders.put(clazz, provider);
 		}
 
@@ -146,9 +149,21 @@ public class SpaObjectRegistry implements Serializable {
 		}
 
 		public CRUDProvider findCRUDProvider(Class<?> clazz) {
-			CRUDProvider provider = crudProviders.get(clazz);
+			Class <? extends CRUDProvider> providerClass = crudProviders.get(clazz);
+			if (providerClass == null){
+				return null;
+			}
+			
+			Instantiator init = findInstantiator(providerClass);
+			if (init == null){
+				return null;
+			}
+			CRUDProvider provider =  (CRUDProvider) init.newInstance(providerClass);
 			if (provider != null) {
 				provider.setAdapterLoader(loaders.get(clazz.getName()));
+				if (RegistryAware.class.isAssignableFrom(provider.getClass())) {
+					((RegistryAware) provider).setRegistry(registry);
+				}
 			}
 			return provider;
 		}
@@ -159,9 +174,21 @@ public class SpaObjectRegistry implements Serializable {
 		}
 
 		public SearchProvider findSearchProvider(Class<?> clazz) {
-			SearchProvider provider = searchProviders.get(clazz);
+			Class<? extends SearchProvider> providerClass = searchProviders.get(clazz);
+			if (providerClass == null){
+				return null;
+			}
+			
+			Instantiator init = findInstantiator(providerClass);
+			if (init == null){
+				return null;
+			}
+			SearchProvider provider = (SearchProvider) init.newInstance(providerClass) ;
 			if (provider != null) {
 				provider.setAdapterLoader(loaders.get(clazz.getName()));
+				if (RegistryAware.class.isAssignableFrom(provider.getClass())) {
+					((RegistryAware) provider).setRegistry(registry);
+				}
 			}
 			return provider;
 		}
@@ -169,7 +196,9 @@ public class SpaObjectRegistry implements Serializable {
 		public List<Object> findCommand(RepositoryCommandType cmdType, Object... parameters)
 				throws RepositoryException {
 			List<Object> list = new ArrayList<>();
-			for (SpaRepositoryCommand cmd : externalCommands) {
+			for (Class<? extends SpaRepositoryCommand> cmdClass : externalCommands) {
+				Instantiator init = findInstantiator(cmdClass);
+				SpaRepositoryCommand cmd = init.newInstance(cmdClass);
 				if (cmd.checkCommand(cmdType, parameters)) {
 					list.add(cmd);
 				}
@@ -180,5 +209,19 @@ public class SpaObjectRegistry implements Serializable {
 		public void addLoader(String className, AdapterLoader loader) {
 			this.loaders.put(className, loader);
 		}
+
+		public Instantiator findInstantiator( Class<?> clazz){
+			return findInstantiator(clazz.getName());
+		}
+
+		public Instantiator findInstantiator( String className){
+			for (Instantiator init :   instantiators){
+				if (init.check(className)){
+					return init;
+				}
+			}
+			return null;
+		}
 	}
+	
 }

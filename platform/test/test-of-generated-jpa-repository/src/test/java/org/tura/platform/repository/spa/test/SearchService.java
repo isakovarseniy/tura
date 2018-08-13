@@ -44,7 +44,6 @@ package org.tura.platform.repository.spa.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,7 +71,6 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	
 	public static String TARGET_CLASS = "TARGET_CLASS";
 
-	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
 	private String registryName;
 	private Registry registry;
 	
@@ -120,9 +118,9 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 			}
 			
 
-			Map<Object, Object> h = base.get(objectClass);
+			Map<Object, Object> h = SearchBase.base.get(objectClass);
 			if (h != null) {
-				Collection<?> array = base.get(objectClass).values();
+				Collection<?> array = SearchBase.base.get(objectClass).values();
 
 				QueryResults result = query.execute(array);
 
@@ -138,7 +136,7 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
-		return base.get(objectClass).get(pk);
+		return SearchBase.base.get(objectClass).get(pk);
 	}
 
 	public String getRegistry() {

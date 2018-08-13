@@ -136,11 +136,13 @@ public class MultipseSpaObjectsTest {
         registry.addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
 		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService(registry,spaRegistry));
+		spaRegistry.getRegistry("test-spa-repository").addInstantiator(new TestServiceInstantiator(registry, spaRegistry));
+		
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class,  SearchService.class);
 
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
 		
 		return  new ProxyRepository(repository,stackProvider);
 		
@@ -149,7 +151,7 @@ public class MultipseSpaObjectsTest {
 	@Test
 	public void t0000_saveAndRemoveObject() {
 		try {
-			SearchService.base.clear();
+			SearchBase.base.clear();
 			
 			ProxyRepository repository = getRepository();
 			

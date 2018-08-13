@@ -29,6 +29,7 @@
 		<resteasy-jackson2-provider>3.0.12.Final</resteasy-jackson2-provider>
 		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
 		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
+		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
 	</properties>
 
 	<repositories>
@@ -120,6 +121,13 @@
 				<version>${keycloak-version}</version>
 				<type>zip</type>
 			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${version.javax.ws.rs-api}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.kie.server</groupId>

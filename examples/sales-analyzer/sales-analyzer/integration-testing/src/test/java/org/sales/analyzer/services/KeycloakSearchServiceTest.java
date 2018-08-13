@@ -43,8 +43,14 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.Permission;
 import org.tura.salesanalyzer.serialized.db.PermissionReferences;
+import org.tura.salesanalyzer.serialized.db.CountryReference;
+import org.tura.salesanalyzer.serialized.db.City;
+import org.tura.salesanalyzer.serialized.db.CityRefeence;
+import org.tura.salesanalyzer.serialized.db.Country;
 import org.tura.salesanalyzer.serialized.db.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
+import org.tura.salesanalyzer.serialized.db.State;
+import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.jbpm.InitSPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
@@ -56,7 +62,7 @@ import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
@@ -278,7 +284,7 @@ public class KeycloakSearchServiceTest {
 	}
 	
 	@Test
-	public void userProfileTest() {
+	public void rolePermitionTest() {
 		try {
 			ProxyRepository repository = getRepository();
 			Role role = (Role) repository.create(Role.class.getName());
@@ -335,12 +341,103 @@ public class KeycloakSearchServiceTest {
 		
 			assertEquals(i, 2);
 
+			repository.remove(role, Role.class.getName());
+			repository.applyChanges(null);
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+			
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
+			sc.setName("roleId");
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(roleName);
+			search.add(sc);
+
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,PermissionReferences.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+
+			result = repository.find(new  ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,Permission.class.getName());
+			assertEquals(2, result.getNumberOfRows());
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 
 	}
+	
+	@Test
+	public void userPreferencesTest() {
+		try {
+			ProxyRepository repository = getRepository();
+			
+			User user = (User) repository.create(User.class.getName());
+			String userName = UUID.randomUUID().toString();
+System.out.println(userName);			
+			user.setUsername(userName);
+			repository.insert(user, User.class.getName());
+			repository.applyChanges(null);
+
+			ArrayList<SearchCriteria> search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_USERNAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(userName);
+			search.add(sc);
+			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user = (User) result.getSearchResult().get(0);
+			
+			
+//			Country country = (Country) repository.create(Country.class.getName());
+//			repository.insert(country, Country.class.getName());
+			
+//			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
+//			cntRef.setCountry(country);
+//			user.getCountryReference().add(cntRef);
+			
+			State state = (State) repository.create(State.class.getName());
+			repository.insert(state, State.class.getName());
+			
+			StateReference stateRef = (StateReference) repository.create(StateReference.class.getName());
+			user.getStateReference().add(stateRef);
+			stateRef.setState(state);
+			
+			
+//			City city = (City) repository.create(City.class.getName());
+//			repository.insert(city, City.class.getName());
+//			
+//			CityRefeence  cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
+//			user.getCityRefeence().add(cityRef);
+//			cityRef.setCity(city);
+			
+			repository.applyChanges(null);
+			
+//			search = new ArrayList<>();
+//			sc = new SearchCriteria();
+//			sc.setName(Constants.VAR_USERNAME);
+//			sc.setComparator(Operator.EQ.name());
+//			sc.setValue(userName);
+//			search.add(sc);
+//			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+//			assertEquals(1, result.getNumberOfRows());
+//			user = (User) result.getSearchResult().get(0);
+//			assertEquals(userName,user.getUsername());
+//			
+//			assertEquals(1,user.getCountryReference().size());
+//			CountryReference _cntRef = user.getCountryReference().get(0);
+//			assertEquals(cntRef.getObjId(),_cntRef.getObjId());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+
 	
 }
 

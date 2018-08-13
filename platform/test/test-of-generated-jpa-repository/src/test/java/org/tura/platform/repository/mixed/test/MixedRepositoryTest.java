@@ -53,7 +53,9 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.spa.test.CRUDService;
+import org.tura.platform.repository.spa.test.SearchBase;
 import org.tura.platform.repository.spa.test.SearchService;
+import org.tura.platform.repository.spa.test.TestServiceInstantiator;
 
 import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
@@ -169,23 +171,25 @@ public class MixedRepositoryTest {
 		initSpa.initProvider();
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject1.class, new SearchService(registry,spaRegistry));
+		spaRegistry.getRegistry("test-spa-repository").addInstantiator(new TestServiceInstantiator(registry, spaRegistry));
+		
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject1.class,  SearchService.class);
 
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject2.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject2.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject2.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject2.class,  SearchService.class);
         
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject3.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject3.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject3.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject3.class,  SearchService.class);
         
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject4.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject4.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject4.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject4.class,  SearchService.class);
 
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, SearchService.class);
 
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
         
         return new ProxyRepository(repository, stackProvider);
 
@@ -230,7 +234,7 @@ public class MixedRepositoryTest {
 			o1 = (JPAObject1) result.getSearchResult().get(0);
 			assertNull( o1.getSPAObject1());
 
-			assertTrue( SearchService.base.get("org.tura.jpa.test.SPAObject1").isEmpty());
+			assertTrue( SearchBase.base.get("org.tura.jpa.test.SPAObject1").isEmpty());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -278,7 +282,7 @@ public class MixedRepositoryTest {
 			o1 = (JPAObject2) result.getSearchResult().get(0);
 			assertEquals( 0, o1.getSPAObject2().size());
 
-			assertTrue( SearchService.base.get("org.tura.jpa.test.SPAObject2").isEmpty());
+			assertTrue( SearchBase.base.get("org.tura.jpa.test.SPAObject2").isEmpty());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

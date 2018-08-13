@@ -23,6 +23,8 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
+
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
@@ -70,7 +72,11 @@ public class JpaAddObjectOperation extends SpaRepositoryCommand {
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		JpaSearchService sp = (JpaSearchService) this.providerHash.get(persistanceType);
+		try {
 		sp.getEm().persist(getObject());
+		}catch(EntityExistsException e) {
+			sp.getEm().merge(getObject());
+		}
 		return null;
 	}
 

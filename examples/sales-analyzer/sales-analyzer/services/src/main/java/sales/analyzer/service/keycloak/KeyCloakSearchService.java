@@ -3,6 +3,8 @@ package sales.analyzer.service.keycloak;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.NotFoundException;
+
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.RoleRepresentationPK;
@@ -97,9 +99,13 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 
 			SearchCriteria sc = helper.checkSearchParam(Constants.VAR_ROLE_NAME, searchCriteria);
 			if ( sc != null) {
-				RoleRepresentation role = realmResource.roles().get((String) sc.getValue()).toRepresentation();
-				ls = new ArrayList<>();
-				ls.add(role);
+				try {
+					RoleRepresentation role = realmResource.roles().get((String) sc.getValue()).toRepresentation();
+					ls = new ArrayList<>();
+					ls.add(role);
+				}catch(NotFoundException e) {
+					ls = new ArrayList<>();
+				}
 			}else {
 				ls = realmResource.roles().list();
 			}

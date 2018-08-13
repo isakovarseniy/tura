@@ -1686,10 +1686,10 @@
           <relationships xsi:type="tura.type:Assosiation" uid="11b47ea5-9193-411f-a846-e0997a354733" source="6f829f95-55fd-4dfe-b375-05f257bb2802" target="7a82cb48-e500-41cb-8021-7de9210e317a" containment="Non">
             <links uid="67ede2a8-4404-495f-b96c-c0c5a004dab3" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="e7fe5a26-1348-4379-87ca-b5ec8d34ee07"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="60dd5e66-ea1e-47da-a9f1-0152e611f5ac" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="b06e830e-8815-4e00-83a2-7846ac8480a7">
+          <relationships xsi:type="tura.type:Assosiation" uid="60dd5e66-ea1e-47da-a9f1-0152e611f5ac" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="b06e830e-8815-4e00-83a2-7846ac8480a7" type="One2Many">
             <links uid="1eb6d0a4-d762-4407-892d-44e0217b5aff" masterField="e4aed0d2-adad-49c3-8017-ece84ca52b5c" detailField="529280b0-e6b7-4680-b71d-804ac5a8f2a6"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="082a4c5c-712e-4e15-96da-737df3409fdb" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="033c7e48-74b5-430c-b6c4-9f501fcd687f">
+          <relationships xsi:type="tura.type:Assosiation" uid="082a4c5c-712e-4e15-96da-737df3409fdb" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="033c7e48-74b5-430c-b6c4-9f501fcd687f" type="One2Many">
             <links uid="e47983e1-3690-47b3-8fbc-c5d1d2d7824a" masterField="e4aed0d2-adad-49c3-8017-ece84ca52b5c" detailField="4f97b1a8-09b2-4c3c-8a37-f6125a691828"/>
           </relationships>
         </repositoryPackages>
@@ -1830,10 +1830,10 @@
           <relationships xsi:type="tura.type:Assosiation" uid="a8c2673a-7c57-4700-937e-b5f9b6c74ebf" source="449d1a03-82be-4018-8df3-e472502af2ce" target="00a3bfab-96ef-4ea6-a464-32d528d29202">
             <links uid="66f1a701-3945-49b1-9f25-2e17a350e046" masterField="324d156d-790c-417c-9247-ec692d4226af" detailField="88b2f3cf-111c-4103-a1a8-c4c59999ab14"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="06c75ef0-d98c-42ad-862a-1991d3544178" source="8e61cb98-4f20-4f8f-9075-4bb993258c38" target="807d71a4-b40c-49c9-92e7-0b169c806fb6">
+          <relationships xsi:type="tura.type:Assosiation" uid="06c75ef0-d98c-42ad-862a-1991d3544178" source="8e61cb98-4f20-4f8f-9075-4bb993258c38" target="807d71a4-b40c-49c9-92e7-0b169c806fb6" type="One2Many">
             <links uid="d66d8e8f-3dc9-4870-a12e-ed822d713ec6" masterField="e4aed0d2-adad-49c3-8017-ece84ca52b5c" detailField="529280b0-e6b7-4680-b71d-804ac5a8f2a6"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="b5ae3583-b4b4-48fe-827d-b45787dfa77e" source="8e61cb98-4f20-4f8f-9075-4bb993258c38" target="00a3bfab-96ef-4ea6-a464-32d528d29202">
+          <relationships xsi:type="tura.type:Assosiation" uid="b5ae3583-b4b4-48fe-827d-b45787dfa77e" source="8e61cb98-4f20-4f8f-9075-4bb993258c38" target="00a3bfab-96ef-4ea6-a464-32d528d29202" type="One2Many">
             <links uid="d5342c1d-8a5d-48f5-8f5a-9a7b3dea15b1" masterField="e4aed0d2-adad-49c3-8017-ece84ca52b5c" detailField="4f97b1a8-09b2-4c3c-8a37-f6125a691828"/>
           </relationships>
         </repositoryPackages>

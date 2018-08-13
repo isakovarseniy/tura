@@ -50,6 +50,7 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.spa.test.CRUDService;
 import org.tura.platform.repository.spa.test.SearchService;
+import org.tura.platform.repository.spa.test.TestServiceInstantiator;
 
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.InitSPARepository;
@@ -156,11 +157,13 @@ public class AdapterTest {
 		initSpa.initProvider();
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W1.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W1.class, new SearchService(registry,spaRegistry));
+		spaRegistry.getRegistry("test-spa-repository").addInstantiator(new TestServiceInstantiator(registry, spaRegistry));
+		
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W1.class,  SearchService.class);
 
-        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W4.class, new CRUDService());
-        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W4.class, new SearchService(registry,spaRegistry));
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.W4.class, CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.W4.class, SearchService.class);
 
         registry.addTrigger( Q1.class.getName() ,  W1.class.getName(),  new W1PreQueryTrigger(registry));
         registry.addTrigger( W1.class.getName(),  new W1PreQueryTrigger(registry));
