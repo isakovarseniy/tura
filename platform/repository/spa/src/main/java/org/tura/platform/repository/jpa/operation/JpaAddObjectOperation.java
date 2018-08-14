@@ -72,11 +72,7 @@ public class JpaAddObjectOperation extends SpaRepositoryCommand {
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		JpaSearchService sp = (JpaSearchService) this.providerHash.get(persistanceType);
-		try {
-		sp.getEm().persist(getObject());
-		}catch(EntityExistsException e) {
-			sp.getEm().merge(getObject());
-		}
+		sp.getEm().merge(getObject());
 		return null;
 	}
 

@@ -28,6 +28,7 @@ import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.sales.analyzer.process.TestCommons;
+import org.sales.analyzer.services.impl.KeyCloakServicesInstantiator;
 import org.sales.analyzer.services.impl.SPAAdapterLoader;
 import org.sales.analyzer.services.impl.UUIPrimaryKeyStrategy;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -43,15 +44,15 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.Permission;
 import org.tura.salesanalyzer.serialized.db.PermissionReferences;
-import org.tura.salesanalyzer.serialized.db.CountryReference;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
+import org.tura.salesanalyzer.serialized.db.CountryReference;
 import org.tura.salesanalyzer.serialized.db.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.StateReference;
-import org.tura.salesanalyzer.serialized.jbpm.InitSPARepository;
+import org.tura.salesanalyzer.serialized.keycloak.InitSPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
@@ -62,7 +63,7 @@ import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class KeycloakSearchServiceTest {
 
 	private static Logger logger;
@@ -162,18 +163,25 @@ public class KeycloakSearchServiceTest {
 						.build();
 		RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
 		
-		KeyCloakSearchService ks = new KeyCloakSearchService(realmResource);
-
-		KeyCloakSearchService ks1 = new KeyCloakSearchService(realmResource);
-
-		KeyCloakCRUDService crud = new KeyCloakCRUDService(realmResource);
+		KeyCloakServicesInstantiator init = new KeyCloakServicesInstantiator(
+																TestCommons.KEYCLOAK_URL,
+																TestCommons.KEYCLOAK_ADMIN_REALM,
+																TestCommons.KEYCLOAK_ADMIN_CLIENTID,
+																TestCommons.CLIENT_SECRET,
+																TestCommons.ADMIN_USER,
+																TestCommons.ADMIN_PASSWORD,
+																TestCommons.KEYCLOAK_MANAGED_REALM
+																);
+		
 		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
-		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,crud);
-		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(RoleRepresentation.class,crud);
+		spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(init);
 		
-		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(org.tura.salesanalyzer.persistence.keycloak.User.class, ks);
-		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, ks1);
+		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(org.tura.salesanalyzer.persistence.keycloak.User.class,KeyCloakCRUDService.class);
+		spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(RoleRepresentation.class,KeyCloakCRUDService.class);
+		
+		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(org.tura.salesanalyzer.persistence.keycloak.User.class, KeyCloakSearchService.class);
+		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(RoleRepresentation.class, KeyCloakSearchService.class);
 
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader(realmResource));
@@ -284,6 +292,7 @@ public class KeycloakSearchServiceTest {
 	}
 	
 	@Test
+	@RunAsClient
 	public void rolePermitionTest() {
 		try {
 			ProxyRepository repository = getRepository();
@@ -369,13 +378,13 @@ public class KeycloakSearchServiceTest {
 	}
 	
 	@Test
+	@RunAsClient
 	public void userPreferencesTest() {
 		try {
 			ProxyRepository repository = getRepository();
 			
 			User user = (User) repository.create(User.class.getName());
 			String userName = UUID.randomUUID().toString();
-System.out.println(userName);			
 			user.setUsername(userName);
 			repository.insert(user, User.class.getName());
 			repository.applyChanges(null);
@@ -391,12 +400,12 @@ System.out.println(userName);
 			user = (User) result.getSearchResult().get(0);
 			
 			
-//			Country country = (Country) repository.create(Country.class.getName());
-//			repository.insert(country, Country.class.getName());
+			Country country = (Country) repository.create(Country.class.getName());
+			repository.insert(country, Country.class.getName());
 			
-//			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
-//			cntRef.setCountry(country);
-//			user.getCountryReference().add(cntRef);
+			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
+			cntRef.setCountry(country);
+			user.getCountryReference().add(cntRef);
 			
 			State state = (State) repository.create(State.class.getName());
 			repository.insert(state, State.class.getName());
@@ -406,30 +415,39 @@ System.out.println(userName);
 			stateRef.setState(state);
 			
 			
-//			City city = (City) repository.create(City.class.getName());
-//			repository.insert(city, City.class.getName());
-//			
-//			CityRefeence  cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
-//			user.getCityRefeence().add(cityRef);
-//			cityRef.setCity(city);
+			City city = (City) repository.create(City.class.getName());
+			repository.insert(city, City.class.getName());
+			
+			CityRefeence  cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
+			user.getCityRefeence().add(cityRef);
+			cityRef.setCity(city);
 			
 			repository.applyChanges(null);
 			
-//			search = new ArrayList<>();
-//			sc = new SearchCriteria();
-//			sc.setName(Constants.VAR_USERNAME);
-//			sc.setComparator(Operator.EQ.name());
-//			sc.setValue(userName);
-//			search.add(sc);
-//			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
-//			assertEquals(1, result.getNumberOfRows());
-//			user = (User) result.getSearchResult().get(0);
-//			assertEquals(userName,user.getUsername());
-//			
-//			assertEquals(1,user.getCountryReference().size());
-//			CountryReference _cntRef = user.getCountryReference().get(0);
-//			assertEquals(cntRef.getObjId(),_cntRef.getObjId());
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
+			sc.setName(Constants.VAR_USERNAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(userName);
+			search.add(sc);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user = (User) result.getSearchResult().get(0);
+			assertEquals(userName,user.getUsername());
 			
+			assertEquals(1,user.getCountryReference().size());
+			CountryReference _cntRef = user.getCountryReference().get(0);
+			assertEquals(cntRef.getObjId(),_cntRef.getObjId());
+			
+
+			assertEquals(1,user.getCityRefeence().size());
+			CityRefeence _cityRef = user.getCityRefeence().get(0);
+			assertEquals(cityRef.getObjId(),_cityRef.getObjId());
+			
+			assertEquals(1,user.getStateReference().size());
+			StateReference _stateRef = user.getStateReference().get(0);
+			assertEquals(stateRef.getObjId(),_stateRef.getObjId());
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
