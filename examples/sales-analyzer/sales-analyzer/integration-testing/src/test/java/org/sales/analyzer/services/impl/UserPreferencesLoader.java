@@ -53,20 +53,40 @@ public class UserPreferencesLoader implements UserReferencesProvider {
 		for (CityRefeence cityRef : user.getCityRefeence()) {
 			pref.getCities().add(cityRef.getCity().getObjId());
 		}
+		for (CityRefeence cityRef : user.getCityRefeence()) {
+			if (cityRef.getAdmin()) {
+			 pref.getCitiesForAdmin().add(cityRef.getCity().getObjId());
+			}
+		}
+		
+		
 
 		pref.setStates(new ArrayList<>());
 		pref.setStatesForAdmin(new ArrayList<>());
 		for (StateReference stateRef : user.getStateReference()) {
 			pref.getStates().add(stateRef.getState().getObjId());
 		}
+		for (StateReference stateRef : user.getStateReference()) {
+			if (stateRef.getAdmin()) {
+			 pref.getStatesForAdmin().add(stateRef.getState().getObjId());
+			}
+		}
 
+		
+		
 		pref.setCountries(new ArrayList<>());
 		pref.setCountriesForAdmin(new ArrayList<>());
 		for (CountryReference cntRef : user.getCountryReference()) {
 			pref.getCountries().add(cntRef.getCountry().getObjId());
 		}
+		for (CountryReference cntRef : user.getCountryReference()) {
+			if (cntRef.getAdmin()) {
+				pref.getCountriesForAdmin().add(cntRef.getCountry().getObjId());
+			}
+		}
 
-		pref.setPermissions(new ArrayList<>());
+		
+		
 		pref.setPermissions(new ArrayList<>());
 		for (RoleReference roleRef : user.getRoleReference()) {
 			Role role = roleRef.getRole();

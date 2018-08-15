@@ -188,7 +188,7 @@ public class KeycloakServiceTest {
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader(realmResource));
 		spaRegistry.getRegistry("spa-persistence-repository")
-		  .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
+		 .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
 
 		registry.addLoader(User.class.getName(), new SPAAdapterLoader(realmResource));
 
@@ -513,6 +513,16 @@ public class KeycloakServiceTest {
 			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
 			cntRef.setCountry(country);
 			user.getCountryReference().add(cntRef);
+
+			Country countryAdm = (Country) repository.create(Country.class.getName());
+			repository.insert(countryAdm, Country.class.getName());
+			
+			CountryReference cntRefAdm = (CountryReference) repository.create(CountryReference.class.getName());
+			cntRefAdm.setCountry(countryAdm);
+			cntRefAdm.setAdmin(true);
+			user.getCountryReference().add(cntRefAdm);
+			
+			
 			
 			State state = (State) repository.create(State.class.getName());
 			repository.insert(state, State.class.getName());
@@ -521,6 +531,16 @@ public class KeycloakServiceTest {
 			user.getStateReference().add(stateRef);
 			stateRef.setState(state);
 			
+
+			State stateAdm = (State) repository.create(State.class.getName());
+			repository.insert(stateAdm, State.class.getName());
+			
+			StateReference stateRefAdm = (StateReference) repository.create(StateReference.class.getName());
+			user.getStateReference().add(stateRefAdm);
+			stateRefAdm.setState(stateAdm);
+			stateRefAdm.setAdmin(true);
+			
+
 			
 			City city = (City) repository.create(City.class.getName());
 			repository.insert(city, City.class.getName());
@@ -528,6 +548,16 @@ public class KeycloakServiceTest {
 			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
 			user.getCityRefeence().add(cityRef);
 			cityRef.setCity(city);
+			
+
+			City cityAdm = (City) repository.create(City.class.getName());
+			repository.insert(cityAdm, City.class.getName());
+			
+			CityRefeence cityRefAdm = (CityRefeence) repository.create(CityRefeence.class.getName());
+			user.getCityRefeence().add(cityRefAdm);
+			cityRefAdm.setCity(cityAdm);
+			cityRefAdm.setAdmin(true);
+
 			
 			repository.applyChanges(null);
 			
@@ -568,15 +598,55 @@ public class KeycloakServiceTest {
 			
 			UserPreferences pref = prefLoader.getUserPreferences(userName);
 			
-			assertEquals(city.getObjId(), pref.getCities().get(0));
-			assertEquals(country.getObjId(), pref.getCountries().get(0));
-			assertEquals(state.getObjId(), pref.getStates().get(0));
+			Integer[] cityArray = new Integer[] {city.getObjId(), cityAdm.getObjId() };
+			List<Integer> cityList = Arrays.asList(cityArray);
+
+			int i = 0;
+			for (Integer c : pref.getCities()) {
+				if (cityList.contains(c)) {
+					i++;
+				}
+			}
+		
+			assertEquals(2, i);
+			
+
+			Integer[] countriesArray = new Integer[] {country.getObjId(), countryAdm.getObjId() };
+			List<Integer> countryList = Arrays.asList(countriesArray);
+
+			i = 0;
+			for (Integer c : pref.getCountries()) {
+				if (countryList.contains(c)) {
+					i++;
+				}
+			}
+		
+			assertEquals(2, i);
+			
+
+			Integer[] stateArray = new Integer[] {state.getObjId(), stateAdm.getObjId() };
+			List<Integer> stateList = Arrays.asList(stateArray);
+
+			i = 0;
+			for (Integer c : pref.getStates()) {
+				if (stateList.contains(c)) {
+					i++;
+				}
+			}
+		
+			assertEquals(2, i);
+
+			
+			
+			assertEquals(cityAdm.getObjId(), pref.getCitiesForAdmin().get(0));
+			assertEquals(countryAdm.getObjId(), pref.getCountriesForAdmin().get(0));
+			assertEquals(stateAdm.getObjId(), pref.getStatesForAdmin().get(0));
 			
 			
 			String[] permArray = new String[] { "Perm1", "Perm2"};
 			List<String> arrayList = Arrays.asList(permArray);
 
-			int i = 0;
+			i = 0;
 			for (String perm : pref.getPermissions()) {
 				if (arrayList.contains(perm)) {
 					i++;

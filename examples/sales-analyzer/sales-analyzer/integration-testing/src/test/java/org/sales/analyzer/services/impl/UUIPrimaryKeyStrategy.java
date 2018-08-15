@@ -26,8 +26,11 @@ import java.util.UUID;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 import org.tura.salesanalyzer.serialized.db.City;
+import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
+import org.tura.salesanalyzer.serialized.db.CountryReference;
 import org.tura.salesanalyzer.serialized.db.State;
+import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
@@ -66,6 +69,20 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			id= id+1;
 			return;
 		}
+		
+		if (o instanceof CountryReference) {
+			((CountryReference)o).setAdmin(false);
+		}
+		
+		if (o instanceof StateReference) {
+			((StateReference)o).setAdmin(false);
+		}
+
+		if (o instanceof CityRefeence) {
+			((CityRefeence)o).setAdmin(false);
+		}
+
+		
 		
 		Reflection.callTyped(o, "setObjId", Long.class,id);
 		id= id+1;
