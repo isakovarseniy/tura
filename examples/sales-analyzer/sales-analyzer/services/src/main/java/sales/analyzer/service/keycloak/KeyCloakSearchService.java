@@ -16,6 +16,7 @@ import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
 import org.tura.salesanalyzer.persistence.keycloak.User;
+import org.tura.salesanalyzer.persistence.keycloak.UserPK;
 
 import sales.analyzer.process.commons.Constants;
 
@@ -33,7 +34,13 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
 		if (User.class.getName().equals(objectClass)) {
-			return realmResource.users().get((String) pk).toRepresentation();
+			UserPK objPk = (UserPK) pk;
+			List<UserRepresentation> ls = realmResource.users().search(objPk.getUsername());
+			if (ls != null && ls.size() > 0) {
+				return ls.get(0);
+			}else {
+				return null;
+			}
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
 			RoleRepresentationPK objPK = (RoleRepresentationPK) pk;
