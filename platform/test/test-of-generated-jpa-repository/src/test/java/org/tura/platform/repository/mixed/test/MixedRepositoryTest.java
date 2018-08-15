@@ -431,13 +431,13 @@ public class MixedRepositoryTest {
 			assertEquals(a1.getObjId(), a1_.getObjId());
 
 			A2 a2_ = a1_.getA2();
-			assertEquals(a2.getObjId(), a2_.getObjId());
+			assertEquals(a2.getObjId2(), a2_.getObjId2());
 			
 			A3 a3_ = a2_.getA3().get(0);
-			assertEquals(a3.getObjId(), a3_.getObjId());
+			assertEquals(a3.getObjId3(), a3_.getObjId3());
 			
 			A4 a4_ = a2_.getA4().get(0);
-			assertEquals(a4.getObjId(), a4_.getObjId());
+			assertEquals(a4.getObjId4(), a4_.getObjId4());
 			
 			C1 c1_ = a3_.getC1().get(0);
 			assertEquals(c1.getObjId(), c1_.getObjId());

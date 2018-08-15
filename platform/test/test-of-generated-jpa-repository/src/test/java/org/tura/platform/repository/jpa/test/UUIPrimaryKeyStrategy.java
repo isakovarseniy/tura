@@ -26,7 +26,12 @@ import java.util.UUID;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
+import objects.test.serialazable.jpa.A2;
+import objects.test.serialazable.jpa.A3;
+import objects.test.serialazable.jpa.A4;
+import objects.test.serialazable.jpa.A5;
 import objects.test.serialazable.jpa.Customer;
+import objects.test.serialazable.jpa.F2;
 import objects.test.serialazable.jpa.JPAObject1;
 import objects.test.serialazable.jpa.JPAObject2;
 import objects.test.serialazable.jpa.JPAObject3;
@@ -104,7 +109,32 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			return;
 		}		
 		
+		if (o instanceof A2){
+			((A2)o).setObjId2(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
 		
+		if (o instanceof A3){
+			((A3)o).setObjId3(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+
+		if (o instanceof A4){
+			((A4)o).setObjId4(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		
+		if (o instanceof A5){
+			((A5)o).setObjId5(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof F2){
+			((F2)o).setObjId2(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+
 		
 		if (o instanceof LocationMany2ManyCustomerRelation){
 			return;

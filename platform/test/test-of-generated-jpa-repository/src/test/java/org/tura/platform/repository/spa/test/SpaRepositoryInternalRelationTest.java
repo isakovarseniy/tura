@@ -174,7 +174,7 @@ public class SpaRepositoryInternalRelationTest {
 			A1  a1_= (A1) result.getSearchResult().get(0);
 			assertEquals(a1.getObjId(), a1_.getObjId());
 			
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
+			assertEquals(a1.getA2().getObjId2(), a1_.getA2().getObjId2());
 			assertNull(a1_.getA5());
 			
 			assertEquals(0,a1_.getA2().getA3().size());
@@ -201,8 +201,8 @@ public class SpaRepositoryInternalRelationTest {
 			a1_= (A1) result.getSearchResult().get(0);
 			assertEquals(a1.getObjId(), a1_.getObjId());
 			
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
-			assertEquals(a1_.getA5().getObjId(), a5.getObjId() );
+			assertEquals(a1.getA2().getObjId2(), a1_.getA2().getObjId2());
+			assertEquals(a1_.getA5().getObjId5(), a5.getObjId5() );
 			
 			assertEquals(2,a1_.getA2().getA3().size());
 			assertEquals(2,a1_.getA2().getA4().size());
@@ -245,7 +245,7 @@ public class SpaRepositoryInternalRelationTest {
 			
 			A1  a1_= (A1) result.getSearchResult().get(0);
 			assertEquals(a1.getObjId(), a1_.getObjId());
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
+			assertEquals(a1.getA2().getObjId2(), a1_.getA2().getObjId2());
 			assertEquals(1,a1.getA2().getA3().size());
 
 			

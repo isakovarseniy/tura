@@ -23,8 +23,6 @@ package org.tura.platform.repository.jpa.operation;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
-
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;

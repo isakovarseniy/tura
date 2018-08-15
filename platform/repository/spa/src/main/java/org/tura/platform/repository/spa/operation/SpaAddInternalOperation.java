@@ -100,7 +100,7 @@ public class SpaAddInternalOperation extends SpaRepositoryCommand {
 				relation.connect(persistanceDetailObject, extendedPersistanceMasterObject,detailProperty);
 			}
 			
-			SpaControl masterControl = new SpaControl(persistanceMasterObject,detailMapper.getPKey(masterPk), OperationLevel.UPDATE);
+			SpaControl masterControl = new SpaControl(persistanceMasterObject,masterMapper.getPKey(masterPk), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);
