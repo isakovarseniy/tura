@@ -57,7 +57,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Unknown object" + objectClass);
 		}
 
-		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences());
+		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences(null));
 
 		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters, 0, 100,
 				clazz);
@@ -117,7 +117,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Unknown object" + objectClass);
 		}
 
-		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences());
+		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences(null));
 		
 		
 		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX, SalesAnalyzerRowsNumber.class.getSimpleName(),

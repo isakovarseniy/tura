@@ -16,10 +16,19 @@ public class UserPreferences {
 	private boolean superAdmin;
 	private List<Integer> statesForAdmin;
 	private List<Integer> citiesForAdmin;
+	private List<Integer> countriesForAdmin;
 	private List<String> permissions;
 	private List<Integer> states;
 	private List<Integer> cities;
+	private List<Integer> countries;
 	
+	
+	public boolean isAdminForCountries() {
+		if (countriesForAdmin != null && countriesForAdmin.size() > 0) {
+			return true;
+		};
+		return false;
+	}
 	public boolean isAdminForStates() {
 		if (statesForAdmin != null && statesForAdmin.size() > 0) {
 			return true;
@@ -32,7 +41,6 @@ public class UserPreferences {
 		};
 		return false;
 	}
-	
 	public List<Integer> getStatesForAdmin() {
 		return statesForAdmin;
 	}
@@ -72,14 +80,18 @@ public class UserPreferences {
 	public void setCities(List<Integer> cities) {
 		this.cities = cities;
 	}
-	
-	
-	
-	
-//	boolean isRoleEnabled(String roleName);
-//	String getUserId();
-//	String getFirstName();
-//	String getLastName();
+	public List<Integer> getCountriesForAdmin() {
+		return countriesForAdmin;
+	}
+	public void setCountriesForAdmin(List<Integer> countriesForAdmin) {
+		this.countriesForAdmin = countriesForAdmin;
+	}
+	public List<Integer> getCountries() {
+		return countries;
+	}
+	public void setCountries(List<Integer> countries) {
+		this.countries = countries;
+	}
 	
 }
 

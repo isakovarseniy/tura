@@ -4,6 +4,7 @@ import sales.analyzer.user.UserPreferences;
 
 public interface UserReferencesProvider {
 	
-	UserPreferences getUserPreferences();
+	UserPreferences getUserPreferences(String userName) ;
 
 }
+

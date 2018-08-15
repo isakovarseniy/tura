@@ -186,7 +186,7 @@ public class JbpmSearchServiceTest {
 			sc.setValue(2502);
 			searchCriteria.add(sc);
 			
-      			
+   			
 			ArrayList<OrderCriteria> orderCriteria = new ArrayList<>();
 			OrderCriteria orc = new OrderCriteria();
 			orc.setName("PROC_"+"PROCESSINSTANCEID");
@@ -297,7 +297,7 @@ public class JbpmSearchServiceTest {
 	class UserPeferencesProviderImpl implements UserReferencesProvider{
 		
 		@Override
-		public UserPreferences getUserPreferences() {
+		public UserPreferences getUserPreferences(String userName) {
 			return JbpmSearchServiceTest.pref;
 		}
 		

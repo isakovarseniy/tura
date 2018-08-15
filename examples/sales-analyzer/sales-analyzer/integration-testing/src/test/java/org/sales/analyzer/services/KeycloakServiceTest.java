@@ -31,6 +31,7 @@ import org.sales.analyzer.process.TestCommons;
 import org.sales.analyzer.services.impl.KeyCloakServicesInstantiator;
 import org.sales.analyzer.services.impl.SPAAdapterLoader;
 import org.sales.analyzer.services.impl.UUIPrimaryKeyStrategy;
+import org.sales.analyzer.services.impl.UserPreferencesLoader;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
@@ -62,9 +63,10 @@ import com.octo.java.sql.exp.Operator;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
+import sales.analyzer.user.UserPreferences;
 
 @RunWith(Arquillian.class)
-public class KeycloakSearchServiceTest {
+public class KeycloakServiceTest {
 
 	private static Logger logger;
 	private static Server server;
@@ -186,7 +188,7 @@ public class KeycloakSearchServiceTest {
 		spaRegistry.getRegistry("spa-persistence-repository")
 				.addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(), new SPAAdapterLoader(realmResource));
 		spaRegistry.getRegistry("spa-persistence-repository")
-		    .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
+		  .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
 
 		registry.addLoader(User.class.getName(), new SPAAdapterLoader(realmResource));
 
@@ -270,14 +272,14 @@ public class KeycloakSearchServiceTest {
 			user = (User) result.getSearchResult().get(0);
 			assertEquals(userName,user.getUsername());
 			
-// 3 roles becouse keycloak assign 2 roles automaticaly(  offline_access, uma_authorisation )			
+// 3 roles because keycloak assign 2 roles automatically( offline_access, uma_authorisation )			
 			assertEquals(3, user.getRoleReference().size());
 			
-			String[] rolesArray = new String[] {  "uma_authorization", "offline_access",   roleName};
-			List<String>  arrayList = Arrays.asList(rolesArray);
+			String[] rolesArray = new String[] { "uma_authorization", "offline_access", roleName};
+			List<String> arrayList = Arrays.asList(rolesArray);
 
 			int i =0;
-			for (RoleReference rf : user.getRoleReference()  ) {
+			for (RoleReference rf : user.getRoleReference() ) {
 				Role role0 = rf.getRole();
 				if ( arrayList.contains(role0.getName())) {
 					i++;
@@ -338,8 +340,8 @@ public class KeycloakSearchServiceTest {
 			assertEquals(2, role.getPermissionReferences().size());
 			
 			
-			String[] permArray = new String[] {  "Perm1", "Perm2"};
-			List<String>  arrayList = Arrays.asList(permArray);
+			String[] permArray = new String[] { "Perm1", "Perm2"};
+			List<String> arrayList = Arrays.asList(permArray);
 
 			int i = 0;
 			for (PermissionReferences ref : role.getPermissionReferences()) {
@@ -366,7 +368,7 @@ public class KeycloakSearchServiceTest {
 			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,PermissionReferences.class.getName());
 			assertEquals(0, result.getNumberOfRows());
 
-			result = repository.find(new  ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,Permission.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,Permission.class.getName());
 			assertEquals(2, result.getNumberOfRows());
 			
 			
@@ -418,7 +420,7 @@ public class KeycloakSearchServiceTest {
 			City city = (City) repository.create(City.class.getName());
 			repository.insert(city, City.class.getName());
 			
-			CityRefeence  cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
+			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
 			user.getCityRefeence().add(cityRef);
 			cityRef.setCity(city);
 			
@@ -449,6 +451,42 @@ public class KeycloakSearchServiceTest {
 			assertEquals(stateRef.getObjId(),_stateRef.getObjId());
 
 			
+			
+			repository.remove(user, User.class.getName());
+			repository.applyChanges(null);
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+			
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
+			sc.setName("userId");
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(user.getId());
+			search.add(sc);
+
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,CountryReference.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,Country.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,StateReference.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,State.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,CityRefeence.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,City.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -456,6 +494,115 @@ public class KeycloakSearchServiceTest {
 
 	}
 
+	
+	@Test
+	@RunAsClient
+	public void loadPreferencesTest() {
+		try {
+	
+			ProxyRepository repository = getRepository();
+			
+			User user = (User) repository.create(User.class.getName());
+			String userName = UUID.randomUUID().toString();
+			user.setUsername(userName);
+			repository.insert(user, User.class.getName());
+			repository.applyChanges(null);
+
+			ArrayList<SearchCriteria> search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_USERNAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(userName);
+			search.add(sc);
+			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user = (User) result.getSearchResult().get(0);
+			
+			Country country = (Country) repository.create(Country.class.getName());
+			repository.insert(country, Country.class.getName());
+			
+			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
+			cntRef.setCountry(country);
+			user.getCountryReference().add(cntRef);
+			
+			State state = (State) repository.create(State.class.getName());
+			repository.insert(state, State.class.getName());
+			
+			StateReference stateRef = (StateReference) repository.create(StateReference.class.getName());
+			user.getStateReference().add(stateRef);
+			stateRef.setState(state);
+			
+			
+			City city = (City) repository.create(City.class.getName());
+			repository.insert(city, City.class.getName());
+			
+			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
+			user.getCityRefeence().add(cityRef);
+			cityRef.setCity(city);
+			
+			repository.applyChanges(null);
+			
+			Role role = (Role) repository.create(Role.class.getName());
+			String roleName = "role_"+UUID.randomUUID().toString();
+			role.setName(roleName);
+			repository.insert(role, Role.class.getName());
+			repository.applyChanges(null);
+			
+			
+			Permission perm1 = (Permission) repository.create(Permission.class.getName());
+			perm1.setName("Perm1");
+			repository.insert(perm1, Permission.class.getName());
+			
+			Permission perm2 = (Permission) repository.create(Permission.class.getName());
+			perm2.setName("Perm2");
+			repository.insert(perm2, Permission.class.getName());
+			
+			repository.applyChanges(null);
+			
+			PermissionReferences permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef);
+			permRef.setPermission(perm1);
+			
+			permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef);
+			permRef.setPermission(perm2);
+			
+			repository.applyChanges(null);
+			
+			RoleReference roleref = (RoleReference) repository.create(RoleReference.class.getName());
+			user.getRoleReference().add(roleref);
+			roleref.setRole(role);
+			repository.applyChanges(null);
+			
+			UserPreferencesLoader prefLoader = new UserPreferencesLoader();
+			prefLoader.setRepository(repository);
+			
+			UserPreferences pref = prefLoader.getUserPreferences(userName);
+			
+			assertEquals(city.getObjId(), pref.getCities().get(0));
+			assertEquals(country.getObjId(), pref.getCountries().get(0));
+			assertEquals(state.getObjId(), pref.getStates().get(0));
+			
+			
+			String[] permArray = new String[] { "Perm1", "Perm2"};
+			List<String> arrayList = Arrays.asList(permArray);
+
+			int i = 0;
+			for (String perm : pref.getPermissions()) {
+				if (arrayList.contains(perm)) {
+					i++;
+				}
+			}
+		
+			assertEquals(i, 2);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
 	
 }
 
