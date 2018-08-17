@@ -52,24 +52,29 @@ public class TestCommons {
 				.password(TestCommons.ADMIN_PASSWORD)
 				.build();
 		
-       RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
-     
-                 
-	    ArrayList <RoleRepresentation> array = new ArrayList<>();
-	    RoleRepresentation role = new RoleRepresentation();
-	    role.setName("analyst");
-	    realmResource.roles().create(role);
-	    role = realmResource.roles().get("analyst").toRepresentation();
-	    array.add(role);
-	    
-	    role = new RoleRepresentation();
-	    role.setName("manager");
-	    realmResource.roles().create(role);
-	    role = realmResource.roles().get("manager").toRepresentation();
-	    array.add(role);
-	    
-	    
-	    UserRepresentation user = realmResource.users().search("sales-manager").get(0);
+   RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
+  
+   RoleRepresentation role = realmResource.roles().get("analyst").toRepresentation();
+   if (role != null) {
+  	 return;
+   }
+   
+        
+	  ArrayList <RoleRepresentation> array = new ArrayList<>();
+	  role = new RoleRepresentation();
+	  role.setName("analyst");
+	  realmResource.roles().create(role);
+	  role = realmResource.roles().get("analyst").toRepresentation();
+	  array.add(role);
+	 
+	  role = new RoleRepresentation();
+	  role.setName("manager");
+	  realmResource.roles().create(role);
+	  role = realmResource.roles().get("manager").toRepresentation();
+	  array.add(role);
+	 
+	 
+	  UserRepresentation user = realmResource.users().search("sales-manager").get(0);
 		realmResource.users().get(user.getId()).roles().realmLevel().add(array);
 		
 	}

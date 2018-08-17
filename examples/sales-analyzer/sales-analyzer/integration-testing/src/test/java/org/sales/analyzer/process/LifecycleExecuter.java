@@ -11,14 +11,20 @@ import org.jboss.arquillian.container.spi.event.DeployManagedDeployments;
 
 public class LifecycleExecuter {
 
-	private String query1 = "create unique index  on KIESERVER.MAPPEDVARIABLE (PROCESSINSTANCEID )";
-	private String query2 = "create unique index  on KIESERVER.MAPPEDVARIABLE (VARIABLEID  )";
-	private String query3 = "create unique index  on KIESERVER.PROCESSINSTANCELOG (PROCESSINSTANCEID  )";
-	private String query4 = "create unique index  on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID  )";
-	private String query5 = "create unique index  on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID  )";
+	private String query1 = "create unique index on KIESERVER.MAPPEDVARIABLE (PROCESSINSTANCEID )";
+	private String query2 = "create unique index on KIESERVER.MAPPEDVARIABLE (VARIABLEID )";
+	private String query3 = "create unique index on KIESERVER.PROCESSINSTANCELOG (PROCESSINSTANCEID )";
+	private String query4 = "create unique index on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID )";
+	private String query5 = "create unique index on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID )";
+	public static boolean indicator=false;
 	
 	
 	public void executeAfterDeployment(@Observes DeployManagedDeployments event) throws Exception {
+		
+		if (indicator) {
+			return;
+		}
+		indicator = true;
 		
 		new TestCommons().buildAndDeployArtifacts();
 		new TestCommons().setupUsers();
@@ -27,19 +33,19 @@ public class LifecycleExecuter {
 		Connection conn= null;
 		Statement stmt = null;
 		try {
-			   Class.forName("org.h2.jdbcx.JdbcDataSource");
-			   conn = DriverManager.getConnection("jdbc:h2:~/SalesAnalyzerDB;AUTO_SERVER=TRUE;MULTI_THREADED=TRUE","sa","sa");
-			   stmt = conn.createStatement();
-			   stmt.execute(query1);
-			   stmt.execute(query2);
-			   stmt.execute(query3);
-			   stmt.execute(query4);
-			   stmt.execute(query5);
+			 Class.forName("org.h2.jdbcx.JdbcDataSource");
+			 conn = DriverManager.getConnection("jdbc:h2:~/SalesAnalyzerDB;AUTO_SERVER=TRUE;MULTI_THREADED=TRUE","sa","sa");
+			 stmt = conn.createStatement();
+			 stmt.execute(query1);
+			 stmt.execute(query2);
+			 stmt.execute(query3);
+			 stmt.execute(query4);
+			 stmt.execute(query5);
 		
 		}finally {
-			    if (stmt != null) {
-			    	    stmt.close();
-			    }
+			  if (stmt != null) {
+			  	  stmt.close();
+			  }
 				if (conn != null) {
 					try {
 						conn.close();
@@ -49,3 +55,4 @@ public class LifecycleExecuter {
 			}
 	}	
 }
+
