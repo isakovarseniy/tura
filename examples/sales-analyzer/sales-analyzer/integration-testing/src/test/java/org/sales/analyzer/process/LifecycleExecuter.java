@@ -21,7 +21,9 @@ public class LifecycleExecuter {
 	public void executeAfterDeployment(@Observes DeployManagedDeployments event) throws Exception {
 		
 		new TestCommons().buildAndDeployArtifacts();
+		new TestCommons().setupUsers();
 
+		
 		Connection conn= null;
 		Statement stmt = null;
 		try {

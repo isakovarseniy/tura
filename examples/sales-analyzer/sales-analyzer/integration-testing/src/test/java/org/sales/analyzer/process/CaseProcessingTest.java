@@ -10,8 +10,6 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jbpm.services.api.query.model.QueryDefinition.Target;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.server.api.model.definition.QueryDefinition;
@@ -33,16 +31,6 @@ public class CaseProcessingTest {
 
 	@ArquillianResource
 	private ContainerController controller;
-
-//	@Before
-//	public void buildAndDeployArtifacts() throws Exception {
-//		new TestCommons().buildAndDeployArtifacts();
-//	}
-//
-//	@After
-//	public void dropContainer() throws Exception {
-//		new TestCommons().dropContainer();
-//	}
 
 	@Test
 	@RunAsClient

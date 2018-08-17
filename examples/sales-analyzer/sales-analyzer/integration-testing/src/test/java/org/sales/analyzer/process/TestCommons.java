@@ -1,10 +1,17 @@
 package org.sales.analyzer.process;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.keycloak.OAuth2Constants;
+import org.keycloak.admin.client.Keycloak;
+import org.keycloak.admin.client.KeycloakBuilder;
+import org.keycloak.admin.client.resource.RealmResource;
+import org.keycloak.representations.idm.RoleRepresentation;
+import org.keycloak.representations.idm.UserRepresentation;
 import org.kie.server.api.model.KieContainerResource;
 import org.kie.server.api.model.ReleaseId;
 import org.kie.server.client.KieServicesClient;
@@ -32,6 +39,40 @@ public class TestCommons {
 	public static String ADMIN_PASSWORD = "qwerty";
 	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	
 	
+	
+	public void setupUsers() {
+		
+		Keycloak keycloak = KeycloakBuilder.builder()
+				.serverUrl(TestCommons.KEYCLOAK_URL)
+				.realm(TestCommons.KEYCLOAK_ADMIN_REALM)
+				.clientId(TestCommons.KEYCLOAK_ADMIN_CLIENTID)
+				.grantType(OAuth2Constants.PASSWORD)
+				.clientSecret(TestCommons.CLIENT_SECRET)
+				.username(TestCommons.ADMIN_USER)
+				.password(TestCommons.ADMIN_PASSWORD)
+				.build();
+		
+       RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
+     
+                 
+	    ArrayList <RoleRepresentation> array = new ArrayList<>();
+	    RoleRepresentation role = new RoleRepresentation();
+	    role.setName("analyst");
+	    realmResource.roles().create(role);
+	    role = realmResource.roles().get("analyst").toRepresentation();
+	    array.add(role);
+	    
+	    role = new RoleRepresentation();
+	    role.setName("manager");
+	    realmResource.roles().create(role);
+	    role = realmResource.roles().get("manager").toRepresentation();
+	    array.add(role);
+	    
+	    
+	    UserRepresentation user = realmResource.users().search("sales-manager").get(0);
+		realmResource.users().get(user.getId()).roles().realmLevel().add(array);
+		
+	}
 	
 	
 	
