@@ -12,7 +12,16 @@ public class BusinessInfo {
 	private Integer state;
 	private Integer city;
 	private String product;
+	private String caseId;
 
+
+	public String getCaseId() {
+		return caseId;
+	}
+
+	public void setCaseId(String caseId) {
+		this.caseId = caseId;
+	}
 
 	public Integer getState() {
 		return state;
@@ -57,6 +66,11 @@ public class BusinessInfo {
 			out.writeUTF("");
 		}		
 
+		if (caseId != null) {
+			out.writeUTF(caseId);
+		} else {
+			out.writeUTF("");
+		}		
 	}
 
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
@@ -72,6 +86,7 @@ public class BusinessInfo {
         result = prime * result + ((state == null) ? 0 : state.hashCode());
         result = prime * result + ((city == null) ? 0 : city.hashCode());
         result = prime * result + ((product == null) ? 0 : product.hashCode());
+        result = prime * result + ((caseId == null) ? 0 : caseId.hashCode());
         return result;
     }
 	
@@ -88,6 +103,9 @@ public class BusinessInfo {
             return false;
         }
         if ( this.product != other.product ) {
+            return false;
+        }
+        if ( this.caseId != other.caseId ) {
             return false;
         }
 	  return true;

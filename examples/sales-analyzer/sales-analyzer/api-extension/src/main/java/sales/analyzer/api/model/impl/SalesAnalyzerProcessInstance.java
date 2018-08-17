@@ -23,6 +23,8 @@ public class SalesAnalyzerProcessInstance {
 	private Integer city;
 	@XmlElement(name = "product")
 	private String product;
+	@XmlElement(name = "case-id")
+	private String caseId;
 	@XmlElement(name = "process-instance-id")
 	private Long id;
 	@XmlElement(name = "process-id")
@@ -118,6 +120,14 @@ public class SalesAnalyzerProcessInstance {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getCaseId() {
+		return caseId;
+	}
+
+	public void setCaseId(String caseId) {
+		this.caseId = caseId;
 	}
 
 	public String getProcessInstanceDescription() {

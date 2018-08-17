@@ -43,15 +43,15 @@ public class ImportProcessTest {
 	private static final String RUN_CASE_GENERATION = "Run case generation";
 	private static final String REVIEW_CEASE_GENERATION="Review cease generation";
 	
-	@Before
-	public void buildAndDeployArtifacts() throws Exception{
-		new TestCommons().buildAndDeployArtifacts();
-	}
-
-	@After
-	public void dropContainer() throws Exception {
-		new TestCommons().dropContainer();
-	}
+//	@Before
+//	public void buildAndDeployArtifacts() throws Exception{
+//		new TestCommons().buildAndDeployArtifacts();
+//	}
+//
+//	@After
+//	public void dropContainer() throws Exception {
+//		new TestCommons().dropContainer();
+//	}
 
 	@Test
 	@RunAsClient

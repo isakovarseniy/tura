@@ -17,6 +17,8 @@ public class Constants {
 	public static final String SALES_DROP_INVESTIGATION_PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
 	public static final String PROCESS_CONSTRUCTOR = "Init";
 
+	
+	public static final String VAR_CASE_ID = "case_id";
 	public static final String VAR_CITY = "city";
 	public static final String VAR_STATE = "state";
 	public static final String VAR_PRODUCT = "product";
