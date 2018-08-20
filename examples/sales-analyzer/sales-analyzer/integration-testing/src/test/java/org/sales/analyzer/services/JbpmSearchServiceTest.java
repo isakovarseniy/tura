@@ -36,7 +36,7 @@ import sales.analyzer.service.UserReferencesProvider;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.user.UserPreferences;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class JbpmSearchServiceTest {
 
 	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
@@ -67,7 +67,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId1 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
+			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
 			
 			JbpmSearchService service = new JbpmSearchService(client, provider);
 			SalesAnalyzerProcessInstance instance =(SalesAnalyzerProcessInstance) service.find(procesInsatnceId, SalesAnalyzerProcessInstance.class.getName());
@@ -160,7 +160,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId3 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
 			
-			JbpmConfiguration.init(client, "java:jboss/datasources/ExampleDS");
+			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
 			
 			
 			ArrayList<SearchCriteria> searchCriteria = new ArrayList<>();

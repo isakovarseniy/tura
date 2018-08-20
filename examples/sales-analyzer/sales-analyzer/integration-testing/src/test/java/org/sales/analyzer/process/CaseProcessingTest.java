@@ -68,7 +68,7 @@ public class CaseProcessingTest {
 
 			QueryDefinition query = new QueryDefinition();
 			query.setName("getAllCaseDetailsInstances");
-			query.setSource("java:jboss/datasources/ExampleDS");
+			query.setSource("java:jboss/jdbc/SalesAnalyzerDS");
 			query.setTarget(Target.PROCESS.name());
 			query.setExpression("SELECT "
 		      +"pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID,pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" 	
@@ -81,7 +81,7 @@ public class CaseProcessingTest {
 
 			query = new QueryDefinition();
 			query.setName("getAllTaskiInstancesForCase");
-			query.setSource("java:jboss/datasources/ExampleDS");
+			query.setSource("java:jboss/jdbc/SalesAnalyzerDS");
 			query.setTarget(Target.TASK.name());
 			query.setExpression("SELECT TSK.* FROM KIESERVER.TASK TSK \n"
 					+ "INNER JOIN KIESERVER.TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n"

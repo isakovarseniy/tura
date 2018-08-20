@@ -35,7 +35,7 @@ public class TestCommons {
 
 	public static String KEYCLOAK_ADMIN_REALM = "master";
 	public static String KEYCLOAK_ADMIN_CLIENTID = "realm-management";
-	public static String CLIENT_SECRET = "8c0c15e2-eb8b-46d1-88eb-b81347e10546";
+	public static String CLIENT_SECRET = "82717303-4c83-461c-aa21-8285974b4c5d";
 	public static String ADMIN_USER = "admin";
 	public static String ADMIN_PASSWORD = "qwerty";
 	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	

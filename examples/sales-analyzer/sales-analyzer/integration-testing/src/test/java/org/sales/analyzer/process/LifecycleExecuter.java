@@ -14,7 +14,6 @@ import ru.yandex.qatools.embed.postgresql.distribution.Version.Main;
 
 import org.jboss.arquillian.container.spi.event.DeployManagedDeployments;
 import org.jboss.arquillian.container.spi.event.SetupContainer;
-import org.jboss.arquillian.container.spi.event.StopContainer;
 
 public class LifecycleExecuter {
 
