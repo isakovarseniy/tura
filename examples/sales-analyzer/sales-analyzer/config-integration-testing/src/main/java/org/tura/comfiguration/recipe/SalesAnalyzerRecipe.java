@@ -1,7 +1,6 @@
 package org.tura.comfiguration.recipe;
 
 import org.tura.comfiguration.artifacts.jboss.CopyFile;
-import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DeployKeyCloak;
@@ -35,7 +34,7 @@ public class SalesAnalyzerRecipe {
                   new StendaloneFullXml(jboss_home)
                           .setApplication("sales-analyzer")
                           .setServerType("wildfly-10.1.0.Final")
-                          .addConfigPath("h2/file-db")
+                          .addConfigPath("postgres")
                           .addConfigPath("kie-server")
                           .addProperties("TALEND_JOB_ROOT", tura_home+"/examples/sales-analyzer/talend-jobs")
                           .run();
@@ -50,17 +49,19 @@ public class SalesAnalyzerRecipe {
                          .run();
   
                   new Module(jboss_home)
-                         .setApplication("sales-analyzer")
-                         .setServerType("wildfly-10.1.0.Final")
-                         .addConfigPath("h2/file-db")
-                        .setRelativeLocation("system/layers/base/com/h2database/h2/main")
-                        .run();
+                  		.setApplication("sales-analyzer")
+                  		.setServerType("wildfly-10.1.0.Final")
+                  		.addConfigPath("postgres")
+                  		.setRelativeLocation("org/postgresql/main")
+                  		.run();
                   
-                  new CopyH2Jar(jboss_home)
-                         .setApplication("sales-analyzer")
-                         .setServerType("wildfly-10.1.0.Final")
-                         .copyFromExternal();
-
+                  new CopyFile()
+	                  .setTargetLocation("${JBOSS_HOME}/modules/org/postgresql/main".replace("${JBOSS_HOME}", jboss_home))
+	                  .setTargetName("postgresql-42.1.1.jar")
+	                  .setSourceResource(System.getProperty("user.home")+"/.m2/repository/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar")
+	                  .copyFromExternal();
+                  
+                  
                   new CopyRoles(jboss_home)
                          .setApplication("sales-analyzer")
                          .setServerType("wildfly-10.1.0.Final")
@@ -138,17 +139,17 @@ public class SalesAnalyzerRecipe {
 		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
 		                  .run();
                   
-                           new CopyFile()
-                           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/server-extension/1.0.0-SNAPSHOT/server-extension-1.0.0-SNAPSHOT.jar")
-                           		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
-                           		.setTargetName("server-extension-1.0.0-SNAPSHOT.jar")
-                           		.copyFromExternal();
+                   new CopyFile()
+                   		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/server-extension/1.0.0-SNAPSHOT/server-extension-1.0.0-SNAPSHOT.jar")
+                   		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
+                   		.setTargetName("server-extension-1.0.0-SNAPSHOT.jar")
+                   		.copyFromExternal();
 
-                           new CopyFile()
-                  	      		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/api-extension/1.0.0-SNAPSHOT/api-extension-1.0.0-SNAPSHOT.jar")
-                  	      		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
-                  	      		.setTargetName("api-extension-1.0.0-SNAPSHOT.jar")
-                  	      		.copyFromExternal();
+                   new CopyFile()
+          	      		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/api-extension/1.0.0-SNAPSHOT/api-extension-1.0.0-SNAPSHOT.jar")
+          	      		.setTargetLocation(jboss_home+"/standalone/deployments/kie-server.war/WEB-INF/lib/")
+          	      		.setTargetName("api-extension-1.0.0-SNAPSHOT.jar")
+          	      		.copyFromExternal();
 
                   
 	}

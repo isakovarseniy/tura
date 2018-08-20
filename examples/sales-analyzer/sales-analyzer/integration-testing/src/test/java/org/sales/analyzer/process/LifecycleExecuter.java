@@ -1,5 +1,7 @@
 package org.sales.analyzer.process;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,7 +9,12 @@ import java.sql.Statement;
 
 import org.jboss.arquillian.core.api.annotation.Observes;
 
+import ru.yandex.qatools.embed.postgresql.EmbeddedPostgres;
+import ru.yandex.qatools.embed.postgresql.distribution.Version.Main;
+
 import org.jboss.arquillian.container.spi.event.DeployManagedDeployments;
+import org.jboss.arquillian.container.spi.event.SetupContainer;
+import org.jboss.arquillian.container.spi.event.StopContainer;
 
 public class LifecycleExecuter {
 
@@ -16,43 +23,63 @@ public class LifecycleExecuter {
 	private String query3 = "create unique index on KIESERVER.PROCESSINSTANCELOG (PROCESSINSTANCEID )";
 	private String query4 = "create unique index on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID )";
 	private String query5 = "create unique index on KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS (TASK_ID )";
-	public static boolean indicator=false;
-	
-	
+	public static boolean indicator = false;
+
+	EmbeddedPostgres postgres;
+	String url;
+
+	public void executeBeforeStart(@Observes SetupContainer event) {
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				postgres.stop();
+			}
+		});
+
+		try {
+			postgres = new EmbeddedPostgres(Main.V9_6);
+			url = postgres.start("localhost", 5432, "postgres", "postgres", "postgres");
+// Create dump  pg_dump -Fc -U postgres postgres > ~/SalesAnalyzerDB.dump			
+			postgres.getProcess().get().restoreFromFile(new File(System.getProperty("user.home") + "/SalesAnalyzerDB.dump"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public void executeAfterDeployment(@Observes DeployManagedDeployments event) throws Exception {
-		
+	
 		if (indicator) {
 			return;
 		}
 		indicator = true;
-		
+
 		new TestCommons().buildAndDeployArtifacts();
-		new TestCommons().setupUsers();
+//		new TestCommons().setupUsers();
 
 		
-		Connection conn= null;
+		Connection conn = null;
 		Statement stmt = null;
 		try {
-			 Class.forName("org.h2.jdbcx.JdbcDataSource");
-			 conn = DriverManager.getConnection("jdbc:h2:~/SalesAnalyzerDB;AUTO_SERVER=TRUE;MULTI_THREADED=TRUE","sa","sa");
-			 stmt = conn.createStatement();
-			 stmt.execute(query1);
-			 stmt.execute(query2);
-			 stmt.execute(query3);
-			 stmt.execute(query4);
-			 stmt.execute(query5);
-		
-		}finally {
-			  if (stmt != null) {
-			  	  stmt.close();
-			  }
-				if (conn != null) {
-					try {
-						conn.close();
-					} catch (SQLException e) {
-					}
+			Class.forName("org.postgresql.Driver");
+			conn = DriverManager.getConnection(url);
+			stmt = conn.createStatement();
+			stmt.execute(query1);
+			stmt.execute(query2);
+			stmt.execute(query3);
+			stmt.execute(query4);
+			stmt.execute(query5);
+
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
 				}
 			}
-	}	
+		}
+	}
 }
-

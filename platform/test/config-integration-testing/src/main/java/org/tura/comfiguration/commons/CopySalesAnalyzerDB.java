@@ -21,20 +21,17 @@
  */
 package org.tura.comfiguration.commons;
 
-import java.io.File;
-
 import org.tura.comfiguration.artifacts.CopyArtifact;
-import org.zeroturnaround.zip.ZipUtil;
 
 public class CopySalesAnalyzerDB extends CopyArtifact<CopySalesAnalyzerDB> {
 
 	private static String targetPath = System.getProperty("user.home");
-	private static String targetName = "SalesAnalyzerDB.h2.db";
-	private static String sourceName = "${application}/assets/SalesAnalyzerDB.h2.db.zip";
+	private static String targetName = "SalesAnalyzerDB.dump";
+	private static String sourceName = "${application}/assets/SalesAnalyzerDB.dump";
 
 	public CopySalesAnalyzerDB() {
 		this.setTargetLocation(targetPath);
-		this.setTargetName(targetName+".zip");
+		this.setTargetName(targetName);
 	}
 
 	@Override
@@ -47,7 +44,7 @@ public class CopySalesAnalyzerDB extends CopyArtifact<CopySalesAnalyzerDB> {
 	@Override
 	public void copyFromClassPath() throws Exception {
 		super.copyFromClassPath();
-		ZipUtil.unpack(new File(this.targetLocation+"/"+targetName+".zip"), new File(this.targetLocation));
+//		ZipUtil.unpack(new File(this.targetLocation+"/"+targetName+".zip"), new File(this.targetLocation));
 	}	
 	
 	

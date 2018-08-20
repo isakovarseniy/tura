@@ -290,15 +290,6 @@ private class TalendException extends Exception {
 	}
 }
 
-			public void tJDBCConnection_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
-				
-				end_Hash.put(errorComponent, System.currentTimeMillis());
-				
-				status = "failure";
-				
-					tJDBCConnection_1_onSubJobError(exception, errorComponent, globalMap);
-			}
-			
 			public void tRowGenerator_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -344,11 +335,6 @@ private class TalendException extends Exception {
 					tRowGenerator_1_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
-			public void tJDBCConnection_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
-
-resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
-
-			}
 			public void tRowGenerator_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
@@ -359,201 +345,6 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 
 
 
-
-public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-	globalMap.put("tJDBCConnection_1_SUBPROCESS_STATE", 0);
-
- final boolean execStat = this.execStat;
-	
-		String iterateId = "";
-	
-	
-	String currentComponent = "";
-	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
-				globalResumeTicket = true;
-
-
-
-		
-
-
-	
-	/**
-	 * [tJDBCConnection_1 begin ] start
-	 */
-
-	
-
-	
-		
-		ok_Hash.put("tJDBCConnection_1", false);
-		start_Hash.put("tJDBCConnection_1", System.currentTimeMillis());
-		
-	
-	currentComponent="tJDBCConnection_1";
-
-	
-		int tos_count_tJDBCConnection_1 = 0;
-		
-    	class BytesLimit65535_tJDBCConnection_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCConnection_1().limitLog4jByte();
-	
-
-	
-		String url_tJDBCConnection_1 = "jdbc:postgresql:data_warehouse";
-
-	String dbUser_tJDBCConnection_1 = "arseniy";
-	
-	
-		 
-	final String decryptedPassword_tJDBCConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword("cb76ff0afaedbff1");
-		String dbPwd_tJDBCConnection_1 = decryptedPassword_tJDBCConnection_1;
-	
-
-	java.sql.Connection conn_tJDBCConnection_1 = null;
-	
-		
-		String driverClass_tJDBCConnection_1 = "org.postgresql.Driver";
-		java.lang.Class.forName(driverClass_tJDBCConnection_1);
-		
-		conn_tJDBCConnection_1 = java.sql.DriverManager.getConnection(url_tJDBCConnection_1,dbUser_tJDBCConnection_1,dbPwd_tJDBCConnection_1);
-
-		globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	if (null != conn_tJDBCConnection_1) {
-		
-			conn_tJDBCConnection_1.setAutoCommit(true);
-	}
-	
-	globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	globalMap.put("url_tJDBCConnection_1", url_tJDBCConnection_1);
-	globalMap.put("username_tJDBCConnection_1", dbUser_tJDBCConnection_1);
-
- 
-
-
-
-/**
- * [tJDBCConnection_1 begin ] stop
- */
-	
-	/**
-	 * [tJDBCConnection_1 main ] start
-	 */
-
-	
-
-	
-	
-	currentComponent="tJDBCConnection_1";
-
-	
-
- 
-
-
-	tos_count_tJDBCConnection_1++;
-
-/**
- * [tJDBCConnection_1 main ] stop
- */
-	
-	/**
-	 * [tJDBCConnection_1 end ] start
-	 */
-
-	
-
-	
-	
-	currentComponent="tJDBCConnection_1";
-
-	
-
- 
-
-ok_Hash.put("tJDBCConnection_1", true);
-end_Hash.put("tJDBCConnection_1", System.currentTimeMillis());
-
-
-
-
-/**
- * [tJDBCConnection_1 end ] stop
- */
-				}//end the resume
-
-				
-				    			if(resumeEntryMethodName == null || globalResumeTicket){
-				    				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tJDBCConnection_1:OnSubjobOk", "", Thread.currentThread().getId() + "", "", "", "", "", "");
-								}	    				    			
-					    	
-								if(execStat){    	
-									runStat.updateStatOnConnection("OnSubjobOk1", 0, "ok");
-								} 
-							
-							tRowGenerator_1Process(globalMap); 
-						
-
-
-
-	
-			}catch(java.lang.Exception e){	
-				
-				TalendException te = new TalendException(e, currentComponent, globalMap);
-				
-				throw te;
-			}catch(java.lang.Error error){	
-				
-					runStat.stopThreadStat();
-				
-				throw error;
-			}finally{
-				
-				try{
-					
-	
-	/**
-	 * [tJDBCConnection_1 finally ] start
-	 */
-
-	
-
-	
-	
-	currentComponent="tJDBCConnection_1";
-
-	
-
- 
-
-
-
-/**
- * [tJDBCConnection_1 finally ] stop
- */
-				}catch(java.lang.Exception e){	
-					//ignore
-				}catch(java.lang.Error error){
-					//ignore
-				}
-				resourceMap = null;
-			}
-		
-
-		globalMap.put("tJDBCConnection_1_SUBPROCESS_STATE", 1);
-	}
-	
 
 
 public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
@@ -2518,12 +2309,12 @@ this.globalResumeTicket = true;//to run tPreJob
 this.globalResumeTicket = false;//to run others jobs
 
 try {
-errorCode = null;tJDBCConnection_1Process(globalMap);
+errorCode = null;tRowGenerator_1Process(globalMap);
 if(!"failure".equals(status)) { status = "end"; }
-}catch (TalendException e_tJDBCConnection_1) {
-globalMap.put("tJDBCConnection_1_SUBPROCESS_STATE", -1);
+}catch (TalendException e_tRowGenerator_1) {
+globalMap.put("tRowGenerator_1_SUBPROCESS_STATE", -1);
 
-e_tJDBCConnection_1.printStackTrace();
+e_tRowGenerator_1.printStackTrace();
 
 }
 
@@ -2565,23 +2356,12 @@ if (execStat) {
 
     // only for OSGi env
     public void destroy() {
-    closeSqlDbConnections();
 
 
     }
 
 
 
-    private void closeSqlDbConnections() {
-        try {
-            Object obj_conn;
-            obj_conn = globalMap.remove("conn_tJDBCConnection_1");
-            if (null != obj_conn) {
-                ((java.sql.Connection) obj_conn).close();
-            }
-        } catch (java.lang.Exception e) {
-        }
-    }
 
 
 
@@ -2595,7 +2375,6 @@ if (execStat) {
 
     private java.util.Map<String, Object> getSharedConnections4REST() {
         java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
-            connections.put("conn_tJDBCConnection_1", globalMap.get("conn_tJDBCConnection_1"));
 
 
 
@@ -2711,6 +2490,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     63504 characters generated by Talend Open Studio for Data Integration 
- *     on the February 21, 2018 6:00:36 EST PM
+ *     58685 characters generated by Talend Open Studio for Data Integration 
+ *     on the August 19, 2018 8:05:06 EDT PM
  ************************************************************************************************/

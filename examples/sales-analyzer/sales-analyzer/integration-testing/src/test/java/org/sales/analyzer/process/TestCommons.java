@@ -10,6 +10,7 @@ import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
+import org.keycloak.admin.client.resource.RoleResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.kie.server.api.model.KieContainerResource;
@@ -54,14 +55,21 @@ public class TestCommons {
 		
    RealmResource realmResource = keycloak.realm(TestCommons.KEYCLOAK_MANAGED_REALM);
   
-   RoleRepresentation role = realmResource.roles().get("analyst").toRepresentation();
-   if (role != null) {
-  	 return;
+   RoleResource res = realmResource.roles().get("analyst");
+   if (res != null) {
+	   try {
+		   RoleRepresentation role = res.toRepresentation();
+		   if ( role != null) {
+		     return;
+		   }
+	   }catch(Exception e) {
+		   
+	   }
    }
    
         
 	  ArrayList <RoleRepresentation> array = new ArrayList<>();
-	  role = new RoleRepresentation();
+	  RoleRepresentation role = new RoleRepresentation();
 	  role.setName("analyst");
 	  realmResource.roles().create(role);
 	  role = realmResource.roles().get("analyst").toRepresentation();

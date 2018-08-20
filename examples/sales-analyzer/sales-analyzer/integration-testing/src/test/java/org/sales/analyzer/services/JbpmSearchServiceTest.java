@@ -36,7 +36,7 @@ import sales.analyzer.service.UserReferencesProvider;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.user.UserPreferences;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class JbpmSearchServiceTest {
 
 	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";

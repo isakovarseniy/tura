@@ -29,7 +29,7 @@ embed-server --server-config=standalone-full.xml
 /subsystem=keycloak-server/spi=connectionsHttpClient/:add
 /subsystem=keycloak-server/spi=connectionsHttpClient/provider=default/:add(enabled=true)
 /subsystem=keycloak-server/spi=connectionsJpa/:add
-/subsystem=keycloak-server/spi=connectionsJpa/provider=default/:add(properties={dataSource => "java:jboss/datasources/ExampleDS",initializeEmpty => "true",migrationStrategy => "update",migrationExport => "${jboss.home.dir}/keycloak-database-update.sql"},enabled=true)
+/subsystem=keycloak-server/spi=connectionsJpa/provider=default/:add(properties={dataSource => "java:jboss/jdbc/SalesAnalyzerDS", "schema"=>"keycloak" , initializeEmpty => "true",migrationStrategy => "update",migrationExport => "${jboss.home.dir}/keycloak-database-update.sql"},enabled=true)
 /subsystem=keycloak-server/spi=realmCache/:add
 /subsystem=keycloak-server/spi=realmCache/provider=default/:add(enabled=true)
 /subsystem=keycloak-server/spi=connectionsInfinispan/:add(default-provider=default)
