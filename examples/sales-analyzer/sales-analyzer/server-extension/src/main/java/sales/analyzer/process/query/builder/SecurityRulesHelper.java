@@ -14,6 +14,7 @@ public class SecurityRulesHelper {
 	public static String COLUMN_STATE = "STATES";
 	public static String COLUMN_ORG_ID = "ORG_ID";
 	public static String COLUMN_PRODUCT ="PRODUCT";
+	public static String COLUMN_CASE_ID ="CASE_ID";
 	public static String COLUMN_ACTUALOWNER_ID="ACTUALOWNER_ID";
 	
 	public static List<ColumnFilter> securityBoundaries( UserPreferences preferences, String username) {

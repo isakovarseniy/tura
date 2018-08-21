@@ -18,6 +18,7 @@ import com.octo.java.sql.query.SelectQuery.Order;
 
 import sales.analyzer.api.model.impl.SalesAnalyzerListOfTaskInstances;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
+import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstancePK;
 import sales.analyzer.api.model.impl.SalesAnalyzerRowsNumber;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
@@ -40,10 +41,11 @@ public class JbpmSearchService extends AbstaractSearchService {
 		Class<?> clazz = null;
 		HashMap<String, Object> parameters = new HashMap<>();
 		if (SalesAnalyzerProcessInstance.class.getName().equals(objectClass)) {
-			query = Constants.QUERY_PROCESS_BY_PK;
+			SalesAnalyzerProcessInstancePK o = (SalesAnalyzerProcessInstancePK) pk;
+			query = Constants.QUERY_PROCESS_BY_CASE_ID;
 			mapper = SalesAnalyzerProcessInstance.class.getSimpleName();
 			clazz = SalesAnalyzerProcessInstance.class;
-			parameters.put(Constants.PARAMETER_PROCESSINSTANCE_ID, pk);
+			parameters.put(Constants.PARAMETER_CASE_ID, o.getCaseId());
 
 		}
 		if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {

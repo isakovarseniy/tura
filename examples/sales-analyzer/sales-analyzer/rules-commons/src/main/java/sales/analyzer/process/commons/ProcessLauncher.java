@@ -1,6 +1,7 @@
 package sales.analyzer.process.commons;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.jbpm.services.api.ProcessService;
 import org.kie.server.services.api.KieServerExtension;
@@ -24,9 +25,11 @@ public class ProcessLauncher {
 	public MonthlyFileRuleModel startProcess(MonthlyFileRuleModel model) {
 		try {
 			HashMap<String, Object> params = new HashMap<>();
-			params.put("city", model.getId_city().intValue());
-			params.put("state", model.getId_state().intValue());
-			params.put("product",model.getProduct());			
+			params.put(Constants.VAR_CITY, model.getId_city().intValue());
+			params.put(Constants.VAR_STATE, model.getId_state().intValue());
+			params.put(Constants.VAR_PRODUCT,model.getProduct());
+			params.put(Constants.VAR_CASE_ID,UUID.randomUUID().toString());
+			
 			processService.startProcess(Constants.CONTAINER_ID, Constants.CASE_INVESTIGATION_PROCESS,params);
 		} catch (Exception e) {
 			model.setException(true);

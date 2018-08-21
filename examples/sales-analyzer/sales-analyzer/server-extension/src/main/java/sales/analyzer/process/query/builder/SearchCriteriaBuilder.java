@@ -100,6 +100,15 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 			filters.add(filter);
 		}
 
+		if (parameters.get(Constants.PARAMETER_CASE_ID) != null) {
+			String columnName = SecurityRulesHelper.COLUMN_CASE_ID;
+
+			ColumnFilter filter = FilterFactory.equalsTo(((String) parameters.get(Constants.PARAMETER_CASE_ID)));
+			filter.setColumnId(columnName);
+
+			filters.add(filter);
+		}
+		
 		ColumnFilter filter = FilterFactory.AND(filters);
 
 		built = true;

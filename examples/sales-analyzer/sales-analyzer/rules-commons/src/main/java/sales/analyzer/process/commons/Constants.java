@@ -34,7 +34,10 @@ public class Constants {
 	
 	public static final String QUERY_PROCESS_BY_PK = "getProcessByPK";
 	public static final String QUERY_TASK_BY_PK = "getTaskByPK";
+	public static final String QUERY_PROCESS_BY_CASE_ID = "getProcessByCaseIdPK";
 
+	
+	
 	public static final String QUERY_PROCESS_BY_SEARCH_CRITERIA = "getProcessBySearchCriteria";
 	public static final String QUERY_TASK_BY_SEARCH_CRITERIA = "getTaskBySearchCriteria";
 
@@ -42,6 +45,7 @@ public class Constants {
 	public static final String NUMBER_OF_ROWS_SUFFIX = "NUMBER_OF_ROWS_SUFFIX";
 
 	public static final String PARAMETER_PROCESSINSTANCE_ID = "PARAMETER_PROCESSINSTANCE_ID";
+	public static final String PARAMETER_CASE_ID = "PARAMETER_CASE_ID";
 	public static final String PARAMETER_TASK_ID = "PARAMETER_TASK_ID";
 	public static final String PARAMETER_USER_PREFERENCES = "PARAMETER_USER_PREFERENCES";
 	public static final String PARAMETER_CITY = "PARAMETER_CITY";

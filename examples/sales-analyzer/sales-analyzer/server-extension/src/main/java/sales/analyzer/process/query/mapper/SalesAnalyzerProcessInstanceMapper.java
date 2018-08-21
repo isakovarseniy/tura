@@ -22,6 +22,7 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 	private static String COLUMN_CITY = "CITY";
 	private static String COLUMN_STATES = "STATES";
 	private static String COLUMN_PRODUCT = "PRODUCT";
+	private static String COLUMN_CASE_ID = "CASE_ID";
 
 	public SalesAnalyzerProcessInstanceMapper() {
 		super();
@@ -85,9 +86,12 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 		int city = getColumnIntValue(dataSetResult, COLUMN_CITY, index);
 		int states = getColumnIntValue(dataSetResult, COLUMN_STATES, index);
 		String product = getColumnStringValue(dataSetResult, COLUMN_PRODUCT, index);
+		String case_id = getColumnStringValue(dataSetResult, "PROC_"+COLUMN_CASE_ID, index);
 		pi.setCity(city);
 		pi.setStates(states);
 		pi.setProduct(product);
+		pi.setCaseId(case_id);
+
 
 		return pi;
 	}

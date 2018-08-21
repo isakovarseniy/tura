@@ -1625,7 +1625,7 @@
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="546f039b-52d7-4e95-a2e1-d037242ea088" name="states"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="c59d44f6-ba9d-4d2c-8e49-d55471370863" name="city"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c1c4a24a-7a6b-4d62-a8a5-781210571d3b" name="product"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="99398110-a923-4a53-8765-536e14a5cfdf" name="case_id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="99398110-a923-4a53-8765-536e14a5cfdf" name="case_id" pk="true"/>
           </types>
           <types xsi:type="tura.type:Type" uid="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" name="Task">
             <classifiers uid="9acae2fc-5d18-4be5-8cac-1f787056b328" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>

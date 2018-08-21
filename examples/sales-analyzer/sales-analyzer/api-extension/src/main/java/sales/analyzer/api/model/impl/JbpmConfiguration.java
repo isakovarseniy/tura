@@ -25,6 +25,20 @@ public class JbpmConfiguration {
 			;
 	
 	
+	private static String PROCESS_QUERY_BY_CASEID = "SELECT \n"+
+ "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID,pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" +	
+			"TSK.*, ORG.ID ORG_ID,\n" +
+			"CD.CITY AS CITY, CD.PRODUCT AS PRODUCT, CD.STATE AS STATES , CD.CASEID CASE_ID FROM KIESERVER.CASEDETAILS CD \n" +
+			"INNER JOIN KIESERVER.MAPPEDVARIABLE MV ON MV.VARIABLEID=CD.ID\n" +
+			"INNER JOIN KIESERVER.PROCESSINSTANCELOG pl ON PL.PROCESSINSTANCEID = MV.PROCESSINSTANCEID\n" +
+			"INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID\n"+
+			"INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID\n" +
+			"INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID\n"+
+			"WHERE \n" +
+			"TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0\n"
+			;
+	
+	
 	private static String PROCESS_NUMBER_OF_ROWS_QUERY = "SELECT DISTINCT( pl.ID ) PROC_ID, \n"+
 			"TSK.*, ORG.ID ORG_ID,\n" +
 			"CD.CITY AS CITY, CD.PRODUCT AS PRODUCT, CD.STATE AS STATES FROM KIESERVER.PROCESSINSTANCELOG pl\n" +
@@ -73,6 +87,7 @@ public class JbpmConfiguration {
 		initTasksNumberOfRowsBySearchCriteriaQuery(queryClient,datasource);
 		initProcessessBySearchCriteriaQuery(queryClient, datasource);
 		initProcessessNumberOfRowsBySearchCriteriaQuery(queryClient, datasource);
+		initProcessByPrimaryKeyCaseIdQuery(queryClient, datasource);
 	}
 	
 	
@@ -114,6 +129,28 @@ public class JbpmConfiguration {
 		queryClient.registerQuery(query);
 		
 	}
+	
+	
+	private static void initProcessByPrimaryKeyCaseIdQuery(QueryServicesClient queryClient, String datasource) {
+
+		try {
+			queryClient.getQuery(Constants.QUERY_PROCESS_BY_CASE_ID);
+			queryClient.unregisterQuery(Constants.QUERY_PROCESS_BY_CASE_ID);
+		} catch (Exception e) {
+			// Query not found
+		}
+
+		QueryDefinition query = new QueryDefinition();
+		query.setName(Constants.QUERY_PROCESS_BY_CASE_ID);
+		query.setSource(datasource);
+		query.setTarget(Target.PROCESS.name());
+		query.setExpression(PROCESS_QUERY_BY_CASEID);
+
+		queryClient.registerQuery(query);
+		
+	}
+
+	
 	
 	
 	private static void initTasksByPrimaryKeyQuery(QueryServicesClient queryClient, String datasource) {
