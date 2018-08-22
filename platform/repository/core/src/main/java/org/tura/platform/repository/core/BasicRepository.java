@@ -19,6 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2018, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.core;
 
 import java.util.ArrayList;
@@ -28,6 +49,7 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.CommandLifecycle.LifecycleReturn;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
@@ -48,7 +70,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	}
 
 
-	private TransactionAdapter getTransactrionAdapter() throws RepositoryException {
+	private TransactionAdapter getTransactionAdapter() throws RepositoryException {
 		TransactionAdapter ta = registry.getTransactrionAdapter();
 		if (ta == null) {
 			throw new RepositoryException("Transaction adapter is not initailizated");
@@ -112,7 +134,6 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 						rule.execute();
 					}
 				}
-
 			}
 			result.setSearchResult(records);
 
@@ -137,50 +158,81 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 	@SuppressWarnings("rawtypes")
 	public void applyChanges(List changes) throws RepositoryException {
+		CommandLifecycle cl = getCommandLifecycle();
 		try {
-			getTransactrionAdapter().begin();
+			cl.beforeTransaction();
+			getTransactionAdapter().begin();
 
+			changes = cl.preprocessChangeSequence(changes);
+			
 			for (Object change : changes) {
-				if (change instanceof AddContainmentObjectData) {
-					new RepositoryObjectInstaller(registry).add((AddContainmentObjectData) change);
+				LifecycleReturn lf = cl.preprocess(change);
+				if ( LifecycleReturn.Skip.equals(lf)) {
 					continue;
 				}
-				if (change instanceof AddObjectData) {
-					new RepositoryObjectInstaller(registry).add((AddObjectData) change);
-					continue;
+				if ( LifecycleReturn.Break.equals(lf)) {
+					break;
 				}
-
-				if (change instanceof AddTopObjectData) {
-					new RepositoryObjectInstaller(registry).add((AddTopObjectData) change);
-					continue;
+				if ( LifecycleReturn.Error.equals(lf)) {
+					throw cl.getException();
 				}
-
-				if (change instanceof RemoveContainmentObjectData) {
-					new RepositoryObjectRemover(registry).remove((RemoveContainmentObjectData) change);
-					continue;
-				}
-
-				if (change instanceof RemoveObjectData) {
-					new RepositoryObjectRemover(registry).remove((RemoveObjectData) change);
-					continue;
-				}
-
-				if (change instanceof RemoveTopObjectData) {
-					new RepositoryObjectRemover(registry).remove((RemoveTopObjectData) change);
-					continue;
-				}
-
-				if (change instanceof UpdateObjectData) {
-					new RepositoryObjectUpdate(registry).update((UpdateObjectData) change);
-					continue;
+				
+				try {
+				
+					if (change instanceof AddContainmentObjectData) {
+						new RepositoryObjectInstaller(registry).add((AddContainmentObjectData) change);
+						cl.postprocess(change);
+						continue;
+					}
+					if (change instanceof AddObjectData) {
+						new RepositoryObjectInstaller(registry).add((AddObjectData) change);
+						continue;
+					}
+	
+					if (change instanceof AddTopObjectData) {
+						new RepositoryObjectInstaller(registry).add((AddTopObjectData) change);
+						continue;
+					}
+	
+					if (change instanceof RemoveContainmentObjectData) {
+						new RepositoryObjectRemover(registry).remove((RemoveContainmentObjectData) change);
+						continue;
+					}
+	
+					if (change instanceof RemoveObjectData) {
+						new RepositoryObjectRemover(registry).remove((RemoveObjectData) change);
+						continue;
+					}
+	
+					if (change instanceof RemoveTopObjectData) {
+						new RepositoryObjectRemover(registry).remove((RemoveTopObjectData) change);
+						continue;
+					}
+	
+					if (change instanceof UpdateObjectData) {
+						new RepositoryObjectUpdate(registry).update((UpdateObjectData) change);
+						continue;
+					}
+				}finally {
+					lf = cl.postprocess(change);
+					if ( LifecycleReturn.Break.equals(lf)) {
+						break;
+					}
+					if ( LifecycleReturn.Error.equals(lf)) {
+						throw cl.getException();
+					}
 				}
 
 			}
-			getTransactrionAdapter().commit();
+			cl.beforeCommit();
+			getTransactionAdapter().commit();
+			cl.afterCommit();
 
 		} catch (Exception e) {
 			try {
-				getTransactrionAdapter().rollback();
+				cl.beforeRollback();
+				getTransactionAdapter().rollback();
+				cl.afterRollback();
 			} catch (Exception e1) {
 			}
 			throw new RepositoryException(e);
@@ -205,3 +257,4 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	}
 
 }
+

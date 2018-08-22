@@ -1,24 +1,24 @@
 /**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+* Tura - application generation platform
+*
+* Copyright (c) 2012 - 2018, Arseniy Isakov
+*
+* This project includes software developed by Arseniy Isakov
+* http://sourceforge.net/p/tura/wiki/Home/
+*
+* Licensed under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at:
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
 package org.tura.platform.repository.core;
 
 import java.io.Serializable;
@@ -47,6 +47,7 @@ public class Registry implements Serializable{
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
 	private Map<String, AdapterLoader> loaders = new HashMap<>();
+	private CommandLifecycle commandLifecycle;
 
 	public Registry() {
 
@@ -91,7 +92,7 @@ public class Registry implements Serializable{
 		}
 	}
 
-	public void addTrigger(String parentClass,  String childClass,  Object trigger) {
+	public void addTrigger(String parentClass, String childClass, Object trigger) {
 		if (trigger instanceof PreQueryTrigger) {
 			preQueryTriggers.put(parentClass+"2"+childClass, (PreQueryTrigger) trigger);
 			return;
@@ -126,10 +127,10 @@ public class Registry implements Serializable{
 	
 	
 	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException{
-		Repository repository  = findProvider(repositoryClass);
-		CommandProducer commandProducer =  commandProducers.get(repository);
+		Repository repository = findProvider(repositoryClass);
+		CommandProducer commandProducer = commandProducers.get(repository);
 		if(commandProducer == null){
-			throw new RepositoryException("Unsupporable command producer for  " + repositoryClass);
+			throw new RepositoryException("Unsupporable command producer for " + repositoryClass);
 		}
 		return commandProducer;
 	}
@@ -137,20 +138,20 @@ public class Registry implements Serializable{
 	public String findRepositoryClass(String persistanceClass) throws RepositoryException {
 		String repositoryClass = classMapper.get(persistanceClass);
 		if (repositoryClass == null) {
-			throw new RepositoryException("Unsupporable class repository class for  " + persistanceClass);
+			throw new RepositoryException("Unsupporable class repository class for " + persistanceClass);
 		}
 		return repositoryClass;
 	}
 	
-    Set<Repository> getListOfRepositories(){
-    	return commandProducers.keySet();
-    }
+  Set<Repository> getListOfRepositories(){
+  	return commandProducers.keySet();
+  }
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
 		return postCreateTriggers.get(repositoryClass);
 	}
 
-	public PreQueryTrigger findPreQueryTrigger(String parentClass,  String childClass) {
+	public PreQueryTrigger findPreQueryTrigger(String parentClass, String childClass) {
 		return preQueryTriggers.get( parentClass+"2"+childClass);
 	}
 
@@ -188,9 +189,21 @@ public class Registry implements Serializable{
 		this.loaders.put(className, loader);
 	}
 	
-   
+ 
 	public AdapterLoader getLoader( String className) {
 		return loaders.get(className);
 	}
+
+	public CommandLifecycle getCommandLifecycle() {
+		if (commandLifecycle == null) {
+			return new CommandLifecycle(this);
+		}
+		return commandLifecycle;
+	}
+
+	public void setCommandLifecycle(CommandLifecycle commandLifecycle) {
+		this.commandLifecycle = commandLifecycle;
+	}
 	
 }
+
