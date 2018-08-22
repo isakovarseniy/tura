@@ -29,8 +29,10 @@ import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
+import org.tura.salesanalyzer.serialized.db.ProductGroupHistory;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.StateReference;
+import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
@@ -54,6 +56,12 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			((User)o).setId(UUID.randomUUID().toString());
 			return;
 		}
+		
+		if (o instanceof ProductGroupHistory) {
+			((ProductGroupHistory)o).setObjId("gh"+UUID.randomUUID().toString());
+			return;
+		}
+		
 		if (o instanceof Country) {
 			((Country)o).setObjId( new Long(id).intValue());
 			id= id+1;
@@ -69,6 +77,14 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			id= id+1;
 			return;
 		}
+
+		if (o instanceof CaseProcess) {
+			((CaseProcess)o).setId( new Long(id));
+			id= id+1;
+			((CaseProcess)o).setCaseId(UUID.randomUUID().toString());
+			return;
+		}
+		
 		
 		if (o instanceof CountryReference) {
 			((CountryReference)o).setAdmin(false);

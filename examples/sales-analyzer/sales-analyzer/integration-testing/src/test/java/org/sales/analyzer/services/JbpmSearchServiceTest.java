@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -30,6 +31,7 @@ import com.octo.java.sql.query.SelectQuery.Order;
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
+import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstancePK;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.UserReferencesProvider;
@@ -45,7 +47,7 @@ public class JbpmSearchServiceTest {
 	
 	@Test
 	@RunAsClient
-	public void t0000_runCase() {
+	public void t0000_searchCase() {
 		try {
 			pref = new UserPreferences();
 			pref.setSuperAdmin(true);
@@ -112,9 +114,56 @@ public class JbpmSearchServiceTest {
 		}
 	}
 
+
 	@Test
 	@RunAsClient
-	public void t0001_runCase() {
+	public void t0000_searchByCaseId() {
+		try {
+			pref = new UserPreferences();
+			pref.setSuperAdmin(true);
+			
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
+					null);
+			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
+			config.addExtraClasses(ExtraClasses.list);
+
+			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
+			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
+
+			String caseId = UUID.randomUUID().toString();
+			HashMap<String, Object> params = new HashMap<>();
+			params.put(Constants.VAR_CITY, 1000);
+			params.put(Constants.VAR_STATE, 2000);
+			params.put(Constants.VAR_PRODUCT, "Product02");
+			params.put(Constants.VAR_CASE_ID, caseId);
+			
+			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
+			
+			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
+			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
+			
+			JbpmSearchService service = new JbpmSearchService(client, provider);
+			SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
+			pk.setCaseId(caseId);
+			pk.setId(procesInsatnceId);
+			SalesAnalyzerProcessInstance instance =(SalesAnalyzerProcessInstance) service.find(pk, SalesAnalyzerProcessInstance.class.getName());
+			assertEquals(procesInsatnceId, instance.getId());
+			assertEquals(1, instance.getActiveUserTasks().size());
+			assertEquals(caseId, instance.getCaseId());
+			SalesAnalyzerTaskInstance ti = instance.getActiveUserTasks().iterator().next();
+			assertNotNull(ti.getId());
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
+	@Test
+	@RunAsClient
+	public void t0001_searchCase() {
 		try {
 			pref = new UserPreferences();
 			pref.setSuperAdmin(true);
@@ -174,7 +223,7 @@ public class JbpmSearchServiceTest {
 			sc.setValue(2502);
 			searchCriteria.add(sc);
 			
-   			
+			
 			ArrayList<OrderCriteria> orderCriteria = new ArrayList<>();
 			OrderCriteria orc = new OrderCriteria();
 			orc.setName("PROC_"+"PROCESSINSTANCEID");

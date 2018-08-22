@@ -85,7 +85,7 @@ public class SalesAnalyzerTaskInstanceMapper extends AbstractQueryMapper<SalesAn
 		int city = getColumnIntValue(dataSetResult, COLUMN_CITY, index);
 		int states = getColumnIntValue(dataSetResult, COLUMN_STATES, index);
 		String product = getColumnStringValue(dataSetResult, COLUMN_PRODUCT, index);
-		String case_id = getColumnStringValue(dataSetResult, "PROC_"+COLUMN_CASE_ID, index);
+		String case_id = getColumnStringValue(dataSetResult, COLUMN_CASE_ID, index);
 		
 		pi.setCity(city);
 		pi.setStates(states);

@@ -15,7 +15,7 @@ import org.kie.server.services.impl.KieServerLocator;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.user.UserPreferences;
 
-public class CaseIdColumnBuilder  implements QueryParamBuilder<ColumnFilter> {
+public class CaseIdColumnBuilder implements QueryParamBuilder<ColumnFilter> {
 	private Map<String, Object> parameters;
 	private boolean built = false;
 
@@ -46,7 +46,7 @@ public class CaseIdColumnBuilder  implements QueryParamBuilder<ColumnFilter> {
 		String columnName = "CASE_ID";
 
 		ColumnFilter filter = FilterFactory.AND(
-				FilterFactory.equalsTo(((Number) parameters.get(Constants.PARAMETER_CASE_ID)).longValue()));
+				FilterFactory.equalsTo(((String) parameters.get(Constants.PARAMETER_CASE_ID))));
 		filter.setColumnId(columnName);
 		filters.add(filter);
 

@@ -98,6 +98,12 @@ public class JbpmSearchService extends AbstaractSearchService {
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_PRODUCT, sc.getValue());
 		}
+		
+		sc = helper.checkSearchParam(Constants.VAR_CASE_ID, searchCriteria);
+		if (sc != null) {
+			parameters.put(Constants.PARAMETER_CASE_ID, sc.getValue());
+		}
+		
 		if (orderCriteria != null && orderCriteria.size() > 0) {
 			parameters.put("q_order_by", orderCriteria.get(0).getName());
 			parameters.put("q_ascending", orderCriteria.get(0).getOrder().equals(Order.ASC.name()));

@@ -1717,7 +1717,7 @@
             <classifiers uid="70a6f958-60b8-4c4b-b41e-229154843602" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="d0847d5f-c43f-4a41-9bca-7f28a6a720f5" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="86f857d6-3c28-46ff-a0c7-ce532596318a" name="country_id"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_Id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ba81a903-5d00-4340-9ab2-abbf25ccd1a9" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="f4eeb2a7-443b-4660-808b-6651f19d6944" name="state_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f77c8ddd-4128-4045-93aa-4c8a13452b60" name="state_name"/>
@@ -1726,7 +1726,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="82e413a1-1bec-412c-920f-138215328c39" name="product"/>
             <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="84deda97-c439-4cdb-958d-4f8acfd90359" name="amount"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="ba2a1d1f-51ff-440b-aa23-212228a9ea6c" name="history_date"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="657a5039-6930-4a75-a0ae-d0c1c7f41486" name="case_id"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="657a5039-6930-4a75-a0ae-d0c1c7f41486" name="case_id"/>
           </types>
           <types xsi:type="tura.type:Type" uid="d145e66d-8468-4309-ae17-4bc85378d672" name="Permission References ">
             <classifiers uid="c406e209-7625-4659-82ba-d817cec406e4" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
@@ -1742,14 +1742,14 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="023956c9-18ee-47da-bd30-245429e5a60b" name="case status"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d05f9830-2194-486e-8a60-354b1089eac3" name="comments"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="3a3620e1-6764-4e9a-863e-3fa0d8e698c2" name="case resolution"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="0ea02a79-83a1-4955-9352-0cfde9c4cea2" name="case_id"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="0ea02a79-83a1-4955-9352-0cfde9c4cea2" name="case_id"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="93fd5d1e-a335-4092-85ed-7c14c0cc97b2" typeRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7"/>
           <types xsi:type="tura.type:TypeReference" uid="6e7a4782-a64c-446c-bccb-6386f4ff5cf6" typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802"/>
           <types xsi:type="tura.type:Type" uid="3cfdf213-1f3f-461c-aec2-cdc313e51bd1" name="Product history">
             <classifiers uid="ffefa2ec-ffe1-47a0-929a-f39677f1aaee" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="892e63a6-6b10-4abf-b584-a43362f79277" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_Id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_Id" pk="true"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="2a7b9bfa-c2af-4762-bf4d-60fafbb65601" name="country_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="60dd3bd5-7a17-441a-a329-a89c58a2da5e" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="614489d9-44d5-4458-a454-794cba60bb60" name="state_id"/>
