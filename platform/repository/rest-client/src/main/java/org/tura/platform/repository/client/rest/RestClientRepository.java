@@ -34,6 +34,7 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Repository;
@@ -83,15 +84,19 @@ public class RestClientRepository implements Repository {
 			client = ClientBuilder.newClient();
 
 			SearchRequest request = new SearchRequest();
-			request.setSearch(searchCriteria);
 			request.setOrder(orderCriteria);
 			request.setStartIndex(startIndex);
 			request.setEndIndex(endIndex);
 			request.setObjectClass(objectClass);
 
 			for( SearchCriteria  sc : searchCriteria ) {
-				sc.setClassName( sc.getValue().getClass().getName());
-				sc.setValue(sc.getValue().toString());
+				if ( sc instanceof ObjectProfileCriteria  ) {
+					request.setProfile(((ObjectProfileCriteria) sc).getProfile());
+				}else{
+					request.getSearch().add(sc);
+					sc.setClassName( sc.getValue().getClass().getName());
+					sc.setValue(sc.getValue().toString());
+				}
 			}
 			
 			String context = base.getPath();

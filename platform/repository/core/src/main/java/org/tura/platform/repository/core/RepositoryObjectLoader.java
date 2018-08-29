@@ -1,24 +1,24 @@
 /**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+* Tura - application generation platform
+*
+* Copyright (c) 2012 - 2018, Arseniy Isakov
+*
+* This project includes software developed by Arseniy Isakov
+* http://sourceforge.net/p/tura/wiki/Home/
+*
+* Licensed under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at:
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
 package org.tura.platform.repository.core;
 
 import java.lang.reflect.Method;
@@ -36,7 +36,7 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.exp.Operator;
 
-public class RepositoryObjectLoader  extends RepositoryHelper{
+public class RepositoryObjectLoader extends RepositoryHelper{
 
 	static int MAX_ROW_NUMBER = 50;
 	public static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
@@ -80,11 +80,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 
-	private boolean skipRelation(Object repositoryObject, Method method) {
-		return registry.skipRelation(repositoryObject.getClass(), method);
-	}
-
-	private void internalLoader(Object repositoryObject, boolean fromInternalClass,ObjectGraph graph) throws Exception {
+	private void internalLoader(Object repositoryObject, boolean fromInternalClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
 			Internal internal = method.getAnnotation(Internal.class);
@@ -97,58 +93,58 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
-				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(object), true,graph);
+				loader.internalLoader(object, getPersistancePrimaryKeyFromRepositoryObject(object), true,graph, grapfProfile);
 			}
 			graph.removeLastBranch(id);
 		}
 		if (fromInternalClass) {
-			query(repositoryObject, null,graph);
+			query(repositoryObject, null,graph,grapfProfile);
 		}
 	}
 
 	
-	public void  internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass , ObjectGraph graph) throws Exception {
-        String key = LOADED_OBJECTS+repositoryObject.getClass().getName();
-        
+	public void internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass , ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
+    String key = LOADED_OBJECTS+repositoryObject.getClass().getName();
+   
 		@SuppressWarnings("unchecked")
 		List<Object> loadedObjects = (List<Object>) context.get(key);
-        if(loadedObjects == null){
-        	loadedObjects = new ArrayList<>();
-        	context.put(key, loadedObjects);
-        }
-        if (loadedObjects.contains(persistenceObjectPK)){
-        	return ;
-        }else{
-        	loadedObjects.add(persistenceObjectPK);
-        	internalLoader(repositoryObject,fromInternalClass,graph);
-        }
+    if(loadedObjects == null){
+    	loadedObjects = new ArrayList<>();
+    	context.put(key, loadedObjects);
+    }
+    if (loadedObjects.contains(persistenceObjectPK)){
+    	return ;
+    }else{
+    	loadedObjects.add(persistenceObjectPK);
+    	internalLoader(repositoryObject,fromInternalClass,graph,grapfProfile);
+    }
 	}
 	
 	
-	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass,ObjectGraph graph) throws RepositoryException {
-        String key = LOADED_OBJECTS+repositoryClass.getName();
+	public Object loader(Object persistenceObject, Object persistenceObjectPK , Class<?> repositoryClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
+    String key = LOADED_OBJECTS+repositoryClass.getName();
 
 		@SuppressWarnings("unchecked")
 			List<Object> loadedObjects = (List<Object>) context.get(key);
-            if(loadedObjects == null){
-            	loadedObjects = new ArrayList<>();
-            	context.put(key, loadedObjects);
-            }
-            if (loadedObjects.contains(persistenceObjectPK)){
-            	return null;
-            }else{
-            	loadedObjects.add(persistenceObjectPK);
-            	return loader(persistenceObject,repositoryClass,graph);
-            }
+      if(loadedObjects == null){
+      	loadedObjects = new ArrayList<>();
+      	context.put(key, loadedObjects);
+      }
+      if (loadedObjects.contains(persistenceObjectPK)){
+      	return null;
+      }else{
+      	loadedObjects.add(persistenceObjectPK);
+      	return loader(persistenceObject,repositoryClass,graph,grapfProfile);
+      }
 	}	
 	
 	
-	private  Object loader(Object persistenceObject, Class<?> repositoryClass,ObjectGraph graph) throws RepositoryException {
+	private Object loader(Object persistenceObject, Class<?> repositoryClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
 		try {
 			Object repositoryObject = instantiateObject(repositoryClass);
 			populate(persistenceObject,repositoryObject);
-			internalLoader(repositoryObject, false,graph);
-			query(repositoryObject, persistenceObject,graph);
+			internalLoader(repositoryObject, false,graph,grapfProfile);
+			query(repositoryObject, persistenceObject,graph,grapfProfile);
 
 			PostQueryTrigger postQueryTrigger = findPostQueryTrigger(repositoryClass);
 			if (postQueryTrigger != null) {
@@ -160,12 +156,12 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		}
 	}
 
-	private void query(Object repositoryObject, Object persistenceObject,ObjectGraph graph) throws Exception {
+	private void query(Object repositoryObject, Object persistenceObject,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
 
 		List<Method> assosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Association.class);
 
 		for (Method method : assosiations) {
-			if (skipRelation(repositoryObject, method)) {
+			if (grapfProfile.skipRelation(repositoryObject, method)) {
 				continue;
 			}
 			
@@ -199,9 +195,9 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 			for (Object object : result.getSearchResult()) {
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry );
-				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy(),graph);
+				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy(),graph,grapfProfile);
 				if (loadedObject != null){
-				   processor.connectRepositoryObjects(repositoryObject, loadedObject);
+				 processor.connectRepositoryObjects(repositoryObject, loadedObject);
 				}
 			}
 			
@@ -216,10 +212,10 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		List<SearchCriteria> newSearch = new ArrayList<>();
 		for (SearchCriteria sc : search) {
 			if (!PARENT_PERSISTANCE_OBJECT.equals(sc.getName())) {
-				if ( 
+				if (
 						sc.getParentClass() != null && sc.getProperty() != null
 						&& sc.getParentClass().equals(repositoryObject.getClass().getName()) && sc.getProperty().equals(property)
-                   )	
+         )	
 				newSearch.add(sc);
 			}
 		}
@@ -257,3 +253,4 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 
 }
+

@@ -108,6 +108,15 @@
             <hints uid="506df12b-04c8-4de0-9604-ce075d440e57" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
             <hints uid="738f3f3f-578c-4480-bda8-2ebc9b9ba44e" name="SPA Object" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
           </artifacts>
+          <artifacts uid="838919d0-d0ac-453c-b3d2-d459cdb1cf8e" name="Repository profile" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainProfile.egl">
+            <configVariables uid="4c4ef805-dfcb-440b-977c-ea549800a227" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
+            <modelQuery uid="34d7295b-ab0d-4338-ac07-e70d375cdc87" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="1ed451b2-2ba1-4868-9a7a-1d9b05c14375" name="Domain Application"/>
+              <parameters uid="5f81ad48-0892-4739-a78d-a8e85e3309bd" name="Group"/>
+              <parameters uid="1bcdfd87-f0e5-4e7e-9179-af2c75ed98b8" name="Application"/>
+              <parameters uid="f8e97866-37d2-4626-bb24-8883ee9916cf" name="Package"/>
+            </modelQuery>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
@@ -2372,6 +2381,14 @@
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                         </mappers>
+                        <mappers uid="7221707b-d359-4d94-bad8-c0a845d03811" artifactRef="838919d0-d0ac-453c-b3d2-d459cdb1cf8e" name="Profile">
+                          <queries uid="7dfddd9d-db27-4ef6-b398-bdfe08864fbf" name="Query UI Package" queryRef="34d7295b-ab0d-4338-ac07-e70d375cdc87">
+                            <variables queryParamRef="1ed451b2-2ba1-4868-9a7a-1d9b05c14375" value="ERP"/>
+                            <variables queryParamRef="5f81ad48-0892-4739-a78d-a8e85e3309bd" value="HR domain"/>
+                            <variables queryParamRef="1bcdfd87-f0e5-4e7e-9179-af2c75ed98b8" value="HR application"/>
+                            <variables queryParamRef="f8e97866-37d2-4626-bb24-8883ee9916cf" value="Nested form package"/>
+                          </queries>
+                        </mappers>
                       </components>
                     </ingredients>
                     <ingredients mappers="5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf" uid="fc92aae7-0185-4459-9fec-7e392caf0ff2" name="Model interface" modelLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
@@ -3826,9 +3843,13 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
-                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="9700618b-bb04-4b25-af40-e3f537976fc5" name="Frame for emploee details"/>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="9700618b-bb04-4b25-af40-e3f537976fc5" name="Frame for emploee details">
+                        <style uid="9812a1ac-7cbe-44dd-bc8d-0905023e3707"/>
+                      </viewElement>
                     </canvases>
-                    <canvases xsi:type="tura.form:TabCanvas" uid="202dc775-763f-4b4b-baea-32e2419d3e5a" name="Employee details"/>
+                    <canvases xsi:type="tura.form:TabCanvas" uid="202dc775-763f-4b4b-baea-32e2419d3e5a" name="Employee details">
+                      <style uid="b684cb61-bbf2-410b-a001-f8922e50c80e"/>
+                    </canvases>
                     <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files" tabSequence="1">
                       <style uid="59d4ecb4-1442-49f6-a686-4c87d422ba78"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="efdce18c-a4bf-4d82-a550-2721095cd3a8" name="File tree">
@@ -6347,6 +6368,8 @@
                           </value>
                         </parameters>
                       </search>
+                      <defaultSearch/>
+                      <defaultOrderBy/>
                       <relationMappers uid="37f7e25d-2008-4e33-a718-3da6e7d63d9a" dataControlRef="beae9146-f406-41db-864e-0fce70a1680b" typeRef="84c52b42-6905-4297-b1bc-6389f8a43d34"/>
                     </controls>
                     <controls uid="beae9146-f406-41db-864e-0fce70a1680b" name="State">
@@ -8122,6 +8145,65 @@
                     <viewInheritances uid="00a0ec0f-f9c5-4238-800e-1d72d335ae5c" source="921e1780-ffba-41a2-afe1-35dbdfe384ec" target="ec959533-2762-48ae-bab2-fb82c45b7fad"/>
                   </view>
                   <datacontrols uid="d4828452-e089-4fee-a5bd-497a7ba90f49"/>
+                </forms>
+              </applicationUIPackages>
+              <applicationUIPackages uid="9901945d-a513-4e9e-98eb-1d2aad26eae7" name="Admin">
+                <forms uid="f3acb9fa-3e15-4da5-ad98-146cf9be8e8c" name="Administration">
+                  <view uid="80089d33-c51e-4432-a1ff-82bc3eaa4f67">
+                    <canvases xsi:type="tura.form:Window" uid="4cdbf7eb-01a5-4076-afe2-55b7aefca072" name="Admin Window">
+                      <style uid="d9bafe55-6076-4e5a-8529-7d998f6aedfa"/>
+                      <viewElement xsi:type="tura.form:ViewPort" uid="c96cac6a-510f-464c-b996-a660f91112f7" name="Admin frame">
+                        <style uid="b8724953-ffab-4bb2-a537-88d309f0af0a"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabCanvas" uid="75599ebc-04ec-44e8-83cd-045f160dab1a" name="Admin">
+                      <style uid="aadebf63-f059-4a89-b7aa-d8905c617ca8"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabPage" uid="098a4101-e1f0-49ee-86f9-c15465f75d80" name="User management">
+                      <style uid="a49b12ad-65fe-4bfc-a131-1c7538ff8b8e"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="785f9097-a6ab-41a8-930c-6bded489af43" name="Users">
+                        <style uid="280e500c-967b-44d6-88fe-ae9df9e059ad"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabPage" uid="fde626ea-5d49-4e88-a502-97e883e66665" name="Role management">
+                      <style uid="70071678-2905-4189-80c5-05ee42feb7fc"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="5fbb9140-0b29-42c7-ba0d-5d160996b495" name="Roles">
+                        <style uid="101ed30b-e991-42e2-aee9-4a0c9b854502"/>
+                        <baseCanvas uid="956ac990-be31-442d-8903-d0522338da45">
+                          <children xsi:type="tura.form:LayerHolder" uid="e3f285e2-700c-4622-8ba9-6abc10e6406b" columns="2">
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="f281d1fb-c065-427a-8c28-51bb90b1b5a8">
+                              <children xsi:type="tura.form:Button" uid="87f92adb-0720-4291-a9f3-1ff9bde34811" label="Add"/>
+                              <children xsi:type="tura.form:Button" order="1" uid="8660cc7a-d9d4-4e8d-bf1c-c853879eac5b" label="Remove"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" uid="433a1968-15e5-4ab0-94ca-71f5e9caa010">
+                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" label="Roles">
+                                <cols uid="516e3c14-ec77-4806-a623-7ecf8a720918" label="Role name">
+                                  <element xsi:type="tura.form:InputText" uid="14422179-bd73-46bf-9055-5354a4c1c9fa"/>
+                                </cols>
+                              </children>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="fbc211d1-fa67-4f01-83d5-f62918027bd2" columns="2">
+                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" columns="3" label="Permissions">
+                              <cols uid="a1f9bb17-8214-4cff-b8ea-78e834ac5b0e" label="Code">
+                                <element xsi:type="tura.form:OutputText" uid="184ed971-4e17-462f-969d-8cefb7443529"/>
+                              </cols>
+                              <cols order="1" uid="c3fc41c6-aea6-43b9-9502-c3dbbe64d5bb" label="Description">
+                                <element xsi:type="tura.form:OutputText" uid="cb0791cb-03ef-46e2-87ee-0cbff5f4b303"/>
+                              </cols>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="2d348116-930c-4580-941b-00b25981403f">
+                              <children xsi:type="tura.form:Button" uid="2321ff77-7ba0-4af8-875b-b79292dd93cb" label="Edit"/>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <viewInheritances uid="ad80cbe5-a495-4ed5-a25c-95ed5316159f" source="c96cac6a-510f-464c-b996-a660f91112f7" target="75599ebc-04ec-44e8-83cd-045f160dab1a"/>
+                    <tabPagesInheritances uid="a5777432-e35a-44bc-ab81-2150719ab174" source="75599ebc-04ec-44e8-83cd-045f160dab1a" target="098a4101-e1f0-49ee-86f9-c15465f75d80"/>
+                    <tabPagesInheritances uid="ac139e4a-82cb-4770-a5f2-d8ee4c0aac67" source="75599ebc-04ec-44e8-83cd-045f160dab1a" target="fde626ea-5d49-4e88-a502-97e883e66665"/>
+                  </view>
+                  <datacontrols uid="391c6d39-0ff7-4e8a-8942-f9889419aa2a"/>
                 </forms>
               </applicationUIPackages>
             </applicationUILayer>

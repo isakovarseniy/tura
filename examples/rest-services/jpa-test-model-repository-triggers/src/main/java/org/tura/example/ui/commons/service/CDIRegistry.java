@@ -38,8 +38,8 @@ public class CDIRegistry extends Registry {
 
 	@Inject
 	SpaObjectRegistry spaRegistry;
-	@Inject
-	Registry registry;
+//	@Inject
+//	Registry registry;
 
 	@PostConstruct
 	public void init() {
@@ -53,7 +53,9 @@ public class CDIRegistry extends Registry {
 			init.initCommandProducer();
 			init.initProvider();
 			init.initEntityManagerProvider(new CDIEntityManagerProvider());
-			this.setTransactrionAdapter(new CDITransactionAdapter(registry));
+			this.setTransactrionAdapter(new CDITransactionAdapter(this));
+			this.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

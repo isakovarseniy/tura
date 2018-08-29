@@ -288,5 +288,11 @@ public class RepositoryHelper {
 		return registry.findPostQueryTrigger(repositoryClass.getName());
 	}
 
+	
+	public ObjectGraphProfile findProfileImplementation(String profile) {
+		return this.registry.findProfile(profile);
+	}
+	
+	
 }
 

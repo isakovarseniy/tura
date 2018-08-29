@@ -21,20 +21,25 @@
  */
 package org.tura.platform.repository.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
+import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 
 @XmlRootElement(name = "SearchRequest")
+@XmlSeeAlso( ObjectProfileCriteria.class)
 public class SearchRequest {
 	
-	private List <SearchCriteria> search;
+	private List <SearchCriteria> search = new ArrayList<>();
 	private List <OrderCriteria> order;
+	private String profile;
 	private Integer startIndex;
 	private Integer endIndex;
 	private String objectClass;
@@ -77,6 +82,15 @@ public class SearchRequest {
 	public void setOrder(List<OrderCriteria> order) {
 		this.order = order;
 	}
+	
+	@XmlElement
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
 	
 	
 }

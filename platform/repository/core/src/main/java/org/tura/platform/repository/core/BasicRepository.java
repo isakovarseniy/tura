@@ -40,6 +40,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2018, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.core;
 
 import java.util.ArrayList;
@@ -47,6 +68,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.CommandLifecycle.LifecycleReturn;
@@ -111,11 +133,14 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(searchCriteria);
+
+			ObjectGraphProfile profile = loadProfile(newSearch);
 			
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(newSearch, orderCriteria);
 			}
+			
 
 			SearchResult result = provider.find(newSearch, orderCriteria, startIndex, endIndex,
 					persistanceClass.getName());
@@ -125,7 +150,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,registry);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass) ,new ObjectGraph()));
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass) ,new ObjectGraph(),profile));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
@@ -145,6 +170,24 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 	}
 	
+	private ObjectGraphProfile loadProfile(List<SearchCriteria> searchCriteria) {
+		ObjectGraphProfile profile = new ObjectGraphProfile();
+		SearchCriteria s = null;
+		for (SearchCriteria sc : searchCriteria){
+			if (sc instanceof ObjectProfileCriteria){
+				profile = findProfileImplementation(((ObjectProfileCriteria) sc).getProfile());
+				s= sc;
+				break;
+			}
+		}
+		if (s != null ){
+			searchCriteria.remove(s);
+		}
+		return profile;
+	}
+
+
+
 	private List<SearchCriteria> prepareSearchCriteria(List<SearchCriteria> search) {
 		List<SearchCriteria> newSearch = new ArrayList<>();
 		for (SearchCriteria sc : search){

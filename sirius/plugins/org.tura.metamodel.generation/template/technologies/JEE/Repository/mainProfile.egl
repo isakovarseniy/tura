@@ -1,0 +1,45 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/datacontrolUtil.eol";
+
+ ${percent}${end}
+ 
+   [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var templateStore = new Native('java.util.HashMap');
+     
+     var forms = util.runQuery(model_mapper,"Query form",model_mapper);
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+     
+     
+    if (forms.size() <> 0 ){
+           for (form in forms){
+           
+		         var uipackage = form.eContainer();
+		         var application = uipackage.eContainer();
+           
+                var hash = new Native('java.util.HashMap');
+     
+		     	hash.put("recipe",recipe);
+			    hash.put("ingredient",ingredient);
+			    hash.put("component",component);
+			    hash.put("model_mapper",model_mapper);
+			    hash.put("model_mapper",model_mapper);
+			    hash.put("configuration",configuration);
+			    hash.put("form",form);
+			    hash.put("uipackage",uipackage);
+			    hash.put("application",application);
+			    
+		
+			    var profileBuilder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/profile.egl",hash,TemplateFactory);
+			    profileBuilder.setFormatter(f);
+			    var buffer = profileBuilder.process();
+		        util.saveFile( path+"/"+util.mergeAndUnCapitalize(application.name)+"/"+util.mergeAndUnCapitalize(uipackage.name), util.mergeAndCapitalize(form.name) + "Profile.java",buffer);   
+
+           }
+    }     
+     
+  %]  

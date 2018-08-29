@@ -33,6 +33,7 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.Repository;
@@ -70,6 +71,9 @@ public class RestRepository {
 				Class<?> clazz = Class.forName(sc.getClassName());
 				Constructor<?> constractor = clazz.getConstructor(String.class);
 				sc.setValue(  constractor.newInstance(sc.getValue()));
+			}
+			if (request .getProfile() != null){
+				request.getSearch().add(  new ObjectProfileCriteria(request .getProfile()) );
 			}
 			
 			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());

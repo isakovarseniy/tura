@@ -132,6 +132,7 @@ public class Many2ManyTest {
 
 	private ProxyRepository getRepository() throws Exception {
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -143,7 +144,10 @@ public class Many2ManyTest {
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
 
-		return new ProxyRepository(repository, stackProvider);
+		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
+		proxy.setProfile(AllowEverythingProfile.class.getName());
+		
+		return proxy;
 
 	}
 	

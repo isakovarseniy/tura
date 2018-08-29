@@ -76,7 +76,10 @@ public class RestRepositoryTest {
 	private ProxyRepository getRepository() throws MalformedURLException {
 		URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
 		commandStack = new ArrayList<>();
-		return  new ProxyRepository(new RestClientRepository(url),stackProvider);
+		
+		ProxyRepository proxy = new ProxyRepository(new RestClientRepository(url),stackProvider);
+		proxy.setProfile("org.tura.example.ui.commons.service.AllowEverythingProfile");
+		return proxy;
 		
 	}
 	

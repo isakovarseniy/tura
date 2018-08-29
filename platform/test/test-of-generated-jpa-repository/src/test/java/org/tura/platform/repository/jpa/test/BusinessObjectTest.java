@@ -25,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -44,6 +45,7 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectGraphProfile;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
@@ -132,6 +134,9 @@ public class BusinessObjectTest {
 
 	private ProxyRepository getRepository() throws Exception {
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+        registry.addProfile(IndepObject2ExceptionProfile.class.getName(), new IndepObject2ExceptionProfile());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -142,8 +147,12 @@ public class BusinessObjectTest {
 		init.initEntityManagerProvider(emProvider);
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
+		
 
-		return new ProxyRepository(repository, stackProvider);
+		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
+		proxy.setProfile(AllowEverythingProfile.class.getName());
+		
+		return proxy;
 
 	}
 
@@ -255,7 +264,7 @@ public class BusinessObjectTest {
 
 			o2 = o1.getIndepObject2().get(0);
 
-			registry.addSkipRelationRule(IndepObject1.class, "indepObject2");
+			repository.setProfile(IndepObject2ExceptionProfile.class.getName());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
 					IndepObject1.class.getName());
@@ -290,6 +299,20 @@ public class BusinessObjectTest {
 			fail();
 		}
 
+	}
+	
+	public class IndepObject2ExceptionProfile extends ObjectGraphProfile{
+	
+		public boolean skipRelation(Object repositoryObject, Method method) {
+			if ( 
+					IndepObject1.class.getName().equals( repositoryObject.getClass().getName())
+				&&	method.getName().equals("getIndepObject2")
+					){
+			return true;
+			}else{
+				return false;
+			}
+		}
 	}
 
 }

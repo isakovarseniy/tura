@@ -46,6 +46,7 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.jpa.test.AllowEverythingProfile;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
@@ -120,6 +121,8 @@ public class MultipseSpaObjectsTest {
 	private ProxyRepository getRepository() throws Exception {
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 		
@@ -144,7 +147,10 @@ public class MultipseSpaObjectsTest {
         spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class,  CRUDService.class);
         spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
 		
-		return  new ProxyRepository(repository,stackProvider);
+		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
+		proxy.setProfile(AllowEverythingProfile.class.getName());
+		
+		return proxy;
 		
 	}
 

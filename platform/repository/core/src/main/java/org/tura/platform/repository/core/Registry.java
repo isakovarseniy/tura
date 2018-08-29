@@ -22,17 +22,15 @@
 package org.tura.platform.repository.core;
 
 import java.io.Serializable;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class Registry implements Serializable{
+public class Registry implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -42,32 +40,31 @@ public class Registry implements Serializable{
 	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
 	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 	private Map<String, Mapper> mappers = new HashMap<>();
-	private Map<String , Boolean> skipRelation = new HashMap<>();
-	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
+	private Map<Repository, CommandProducer> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
 	private Map<String, AdapterLoader> loaders = new HashMap<>();
 	private CommandLifecycle commandLifecycle;
+	private Map<String, ObjectGraphProfile> profiles = new HashMap<>();
 
 	public Registry() {
 
 	}
 
-	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy){
+	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy) {
 		this.prImaryKeyStrategy = prImaryKeyStrategy;
 	}
-	
-	public PrImaryKeyStrategy getPrImaryKeyStrategy(){
+
+	public PrImaryKeyStrategy getPrImaryKeyStrategy() {
 		return prImaryKeyStrategy;
 	}
-	
-	
-	public void addCommandProducer(Repository repository, CommandProducer commandProducer){
-		commandProducers.put(repository, commandProducer);
+
+	public void addProfile(String profileName, ObjectGraphProfile profile) {
+		profiles.put(profileName, profile);
 	}
-	
-	public void addSkipRelationRule(Class<?> repositoryClass, String relation) {
-		skipRelation.put(repositoryClass.getName() + "On" + relation, true);
+
+	public void addCommandProducer(Repository repository, CommandProducer commandProducer) {
+		commandProducers.put(repository, commandProducer);
 	}
 
 	public void addProvider(String persistanceClass, Repository provider) {
@@ -94,12 +91,12 @@ public class Registry implements Serializable{
 
 	public void addTrigger(String parentClass, String childClass, Object trigger) {
 		if (trigger instanceof PreQueryTrigger) {
-			preQueryTriggers.put(parentClass+"2"+childClass, (PreQueryTrigger) trigger);
+			preQueryTriggers.put(parentClass + "2" + childClass, (PreQueryTrigger) trigger);
 			return;
 		}
 		throw new RuntimeException("Only PreQueryTrigger allowed");
-	}	
-	
+	}
+
 	public void addMapper(String repositoryClass, String persistanceClass, Mapper mapper) {
 		mappers.put(persistanceClass + "2" + repositoryClass, mapper);
 	}
@@ -124,17 +121,16 @@ public class Registry implements Serializable{
 		return persistanceClass;
 
 	}
-	
-	
-	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException{
+
+	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException {
 		Repository repository = findProvider(repositoryClass);
 		CommandProducer commandProducer = commandProducers.get(repository);
-		if(commandProducer == null){
+		if (commandProducer == null) {
 			throw new RepositoryException("Unsupporable command producer for " + repositoryClass);
 		}
 		return commandProducer;
 	}
-	
+
 	public String findRepositoryClass(String persistanceClass) throws RepositoryException {
 		String repositoryClass = classMapper.get(persistanceClass);
 		if (repositoryClass == null) {
@@ -142,17 +138,17 @@ public class Registry implements Serializable{
 		}
 		return repositoryClass;
 	}
-	
-  Set<Repository> getListOfRepositories(){
-  	return commandProducers.keySet();
-  }
+
+	public Set<Repository> getListOfRepositories() {
+		return commandProducers.keySet();
+	}
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
 		return postCreateTriggers.get(repositoryClass);
 	}
 
 	public PreQueryTrigger findPreQueryTrigger(String parentClass, String childClass) {
-		return preQueryTriggers.get( parentClass+"2"+childClass);
+		return preQueryTriggers.get(parentClass + "2" + childClass);
 	}
 
 	public PreQueryTrigger findPreQueryTrigger(String repositoryClass) {
@@ -167,16 +163,10 @@ public class Registry implements Serializable{
 		return mappers.get(persistanceClass + "2" + repositoryClass);
 	}
 
-	public boolean skipRelation(Class<?> repositoryClass, Method method) {
-		String relation = method.getName();
-		relation = StringUtils.uncapitalize(relation.substring(3));
-		Boolean skip = skipRelation.get(repositoryClass.getName() + "On" + relation);
-		if (skip == null) {
-			return false;
-		}
-		return skip;
+	public ObjectGraphProfile findProfile(String profileName) {
+		return this.profiles.get(profileName);
 	}
-	
+
 	public TransactionAdapter getTransactrionAdapter() {
 		return transactrionAdapter;
 	}
@@ -184,13 +174,12 @@ public class Registry implements Serializable{
 	public void setTransactrionAdapter(TransactionAdapter transactrionAdapter) {
 		this.transactrionAdapter = transactrionAdapter;
 	}
-	
-	public void addLoader( String className, AdapterLoader loader) {
+
+	public void addLoader(String className, AdapterLoader loader) {
 		this.loaders.put(className, loader);
 	}
-	
- 
-	public AdapterLoader getLoader( String className) {
+
+	public AdapterLoader getLoader(String className) {
 		return loaders.get(className);
 	}
 
@@ -204,6 +193,5 @@ public class Registry implements Serializable{
 	public void setCommandLifecycle(CommandLifecycle commandLifecycle) {
 		this.commandLifecycle = commandLifecycle;
 	}
-	
-}
 
+}
