@@ -37,38 +37,78 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
    [%
             if (form.datacontrols <> null   and  form.datacontrols.controls <> null ){
             
+            
+               var relCollection = new Native('java.util.ArrayList');
+               var typeCollection = new Native('java.util.ArrayList');
+               var processed = new Native('java.util.ArrayList');
+               
                for (  dc in form.datacontrols.controls){
-                    var relSet = dc.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=dc   );
-                    if (relSet.size() <> 0){
-                       for ( rel in relSet){
-                    
-				         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
-				         if (assossiations.size() == 0){
-				             assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
-				         }
-				         
-				        var  assossiation = assossiations.iterator().next();
-				        var hash = assossiation.sourceSideNamesCalculation();
-				        
-				        
-	                    var type = hash.get("source");
-		                type.mappingType2Java(recipe,ingredient,'VIEW');
-                   %]
-                   profile.add("[%=type.~fullName%].get[%=hash.get("sourceMethodName")%]");
-                      [% 
-
-				        var hash = assossiation.targetSideNamesCalculation();
-	                    var type = hash.get("target");
-		                type.mappingType2Java(recipe,ingredient,'VIEW');
-                   %]
-                   profile.add("[%=type.~fullName%].get[%=hash.get("targetMethodName")%]");
-                      [% 
-                    
-                    }  
-                   }   
+                    var type = dc.baseType.typeRef;
+                    type.collectRelation(relCollection,typeCollection);
                }
-            }
+            
+               for ( assossiation in relCollection){
+                   if (processed.contains(assossiation.uid)){
+                      continue;
+                   }
+                   processed.add(assossiation.uid);
+                   
+			        var hash = assossiation.sourceSideNamesCalculation();
+	                var type = hash.get("source");
+	                type.mappingType2Java(recipe,ingredient,'VIEW');
+	           %]
+	           profile.add("[%=type.~fullName%].get[%=hash.get("sourceMethodName")%]");
+	              [% 
+	
+			        var hash = assossiation.targetSideNamesCalculation();
+	                var type = hash.get("target");
+	                type.mappingType2Java(recipe,ingredient,'VIEW');
+	           %]
+	           profile.add("[%=type.~fullName%].get[%=hash.get("targetMethodName")%]");
+	              [% 
+            
+            }  
+        }
 %]          
 
    }
 }      
+[%
+
+ operation type::TypeElement collectRelation(relCollection,typeCollection){
+
+	var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid );
+	if (assossiations <> null){
+	   relCollection.addAll(assossiations);
+	}
+    
+	var assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.source.uid <> self.uid);
+	if (assossiations <> null){
+	   relCollection.addAll(assossiations);
+	}
+	
+    var array = new Native('java.util.ArrayList');
+ 
+	var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid and t.internal);
+	if (assossiations <> null){
+	   array.addAll(assossiations);
+	}
+    
+	var assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.source.uid <> self.uid  and t.internal);
+	if (assossiations <> null){
+	   array.addAll(assossiations);
+	}
+	
+	for ( rel in array ){
+	   if ( not typeCollection.contains(rel.source.uid)  ){
+	      typeCollection.add(rel.source.uid);
+	      rel.source.collectRelation(typeCollection);
+	   }
+	   
+	   if ( not typeCollection.contains(rel.target.uid)  ){
+	      typeCollection.add(rel.target.uid);
+	      rel.target.collectRelation(typeCollection);
+	   }
+	}
+}
+%]
