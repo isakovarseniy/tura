@@ -31,6 +31,9 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 
+import uILayer.nestedFormPackage.HRControllerProfile;
+import uILayer.nestedFormPackage.Tree2TreeProfile;
+
 @ApplicationScoped
 public class CDIRegistry extends Registry {
 
@@ -56,6 +59,10 @@ public class CDIRegistry extends Registry {
 			this.setTransactrionAdapter(new CDITransactionAdapter(registry));
 			registry.addTrigger(Department.class.getName() , new DepartmentTriggers());
 			
+			HRControllerProfile p1 = new HRControllerProfile();
+			registry.addProfile(p1.getProfileName(), p1);
+			Tree2TreeProfile p2 = new Tree2TreeProfile();
+			registry.addProfile(p2.getProfileName(), p2);
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);

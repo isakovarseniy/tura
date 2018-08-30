@@ -7,6 +7,8 @@ ${percent}${end}
 
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
+     var application = uipackage.eContainer();
+     
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
@@ -85,6 +87,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	 pager.setCommandStack(getCommandStack());
 	 
      [%=control.~basepackage%].ProxyRepository proxyRepository =   new [%=control.~basepackage%].ProxyRepository(repository,sp);
+     proxyRepository.setProfile("[%=util.mergeAndUnCapitalize(application.name)%].[%=util.mergeAndUnCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%]");
      pager.setRepository(proxyRepository);
 
      setBaseClass([%=control.~basefullName%].class); 

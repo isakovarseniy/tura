@@ -161,7 +161,7 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 		List<Method> assosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Association.class);
 
 		for (Method method : assosiations) {
-			if (grapfProfile.skipRelation(repositoryObject, method)) {
+			if (grapfProfile == null || grapfProfile.skipRelation(repositoryObject, method)) {
 				continue;
 			}
 			

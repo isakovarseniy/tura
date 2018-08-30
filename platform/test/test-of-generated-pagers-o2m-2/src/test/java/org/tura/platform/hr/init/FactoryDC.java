@@ -86,6 +86,7 @@ public class FactoryDC implements Factory {
 		em = emf.createEntityManager();
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 		repository = new BasicRepository(registry);
 
 		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry, spaRegistry);
@@ -112,6 +113,7 @@ public class FactoryDC implements Factory {
 		sp.setCommandStack(sc);
 		
 		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		pager.setRepository(proxyRepository);
 		
 		employeesDS.setElResolver(elResolver);
@@ -139,6 +141,7 @@ public class FactoryDC implements Factory {
 		sp.setCommandStack(sc);
 		
 		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		pager.setRepository(proxyRepository);
 
 		departmentsDS.setElResolver(elResolver);
@@ -232,6 +235,7 @@ public class FactoryDC implements Factory {
 		CommandStackProvider sp = new CommandStackProvider();
 		sp.setCommandStack(sc);
 		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		return proxyRepository;
 	}
 

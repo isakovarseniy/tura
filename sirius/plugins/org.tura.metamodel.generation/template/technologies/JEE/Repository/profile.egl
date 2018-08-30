@@ -38,20 +38,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
             if (form.datacontrols <> null   and  form.datacontrols.controls <> null ){
             
                for (  dc in form.datacontrols.controls){
-                   dc.definePager(recipe,ingredient,model_mapper, hash);
-
-                   if (dc.~pagerType.equals("internalPager")){
-                   
-                   var type = dc.~parenType.typeRef;
-	               type.mappingType2Java(recipe,ingredient,'MODEL');
-                   
-                   %]
-                   
-                   profile.add("[%=type.~fullName%].get[%=dc.~property%]");
-                      [% 
-                    var relSet = dc.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=dc and r.master=dc  );
+                    var relSet = dc.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=dc   );
                     if (relSet.size() <> 0){
-                         var rel =relSet.iterator().next();
+                       for ( rel in relSet){
                     
 				         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
 				         if (assossiations.size() == 0){
@@ -59,16 +48,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 				         }
 				         
 				        var  assossiation = assossiations.iterator().next();
-				        var hash = assossiation.findTypeOfAssosiation(model_mapper); 
-	                    var type = rel.master.baseType.typeRef;
-		                type.mappingType2Java(recipe,ingredient,'MODEL');
+				        var hash = assossiation.sourceSideNamesCalculation();
+				        
+				        
+	                    var type = hash.get("source");
+		                type.mappingType2Java(recipe,ingredient,'VIEW');
                    %]
-                   profile.add("[%=type.~fullName%].get[%=dc.~property%]");
+                   profile.add("[%=type.~fullName%].get[%=hash.get("sourceMethodName")%]");
+                      [% 
+
+				        var hash = assossiation.targetSideNamesCalculation();
+	                    var type = hash.get("target");
+		                type.mappingType2Java(recipe,ingredient,'VIEW');
+                   %]
+                   profile.add("[%=type.~fullName%].get[%=hash.get("targetMethodName")%]");
                       [% 
                     
                     }  
-                      
-                   }
+                   }   
                }
             }
 %]          
