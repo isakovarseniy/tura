@@ -38,12 +38,12 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.City;
-import org.tura.salesanalyzer.serialized.db.InitJPARepository;
+import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.db.ProductGroupHistory;
 import org.tura.salesanalyzer.serialized.db.ProxyRepository;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
-import org.tura.salesanalyzer.serialized.keycloak.InitSPARepository;
+import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.exp.Operator;
 

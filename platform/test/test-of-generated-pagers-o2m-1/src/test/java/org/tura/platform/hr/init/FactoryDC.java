@@ -28,6 +28,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.hibernate.cfg.Configuration;
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
@@ -53,7 +54,6 @@ import org.tura.platform.test.hr.model.EmployeeType;
 
 import objects.test.serialazable.jpa.Department1;
 import objects.test.serialazable.jpa.Employee1;
-import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.pager.Department1Pager;
 import objects.test.serialazable.jpa.pager.Employee1Pager;

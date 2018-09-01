@@ -41,6 +41,7 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
@@ -56,7 +57,6 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.IndepObject1;
 import objects.test.serialazable.jpa.IndepObject2;
-import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

@@ -21,7 +21,10 @@
  */
 package org.tura.platform.repository.mixed.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,7 @@ import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
@@ -52,9 +56,8 @@ import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.spa.test.CRUDService;
 import org.tura.platform.repository.spa.test.SearchService;
 import org.tura.platform.repository.spa.test.TestServiceInstantiator;
+import org.tura.spa.test.repo.InitSPARepository;
 
-import objects.test.serialazable.jpa.InitJPARepository;
-import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.Q1;
 import objects.test.serialazable.jpa.Q2;

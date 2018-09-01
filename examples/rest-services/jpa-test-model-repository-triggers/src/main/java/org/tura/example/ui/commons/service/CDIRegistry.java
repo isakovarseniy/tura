@@ -25,11 +25,11 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 
-import objects.test.serialazable.jpa.InitJPARepository;
 
 @ApplicationScoped
 public class CDIRegistry extends Registry {

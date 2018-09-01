@@ -25,8 +25,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import org.elsoft.platform.hr.objects.complex.model.InitJPARepository;
 import org.tura.platform.hr.objects.serialization.Department;
-import org.tura.platform.hr.objects.serialization.InitJPARepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;

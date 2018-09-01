@@ -50,13 +50,13 @@ import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.spa.test.repo.InitSPARepository;
 
 import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
 import objects.test.serialazable.jpa.A3;
 import objects.test.serialazable.jpa.A4;
 import objects.test.serialazable.jpa.A5;
-import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 public class SpaRepositoryInternalRelationTest {

@@ -102,17 +102,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
  		
  		
  		
- 		savepackage = t2view.get(type).get("package");
         }
    }
-     if (savepackage <> null){   
-     	hash.put("savepackage",savepackage);
-     	hash.put("typeCollection",typeCollection);
-	    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/SPA/initSPARepository.egl",hash,TemplateFactory,templateStore);
-	    init.setFormatter(f);
-	    var buffer = init.process();
-	    util.saveFile( path+savepackage.replaceAll("\\.","\\/"), "InitSPARepository.java",buffer);   
-     }
+ 	hash.put("savepackage",component.getBasePackage());
+ 	hash.put("typeCollection",typeCollection);
+    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/SPA/initSPARepository.egl",hash,TemplateFactory,templateStore);
+    init.setFormatter(f);
+    var buffer = init.process();
+    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "InitSPARepository.java",buffer);   
    
  }  
 %]

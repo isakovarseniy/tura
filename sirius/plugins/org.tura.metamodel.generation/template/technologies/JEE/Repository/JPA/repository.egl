@@ -85,17 +85,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"Mapper.java",buffer);   
  		
- 		savepackage = t2view.get(type).get("package");
 
    }
-     if (savepackage <> null){   
-     	hash.put("savepackage",savepackage);
-     	hash.put("typeCollection",typeCollection);
-	    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/JPA/initJPARepository.egl",hash,TemplateFactory,templateStore);
-	    init.setFormatter(f);
-	    var buffer = init.process();
-	    util.saveFile( path+savepackage.replaceAll("\\.","\\/"), "InitJPARepository.java",buffer);   
-     }
+ 	hash.put("savepackage",component.getBasePackage());
+ 	hash.put("typeCollection",typeCollection);
+    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/JPA/initJPARepository.egl",hash,TemplateFactory,templateStore);
+    init.setFormatter(f);
+    var buffer = init.process();
+    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "InitJPARepository.java",buffer);   
    
  }  
 %]

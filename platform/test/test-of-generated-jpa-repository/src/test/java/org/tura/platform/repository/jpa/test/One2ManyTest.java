@@ -39,6 +39,7 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
@@ -53,7 +54,6 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import com.octo.java.sql.exp.Operator;
 
-import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.One2Many3A;
 import objects.test.serialazable.jpa.One2Many3B;
 import objects.test.serialazable.jpa.ProxyRepository;

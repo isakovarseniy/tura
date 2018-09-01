@@ -1991,7 +1991,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="984b30ff-b1da-47dc-83d0-885b4f71ac99" order="3" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository JPA" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test.repo">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -2073,7 +2073,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="4b93b91d-9c85-4c11-b2bc-b3a408a5c625" order="4" uid="8507b26a-e5ab-441a-8557-4f19afc183df" name="Persistance objects repository SPA" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="fc385991-5d39-4c2f-937b-66336d5badd8" name="SPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-spa-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="fc385991-5d39-4c2f-937b-66336d5badd8" name="SPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-spa-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.spa.test.repo">
                         <mappers uid="904aea47-14cc-4d55-b742-b10a20bb2b92" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="9029e1ff-668e-4cf2-a5b0-685a294012f2"/>
                           <queries uid="5d6cb751-6e43-4afd-9510-b57ec7e09b4d" name="Query package" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -7778,7 +7778,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="2" uid="bf5643c8-9774-4782-8c94-1c116cb26300" name="JPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="JPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="jpa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="JPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="jpa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.db.repo">
                         <mappers uid="98a58836-2fa1-4c84-95ce-200b2ccc1bfe" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
                           <queries uid="b4131cbf-6284-460a-bc55-725db07b553f" name="Query db classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -7805,7 +7805,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="3" uid="da0548b4-da6f-4caa-941e-9658adf0ba55" name="SPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="1ec0c9e9-3ea2-4384-a0a4-35b339d874e5" name="SPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="spa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="1ec0c9e9-3ea2-4384-a0a4-35b339d874e5" name="SPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="spa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.repo">
                         <mappers uid="eccc6543-eee5-44c7-8f4e-bd27a349faed" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="9029e1ff-668e-4cf2-a5b0-685a294012f2"/>
                           <queries uid="34ce5319-def4-4961-90aa-da823e2ce6bb" name="Query jbpm classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">

@@ -30,6 +30,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.junit.Test;
+import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
@@ -38,6 +39,7 @@ import org.tura.platform.repository.spa.SkipQueryTrigger;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.spa.test.repo.InitSPARepository;
 
 import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A3;
@@ -47,8 +49,6 @@ import objects.test.serialazable.jpa.B1;
 import objects.test.serialazable.jpa.C1;
 import objects.test.serialazable.jpa.DD1;
 import objects.test.serialazable.jpa.F1;
-import objects.test.serialazable.jpa.InitJPARepository;
-import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.JPAObject1;
 import objects.test.serialazable.jpa.JPAObject2;
 import objects.test.serialazable.jpa.JPAObject3;
