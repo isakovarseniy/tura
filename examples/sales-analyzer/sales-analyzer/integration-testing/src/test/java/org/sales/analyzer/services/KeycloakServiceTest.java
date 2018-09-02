@@ -28,6 +28,7 @@ import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.sales.analyzer.process.TestCommons;
+import org.sales.analyzer.services.impl.AllowEverythingProfile;
 import org.sales.analyzer.services.impl.KeyCloakServicesInstantiator;
 import org.sales.analyzer.services.impl.SPAAdapterLoader;
 import org.sales.analyzer.services.impl.UUIPrimaryKeyStrategy;
@@ -191,8 +192,12 @@ public class KeycloakServiceTest {
 		 .addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(), new SPAAdapterLoader(realmResource));
 
 		registry.addLoader(User.class.getName(), new SPAAdapterLoader(realmResource));
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 
-		return new ProxyRepository(repository, stackProvider);
+		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
+		proxy.setProfile(AllowEverythingProfile.class.getName());
+		
+		return proxy;
 
 	}
 

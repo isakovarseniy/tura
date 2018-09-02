@@ -24,6 +24,7 @@ import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.sales.analyzer.process.OAuthCredentialsProvider;
 import org.sales.analyzer.process.TestCommons;
+import org.sales.analyzer.services.impl.AllowEverythingProfile;
 import org.sales.analyzer.services.impl.JbpmServiceInstantiator;
 import org.sales.analyzer.services.impl.UUIPrimaryKeyStrategy;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -177,9 +178,13 @@ public class JbpmServiceTest {
 		
 		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerProcessInstance.class, JbpmSearchService.class);
 		spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerTaskInstance.class, JbpmSearchService.class);
+		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 
 
-		return new ProxyRepository(repository, stackProvider);
+		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
+		proxy.setProfile(AllowEverythingProfile.class.getName());
+		
+		return proxy;
 
 	}
 	
