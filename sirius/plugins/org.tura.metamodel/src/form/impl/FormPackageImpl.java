@@ -2999,6 +2999,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRelationMapper_AssosiationRef() {
+		return (EReference)relationMapperEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOrders() {
 		return ordersEClass;
 	}
@@ -3127,6 +3136,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EClass getInternalRelation() {
 		return internalRelationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalRelation_AssosiationRef() {
+		return (EReference)internalRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3571,6 +3589,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(relationMapperEClass, RELATION_MAPPER__UID);
 		createEReference(relationMapperEClass, RELATION_MAPPER__DATA_CONTROL_REF);
 		createEReference(relationMapperEClass, RELATION_MAPPER__TYPE_REF);
+		createEReference(relationMapperEClass, RELATION_MAPPER__ASSOSIATION_REF);
 
 		ordersEClass = createEClass(ORDERS);
 		createEAttribute(ordersEClass, ORDERS__UID);
@@ -3590,6 +3609,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(relationEClass, RELATION__LINKS);
 
 		internalRelationEClass = createEClass(INTERNAL_RELATION);
+		createEReference(internalRelationEClass, INTERNAL_RELATION__ASSOSIATION_REF);
 
 		dependencyEClass = createEClass(DEPENDENCY);
 		createEAttribute(dependencyEClass, DEPENDENCY__UID);
@@ -4082,6 +4102,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getRelationMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationMapper_DataControlRef(), this.getDataControl(), null, "dataControlRef", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationMapper_TypeRef(), theTypePackage.getTypeElement(), null, "typeRef", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationMapper_AssosiationRef(), theTypePackage.getAssosiation(), null, "assosiationRef", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ordersEClass, Orders.class, "Orders", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrders_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Orders.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4101,6 +4122,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getRelation_Links(), theTypePackage.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalRelationEClass, InternalRelation.class, "InternalRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInternalRelation_AssosiationRef(), theTypePackage.getAssosiation(), null, "assosiationRef", null, 0, 1, InternalRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDependency_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

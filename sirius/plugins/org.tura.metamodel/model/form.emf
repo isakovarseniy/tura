@@ -493,6 +493,7 @@ class RelationMapper {
     id attr EString uid;
 	ref DataControl dataControlRef;
 	ref type.TypeElement typeRef;
+	ref type.Assosiation assosiationRef;
 }
 
 
@@ -518,8 +519,7 @@ class Relation{
 }
 
 class InternalRelation extends Relation{
-	
-	
+	ref type.Assosiation assosiationRef;
 }
 
 

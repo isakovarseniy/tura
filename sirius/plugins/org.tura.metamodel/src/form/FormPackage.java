@@ -6642,13 +6642,22 @@ public interface FormPackage extends EPackage {
 	int RELATION_MAPPER__TYPE_REF = 2;
 
 	/**
+	 * The feature id for the '<em><b>Assosiation Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER__ASSOSIATION_REF = 3;
+
+	/**
 	 * The number of structural features of the '<em>Relation Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPER_FEATURE_COUNT = 3;
+	int RELATION_MAPPER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
@@ -6871,13 +6880,22 @@ public interface FormPackage extends EPackage {
 	int INTERNAL_RELATION__LINKS = RELATION__LINKS;
 
 	/**
+	 * The feature id for the '<em><b>Assosiation Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__ASSOSIATION_REF = RELATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Internal Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 0;
+	int INTERNAL_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -9492,6 +9510,17 @@ public interface FormPackage extends EPackage {
 	EReference getRelationMapper_TypeRef();
 
 	/**
+	 * Returns the meta object for the reference '{@link form.RelationMapper#getAssosiationRef <em>Assosiation Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assosiation Ref</em>'.
+	 * @see form.RelationMapper#getAssosiationRef()
+	 * @see #getRelationMapper()
+	 * @generated
+	 */
+	EReference getRelationMapper_AssosiationRef();
+
+	/**
 	 * Returns the meta object for class '{@link form.Orders <em>Orders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9651,6 +9680,17 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInternalRelation();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.InternalRelation#getAssosiationRef <em>Assosiation Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assosiation Ref</em>'.
+	 * @see form.InternalRelation#getAssosiationRef()
+	 * @see #getInternalRelation()
+	 * @generated
+	 */
+	EReference getInternalRelation_AssosiationRef();
 
 	/**
 	 * Returns the meta object for class '{@link form.Dependency <em>Dependency</em>}'.
@@ -11821,6 +11861,14 @@ public interface FormPackage extends EPackage {
 		EReference RELATION_MAPPER__TYPE_REF = eINSTANCE.getRelationMapper_TypeRef();
 
 		/**
+		 * The meta object literal for the '<em><b>Assosiation Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_MAPPER__ASSOSIATION_REF = eINSTANCE.getRelationMapper_AssosiationRef();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11947,6 +11995,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INTERNAL_RELATION = eINSTANCE.getInternalRelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Assosiation Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_RELATION__ASSOSIATION_REF = eINSTANCE.getInternalRelation_AssosiationRef();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.DependencyImpl <em>Dependency</em>}' class.

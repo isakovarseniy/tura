@@ -7663,8 +7663,8 @@
             <applicationRecipes uid="24419866-8f4b-4dd7-93e8-52fb153ca2a2" name="Recipes">
               <recipes uid="9c7c43f2-4a91-4f6a-8386-0b6f5884cdfb" name="Analysis">
                 <recipes uid="af390b23-3ad7-4956-adee-d35999b7ef1f" name="Recipe">
-                  <recipe mappers="d4fa82b7-af79-41cb-a450-74d234ec4404 b967e6c3-0736-40b4-b482-0a563c758f53" uid="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" name="Recipe">
-                    <ingredients uid="3999e872-6baa-487e-aef1-45c6b8e17e6c" name="Persistance object" controllerLayer="0ca0831c-21f1-4871-a838-1b896484121b">
+                  <recipe mappers="d4fa82b7-af79-41cb-a450-74d234ec4404 b967e6c3-0736-40b4-b482-0a563c758f53 a6a5073b-a000-4dc1-950c-cbebd8dfff6e" uid="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" name="Recipe">
+                    <ingredients uid="3999e872-6baa-487e-aef1-45c6b8e17e6c" name="Persistance object" skip="true" controllerLayer="0ca0831c-21f1-4871-a838-1b896484121b">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="f9be98f4-656b-4495-a580-e89e1e450d41" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Database service persistence object">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
@@ -7715,7 +7715,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="1" uid="64e6dd6f-d497-402a-a36c-c3dac28a5c98" name="Serialized objects" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
+                    <ingredients order="1" uid="64e6dd6f-d497-402a-a36c-c3dac28a5c98" name="Serialized objects" skip="true" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2b86f04-e027-40ca-8ca1-83ae8d93437d" name="Serialization" componentRoot="${Generation path}/serviceLayer" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="a61d9cc7-a089-47d4-8463-13bf0fb1b015" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialized objects">
                           <queries uid="d370ef61-5aa7-41ac-9da1-30ff66a25b05" name="Query db classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
@@ -7744,7 +7744,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="4" uid="d09c96fe-d3e9-48f0-bbc7-8f202be7c09c" name="Proxy  Repository" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
+                    <ingredients order="4" uid="d09c96fe-d3e9-48f0-bbc7-8f202be7c09c" name="Proxy  Repository" skip="true" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
                       <components xsi:type="tura.recipe:JavaComponent" columns="4" uid="ce154fa7-a23b-4ff7-8a2d-ca04732d6b54" name="Proxy" componentRoot="${Generation path}/serviceLayer" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="240dc3ba-43ce-4c61-9ae9-9959ed557517" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository Proxy objects">
                           <queries uid="3e7f470b-8392-4588-a7d6-fa5c8eea940c" name="Query db classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
@@ -7777,7 +7777,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="2" uid="bf5643c8-9774-4782-8c94-1c116cb26300" name="JPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
+                    <ingredients order="2" uid="bf5643c8-9774-4782-8c94-1c116cb26300" name="JPA Repository" skip="true" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="JPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="jpa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.db.repo">
                         <mappers uid="98a58836-2fa1-4c84-95ce-200b2ccc1bfe" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
@@ -7804,7 +7804,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="3" uid="da0548b4-da6f-4caa-941e-9658adf0ba55" name="SPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
+                    <ingredients order="3" uid="da0548b4-da6f-4caa-941e-9658adf0ba55" name="SPA Repository" skip="true" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="1ec0c9e9-3ea2-4384-a0a4-35b339d874e5" name="SPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="spa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.repo">
                         <mappers uid="eccc6543-eee5-44c7-8f4e-bd27a349faed" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="9029e1ff-668e-4cf2-a5b0-685a294012f2"/>
@@ -7835,6 +7835,61 @@
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="e8146455-8555-4749-8a3b-2d9f89aeda28"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients order="5" uid="634aa7eb-a351-43a9-888b-390f69726959" name="Admin application" vewLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc" modelLayer="fa2406e6-8810-465c-a5d8-14c807a4c4a9">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b61f962e-8cf9-4790-a5c3-ffb7150cedee" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                        <mappers uid="2ae62993-a244-424a-a2ad-c09417e61252" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
+                          <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
+                          <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
+                          <queries uid="ef744068-474f-4457-9e75-d305c0602f7f" name="Query forms" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
+                            <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
+                            <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="CRM"/>
+                            <variables queryParamRef="0e6076da-459b-4dd0-b959-1e0e14d3709a" value="Sales Analysis"/>
+                            <variables queryParamRef="7ede7695-6600-442a-a285-a05a22c90089" value="Admin"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="f1d5ba5b-953a-448a-9bad-9976a04b3be0" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all views">
+                          <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <queries uid="bcfd4a47-8b86-4be5-86d8-364160f4096b" name="Query forms" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
+                            <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
+                            <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
+                            <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="Sales Analysis"/>
+                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="Admin"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="e1a45313-0c48-463b-84b2-6487dc581d14" artifactRef="e7d86967-d594-4f25-8b34-5211665bf367" name="Build application">
+                          <technologies techRef="9c644338-08e7-4b17-bdda-58e6690b8f3d" valueRef="f5220160-61e4-46f2-abaa-750bf4235f27"/>
+                          <technologies techRef="a0eabf01-e648-44ca-8be7-bf2779d04f0e" valueRef="1a2b1010-9329-4acf-9a74-ce8e1f51db82"/>
+                          <technologies techRef="a77433e3-0f05-4914-8f7d-826865199dfc" valueRef="d05628e6-5a6f-40b6-986f-e5b16f9e619e"/>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="9b67298c-b0e9-42e0-a500-8f4588661c8b" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                        <mappers uid="2e147b9d-2136-4a09-baf5-9513f12a48e9" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Data control interface">
+                          <queries uid="62506c50-c317-425d-86bf-bdd12caeb5c3" name="Query form" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
+                            <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
+                            <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="CRM"/>
+                            <variables queryParamRef="0e6076da-459b-4dd0-b959-1e0e14d3709a" value="Sales Analysis"/>
+                            <variables queryParamRef="7ede7695-6600-442a-a285-a05a22c90089" value="Admin"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="9e757000-e046-44ed-9724-32f998851ff5" artifactRef="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="View port interface">
+                          <queries uid="1075629d-3017-40b6-84f7-3d4265b6b66b" name="Query form" queryRef="adb8b66d-658c-45ac-9fa7-8389586b6271">
+                            <variables queryParamRef="d62af783-cfc9-444b-b3c7-38252846086f" value="ERP"/>
+                            <variables queryParamRef="4dc59f11-982a-4cfc-970e-80d160594285" value="CRM"/>
+                            <variables queryParamRef="3bd23e05-a410-4c4c-afa2-41ef571daffe" value="Sales Analysis"/>
+                            <variables queryParamRef="5560e2bd-0c7d-439b-a0aa-681f0275fce6" value="Admin"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="3b9ffb61-ddca-41c4-9336-c5597def1780" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Form interface builder">
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <queries uid="6c8857cd-efdc-4d52-8068-424c22537686" name="Query Base type  classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Base Repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -7885,11 +7940,11 @@
               <mappers uid="e63677fe-9a8a-4fd0-834f-435cf999049e" name="Type mappers">
                 <mapper uid="b967e6c3-0736-40b4-b482-0a563c758f53">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="5321db6f-ff71-478f-8ede-e7b901d6197d" mappedToPackageName="org.tura.salesanalyzer.persistence.db" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="68aa7439-7d7b-4dbe-9cdd-2ed3b63180cc" mappedToPackageName="org.tura.salesanalyzer.serialized.db" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="262bb729-c05b-4f09-a372-9120569ebf35" mappedToPackageName="org.tura.salesanalyzer.serialized.jbpm" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="68aa7439-7d7b-4dbe-9cdd-2ed3b63180cc" mappedToPackageName="org.tura.salesanalyzer.serialized.db" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="262bb729-c05b-4f09-a372-9120569ebf35" mappedToPackageName="org.tura.salesanalyzer.serialized.jbpm" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="0bf9dc46-22ca-40b3-8c1d-e3fc4d154526" namespace="jbpm.serialized.salesanalyzer.tura.org"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="6c81af06-25e6-48bf-8239-0525e8d998bf" namespace="db.serialized.salesanalyzer.tura.org"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="62e437d5-6ded-4e9d-8dc6-b410076698cb" mappedToPackageName="org.tura.salesanalyzer.serialized.keycloak" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="62e437d5-6ded-4e9d-8dc6-b410076698cb" mappedToPackageName="org.tura.salesanalyzer.serialized.keycloak" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="f1a8fed5-19d6-4c95-a886-ed4a37a04d5c" namespace="keycloak.serialized.salesanalyzer.tura.org"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" uid="b38bc56b-8b21-455e-8475-67164cff7a95" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="SalesAnalyzerProcessInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" uid="f440ce06-14e8-46f3-adbf-ff5323d8832c" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="SalesAnalyzerTaskInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
@@ -7900,9 +7955,15 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="9e7e7a8d-b69d-4310-8b95-88e627edea6f" uid="7916ccc5-3881-4483-a3b6-2b8c5ef84bbd" mappedToPackageName="org.tura.platform.repository.core" mappedToClassName="Adapter" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
+              <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
+                <mapper uid="a6a5073b-a000-4dc1-950c-cbebd8dfff6e">
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="0a5c3e9d-ec0f-48f5-aad7-11ec8343a53e" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0"/>
+                </mapper>
+              </mappers>
               <appLayers uid="0ca0831c-21f1-4871-a838-1b896484121b" name="Persistence layer"/>
               <appLayers uid="3e104a13-ff17-4147-a5de-1b37e42ac68a" name="Serialization layer" order="1"/>
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
+              <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
             </applicationMappers>
             <applicationUILayer uid="64774538-1e6e-45b7-b60d-2df8ddce8708" name="UILayer">
               <applicationUIPackages uid="69e617fe-f87c-4bea-8822-4b5ba94db1b8" name="Analysis">
@@ -8176,20 +8237,23 @@
                               <children xsi:type="tura.form:Button" order="1" uid="8660cc7a-d9d4-4e8d-bf1c-c853879eac5b" label="Remove"/>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" uid="433a1968-15e5-4ab0-94ca-71f5e9caa010">
-                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" label="Roles">
+                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" label="Roles">
                                 <cols uid="516e3c14-ec77-4806-a623-7ecf8a720918" label="Role name">
-                                  <element xsi:type="tura.form:InputText" uid="14422179-bd73-46bf-9055-5354a4c1c9fa"/>
+                                  <style uid="608edf45-e685-41ae-8075-ea25c67d313d"/>
+                                  <multiLangLabel uid="62778681-1b18-4174-acb0-e54459e255fb"/>
+                                  <element xsi:type="tura.form:InputText" uid="14422179-bd73-46bf-9055-5354a4c1c9fa" valuePointer="e0888675-798b-4fa6-85d4-eb112b307250"/>
                                 </cols>
                               </children>
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="fbc211d1-fa67-4f01-83d5-f62918027bd2" columns="2">
-                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" columns="3" label="Permissions">
+                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" sourcePointer="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" columns="3" label="Permissions">
                               <cols uid="a1f9bb17-8214-4cff-b8ea-78e834ac5b0e" label="Code">
-                                <element xsi:type="tura.form:OutputText" uid="184ed971-4e17-462f-969d-8cefb7443529"/>
+                                <style uid="560dc523-dc51-4720-9e3d-674ee1947898"/>
+                                <element xsi:type="tura.form:OutputText" uid="2827e73e-f01a-4b3d-bddf-ea069aef9979" valuePointer="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
                               </cols>
                               <cols order="1" uid="c3fc41c6-aea6-43b9-9502-c3dbbe64d5bb" label="Description">
-                                <element xsi:type="tura.form:OutputText" uid="cb0791cb-03ef-46e2-87ee-0cbff5f4b303"/>
+                                <element xsi:type="tura.form:OutputText" uid="17a134cd-abc8-4ffe-966d-b869e0d39b1c" valuePointer="d8f30a03-5366-42d7-a2a4-e3c51480fa50"/>
                               </cols>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="2d348116-930c-4580-941b-00b25981403f">
@@ -8198,12 +8262,202 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="f68734d3-8997-49bd-942e-c836f90c3322" name="Popup port for permitions">
+                        <style uid="10d01099-bc90-4f12-aa7a-3c852f51edbd"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:PopupCanvas" uid="b5254916-ca6b-42d9-83bd-81a94eafc455" name="Popup Assign permissions">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="32ca68fa-19cd-49cb-8253-1274ded36e6d" name="Popup permission">
+                        <style uid="8013598a-2ad0-4778-85a2-434c24911461"/>
+                        <baseCanvas uid="aa6ca41f-93bb-49bb-bb7b-fb2689660a71" columns="2">
+                          <children xsi:type="tura.form:LayerHolder" uid="f5147a6f-9d81-479c-bf57-727af1fe6367">
+                            <children xsi:type="tura.form:Table" uid="da7d6000-299d-4f95-a7e7-e9117ebfb94f" sourcePointer="a8098f45-bc10-49b3-b6b1-55209ef73556" columns="2" label="Permitions table">
+                              <style uid="8e20bbe5-208b-4368-9de4-381c07d8cff1"/>
+                              <cols uid="ca1fa7f0-e779-42de-a350-34689df85559" label="Code">
+                                <style uid="b0c59741-6e7d-452b-a8d1-f61e3ab5a555"/>
+                                <element xsi:type="tura.form:OutputText" uid="7a78eeef-23c9-48c4-8eaf-bedf8adff684" valuePointer="62389bf5-7561-497a-85dd-c6825fa93aa6"/>
+                              </cols>
+                              <cols order="1" uid="44a38fa1-f439-4013-a099-47374fcc60e5" label="Description">
+                                <element xsi:type="tura.form:OutputText" uid="d69646c5-4c43-4718-8e71-b8b461c7d015" valuePointer="fbf7250e-f223-40c6-a83f-26ed0f13849d"/>
+                              </cols>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="ded87288-e524-4890-bae9-ee08f292ad35">
+                            <children xsi:type="tura.form:Button" uid="2801738a-3a90-4a9c-8013-be069b68f5f7" label="Save"/>
+                            <children xsi:type="tura.form:Button" order="1" uid="5a2c8d80-ca2e-4ca7-b302-e7f0efeab738" label="Cancel"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
                     </canvases>
                     <viewInheritances uid="ad80cbe5-a495-4ed5-a25c-95ed5316159f" source="c96cac6a-510f-464c-b996-a660f91112f7" target="75599ebc-04ec-44e8-83cd-045f160dab1a"/>
+                    <viewInheritances uid="591535a1-a83f-4dba-8fe8-586a24809dc4" source="f68734d3-8997-49bd-942e-c836f90c3322" target="b5254916-ca6b-42d9-83bd-81a94eafc455"/>
                     <tabPagesInheritances uid="a5777432-e35a-44bc-ab81-2150719ab174" source="75599ebc-04ec-44e8-83cd-045f160dab1a" target="098a4101-e1f0-49ee-86f9-c15465f75d80"/>
                     <tabPagesInheritances uid="ac139e4a-82cb-4770-a5f2-d8ee4c0aac67" source="75599ebc-04ec-44e8-83cd-045f160dab1a" target="fde626ea-5d49-4e88-a502-97e883e66665"/>
                   </view>
-                  <datacontrols uid="391c6d39-0ff7-4e8a-8942-f9889419aa2a"/>
+                  <datacontrols uid="391c6d39-0ff7-4e8a-8942-f9889419aa2a">
+                    <controls uid="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" name="Role">
+                      <baseType typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="dc007bca-e8a8-45dc-a81d-8a0ed074207c">
+                        <parameters uid="b46b38ed-1adc-4b7f-8953-8e6f41cd1228" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="ab769d1f-1ffc-4805-a43c-735594536a53" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role">
+                            <expression uid="69d54e56-01b6-47f0-87a6-4ccc525e4887" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="ac6feed9-e341-461f-bff6-f2c1c6561cce" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="2643aaed-e34d-416b-8873-bdb75ccd5e58" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="cbe8ef87-551c-4ec6-81f0-d1597075cb02" objRef="6f829f95-55fd-4dfe-b375-05f257bb2802" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="61527bdf-c30a-4df1-b18c-59ef47dd26cd">
+                        <parameters uid="5d11af89-af0b-4413-83dd-885ec0f7244b" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="ce932e19-85ab-430f-a564-5f89c6030262" value="Data controls.Role.searchCriteria">
+                            <expression uid="65e81dae-db21-47ea-8447-0167303cec69" expressionType="DataControlHolder"/>
+                            <expression uid="0b73cc2b-1d83-482a-94fc-849fee05791b" objRef="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="c25044af-bf46-4ae2-b5dd-02e75a1dac2a" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="82581952-e2ef-46b6-8f37-f381eb0f3f07" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="adaedced-99ea-442c-86b7-4f75ba7f521f" value="Data controls.Role.orderCriteria">
+                            <expression uid="7c06c21d-f241-49e4-9d1a-fa778697af04" expressionType="DataControlHolder"/>
+                            <expression uid="5c854503-b9ff-4f14-bdb1-59560b52dd19" objRef="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="5e8ef08a-62bb-4bd2-8a1d-4dd630ae75b8" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c40f357c-1c67-4c71-b132-f1de3e67cb90" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="a2723fd7-dc0a-4846-acf1-d3838aa745ef" value="Data controls.Role.start Index">
+                            <expression uid="06a15e47-80ab-45f5-9cc1-2e99de029c80" expressionType="DataControlHolder"/>
+                            <expression uid="f892359c-ec30-4290-889e-bb4d1e52e621" objRef="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="c9b97f49-c2bf-498a-b638-0bb12d128211" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c1682177-8b84-4bae-a786-76e31c496ef3" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="834d943d-8f45-4632-a47b-5cd3b6c411b5" value="Data controls.Role.end Index">
+                            <expression uid="ec5749e0-36c7-48d1-818b-5776c7c46fed" expressionType="DataControlHolder"/>
+                            <expression uid="ee56dc5e-5683-44bc-b6fc-679730482f1e" objRef="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="bf23b30b-f400-40a6-af37-d9195e08c142" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="55a9795e-a9e0-40dd-9248-46e74734c5ee" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="cee49ef0-49fe-4b7f-8490-bc00c9a09102" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role">
+                            <expression uid="3f99891c-a8ab-4a72-8234-26f004a668f3" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="22dd7aa7-349d-4d7e-b8b7-93d006bf3012" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="f77d995b-b6a8-45d9-9dfb-c2a0dc405d6b" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="1c575bc9-397f-4664-bc77-3b3df69431a0" objRef="6f829f95-55fd-4dfe-b375-05f257bb2802" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                      <relationMappers uid="739c8757-bb70-43cf-9d43-dbd273012e1d" dataControlRef="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
+                      <relationMappers uid="eb1cd242-9be5-4d8a-b5fd-f141ef7b03e0" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
+                    </controls>
+                    <controls uid="a8098f45-bc10-49b3-b6b1-55209ef73556" name="Permission">
+                      <baseType typeRef="e12ef913-4fe6-49b1-af3b-58435b162739"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="53046934-4720-406c-a61a-963efb0ee9c6">
+                        <parameters uid="09c65874-2fb5-4e7d-a580-fb80fa3682b5" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="227d3bd8-5ab8-4c5d-8ce2-fb763bedc001" value="Types repository.Sales Analyzer.database.database::Permission">
+                            <expression uid="2173c838-388f-4780-a868-8b4f00856525" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="d974079e-0d61-4a83-9359-bcd038e3ae6e" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="7ace5da1-c54f-4036-bbe8-96db29507f80" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="15b0a093-2d3d-4e8e-b84e-fcf02308e7a1" objRef="e12ef913-4fe6-49b1-af3b-58435b162739" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="ec1d23bb-307a-480b-b4ed-405ead1b3e6e">
+                        <parameters uid="eaf533a5-e2fd-4d8b-a056-37097d8cb67b" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="be3c6c8b-a608-445b-a51a-1a4c5d336ffa" value="Data controls.Permission.searchCriteria">
+                            <expression uid="e6bfea19-9f62-4ff5-b621-590894a7dfb9" expressionType="DataControlHolder"/>
+                            <expression uid="c8e1a56c-1604-47a4-8fa6-45d32016e01b" objRef="a8098f45-bc10-49b3-b6b1-55209ef73556" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0ec138d7-6c92-4bd7-9861-c7b28a0427ae" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="26d3bba9-e0c6-45f0-989a-7adc45379ce2" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="d65dc7e4-558c-43f7-b21e-52f265f249b0" value="Data controls.Permission.orderCriteria">
+                            <expression uid="6fabcae6-0489-418f-a1e0-d754eb0f480f" expressionType="DataControlHolder"/>
+                            <expression uid="2a3a5399-ff79-41f2-956a-ff95d82f5324" objRef="a8098f45-bc10-49b3-b6b1-55209ef73556" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="4d6c1361-73a9-4897-8b3b-ce39d737d6eb" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ac5e088b-d607-45b5-b794-57dfb16d663a" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="379a3f2f-8056-440a-9d5f-85a8c5b09394" value="Data controls.Permission.start Index">
+                            <expression uid="3a794bbd-5385-437a-90a8-5c1c6e5e1ba2" expressionType="DataControlHolder"/>
+                            <expression uid="9dfe3ce6-f1e8-4d27-8946-584628d85353" objRef="a8098f45-bc10-49b3-b6b1-55209ef73556" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="009421a5-b64d-4fdc-95f1-87a46e738229" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ef1b3617-6cc8-4581-b771-ce05e08893cd" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="70822baf-a26c-48de-a174-1781ed4ace26" value="Data controls.Permission.end Index">
+                            <expression uid="db506086-28ec-49a6-ae3e-a798c3175a38" expressionType="DataControlHolder"/>
+                            <expression uid="99da92c8-12ac-4c20-b2f3-4b7886d27794" objRef="a8098f45-bc10-49b3-b6b1-55209ef73556" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b1449735-21a7-4486-80de-df43bd4f5f39" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="a325f767-bb93-4e35-b2ab-03e67c530025" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="38de9a8c-d284-4d05-baba-f6e795dc95e0" value="Types repository.Sales Analyzer.database.database::Permission">
+                            <expression uid="21df20f6-2e85-4a6f-8aa4-b8524d49bd0e" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="fb16d3e3-b178-4bf0-b353-384e49308735" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="238baa1c-c7bb-4b6e-ba16-32d7fd54e678" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="e8d77fd3-9915-4c80-9287-2d0c89bd5d2d" objRef="e12ef913-4fe6-49b1-af3b-58435b162739" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                      <relationMappers uid="f1c3c40e-d15e-4ab4-b3e3-41b45ab1a34f" typeRef="d145e66d-8468-4309-ae17-4bc85378d672" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
+                    </controls>
+                    <controls uid="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" name="Permission References ">
+                      <baseType typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="33e8e688-4753-4824-babc-69e4cb48a824">
+                        <parameters uid="e66f5b3e-35a4-4142-bf41-2c3ba0c89850" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="73d52c05-9694-402a-b907-3f6b83311e5a" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="831801c8-2afd-43ae-bf83-16c33d42e8ea" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="954ed45e-3220-41c0-9ec6-67c1f3a494f1" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="73a81ef4-bb14-4a15-8a13-6348944f96b9" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="4f56d1b9-d5b6-4f17-be92-c4b190b1251f" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="7a75f515-cc0b-4ca1-808c-b407c3ce54be">
+                        <parameters uid="4de521c9-b18b-4299-a529-0afd88952d60" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="c01e2ce8-eab3-4d75-889e-824a42dc88fd" value="Data controls.Permission References .searchCriteria">
+                            <expression uid="76fc5024-707e-4b23-ad17-cdac2728c10e" expressionType="DataControlHolder"/>
+                            <expression uid="0baae80b-1496-4d6d-a5b7-533787565655" objRef="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="8d4828b9-3d38-4412-9760-f9356696659f" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="28d0e6cc-0f96-4126-bf04-28ed8a7fa117" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="70aa6012-e9af-4925-800d-377b72e502a8" value="Data controls.Permission References .orderCriteria">
+                            <expression uid="c4ca9d97-8097-45b1-a8eb-5a8ec5ea8bf1" expressionType="DataControlHolder"/>
+                            <expression uid="846960c9-59dd-44e7-9c1d-334be33c802f" objRef="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="6b0ce65c-bcfb-4786-9e3a-ff63563e0a52" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7209dc40-ab74-423a-8a8b-0af99fe9808c" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="1269d6b4-be40-41b3-8b8e-31f3ab79f61f" value="Data controls.Permission References .start Index">
+                            <expression uid="305684dd-7227-4f3e-a8dd-89fef4d82633" expressionType="DataControlHolder"/>
+                            <expression uid="8730b6f9-10d3-4181-b9f7-963782921de1" objRef="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="2f1d24de-9398-4695-9bab-09d0487fc8b1" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9b31a4e2-ecac-4e89-a8a8-401eb4a86bb6" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="b01c9b6c-2f75-4f25-9755-33eff076a94e" value="Data controls.Permission References .end Index">
+                            <expression uid="6bb4e222-cfc8-4862-abca-6a1c646f3fa2" expressionType="DataControlHolder"/>
+                            <expression uid="0d15782a-ce04-46f7-97a2-9f302d2f5e91" objRef="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="94a0a65e-649b-4bc1-a370-bd19858ede00" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9ab29e30-68f9-4240-8e86-3fac65467ddf" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="c1a12335-3291-44ef-b2ce-cb2140c61eab" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="3beaea10-2d84-4862-9829-e6789e0c6024" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="302fbec7-93cb-4032-b75b-e9fcea6c6da1" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="8b0535b7-0341-4069-95c5-0a9a76d2e9a6" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="2955df7d-c246-4ca8-9965-9b78d57c1ad9" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch/>
+                      <defaultOrderBy/>
+                      <relationMappers uid="0d2c9713-f31e-4ef4-9f02-57d1dedf8e23" typeRef="e12ef913-4fe6-49b1-af3b-58435b162739" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
+                    </controls>
+                    <relations xsi:type="tura.form:InternalRelation" uid="73e5d3db-aa66-4007-b865-0b89849bb464" master="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" detail="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
+                  </datacontrols>
                 </forms>
               </applicationUIPackages>
             </applicationUILayer>

@@ -65,6 +65,7 @@ public class RelationMapperItemProvider
 			addUidPropertyDescriptor(object);
 			addDataControlRefPropertyDescriptor(object);
 			addTypeRefPropertyDescriptor(object);
+			addAssosiationRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -127,6 +128,28 @@ public class RelationMapperItemProvider
 				 getString("_UI_RelationMapper_typeRef_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationMapper_typeRef_feature", "_UI_RelationMapper_type"),
 				 FormPackage.Literals.RELATION_MAPPER__TYPE_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Assosiation Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssosiationRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RelationMapper_assosiationRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationMapper_assosiationRef_feature", "_UI_RelationMapper_type"),
+				 FormPackage.Literals.RELATION_MAPPER__ASSOSIATION_REF,
 				 true,
 				 false,
 				 true,

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import type.Assosiation;
 import type.TypeElement;
 
 /**
@@ -27,6 +28,7 @@ import type.TypeElement;
  *   <li>{@link form.impl.RelationMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.RelationMapperImpl#getDataControlRef <em>Data Control Ref</em>}</li>
  *   <li>{@link form.impl.RelationMapperImpl#getTypeRef <em>Type Ref</em>}</li>
+ *   <li>{@link form.impl.RelationMapperImpl#getAssosiationRef <em>Assosiation Ref</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +73,16 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 	 * @ordered
 	 */
 	protected TypeElement typeRef;
+
+	/**
+	 * The cached value of the '{@link #getAssosiationRef() <em>Assosiation Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssosiationRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected Assosiation assosiationRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +205,44 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Assosiation getAssosiationRef() {
+		if (assosiationRef != null && assosiationRef.eIsProxy()) {
+			InternalEObject oldAssosiationRef = (InternalEObject)assosiationRef;
+			assosiationRef = (Assosiation)eResolveProxy(oldAssosiationRef);
+			if (assosiationRef != oldAssosiationRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.RELATION_MAPPER__ASSOSIATION_REF, oldAssosiationRef, assosiationRef));
+			}
+		}
+		return assosiationRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Assosiation basicGetAssosiationRef() {
+		return assosiationRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAssosiationRef(Assosiation newAssosiationRef) {
+		Assosiation oldAssosiationRef = assosiationRef;
+		assosiationRef = newAssosiationRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.RELATION_MAPPER__ASSOSIATION_REF, oldAssosiationRef, assosiationRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -204,6 +254,9 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				if (resolve) return getTypeRef();
 				return basicGetTypeRef();
+			case FormPackage.RELATION_MAPPER__ASSOSIATION_REF:
+				if (resolve) return getAssosiationRef();
+				return basicGetAssosiationRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +277,9 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 				return;
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				setTypeRef((TypeElement)newValue);
+				return;
+			case FormPackage.RELATION_MAPPER__ASSOSIATION_REF:
+				setAssosiationRef((Assosiation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,6 +302,9 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				setTypeRef((TypeElement)null);
 				return;
+			case FormPackage.RELATION_MAPPER__ASSOSIATION_REF:
+				setAssosiationRef((Assosiation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -264,6 +323,8 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 				return dataControlRef != null;
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				return typeRef != null;
+			case FormPackage.RELATION_MAPPER__ASSOSIATION_REF:
+				return assosiationRef != null;
 		}
 		return super.eIsSet(featureID);
 	}

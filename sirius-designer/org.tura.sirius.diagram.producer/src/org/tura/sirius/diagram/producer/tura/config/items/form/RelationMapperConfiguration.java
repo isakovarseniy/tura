@@ -81,10 +81,10 @@ public class RelationMapperConfiguration implements NodeConfigurator {
 		CreateInstance c1 = ToolHelper.createInstance("form.DataControl", "instance", "controls");
 		opr.setFirstModelOperations(c1);
 
-		c1.getSubModelOperations().add(ToolHelper.createSet("name", "aql:element.typeRef.name"));
+		c1.getSubModelOperations().add(ToolHelper.createSet("name", "service:getBaseTypeName(element)"));
 
 		CreateInstance c2 = ToolHelper.createInstance("type.TypePointer", "instance1", "baseType");
-		c2.getSubModelOperations().add(ToolHelper.createSet("typeRef", "aql:element.typeRef"));
+		c2.getSubModelOperations().add(ToolHelper.createSet("typeRef", "service:getBaseType(element)"));
 
 		c1.getSubModelOperations().add(c2);
 
@@ -105,6 +105,7 @@ public class RelationMapperConfiguration implements NodeConfigurator {
 		c6.getSubModelOperations().add(ToolHelper.createSet("master", "var:oldSemanticContainer"));
 		c6.getSubModelOperations().add(ToolHelper.createSet("detail", "var:instance"));
 		c6.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+		c6.getSubModelOperations().add(ToolHelper.createSet("assosiationRef", "aql:element.assosiationRef"));
 
 		ObjectWrapper w = (ObjectWrapper) tRoot.context.get("Data Control" + tDiagram.class.getName());
 		DiagramDescription container = (DiagramDescription) w.getWrapedObject();

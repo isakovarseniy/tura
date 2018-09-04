@@ -84,6 +84,32 @@ public class Helper {
 	}
 	
 
+	public void getRelatedAssosiations(Map<String, TypeElement> relatedObjects, HashMap<String,Assosiation > hash,TypeElement typeElement){
+		if (typeElement instanceof TypeReference) {
+			typeElement = ((TypeReference) typeElement).getTypeRef();
+		}
+		if (typeElement instanceof Type) {
+			Type type = (Type) typeElement;
+			
+			Collection<Assosiation> [] result =  new QueryHelper().getAssosiation(type);
+			
+			for (Assosiation rel :  result[0]  ) {
+				if (rel.getTarget() != null){
+				   relatedObjects.put(rel.getTarget().getUid(), rel.getTarget());
+				   hash .put(rel.getTarget().getUid(), rel);
+				}
+			}
+
+			for (Assosiation rel :  result[1]  ) {
+				if (rel.getSource() != null){
+				   relatedObjects.put(rel.getSource().getUid(), rel.getSource());
+				   hash .put(rel.getSource().getUid(), rel);
+				}
+			}
+		}
+
+	}
+	
 	private String getOperationKey(Operation operation) {
 
 		String key = "";
@@ -115,13 +141,16 @@ public class Helper {
 		Type type = (Type) datacontrol.getBaseType().getTypeRef();
 		
 		Map <String,TypeElement> relatedObjects = new HashMap<String,TypeElement>();
-		getRelatedObjects(relatedObjects,type);
+		HashMap<String,Assosiation > hash = new HashMap<String, Assosiation>();
+		
+		getRelatedAssosiations(relatedObjects,hash,type);
 
 		ArrayList< RelationMapper> relations = new ArrayList<RelationMapper>();
-		for (TypeElement tp : relatedObjects.values()){
+		for (String key : relatedObjects.keySet()){
 			RelationMapper relationMapper = FormFactory.eINSTANCE.createRelationMapper();
 			relationMapper.setUid(UUID.randomUUID().toString());
-			relationMapper.setTypeRef(tp);
+			relationMapper.setTypeRef(relatedObjects.get(key));
+			relationMapper.setAssosiationRef(hash.get(key));
 			
 			relations.add(relationMapper);
 		}

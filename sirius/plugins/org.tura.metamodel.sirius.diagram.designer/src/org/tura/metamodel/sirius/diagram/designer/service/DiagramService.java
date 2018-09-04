@@ -51,6 +51,7 @@ import form.DropDownSelection;
 import form.Form;
 import form.FormParameter;
 import form.InsertTrigger;
+import form.InternalRelation;
 import form.LayerHolder;
 import form.Menu;
 import form.OptionSelection;
@@ -97,7 +98,9 @@ import type.Link;
 import type.Primitive;
 import type.RelationType;
 import type.Type;
+import type.TypeElement;
 import type.TypeGroup;
+import type.TypePointer;
 import type.TypeReference;
 
 public class DiagramService {
@@ -409,7 +412,15 @@ public class DiagramService {
 		if (relationMapper.getTypeRef()== null) {
 			return "relatioin  -  n/a";
 		}
-		return "relatioin - " + relationMapper.getTypeRef().getName();
+		if (relationMapper.getTypeRef() instanceof Type){
+			return "relatioin - " + relationMapper.getTypeRef().getName();
+		}
+		if (relationMapper.getTypeRef() instanceof TypeReference){
+			TypeReference ref = (TypeReference) relationMapper.getTypeRef();
+			return "relatioin - " + ref.getTypeRef().getName();
+		}
+		return "null";
+		
 	}
 	
 	
@@ -615,7 +626,15 @@ public class DiagramService {
 		if (relationMapper.getDataControlRef() == null){
 			DataControl srcDC = (DataControl) relationMapper.eContainer();
 			
-			Assosiation assosiation =  new QueryHelper().getAssosiation((Type)srcDC.getBaseType().getTypeRef(), (Type)relationMapper.getTypeRef() );
+			Type tp = null;
+			if (relationMapper.getTypeRef() instanceof Type){
+				tp = (Type) relationMapper.getTypeRef();
+			}
+			if (relationMapper.getTypeRef() instanceof TypeReference){
+				tp = (Type) ((TypeReference) relationMapper.getTypeRef()).getTypeRef();
+			}
+			
+			Assosiation assosiation =  new QueryHelper().getAssosiation((Type)srcDC.getBaseType().getTypeRef(), tp );
 			return !checkIfNOAssosiatioin(assosiation);
 			
 		}else{
@@ -690,11 +709,11 @@ public class DiagramService {
 	
 	
 	public boolean checkIfNOAssosiatioin(Assosiation assosiation){
-		for ( Classifier c :assosiation.getClassifiers()){
-			if ( c.getHint().getName().equals("No Assosiation")){
-				return true;
-			}
-		}
+//		for ( Classifier c : assosiation.getClassifiers()){
+//			if ( c.getHint().getName().equals("No Assosiation")){
+//				return true;
+//			}
+//		}
 		return false;
 	}
 	
@@ -726,5 +745,37 @@ public class DiagramService {
 		}
 		return true;
 	}
+
+	
+	public TypeElement getBaseType( TypePointer pointer, RelationMapper element){
+		TypeElement e = element.getTypeRef();
+		if (e instanceof Type){
+			return e;
+		}
+		if (e instanceof TypeReference){
+			return  ((TypeReference)e).getTypeRef();
+		}
+		return null;
+	}
+	
+	public String getBaseTypeName( DataControl dc, RelationMapper element){
+		TypeElement e = element.getTypeRef();
+		if (e instanceof Type){
+			return e.getName();
+		}
+		if (e instanceof TypeReference){
+			return  ((TypeReference)e).getTypeRef().getName();
+		}
+		return null;
+	}	
+
+	public TypeElement getTypeRef( InternalRelation relation, RelationMapper element){
+		TypeElement e = element.getTypeRef();
+
+		if (e instanceof TypeReference){
+			return  e;
+		}
+		return null;
+	}	
 	
 }

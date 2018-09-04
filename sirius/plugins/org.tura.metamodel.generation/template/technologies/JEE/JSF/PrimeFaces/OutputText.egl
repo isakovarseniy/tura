@@ -9,6 +9,7 @@ operation form::OutputText treeContext(hash,value) {
 
 @template
 operation form::OutputText tableContext(hash,value) { 
+    var util = new Native('org.tura.metamodel.commons.Util');
 %]
 <p:cellEditor>
   <f:facet name="output">

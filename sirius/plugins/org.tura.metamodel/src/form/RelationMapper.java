@@ -4,6 +4,7 @@ package form;
 
 import org.eclipse.emf.ecore.EObject;
 
+import type.Assosiation;
 import type.TypeElement;
 
 /**
@@ -18,6 +19,7 @@ import type.TypeElement;
  *   <li>{@link form.RelationMapper#getUid <em>Uid</em>}</li>
  *   <li>{@link form.RelationMapper#getDataControlRef <em>Data Control Ref</em>}</li>
  *   <li>{@link form.RelationMapper#getTypeRef <em>Type Ref</em>}</li>
+ *   <li>{@link form.RelationMapper#getAssosiationRef <em>Assosiation Ref</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getRelationMapper()
@@ -102,5 +104,31 @@ public interface RelationMapper extends EObject {
 	 * @generated
 	 */
 	void setTypeRef(TypeElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Assosiation Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Assosiation Ref</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Assosiation Ref</em>' reference.
+	 * @see #setAssosiationRef(Assosiation)
+	 * @see form.FormPackage#getRelationMapper_AssosiationRef()
+	 * @model
+	 * @generated
+	 */
+	Assosiation getAssosiationRef();
+
+	/**
+	 * Sets the value of the '{@link form.RelationMapper#getAssosiationRef <em>Assosiation Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Assosiation Ref</em>' reference.
+	 * @see #getAssosiationRef()
+	 * @generated
+	 */
+	void setAssosiationRef(Assosiation value);
 
 } // RelationMapper

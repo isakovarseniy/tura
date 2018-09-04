@@ -2030,9 +2030,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="form.DataControl" referenceName="controls">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:element.typeRef.name"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:getBaseTypeName(element)"/>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="type.TypePointer" referenceName="baseType" variableName="instance1">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.typeRef"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="service:getBaseType(element)"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
@@ -2044,6 +2044,7 @@
                       <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:oldSemanticContainer"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:instance"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="assosiationRef" valueExpression="aql:element.assosiationRef"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>

@@ -409,6 +409,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataControlRef" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="ecore:EClass type.ecore#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assosiationRef" eType="ecore:EClass type.ecore#//Assosiation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Orders">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -432,7 +433,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="ecore:EClass type.ecore#//Link" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InternalRelation" eSuperTypes="#//Relation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalRelation" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assosiationRef" eType="ecore:EClass type.ecore#//Assosiation"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
