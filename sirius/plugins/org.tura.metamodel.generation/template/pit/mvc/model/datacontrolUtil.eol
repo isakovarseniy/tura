@@ -39,6 +39,9 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
         var rel =relSet.iterator().next();
 
          var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
+         if (assossiations.size() == 0){
+            assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
+         }
          var  assossiation = null;
         if (assossiations.size() == 0){
              assossiation = rel.assosiationRef;
@@ -81,9 +84,11 @@ operation form::ContextParameters processParameters(recipe:Recipe, ingredient :I
         }
 }
 
-
-
 operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
+     self.processKeys(recipe,ingredient, null);
+}
+
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient , proxyJavaComponent) { 
 
         var util = new Native('org.tura.metamodel.commons.Util');
         
@@ -91,6 +96,9 @@ operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) 
         
         self.~baseclass = basetype.~class;
         self.~basepackage = basetype.~package;
+        if (proxyJavaComponent <> null){
+          self.~basepackage = proxyJavaComponent.basePackage;
+        }
         self.~basefullName = basetype.~fullName;     
         
         var keys = new Native('java.util.ArrayList');

@@ -74,7 +74,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    var repository : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/proxyRepository.egl",hash,TemplateFactory);
 	    repository.setFormatter(f);
 	    var buffer = repository.process();
-	    util.saveFile( path+typeCollection.get(0).~package.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);   
+	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);   
     }
     
   %]  

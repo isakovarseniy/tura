@@ -4,7 +4,7 @@
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
   
 %]
-package [%=typeCollection.get(0).~package%];
+package [%=component.basePackage%];
 
 public class ProxyRepository implements org.tura.platform.repository.core.Repository{
 	
