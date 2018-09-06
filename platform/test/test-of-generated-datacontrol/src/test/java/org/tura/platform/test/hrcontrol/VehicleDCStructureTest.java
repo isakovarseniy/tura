@@ -62,7 +62,6 @@ import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -93,7 +92,7 @@ public class VehicleDCStructureTest {
 		checkSelector(m,"hrmanager.hrcontroller");
 		checkCreateTrigger(m,"vehicle");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Vehicle", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Vehicle", Object.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		
@@ -106,7 +105,7 @@ public class VehicleDCStructureTest {
 		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.vehicle.orderCriteria}", List.class));
 		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.vehicle.startIndex}", Integer.class));
 		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.vehicle.endIndex}", Integer.class));
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Vehicle", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Vehicle", Object.class));
 		checkSearchTriggerParameters(m,prms);
 
 		

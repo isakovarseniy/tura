@@ -64,7 +64,6 @@ import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
-import org.tura.platform.object.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -95,7 +94,7 @@ public class CityDCStructureTest {
 		checkSelector(m,"hrmanager.hrcontroller");
 		checkCreateTrigger(m,"city");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.City", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.City", Object.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		
@@ -108,7 +107,7 @@ public class CityDCStructureTest {
 		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].orderCriteria}", List.class));
 		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].startIndex}", Integer.class));
 		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].endIndex}", Integer.class));
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.City", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.City", Object.class));
 		checkSearchTriggerParameters(m,prms);
 
 		

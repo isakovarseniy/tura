@@ -64,7 +64,6 @@ import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
-import org.tura.platform.object.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -95,7 +94,7 @@ public class FileDSStructureTest {
 		checkSelector(m,"hrmanager.hrcontroller");
 		checkCreateTrigger(m,"file");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", Object.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		
@@ -109,7 +108,7 @@ public class FileDSStructureTest {
 		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].orderCriteria}", List.class));
 		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].startIndex}", Integer.class));
 		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].endIndex}", Integer.class));
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", Object.class));
 		checkSearchTriggerParameters(m,prms);
 
 		

@@ -94,6 +94,8 @@ public class QueryHelper {
 	private static String ROLE_TYPE = "Role";
 	private static String ICON_TYPE = "Icon";
 	private static String BASE_TYPE = "Base type";
+	private static String ANY_TYPE = "Any type";
+	
 
 	private HintHelper hintHelper = new HintHelper();
 
@@ -892,6 +894,9 @@ public class QueryHelper {
 		return null;
 	}
 
+	
+	
+	
 	public TypeElement findSearchCriteriaType(Object obj) {
 		throw new RuntimeException();
 
@@ -1003,6 +1008,17 @@ public class QueryHelper {
 		return null;
 	}
 
+	
+	public TypeElement findAnyObjectType(Object obj) {
+		try {
+			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, ANY_TYPE);
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
+	}
+	
+	
 	public TypeElement findDataControlType(Object obj) {
 		try {
 			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, DATA_CONTROL);

@@ -8,11 +8,11 @@ import org.tura.platform.repository.core.SearchResult;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
 import org.tura.salesanalyzer.serialized.db.PermissionReferences;
-import org.tura.salesanalyzer.serialized.db.ProxyRepository;
 import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 

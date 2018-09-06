@@ -93,6 +93,13 @@ public abstract class ContextParameterPropertySelection extends ContextValueProp
 		if (type.getUid().equals(nullType.getUid()))
 			return true;
 		
+		TypeElement anyType =   new QueryHelper().findAnyObjectType(type);
+
+		if (anyType.getUid().equals(contextRefTypeExtreactor((ContextParameter) model).getUid()))
+			return true;
+       		
+		
+		
 		if (type.getUid().equals(contextRefTypeExtreactor((ContextParameter) model).getUid()))
 			return true;
 		else {

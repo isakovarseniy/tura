@@ -64,7 +64,6 @@ import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
-import org.tura.platform.object.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -96,7 +95,7 @@ public class StateDCStructureTest {
 		checkSelector(m,"hrmanager.tree2tree");
 		checkCreateTrigger(m,"state");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.State", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.State", Object.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		assertTrue(findMethod( StateDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class}));
@@ -108,7 +107,7 @@ public class StateDCStructureTest {
 		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].orderCriteria}", List.class));
 		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].startIndex}", Integer.class));
 		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].endIndex}", Integer.class));
-		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.State", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.State", Object.class));
 		checkSearchTriggerParameters(m,prms);
 
 		

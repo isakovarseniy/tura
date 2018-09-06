@@ -44,20 +44,20 @@ import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
-import org.tura.salesanalyzer.serialized.db.Permission;
-import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
-import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
-import org.tura.salesanalyzer.serialized.db.ProxyRepository;
+import org.tura.salesanalyzer.serialized.db.Permission;
+import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.StateReference;
-import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
+import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
+import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.exp.Operator;
 
