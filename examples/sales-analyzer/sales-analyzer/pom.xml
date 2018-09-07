@@ -52,26 +52,28 @@
 		<module>server-extension</module>
 		<module>rules-commons</module>
 		<module>processes</module>
+		<module>web-app-commons</module>
+		<module>sa-admin-triggers</module>
 		<module>config-integration-testing</module>
 		<module>integration-testing</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-		
+
 			<dependency>
 				<groupId>ru.yandex.qatools.embed</groupId>
 				<artifactId>postgresql-embedded</artifactId>
 				<version>${version.postgresql}</version>
 			</dependency>
-		
-		
+
+
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
 				<version>${postgres.jdbc.version}</version>
 			</dependency>
-		
+
 
 			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
@@ -207,6 +209,13 @@
 				<artifactId>processes</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>web-app-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>sales-analyzer</groupId>

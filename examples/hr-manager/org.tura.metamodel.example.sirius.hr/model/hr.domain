@@ -1854,6 +1854,9 @@
             <links uid="d5342c1d-8a5d-48f5-8f5a-9a7b3dea15b1" masterField="07b7c794-d067-4724-8fb4-cede094c35ac" detailField="4f97b1a8-09b2-4c3c-8a37-f6125a691828"/>
           </relationships>
         </repositoryPackages>
+        <repositoryPackages uid="b2925f9f-89ba-4984-8053-68e6c1365073" name="Business logic">
+          <types xsi:type="tura.type:Type" uid="6f79ec07-5850-4462-8cdf-7a7d25a50904" name="SA Admin business logic"/>
+        </repositoryPackages>
       </typesRepository>
       <primitives>
         <primitives uid="1dab40f4-4049-480e-a206-023fd51fae31" name="String"/>
@@ -7883,6 +7886,42 @@
                             <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Sales Analyzer"/>
                             <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="database"/>
                           </queries>
+                          <queries uid="d51b59d0-331a-4ecf-a50e-97a778b00ccc" name="Query Business log" queryRef="0710bd35-c15a-4e87-821f-d534dfd8cb5a">
+                            <variables queryParamRef="511cb416-e48c-4eb1-a720-c916b73628ea" value="Sales Analyzer"/>
+                            <variables queryParamRef="193285c6-060b-4e29-a440-6862d33d7302" value="Business logic"/>
+                            <variables queryParamRef="c7d733c5-b134-4414-a260-0852636e2be2" value="SA Admin business logic"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="537c2cbe-3f24-437f-b5ad-d4218e59139c" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml">
+                          <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
+                          <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
+                          <queries uid="83563cbc-5ee1-477b-b556-4ec84939dfa2" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
+                            <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
+                            <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="CRM"/>
+                            <variables queryParamRef="6bedbda4-2dea-4298-9d2b-eca8cc146548" value="Sales Analysis"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="15b3e97e-010e-4e45-bad5-c886739852f5" artifactRef="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message generator">
+                          <technologies techRef="2b33ca7a-ad2d-45f7-af12-26b58ca73e9d" valueRef="af295254-efd7-4de5-9441-50fb316e20fc"/>
+                          <queries uid="28c30527-1524-401f-9951-c4f1e5769054" name="Query messages" queryRef="4952c198-a1c8-4f39-aa8a-9448640d40ae">
+                            <variables queryParamRef="7567233d-4978-48a3-abc8-91c1e6e026b7" value="ERP"/>
+                            <variables queryParamRef="405dac8b-0858-41d7-bcfc-6a2db84a4d4d" value="CRM"/>
+                            <variables queryParamRef="2da04696-e0d1-453e-b7c4-3c69c2c43793" value="Sales Analysis"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="a0a7032d-486c-455a-8432-925419493dbc" artifactRef="ef56805f-64cc-4d5f-b264-2ed3dd9e7751" name="faces-config">
+                          <technologies techRef="9b3e2153-3251-4507-a7a9-dae7fa52808f" valueRef="ee6aae36-a545-44a8-a48f-94403134f75c"/>
+                          <queries uid="1cac228f-9850-4d05-bfce-619d7326fb41" name="Query message" queryRef="e9a36941-6c8f-4ebe-b774-a7fccface66f">
+                            <variables queryParamRef="d66ba3fc-71af-4eb5-afe7-c5e9dc905574" value="ERP"/>
+                            <variables queryParamRef="1166e87f-29a7-42c4-8612-072cfbe14ee4" value="CRM"/>
+                            <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="Sales Analysis"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="9b67298c-b0e9-42e0-a500-8f4588661c8b" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
@@ -7911,20 +7950,41 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
+                        <mappers uid="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="interface Build ruller" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin-interface/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients order="6" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Triggers and etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
+                        <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers and etc Build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/sales-analyzer//builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
                     </ingredients>
                     <deplymentStep mapper="df1ec71e-5c76-4dd2-b25d-94d897087c36" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                     <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
                     <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
-                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad"/>
+                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
                     <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
                     <deplymentStep mapper="65e4013f-e969-4cc4-8dec-28f64588b697" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="fc3dac6a-6bab-4c73-9805-e1d5192af10a" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
+                    <deplymentStep mapper="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
+                    <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de"/>
+                    <deplymentStep mapper="3c838fe3-958d-4315-821c-246f8bd93b23" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
                     <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode/sa"/>
                     <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties uid="dadf75b2-ef21-4b04-a86f-789e0a37cac7" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
+                    <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                   </configurations>
                   <infrastructures uid="92f00187-c3de-4091-8eca-850df9713ef5" name="Dev"/>
                   <recipe2Infrastructures uid="77716115-91c8-48e3-a0aa-ffd3994aa553" source="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" target="92f00187-c3de-4091-8eca-850df9713ef5"/>
@@ -7976,6 +8036,7 @@
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="2d84a729-4439-4c0c-9a9c-fe1ad3dc6949" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="0230894e-99f8-4d16-a7d3-fe3558e60372" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="42a125ac-f662-4969-84b4-24d5837c55c7" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" uid="15d9a790-c79b-42ff-ae00-4083d701e596" mappedToPackageName="NA" mappedToClassName="NA" artifactId="sa-admin-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
