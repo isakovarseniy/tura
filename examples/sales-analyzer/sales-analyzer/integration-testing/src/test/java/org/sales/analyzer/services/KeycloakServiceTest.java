@@ -29,10 +29,6 @@ import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.sales.analyzer.process.TestCommons;
 import org.sales.analyzer.services.impl.AllowEverythingProfile;
-import org.sales.analyzer.services.impl.KeyCloakServicesInstantiator;
-import org.sales.analyzer.services.impl.SPAAdapterLoader;
-import org.sales.analyzer.services.impl.UUIPrimaryKeyStrategy;
-import org.sales.analyzer.services.impl.UserPreferencesLoader;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
@@ -61,6 +57,10 @@ import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.exp.Operator;
 
+import sales.analyzer.commons.service.impl.KeyCloakServicesInstantiator;
+import sales.analyzer.commons.service.impl.SPAAdapterLoader;
+import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
+import sales.analyzer.commons.service.impl.UserPreferencesLoader;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;

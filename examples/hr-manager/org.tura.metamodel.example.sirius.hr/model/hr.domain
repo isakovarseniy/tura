@@ -2257,7 +2257,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="5" uid="54c5dab7-d405-42f4-a96d-2d88c2e58831" name="Proxy repository for complex model" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="09fa87d5-4334-44a2-933d-1986dcfc6f01" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="09fa87d5-4334-44a2-933d-1986dcfc6f01" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
                         <mappers uid="78f958e5-4e6a-467a-8431-1e099260ebfb" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="6c63585b-72ee-4718-93df-9545fc466b3f" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="HR domain"/>
@@ -2340,7 +2340,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="6" uid="1778503a-9932-4867-9c48-6fd629051e66" name="Proxy repository for simple model" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f23d80cf-9801-43ac-96ce-abc651b69ea8" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f23d80cf-9801-43ac-96ce-abc651b69ea8" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
                         <mappers uid="89466bec-c850-460b-88a6-7bb53e5a40c6" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="23b03381-1ed5-43af-bfe6-0d1892a31632" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="HR domain"/>
@@ -7692,6 +7692,16 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
+                        <mappers uid="8222eb36-7f1d-4102-8f7c-4891ee47f4fd" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
+                          <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
+                          <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
+                          <queries uid="6fc883e8-14a4-4cdb-abc5-f7b0020f22d2" name="Get entities" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
+                            <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Sales Analyzer"/>
+                            <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="database"/>
+                          </queries>
+                        </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="20c3f05e-db62-40d0-bbf8-eedfa14bc757" name="Keycloak persistance objects" componentRoot="${Generation path}/serviceLayer" artifactId="keycloak-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="a5d3db7e-1fbf-4c84-bf03-991c626c12b4" artifactRef="68246b4d-fccf-4565-a0c6-df4c18a8f205" name="Keycloak service persistance object">
@@ -7844,6 +7854,14 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="e8146455-8555-4749-8a3b-2d9f89aeda28"/>
                         </mappers>
+                        <mappers uid="7c369547-3c4e-4ffc-b5a6-262a1280b105" artifactRef="838919d0-d0ac-453c-b3d2-d459cdb1cf8e" name="Profile">
+                          <queries uid="303d0931-545b-4036-9003-fb35c0c1eb5a" name="Query UI package" queryRef="34d7295b-ab0d-4338-ac07-e70d375cdc87">
+                            <variables queryParamRef="1ed451b2-2ba1-4868-9a7a-1d9b05c14375" value="ERP"/>
+                            <variables queryParamRef="5f81ad48-0892-4739-a78d-a8e85e3309bd" value="CRM"/>
+                            <variables queryParamRef="1bcdfd87-f0e5-4e7e-9179-af2c75ed98b8" value="Sales Analysis"/>
+                            <variables queryParamRef="f8e97866-37d2-4626-bb24-8883ee9916cf" value="Admin"/>
+                          </queries>
+                        </mappers>
                       </components>
                     </ingredients>
                     <ingredients order="5" uid="634aa7eb-a351-43a9-888b-390f69726959" name="Admin application" vewLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc" modelLayer="fa2406e6-8810-465c-a5d8-14c807a4c4a9">
@@ -7985,6 +8003,16 @@
                     <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="dadf75b2-ef21-4b04-a86f-789e0a37cac7" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
+                    <properties uid="7f75ec76-23fc-4b76-b37c-4ca1c5cfce8d" confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="NA"/>
+                    <properties uid="04c53127-5ce1-48fc-b552-6086752bc1a7" confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
+                    <properties uid="cc26db33-6161-4abc-9b63-9d7987bf904a" confVarRef="6a7494ac-ac73-41db-952e-b47dbc241639" value="NA"/>
+                    <properties uid="48a4d6f5-2f16-470b-89d7-1267690531d0" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="NA"/>
+                    <properties uid="e1663144-226d-4753-b4a4-7202afa19541" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/SalesAnalyzerDS"/>
+                    <properties uid="3caaf1a7-8d55-4a3a-9612-e308fe1e06f6" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="NA"/>
+                    <properties uid="8bbb46d3-45b4-417a-8f43-d2e76c520511" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
+                    <properties uid="991c567e-9b72-414e-af2b-61ce1dab4451" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="SalesAnalyzer"/>
+                    <properties uid="0aaca4d4-b703-4de5-afbd-a7cf105b5069" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="sales_analyzer"/>
+                    <properties uid="21d505ba-0b0b-472f-a5b4-7c1cc163a183" confVarRef="ba2fd94e-1867-4349-bdf8-3c7ab266f769" value="na"/>
                   </configurations>
                   <infrastructures uid="92f00187-c3de-4091-8eca-850df9713ef5" name="Dev"/>
                   <recipe2Infrastructures uid="77716115-91c8-48e3-a0aa-ffd3994aa553" source="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" target="92f00187-c3de-4091-8eca-850df9713ef5"/>

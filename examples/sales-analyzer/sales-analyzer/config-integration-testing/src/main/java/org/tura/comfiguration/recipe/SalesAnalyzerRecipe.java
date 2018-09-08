@@ -36,6 +36,7 @@ public class SalesAnalyzerRecipe {
                           .setServerType("wildfly-10.1.0.Final")
                           .addConfigPath("postgres")
                           .addConfigPath("kie-server")
+                          .addConfigPath("ui-app")
                           .addProperties("TALEND_JOB_ROOT", tura_home+"/examples/sales-analyzer/talend-jobs")
                           .run();
                   
@@ -151,6 +152,10 @@ public class SalesAnalyzerRecipe {
           	      		.setTargetName("api-extension-1.0.0-SNAPSHOT.jar")
           	      		.copyFromExternal();
 
+           		
+           		new DoDeploy(jboss_home,"sa-admin-1.0.war")
+                   		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war")
+                   		.doDeployExploaded();
                   
 	}
 }

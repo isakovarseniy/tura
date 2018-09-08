@@ -19,6 +19,7 @@ import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
+import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 
 import sales.analyzer.process.commons.Constants;
 

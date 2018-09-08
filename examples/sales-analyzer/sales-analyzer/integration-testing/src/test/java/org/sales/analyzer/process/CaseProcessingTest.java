@@ -19,6 +19,7 @@ import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
+import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;

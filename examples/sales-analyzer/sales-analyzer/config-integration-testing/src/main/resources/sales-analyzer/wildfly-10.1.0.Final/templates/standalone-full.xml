@@ -38,6 +38,15 @@
     <system-properties>
        ${kieserver_properties}
        <property name="TALEND_JOB_ROOT" value="${TALEND_JOB_ROOT}"/>	
+
+       <property name="keycloak_url" value="${keycloak_url}"/>	
+       <property name="keycloak_admin_realm" value="${keycloak_admin_realm}"/>	
+       <property name="keycloak_admin_clientid" value="${keycloak_admin_clientid}"/>	
+       <property name="client_secret" value="${client_secret}"/>	
+       <property name="keycloak_admin_user" value="${keycloak_admin_user}"/>	
+       <property name="keycloak_admin_password" value="${keycloak_admin_password}"/>	
+       <property name="keycloak_managed_realm" value="${keycloak_managed_realm}"/>	
+       
     </system-properties>
 
 

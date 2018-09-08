@@ -21,6 +21,7 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
+import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 
 import sales.analyzer.process.commons.Constants;
 
