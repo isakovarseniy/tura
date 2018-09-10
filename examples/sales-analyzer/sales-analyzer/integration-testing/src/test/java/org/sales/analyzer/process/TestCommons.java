@@ -21,6 +21,7 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 
+import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.process.commons.Constants;
 
 public class TestCommons {
@@ -40,6 +41,11 @@ public class TestCommons {
 	public static String ADMIN_USER = "admin";
 	public static String ADMIN_PASSWORD = "qwerty";
 	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	
+
+	public static String JNDI_FOR_JBPM_ACCESS =  "java:jboss/jdbc/SalesAnalyzerDS";
+	
+	
+	
 	
 	
 	public void setupUsers() {
@@ -120,6 +126,8 @@ public class TestCommons {
 				}
 			}
 		}
+		JbpmConfiguration.init(client,JNDI_FOR_JBPM_ACCESS);
+		
 	}
 
 	public void dropContainer() throws Exception {

@@ -8065,6 +8065,7 @@
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="0230894e-99f8-4d16-a7d3-fe3558e60372" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="42a125ac-f662-4969-84b4-24d5837c55c7" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" uid="15d9a790-c79b-42ff-ae00-4083d701e596" mappedToPackageName="NA" mappedToClassName="NA" artifactId="sa-admin-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
+                  <mappers xsi:type="tura.mapper:RoleMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="5a921214-59b4-4faf-8a93-de931dd53292" localRoleName="ui-access" globalRoleName="ui-access"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
@@ -8368,7 +8369,9 @@
                                 <element xsi:type="tura.form:OutputText" uid="2827e73e-f01a-4b3d-bddf-ea069aef9979" valuePointer="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
                               </cols>
                               <cols order="1" uid="c3fc41c6-aea6-43b9-9502-c3dbbe64d5bb" label="Description">
-                                <element xsi:type="tura.form:OutputText" uid="17a134cd-abc8-4ffe-966d-b869e0d39b1c" valuePointer="d8f30a03-5366-42d7-a2a4-e3c51480fa50"/>
+                                <element xsi:type="tura.form:OutputText" uid="17a134cd-abc8-4ffe-966d-b869e0d39b1c" valuePointer="d8f30a03-5366-42d7-a2a4-e3c51480fa50">
+                                  <style uid="d8a7842f-0c94-40c4-943b-168bdb3ac5bf"/>
+                                </element>
                               </cols>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="2d348116-930c-4580-941b-00b25981403f">
@@ -8578,7 +8581,13 @@
             </applicationUILayer>
             <applicationInfrastructureLayer uid="b02add19-22db-4397-9f72-84334d3bbc87" name="Infrastructure"/>
             <applicationStyle uid="95b13491-6504-4ddb-a188-effcb7cdea59" name="Style Libraries"/>
-            <applicationRole uid="b0d8098a-554f-426a-b954-ad550291c749" name="Security"/>
+            <applicationRole uid="b0d8098a-554f-426a-b954-ad550291c749" name="Security">
+              <realms uid="2fa2fd08-b01e-466b-a411-ce7e1a939e06" name="Sales analyzer  security rule set">
+                <roles uid="8b42fcbc-37bc-4651-86a0-e279e1fcc7a4">
+                  <roles name="ui-access" uid="208ced5c-6979-4b46-abde-9e039cfbfc93"/>
+                </roles>
+              </realms>
+            </applicationRole>
             <applicationMessages uid="d9397861-82e9-43f6-8dad-7657a4322c26" name="Application message libraries">
               <messageLibraries uid="aafd1a0e-dc69-4493-82d2-2db4e86edb59" name="Message libraries"/>
               <applicationLanguages uid="fc558c21-92f5-4ef9-9da6-8d4d0172a196" name="Languages"/>

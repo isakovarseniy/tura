@@ -46,6 +46,8 @@
        <property name="keycloak_admin_user" value="${keycloak_admin_user}"/>	
        <property name="keycloak_admin_password" value="${keycloak_admin_password}"/>	
        <property name="keycloak_managed_realm" value="${keycloak_managed_realm}"/>	
+       <property name="kie_server_url" value="${kie_server_url}"/>	
+       
        
     </system-properties>
 

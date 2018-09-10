@@ -30,17 +30,12 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
-import org.kie.server.client.KieServicesClient;
-import org.kie.server.client.KieServicesConfiguration;
-import org.kie.server.client.KieServicesFactory;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
-import sales.analyzer.api.model.impl.ExtraClasses;
-import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.commons.service.impl.JbpmServiceInstantiator;
@@ -85,8 +80,7 @@ public class CDIRegistry extends Registry {
 			String keycloakAdminUser = System.getProperty( Constants.KEYCLOAK_ADMIN_USER);
 			String keycloakAdminPassword = System.getProperty( Constants.KEYCLOAK_ADMIN_PASSWORD);
 			String keycloakManagedRealm = System.getProperty( Constants.KEYCLOAK_MANAGED_REALM);
-			
-			String jndi = System.getProperty( Constants.JNDI_FOR_JBPM_ACCESS); 
+			String kieserverUrl = System.getProperty( Constants.KIE_SERVER_URL);
 			
 			Keycloak keycloak = KeycloakBuilder.builder()
 					.serverUrl(keycloakUrl)
@@ -118,15 +112,7 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(),new SPAAdapterLoader(realmResource));
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(),new SPAAdapterLoader(realmResource));
 
-			
-			
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(keycloakUrl, null,null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider());
-			config.addExtraClasses(ExtraClasses.list);
-			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
-			JbpmConfiguration.init(client,jndi);
-			
-			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(client, new TemporaryUserPeferencesProviderImpl());
+			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new TemporaryUserPeferencesProviderImpl());
 			spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initJ);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerProcessInstance.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerTaskInstance.class,JbpmCRUDService.class);

@@ -366,7 +366,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
    }else{
       for (key in control.~keys){
       if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=key.name%]", order =  com.octo.java.sql.query.SelectQuery.Order.ASC ) 
+			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=util.mergeAndUnCapitalize(key.name)%]", order =  com.octo.java.sql.query.SelectQuery.Order.ASC ) 
     [%
      i = i+1;
      }

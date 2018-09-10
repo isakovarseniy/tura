@@ -22,6 +22,7 @@ operation form::OutputText tableContext(hash,value) {
           <span style="display: inline-block; width: 100%; height: 100%;opacity:0 ">
            .
          </span>
+       </ui:fragment>
    </f:facet>
   <f:facet name="input">
      [%=self.rw(hash,value)%]

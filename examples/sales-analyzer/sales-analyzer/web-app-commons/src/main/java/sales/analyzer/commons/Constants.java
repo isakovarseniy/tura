@@ -9,7 +9,7 @@ public class Constants {
 	public static String KEYCLOAK_ADMIN_USER = "keycloak_admin_user";
 	public static String KEYCLOAK_ADMIN_PASSWORD = "keycloak_admin_password";
 	public static String KEYCLOAK_MANAGED_REALM = "keycloak_managed_realm";
-	public static String JNDI_FOR_JBPM_ACCESS = "org.kie.server.persistence.ds";
+	public static String KIE_SERVER_URL="kie_server_url";
 	
 	
 }

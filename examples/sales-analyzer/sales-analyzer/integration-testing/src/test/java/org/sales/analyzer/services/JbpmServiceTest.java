@@ -148,7 +148,7 @@ public class JbpmServiceTest {
 
 		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 
-		JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
+		JbpmConfiguration.init(client, TestCommons.JNDI_FOR_JBPM_ACCESS);
 		
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
@@ -167,7 +167,7 @@ public class JbpmServiceTest {
 		initSpa.initProvider();
 
 
-		JbpmServiceInstantiator init = new JbpmServiceInstantiator(client,new UserPeferencesProviderImpl());
+		JbpmServiceInstantiator init = new JbpmServiceInstantiator( TestCommons.KIE_SERVER_URL , new OAuthCredentialsProvider(new TestCommons().getToken()),new UserPeferencesProviderImpl());
 		
 		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));

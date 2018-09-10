@@ -133,16 +133,17 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(searchCriteria);
+			List<OrderCriteria> newOrder = prepareOrderCriteria(orderCriteria);
 
 			ObjectGraphProfile profile = loadProfile(newSearch);
 			
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
 			if (preQueryTrigger != null) {
-				preQueryTrigger.preQueryTrigger(newSearch, orderCriteria);
+				preQueryTrigger.preQueryTrigger(newSearch, newOrder);
 			}
 			
 
-			SearchResult result = provider.find(newSearch, orderCriteria, startIndex, endIndex,
+			SearchResult result = provider.find(newSearch, newOrder, startIndex, endIndex,
 					persistanceClass.getName());
 
 			List<Object> records = new ArrayList<>();
@@ -198,6 +199,17 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		
 		return newSearch;
 	}	
+	
+	private List<OrderCriteria> prepareOrderCriteria(List<OrderCriteria> search) {
+		List<OrderCriteria> newOrder = new ArrayList<>();
+		for (OrderCriteria sc : search){
+			if (sc.getParentClass() == null && sc.getProperty() == null){
+				newOrder.add(sc);
+			}
+		}
+		
+		return newOrder;
+	}		
 
 	@SuppressWarnings("rawtypes")
 	public void applyChanges(List changes) throws RepositoryException {

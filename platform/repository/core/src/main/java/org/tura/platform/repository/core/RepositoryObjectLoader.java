@@ -36,7 +36,7 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.exp.Operator;
 
-public class RepositoryObjectLoader extends RepositoryHelper{
+public class RepositoryObjectLoader extends RepositoryHelper {
 
 	static int MAX_ROW_NUMBER = 50;
 	public static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
@@ -44,8 +44,7 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 	public static String PARENT_CHIELD_RELATION = "parentChildRelatioin";
 	public static String PARENT_CHIELD_RELATION_TYPE = "parentChildRelatioinType";
 	public static String SKIP_QUERY = "skipQuery";
-	
-	
+
 	static String LOADED_OBJECTS = "LOADED_OBJECTS";
 	public static String RULES_LIST = "RULES_LIST";
 
@@ -53,7 +52,8 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 	private List<OrderCriteria> order;
 	private Map<String, Object> context;
 
-	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context,Registry registry) {
+	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context,
+			Registry registry) {
 		super(registry);
 		this.search = search;
 		this.order = order;
@@ -62,11 +62,11 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 
 	private void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
 		String persistanceType = persistenceObject.getClass().getName();
-		if (persistenceObject instanceof Adapter){
-			persistanceType = ((Adapter)persistenceObject).getObjectType();
+		if (persistenceObject instanceof Adapter) {
+			persistanceType = ((Adapter) persistenceObject).getObjectType();
 		}
 
-		Mapper mapper = registry.findMapper(persistanceType,repositoryObject.getClass().getName());
+		Mapper mapper = registry.findMapper(persistanceType, repositoryObject.getClass().getName());
 		if (mapper == null) {
 			throw new RepositoryException("Cannot find mapper from " + persistenceObject.getClass().getName() + " to "
 					+ repositoryObject.getClass().getName());
@@ -74,77 +74,77 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 		mapper.copyFromPersistence2Repository(persistenceObject, repositoryObject);
 	}
 
-
 	private Object instantiateObject(Class<?> repositoryClass) throws Exception {
 		return repositoryClass.newInstance();
 	}
 
-
-	private void internalLoader(Object repositoryObject, boolean fromInternalClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
+	private void internalLoader(Object repositoryObject, boolean fromInternalClass, ObjectGraph graph,
+			ObjectGraphProfile grapfProfile) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
 			Internal internal = method.getAnnotation(Internal.class);
 			String id = internal.id();
-			if( !graph.addBranch(id) ){
+			if (!graph.addBranch(id)) {
 				continue;
 			}
-			
-			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
-			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry);
+
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), method, context);
+			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order, context, registry);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
-				loader.internalLoader(object, getPersistancePrimaryKeyFromRepositoryObject(object), true,graph, grapfProfile);
+				loader.internalLoader(object, getPersistancePrimaryKeyFromRepositoryObject(object), true, graph,
+						grapfProfile);
 			}
 			graph.removeLastBranch(id);
 		}
 		if (fromInternalClass) {
-			query(repositoryObject, null,graph,grapfProfile);
+			query(repositoryObject, null, graph, grapfProfile);
 		}
 	}
 
-	
-	public void internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass , ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
-    String key = LOADED_OBJECTS+repositoryObject.getClass().getName();
-   
-		@SuppressWarnings("unchecked")
-		List<Object> loadedObjects = (List<Object>) context.get(key);
-    if(loadedObjects == null){
-    	loadedObjects = new ArrayList<>();
-    	context.put(key, loadedObjects);
-    }
-    if (loadedObjects.contains(persistenceObjectPK)){
-    	return ;
-    }else{
-    	loadedObjects.add(persistenceObjectPK);
-    	internalLoader(repositoryObject,fromInternalClass,graph,grapfProfile);
-    }
-	}
-	
-	
-	public Object loader(Object persistenceObject, Object persistenceObjectPK , Class<?> repositoryClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
-    String key = LOADED_OBJECTS+repositoryClass.getName();
+	public void internalLoader(Object repositoryObject, Object persistenceObjectPK, boolean fromInternalClass,
+			ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
+		String key = LOADED_OBJECTS + repositoryObject.getClass().getName();
 
 		@SuppressWarnings("unchecked")
-			List<Object> loadedObjects = (List<Object>) context.get(key);
-      if(loadedObjects == null){
-      	loadedObjects = new ArrayList<>();
-      	context.put(key, loadedObjects);
-      }
-      if (loadedObjects.contains(persistenceObjectPK)){
-      	return null;
-      }else{
-      	loadedObjects.add(persistenceObjectPK);
-      	return loader(persistenceObject,repositoryClass,graph,grapfProfile);
-      }
-	}	
-	
-	
-	private Object loader(Object persistenceObject, Class<?> repositoryClass,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
+		List<Object> loadedObjects = (List<Object>) context.get(key);
+		if (loadedObjects == null) {
+			loadedObjects = new ArrayList<>();
+			context.put(key, loadedObjects);
+		}
+		if (loadedObjects.contains(persistenceObjectPK)) {
+			return;
+		} else {
+			loadedObjects.add(persistenceObjectPK);
+			internalLoader(repositoryObject, fromInternalClass, graph, grapfProfile);
+		}
+	}
+
+	public Object loader(Object persistenceObject, Object persistenceObjectPK, Class<?> repositoryClass,
+			ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
+		String key = LOADED_OBJECTS + repositoryClass.getName();
+
+		@SuppressWarnings("unchecked")
+		List<Object> loadedObjects = (List<Object>) context.get(key);
+		if (loadedObjects == null) {
+			loadedObjects = new ArrayList<>();
+			context.put(key, loadedObjects);
+		}
+		if (loadedObjects.contains(persistenceObjectPK)) {
+			return null;
+		} else {
+			loadedObjects.add(persistenceObjectPK);
+			return loader(persistenceObject, repositoryClass, graph, grapfProfile);
+		}
+	}
+
+	private Object loader(Object persistenceObject, Class<?> repositoryClass, ObjectGraph graph,
+			ObjectGraphProfile grapfProfile) throws RepositoryException {
 		try {
 			Object repositoryObject = instantiateObject(repositoryClass);
-			populate(persistenceObject,repositoryObject);
-			internalLoader(repositoryObject, false,graph,grapfProfile);
-			query(repositoryObject, persistenceObject,graph,grapfProfile);
+			populate(persistenceObject, repositoryObject);
+			internalLoader(repositoryObject, false, graph, grapfProfile);
+			query(repositoryObject, persistenceObject, graph, grapfProfile);
 
 			PostQueryTrigger postQueryTrigger = findPostQueryTrigger(repositoryClass);
 			if (postQueryTrigger != null) {
@@ -156,7 +156,8 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 		}
 	}
 
-	private void query(Object repositoryObject, Object persistenceObject,ObjectGraph graph, ObjectGraphProfile grapfProfile) throws Exception {
+	private void query(Object repositoryObject, Object persistenceObject, ObjectGraph graph,
+			ObjectGraphProfile grapfProfile) throws Exception {
 
 		List<Method> assosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Association.class);
 
@@ -164,59 +165,80 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 			if (grapfProfile == null || grapfProfile.skipRelation(repositoryObject, method)) {
 				continue;
 			}
-			
+
 			Association assosiation = method.getAnnotation(Association.class);
 			String id = assosiation.id();
-			if( !graph.addBranch(id) ){
+			if (!graph.addBranch(id)) {
 				continue;
 			}
-			
+
 			InternalClass ic = assosiation.mappedBy().getAnnotation(InternalClass.class);
-			if (ic != null ){
+			if (ic != null) {
 				continue;
 			}
-			
-			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
+
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), method, context);
 
 			Repository provider = findProvider(assosiation.mappedBy().getName());
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
 
-			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject,assosiation, method.getName().substring(3));
+			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject, assosiation,
+					method.getName().substring(3));
+			
+			List<OrderCriteria> newOrder = prepareOrderCriteria(persistenceObject, repositoryObject, assosiation,
+					method.getName().substring(3));
+			
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryObject.getClass(), assosiation.mappedBy());
 			if (preQueryTrigger != null) {
-				preQueryTrigger.preQueryTrigger(newSearch, order);
+				preQueryTrigger.preQueryTrigger(newSearch, newOrder);
 			}
 			SearchCriteria sc = extractAndRemove(RepositoryObjectLoader.SKIP_QUERY, newSearch);
-			if (sc != null){
+			if (sc != null) {
 				continue;
 			}
-			
-			SearchResult result = provider.find(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass.getName());
+
+			SearchResult result = provider.find(newSearch, newOrder, 0, MAX_ROW_NUMBER, persistanceClass.getName());
 
 			for (Object object : result.getSearchResult()) {
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context,registry );
-				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy(),graph,grapfProfile);
-				if (loadedObject != null){
-				 processor.connectRepositoryObjects(repositoryObject, loadedObject);
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order, context, registry);
+				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object), assosiation.mappedBy(),
+						graph, grapfProfile);
+				if (loadedObject != null) {
+					processor.connectRepositoryObjects(repositoryObject, loadedObject);
 				}
 			}
-			
+
 			graph.removeLastBranch(id);
-			
+
 		}
 	}
+	
+	
+	private List<OrderCriteria> prepareOrderCriteria(Object persistenceObject, Object repositoryObject,
+			Association assosiation, String property) {
 
+		List<OrderCriteria> newOrder = new ArrayList<>();
+		for (OrderCriteria sc : order) {
+			if (!PARENT_PERSISTANCE_OBJECT.equals(sc.getName())) {
+				if (sc.getParentClass() != null && sc.getProperty() != null
+						&& sc.getParentClass().equals(repositoryObject.getClass().getName())
+						&& sc.getProperty().equals(property))
+					newOrder.add(sc);
+			}
+		}
+		return newOrder;
+	}	
 
-	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject,Association assosiation, String property) {
+	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject,
+			Association assosiation, String property) {
 
 		List<SearchCriteria> newSearch = new ArrayList<>();
 		for (SearchCriteria sc : search) {
 			if (!PARENT_PERSISTANCE_OBJECT.equals(sc.getName())) {
-				if (
-						sc.getParentClass() != null && sc.getProperty() != null
-						&& sc.getParentClass().equals(repositoryObject.getClass().getName()) && sc.getProperty().equals(property)
-         )	
-				newSearch.add(sc);
+				if (sc.getParentClass() != null && sc.getProperty() != null
+						&& sc.getParentClass().equals(repositoryObject.getClass().getName())
+						&& sc.getProperty().equals(property))
+					newSearch.add(sc);
 			}
 		}
 
@@ -237,20 +259,15 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 		criteria.setComparator(Operator.EQ.name());
 		criteria.setValue(property);
 		newSearch.add(criteria);
-		
+
 		criteria = new SearchCriteria();
 		criteria.setName(PARENT_CHIELD_RELATION_TYPE);
 		criteria.setComparator(Operator.EQ.name());
 		criteria.setValue(assosiation.type());
 		newSearch.add(criteria);
-		
-		
+
 		return newSearch;
 
 	}
 
-
-
-
 }
-

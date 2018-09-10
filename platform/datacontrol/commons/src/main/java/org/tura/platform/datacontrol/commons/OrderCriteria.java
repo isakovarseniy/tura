@@ -28,6 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class OrderCriteria {
 	private String name;
 	private String order;
+	private String parentClass;
+	private String property; 
+	
 
 	 public OrderCriteria(){
 		 
@@ -56,4 +59,24 @@ public class OrderCriteria {
 		this.order = order;
 	}
 
+	@XmlElement
+	public String getParentClass() {
+		return parentClass;
+	}
+
+	public void setParentClass(String parentClass) {
+		this.parentClass = parentClass;
+	}
+	
+	
+	@XmlElement
+	public String getProperty() {
+		return property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
+	}
+	
+	
 }

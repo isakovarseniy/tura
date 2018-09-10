@@ -79,7 +79,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId1 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
+			JbpmConfiguration.init(client, TestCommons.JNDI_FOR_JBPM_ACCESS);
 			
 			SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
 			pk.setCaseId(caseId);
@@ -161,7 +161,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 			
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
+			JbpmConfiguration.init(client, TestCommons.JNDI_FOR_JBPM_ACCESS);
 			
 			JbpmSearchService service = new JbpmSearchService(client, provider);
 			SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
@@ -230,7 +230,7 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId3 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
 			
-			JbpmConfiguration.init(client, "java:jboss/jdbc/SalesAnalyzerDS");
+			JbpmConfiguration.init(client, TestCommons.JNDI_FOR_JBPM_ACCESS);
 			
 			
 			ArrayList<SearchCriteria> searchCriteria = new ArrayList<>();
