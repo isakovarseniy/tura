@@ -153,7 +153,7 @@ public class SalesAnalyzerRecipe {
           	      		.copyFromExternal();
 
            		
-           		new DoDeploy(jboss_home,"sa-admin-1.0.war")
+           		new DoDeploy(jboss_home,"sa-admin.war")
                    		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war")
                    		.doDeployExploaded();
                   

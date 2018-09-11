@@ -14,10 +14,10 @@ embed-server --server-config=standalone-full.xml
 
 /subsystem=keycloak/secure-deployment=sa-admin.war/:add(ssl-required=external)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=realm,value=sales-analyzer)
-/subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=auth-server-url,value=http://localhost:8080/auth)
-/subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=resource,value=sa-admin)
+/subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=auth-server-url,value=http://localhost:8080/auth/)
+/subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=resource,value=sa-admin-client)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=principal-attribute,value=preferred_username)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=enable-basic-auth,value=true)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=realm-public-key,value=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhCJX8t5OlyGkHzVXkRh2g4TtJOvKAhJyTfUdCwCiZuZAp+fMAWh/hbp3NjIoUYrSrSDL64eBn1RdBq6nJqNQaVdBm721hDGQVXm3WSPgvByRTFm7OVBDSuNEiyz5LXK92BwHDV7/7BlW9w0lK4ZgJiInuMXoLn2aK6MrEVK3K7HIi2hgUbAUDklKKv1gKNT4CNctR8VqgZGO7Zgof3Znqb2zn9yGeRtP1L3M0TaiZ7L0s5YAugk1tc6jeKOVFMcSp7Nr1Ll2biYWGjgs6nR8twJE8DzQAYhHEEkGWr2ZV2rly+kZZomt7rnRJswpBHPCJbXAHysxvd8yiS1q3kNLrwIDAQAB)
-/subsystem=keycloak/secure-deployment=sa-admin.war/credential=secret/:add(value=18dbb92f-b95b-4f21-8e2b-18db952d1268)
+/subsystem=keycloak/secure-deployment=sa-admin.war/credential=secret/:add(value=44aed829-d663-4712-b286-c9b2a4a25e2c)
 

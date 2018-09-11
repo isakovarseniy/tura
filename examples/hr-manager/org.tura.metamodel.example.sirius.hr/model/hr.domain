@@ -313,6 +313,7 @@
             <hints uid="59d425f9-d7a4-417b-887f-5a1edd0b91ba" name="exception.type.handler" hint="a24ca484-c882-4e80-961a-8093e6dc5803"/>
             <hints uid="7713d7e1-8898-42e6-8c85-1860c31bdac4" name="login.page" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
             <hints uid="d4468815-5b2c-4371-bef4-f2c02b2d95ce" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+            <hints uid="6edf42fe-78ae-4f3e-b6bf-de5054b17d3b" name="NotConfidential" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
           </artifacts>
           <artifacts uid="c2c2a8d3-4b1e-410a-9ade-0971d5a0bef3" name="All Pagers" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/mainAllPagers.egl">
             <configVariables uid="c37f1a01-4cd2-46df-9309-9882e5349dcc" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -443,6 +444,7 @@
           <hints uid="b2faf8c7-f1b6-48fa-885c-5174c65ee62e" name="error.page"/>
           <hints uid="a24ca484-c882-4e80-961a-8093e6dc5803" name="exception.type.handler"/>
           <hints uid="d74f5a9a-dd22-4885-b1ba-2cfb9a078e7a" name="message.encoding"/>
+          <hints uid="ec480494-233c-48a5-ab77-4e0c94136b36" name="NotConfidential"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
@@ -8332,6 +8334,9 @@
                       <viewElement xsi:type="tura.form:ViewPort" uid="c96cac6a-510f-464c-b996-a660f91112f7" name="Admin frame">
                         <style uid="b8724953-ffab-4bb2-a537-88d309f0af0a"/>
                       </viewElement>
+                      <multiLangLabel uid="64fc7cd9-833e-48e2-acfa-881131de7e9e"/>
+                      <classifiers uid="d150fad9-d606-429b-a688-8fb2535eb514" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
+                      <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="223f668e-0310-4eb1-8536-6ef22fba165a"/>
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="75599ebc-04ec-44e8-83cd-045f160dab1a" name="Admin">
                       <style uid="aadebf63-f059-4a89-b7aa-d8905c617ca8"/>

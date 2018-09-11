@@ -85,7 +85,9 @@ operation  web_xml(hash) {
       }
    }
   if (windows <> null){
-    for (window in windows)
+    for (window in windows){
+      var isNotConfidential = window.findClassifier(util.getHint(model_mapper,"NotConfidential")); 
+    
       for (gr  in window.grants){
          for(grant in gr){
           var form =  window.eContainer().eContainer();
@@ -101,13 +103,21 @@ operation  web_xml(hash) {
     <auth-constraint>
         <role-name>[%=role.~localRoleName%]</role-name>
     </auth-constraint>
+    [%
+      if (not  isNotConfidential ){
+      %]
     <user-data-constraint>
         <transport-guarantee>CONFIDENTIAL</transport-guarantee>
     </user-data-constraint>
+      [%
+      
+      }
+    %]
 </security-constraint>      
 [%
        }
      }
+   }
     var login = false;
     var error = false ;
     var loginWin = null;
