@@ -1,0 +1,138 @@
+.add-row-button {
+    background-image: url(/sa-resources/images/24x24/add01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.create-row-button {
+    background-image: url(/sa-resources/images/24x24/add03.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.add-child-row-button {
+    background-image: url(/sa-resources/images/24x24/arrow_right01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.save-button {
+    background-image: url(/sa-resources/images/24x24/checkmark01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.popup-details-button{
+    background-image: url(/sa-resources/images/24x24/magnifying_glass01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.rallback-button {
+    background-image: url(/sa-resources/images/24x24/backup01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.remove-row-button {
+    background-image: url(/sa-resources/images/24x24/delete01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.form-parameter-button {
+    background-image: url(/sa-resources/images/24x24/gear01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+
+.logout-button {
+    background-image: url(/sa-resources/images/16x16/exit.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.ok-button {
+    background-image: url(/sa-resources/images/24x24/checkmark02.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+
+.cancel-button {
+    background-image: url(/sa-resources/images/24x24/remove02.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.canada-flag-button {
+    background-image: url(/sa-resources/images/flags/ca.png) !important;
+    width: 16px;
+    height: 11px;
+    margin-top: -2px !important;
+    margin-left: -10px !important;
+    top: 15% !important;
+}
+
+.russia-flag-button {
+    background-image: url(/sa-resources/images/flags/ru.png) !important;
+    width: 16px;
+    height: 11px;
+    margin-top: -2px !important;
+    margin-left: -10px !important;
+    top: 15% !important;
+}
+
+
+.ui-panelgrid tr, .ui-panelgrid td{
+  border:none;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+    border-style: none;
+    border-color: inherit;
+    padding: 0px 0px;
+}
+
+.verticalalign{
+    vertical-align:top;
+} 
+
+.verticalalign{
+   vertical-align:top;
+} 
+

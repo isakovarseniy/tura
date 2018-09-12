@@ -3207,6 +3207,7 @@
                                 <classifiers uid="6346776f-44d2-47de-b6d6-5f42d83d9558" hint="41114f86-3709-482c-937b-5ddce650956d"/>
                               </fields>
                               <required uid="6799dc37-94be-4f0d-9bba-616620777ea6"/>
+                              <readOnly uid="5cc8be61-d980-47f1-b141-651e903dc061"/>
                               <refreshAreas area="180bd1e5-0388-4fdf-812a-ca1525b12772" group="1"/>
                               <refreshAreas area="26ce090d-10c9-4624-ab32-5c27d9d05d64" group="1"/>
                               <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="1"/>
@@ -7978,7 +7979,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="6" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
+                    <ingredients order="6" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives" skip="true">
                       <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Triggers and etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
                         <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers and etc Build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/sales-analyzer//builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -8011,7 +8012,7 @@
                     <properties uid="48a4d6f5-2f16-470b-89d7-1267690531d0" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="NA"/>
                     <properties uid="e1663144-226d-4753-b4a4-7202afa19541" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/SalesAnalyzerDS"/>
                     <properties uid="3caaf1a7-8d55-4a3a-9612-e308fe1e06f6" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="NA"/>
-                    <properties uid="8bbb46d3-45b4-417a-8f43-d2e76c520511" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
+                    <properties uid="8bbb46d3-45b4-417a-8f43-d2e76c520511" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="http://localhost:8080/sa-resources"/>
                     <properties uid="991c567e-9b72-414e-af2b-61ce1dab4451" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="SalesAnalyzer"/>
                     <properties uid="0aaca4d4-b703-4de5-afbd-a7cf105b5069" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="sales_analyzer"/>
                     <properties uid="21d505ba-0b0b-472f-a5b4-7c1cc163a183" confVarRef="ba2fd94e-1867-4349-bdf8-3c7ab266f769" value="na"/>
@@ -8068,6 +8069,7 @@
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="42a125ac-f662-4969-84b4-24d5837c55c7" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" uid="15d9a790-c79b-42ff-ae00-4083d701e596" mappedToPackageName="NA" mappedToClassName="NA" artifactId="sa-admin-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:RoleMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="5a921214-59b4-4faf-8a93-de931dd53292" localRoleName="ui-access" globalRoleName="ui-access"/>
+                  <mappers xsi:type="tura.mapper:CSSMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" styleLibrary="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" uid="809fb534-f821-405e-9630-ac80235bae86" libraryUrl="sa-style.css"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
@@ -8076,6 +8078,12 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="a71e2dea-b819-446b-b367-9c1d46177bf3" uid="39afa836-8683-4931-98fc-10cb8d48b6d3" mappedToPackageName="" mappedToClassName="Object"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="96bb8fa9-c595-451f-843a-f14ed4d96f70" mappedToPackageName="java.util" mappedToClassName="List"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="2cd7dea1-98b6-47a0-b912-a9582f587f8b" mappedToPackageName="java.util" mappedToClassName="List"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" uid="e2acbdc1-514a-428e-87d8-e695f2fce436" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="af833f7a-deb1-4318-bdee-c54a889293cc" uid="efab1960-3194-4d20-8b03-ffb64f84877d" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="1f89709f-1e36-477c-9078-89be7546fd21" uid="c641fb8c-d56d-4f91-8bfb-f7ef040eb9d3" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="31b79724-028a-4868-900f-e445787d71b0" uid="1820e31c-cc9c-4563-afa1-c07085e97d18" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" uid="2cb033a8-b577-4aeb-ad79-5a0714cc51d6" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="2c8ed006-5a5d-4941-a01e-aafd10c9b99b" mappedToClassName="String"/>
                 </mapper>
               </mappers>
               <appLayers uid="0ca0831c-21f1-4871-a838-1b896484121b" name="Persistence layer"/>
@@ -8354,11 +8362,29 @@
                         <baseCanvas uid="956ac990-be31-442d-8903-d0522338da45">
                           <children xsi:type="tura.form:LayerHolder" uid="e3f285e2-700c-4622-8ba9-6abc10e6406b" columns="2">
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="f281d1fb-c065-427a-8c28-51bb90b1b5a8">
-                              <children xsi:type="tura.form:Button" uid="87f92adb-0720-4291-a9f3-1ff9bde34811" label="Add"/>
+                              <children xsi:type="tura.form:Button" uid="87f92adb-0720-4291-a9f3-1ff9bde34811" label="Add">
+                                <style uid="bca0edbe-58a4-4112-b398-7f0843b57d6d" constant="true" value="width:30px;height:30px"/>
+                                <icon uid="31f51418-ec67-4741-8fe1-6756c531c61d" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="53799aab-37ad-45fb-8b46-c9c754e9579f" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                    <value uid="dafc4a26-2520-490d-8c24-5e176c30825f" value="Application Style Libraries.Application styles.Common library.add-row-button">
+                                      <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                      <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                      <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                      <expression objRef="25923a25-3fb3-4a3b-b692-9ff365baf224" order="3" expressionType="StyleSetImpl"/>
+                                    </value>
+                                  </parameters>
+                                </icon>
+                              </children>
                               <children xsi:type="tura.form:Button" order="1" uid="8660cc7a-d9d4-4e8d-bf1c-c853879eac5b" label="Remove"/>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" uid="433a1968-15e5-4ab0-94ca-71f5e9caa010">
-                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" label="Roles">
+                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" label="Roles" rowNumber="5">
+                                <style uid="0aea14ac-c996-4ae0-8e46-17cdc70a22ce"/>
                                 <cols uid="516e3c14-ec77-4806-a623-7ecf8a720918" label="Role name">
                                   <style uid="608edf45-e685-41ae-8075-ea25c67d313d"/>
                                   <multiLangLabel uid="62778681-1b18-4174-acb0-e54459e255fb"/>
@@ -8585,7 +8611,27 @@
               </applicationUIPackages>
             </applicationUILayer>
             <applicationInfrastructureLayer uid="b02add19-22db-4397-9f72-84334d3bbc87" name="Infrastructure"/>
-            <applicationStyle uid="95b13491-6504-4ddb-a188-effcb7cdea59" name="Style Libraries"/>
+            <applicationStyle uid="95b13491-6504-4ddb-a188-effcb7cdea59" name="Style Libraries">
+              <styleLibraries uid="26a4c586-f92e-4f83-bc3d-75e7a17a4099" name="SA style library">
+                <libraries uid="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" name="Common library">
+                  <styles uid="25923a25-3fb3-4a3b-b692-9ff365baf224" name="add-row-button"/>
+                  <styles uid="c6454383-6877-41f7-b95e-3160c2035cb7" name="remove-row-button"/>
+                  <styles uid="4999c69f-133b-42e4-8b29-f7691c32a547" name="save-button"/>
+                  <styles uid="2c396056-08c9-4971-b148-87882fd8dc0a" name="rallback-button"/>
+                  <styles uid="56156ad3-932e-41bd-b395-0e75457f4c07" name="vertical-align"/>
+                  <styles uid="00007a74-947d-4a77-847b-fc01ba88962b" name="form-parameter-button"/>
+                  <styles uid="e55ba5d2-3c5a-4fc8-8339-eb059a131cba" name="add-child-row-button"/>
+                  <styles uid="1fec2707-29f8-4878-a988-b622b824c984" name="popup-details-button"/>
+                  <styles uid="47023b0b-15ca-442f-be3b-c49f8a125d60" name="ok-button"/>
+                  <styles uid="c9d8c40d-a902-4286-8c7f-fc016c7ff756" name="cancel-button"/>
+                  <styles uid="f679f2f2-f576-4d98-bfaa-c700532c6d74" name="canada-flag-button"/>
+                  <styles uid="b13eb10d-3a82-425d-8864-2806cda50a0e" name="russia-flag-button"/>
+                  <styles uid="270540e4-9bd1-4501-87df-161b97376c63" name="center"/>
+                  <styles uid="d107a38d-bae6-4595-8cde-c04909ed70af" name="logout-button"/>
+                  <styles uid="062217aa-440e-48c6-962f-2b559dc1bc3c" name="create-row-button"/>
+                </libraries>
+              </styleLibraries>
+            </applicationStyle>
             <applicationRole uid="b0d8098a-554f-426a-b954-ad550291c749" name="Security">
               <realms uid="2fa2fd08-b01e-466b-a411-ce7e1a939e06" name="Sales analyzer  security rule set">
                 <roles uid="8b42fcbc-37bc-4651-86a0-e279e1fcc7a4">

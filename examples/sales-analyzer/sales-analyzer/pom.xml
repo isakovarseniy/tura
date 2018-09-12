@@ -55,6 +55,7 @@
 		<module>processes</module>
 		<module>web-app-commons</module>
 		<module>sa-admin-triggers</module>
+		<module>sa-resources</module>
 		<module>config-integration-testing</module>
 		<module>integration-testing</module>
 	</modules>
