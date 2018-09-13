@@ -30,6 +30,7 @@ operation form::Table generateBody(hash){
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 		rowsPerPageTemplate=[%=selector%] selectionMode="single"   rowKey="#{row[0]}" editable="true" editMode="cell"
 		selection="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
+		paginatorPosition="bottom"
 		>
 		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
 		
