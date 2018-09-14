@@ -1807,6 +1807,11 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="88b2f3cf-111c-4103-a1a8-c4c59999ab14" name="city_id"/>
             <attributes typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="bcb1e9c0-00a0-421c-99b8-568c2a34b033" name="admin"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="29240e87-5405-4987-b25d-f1ea14f0a81f" name="Holder Object">
+            <classifiers uid="4bf32ff1-486e-4033-a070-5b1ea23f9a13" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="36d795dc-0f9f-4cc9-aba3-3ee26921c3e5" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="1c0949a5-d69e-4f6f-93e0-3c2bdabed3c1" name="objId" pk="true"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="02bad159-7c8d-49af-bffd-477a9d3f02b4" source="7c0a0618-b7d0-4069-9a65-aab91107a314" target="019fce0b-b5a7-4882-8c03-52c94f2b11f8" type="One2Many" containment="Non">
             <links uid="f9c6a36f-d619-4203-8262-ec1239e67e5a" masterField="81a7d5d7-3993-4193-aa58-33326fa26d3e" detailField="86f857d6-3c28-46ff-a0c7-ce532596318a"/>
           </relationships>
@@ -3538,6 +3543,7 @@
                                 </children>
                                 <children xsi:type="tura.form:Table" nickname="companies" uid="180bd1e5-0388-4fdf-812a-ca1525b12772" sourcePointer="0e096922-7c5f-43ea-af07-2f868963642e" columns="3" label="Companies" rowNumber="5">
                                   <style uid="e1abdab4-9d40-40d1-b90e-8bf6935d20d7" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+                                  <required uid="85b7bd4c-33a2-40dd-9b93-b40eed225baf"/>
                                   <refreshAreas area="26ce090d-10c9-4624-ab32-5c27d9d05d64" group="2"/>
                                   <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="2"/>
                                   <multiLangLabel uid="c7e412d2-eb92-4b09-b5f5-3d4f6dc8a130" value="Application Message Libraries.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
@@ -6143,6 +6149,7 @@
                         <style uid="3480e196-589b-4743-b90c-93bafc3d9ab3"/>
                         <baseCanvas uid="7e4d40c6-5a93-4e00-b75d-f4f488533797" columns="2">
                           <children xsi:type="tura.form:Label" uid="e225489b-5922-479b-ab14-7cdb6c49bfc6" label="Error code">
+                            <style uid="e3c52be2-bdff-446e-abbf-a6b0c4f2e724"/>
                             <multiLangLabel uid="51d045fd-8648-4e8a-90c7-ba320ed2568e" value="Application Message Libraries.Error page.ERROR_CODE">
                               <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                               <expression objRef="44cce136-db0c-4ccc-9d20-bf0add030d0a" order="1" expressionType="MessageLibraryImpl"/>
@@ -8402,6 +8409,9 @@
                               <style uid="001c7771-cc1e-4145-82ea-b7f4fc73da26"/>
                               <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" columns="3" label="Roles" rowNumber="5">
                                 <style uid="0aea14ac-c996-4ae0-8e46-17cdc70a22ce" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+                                <enabled uid="61d7b917-f839-4954-be60-b8969ae01225"/>
+                                <required uid="4e4f726f-1780-43c7-a0ff-f220419fca82"/>
+                                <readOnly uid="5a8a800c-9427-41c9-b103-d9c717fbd73f"/>
                                 <multiLangLabel uid="4271d256-4171-4182-b2c9-a7db69ab5320" value="Application Message Libraries.Admin.ROLE_TABLE_NAME">
                                   <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="2f090d5a-1893-4928-8138-0219223046dd" order="1" expressionType="MessageLibraryImpl"/>
@@ -8464,8 +8474,9 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="5" uid="fbc211d1-fa67-4f01-83d5-f62918027bd2" columns="2">
                             <style uid="8a1a8ee7-9db3-4d39-b8f8-e2f12b7f7100" constant="true" value="width:30%"/>
-                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" sourcePointer="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" columns="3" label="Permissions">
+                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" sourcePointer="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" columns="3" label="Permissions" rowNumber="5">
                               <style uid="9562cb8e-5be7-42b0-8817-033e4a000a77" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+                              <enabled uid="717ad341-55e8-4cf7-9291-b0f5c5696fa8"/>
                               <multiLangLabel uid="cfff8980-691f-40f3-a780-cce262e281c6" value="Application Message Libraries.Admin.PERMIOSSION_TABLE">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="2f090d5a-1893-4928-8138-0219223046dd" order="1" expressionType="MessageLibraryImpl"/>
@@ -8542,6 +8553,7 @@
                           <children xsi:type="tura.form:LayerHolder" uid="f5147a6f-9d81-479c-bf57-727af1fe6367">
                             <children xsi:type="tura.form:Table" uid="da7d6000-299d-4f95-a7e7-e9117ebfb94f" sourcePointer="a8098f45-bc10-49b3-b6b1-55209ef73556" columns="2" label="Permitions table">
                               <style uid="8e20bbe5-208b-4368-9de4-381c07d8cff1"/>
+                              <enabled uid="a80cab42-02fd-4432-b6e2-da060ae683fa"/>
                               <cols uid="ca1fa7f0-e779-42de-a350-34689df85559" label="Code">
                                 <style uid="b0c59741-6e7d-452b-a8d1-f61e3ab5a555"/>
                                 <element xsi:type="tura.form:OutputText" uid="7a78eeef-23c9-48c4-8eaf-bedf8adff684" valuePointer="62389bf5-7561-497a-85dd-c6825fa93aa6"/>
@@ -8728,6 +8740,121 @@
                     <relations xsi:type="tura.form:InternalRelation" uid="73e5d3db-aa66-4007-b865-0b89849bb464" master="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" detail="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                   </datacontrols>
                 </forms>
+                <forms uid="43bbb8af-e20a-4051-862d-10e3353aa5f5" name="ErrorHandling">
+                  <view uid="516fb22b-2162-4e7c-bc74-9cb69c0e7679">
+                    <canvases xsi:type="tura.form:Window" uid="6cf68bae-7f67-41a9-9f44-9c6d87daadd2" name="ErrorPage">
+                      <style uid="d84f0f67-c75f-4fa2-a5e2-4c2039025154"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="3857e5fd-ed55-4c6f-aff2-0334d1e005f8" name="ErrorAria">
+                        <style uid="b4e10bdc-e870-445b-a83f-64908b963a25"/>
+                        <baseCanvas uid="31168de0-790a-4a5a-9b80-783eb3b7555b" columns="2">
+                          <children xsi:type="tura.form:Label" uid="ad2999c2-6d66-4f71-82ce-e1d87b685441" label="Error code">
+                            <multiLangLabel uid="bfaa145e-82f0-4eb5-b9a5-f8b85d3e3fe7" value="Application Message Libraries.Error page.ERROR_CODE">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="cecc4ed8-9fd4-4666-8fd5-f523d52e4eac" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:OutputText" order="1" uid="166bd1bb-8b88-4d0e-8ef5-5b9d97ea215e" sourcePointer="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" valuePointer="ff3f76ae-0fb0-4512-96f4-edf4a4fbebd9"/>
+                          <children xsi:type="tura.form:Label" order="2" uid="b36c84a0-ebaf-4053-98f5-7e010309099e" label="Error description">
+                            <multiLangLabel uid="141c81ea-7a37-41a7-a36d-c2197a5036e6" value="Application Message Libraries.Error page.ERROR_DESCRIPTION">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="defecba3-8b0c-457b-ac25-21dbefc20658" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:OutputText" order="3" uid="e1a3696f-fc7b-4b02-aa2b-e83e8a1be1f1" sourcePointer="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" valuePointer="9bef999e-773d-4fef-9042-9811fbf4281c"/>
+                          <children xsi:type="tura.form:OutputText" order="5" uid="5439c343-269a-4307-9c46-cfe026908a5b" sourcePointer="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" valuePointer="9d112a2a-71d8-4c28-84a8-f5d90f83a475"/>
+                          <children xsi:type="tura.form:Label" order="4" uid="5dc15d9d-3289-4bdc-ac58-e7da4bfbcb3e" label="Exception type">
+                            <multiLangLabel uid="f342ca46-c4f3-4e65-9bcc-609b3807d7ad" value="Application Message Libraries.Error page.EXCEPTION_TYPE">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="de211d39-08ac-4c77-b297-05c9e3e84107" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="6" uid="4fe1f8ee-a383-4c78-938b-0012e96bb8a4" label="Exception">
+                            <multiLangLabel uid="85e858ad-29cb-4458-81ef-8374e43fd23a" value="Application Message Libraries.Error page.EXCEPTION">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="03f865ce-4e02-4a61-a7a2-b9778c9df0f9" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:OutputText" order="7" uid="68ff84ad-a1ba-48fc-9ff7-8642fc60b686" sourcePointer="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" valuePointer="b8c04ffc-6abc-4224-b343-1d73300796b5"/>
+                          <children xsi:type="tura.form:Label" order="8" uid="3ebc4ef2-eb98-4b28-ba0e-1c93a310083e" label="Request URI">
+                            <multiLangLabel uid="1a877d49-4213-4b8f-886b-4fce953df689" value="Application Message Libraries.Error page.REQUEST_URI">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="fedb34af-4b50-427a-95c2-6e7b2656ea3c" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:OutputText" order="9" uid="e672d270-6bc9-48ac-8806-31d189e16365" sourcePointer="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" valuePointer="793ad32c-b38e-4509-9d83-f663a3eb8603"/>
+                        </baseCanvas>
+                      </viewElement>
+                      <multiLangLabel uid="5b604132-c15d-492f-a2da-62a7b8b7feb3"/>
+                      <classifiers uid="79233e67-035d-4d62-b862-a5225b3f6a0f" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
+                      <classifiers uid="606a89ba-9091-406f-843d-087e45d8b779" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
+                      <classifiers uid="c669c625-913f-491f-9f75-8451f8114c2a" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+                    </canvases>
+                  </view>
+                  <datacontrols uid="3f1f2e6e-c641-4a84-921c-6274c1264c58">
+                    <controls uid="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" name="ErrorRecord">
+                      <baseType typeRef="29240e87-5405-4987-b25d-f1ea14f0a81f"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="3870886c-f25c-4f92-92b4-68cc9fe96239">
+                        <parameters uid="2dd23ce6-bfc0-4cd4-abe0-47525f1a119f" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="bcbbd348-1a6b-42a7-ba48-1ab0d85ec450" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="2ca03149-fa4d-41cf-b857-ce56c5c56ed4" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="1e93c863-0b18-476c-a53e-1675c98836ad" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="42abf71c-40ea-409a-8206-cc4c1ffde9da" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="7e9faeea-909f-4344-91f5-cba13c74c492" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="c7080d6c-a95a-40f8-8c4a-20d94a3e47fd">
+                        <parameters uid="48038cad-5a74-468a-8b8d-37a61d4f4be0" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="32d284c6-ce7c-4faa-b5d7-59c56d011736" value="Data controls.Holder Object.searchCriteria">
+                            <expression uid="17dfcea3-6a4d-4e46-9e2a-6a073b076d60" expressionType="DataControlHolder"/>
+                            <expression uid="2989609a-ea94-4dbc-aabe-fb310ca12cdf" objRef="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0f3b7df4-f573-4f46-be1d-0919fd5d072b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4ebe2e42-feaa-47ed-b902-037ee62e4348" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="318e9bb9-8c2d-4ac2-b575-ace69775c9c8" value="Data controls.Holder Object.orderCriteria">
+                            <expression uid="3221c586-43c7-4be7-9239-8653d7af0d33" expressionType="DataControlHolder"/>
+                            <expression uid="88841c22-96ff-4321-b20b-15d790163511" objRef="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d4a3c5f1-9051-4c00-8fc9-c6eccc3d4344" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f025565c-d7cb-4896-a197-aa09c8aa8551" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="5204faae-2dc1-4921-85f1-09692c64a704" value="Data controls.Holder Object.start Index">
+                            <expression uid="e0f75d20-9c6d-4d29-9600-9d32bb18b752" expressionType="DataControlHolder"/>
+                            <expression uid="2618dd2d-455b-4f14-8a9c-8329d138bd85" objRef="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="cc9a31b7-acdc-4220-8edc-0ee9ae5ab381" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c4f4c89a-4b70-4c21-87d3-ec057c2e9998" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="62022ea6-6b7f-4ef2-b142-f1b7cd98a987" value="Data controls.Holder Object.end Index">
+                            <expression uid="cfd0924a-f257-4d03-9659-10eb51a0d959" expressionType="DataControlHolder"/>
+                            <expression uid="100fb0dd-e163-43d1-9108-4bcd65e68717" objRef="c5a9d1d6-cbf0-4657-ab07-3d624f00eeff" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="8fbb8976-b167-4245-9856-039df9f69305" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="3d26f4d0-862e-4bde-846f-3e6884925237" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="0117771c-444d-49b5-b4b1-a88efcdb0e2e" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="739e8e16-910b-4266-9852-c39dbc14924f" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="09f2d4ee-547e-4be8-85a7-0a9cc2d0f351" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="2acfaa74-6dbb-4201-8f76-930385d0b970" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="a0fe85b9-0e1d-47b8-b1a1-91023e90771b" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ff3f76ae-0fb0-4512-96f4-edf4a4fbebd9" name="statusCode"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9bef999e-773d-4fef-9042-9811fbf4281c" name="message"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9d112a2a-71d8-4c28-84a8-f5d90f83a475" name="exceptionType"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="b8c04ffc-6abc-4224-b343-1d73300796b5" name="exception"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="793ad32c-b38e-4509-9d83-f663a3eb8603" name="requestURI"/>
+                      <defaultOrderBy/>
+                    </controls>
+                  </datacontrols>
+                </forms>
               </applicationUIPackages>
             </applicationUILayer>
             <applicationInfrastructureLayer uid="b02add19-22db-4397-9f72-84334d3bbc87" name="Infrastructure"/>
@@ -8781,6 +8908,28 @@
                   <messages uid="ef51f050-01c8-4da6-afc0-8806a2165dfb" name="ROLE_COLUMN">
                     <translatioins uid="6844bd60-b6df-458e-afb7-b45b650dea70" translation="Role name" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="408627d9-c992-441c-b723-d86dd6a0bdeb" translation="Название роли" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                </libraries>
+                <libraries uid="c1b6792d-1c11-49af-815c-e50050a36f0f" name="Error page">
+                  <messages uid="cecc4ed8-9fd4-4666-8fd5-f523d52e4eac" name="ERROR_CODE">
+                    <translatioins uid="369c31e0-e577-49bc-bd3b-7850dd70944a" translation="Error code:" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="06b50dba-08d5-4772-81a4-e47375a1e09c" translation="Код ошибки:" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="defecba3-8b0c-457b-ac25-21dbefc20658" name="ERROR_DESCRIPTION">
+                    <translatioins uid="7edffe53-8ee5-4664-a555-4a7659d822be" translation="Error description;" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="fa719a8f-4367-4b40-802e-5c14dcdf78f4" translation="Описание ошибки" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="de211d39-08ac-4c77-b297-05c9e3e84107" name="EXCEPTION_TYPE">
+                    <translatioins uid="7838f70a-a840-44d4-9659-24ae9cdaac40" translation="Exception Type:" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="3af45b7f-1d87-49c5-9582-dfb153c07789" translation="Тип ошибки:" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="03f865ce-4e02-4a61-a7a2-b9778c9df0f9" name="EXCEPTION">
+                    <translatioins uid="e11fc7b0-2664-48ff-9b19-aa77fd5ab79f" translation="Exception:" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="4ece0a58-d191-4f05-b4c0-ff0e0cfb59b9" translation="Ошибка" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="fedb34af-4b50-427a-95c2-6e7b2656ea3c" name="REQUEST_URI">
+                    <translatioins uid="36d23b54-bc4e-4763-adf0-ddfac735eb68" translation="Request URI:" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="4c7c7359-4ee2-4074-9bab-3aed0c683940" translation="URI запроса" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                 </libraries>
               </messageLibraries>

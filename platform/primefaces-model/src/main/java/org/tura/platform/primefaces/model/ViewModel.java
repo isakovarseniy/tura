@@ -93,14 +93,17 @@ public class ViewModel implements Serializable {
 	public Object getModel(String modelId, String modelType, Object obj) {
 
 		Object model = modelHolder.get(modelId);
-		if (model != null)
+		if (model != null) {
 			return model;
+		}
 
-		if ("grid".equals(modelType))
+		if ("grid".equals(modelType)) {
 			model = getGridModel((DataControl) obj, logger);
+		}
 
-		if ("tree".equals(modelType))
+		if ("tree".equals(modelType)) {
 			model = getTreeModel((TreeDataControl) obj);
+		}
 		
 		if ("options".equals(modelType)) {
 			model = getOptionsModel((DataControl) obj);

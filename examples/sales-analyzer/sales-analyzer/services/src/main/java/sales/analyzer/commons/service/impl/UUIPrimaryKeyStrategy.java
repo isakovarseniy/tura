@@ -29,6 +29,7 @@ import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
+import org.tura.salesanalyzer.serialized.db.HolderObject;
 import org.tura.salesanalyzer.serialized.db.ProductGroupHistory;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.StateReference;
@@ -78,6 +79,14 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			return;
 		}
 
+		if (o instanceof HolderObject) {
+			((HolderObject)o).setObjId(( new Long(id)));
+			id= id+1;
+			return;
+		}
+		
+		
+		
 		if (o instanceof CaseProcess) {
 			((CaseProcess)o).setId( new Long(id));
 			id= id+1;

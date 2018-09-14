@@ -101,3 +101,10 @@ CREATE TABLE sales_analyzer.product_history(
 );
 
 
+CREATE TABLE sales_analyzer.holderobject(
+  obj_id bigint NOT NULL
+)
+ 
+
+
+

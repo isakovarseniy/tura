@@ -60,7 +60,17 @@ public class GridModel {
 	}
 
 	public Object getSelected() {
-		return array;
+		try {
+			dc.getCurrentObject();
+			if (dc.getScroller().size() == 0) {
+				return new Object[] { null, null, null };
+			}
+
+			return array;
+		} catch (TuraException e) {
+			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			return new Object[] { null, null, null };
+		}
 	}
 
 	public void setSelected(Object value) {
@@ -70,13 +80,12 @@ public class GridModel {
 
 		array = (Object[]) event.getObject();
 		try {
-			if (!dc.getCurrentPosition().equals(array[0])
-					|| resetCurentPosition) {
+			if (!dc.getCurrentPosition().equals(array[0]) || resetCurentPosition) {
 				resetCurentPosition = false;
 				dc.setCurrentPosition(array[0]);
 			}
 		} catch (TuraException e) {
-			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
+			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
@@ -85,8 +94,7 @@ public class GridModel {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent
-					|| event instanceof ControlRallbackEvent) {
+			if (event instanceof MasterRowChangedEvent || event instanceof ControlRallbackEvent) {
 				lazyModel = new LazyDataGridModel();
 				array = new Object[] { 0, 0, null };
 				lazyModel.setDatacontrol((DataControl) event.getSource());
@@ -97,8 +105,7 @@ public class GridModel {
 			}
 			if (event instanceof RowRemovedEvent) {
 				resetCurentPosition = true;
-				int max = ((DataControl) event.getSource()).getScroller()
-						.size();
+				int max = ((DataControl) event.getSource()).getScroller().size();
 				if ((int) (array[0]) == max && max != 0)
 					array[0] = (int) (array[0]) - 1;
 			}
