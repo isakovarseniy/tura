@@ -17,13 +17,26 @@ operation  viewgeneration(hash) {
       
       if (form.view = null or form.view = null)
          return;   
-
       for (canvas in form.view.canvases){
+         if (not canvas.isKindOf(form::Window) ){
               if (not canvas.isKindOf(form::TabCanvas) ){
                   var ports = canvas.viewElement->select(p|p.isKindOf(form::ViewPort)); 
                    allPorts.addAll(ports);
               }
               canvas.draw(hash);   
+         }     
+      }
+
+//Process all canvases first to collect all js libraries
+
+      for (canvas in form.view.canvases){
+         if ( canvas.isKindOf(form::Window) ){
+              if (not canvas.isKindOf(form::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(form::ViewPort)); 
+                   allPorts.addAll(ports);
+              }
+              canvas.draw(hash);   
+         }     
       }
 
  

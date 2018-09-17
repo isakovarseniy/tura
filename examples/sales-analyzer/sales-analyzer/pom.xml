@@ -64,6 +64,25 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>org.tura.platform.datacontrol</groupId>
+				<artifactId>core</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.datacontrol</groupId>
+				<artifactId>annotations</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>cdi</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+
+			<dependency>
 				<groupId>ru.yandex.qatools.embed</groupId>
 				<artifactId>postgresql-embedded</artifactId>
 				<version>${version.postgresql}</version>
