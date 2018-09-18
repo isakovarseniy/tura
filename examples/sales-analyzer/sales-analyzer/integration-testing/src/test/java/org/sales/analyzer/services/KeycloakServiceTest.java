@@ -66,7 +66,7 @@ import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import sales.analyzer.user.UserPreferences;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class KeycloakServiceTest {
 
 	private static Logger logger;

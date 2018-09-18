@@ -1,24 +1,26 @@
 package sales.analyzer.commons.service.impl;
 
+import java.util.UUID;
+
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
 
 public class RoleRefAdapter extends RoleRef {
 
-	private String role;
-	private String id;
+	private String roleRef;
 	private User user;
+	private String id;
 
-	public RoleRefAdapter( String role) {
-		this.role = role;
-		this.id = role;
+	public RoleRefAdapter( String roleRef) {
+		this.id = UUID.randomUUID().toString();
+		this.roleRef = roleRef;
 		idDirectMapping = false;
 		userDirectMapping = false;
 		roleRefDirectMapping = false;
 	}
 
 	public String getObj() {
-		return role;
+		return roleRef;
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class RoleRefAdapter extends RoleRef {
 
 	@Override
 	protected void delegateSetId(String id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	@Override
@@ -58,12 +60,13 @@ public class RoleRefAdapter extends RoleRef {
 
 	@Override
 	protected void delegateSetRoleRef(String roleRef) {
-		this.role=roleRef;
+		this.roleRef=roleRef;
 	}
 
 	@Override
 	protected String delegateGetRoleRef() {
-		return role;
+		return roleRef;
 	}
 
 }
+

@@ -7,7 +7,6 @@ import javax.ws.rs.NotFoundException;
 
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
-import org.keycloak.representations.idm.RoleRepresentationPK;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -113,9 +112,20 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 				}catch(NotFoundException e) {
 					ls = new ArrayList<>();
 				}
-			}else {
-				ls = realmResource.roles().list();
+				return new SearchResult(ls, ls.size());
 			}
+			sc = helper.checkSearchParam(Constants.VAR_ROLE_ID, searchCriteria);
+			if ( sc != null) {
+				try {
+					RoleRepresentation role = realmResource.rolesById().getRole((String) sc.getValue());
+					ls = new ArrayList<>();
+					ls.add(role);
+				}catch(NotFoundException e) {
+					ls = new ArrayList<>();
+				}
+				return new SearchResult(ls, ls.size());
+			}
+			ls = realmResource.roles().list();
 			return new SearchResult(ls, ls.size());
 		}
 		throw new RuntimeException("Unknown object" + objectClass);
