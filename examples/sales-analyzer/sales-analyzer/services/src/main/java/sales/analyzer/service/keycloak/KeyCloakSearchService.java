@@ -43,8 +43,8 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 			}
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
-			RoleRepresentationPK objPK = (RoleRepresentationPK) pk;
-			return realmResource.roles().get(objPK.getName()).toRepresentation();
+			String objPK = (String) pk;
+			return realmResource.rolesById().getRole(objPK);
 		}
 		throw new RuntimeException("Unknown object" + objectClass);
 	}

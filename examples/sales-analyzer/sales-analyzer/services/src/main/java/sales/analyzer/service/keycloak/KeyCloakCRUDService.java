@@ -103,12 +103,12 @@ public class KeyCloakCRUDService implements CRUDProvider{
 		
 		List <RoleRepresentation> add = new ArrayList<>();
 		for ( String role : addRoles) {
-			add.add(realmResource.roles().get(role).toRepresentation() );
+			add.add(realmResource.rolesById().getRole(role));
 		}
 		
 		List <RoleRepresentation> remove = new ArrayList<>();
 		for ( String role : removeRoles) {
-			remove.add(realmResource.roles().get(role).toRepresentation() );
+			remove.add(realmResource.rolesById().getRole(role) );
 		}
 		realmResource.users().get(user.getId()).roles().realmLevel().add(add);
 		realmResource.users().get(user.getId()).roles().realmLevel().remove(remove);

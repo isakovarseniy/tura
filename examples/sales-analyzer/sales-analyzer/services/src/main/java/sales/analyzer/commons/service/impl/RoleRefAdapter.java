@@ -9,7 +9,7 @@ public class RoleRefAdapter extends RoleRef {
 	private String id;
 	private User user;
 
-	public RoleRefAdapter(String role) {
+	public RoleRefAdapter( String role) {
 		this.role = role;
 		this.id = role;
 		idDirectMapping = false;

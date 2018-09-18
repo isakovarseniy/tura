@@ -66,7 +66,7 @@ import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import sales.analyzer.user.UserPreferences;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class KeycloakServiceTest {
 
 	private static Logger logger;
@@ -308,6 +308,16 @@ public class KeycloakServiceTest {
 			role.setName(roleName);
 			repository.insert(role, Role.class.getName());
 			repository.applyChanges(null);
+
+			ArrayList<SearchCriteria> search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_ROLE_NAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(roleName);
+			search.add(sc);
+			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
+			role = (Role) result.getSearchResult().get(0);
+			
 			
 			
 			Permission perm1 = (Permission) repository.create(Permission.class.getName());
@@ -331,13 +341,13 @@ public class KeycloakServiceTest {
 			repository.applyChanges(null);
 			
 			
-			ArrayList<SearchCriteria> search = new ArrayList<>();
-			SearchCriteria sc = new SearchCriteria();
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
 			sc.setName(Constants.VAR_ROLE_NAME);
 			sc.setComparator(Operator.EQ.name());
 			sc.setValue(roleName);
 			search.add(sc);
-			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
 			assertEquals(1, result.getNumberOfRows());
 			
 			role = (Role) result.getSearchResult().get(0);
@@ -571,6 +581,16 @@ public class KeycloakServiceTest {
 			role.setName(roleName);
 			repository.insert(role, Role.class.getName());
 			repository.applyChanges(null);
+			
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
+			sc.setName(Constants.VAR_ROLE_NAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(roleName);
+			search.add(sc);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,Role.class.getName());
+			role = (Role) result.getSearchResult().get(0);
+			
 			
 			
 			Permission perm1 = (Permission) repository.create(Permission.class.getName());

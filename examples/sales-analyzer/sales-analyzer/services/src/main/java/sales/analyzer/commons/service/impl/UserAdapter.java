@@ -23,7 +23,7 @@ public class UserAdapter extends User {
 					.realmLevel().listAll();
 			if (realRoles != null) {
 				for (RoleRepresentation r : realRoles) {
-					roles.add(new RoleRefAdapter(r.getName()));
+					roles.add(new RoleRefAdapter(r.getId()));
 				}
 			}
 		}

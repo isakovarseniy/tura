@@ -1680,7 +1680,7 @@
             <classifiers uid="9d43215f-3af0-46a8-a96e-be31f18791d8" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="7ee2fdff-ff7a-416c-9890-ccfe69ccef3e" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d777ee00-48b7-4ef6-adf7-1017e7707670" name="id" pk="true"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e0888675-798b-4fa6-85d4-eb112b307250" name="name" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e0888675-798b-4fa6-85d4-eb112b307250" name="name"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="4393d2b0-f16e-4f42-be7e-d9bf176518d9" typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
           <types xsi:type="tura.type:Type" uid="7a82cb48-e500-41cb-8021-7de9210e317a" name="Role reference">
@@ -1693,14 +1693,14 @@
           <types xsi:type="tura.type:TypeReference" uid="b06e830e-8815-4e00-83a2-7846ac8480a7" typeRef="807d71a4-b40c-49c9-92e7-0b169c806fb6"/>
           <types xsi:type="tura.type:TypeReference" uid="033c7e48-74b5-430c-b6c4-9f501fcd687f" typeRef="00a3bfab-96ef-4ea6-a464-32d528d29202"/>
           <relationships xsi:type="tura.type:Assosiation" uid="e9ba1585-cbca-4c68-adf7-5bf3513b9e97" source="6f829f95-55fd-4dfe-b375-05f257bb2802" target="4393d2b0-f16e-4f42-be7e-d9bf176518d9" type="One2Many">
-            <links uid="7faa0fc0-8e63-4998-91c9-ab166c36b333" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
+            <links uid="7faa0fc0-8e63-4998-91c9-ab166c36b333" masterField="d777ee00-48b7-4ef6-adf7-1017e7707670" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="d865e35e-4be3-4e71-bfd9-54977da637dc" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="7a82cb48-e500-41cb-8021-7de9210e317a" type="One2Many" internal="true"/>
           <relationships xsi:type="tura.type:Assosiation" uid="48b43368-3a8d-4d97-b86c-491997fa45a8" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="f3eb9e2b-0119-4481-9c07-23c410bfa708" type="One2Many">
             <links uid="007a466d-7c5d-452c-8241-aa08df912dc9" masterField="07b7c794-d067-4724-8fb4-cede094c35ac" detailField="5fffe85d-9ed4-4ab9-8582-3ce29be8a352"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="11b47ea5-9193-411f-a846-e0997a354733" source="6f829f95-55fd-4dfe-b375-05f257bb2802" target="7a82cb48-e500-41cb-8021-7de9210e317a" containment="Non">
-            <links uid="67ede2a8-4404-495f-b96c-c0c5a004dab3" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="e7fe5a26-1348-4379-87ca-b5ec8d34ee07"/>
+            <links uid="67ede2a8-4404-495f-b96c-c0c5a004dab3" masterField="d777ee00-48b7-4ef6-adf7-1017e7707670" detailField="e7fe5a26-1348-4379-87ca-b5ec8d34ee07"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="60dd5e66-ea1e-47da-a9f1-0152e611f5ac" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="b06e830e-8815-4e00-83a2-7846ac8480a7" type="One2Many">
             <links uid="1eb6d0a4-d762-4407-892d-44e0217b5aff" masterField="07b7c794-d067-4724-8fb4-cede094c35ac" detailField="529280b0-e6b7-4680-b71d-804ac5a8f2a6"/>
@@ -1831,7 +1831,7 @@
             <links uid="9979f35a-5726-45d8-a057-886da7b9921c" masterField="324d156d-790c-417c-9247-ec692d4226af" detailField="c4834f2d-1375-4aed-815b-0667de1bad3a"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="fae2fdff-4646-45e2-893e-2b84aac825ac" source="6e7a4782-a64c-446c-bccb-6386f4ff5cf6" target="d145e66d-8468-4309-ae17-4bc85378d672" type="One2Many">
-            <links uid="2e192868-7410-4655-acde-e3f51645f079" masterField="e0888675-798b-4fa6-85d4-eb112b307250" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
+            <links uid="2e192868-7410-4655-acde-e3f51645f079" masterField="d777ee00-48b7-4ef6-adf7-1017e7707670" detailField="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="5f28d08a-03d0-4c87-a79a-6ef34ad8eaf2" source="93fd5d1e-a335-4092-85ed-7c14c0cc97b2" target="019fce0b-b5a7-4882-8c03-52c94f2b11f8" type="One2Many" containment="Non">
             <links uid="31910ae8-0bff-4308-9bc0-91a295a23d0c" masterField="99398110-a923-4a53-8765-536e14a5cfdf" detailField="657a5039-6930-4a75-a0ae-d0c1c7f41486"/>
@@ -4406,6 +4406,7 @@
                             <children xsi:type="tura.form:InputText" nickname="CmpName" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="29fd8b61-9165-4be9-9ff4-9e443732683d">
                               <style uid="0c2f05d0-593d-4bee-8795-5937952adf7d" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <required uid="b60b6b63-c1a7-4ce1-ae89-889d9cfceacd" constant="true" value="true"/>
+                              <readOnly uid="7fc18bd0-6f06-4d30-afb1-c83e4f7a058a"/>
                             </children>
                             <children xsi:type="tura.form:MessageElement" nickname="msg1" order="2" uid="ef4c812e-0355-4933-b6ab-2998b79be721" label="Message element">
                               <multiLangLabel uid="792f7d4d-57d9-4b84-81d0-cf2dc225144c"/>
@@ -4434,12 +4435,7 @@
                                 <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
                                 <expression objRef="d759ef64-f8f6-4c6f-9436-fc05278b8dfc" order="4" expressionType="OperationImpl"/>
                               </fields>
-                              <fields uid="e459e829-1f29-4698-b02a-57ac7054cbc6" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopupOnSuccess()">
-                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                                <expression objRef="74f6e110-73a0-4c30-bc42-426cde36ac40" order="3" expressionType="TypeImpl"/>
-                                <expression objRef="12d27ed6-861f-421d-8a46-2c15869e91cd" order="4" expressionType="OperationImpl"/>
+                              <fields uid="e459e829-1f29-4698-b02a-57ac7054cbc6" constant="true">
                                 <parameters uid="ca4718af-e219-4a89-81c4-f59eb77f19a4" refObj="3b389a53-0e59-4404-9127-7a1fb96b6bf9">
                                   <value uid="03964800-bca5-49dc-8e5b-49c06c8a5be6" constant="true" value="popupCompany"/>
                                 </parameters>
@@ -4448,6 +4444,7 @@
                                 </parameters>
                                 <classifiers uid="d1bdef96-2f80-4812-b341-236b77ac55df" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
+                              <required uid="8967fad7-f8db-4a0d-b086-79e9432b0ca5"/>
                               <readOnly uid="7e41bffb-5b1c-46f2-bcbd-ed920f497634"/>
                               <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="2"/>
                               <refreshAreas area="26ce090d-10c9-4624-ab32-5c27d9d05d64" group="2"/>
@@ -8442,7 +8439,7 @@
                             </children>
                             <children xsi:type="tura.form:LayerHolder" uid="433a1968-15e5-4ab0-94ca-71f5e9caa010">
                               <style uid="001c7771-cc1e-4145-82ea-b7f4fc73da26"/>
-                              <children xsi:type="tura.form:Table" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" columns="3" label="Roles" rowNumber="5">
+                              <children xsi:type="tura.form:Table" nickname="RolesTable" uid="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" sourcePointer="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" columns="3" label="Roles" rowNumber="5">
                                 <style uid="0aea14ac-c996-4ae0-8e46-17cdc70a22ce" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                                 <enabled uid="61d7b917-f839-4954-be60-b8969ae01225"/>
                                 <required uid="4e4f726f-1780-43c7-a0ff-f220419fca82"/>
@@ -8459,7 +8456,9 @@
                                     <expression objRef="2f090d5a-1893-4928-8138-0219223046dd" order="1" expressionType="MessageLibraryImpl"/>
                                     <expression objRef="ef51f050-01c8-4da6-afc0-8806a2165dfb" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
-                                  <element xsi:type="tura.form:InputText" uid="14422179-bd73-46bf-9055-5354a4c1c9fa" valuePointer="e0888675-798b-4fa6-85d4-eb112b307250"/>
+                                  <element xsi:type="tura.form:OutputText" uid="fbe7a9f3-449d-489e-a766-a529785efc84" valuePointer="e0888675-798b-4fa6-85d4-eb112b307250">
+                                    <style uid="fe950ded-4568-49cb-aab1-9e662f397ee5"/>
+                                  </element>
                                 </cols>
                                 <cols order="1" uid="feedfc65-6d5d-4d56-9591-306b6eb79b85">
                                   <style uid="ef2e9068-54b1-425b-b8d1-21320e7f4109" constant="true" value="width:40px"/>
@@ -8509,7 +8508,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="5" uid="fbc211d1-fa67-4f01-83d5-f62918027bd2" columns="2">
                             <style uid="8a1a8ee7-9db3-4d39-b8f8-e2f12b7f7100" constant="true" value="width:30%"/>
-                            <children xsi:type="tura.form:Table" uid="60269cda-16bf-4903-be00-039c759df97b" sourcePointer="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" columns="3" label="Permissions" rowNumber="5">
+                            <children xsi:type="tura.form:Table" nickname="PermissionTable" uid="60269cda-16bf-4903-be00-039c759df97b" sourcePointer="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" columns="3" label="Permissions" rowNumber="5">
                               <style uid="9562cb8e-5be7-42b0-8817-033e4a000a77" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                               <enabled uid="717ad341-55e8-4cf7-9291-b0f5c5696fa8"/>
                               <multiLangLabel uid="cfff8980-691f-40f3-a780-cce262e281c6" value="Application Message Libraries.Admin.PERMIOSSION_TABLE">
@@ -8610,10 +8609,16 @@
                       <multiLangLabel uid="2f8eaedb-592c-4f87-9171-eafb6104f6e9"/>
                     </canvases>
                     <canvases xsi:type="tura.form:PopupCanvas" uid="3fe24463-83f9-4b0e-ac9b-f10bc8bcd373" name="Popup role window">
-                      <viewElement xsi:type="tura.form:ViewArea" uid="0bfd3e71-2d5b-491b-9276-b5e89f275575" name="Popup role">
+                      <viewElement xsi:type="tura.form:ViewArea" nickname="" uid="0bfd3e71-2d5b-491b-9276-b5e89f275575" name="Popup role">
                         <style uid="0f649df4-848c-4c48-a57b-92a33352e78d"/>
                         <baseCanvas nickname="popupRole" uid="8b432c7c-3bce-4e59-a857-c67926cb29eb">
                           <style uid="e316d47f-37ad-4696-9d13-86e30c180710" constant="true" value="font: 15px arial, sans-serif;"/>
+                          <refreshAreas area="8b432c7c-3bce-4e59-a857-c67926cb29eb" group="2"/>
+                          <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                          <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
+                          <refreshAreas area="0bfd3e71-2d5b-491b-9276-b5e89f275575" group="2"/>
+                          <refreshAreas area="0bfd3e71-2d5b-491b-9276-b5e89f275575" group="1"/>
+                          <refreshAreas area="8b432c7c-3bce-4e59-a857-c67926cb29eb" group="1"/>
                           <children xsi:type="tura.form:Label" uid="9ba31bef-4c1e-41fa-8e56-04d5e690d37b" label="Role">
                             <style uid="cab4dd94-600c-46db-bbff-947eea8d26e8" constant="true" value="color: #0033CC;text-decoration: underline"/>
                             <multiLangLabel uid="1807d664-1517-496c-9652-493270996e62" value="Application Message Libraries.Admin.ROLE_TABLE_NAME">
@@ -8631,7 +8636,10 @@
                                 <expression objRef="ef51f050-01c8-4da6-afc0-8806a2165dfb" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" order="1" uid="209fecc8-58b9-479f-a9b5-4e2192d6ab71" sourcePointer="92ce9327-81b0-4cc0-9139-2658427d90bf" valuePointer="e0888675-798b-4fa6-85d4-eb112b307250"/>
+                            <children xsi:type="tura.form:InputText" nickname="roleNameInPopup" order="1" uid="209fecc8-58b9-479f-a9b5-4e2192d6ab71" sourcePointer="92ce9327-81b0-4cc0-9139-2658427d90bf" valuePointer="e0888675-798b-4fa6-85d4-eb112b307250">
+                              <style uid="8da0644e-3012-41aa-8130-618bf7b19e9a"/>
+                              <required uid="80930fab-209e-43b5-8a67-2a5d17c03ee3" constant="true" value="true"/>
+                            </children>
                             <children xsi:type="tura.form:MessageElement" order="2" uid="313a6340-0698-443e-bbd8-8c1c681faea3"/>
                           </children>
                           <children xsi:type="tura.form:Label" order="2" uid="b3ecada6-2de5-4c73-89f8-f14769173779" label="empty label"/>
@@ -8659,6 +8667,11 @@
                                 </parameters>
                                 <classifiers uid="f21af0be-861b-4607-b162-7b41df896179" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
+                              <refreshAreas area="209fecc8-58b9-479f-a9b5-4e2192d6ab71" group="1"/>
+                              <refreshAreas area="fa6f0019-159c-425a-9631-d63af067f624" group="1"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
+                              <refreshAreas area="8b432c7c-3bce-4e59-a857-c67926cb29eb" group="2"/>
                               <multiLangLabel uid="51c1c0fb-d268-47e5-881c-6a7da5fc22f8"/>
                               <icon uid="82ae0310-fe3f-45d4-9d8a-5cf161ff80e4" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -8696,6 +8709,8 @@
                                 </parameters>
                                 <classifiers uid="39eb4685-1d67-4178-b436-2ccae74f5d23" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
+                              <refreshAreas area="8b432c7c-3bce-4e59-a857-c67926cb29eb" group="2"/>
+                              <refreshAreas area="36d94dcd-8cc8-473a-9110-77faa350bd20" group="1"/>
                               <icon uid="5e8debd7-e208-441c-9e56-b44d0d0d521b" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
