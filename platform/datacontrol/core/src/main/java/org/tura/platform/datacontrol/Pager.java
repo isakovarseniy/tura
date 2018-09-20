@@ -95,9 +95,10 @@ public abstract class Pager<T> extends Pool {
 	}
 
 	public void cleanPager() throws TuraException {
+        //createShifter should be before cleanind entity  
+		createShifter();
 		entities = new LazyList<>();
 		startIndex = 0;
-		createShifter();
 	}
 
 	public int listSize() throws TuraException {

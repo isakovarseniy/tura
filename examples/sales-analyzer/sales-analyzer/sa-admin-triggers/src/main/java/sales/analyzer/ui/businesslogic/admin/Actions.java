@@ -8,6 +8,7 @@ import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.component.visit.VisitContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -16,14 +17,16 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
+import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 
-public class Actions {
+public class Actions implements EventAccessor{
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
+	private ActionEvent event;
 
 	@Inject
 	ELResolver elResolver;
@@ -35,6 +38,27 @@ public class Actions {
 	@Inject
 	Repository repository;
 
+	
+	@SuppressWarnings("rawtypes")
+	public void openRolePopup() {
+		try {
+			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+
+			DataControl dc = (DataControl) elResolver
+					.getValue("#{beanFactoryAdminAdministration.popupRole}");
+
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			bf.setRoleId(((Role) (row[2])).getId());
+			dc.forceRefresh();
+
+			dc.getCommandStack().savePoint();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	
 	
 	
 	@SuppressWarnings("rawtypes")
@@ -95,6 +119,11 @@ public class Actions {
 
 	}
 
-	
+	@Override
+	public void setEvent(ActionEvent event) {
+		this.event = event;
+
+	}
+
 	
 }

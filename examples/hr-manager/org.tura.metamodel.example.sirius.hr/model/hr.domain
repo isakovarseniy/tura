@@ -1868,6 +1868,7 @@
             </operations>
             <operations uid="f4490310-3f4d-419f-8ce2-f75ef4939a7a" name="applyChanges"/>
             <operations uid="0ba93d4a-094c-4d27-baa1-06a77c34088d" name="rallbackChanges"/>
+            <operations uid="76c4491c-8809-4126-9050-9ee83e09e41c" name="openRolePopup"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8465,6 +8466,25 @@
                                   <multiLangLabel uid="8885d36f-f6d3-41f1-82f5-5896385111eb"/>
                                   <element xsi:type="tura.form:Button" uid="ec38a314-1dd2-49cb-8054-3df79233801c" label="Edit role">
                                     <style uid="7c4a3d20-200f-453e-a269-254c83f209d8" constant="true" value="width:30px;height:30px"/>
+                                    <classifiers uid="e8d0a40f-330c-44e5-8d39-f4a253d965ef" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
+                                    <fields uid="a8811eb9-a187-443d-91f5-177078c236b5" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.openRolePopup()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="76c4491c-8809-4126-9050-9ee83e09e41c" order="4" expressionType="OperationImpl"/>
+                                    </fields>
+                                    <fields uid="40562d3e-85fe-4230-8543-52ec1c39a56a" value="Types repository.Base Repository.Model types.Model types::Client System library.showpopup()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="74f6e110-73a0-4c30-bc42-426cde36ac40" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="1f152769-4c90-481d-bfe0-c851d94321d3" order="4" expressionType="OperationImpl"/>
+                                      <parameters uid="1479f6eb-0469-47eb-bb65-f3881b3e3cc4" refObj="72c3e078-79be-43ac-a141-48c48b00328e">
+                                        <value uid="1d91a73b-8d12-4191-bbd2-a7ef1fcb9985" constant="true" value="popupRole"/>
+                                      </parameters>
+                                      <classifiers uid="a2c8ace2-b341-404d-a846-72a3f61b2ff3" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
+                                    </fields>
                                     <icon uid="68736a2e-6d7d-43f0-9925-b329f24df39b" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                       <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -8486,6 +8506,7 @@
                                   <style uid="206340c4-23b2-4a97-9022-551843216c6c" constant="true" value="width:40px"/>
                                   <element xsi:type="tura.form:Button" uid="cd6da45a-4593-4855-85b3-e392e3339794" label="Remove role">
                                     <style uid="bbf1ee23-4063-469f-bc9a-ac629ba62c00" constant="true" value="width:30px;height:30px"/>
+                                    <classifiers uid="6f1b4bbe-53e5-4c2d-aeeb-e3d3fa947a11" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
                                     <icon uid="1ad5de21-d2bf-4b3c-a022-a0c7682b0534" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                       <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -8956,6 +8977,14 @@
                           </value>
                         </parameters>
                       </search>
+                      <defaultSearch>
+                        <parameters uid="94edd7b2-ab51-4fe1-a781-a4450e62c318" refObj="d777ee00-48b7-4ef6-adf7-1017e7707670">
+                          <value uid="f37862ad-5cc8-40de-a9e9-6d67a8043f66" value="Form variables.roleId">
+                            <expression objRef="79ef1380-8823-416a-bd37-3ee64d24657e" expressionType="RootImpl"/>
+                            <expression objRef="0c9b087d-3a41-4939-992e-c78cfcb84ada" order="1" expressionType="FormVariableImpl"/>
+                          </value>
+                        </parameters>
+                      </defaultSearch>
                       <defaultOrderBy/>
                       <relationMappers uid="50ac8638-8325-453e-9d00-f43f8c287b35" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                       <relationMappers uid="77c25b05-627e-4d18-a9a8-bc491efd11da" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
