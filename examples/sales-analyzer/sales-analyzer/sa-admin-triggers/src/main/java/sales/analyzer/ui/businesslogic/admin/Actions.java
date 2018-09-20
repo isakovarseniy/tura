@@ -58,6 +58,23 @@ public class Actions implements EventAccessor{
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
+	public void deleteRole() {
+		try {
+			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+
+			DataControl dc = (DataControl) elResolver
+					.getValue("#{beanFactoryAdminAdministration.popupRole}");
+
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			bf.setRoleId(((Role) (row[2])).getId());
+			dc.forceRefresh();
+			dc.removeObject();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
 	
 	
 	

@@ -1869,6 +1869,7 @@
             <operations uid="f4490310-3f4d-419f-8ce2-f75ef4939a7a" name="applyChanges"/>
             <operations uid="0ba93d4a-094c-4d27-baa1-06a77c34088d" name="rallbackChanges"/>
             <operations uid="76c4491c-8809-4126-9050-9ee83e09e41c" name="openRolePopup"/>
+            <operations uid="b4e3f978-8fd6-454e-84d4-0a76fe0d018a" name="deleteRole"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8507,6 +8508,15 @@
                                   <element xsi:type="tura.form:Button" uid="cd6da45a-4593-4855-85b3-e392e3339794" label="Remove role">
                                     <style uid="bbf1ee23-4063-469f-bc9a-ac629ba62c00" constant="true" value="width:30px;height:30px"/>
                                     <classifiers uid="6f1b4bbe-53e5-4c2d-aeeb-e3d3fa947a11" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
+                                    <fields uid="8d39ebda-224f-4b85-81a0-8858b25d30ce" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.deleteRole()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="b4e3f978-8fd6-454e-84d4-0a76fe0d018a" order="4" expressionType="OperationImpl"/>
+                                    </fields>
+                                    <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                                    <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                                     <icon uid="1ad5de21-d2bf-4b3c-a022-a0c7682b0534" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                       <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
