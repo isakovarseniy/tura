@@ -152,14 +152,21 @@ public class SalesAnalyzerRecipe {
           	      		.setTargetName("api-extension-1.0.0-SNAPSHOT.jar")
           	      		.copyFromExternal();
 
-           		
+                   new CopyFile()
+          	      		.setSourceResource("sales-analyzer/assets/update_db.sql")
+         	      		.setTargetLocation(System.getProperty("user.home"))
+          	      		.setTargetName("update_db.sql")
+          	      		.copyFromClassPath();
+
+                   
+                   
            		new DoDeploy(jboss_home,"sa-admin.war")
                    		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war")
                    		.doDeployExploaded();
 
            		new DoDeploy(jboss_home,"sa-resources.war")
-           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war")
-           		.doDeployExploaded();
+		           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war")
+		           		.doDeployExploaded();
            		
            		
 	}

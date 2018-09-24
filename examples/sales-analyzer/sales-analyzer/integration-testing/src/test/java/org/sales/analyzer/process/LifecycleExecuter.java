@@ -39,6 +39,7 @@ public class LifecycleExecuter {
 			url = postgres.start("localhost", 5432, "postgres", "postgres", "postgres");
 // Create dump  pg_dump -Fc -U postgres postgres > ~/SalesAnalyzerDB.dump			
 			postgres.getProcess().get().restoreFromFile(new File(System.getProperty("user.home") + "/SalesAnalyzerDB.dump"));
+			postgres.getProcess().get().importFromFile(  new File(System.getProperty("user.home") +"/update_db.sql"  ));
 
 		} catch (IOException e) {
 			e.printStackTrace();

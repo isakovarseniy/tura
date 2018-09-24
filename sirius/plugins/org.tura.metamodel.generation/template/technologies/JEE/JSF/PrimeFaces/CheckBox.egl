@@ -32,8 +32,20 @@ operation form::CheckBox noContext(hash,value) {
 
 @template
 operation form::CheckBox rw(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+
 %]
 <p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
+[%
+       var expression = constructExpression(self,'onFieldUpdate',hints, hash);
+       if (expression <> ""){
+       %]  <p:ajax  listener="[%=expression%]"    [%=self.refreshArias()%]  />[%
+       }
+
+%]
+
    [%=self.validator(hash)%]
    [%=self.convertor(hash)%]
 </p:selectBooleanCheckbox>

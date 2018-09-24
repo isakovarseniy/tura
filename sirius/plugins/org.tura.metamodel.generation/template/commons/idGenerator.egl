@@ -5,6 +5,12 @@ operation form::Uielement  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
+
+operation form::Uielement  mkuid_(){ 
+   return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+
 @template
 operation form::ViewPort  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
