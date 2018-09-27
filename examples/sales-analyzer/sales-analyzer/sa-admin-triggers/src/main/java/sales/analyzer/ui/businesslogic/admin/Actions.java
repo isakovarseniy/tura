@@ -19,8 +19,14 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionReferencesArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.serialized.db.Permission;
+import org.tura.salesanalyzer.serialized.db.PermissionReferences;
+import org.tura.salesanalyzer.serialized.db.PermissionReferencesProxy;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 
 public class Actions implements EventAccessor {
@@ -78,10 +84,71 @@ public class Actions implements EventAccessor {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void modifyPermissions() {
+		try {
+			DataControl dcPermission = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
+			Permission  p =  (Permission) dcPermission.getCurrentObject();
+			
+			Boolean isSelected = new PermissionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
+            if (  isSelected != null && isSelected ) {
+	    			DataControl dcRef = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
+
+	    			PermissionReferencesProxy  pf= (PermissionReferencesProxy) dcRef.createObject();
+	    			pf.setPermission(p);
+	    			
+	    			PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter ((ObjectControl) pf);
+	    			ad.setPermissionDescription(p.getDescription());
+	    			ad.setPermissionName(p.getName());
+	    			
+	    			pf.notifyListner();
+            }
+			
+		
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 
 	}
 
+
+	public void applyPermissionsModification() {
+		UIComponent target = ViewModel.findComponent(IBeanFactory.PERMITIONSTABLE);
+		cleanup(target);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void rallbackPermissionsModification() {
+		try {
+			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
+			dc.getCommandStack().rallbackSavePoint();
+			
+			dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
+			dc.forceRefresh();
+
+			UIComponent target = ViewModel.findComponent(IBeanFactory.PERMITIONSTABLE);
+			cleanup(target);
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+		
+	}
+	
+	private void cleanup(UIComponent target) {
+		EditableValueHoldersVisitCallback visitCallback = new EditableValueHoldersVisitCallback();
+		target.visitTree(VisitContext.createVisitContext(FacesContext.getCurrentInstance()), visitCallback);
+
+		// iterate over found sub-components and reset their values
+		List<EditableValueHolder> editableValueHolders = visitCallback.getEditableValueHolders();
+		for (EditableValueHolder editableValueHolder : editableValueHolders) {
+			editableValueHolder.resetValue();
+		}
+		
+	}
+	
+	
+	
 	@SuppressWarnings("rawtypes")
 	public void deleteRole() {
 		try {
@@ -138,21 +205,17 @@ public class Actions implements EventAccessor {
 			dc.getCommandStack().rallbackSavePoint();
 
 			UIComponent target = ViewModel.findComponent(IBeanFactory.POPUPROLE);
+			cleanup(target);
 
-			EditableValueHoldersVisitCallback visitCallback = new EditableValueHoldersVisitCallback();
-			target.visitTree(VisitContext.createVisitContext(FacesContext.getCurrentInstance()), visitCallback);
-
-			// iterate over found sub-components and reset their values
-			List<EditableValueHolder> editableValueHolders = visitCallback.getEditableValueHolders();
-			for (EditableValueHolder editableValueHolder : editableValueHolders) {
-				editableValueHolder.resetValue();
-			}
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
 	}
 
+	
+	
+	
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;

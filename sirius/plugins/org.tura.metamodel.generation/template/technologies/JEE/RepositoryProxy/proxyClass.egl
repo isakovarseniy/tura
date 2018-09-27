@@ -62,6 +62,10 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
 
     
+    public void notifyListner() throws Exception {
+         notifyListner(this, null);
+    }
+
     
     public [%=tp.~fullName%] getWrappedObject(){
         return object;

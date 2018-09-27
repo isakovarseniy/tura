@@ -1874,6 +1874,8 @@
             <operations uid="b4e3f978-8fd6-454e-84d4-0a76fe0d018a" name="deleteRole"/>
             <operations uid="7928c7aa-a32d-4059-8594-ea1909b98fb6" name="modifyPermissions"/>
             <operations uid="2708cf6c-5f8e-4e56-a83c-3d7141151c51" name="openPermissionPopup"/>
+            <operations uid="e922e155-d9ad-4269-baea-ea9c191cc17b" name="applyPermissionsModification"/>
+            <operations uid="0238250d-5adc-4f09-b2ed-c70233b3bc2b" name="rallbackPermissionsModification"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8450,6 +8452,7 @@
                                 <enabled uid="61d7b917-f839-4954-be60-b8969ae01225"/>
                                 <required uid="4e4f726f-1780-43c7-a0ff-f220419fca82"/>
                                 <readOnly uid="5a8a800c-9427-41c9-b103-d9c717fbd73f"/>
+                                <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                                 <multiLangLabel uid="4271d256-4171-4182-b2c9-a7db69ab5320" value="Application Message Libraries.Admin.ROLE_TABLE_NAME">
                                   <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="2f090d5a-1893-4928-8138-0219223046dd" order="1" expressionType="MessageLibraryImpl"/>
@@ -8553,10 +8556,10 @@
                               </multiLangLabel>
                               <cols uid="a1f9bb17-8214-4cff-b8ea-78e834ac5b0e" label="Code">
                                 <style uid="560dc523-dc51-4720-9e3d-674ee1947898"/>
-                                <element xsi:type="tura.form:OutputText" uid="2827e73e-f01a-4b3d-bddf-ea069aef9979" valuePointer="a9850995-4235-48bc-8aa0-f63699c5ea30"/>
+                                <element xsi:type="tura.form:OutputText" uid="2827e73e-f01a-4b3d-bddf-ea069aef9979" valuePointer="c4e9dd1e-8a03-47f6-8f27-c425c48e374c"/>
                               </cols>
                               <cols order="1" uid="c3fc41c6-aea6-43b9-9502-c3dbbe64d5bb" label="Description">
-                                <element xsi:type="tura.form:OutputText" uid="17a134cd-abc8-4ffe-966d-b869e0d39b1c" valuePointer="d8f30a03-5366-42d7-a2a4-e3c51480fa50">
+                                <element xsi:type="tura.form:OutputText" uid="17a134cd-abc8-4ffe-966d-b869e0d39b1c" valuePointer="d66eec2e-15d9-4b30-a198-21c222c3a0a3">
                                   <style uid="d8a7842f-0c94-40c4-943b-168bdb3ac5bf"/>
                                 </element>
                               </cols>
@@ -8582,7 +8585,6 @@
                                   <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
                                   <expression objRef="2708cf6c-5f8e-4e56-a83c-3d7141151c51" order="4" expressionType="OperationImpl"/>
                                 </fields>
-                                <refreshAreas area="da7d6000-299d-4f95-a7e7-e9117ebfb94f" group="2"/>
                                 <icon uid="4ac49334-84fb-4893-a2aa-42aa68e5b11f" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -8694,6 +8696,14 @@
                                   </parameters>
                                   <classifiers uid="2cd108aa-cd45-466e-be8b-2de2ebca6ba1" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                                 </fields>
+                                <fields uid="b1cdcb19-ba9d-4678-a4d2-9bea40c9d817" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.applyPermissionsModification()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="e922e155-d9ad-4269-baea-ea9c191cc17b" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                                 <icon uid="ffd74dc4-48a9-496d-8492-f3fa96da5ef5" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -8723,6 +8733,14 @@
                                   </parameters>
                                   <classifiers uid="cd9ba0b8-f7b3-46bd-993a-46efe970dcb2" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                                 </fields>
+                                <fields uid="62ef1760-650d-4663-80b1-7673db5bee62" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.rallbackPermissionsModification()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="0238250d-5adc-4f09-b2ed-c70233b3bc2b" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                                 <icon uid="c94c8846-4c40-4c23-a830-8f13e80cce66" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9050,6 +9068,8 @@
                           </value>
                         </parameters>
                       </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c4e9dd1e-8a03-47f6-8f27-c425c48e374c" name="permission name"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d66eec2e-15d9-4b30-a198-21c222c3a0a3" name="permission description"/>
                       <defaultSearch/>
                       <defaultOrderBy/>
                       <relationMappers uid="0d2c9713-f31e-4ef4-9f02-57d1dedf8e23" typeRef="e12ef913-4fe6-49b1-af3b-58435b162739" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>

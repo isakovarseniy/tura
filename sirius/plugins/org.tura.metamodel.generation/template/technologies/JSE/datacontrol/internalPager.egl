@@ -20,8 +20,14 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
         this.datacontrol .setPager(this);
     }
 
+
 	@Override
-	protected Object connectObject(Object obj)  throws TuraException{
+	protected Object connectObject(Object obj) throws TuraException {
+		return connectObject(obj, true);
+	}
+
+
+	protected Object connectObject(Object obj, boolean isRunPostQueryTrigger ) throws TuraException {
         ((ObjectControl) obj).addListener(new UpdateListener());
 		org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
 		sp.setDataControl(datacontrol);
@@ -30,6 +36,13 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
         
 	    ((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(Constants.DATA_CONTROL, datacontrol);
         ((ObjectControl) obj).getAttributes().put(Constants.PARENT_OBJECT, getParent());
+        
+		if (isRunPostQueryTrigger) {
+			org.tura.platform.datacontrol.command.base.PostQueryTrigger trigger = datacontrol.getPostQueryTrigger();
+			if (trigger != null) {
+				trigger.execute(datacontrol, obj);
+			}
+		}
         
         
 		return obj;
@@ -54,7 +67,7 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 		if (trigger != null){
 		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject(),((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
 		}
-		return (T)connectObject(obj);
+			return (T) connectObject(obj,false);
 		}catch(Exception e){
 		  throw new TuraException(e);
 		}

@@ -22,7 +22,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter  
 			   return ([%=artificialField.typeRef.~fullName%])attributes.get("ATTRIBUTE_[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]");
 			}  
 			public void set[%=util.mergeAndCapitalize(artificialField.name)%]( [%=artificialField.typeRef.~fullName%] field){
-			   attributes.put("ATTRIBUTE_[%=artificialField.name.toUpperCase()%]",field);
+			   attributes.put("ATTRIBUTE_[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]",field);
 			
 			}
     [%
