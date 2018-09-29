@@ -109,7 +109,10 @@ public abstract class Pool {
 		ArrayList<PoolElement> array = new ArrayList<>();
 
 		Query query = new Query();
-		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_ASC);
+		
+		// !!  Shold be sorted DESC Do not change
+		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC);
+		
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
@@ -122,7 +125,9 @@ public abstract class Pool {
 		}
 
 		HashMap<Object, PoolElement> hash = new HashMap<>();
-
+		
+        // Querying only new objects. This why SORT DESC.
+		//Do not change. It could  bring  additional object from pool
 		for (PoolElement element : array) {
 			if (PoolCommand.C.name().equals(element.getOperation()))
 				hash.put(element.getKey(), element);
@@ -153,8 +158,13 @@ public abstract class Pool {
 		String strQuery = select.toSql(new JOSQLExpressionBuilder());
 		query.parse(strQuery);
 
-		for (String param : select.getParams().keySet())
+		for (String param : select.getParams().keySet()){
+        	if ( "null".equals( select.getParams().get(param) ) )  {
+                query.setVariable(param, null);
+                continue;
+        	}
 			query.setVariable(param, select.getParams().get(param));
+		}
 
 		QueryResults result = query.execute(array);
 

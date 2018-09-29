@@ -1,6 +1,12 @@
 <#assign number = "#" >
 package [%=objPackage%];
 
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+
+
 import java.util.List;
 
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
@@ -96,17 +102,21 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 		    org.josql.Query query = new org.josql.Query();
 			query.parse(strQuery);
             for (String var : p.keySet()){
+            	if ( "null".equals( p.get(var) ) )  {
+                    query.setVariable(var, null);
+                    continue;
+            	}
             	query.setVariable(var, p.get(var));
             }
 
 
               [%  if (rel.type.toString() == "One2Many" ){ %]
               java.util.ArrayList<[%=type.~fullName%]> lst = new java.util.ArrayList<[%=type.~fullName%]>();
-              lst.addAll(parent.get[%=property%]());
+              lst.addAll(parent.get[%=sourceMethodName%]());
               [% } %]
               [%  if (rel.type.toString() == "One2One" ){ %]
               java.util.ArrayList<[%=type.~fullName%]> lst = new java.util.ArrayList<[%=type.~fullName%]>();
-              lst.add((([%=parent.~fullName%])getParent()).get[%=property%]());
+              lst.add((([%=parent.~fullName%])getParent()).get[%=sourceMethodName%]());
               [% } %]
 	
 			  org.josql.QueryResults result = query.execute(lst);
@@ -134,10 +144,10 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 			   trigger.execute(datacontrol,obj);
 			}
               [%  if (rel.type.toString() == "One2Many" ){ %]
-	        (([%=parent.~fullName%])getParent()).get[%=property%]().remove(([%=type.~fullName%])obj);
+	        (([%=parent.~fullName%])getParent()).get[%=sourceMethodName%]().remove(([%=type.~fullName%])obj);
               [% } %]
               [%  if (rel.type.toString() == "One2One" ){ %]
-	        (([%=parent.~fullName%])getParent()).set[%=property%](null);
+	        (([%=parent.~fullName%])getParent()).set[%=sourceMethodName%](null);
               [% } %]
 	        
 	        getShifter().remove(datacontrol.getCurrentPosition());
@@ -155,6 +165,31 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 
 			datacontrol
 			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
+
+		    [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParent();
+		    if (parent != null ){
+
+			SearchCriteria sc = null;       
+			       
+			 [%for(  pk in primaryKey )  { %]
+
+			 sc = new SearchCriteria();
+			 sc.setName("[%=targetProperty%]");
+			 sc.setComparator(com.octo.java.sql.exp.Operator.NEQ.name());
+			 sc.setValue("null");
+             datacontrol.getSearchCriteria().add(sc);
+
+			 
+			 sc = new SearchCriteria();
+			 sc.setName("[%=targetProperty%].[%=util.mergeAndUnCapitalize(pk.name)%]");
+			 sc.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+			 sc.setValue(parent.get[%=util.mergeAndCapitalize(pk.name)%]());
+			 datacontrol.getSearchCriteria().add(sc);
+			 
+			 [%}%]
+			 
+          }
+
 
             org.tura.platform.datacontrol.command.base.PreQueryTrigger trigger = getDataControl().getPreQueryTrigger();
             if (trigger != null) {
@@ -270,10 +305,10 @@ public void prepareParameter(org.tura.platform.datacontrol.command.base.CallPara
                   }
               %]
               [%  if (rel.type.toString() == "One2Many" ){ %]
-                 parent.get[%=property%]().add(([%=type.~fullName%])obj);
+                 parent.get[%=sourceMethodName%]().add(([%=type.~fullName%])obj);
               [% } %]
               [%  if (rel.type.toString() == "One2One" ){ %]
-                 parent.set[%=property%]((([%=type.~fullName%])obj));
+                 parent.set[%=sourceMethodName%]((([%=type.~fullName%])obj));
               [% } %]
                  
                  putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);

@@ -73,7 +73,30 @@ operation  datacontrolgeneration(hash) {
 	        hash.put("rel",control.~rel);
 	        hash.put("property",control.~property);
             hash.put("objPackage",component.basePackage+"."+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pager");
+            hash.put("primaryKey", control.~masterControl.~keys);
 
+            var masterType =  control.~parenType.typeRef;
+            var rel = control.~rel;
+           if (masterType.uid.equals(rel.source.uid)  ){
+	            var h= rel.sourceSideNamesCalculation();
+	            
+	            hash.put("sourceMethodName",h.get("sourceMethodName"));
+	            hash.put("targetMethodName",h.get("targetMethodName"));
+	            
+	            hash.put("sourceProperty",h.get("sourceProperty"));
+	            hash.put("targetProperty",h.get("targetProperty"));
+	        
+			}
+	        if (masterType.uid.equals(rel.target.uid)  ){
+	            var h= rel.targetSideNamesCalculation();
+
+	            hash.put("sourceMethodName",h.get("targetMethodName"));
+	            hash.put("targetMethodName",h.get("sourceMethodName"));
+	            
+	            hash.put("sourceProperty",h.get("targetProperty"));
+	            hash.put("targetProperty",h.get("sourceProperty") );
+	        
+	        }
             var pager : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory);
             pager.setFormatter(f);
             buffer = pager.process();

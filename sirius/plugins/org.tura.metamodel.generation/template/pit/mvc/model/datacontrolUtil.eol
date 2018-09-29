@@ -56,6 +56,7 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
         self.~pagerType="internalPager" ; 
         self.~parenType=rel.master.baseType;
         self.~rel=assossiation;
+        self.~masterControl = rel.master;
         
      }else{
         self.~pagerType="topPager" ; 

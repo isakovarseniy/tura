@@ -564,7 +564,11 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 			
 [%  if ( not util.mergeAndCapitalize(uipackage.name).toLowerCase().equals("nestedformpackage") ) {%]			
 			newrow.setParentId(row.getParentId());
-[%}%]
+[%}else{%]		
+            newrow.setCity(((org.tura.platform.hr.objects.serialization.Street)row).getCity());
+
+[%}
+%]
 	          
 	        PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey(), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);

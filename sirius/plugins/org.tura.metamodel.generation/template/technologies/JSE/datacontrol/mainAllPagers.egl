@@ -17,7 +17,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
      var templateStore = new Native('java.util.HashMap');
      
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
- 
       if (types <> null and types.size <> 0 ){
             var typeCollection = new Native("java.util.ArrayList");
 
@@ -56,16 +55,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			        }else{
 			           continue;
 			        }
-
-                   hash.put("parent",masterType);
-                   hash.put("type",detailType);
-                   hash.put("rel",rel);
-                   hash.put("objPackage",detailType.~package+".pager");
-                   
-				   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
-			       pager.setFormatter(f);
-			       var buffer = pager.process();
-			       util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",buffer);   
+				    makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f);
 			        
 	             }
 	             if (topObject  ){
@@ -77,7 +67,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 					    hash.put("component",component);
 					    hash.put("model_mapper",model_mapper);
 	
-	
 				        var masterType =   hash.get("masterType");
 				        var detailType = hash.get("detailType");
 				        var property =  hash.get("property");
@@ -88,17 +77,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 				        }else{
 				           continue;
 				        }
-	
-	                   hash.put("parent",masterType);
-	                   hash.put("type",detailType);
-	                   hash.put("rel",rel);
-                       hash.put("objPackage",detailType.~package+".pager");
-	                   
-					   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
-				       pager.setFormatter(f);
-				       var buffer = pager.process();
-				       util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",buffer);   
-	             
+				        makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f);
+         
 	              }
 	             }
 	             if (topObject  ){
@@ -118,4 +98,56 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	             }
 	       }  
       }
+
+operation  makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f) {
+       var util = new Native('org.tura.metamodel.commons.Util');
+
+	   hash.put("parent",masterType);
+	   hash.put("type",detailType);
+	   hash.put("rel",rel);
+	   hash.put("objPackage",detailType.~package+".pager");
+	   hash.put("primaryKey", masterType.~primaryKey);
+	   
+	   if (masterType.uid.equals(rel.source.uid)   and  not masterType.uid.equals(detailType.uid)  ){
+	        var h= rel.sourceSideNamesCalculation();
+	        
+	        hash.put("sourceMethodName",h.get("sourceMethodName"));
+	        hash.put("targetMethodName",h.get("targetMethodName"));
+	        
+	        hash.put("sourceProperty",h.get("sourceProperty"));
+	        hash.put("targetProperty",h.get("targetProperty"));
+	    
+		}
+
+	    if (masterType.uid.equals(rel.target.uid)  and  not masterType.uid.equals(detailType.uid)){
+	    
+	        var h= rel.targetSideNamesCalculation();
+	
+	        hash.put("sourceMethodName",h.get("targetMethodName"));
+	        hash.put("targetMethodName",h.get("sourceMethodName"));
+	        
+	        hash.put("sourceProperty",h.get("targetProperty"));
+	        hash.put("targetProperty",h.get("sourceProperty"));
+	    
+	    }
+
+	    if ( masterType.uid.equals(detailType.uid)){
+	    
+	        var h= rel.targetSideNamesCalculation();
+	
+	        hash.put("sourceMethodName",h.get("sourceMethodName"));
+	        hash.put("targetMethodName",h.get("targetMethodName"));
+	        
+	        hash.put("sourceProperty",h.get("sourceProperty"));
+	        hash.put("targetProperty",h.get("targetProperty"));
+	    
+	    }
+
+   
+	   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
+	   pager.setFormatter(f);
+	   var buffer = pager.process();
+	   util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",buffer);   
+
+  }
 %]
