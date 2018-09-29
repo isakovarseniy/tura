@@ -165,6 +165,13 @@ public class NestedDCTest {
             
             assertNotEquals(newrow1.getObjId(), employee.getObjId());
             
+            departmentDC.prevObject();
+            employee = (Employee) emploeeDC.getCurrentObject();
+            assertEquals(newrow1.getObjId(), employee.getObjId());
+            
+            emploeeDC.nextObject();
+            employee = (Employee) emploeeDC.getCurrentObject();
+            assertNotEquals(newrow1.getObjId(), employee.getObjId());
             
 
         } catch (Exception e) {
