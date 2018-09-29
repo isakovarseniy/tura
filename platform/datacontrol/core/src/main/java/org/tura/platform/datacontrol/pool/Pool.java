@@ -109,7 +109,7 @@ public abstract class Pool {
 		ArrayList<PoolElement> array = new ArrayList<>();
 
 		Query query = new Query();
-		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC);
+		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_ASC);
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
