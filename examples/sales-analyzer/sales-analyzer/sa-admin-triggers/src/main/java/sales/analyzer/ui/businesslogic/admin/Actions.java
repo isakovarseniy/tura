@@ -114,9 +114,9 @@ public class Actions implements EventAccessor {
 						.getValue("#{beanFactoryAdminAdministration.permissionReferencesHelper}");
 				DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
 				Role role = (Role) dc.getCurrentObject();
-				
+
 				dcRefHelper.getDefaultSearchCriteria().clear();
-				
+
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName("role.id");
 				sc.setComparator(Operator.EQ.name());
@@ -153,12 +153,6 @@ public class Actions implements EventAccessor {
 		try {
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
 			dc.getCommandStack().rallbackSavePoint();
-
-			dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
-			dc.forceRefresh();
-
-			UIComponent target = ViewModel.findComponent(IBeanFactory.PERMITIONSTABLE);
-			cleanup(target);
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);

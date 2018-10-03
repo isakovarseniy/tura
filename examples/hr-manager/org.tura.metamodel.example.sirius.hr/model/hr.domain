@@ -8879,7 +8879,8 @@
                                 </parameters>
                                 <classifiers uid="39eb4685-1d67-4178-b436-2ccae74f5d23" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
-                              <refreshAreas area="8b432c7c-3bce-4e59-a857-c67926cb29eb" group="2"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                               <refreshAreas area="36d94dcd-8cc8-473a-9110-77faa350bd20" group="1"/>
                               <icon uid="5e8debd7-e208-441c-9e56-b44d0d0d521b" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>

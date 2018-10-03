@@ -24,17 +24,17 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 %]
 {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
     private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
 
-	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
+    private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
     public  [%=tp.~class%]Proxy([%=tp.~fullName%] object, org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
-    	this.object = object;
-    	this.stackProvider = stackProvider;
+        this.object = object;
+        this.stackProvider = stackProvider;
     }
     
     public void addListener( org.tura.platform.repository.proxy.ProxyObjectUpdateListener listener){
@@ -46,19 +46,19 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     
     public  Boolean getAttached(){
-    	return object.getAttached();
+        return object.getAttached();
     }
     
     
     public  [%=tp.~class%]Proxy clone(){
       com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
-      return  new [%=tp.~class%]Proxy( c.deepClone(object),null);
+      return  new [%=tp.~class%]Proxy( c.deepClone(object),stackProvider);
     }
     
     protected void notifyListner(ObjectControl obj , String property) throws Exception {
-    	for (ProxyObjectUpdateListener lst : listeners){
-    		lst.listener(obj, property);
-    	}
+        for (ProxyObjectUpdateListener lst : listeners){
+            lst.listener(obj, property);
+        }
     }
 
     
@@ -85,51 +85,51 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     
        public String getKey(){
-		  StringBuffer key = new StringBuffer();
-		  [%for ( field in tp.~primaryKey){%]
-		   key.append(object.get[%=util.mergeAndCapitalize(field.name)%]());
-		   [%}%]
-		  key.append("[%=tp.~fullName%]");
+          StringBuffer key = new StringBuffer();
+          [%for ( field in tp.~primaryKey){%]
+           key.append(object.get[%=util.mergeAndCapitalize(field.name)%]());
+           [%}%]
+          key.append("[%=tp.~fullName%]");
 
-		  return key.toString();
+          return key.toString();
       }
     
        public org.tura.platform.repository.core.RepoObjectKey getPrmaryKey() throws Exception{
           org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
           key.setType("[%=tp.~fullName%]");
-		  [%for ( field in tp.~primaryKey){%]
- 		   if (getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]() == null){
- 		       throw new Exception("Object primary key [%=field.name%]  is null");
- 		   }else{
-		   [%
-		     field.typeRef.mappingType2Java(recipe,ingredient);
-		   %]
- 		   org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("[%=util.mergeAndCapitalize(field.name)%]","[%=field.typeRef.~fullName%]",getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]().toString());
-		   key.addValue(value);
-		   }
-		   [%}%]
+          [%for ( field in tp.~primaryKey){%]
+            if (getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]() == null){
+                throw new Exception("Object primary key [%=field.name%]  is null");
+            }else{
+           [%
+             field.typeRef.mappingType2Java(recipe,ingredient);
+           %]
+            org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("[%=util.mergeAndCapitalize(field.name)%]","[%=field.typeRef.~fullName%]",getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]().toString());
+           key.addValue(value);
+           }
+           [%}%]
 
-		  return key;
+          return key;
       }
     
       public org.tura.platform.repository.core.RepoKeyPath getPath() throws Exception{
       [%
-	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
          if (assosiations.size() <> 0){
-	          for (rel in assosiations){
-			     var hash = rel.targetSideNamesCalculation();
-			     %]
-	              if (get[%=hash.get("targetMethodName")%]() != null){
-	                 org.tura.platform.repository.core.RepoKeyPath path = ((org.tura.platform.repository.core.ObjectControl) get[%=hash.get("targetMethodName")%]()).getPath();   
+              for (rel in assosiations){
+                 var hash = rel.targetSideNamesCalculation();
+                 %]
+                  if (get[%=hash.get("targetMethodName")%]() != null){
+                     org.tura.platform.repository.core.RepoKeyPath path = ((org.tura.platform.repository.core.ObjectControl) get[%=hash.get("targetMethodName")%]()).getPath();   
                      path.addRepoObjectKey("[%=hash.get("sourceMethodName")%]" ,getPrmaryKey());
                      return path;
-	              }		     
-			     [%
-	         }
-	         %]
-	           throw new Exception ("Object is not connected to the parent object");
-	         [%
-	         
+                  }             
+                 [%
+             }
+             %]
+               throw new Exception ("Object is not connected to the parent object");
+             [%
+             
          }else{
          %]
            org.tura.platform.repository.core.RepoKeyPath path = new org.tura.platform.repository.core.RepoKeyPath ();
@@ -145,9 +145,9 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     String str = "";
     [%
     for (field in tp.attributes){
-	     if (tp.~skipAttributes.contains(field) ){
-	        continue; 
-	     }   
+         if (tp.~skipAttributes.contains(field) ){
+            continue; 
+         }   
     %]
       str = str + " [%=field.name%] = "+ getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]();
     [%
@@ -162,29 +162,29 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     [%
     var type = tp;
     while (1 == 1){
-	     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
-	 	 for ( rel in assosiations  ){
-		  	 switch  (rel.type.toString()){
-		         case "One2One" :  %][%=rel.one2oneSrcAttachment(recipe,ingredient,model_mapper)%][%
-		         case "One2Many" : %][%=rel.one2manySrcAttachment(recipe,ingredient,model_mapper)%][%
-		         case "Many2Many" : %][%
-		     }
-	         
-	     }			
-		  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
-	      for (rel in assosiations){
-		  	 switch  (rel.type.toString()){
-		         case "One2One" :  %][%=rel.one2oneTrgAttachment(recipe,ingredient,model_mapper)%][%
-		         case "One2Many" : %][%
-		         case "Many2Many" : %][%
-		     }
-	      }		
-	      
-	    if (type.~extension.isDefined()){
-	       type = type.~extension;
-	    }else{
-	       break;
-	    }
+         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
+          for ( rel in assosiations  ){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneSrcAttachment(recipe,ingredient,model_mapper)%][%
+                 case "One2Many" : %][%=rel.one2manySrcAttachment(recipe,ingredient,model_mapper)%][%
+                 case "Many2Many" : %][%
+             }
+             
+         }            
+          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+          for (rel in assosiations){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneTrgAttachment(recipe,ingredient,model_mapper)%][%
+                 case "One2Many" : %][%
+                 case "Many2Many" : %][%
+             }
+          }        
+          
+        if (type.~extension.isDefined()){
+           type = type.~extension;
+        }else{
+           break;
+        }
   }
 %]
 }
@@ -193,78 +193,78 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     var type = tp;
     while (1 == 1){
     
-		for ( field in type.attributes){
-		     if (type.~skipAttributes.contains(field) ){
-		        continue; 
-		     }   
-		    field.typeRef.mappingType2Java(recipe,ingredient);
-		    if (field.pk){
+        for ( field in type.attributes){
+             if (type.~skipAttributes.contains(field) ){
+                continue; 
+             }   
+            field.typeRef.mappingType2Java(recipe,ingredient);
+            if (field.pk){
 %]
-	      @Override
-		  public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
-		       return object.get[%=util.mergeAndCapitalize(field.name)%]();
+          @Override
+          public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
+               return object.get[%=util.mergeAndCapitalize(field.name)%]();
           }
 
-	      @Override
-		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
-	    	if ( object.getAttached() == null || !object.getAttached()){
-			       object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
-	    	}else{
-	    		throw new RuntimeException("Could  not modify primary key on attached object");
-	    	}
+          @Override
+          public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
+            if ( object.getAttached() == null || !object.getAttached()){
+                   object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+            }else{
+                throw new RuntimeException("Could  not modify primary key on attached object");
+            }
           }
-[%		    
-		    }else{
+[%            
+            }else{
 %]
-	      @Override
-		  public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
-		       return object.get[%=util.mergeAndCapitalize(field.name)%]();
+          @Override
+          public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
+               return object.get[%=util.mergeAndCapitalize(field.name)%]();
           }
 
-	      @Override
-		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
-			  try{
-			    	if ( object.getAttached() == null || !object.getAttached()){
-					     object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
-					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
-			            return;
-			    	}
-			    	org.tura.platform.repository.operation.UpdateObjectOperation command = new org.tura.platform.repository.operation.UpdateObjectOperation();
-			
-			        command.setProxy(this);
-			        command.setNewValue([%=util.mergeAndUnCapitalize(field.name)%]);
-			        command.setOldValue(object.get[%=util.mergeAndCapitalize(field.name)%]());
-			        command.setProperty("[%=util.mergeAndCapitalize(field.name)%]");
-			        command.setStackProvider(stackProvider);
-			        if (command.prepare()){
-			            object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
-					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
-			        }
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-	          }
-[%		    
-		    }
-		}
-		
- 	 var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
- 	 for ( rel in assosiations  ){
-	  	 switch  (rel.type.toString()){
-	         case "One2One" :  %][%=rel.one2oneSrc(recipe,ingredient,model_mapper)%][%
-	         case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper)%][%
-	         case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper)%][%
-	     }
+          @Override
+          public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
+              try{
+                    if ( object.getAttached() == null || !object.getAttached()){
+                         object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+                         notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
+                        return;
+                    }
+                    org.tura.platform.repository.operation.UpdateObjectOperation command = new org.tura.platform.repository.operation.UpdateObjectOperation();
+            
+                    command.setProxy(this);
+                    command.setNewValue([%=util.mergeAndUnCapitalize(field.name)%]);
+                    command.setOldValue(object.get[%=util.mergeAndCapitalize(field.name)%]());
+                    command.setProperty("[%=util.mergeAndCapitalize(field.name)%]");
+                    command.setStackProvider(stackProvider);
+                    if (command.prepare()){
+                        object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+                         notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
+                    }
+                  }catch(Exception e){
+                    throw new RuntimeException(e);
+                  }
+              }
+[%            
+            }
+        }
+        
+      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      for ( rel in assosiations  ){
+           switch  (rel.type.toString()){
+             case "One2One" :  %][%=rel.one2oneSrc(recipe,ingredient,model_mapper)%][%
+             case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper)%][%
+             case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper)%][%
+         }
          
-     }			
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+     }            
+      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
       for (rel in assosiations){
-	  	 switch  (rel.type.toString()){
-	         case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper)%][%
-	         case "One2Many" : %][%=rel.one2manyTrg(recipe,ingredient,model_mapper)%][%
-	         case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper)%][%
-	     }
-      }		
+           switch  (rel.type.toString()){
+             case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper)%][%
+             case "One2Many" : %][%=rel.one2manyTrg(recipe,ingredient,model_mapper)%][%
+             case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper)%][%
+         }
+      }        
       
     if (type.~extension.isDefined()){
        type = type.~extension;
@@ -272,7 +272,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
        break;
     }
       
-}		    
+}            
 %]
 }        
       
@@ -379,48 +379,48 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
         if (masterType.uid == self.source.uid ){
         %]
        try{
-		   if ( object.getAttached() == null || !object.getAttached()){
-		        if ([%=hash.get("sourceProperty")%] != null){
-	               object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-	               (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
-	             }else{
-	               object.set[%=hash.get("sourceMethodName")%](null);
-	             }
-	            return;
-	   	    }
-	   	    if (([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()) != null){
-	   	    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	    	command.setMaster(this);
-	        command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
-		    command.setStackProvider(stackProvider);
-			command.setRelationType("One2One");
-			command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+           if ( object.getAttached() == null || !object.getAttached()){
+                if ([%=hash.get("sourceProperty")%] != null){
+                   object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                   (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+                 }else{
+                   object.set[%=hash.get("sourceMethodName")%](null);
+                 }
+                return;
+               }
+               if (([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()) != null){
+               org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+            command.setMaster(this);
+            command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
+            command.setStackProvider(stackProvider);
+            command.setRelationType("One2One");
+            command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+            command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 
-	        command.prepare();
-	        object.set[%=hash.get("sourceMethodName")%](null);
-	        
-	        }
-	          if ([%=hash.get("sourceProperty")%] != null){
-	          	org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-		
-		    	command2.setMaster(this);
-		        command2.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
-			    command2.setRelationType("One2One");
-			    command2.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			    command2.setDetailProperty("[%=hash.get("targetMethodName")%]");
-			    
-		        command2.setStackProvider(stackProvider);
-		
-		        if (command2.prepare()){
-		            object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-		            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
-		        }
-		     }
-	     }catch(Exception e){
+            command.prepare();
+            object.set[%=hash.get("sourceMethodName")%](null);
+            
+            }
+              if ([%=hash.get("sourceProperty")%] != null){
+                  org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+        
+                command2.setMaster(this);
+                command2.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
+                command2.setRelationType("One2One");
+                command2.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                command2.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                
+                command2.setStackProvider(stackProvider);
+        
+                if (command2.prepare()){
+                    object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                    (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+                }
+             }
+         }catch(Exception e){
             throw new RuntimeException(e);
           }
-	     
+         
         [%
         }else{
         %]
@@ -460,77 +460,77 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
-    	return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
-    		
-    		@Override
-    		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-    		try{
-		    	  if ( object.getAttached() == null || !object.getAttached()){
-	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
-	    	            return;
-	    	    	}
-	    	    	
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-	    	    	command.setMaster( [%=hash.get("source").~class%]Proxy.this);
-	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
-			        command.setRelationType("One2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-		            command.setStackProvider(stackProvider);
-	
-	    	        if (command.prepare()){
-	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
-	    	        }
-	          }catch(Exception e){
-	            throw new RuntimeException(e);
-	          }
-    		}
+        return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
+            
+            @Override
+            public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+            try{
+                  if ( object.getAttached() == null || !object.getAttached()){
+                        object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                        (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+                        return;
+                    }
+                    
+                      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+                    command.setMaster( [%=hash.get("source").~class%]Proxy.this);
+                    command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
+                    command.setRelationType("One2Many");
+                    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                    command.setStackProvider(stackProvider);
+    
+                    if (command.prepare()){
+                        object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                        (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+                    }
+              }catch(Exception e){
+                throw new RuntimeException(e);
+              }
+            }
 
-       		@Override
-       	    public [%=hash.get("target").~fullName%] remove(int index) {
-       	    try{
-		    	if ( object.getAttached() == null || !object.getAttached()){
-	    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
-	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
-	    	    	}
-	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	    	    	command.setMaster([%=hash.get("source").~class%]Proxy.this);
-	    	        command.setDetail(([%=detailType.~package%].[%=detailType.~class%]Proxy)([%=hash.get("source").~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
-			        command.setRelationType("One2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-		            command.setStackProvider(stackProvider);
-	
-	    	        if (command.prepare()){
-	    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
-	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
-	    	        }
-	    	        return null;
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-    	    }
+               @Override
+               public [%=hash.get("target").~fullName%] remove(int index) {
+               try{
+                if ( object.getAttached() == null || !object.getAttached()){
+                        object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
+                        return object.get[%=hash.get("sourceMethodName")%]().remove(index);
+                    }
+                    
+                       org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+                    command.setMaster([%=hash.get("source").~class%]Proxy.this);
+                    command.setDetail(([%=detailType.~package%].[%=detailType.~class%]Proxy)([%=hash.get("source").~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
+                    command.setRelationType("One2Many");
+                    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                    command.setStackProvider(stackProvider);
+    
+                    if (command.prepare()){
+                        object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
+                        return object.get[%=hash.get("sourceMethodName")%]().remove(index);
+                    }
+                    return null;
+                  }catch(Exception e){
+                    throw new RuntimeException(e);
+                  }
+            }
 
-    		
-			@Override
-			public [%=hash.get("target").~fullName%] get(int index) {
-				[%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = object.get[%=hash.get("sourceMethodName")%]().get(index);
-				if ([%=hash.get("sourceProperty")%] instanceof [%=hash.get("target").~fullName%]Proxy){
-					return [%=hash.get("sourceProperty")%];
-				}else{
-				   return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]().get(index),stackProvider);
-				}
-			}
+            
+            @Override
+            public [%=hash.get("target").~fullName%] get(int index) {
+                [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = object.get[%=hash.get("sourceMethodName")%]().get(index);
+                if ([%=hash.get("sourceProperty")%] instanceof [%=hash.get("target").~fullName%]Proxy){
+                    return [%=hash.get("sourceProperty")%];
+                }else{
+                   return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]().get(index),stackProvider);
+                }
+            }
 
-			@Override
-			public int size() {
-				return object.get[%=hash.get("sourceMethodName")%]().size();
-			}
-    		
-		};
+            @Override
+            public int size() {
+                return object.get[%=hash.get("sourceMethodName")%]().size();
+            }
+            
+        };
      }
      [%
      }else{
@@ -577,80 +577,80 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
-    	return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
-    		
-    		@Override
-    		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-    		try{
-		    	if ( object.getAttached() == null || !object.getAttached()){
-	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
-	    	            return;
-	    	    	}
-	    	    	
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-	    	    	command.setMaster ( [%=masterType.~class%]Proxy.this );
-	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
-			        command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-		            command.setStackProvider(stackProvider);
-	 
-	    	        if (command.prepare()){
-	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
-	    	        }
-	          }catch(Exception e){
-	            throw new RuntimeException(e);
-	          }
-    		}
+        return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
+            
+            @Override
+            public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+            try{
+                if ( object.getAttached() == null || !object.getAttached()){
+                        object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                        (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
+                        return;
+                    }
+                    
+                      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+                    command.setMaster ( [%=masterType.~class%]Proxy.this );
+                    command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
+                    command.setRelationType("Many2Many");
+                    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                    command.setStackProvider(stackProvider);
+     
+                    if (command.prepare()){
+                        object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+                        (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
+                    }
+              }catch(Exception e){
+                throw new RuntimeException(e);
+              }
+            }
 
-       		@Override
-       	    public [%=hash.get("target").~fullName%] remove(int index) {
-       	    try{
-		    	if ( object.getAttached() == null || !object.getAttached()){
-	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
-	    	    		m.get[%=hash.get("targetMethodName")%]().remove(object);
-	    	            return m;
-	    	    	}
-	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	    	    	command.setMaster ( [%=masterType.~class%]Proxy.this );
-	    	        command.setDetail( (org.tura.platform.repository.core.ObjectControl)  (  [%=masterType.~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
-		            command.setStackProvider(stackProvider);
-				    command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-	
-	    	        if (command.prepare()){
-	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
-	    	    		m.get[%=hash.get("targetMethodName")%]().remove(object);
-	    	            return m;
-	    	        }
-	    	        return null;
-	          }catch(Exception e){
-	            throw new RuntimeException(e);
-	          }
-    	        
-    	    }
+               @Override
+               public [%=hash.get("target").~fullName%] remove(int index) {
+               try{
+                if ( object.getAttached() == null || !object.getAttached()){
+                        [%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
+                        m.get[%=hash.get("targetMethodName")%]().remove(object);
+                        return m;
+                    }
+                    
+                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+                    command.setMaster ( [%=masterType.~class%]Proxy.this );
+                    command.setDetail( (org.tura.platform.repository.core.ObjectControl)  (  [%=masterType.~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
+                    command.setStackProvider(stackProvider);
+                    command.setRelationType("Many2Many");
+                    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+    
+                    if (command.prepare()){
+                        [%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
+                        m.get[%=hash.get("targetMethodName")%]().remove(object);
+                        return m;
+                    }
+                    return null;
+              }catch(Exception e){
+                throw new RuntimeException(e);
+              }
+                
+            }
 
-    		
-			@Override
-			public [%=hash.get("target").~fullName%] get(int index) {
-				[%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = object.get[%=hash.get("sourceMethodName")%]().get(index);
-				if ([%=hash.get("sourceProperty")%] instanceof [%=hash.get("target").~fullName%]Proxy){
-					return [%=hash.get("sourceProperty")%];
-				}else{
-				   return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]().get(index),stackProvider);
-				}
-			}
+            
+            @Override
+            public [%=hash.get("target").~fullName%] get(int index) {
+                [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = object.get[%=hash.get("sourceMethodName")%]().get(index);
+                if ([%=hash.get("sourceProperty")%] instanceof [%=hash.get("target").~fullName%]Proxy){
+                    return [%=hash.get("sourceProperty")%];
+                }else{
+                   return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]().get(index),stackProvider);
+                }
+            }
 
-			@Override
-			public int size() {
-				return object.get[%=hash.get("sourceMethodName")%]().size();
-			}
-    		
-		};
+            @Override
+            public int size() {
+                return object.get[%=hash.get("sourceMethodName")%]().size();
+            }
+            
+        };
      }
      [%
      }else{
@@ -697,45 +697,45 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
         if (masterType.uid == self.target.uid ){
         %]
         try{
-			   if ( object.getAttached() == null || !object.getAttached()){
-			     if ([%=hash.get("targetProperty")%] != null){
-		            object.set[%=hash.get("targetMethodName")%](  (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-		            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
-		           }else{
-		              object.set[%=hash.get("targetMethodName")%](  null );
-		           }
-		            return;
-		   	    }
-		   	    
-		   	    if(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()) != null){
-	   	        org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-		    	command.setMaster(this);
-		        command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
-			    command.setStackProvider(stackProvider);
-			    command.setRelationType("One2One");
-			    command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			    command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
-			    
-		        command.prepare();
-		        object.set[%=hash.get("targetMethodName")%](  null );
-		        
-		        }
-		
-		           if ([%=hash.get("targetProperty")%] != null){
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-			
-			    	command2.setMaster(this);
-			        command2.setDetail((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]));
-			        command2.setRelationType("One2One");
-			        command2.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command2.setDetailProperty("[%=hash.get("sourceMethodName")%]");
-			        command2.setStackProvider(stackProvider);
-			
-			        if (command2.prepare()){
-			            object.set[%=hash.get("targetMethodName")%]((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-			            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
-			        }
-			       }
+               if ( object.getAttached() == null || !object.getAttached()){
+                 if ([%=hash.get("targetProperty")%] != null){
+                    object.set[%=hash.get("targetMethodName")%](  (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+                    (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
+                   }else{
+                      object.set[%=hash.get("targetMethodName")%](  null );
+                   }
+                    return;
+                   }
+                   
+                   if(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()) != null){
+                   org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+                command.setMaster(this);
+                command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
+                command.setStackProvider(stackProvider);
+                command.setRelationType("One2One");
+                command.setMasterProperty("[%=hash.get("targetMethodName")%]");
+                command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+                
+                command.prepare();
+                object.set[%=hash.get("targetMethodName")%](  null );
+                
+                }
+        
+                   if ([%=hash.get("targetProperty")%] != null){
+                      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+            
+                    command2.setMaster(this);
+                    command2.setDetail((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]));
+                    command2.setRelationType("One2One");
+                    command2.setMasterProperty("[%=hash.get("targetMethodName")%]");
+                    command2.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+                    command2.setStackProvider(stackProvider);
+            
+                    if (command2.prepare()){
+                        object.set[%=hash.get("targetMethodName")%]((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+                        (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
+                    }
+                   }
           }catch(Exception e){
             throw new RuntimeException(e);
           }
@@ -823,79 +823,79 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
-    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
-    		
-    		@Override
-    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
-    		   try{
-			    	if ( object.getAttached() == null || !object.getAttached()){
-	    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-	    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
-		    	            return;
-		    	    	}
-		    	    	
-	          	        org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-		    	    	command.setMaster( ([%=util.mergeAndCapitalize(masterType.~class)%]Proxy) [%=hash.get("targetProperty")%]);
-		    	        command.setDetail(  [%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this);
-			            command.setRelationType("Many2Many");
-			            command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			            command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-			            command.setStackProvider(stackProvider);
-		
-		    	        if (command.prepare()){
-		    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
-		    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
-		    	        }
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-    		}
+        return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
+            
+            @Override
+            public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+               try{
+                    if ( object.getAttached() == null || !object.getAttached()){
+                        object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+                        (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
+                            return;
+                        }
+                        
+                          org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+                        command.setMaster( ([%=util.mergeAndCapitalize(masterType.~class)%]Proxy) [%=hash.get("targetProperty")%]);
+                        command.setDetail(  [%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this);
+                        command.setRelationType("Many2Many");
+                        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                        command.setStackProvider(stackProvider);
+        
+                        if (command.prepare()){
+                            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+                            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
+                        }
+                  }catch(Exception e){
+                    throw new RuntimeException(e);
+                  }
+            }
 
-       		@Override
-       	    public [%=hash.get("source").~fullName%] remove(int index) {
-       	     try{
-		    	  if ( object.getAttached() == null || !object.getAttached()){
-	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
-	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
-	    	            return m;
-	    	    	}
-	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	    	    	command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
-	    	        command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
-			        command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
-		            command.setStackProvider(stackProvider);
-	
-	    	        if (command.prepare()){
-	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
-	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
-	    	            return m;
-	    	        }
-	    	        return null;
-		          }catch(Exception e){
-		            throw new RuntimeException(e);
-		          }
-    	    }
+               @Override
+               public [%=hash.get("source").~fullName%] remove(int index) {
+                try{
+                  if ( object.getAttached() == null || !object.getAttached()){
+                        [%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+                        m.get[%=hash.get("sourceMethodName")%]().remove(m);
+                        return m;
+                    }
+                    
+                       org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+                    command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
+                    command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
+                    command.setRelationType("Many2Many");
+                    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+                    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+                    command.setStackProvider(stackProvider);
+    
+                    if (command.prepare()){
+                        [%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+                        m.get[%=hash.get("sourceMethodName")%]().remove(m);
+                        return m;
+                    }
+                    return null;
+                  }catch(Exception e){
+                    throw new RuntimeException(e);
+                  }
+            }
 
-    		
-			@Override
-			public [%=hash.get("source").~fullName%] get(int index) {
-				[%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
-				if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
-					return [%=hash.get("targetProperty")%];
-				}else{
-				   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index),stackProvider);
-				}
-			}
+            
+            @Override
+            public [%=hash.get("source").~fullName%] get(int index) {
+                [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
+                if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
+                    return [%=hash.get("targetProperty")%];
+                }else{
+                   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index),stackProvider);
+                }
+            }
 
-			@Override
-			public int size() {
-				return object.get[%=hash.get("targetMethodName")%]().size();
-			}
-    		
-		};
+            @Override
+            public int size() {
+                return object.get[%=hash.get("targetMethodName")%]().size();
+            }
+            
+        };
      }
      [%
      }
