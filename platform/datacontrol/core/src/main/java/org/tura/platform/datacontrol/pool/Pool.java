@@ -111,7 +111,7 @@ public abstract class Pool {
 		Query query = new Query();
 		
 		// !!  Shold be sorted DESC Do not change
-		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC);
+		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_ASC);
 		
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("beginTimeStamp", beginTimeStamp);

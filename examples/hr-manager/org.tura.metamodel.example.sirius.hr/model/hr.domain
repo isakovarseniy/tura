@@ -1612,9 +1612,6 @@
           <relationships xsi:type="tura.type:Assosiation" uid="0b641a50-948c-4c45-a083-766506061c54" source="6a839ad9-3972-442e-be73-4b7c145e6429" target="94151b3a-add7-4cd8-a638-6ed8c37e9063" type="One2Many">
             <links uid="4be12c98-abb2-48f3-8886-da50b893863a" masterField="96d9355b-421b-4812-98f4-d9d9acf40e7b" detailField="91eff220-ae80-4f41-bec6-be775f879a6e"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="0a6401ae-e85d-4205-80c2-a153d0965918" source="94151b3a-add7-4cd8-a638-6ed8c37e9063" target="00cfa20a-f76b-45d1-ae9f-a382cf50f85c" type="One2Many">
-            <links uid="bf4e090e-82c0-4261-87d1-7f4e74f8030a" masterField="96d9355b-421b-4812-98f4-d9d9acf40e7b" detailField="150385fe-c92d-494c-abe1-bd6573925f1a"/>
-          </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="4498de0f-b9d9-42c7-a1e1-15b5f1d1b63a" source="00cfa20a-f76b-45d1-ae9f-a382cf50f85c" target="4c78d946-5297-4b4c-9189-69eacd34da65" type="One2Many">
             <links uid="962b65d5-c7c3-461d-849c-35b8423827f4" masterField="96d9355b-421b-4812-98f4-d9d9acf40e7b" detailField="da6181fa-ac64-4ccb-bde4-5f733bc81ce5"/>
           </relationships>
@@ -2499,7 +2496,7 @@
                         </mappers>
                         <mappers uid="81ea40f0-7b50-47f4-a625-0ce92a44408d" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" uid="9885f08d-1c1d-4af3-acba-34795fb0ce34" name="Triggers" componentRoot="${External path 1}" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="9885f08d-1c1d-4af3-acba-34795fb0ce34" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
                         <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/hr-simple-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2532,7 +2529,7 @@
                         </mappers>
                         <mappers uid="cf2e94ba-c572-4d55-95b6-6ec132c5f3ef" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" uid="39db2632-0f22-4ddd-90c4-c70d5f8a9136" name="Triggers" componentRoot="${External path 1}" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="39db2632-0f22-4ddd-90c4-c70d5f8a9136" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform">
                         <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/hr-complex-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2565,7 +2562,7 @@
                         </mappers>
                         <mappers uid="3954b242-ef8f-4068-aeb3-d7038d4f5d81" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" uid="2f5cdcb2-9ff8-4e8f-a296-fc47acba4b45" name="Triggers" componentRoot="${External path 1}" artifactId="jpa-test-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="2f5cdcb2-9ff8-4e8f-a296-fc47acba4b45" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="jpa-test-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
                         <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/jpa-test-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2585,7 +2582,7 @@
                   <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
                     <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
                     <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples/rest-services"/>
+                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                   </configurations>
                   <infrastructures uid="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" name="Development"/>
                   <recipe2Infrastructures uid="dbc26269-9c00-45bc-8dca-f10535597578" source="7ee0d7d5-b270-4c71-b18e-4201158b1152" target="5d499be9-cf3b-4ef5-8e72-85ceec683c6c"/>
@@ -8017,26 +8014,35 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="6" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives" skip="true">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Triggers and etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
-                        <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers and etc Build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/sales-analyzer//builder.sh">
+                    <ingredients columns="2" order="6" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Testing" componentRoot="${External path 1}/sales-analyzer/testing">
+                        <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Testing" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/testing//builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
                       </components>
+                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="f4d79cf9-a880-4bc0-a8ec-1c6e2a6e7058" name="Triggers etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
+                        <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/sales-analyzer//builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                        </mappers>
+                      </components>
                     </ingredients>
                     <deplymentStep mapper="df1ec71e-5c76-4dd2-b25d-94d897087c36" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
-                    <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
-                    <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
-                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
+                    <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
+                    <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
+                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
                     <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="65e4013f-e969-4cc4-8dec-28f64588b697" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
+                    <deplymentStep mapper="65e4013f-e969-4cc4-8dec-28f64588b697" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
                     <deplymentStep mapper="fc3dac6a-6bab-4c73-9805-e1d5192af10a" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
-                    <deplymentStep mapper="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
-                    <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de"/>
-                    <deplymentStep mapper="3c838fe3-958d-4315-821c-246f8bd93b23" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
+                    <deplymentStep mapper="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.10"/>
+                    <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
+                    <deplymentStep mapper="3c838fe3-958d-4315-821c-246f8bd93b23"/>
+                    <deplymentStep mapper="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
@@ -9135,6 +9141,60 @@
                       <defaultOrderBy/>
                       <relationMappers uid="50ac8638-8325-453e-9d00-f43f8c287b35" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                       <relationMappers uid="77c25b05-627e-4d18-a9a8-bc491efd11da" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
+                    </controls>
+                    <controls uid="29a3a13d-b4d2-462f-a085-331c0745d2c2" name="Permission References  Helper">
+                      <baseType typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="34e6c1ea-4d08-420f-9269-6f91e4a14b50">
+                        <parameters uid="a4f31b00-6a39-4bde-9da4-0f160b1aeda3" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="cc5b6f02-bc58-40f6-9c5b-fc43fbad842b" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="19245005-09ac-4bac-aadb-f168676c07d9" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="3522e8b7-1e34-4b0c-a8a6-d6fada6a72ea" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="9af4eb2e-17b7-4713-88a3-e08bc7560a3d" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="3438d69e-6756-4341-ab94-3ec7cc4cb4e4" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="20ad926f-ff8f-4467-8b7e-e410fe69a109">
+                        <parameters uid="287d0561-824d-4dbe-ab93-a4c0aaab219b" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="c4038468-6718-429d-9c17-1c5854d2a3f2" value="Data controls.Permission References  Helper.searchCriteria">
+                            <expression uid="1c7f8d2b-f94a-4a0c-ab94-b72cea524f19" expressionType="DataControlHolder"/>
+                            <expression uid="84097adb-25b5-45a7-8de2-f452232d72c2" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="5ed958d3-16be-43a1-866e-bd693d0c524f" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5bbffb44-f8cf-42b4-b92e-0a09433dcf7c" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="316ed216-7431-4146-9fd0-03ec14bbf3ab" value="Data controls.Permission References  Helper.orderCriteria">
+                            <expression uid="71abe7d4-4719-4dcb-a771-2ba5390b51d4" expressionType="DataControlHolder"/>
+                            <expression uid="d38e2f87-a349-4b9b-8a2d-927665e4d1f8" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="bb656ec3-57ed-491d-a3c2-127cfe3d34e9" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d9dd151c-0773-47a1-af26-f64696f7c40a" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="006894be-14f4-4576-9f88-9b8184516166" value="Data controls.Permission References  Helper.start Index">
+                            <expression uid="366da326-d050-43cc-869d-2b45e41aef71" expressionType="DataControlHolder"/>
+                            <expression uid="96fc994e-4a3a-44b4-a6a2-9a8515d4489b" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ccdfda98-6b27-4948-adcc-676fdf989046" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c08ba407-e476-41f0-a8cc-2a6af6625b80" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="e1af49b9-c215-4e6f-813e-2e76d4c2db1b" value="Data controls.Permission References  Helper.end Index">
+                            <expression uid="b2fc9df4-1ba9-4c6b-aae5-44170d86d62e" expressionType="DataControlHolder"/>
+                            <expression uid="d8e55572-97d5-4c8c-bd15-6ea311e168d9" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="619dbc13-5d4d-4446-9f2d-80d738e27f16" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5f0713a2-9835-46f7-8b64-def1cb11b0ae" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="e8af19e4-4235-48e2-801f-dcc24aa87335" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="fb864d5f-b8ce-40b7-b605-d811ba393820" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="19ca9c88-ddcd-4361-be76-4fe059fdf186" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="6fe58c1c-85b4-41a7-ae4d-47c4b4a5f710" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="48eee27e-3ccb-4fbd-bebf-2caef5915180" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch/>
+                      <defaultOrderBy/>
+                      <relationMappers uid="462d65cb-f490-4406-9168-d7eeb56093c4" typeRef="e12ef913-4fe6-49b1-af3b-58435b162739" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
                     </controls>
                     <relations xsi:type="tura.form:InternalRelation" uid="73e5d3db-aa66-4007-b865-0b89849bb464" master="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" detail="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                   </datacontrols>

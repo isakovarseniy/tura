@@ -78,11 +78,7 @@ public class DepartmentsInit {
 		
 
 		Street cmp = em.find(Street.class, locationId);
-		if ( cmp.getDepartment() == null){
-			cmp.setDepartment(new ArrayList<Department>()); 	     
-		}
-		cmp.getDepartment().add(dpt);
-		dpt.setStreet(cmp);
+		dpt.setParentId(cmp.getObjId());
 		
 		em.persist(dpt);
 		em.persist(cmp);
