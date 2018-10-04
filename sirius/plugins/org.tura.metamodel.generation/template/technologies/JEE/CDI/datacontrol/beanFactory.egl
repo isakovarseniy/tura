@@ -13,9 +13,9 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 import org.tura.platform.datacontrol.commons.TuraException;
 import javax.inject.Inject;
 
-@javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+@javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%][%=bfSuffix%]")
 [%=datacontrol_scope()%]
-public class BeanFactory  implements IBeanFactory, java.io.Serializable {
+public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
     private int section;

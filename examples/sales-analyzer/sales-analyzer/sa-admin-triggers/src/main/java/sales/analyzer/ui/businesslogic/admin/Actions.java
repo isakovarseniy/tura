@@ -110,30 +110,38 @@ public class Actions implements EventAccessor {
 				pf.notifyListner();
 			}
 			if (isSelected != null && !isSelected) {
-				DataControl dcRefHelper = (DataControl) elResolver
-						.getValue("#{beanFactoryAdminAdministration.permissionReferencesHelper}");
+				IBeanFactory bfHelper = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministrationHelper}");
+				DataControl dcHelper = (DataControl) bfHelper.getRole();
 				DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
 				Role role = (Role) dc.getCurrentObject();
 
-				dcRefHelper.getDefaultSearchCriteria().clear();
+				dcHelper.getDefaultSearchCriteria().clear();
 
 				SearchCriteria sc = new SearchCriteria();
-				sc.setName("role.id");
+				sc.setName("id");
 				sc.setComparator(Operator.EQ.name());
 				sc.setValue(role.getId());
-				dcRefHelper.getDefaultSearchCriteria().add(sc);
+				dcHelper.getDefaultSearchCriteria().add(sc);
 
-				sc = new SearchCriteria();
-				sc.setName("permission.objId");
-				sc.setComparator(Operator.EQ.name());
-				sc.setValue(p.getObjId());
-				dcRefHelper.getDefaultSearchCriteria().add(sc);
+				dcHelper.forceRefresh();
 
-				dcRefHelper.forceRefresh();
-
-				PermissionReferences refHelper = (PermissionReferences) dcRefHelper.getCurrentObject();
-				dcRefHelper.removeObject();
-				System.out.println("");
+				dcHelper.getCurrentObject();
+				DataControl peermRefHelper = (DataControl) bfHelper.getPermissionReferences();
+				peermRefHelper.getCurrentObject();
+				int i = 0;
+				boolean found = false;
+				for ( Object o : peermRefHelper.getScroller()) {
+					PermissionReferences permRef = (PermissionReferences) o;
+					if (permRef.getPermission().equals(p)) {
+						found = true;
+						break;
+					}
+					i++;
+				}
+				if (found) {
+					peermRefHelper.setCurrentPosition(i);
+					peermRefHelper.removeObject();
+				}
 
 			}
 

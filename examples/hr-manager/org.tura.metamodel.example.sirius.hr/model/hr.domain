@@ -9143,60 +9143,6 @@
                       <relationMappers uid="50ac8638-8325-453e-9d00-f43f8c287b35" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                       <relationMappers uid="77c25b05-627e-4d18-a9a8-bc491efd11da" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
                     </controls>
-                    <controls uid="29a3a13d-b4d2-462f-a085-331c0745d2c2" name="Permission References  Helper">
-                      <baseType typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
-                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="34e6c1ea-4d08-420f-9269-6f91e4a14b50">
-                        <parameters uid="a4f31b00-6a39-4bde-9da4-0f160b1aeda3" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
-                          <value uid="cc5b6f02-bc58-40f6-9c5b-fc43fbad842b" value="Types repository.Sales Analyzer.database.database::Permission References ">
-                            <expression uid="19245005-09ac-4bac-aadb-f168676c07d9" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="3522e8b7-1e34-4b0c-a8a6-d6fada6a72ea" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="9af4eb2e-17b7-4713-88a3-e08bc7560a3d" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="3438d69e-6756-4341-ab94-3ec7cc4cb4e4" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </create>
-                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="20ad926f-ff8f-4467-8b7e-e410fe69a109">
-                        <parameters uid="287d0561-824d-4dbe-ab93-a4c0aaab219b" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
-                          <value uid="c4038468-6718-429d-9c17-1c5854d2a3f2" value="Data controls.Permission References  Helper.searchCriteria">
-                            <expression uid="1c7f8d2b-f94a-4a0c-ab94-b72cea524f19" expressionType="DataControlHolder"/>
-                            <expression uid="84097adb-25b5-45a7-8de2-f452232d72c2" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="5ed958d3-16be-43a1-866e-bd693d0c524f" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="5bbffb44-f8cf-42b4-b92e-0a09433dcf7c" refObj="82321931-ce03-428e-b54d-562a21b72c06">
-                          <value uid="316ed216-7431-4146-9fd0-03ec14bbf3ab" value="Data controls.Permission References  Helper.orderCriteria">
-                            <expression uid="71abe7d4-4719-4dcb-a771-2ba5390b51d4" expressionType="DataControlHolder"/>
-                            <expression uid="d38e2f87-a349-4b9b-8a2d-927665e4d1f8" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="bb656ec3-57ed-491d-a3c2-127cfe3d34e9" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="d9dd151c-0773-47a1-af26-f64696f7c40a" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
-                          <value uid="006894be-14f4-4576-9f88-9b8184516166" value="Data controls.Permission References  Helper.start Index">
-                            <expression uid="366da326-d050-43cc-869d-2b45e41aef71" expressionType="DataControlHolder"/>
-                            <expression uid="96fc994e-4a3a-44b4-a6a2-9a8515d4489b" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="ccdfda98-6b27-4948-adcc-676fdf989046" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="c08ba407-e476-41f0-a8cc-2a6af6625b80" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
-                          <value uid="e1af49b9-c215-4e6f-813e-2e76d4c2db1b" value="Data controls.Permission References  Helper.end Index">
-                            <expression uid="b2fc9df4-1ba9-4c6b-aae5-44170d86d62e" expressionType="DataControlHolder"/>
-                            <expression uid="d8e55572-97d5-4c8c-bd15-6ea311e168d9" objRef="29a3a13d-b4d2-462f-a085-331c0745d2c2" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="619dbc13-5d4d-4446-9f2d-80d738e27f16" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="5f0713a2-9835-46f7-8b64-def1cb11b0ae" refObj="ab025094-583b-4699-b19b-41549870fa75">
-                          <value uid="e8af19e4-4235-48e2-801f-dcc24aa87335" value="Types repository.Sales Analyzer.database.database::Permission References ">
-                            <expression uid="fb864d5f-b8ce-40b7-b605-d811ba393820" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="19ca9c88-ddcd-4361-be76-4fe059fdf186" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="6fe58c1c-85b4-41a7-ae4d-47c4b4a5f710" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="48eee27e-3ccb-4fbd-bebf-2caef5915180" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </search>
-                      <defaultSearch/>
-                      <defaultOrderBy/>
-                      <relationMappers uid="462d65cb-f490-4406-9168-d7eeb56093c4" typeRef="e12ef913-4fe6-49b1-af3b-58435b162739" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
-                    </controls>
                     <relations xsi:type="tura.form:InternalRelation" uid="73e5d3db-aa66-4007-b865-0b89849bb464" master="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" detail="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                   </datacontrols>
                 </forms>
