@@ -7,6 +7,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${D
  ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
+     
 %]
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
@@ -17,6 +18,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${D
 	<persistence-unit name="[%=configuration.get("persistence_unit")%]"  [%if (Transaction.equals("JEE/Transaction/LOCAL")){%]transaction-type="RESOURCE_LOCAL"[%}%] >
 
 		<provider>[%=persistence_jpaprovider()%]</provider>
+
 		
 [%    if (Connection.equals("JEE/DataSource/JNDI")){
          var typeOfDataSource="jta-data-source"; 
@@ -32,7 +34,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${D
         }
 %]   
 
-		[%=persistence_jpaproperties(Connection,configuration)%]
+		[%=persistence_jpaproperties(Connection,JPA_Schema_update,configuration)%]
 
 	</persistence-unit>
 </persistence>

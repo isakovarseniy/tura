@@ -1,5 +1,5 @@
 [% @template
-operation  persistence_jpaproperties(Connection , configuration) {
+operation  persistence_jpaproperties(Connection , schemaUpdate, configuration) {
 %]
 		<properties>
 [%    if (Connection.equals("JDBC")){%]
@@ -13,10 +13,11 @@ operation  persistence_jpaproperties(Connection , configuration) {
             <property name="hibernate.dialect" value="org.hibernate.dialect.[%=persistence_databasename()%]Dialect"/>
 
   	         [% 
+  	         if (schemaUpdate.equals("JEE/JPA/Hibernate/Update Schema") ){
  //For some reason this property slow down connection with postgres 	         
   	         if ( not persistence_databasename().equals("PostgreSQL")){ %]
   	          <property name="hibernate.hbm2ddl.auto" value="update"/>
-  	          [%  }%]
+  	          [%  }}%]
     
             <property name="hibernate.default_schema" value="[%=configuration.get("DataBase schema")%]"/>
 			<property name = "hibernate.show_sql" value = "false" />

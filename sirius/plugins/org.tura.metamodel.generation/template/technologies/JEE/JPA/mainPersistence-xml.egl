@@ -38,7 +38,7 @@
 
     util.populateTechnologies(hash,model_mapper);
 
-  
+
      var persistence : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/persistence-xml.egl",hash,TemplateFactory);
      var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      persistence.setFormatter(f);

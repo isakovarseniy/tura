@@ -89,6 +89,10 @@
               <options uid="981e7b23-344e-4445-bfd1-f698757f7a3b" value="10a45ded-af3f-4352-b39a-bd79b9679b3e"/>
               <options uid="dd205830-311f-411d-bc8b-50ac9e3f59f6" value="c68dc461-8beb-4123-9051-fe038394fe2d"/>
             </technologies>
+            <technologies uid="b5193770-7796-442d-a106-99d39a345ce8" name="JPA Schema update">
+              <options uid="b012f4a1-541c-48c0-a5ce-142feb71bdc7" value="ea3fea4c-756e-4363-b6b8-ed3e5e5a4776"/>
+              <options uid="2f7a9516-f442-43f1-ab98-e8fd01fd254e" value="e6a724de-110c-4c69-a0dd-efa5e0498f7e"/>
+            </technologies>
             <hints uid="1610a78f-bda5-4b69-a443-e391f7457d2b" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
           </artifacts>
           <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainRepository.egl">
@@ -426,7 +430,10 @@
           <configVariables uid="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" name="DataBase jdbc driver"/>
           <configVariables uid="ba2fd94e-1867-4349-bdf8-3c7ab266f769" name="DataBase jdbc url"/>
           <configVariables uid="b374473f-5332-44d2-ae43-176f3e586a3b" name="persistence_unit"/>
-          <techLeafs uid="10a45ded-af3f-4352-b39a-bd79b9679b3e" name="Hibernate"/>
+          <techLeafs uid="10a45ded-af3f-4352-b39a-bd79b9679b3e" name="Hibernate">
+            <techLeafs uid="ea3fea4c-756e-4363-b6b8-ed3e5e5a4776" name="Update Schema"/>
+            <techLeafs uid="e6a724de-110c-4c69-a0dd-efa5e0498f7e" name="Use existing schema"/>
+          </techLeafs>
           <techLeafs uid="c68dc461-8beb-4123-9051-fe038394fe2d" name="EclipseLink"/>
         </techLeafs>
         <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain_model">
@@ -1962,6 +1969,7 @@
                           <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="bae1b29d-1dbd-4ccc-a121-830d8cd7352a"/>
+                          <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
                           <queries uid="8c983fb6-8f36-4090-97c1-e4f8a25d74e6" name="Query package for classess" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Testing repository"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="JPA test package"/>
@@ -2230,6 +2238,7 @@
                           <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
+                          <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
                           <queries uid="d96f3491-ffa9-410e-8017-5b3397a402e6" name="Get entities" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="HR domain"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="Complex model"/>
@@ -2313,6 +2322,7 @@
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
+                          <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
                           <queries uid="03e89593-6998-4f39-be72-6e118e141064" name="Get entities" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="HR domain"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="Simple model"/>
@@ -7735,6 +7745,7 @@
                           <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
+                          <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
                           <queries uid="6fc883e8-14a4-4cdb-abc5-f7b0020f22d2" name="Get entities" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Sales Analyzer"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="database"/>
