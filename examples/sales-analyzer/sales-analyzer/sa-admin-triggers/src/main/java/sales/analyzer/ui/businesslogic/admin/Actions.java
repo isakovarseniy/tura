@@ -15,6 +15,7 @@ import javax.inject.Named;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
@@ -29,6 +30,7 @@ import org.tura.salesanalyzer.serialized.db.Permission;
 import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.PermissionReferencesProxy;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -244,10 +246,34 @@ public class Actions implements EventAccessor {
 
 	}
 
+	public void saveApplication() {
+		try {
+			CommandStackProvider sp = new CommandStackProvider();
+			sp.setCommandStack(commandStack);
+
+			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+
+			proxyRepository.applyChanges(null);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	public void rallbackApplication() {
+		try {
+			commandStack.rallbackCommand();
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+
+	
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;
 
 	}
 
+	
 }
