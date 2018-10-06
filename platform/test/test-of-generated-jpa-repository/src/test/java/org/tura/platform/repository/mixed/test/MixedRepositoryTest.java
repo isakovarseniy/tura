@@ -80,6 +80,9 @@ import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.SPAObject2;
 import objects.test.serialazable.jpa.SPAObject3;
 import objects.test.serialazable.jpa.SPAObject4;
+import objects.test.serialazable.jpa.T1;
+import objects.test.serialazable.jpa.T1T2;
+import objects.test.serialazable.jpa.T2;
 
 public class MixedRepositoryTest {
 
@@ -192,6 +195,13 @@ public class MixedRepositoryTest {
 
         spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class,  CRUDService.class);
         spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
+        
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, SearchService.class);
+        
+        spaRegistry.getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.T2.class,  CRUDService.class);
+        spaRegistry.getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.T2.class, SearchService.class);
+
         
 		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
 		proxy.setProfile(AllowEverythingProfile.class.getName());
@@ -484,5 +494,30 @@ public class MixedRepositoryTest {
 		}
 	}
 
-	
+	@Test
+	public void mixedObjectTest6() {
+		try {
+			
+			ProxyRepository repository = getRepository();
+			
+			T2 o2 = (T2) repository.create(T2.class.getName());
+			T1T2 o1o2 = (T1T2) repository.create(T1T2.class.getName());
+			
+			o2.getT1T2().add(o1o2);
+			
+			T1 o1 = (T1) repository.create(T1.class.getName());
+			
+			o2.getT1T2().add(o1o2);
+
+			repository.applyChanges(null);
+			
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, T1.class.getName());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
 }

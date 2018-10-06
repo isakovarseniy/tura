@@ -70,6 +70,8 @@
 		<class>org.tura.jpa.test.Q3</class>
 		<class>org.tura.jpa.test.Q4</class>
 		<class>org.tura.jpa.test.P1</class>
+		<class>org.tura.jpa.test.T1</class>
+		<class>org.tura.jpa.test.T1T2</class>
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
      

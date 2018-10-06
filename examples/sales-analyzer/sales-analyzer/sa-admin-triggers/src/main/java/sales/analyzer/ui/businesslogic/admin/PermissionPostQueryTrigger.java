@@ -38,7 +38,7 @@ public class PermissionPostQueryTrigger implements PostQueryTrigger{
 		boolean found = false;
 		for (Object o : ls) {
 			PermissionReferences ref = (PermissionReferences) o;
-			if (ref.getPermission().getObjId().equals(perm.getObjId())) {
+			if (ref.getPermission() !=null && ref.getPermission().getObjId().equals(perm.getObjId())) {
 				new PermissionArtifitialFieldsAdapter((ObjectControl) obj).setSelected(true);
 				found =true;
 				break;

@@ -174,6 +174,7 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 
 			InternalClass ic = assosiation.mappedBy().getAnnotation(InternalClass.class);
 			if (ic != null) {
+				graph.removeLastBranch(id);
 				continue;
 			}
 
@@ -194,6 +195,7 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 			}
 			SearchCriteria sc = extractAndRemove(RepositoryObjectLoader.SKIP_QUERY, newSearch);
 			if (sc != null) {
+				graph.removeLastBranch(id);
 				continue;
 			}
 

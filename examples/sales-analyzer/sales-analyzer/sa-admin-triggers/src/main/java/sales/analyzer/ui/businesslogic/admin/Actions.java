@@ -102,14 +102,16 @@ public class Actions implements EventAccessor {
 						.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
 
 				PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
+				pf.notifyListner();
+
 				pf.setPermission(p);
+				pf.notifyListner();
 
 				PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
 						(ObjectControl) pf);
 				ad.setPermissionDescription(p.getDescription());
 				ad.setPermissionName(p.getName());
 
-				pf.notifyListner();
 			}
 			if (isSelected != null && !isSelected) {
 				IBeanFactory bfHelper = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministrationHelper}");
