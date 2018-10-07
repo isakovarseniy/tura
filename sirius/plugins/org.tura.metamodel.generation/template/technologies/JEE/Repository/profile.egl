@@ -102,12 +102,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 	for ( rel in array ){
 	   if ( not typeCollection.contains(rel.source.uid)  ){
 	      typeCollection.add(rel.source.uid);
-	      rel.source.collectRelation(typeCollection);
+	      rel.source.collectRelation(relCollection,typeCollection);
 	   }
 	   
 	   if ( not typeCollection.contains(rel.target.uid)  ){
 	      typeCollection.add(rel.target.uid);
-	      rel.target.collectRelation(typeCollection);
+	      rel.target.collectRelation(relCollection,typeCollection);
 	   }
 	}
 }
