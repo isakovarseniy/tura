@@ -548,6 +548,51 @@ public class SingleDataControlPool {
 	}
 	
 	
+	@Test
+	public void t11_pooledDataCalontrol() {
+		try {
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+
+			Pager<?> pager = getPager(dc);
+
+			
+			DepartmentType row = dc.getCurrentObject();
+			DepartmentType newrow = factory.getNewDepartmentType();
+			newrow.setObjId(row.getObjId());
+			
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.C.name(), "1");
+			
+			pager.addCommand(e);
+
+			newrow = factory.getNewDepartmentType();
+			newrow.setObjId(row.getObjId());
+			e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.U.name(), "1");
+			
+			pager.addCommand(e);
+
+			
+			newrow = factory.getNewDepartmentType();
+			newrow.setObjId(row.getObjId());
+			e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.R.name(), "1");
+			
+			pager.addCommand(e);
+			
+			DepartmentType row1 = dc.getCurrentObject();
+			assertNotEquals(row1.getObjId(), row.getObjId());
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	
+	
 	
 	private void createQuery(DataControl<?> control, String entity)
 			throws QueryException, NoSuchMethodException, SecurityException,

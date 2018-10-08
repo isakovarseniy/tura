@@ -199,7 +199,7 @@ public abstract class Pool {
 		if (array.size() == 0)
 			return false;
 
-		PoolElement lastElement = array.get(array.size() - 1);
+		PoolElement lastElement = array.get(0);
 
 		if ("R".equals(lastElement.getOperation())) {
 			getShifter().remove(index);
