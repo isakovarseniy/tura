@@ -89,6 +89,9 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
             prepareParameter(searchObjectParameters.getObjectType());
         
             [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParent();
+            if (parent == null){
+                return new LazyList<T>(new java.util.ArrayList<T>(),0,0); 
+            }
             
             com.octo.java.sql.query.SelectQuery select = org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(
             (List<org.tura.platform.datacontrol.commons.SearchCriteria>)searchObjectParameters.getSearchCriteria().getObj(), 

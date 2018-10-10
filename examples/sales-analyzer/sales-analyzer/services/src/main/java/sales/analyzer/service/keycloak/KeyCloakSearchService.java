@@ -15,12 +15,10 @@ import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
 import org.tura.salesanalyzer.persistence.keycloak.User;
-import org.tura.salesanalyzer.persistence.keycloak.UserPK;
 
 import sales.analyzer.process.commons.Constants;
 
 public class KeyCloakSearchService extends AbstaractSearchService {
-
 
 	private RealmResource realmResource;
 
@@ -33,12 +31,14 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
 		if (User.class.getName().equals(objectClass)) {
-			UserPK objPk = (UserPK) pk;
-			List<UserRepresentation> ls = realmResource.users().search(objPk.getUsername());
-			if (ls != null && ls.size() > 0) {
-				return ls.get(0);
-			}else {
+			String objPk = (String) pk;
+			UserRepresentation ls = null;
+			try {
+				ls = realmResource.users().get(objPk).toRepresentation();
+				return ls;
+			} catch (javax.ws.rs.NotFoundException e) {
 				return null;
+
 			}
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
@@ -82,45 +82,45 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 				email = (String) sc.getValue();
 				criteria = true;
 			}
-			if(criteria) {
-				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName,
-						email, 0, 500);
+			if (criteria) {
+				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName, email, 0,
+						500);
 				ArrayList<UserRepresentation> list = new ArrayList<UserRepresentation>();
 				int y = Math.min(ls.size(), endIndex);
-				for (int i = startIndex ; i < y; i++) {
+				for (int i = startIndex; i < y; i++) {
 					list.add(ls.get(i));
 				}
 				return new SearchResult(list, ls.size());
-				
-			}else {
-				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName,
-						email, startIndex, endIndex-startIndex);
+
+			} else {
+				List<UserRepresentation> ls = realmResource.users().search(username, firstName, lastName, email,
+						startIndex, endIndex - startIndex);
 				return new SearchResult(ls, realmResource.users().count());
 			}
 
 		}
 		if (RoleRepresentation.class.getName().equals(objectClass)) {
 			RepositoryHelper helper = new RepositoryHelper(null);
-			List<RoleRepresentation> ls=null;
+			List<RoleRepresentation> ls = null;
 
 			SearchCriteria sc = helper.checkSearchParam(Constants.VAR_ROLE_NAME, searchCriteria);
-			if ( sc != null) {
+			if (sc != null) {
 				try {
 					RoleRepresentation role = realmResource.roles().get((String) sc.getValue()).toRepresentation();
 					ls = new ArrayList<>();
 					ls.add(role);
-				}catch(NotFoundException e) {
+				} catch (NotFoundException e) {
 					ls = new ArrayList<>();
 				}
 				return new SearchResult(ls, ls.size());
 			}
 			sc = helper.checkSearchParam(Constants.VAR_ROLE_ID, searchCriteria);
-			if ( sc != null) {
+			if (sc != null) {
 				try {
 					RoleRepresentation role = realmResource.rolesById().getRole((String) sc.getValue());
 					ls = new ArrayList<>();
 					ls.add(role);
-				}catch(NotFoundException e) {
+				} catch (NotFoundException e) {
 					ls = new ArrayList<>();
 				}
 				return new SearchResult(ls, ls.size());
@@ -132,4 +132,3 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 	}
 
 }
-

@@ -211,10 +211,10 @@ public class Actions implements EventAccessor {
 			dc.islolate();
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			bf.setRoleId("UNDEFINED");
 
 			Role cmp = (Role) dc.createObject();
 
-			bf.setRoleId(cmp.getId());
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);

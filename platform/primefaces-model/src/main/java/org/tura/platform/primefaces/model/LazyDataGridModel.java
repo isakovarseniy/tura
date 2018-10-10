@@ -94,8 +94,14 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 			if ( j >= scroler.size())
 				j = scroler.size();
 
-			for (int i = first, k = 0; i < j; i++, k++)
-				datasource.add(new Object[] { i, k, scroler.get(i) });
+			for (int i = first, k = 0; i < j; i++, k++) {
+				if (scroler.get(i) != null) {
+					//Element could be null in case random delete
+					// Size of scroller will be adjusted only after 
+					//scroler.get(i) operation
+				    datasource.add(new Object[] { i, k, scroler.get(i) });
+				}
+			}
 
 		} catch (Exception e) {
 			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));

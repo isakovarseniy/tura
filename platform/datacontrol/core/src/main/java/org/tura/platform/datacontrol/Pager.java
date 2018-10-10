@@ -40,6 +40,8 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.PagerData;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.data.ShiftControlData;
+import org.tura.platform.datacontrol.event.RowCreatedEvent;
+import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
@@ -133,27 +135,50 @@ public abstract class Pager<T> extends Pool {
 
 		long beginTimeStamp = getShifter().getShiftControlData().getLastUpdate();
 		long endTimeStamp = getPoolData().getNextId();
-		
+		boolean removed= false;
+		int created;
 		try {
-			beforeShifterGetCreatedObjects(getBaseClass(),
-					beginTimeStamp, endTimeStamp, index);
+			created = beforeShifterGetCreatedObjects(getBaseClass(),beginTimeStamp, endTimeStamp, index);
 			do {
 				obj = (ObjectControl) get(index);
-			} while (obj != null
-					&& isRemoved(getBaseClass(), beginTimeStamp,
-							endTimeStamp, obj.getKey(), index));
+				if ( obj != null ) {
+					removed = isRemoved(getBaseClass(), beginTimeStamp,endTimeStamp, obj.getKey(), index);
+				}else {
+					removed = false;
+				}
+				if (obj != null && removed ) {
+					created -- ;
+				}
+			} while (obj != null && removed);
 			if (obj != null) {
 				obj = (ObjectControl) checkForUpdate(getBaseClass(), beginTimeStamp,
 						endTimeStamp, obj, obj.getKey(), index);
 			}
-
+			
 			getShifter().getShiftControlData().setLastUpdate(endTimeStamp);
+			notifyOptional(created,obj);
 			return (T) obj;
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
 	}
 
+	private void notifyOptional(int i, Object obj) throws TuraException {
+		if (i == 0) {
+			return;
+		}
+		if (i < 0) {
+			getDataControl().notifyLiteners(new RowRemovedEvent(getDataControl(), null));
+			getDataControl().notifyChageRecordAll((T)obj);
+		}
+		
+		if (i > 0) {
+			getDataControl().notifyLiteners(new RowCreatedEvent(getDataControl(), null));
+			getDataControl().notifyChageRecordAll((T)obj);
+		}
+		
+	}
+	
 	@SuppressWarnings("unchecked")
 	private T get(int index) throws TuraException {
 

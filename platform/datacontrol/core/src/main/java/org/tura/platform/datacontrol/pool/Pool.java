@@ -73,7 +73,7 @@ public abstract class Pool {
 
 	}
 
-	protected void beforeShifterGetCreatedObjects(Class<?> clazz,
+	protected int beforeShifterGetCreatedObjects(Class<?> clazz,
 			long beginTimeStamp, long endTimeStamp, int index)
 			throws TuraException, InstantiationException {
 
@@ -82,7 +82,7 @@ public abstract class Pool {
 					beginTimeStamp, endTimeStamp);
 
 			if (poolObjects.size() == 0 || !prepareQuery())
-				return;
+				return 0;
 
 			List<?> objects = filterByDataControlCondition(poolObjects,getSelectQuery());
 
@@ -93,8 +93,11 @@ public abstract class Pool {
 				getShifter().add(index, connectObject(oc.clone()));
 			}
 
-			if (objects.size() > 0)
+			if (objects.size() > 0) {
 				this.registerForCleaning();
+			}
+			
+			return objects.size();
 
 		} catch (Exception e) {
 			throw new TuraException(e);
@@ -110,7 +113,6 @@ public abstract class Pool {
 
 		Query query = new Query();
 		
-		// !!  Shold be sorted DESC Do not change
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_ASC);
 		
 		query.setVariable("shifterId", getShifter().getId());
@@ -126,8 +128,6 @@ public abstract class Pool {
 
 		HashMap<Object, PoolElement> hash = new HashMap<>();
 		
-        // Querying only new objects. This why SORT DESC.
-		//Do not change. It could  bring  additional object from pool
 		for (PoolElement element : array) {
 			if (PoolCommand.C.name().equals(element.getOperation()))
 				hash.put(element.getKey(), element);

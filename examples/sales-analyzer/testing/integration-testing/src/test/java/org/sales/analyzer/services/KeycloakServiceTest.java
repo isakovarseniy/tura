@@ -406,6 +406,18 @@ public class KeycloakServiceTest {
 			repository.insert(user, User.class.getName());
 			repository.applyChanges(null);
 
+			ArrayList<SearchCriteria>search = new ArrayList<>();
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName(Constants.VAR_USERNAME);
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(userName);
+			search.add(sc);
+			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			user = (User) result.getSearchResult().get(0);
+			
+			
+			
 			Country country = (Country) repository.create(Country.class.getName());
 			repository.insert(country, Country.class.getName());
 			
@@ -430,13 +442,13 @@ public class KeycloakServiceTest {
 			
 			repository.applyChanges(null);
 			
-			ArrayList<SearchCriteria>search = new ArrayList<>();
-			SearchCriteria sc = new SearchCriteria();
+			search = new ArrayList<>();
+			sc = new SearchCriteria();
 			sc.setName(Constants.VAR_USERNAME);
 			sc.setComparator(Operator.EQ.name());
 			sc.setValue(userName);
 			search.add(sc);
-			SearchResult result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,User.class.getName());
 			assertEquals(1, result.getNumberOfRows());
 			user = (User) result.getSearchResult().get(0);
 			assertEquals(userName,user.getUsername());

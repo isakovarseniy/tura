@@ -244,12 +244,62 @@ public abstract class MasterDetailDataControlPool {
 			assertEquals( new Long(123L),rowd.getObjId());
 			assertNull(rowe);
 			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
 		
 	}
+	
+	@Test
+	public void t4_getApplyCreateModificationMasterIsolated() {
+		try {
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			factory.setRelatioin(dcd, dce);
+
+			
+			DepartmentType rowd =  dcd.getCurrentObject();
+			EmployeeType rowe = dce.getCurrentObject();
+
+			Pager<?> pager = getPager(dcd);
+
+			DepartmentType newrow = factory.getNewDepartmentType();
+			newrow.setObjId(123L);
+	          
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dcd.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+	        
+			newrow = factory.getNewDepartmentType();
+			newrow.setObjId(123L);
+			newrow.setDepartmentName("qqq");
+			
+	          
+	        e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dcd.getBaseClass(), PoolCommand.U.name(), "1");
+	        pager.addCommand(e);
+
+			rowd =  dcd.getCurrentObject();
+			rowe = dce.getCurrentObject();
+
+			assertEquals( new Long(123L),rowd.getObjId());
+			assertEquals( "qqq",rowd.getDepartmentName());
+			assertNull(rowe);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
+	
+	
+	
 	
 	
 	private Pager<?> getPager(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{

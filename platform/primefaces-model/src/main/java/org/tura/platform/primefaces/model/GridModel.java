@@ -106,8 +106,10 @@ public class GridModel {
 			if (event instanceof RowRemovedEvent) {
 				resetCurentPosition = true;
 				int max = ((DataControl) event.getSource()).getScroller().size();
-				if ((int) (array[0]) == max && max != 0)
+				lazyModel.setRowCount(max);
+				if ((int) (array[0]) == max && max != 0) {
 					array[0] = (int) (array[0]) - 1;
+				}
 			}
 		}
 	}
