@@ -22,71 +22,71 @@ import form.ArtificialField;
 import form.DropDownSelection;
 import form.FormPackage;
 import form.OptionSelection;
-import form.Selection;
 import type.Attribute;
 
 public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
 
-	public EStructuralFeature[] getFeature() {
+    public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { FormPackage.eINSTANCE.getSelection_DisplayOptionPointer() };
-	}
+        return new EStructuralFeature[] { FormPackage.eINSTANCE.getSelection_DisplayOptionPointer() };
+    }
 
-	public String getFeatureAsText(Object eObject) {
-		String name = null;
-		if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
-			name = ((Attribute) ((DropDownSelection) eObject).getSelection().getDisplayOptionPointer())
-					.getName();
+    public String getFeatureAsText(Object eObject) {
+        String name = null;
+        if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
+            name = ((Attribute) ((DropDownSelection) eObject).getSelection().getDisplayOptionPointer())
+                    .getName();
 
-		if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
-			name = ((ArtificialField) ((DropDownSelection) eObject).getSelection().getDisplayOptionPointer()).getName();
+        if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
+            name = ((ArtificialField) ((DropDownSelection) eObject).getSelection().getDisplayOptionPointer()).getName();
 
-		return name;
-	}
+        return name;
+    }
 
-	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
-			Object... obj) {
-		if (feature.equals(FormPackage.eINSTANCE.getSelection_DisplayOptionPointer()))
-			return values.get(obj[0]);
+    public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
+            Object... obj) {
+        if (feature.equals(FormPackage.eINSTANCE.getSelection_DisplayOptionPointer()))
+            return values.get(obj[0]);
 
-		return null;
-	}
+        return null;
+    }
 
-	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
-		if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() == null)
-			return false;
+    public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
+        if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() == null)
+            return false;
 
-		String name = null;
-		if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
-			name = ((Attribute) ((Selection) eObject).getDisplayOptionPointer()).getName();
+        String name = null;
+        if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
+            name = ((Attribute) ((DropDownSelection) eObject).getSelection()
+                 .getDisplayOptionPointer()).getName();
 
-		if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
-			name = ((ArtificialField) ((DropDownSelection) eObject).getSelection()
-					.getDisplayOptionPointer()).getName();
+        if (((DropDownSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
+            name = ((ArtificialField) ((DropDownSelection) eObject).getSelection()
+                    .getDisplayOptionPointer()).getName();
 
-		if (name == null)
-			return false;
-		return values.get(key).equals(name);
-	}
+        if (name == null)
+            return false;
+        return values.get(key).equals(name);
+    }
 
-	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[] { ((OptionSelection) eObject).getOptionPointer(),
-				((OptionSelection) eObject).getOptionCast(),
-				((OptionSelection) eObject).getOptionCastDataControl() };
-	}
+    public Object[] getWatchPointObject(Object eObject) {
+        return new Object[] { ((OptionSelection) eObject).getOptionPointer(),
+                ((OptionSelection) eObject).getOptionCast(),
+                ((OptionSelection) eObject).getOptionCastDataControl() };
+    }
 
-	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { FormPackage.eINSTANCE.getOptionSelection_OptionPointer(),
-				FormPackage.eINSTANCE.getOptionSelection_OptionCast(),
-				FormPackage.eINSTANCE.getOptionSelection_OptionCastDataControl() };
-	}
+    public EStructuralFeature[] getWatchPointFeature() {
+        return new EStructuralFeature[] { FormPackage.eINSTANCE.getOptionSelection_OptionPointer(),
+                FormPackage.eINSTANCE.getOptionSelection_OptionCast(),
+                FormPackage.eINSTANCE.getOptionSelection_OptionCastDataControl() };
+    }
 
-	public Class<?> getExpectedClass() {
-		return EObject.class;
-	}
+    public Class<?> getExpectedClass() {
+        return EObject.class;
+    }
 
-	@Override
-	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
-		return null;
-	}
+    @Override
+    public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+        return null;
+    }
 }

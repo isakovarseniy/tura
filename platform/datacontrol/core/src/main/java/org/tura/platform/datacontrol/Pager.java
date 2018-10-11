@@ -163,6 +163,7 @@ public abstract class Pager<T> extends Pool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void notifyOptional(int i, Object obj) throws TuraException {
 		if (i == 0) {
 			return;

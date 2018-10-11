@@ -46,6 +46,18 @@ operation   form::Uielement  refreshArias() {
      %]process="[%=refreshAriasGroup(process, self)%]"  update="[%=refreshAriasGroup(update,self)%]"[%
 }
 
+
+operation  form::Uielement isRefreshArias() {
+   var update = self.refreshAreas->select(r|r.group > 1);
+   var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+   if (update.size() == 0 and process.size() == 0){
+      return false;
+   }
+   return true;
+   
+}
+
+
 operation refreshAriasGroup(list, obj ){
      var result ="";
      var uid = obj.mkuid_();

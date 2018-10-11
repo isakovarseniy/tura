@@ -29,85 +29,92 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class JpaUpdateOperation extends SpaRepositoryCommand {
 
-	Object pk;
-	String className;
-	String property;
-	Object value;
+    Object pk;
+    String className;
+    String property;
+    Object value;
 
-	public JpaUpdateOperation(Registry registry,SpaObjectRegistry spaRegistry) {
-		super(registry,spaRegistry);
-	}
+    public JpaUpdateOperation(Registry registry,SpaObjectRegistry spaRegistry) {
+        super(registry,spaRegistry);
+    }
 
-	public Object getPk() {
-		return pk;
-	}
+    public Object getPk() {
+        return pk;
+    }
 
-	public void setPk(Object pk) {
-		this.pk = pk;
-	}
+    public void setPk(Object pk) {
+        this.pk = pk;
+    }
 
-	public String getClassName() {
-		return className;
-	}
+    public String getClassName() {
+        return className;
+    }
 
-	public void setClassName(String className) {
-		this.className = className;
-	}
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
-	public String getProperty() {
-		return property;
-	}
+    public String getProperty() {
+        return property;
+    }
 
-	public void setProperty(String property) {
-		this.property = property;
-	}
+    public void setProperty(String property) {
+        this.property = property;
+    }
 
-	public Object getValue() {
-		return value;
-	}
+    public Object getValue() {
+        return value;
+    }
 
-	public void setValue(Object value) {
-		this.value = value;
-	}
+    public void setValue(Object value) {
+        this.value = value;
+    }
 
-	@Override
-	public List<SpaControl> prepare() throws RepositoryException {
-		try {
-			JpaSearchService sp = (JpaSearchService) this.providerHash.get(className);
-			Object object = sp.find(getPk(), getClassName());
-			String name = "set" + WordUtils.capitalize(getProperty());
-			Method m = object.getClass().getMethod(name, getValue().getClass());
-			m.invoke(object, getValue());
+    @Override
+    public List<SpaControl> prepare() throws RepositoryException {
+        try {
+            JpaSearchService sp = (JpaSearchService) this.providerHash.get(className);
+            Object object = sp.find(getPk(), getClassName());
+            String name = "set" + WordUtils.capitalize(getProperty());
+            Method m;
+            if (getValue() != null) {
+              m = object.getClass().getMethod(name, getValue().getClass());
+            }else {
+              m= new RepositoryHelper(null).getMethodsToSetNull(object.getClass(), name);
+            }
+            m.invoke(object, getValue());
 
-			this.knownObjects.add(getClassName());
+            this.knownObjects.add(getClassName());
 
-			return null;
-		} catch (Exception e) {
-			throw new RepositoryException(e);
-		}
-	}
+            return null;
+        } catch (Exception e) {
+            throw new RepositoryException(e);
+        }
+    }
 
-	@Override
-	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
+    @Override
+    public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 
-		RepoKeyPath pk_ = (RepoKeyPath) parameters[0];
-		String property_ = (String) parameters[1];
-		Object value_ = parameters[2];
+        RepoKeyPath pk_ = (RepoKeyPath) parameters[0];
+        String property_ = (String) parameters[1];
+        Object value_ = parameters[2];
 
-		setProperty(property_);
-		setValue(value_);
-		setClassName(getJpaPersistanceClassName(pk_));
-		setPk(getJpaPrimaryKey(pk_));
+        setProperty(property_);
+        setValue(value_);
+        setClassName(getJpaPersistanceClassName(pk_));
+        setPk(getJpaPrimaryKey(pk_));
 
-		this.knownObjects.add(className);
+        this.knownObjects.add(className);
 
-		return true;
-	}
+        return true;
+    }
 
 }
+

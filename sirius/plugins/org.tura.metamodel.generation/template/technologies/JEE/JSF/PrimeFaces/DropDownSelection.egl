@@ -72,7 +72,7 @@ operation form::DropDownSelection rw(hash,value) {
 	[%}
 	%]
 	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
-	[%if (self.refreshArias() <> ''){%]
+	[%if (self.isRefreshArias()){%]
 	<p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=value%]').changeValueListener}" />
 	[%}%]
 </p:selectOneMenu>
