@@ -68,10 +68,11 @@ public class ActionsUser implements EventAccessor {
 			} else {
 				bf.setUserId(null);
 			}
-			dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.roleSelector}");
+			dc = (DataControl) bf.getPopupUser();
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
+			dc.islolate();
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);

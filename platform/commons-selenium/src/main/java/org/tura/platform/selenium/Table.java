@@ -28,4 +28,7 @@ public interface Table {
 	
 	public Header getHeader();
 	
+	public boolean isEmpty();
+	
+	
 }

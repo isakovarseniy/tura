@@ -21,6 +21,8 @@
  */
 package org.tura.platform.selenium.primefaces;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,6 +49,11 @@ public class TablePrimeFaces implements Table {
 	@Override
 	public Header getHeader() {
 		return  new TableHeader(element.findElement(By.cssSelector("tr[role='row']")),driver);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return element.findElement(By.cssSelector("tr[class='ui-widget-content ui-datatable-empty-message']")).isDisplayed();
 	}
 
 }

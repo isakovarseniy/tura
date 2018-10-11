@@ -33,6 +33,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>sa-admin-pageobjects</artifactId>
+			<version>1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
@@ -66,7 +79,7 @@
 			<groupId>sales-analyzer</groupId>
 			<artifactId>rules-commons</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>services</artifactId>
@@ -186,42 +199,43 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>db-persistence-model</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>jpa-persistence-repository</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>keycloak-persistence-model</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>proxy-repository</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>serialized-model</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>spa-persistence-repository</artifactId>
 			<version>1.0</version>
 		</dependency>
+
 
 
 

@@ -8077,6 +8077,34 @@
                         </mappers>
                       </components>
                     </ingredients>
+                    <ingredients order="7" uid="96201863-21a1-4152-bb43-ee60d3524e5d" name="Testing" controllerLayer="06dcbf36-6d39-431b-bf41-b02c0390e50e">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2abf37c-393c-4f36-9e50-4354183bdd3f" name="Selenium testing package" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-pageobjects" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                        <mappers uid="74c6cd62-bed3-4bc0-9a59-8e1c25befed7" artifactRef="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Page Object">
+                          <technologies techRef="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" valueRef="a1acf69c-3adf-45a6-a515-9353cce02808"/>
+                          <queries uid="1be06941-fb4e-4849-8257-b5c99c2f092d" name="Query Form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
+                            <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
+                            <variables queryParamRef="36bc7750-c0e2-43de-b590-7167d9f4a153" value="CRM"/>
+                            <variables queryParamRef="242a0ac0-7267-48b8-9940-de542577c28a" value="Sales Analysis"/>
+                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Admin"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="6a1c4060-0ffb-404e-8f81-47000d0ad2c6" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Selenium buiolder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a55eb81d-9d80-4ce9-90cd-ef478f7459de"/>
+                          <queries uid="33466f14-ed36-427a-abbe-4ef595144849" name="Query base packege" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Base Repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="34316e90-eb0b-456d-b1b2-31494bfc8c9c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Selenium build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin-pageobjects/builder.sh">
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
                     <deplymentStep mapper="df1ec71e-5c76-4dd2-b25d-94d897087c36" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                     <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
@@ -8085,9 +8113,10 @@
                     <deplymentStep mapper="65e4013f-e969-4cc4-8dec-28f64588b697" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
                     <deplymentStep mapper="fc3dac6a-6bab-4c73-9805-e1d5192af10a" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
                     <deplymentStep mapper="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.10"/>
-                    <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
+                    <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.11"/>
                     <deplymentStep mapper="3c838fe3-958d-4315-821c-246f8bd93b23"/>
                     <deplymentStep mapper="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
+                    <deplymentStep mapper="34316e90-eb0b-456d-b1b2-31494bfc8c9c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
@@ -8175,12 +8204,15 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="31b79724-028a-4868-900f-e445787d71b0" uid="1820e31c-cc9c-4563-afa1-c07085e97d18" mappedToClassName="String"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" uid="2cb033a8-b577-4aeb-ad79-5a0714cc51d6" mappedToClassName="String"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="2c8ed006-5a5d-4941-a01e-aafd10c9b99b" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="06dcbf36-6d39-431b-bf41-b02c0390e50e" typeRef="f849503c-d8bc-47e1-9836-8682dda8072e" uid="54b5c95e-8641-4b1c-877c-24cfc79e91a2" mappedToPackageName="org.tura.platform.selenium.primefaces" mappedToClassName="ButtonPrimeFaces" artifactId="primefaces-selenium" groupId="org.tura.platform" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="06dcbf36-6d39-431b-bf41-b02c0390e50e" typeRef="2d431588-3969-41d6-b777-f5ee90351cc7" uid="65ffbcd3-7a89-46dc-a66c-597eecdf8bc4" mappedToPackageName="org.openqa.selenium" mappedToClassName="WebDriver" artifactId="selenium-java" groupId="org.seleniumhq.selenium" version="2.47.1"/>
                 </mapper>
               </mappers>
               <appLayers uid="0ca0831c-21f1-4871-a838-1b896484121b" name="Persistence layer"/>
               <appLayers uid="3e104a13-ff17-4147-a5de-1b37e42ac68a" name="Serialization layer" order="1"/>
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
+              <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
             </applicationMappers>
             <applicationUILayer uid="64774538-1e6e-45b7-b60d-2df8ddce8708" name="UILayer">
               <applicationUIPackages uid="69e617fe-f87c-4bea-8822-4b5ba94db1b8" name="Analysis">
@@ -8598,7 +8630,7 @@
                                 </element>
                               </cols>
                             </children>
-                            <children xsi:type="tura.form:Button" order="1" uid="442540c2-02a1-4955-b9de-cd0dabadcf36" label="Add">
+                            <children xsi:type="tura.form:Button" nickname="create user" order="1" uid="442540c2-02a1-4955-b9de-cd0dabadcf36" label="Add">
                               <style uid="9819f60e-690c-4851-b241-f197ac0ad7fd" constant="true" value="width:30px;height:30px"/>
                               <fields uid="dd644208-d6de-4a2e-8e34-bd6df4fe5c1d" value="Types repository.Base Repository.Model types.Model types::Client System library.showpopup()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -8898,7 +8930,7 @@
                               </cols>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="2d348116-930c-4580-941b-00b25981403f">
-                              <children xsi:type="tura.form:Button" uid="2321ff77-7ba0-4af8-875b-b79292dd93cb" label="Edit">
+                              <children xsi:type="tura.form:Button" nickname="add permissions" uid="2321ff77-7ba0-4af8-875b-b79292dd93cb" label="Edit">
                                 <style uid="835c23f3-c592-4834-87e3-99cbe7d9a02e" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="c15aa56e-4247-470a-a1a4-6e0376b7dcde" value="Types repository.Base Repository.Model types.Model types::Client System library.showpopup()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9074,7 +9106,7 @@
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="ded87288-e524-4890-bae9-ee08f292ad35">
                               <style uid="c51507f2-dfc6-481b-8feb-f49eea2ca0d8"/>
-                              <children xsi:type="tura.form:Button" uid="2801738a-3a90-4a9c-8013-be069b68f5f7" label="Save">
+                              <children xsi:type="tura.form:Button" nickname="ok" uid="2801738a-3a90-4a9c-8013-be069b68f5f7" label="Save">
                                 <style uid="acbcae7c-2070-41cf-9924-713900bcbe19" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="334d8886-aab4-430d-b71b-e83fc375d204" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopupOnSuccess()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9114,7 +9146,7 @@
                                   </parameters>
                                 </icon>
                               </children>
-                              <children xsi:type="tura.form:Button" order="1" uid="5a2c8d80-ca2e-4ca7-b302-e7f0efeab738" label="Cancel">
+                              <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="5a2c8d80-ca2e-4ca7-b302-e7f0efeab738" label="Cancel">
                                 <style uid="704940bd-3a57-4eb1-8728-36f919fcaf94" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="af489ef2-7d74-4ee7-b4a5-b2ba37965373" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopup()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9318,7 +9350,7 @@
                                 <expression objRef="b9c7e017-2c86-4b79-acab-8d7afc553208" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" nickname="" order="1" uid="f0d5388b-b818-494d-b7af-d70fae501e46" sourcePointer="1eb2341d-6c2c-4263-a589-b6f2316da1a4" valuePointer="07b7c794-d067-4724-8fb4-cede094c35ac">
+                            <children xsi:type="tura.form:InputText" nickname="user name" order="1" uid="f0d5388b-b818-494d-b7af-d70fae501e46" sourcePointer="1eb2341d-6c2c-4263-a589-b6f2316da1a4" valuePointer="07b7c794-d067-4724-8fb4-cede094c35ac">
                               <style uid="356d0973-7002-415b-a5b7-f1ea2f75c2e4"/>
                               <required uid="3fb43ecf-9ed8-4598-9181-a45d8c463061"/>
                             </children>
@@ -9354,7 +9386,7 @@
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="3" uid="09be738e-21e2-44f4-a4cb-7159c46caec9" columns="2">
-                            <children xsi:type="tura.form:Button" uid="964d947c-ebfd-4a0f-b5c9-db1c70e9b51a" label="ok">
+                            <children xsi:type="tura.form:Button" nickname="ok" uid="964d947c-ebfd-4a0f-b5c9-db1c70e9b51a" label="ok">
                               <style uid="167bae4b-8bfb-4136-87dd-abb1afa726cc" constant="true" value="width:30px;height:30px"/>
                               <enabled uid="7248bd00-a65e-4ac8-a9db-5d923505eae7"/>
                               <fields uid="d47adcf3-89ec-438c-af0c-7d6b2cecc353" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.applyUserChanges()">
@@ -9400,7 +9432,7 @@
                                 </parameters>
                               </icon>
                             </children>
-                            <children xsi:type="tura.form:Button" order="1" uid="815b46c9-c888-4c94-9799-13ec77b1f789" label="cancel">
+                            <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="815b46c9-c888-4c94-9799-13ec77b1f789" label="cancel">
                               <style uid="af15bc84-501e-4d6b-905a-b93f908fdc19" constant="true" value="width:30px;height:30px"/>
                               <fields uid="6392b95b-2c61-4ca9-98fb-f5b1ed8af8b7" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.rallbackUserChanges()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9452,7 +9484,7 @@
                       </viewElement>
                       <classifiers uid="4aa0312e-3b5f-4995-b26a-9fc89bbc8a2e" hint="0c540a45-6e97-4273-a483-9aed3e27477c" details="popupUser"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:PopupCanvas" uid="c31bf961-55f2-4daf-80be-a5cb69b0abee" name="Popup assign role">
+                    <canvases xsi:type="tura.form:PopupCanvas" uid="c31bf961-55f2-4daf-80be-a5cb69b0abee" name="Popup assign role Canvas">
                       <style uid="cb5c5c79-4691-476e-b311-c81232201fe5"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="a0ac3e09-1895-4487-acd8-342572e38a37" name="Popup assign role">
                         <style uid="baa845fa-a0ce-4b0b-b939-96677d477d9b"/>

@@ -61,6 +61,7 @@ public class Actions implements EventAccessor {
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
+			dc.islolate();
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);

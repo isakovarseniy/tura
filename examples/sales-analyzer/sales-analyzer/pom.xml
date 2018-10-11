@@ -61,6 +61,13 @@
 	<dependencyManagement>
 		<dependencies>
 
+
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>primefaces-selenium</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.tura.platform.datacontrol</groupId>
 				<artifactId>core</artifactId>
