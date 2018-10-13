@@ -591,6 +591,60 @@ public class SingleDataControlPool {
 		}
 	}
 	
+	@Test
+	public void t11_pooledWithSavePointDataCalontrol() {
+		try {
+			
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+
+			DataControl<DepartmentType> dc2 = factory.initDepartments("N");
+			dc2.getElResolver().setValue("Ndepartments", dc2);
+
+			dc2.getCurrentObject();
+
+			
+			Pager<?> pager = getPager(dc);
+			dc.getCommandStack().savePoint();
+			
+			DepartmentType newrow = factory.getNewDepartmentType();
+			newrow.setObjId(123L);
+			
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.C.name(), "1");
+			
+			pager.addCommand(e);
+
+			newrow = factory.getNewDepartmentType();
+			newrow.setObjId(123L);
+			e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.U.name(), "1");
+			
+			pager.addCommand(e);
+
+			DepartmentType  d0 = dc.getCurrentObject();
+			assertEquals(new Long(123L), d0.getObjId());
+			dc.nextObject();
+			DepartmentType  d1 = dc.getCurrentObject();
+			dc.getCommandStack().savePoint();
+			
+			List<DepartmentType> ls= dc.getScroller();
+			ls.get(0);
+			ls.get(1);
+			
+			dc2.forceRefresh();
+			dc.getCommandStack().rallbackSavePoint();
+			
+			DepartmentType  d2 = dc.getCurrentObject();
+			assertEquals(d2.getObjId(), d1.getObjId());
+			
+
+	} catch (Exception e) {
+		e.printStackTrace();
+		fail(e.getMessage());
+	}
+
+	}
 	
 	
 	
