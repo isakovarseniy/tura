@@ -133,16 +133,15 @@ public abstract class Pager<T> extends Pool {
 	public T getObject(int index) throws TuraException {
 		ObjectControl obj = null;
 
-		long beginTimeStamp = getShifter().getShiftControlData().getLastUpdate();
-		long endTimeStamp = getPoolData().getNextId();
+		long endTimeStamp = getPoolData().getCurrentId()+1;
 		boolean removed= false;
 		int created;
 		try {
-			created = beforeShifterGetCreatedObjects(getBaseClass(),beginTimeStamp, endTimeStamp, index);
+			created = beforeShifterGetCreatedObjects(getBaseClass(), endTimeStamp, index);
 			do {
 				obj = (ObjectControl) get(index);
 				if ( obj != null ) {
-					removed = isRemoved(getBaseClass(), beginTimeStamp,endTimeStamp, obj.getKey(), index);
+					removed = isRemoved(getBaseClass(), endTimeStamp, obj.getKey(), index);
 				}else {
 					removed = false;
 				}
@@ -151,11 +150,9 @@ public abstract class Pager<T> extends Pool {
 				}
 			} while (obj != null && removed);
 			if (obj != null) {
-				obj = (ObjectControl) checkForUpdate(getBaseClass(), beginTimeStamp,
-						endTimeStamp, obj, obj.getKey(), index);
+				obj = (ObjectControl) checkForUpdate(getBaseClass(), endTimeStamp, obj, obj.getKey(), index);
 			}
 			
-			getShifter().getShiftControlData().setLastUpdate(endTimeStamp);
 			notifyOptional(created,obj);
 			return (T) obj;
 		} catch (Exception e) {
@@ -163,19 +160,18 @@ public abstract class Pager<T> extends Pool {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void notifyOptional(int i, Object obj) throws TuraException {
 		if (i == 0) {
 			return;
 		}
 		if (i < 0) {
 			getDataControl().notifyLiteners(new RowRemovedEvent(getDataControl(), null));
-			getDataControl().notifyChageRecordAll((T)obj);
+			getDataControl().notifyChageRecordAll((T)getDataControl().getCurrentObject());
 		}
 		
 		if (i > 0) {
 			getDataControl().notifyLiteners(new RowCreatedEvent(getDataControl(), null));
-			getDataControl().notifyChageRecordAll((T)obj);
+			getDataControl().notifyChageRecordAll((T)getDataControl().getCurrentObject());
 		}
 		
 	}

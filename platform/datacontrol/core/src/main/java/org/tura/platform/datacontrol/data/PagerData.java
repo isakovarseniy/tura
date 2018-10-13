@@ -33,6 +33,9 @@ public class PagerData {
 	private ShiftControl shifter;
 	private boolean isolated = false;
 	private Stack<PoolElement> isolatedCommandList = new Stack<>();
+	private long newObjectsUpdate;
+	private HashMap<Object , UpdateTracker>  tracker = new HashMap<>();
+	
 
 	public static Object factory(Object obj) {
 		if (obj == null)
@@ -49,6 +52,7 @@ public class PagerData {
 	public PagerData(PagerData p) {
 		this.shifter = p.shifter;
 		this.isolated = p.isolated;
+		this.newObjectsUpdate = p.newObjectsUpdate;
 
 		for (String key : p.shifterHash.keySet()) {
 			this.shifterHash.put(key, p.shifterHash.get(key));
@@ -58,6 +62,10 @@ public class PagerData {
 			this.isolatedCommandList.add(element);
 		}
 
+		for (Object key : p.tracker.keySet()) {
+			this.tracker.put(key, p.tracker.get(key));
+		}
+		
 	}
 
 	public HashMap<String, ShiftControl> getShifterHash() {
@@ -92,4 +100,55 @@ public class PagerData {
 		this.isolated = isolated;
 	}
 
+	public long getNewObjectsUpdate() {
+		return newObjectsUpdate;
+	}
+
+	public void setNewObjectsUpdate(long newObjectsUpdate) {
+		this.newObjectsUpdate = newObjectsUpdate+1;
+	}
+
+
+	public long getLastRemoveUpdate(Object key){
+		if ( tracker.get(key)  == null){
+			return 0L;
+		}else{
+			return tracker.get(key).lastRemove;
+		}
+	}
+	
+	public void setLastRemoveUpdate(Object key, long date){
+		UpdateTracker t = tracker.get(key);
+		if ( t   == null){
+			t = new UpdateTracker();
+			tracker.put(key, t);
+		}
+		t.lastRemove = date+1;
+	}
+	
+	public long getLastUpdateUpdate(Object key){
+		if ( tracker.get(key)  == null){
+			return 0L;
+		}else{
+			return tracker.get(key).lastUpdate;
+		}
+	}
+	
+	public void setLastUpdateUpdate(Object key, long date){
+		UpdateTracker t = tracker.get(key);
+		if ( t   == null){
+			t = new UpdateTracker();
+			tracker.put(key, t);
+		}
+		t.lastUpdate = date+1;
+	}
+
+	
+	
+	private class UpdateTracker {
+		long lastUpdate;
+		long lastRemove;
+	}
+	
+	
 }

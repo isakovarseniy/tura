@@ -29,6 +29,8 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -299,6 +301,60 @@ public abstract class MasterDetailDataControlPool {
 	
 	
 	
+	
+	@Test
+	public void t4_getRemoveModificationMasterIsolated() {
+		try {
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			factory.setRelatioin(dcd, dce);
+
+			ArrayList<DepartmentType> dpt = new ArrayList<>();
+			ArrayList<EmployeeType> emp = new ArrayList<>();
+			Pager<?> pager = getPager(dcd);
+
+			
+			for (int  i= 0; i<5; i++) {
+				dpt.add( dcd.getCurrentObject());
+				emp.add( dce.getCurrentObject());
+                System.out.println(dpt.get(i).getObjId().toString() +"    "+ emp.get(i).getObjId().toString() );				
+				dcd.nextObject();
+			}
+			
+			dcd.setCurrentPosition(3);
+	        DepartmentType rowd =  dcd.getCurrentObject();
+	        EmployeeType  rowe = dce.getCurrentObject();
+            System.out.println( "Before remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
+
+			DepartmentType newrow = factory.getNewDepartmentType();
+			newrow.setObjId(dpt.get(0).getObjId());
+	          
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dcd.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+	        
+	        List<DepartmentType> ls = dcd.getScroller();
+	        for (int i = 0; i <5; i++) {
+	          	ls.get(0);
+	        }
+	        
+	        rowd =  dcd.getCurrentObject();
+	        rowe = dce.getCurrentObject();
+            System.out.println( "After remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
+	        assertEquals(dpt.get(2).getObjId(), rowd.getObjId());
+	        assertEquals(emp.get(2).getObjId(), rowe.getObjId());
+	        
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+
 	
 	
 	

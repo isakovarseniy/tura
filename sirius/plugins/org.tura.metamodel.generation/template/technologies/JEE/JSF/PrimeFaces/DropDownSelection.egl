@@ -7,17 +7,20 @@ operation form::DropDownSelection draw(hash) {
      util.traceIfDebug("DropDownSelection",  self.eClass().name +" start: " +self.uid);     
 
      if (hash.get("context") == null ){
-	     hints.put("noCurlyBracket",true);
          value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
       %] [%=self.noContext(hash,value)%] [%           
       }
      else{
+          hints.put("noCurlyBracket","true");
+          var pointer = self.eContainer().eContainer();
+          value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
+     
           if (hash.get("context").equals("table") ){
-               value =  "#{row[2]."+self.valuePointer.name+"}";
+               value =  "#{row[2]."+value+"}";
                %] [%=self.tableContext(hash,value)%] [%           
            }  
           if (hash.get("context").equals("tree") ){
-               value =  "#{row[1]."+self.valuePointer.name+"}";
+               value =  "#{row[1]."+value+"}";
                %] [%=self.treeContext(hash,value)%] [%           
           }     
      }
@@ -63,18 +66,18 @@ operation form::DropDownSelection rw(hash,value) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var emptyhints = new Native('java.util.HashMap');
-	 hints.put("noCurlyBracket",true);
+     hints.put("noCurlyBracket",true);
      
 %]
-<p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="#{[%=value%]}">
+<p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="[%=value%]">
     [%if (self.initialOptionMessage <> null and self.initialOptionMessage.value <> null ){%]
     <f:selectItem itemLabel="[%=buildExpression(self.initialOptionMessage,emptyhints,hash)%]" itemValue="[%=self.initialOptionValue%]" />
-	[%}
-	%]
-	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
-	[%if (self.isRefreshArias()){%]
-	<p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=value%]').changeValueListener}" />
-	[%}%]
+    [%}
+    %]
+    <f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+    [%if (self.isRefreshArias()){%]
+    <p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=value%]').changeValueListener}" />
+    [%}%]
 </p:selectOneMenu>
 [%
 }

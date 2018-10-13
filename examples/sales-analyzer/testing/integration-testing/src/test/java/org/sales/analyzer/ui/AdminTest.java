@@ -100,7 +100,7 @@ public class AdminTest {
 		PopupUsersWindowsPageObject popupUsersWindowsPage = new PopupUsersWindowsPageObject(driver);
 		InputText usrName= popupUsersWindowsPage.getUserName();
 		usrName.setValue("User Name");
-		popupUsersWindowsPage.getOk().click();
+		popupUsersWindowsPage.getUskPopOk().click();
 		
 		Table t = userManagementPage.getUsersTable();
 		t.getRow(1).getCell(0).click();
@@ -109,7 +109,7 @@ public class AdminTest {
 		new Repeater() {
 			public void action() {
 				PopupUsersWindowsPageObject popupUsersWindowsPage = new PopupUsersWindowsPageObject(driver);
-				popupUsersWindowsPage.getCancel().click();
+				popupUsersWindowsPage.getUskPopCancel().click();
 			}
 		}.repeat(10);
 		
@@ -155,7 +155,7 @@ public class AdminTest {
 		t1.getRow(0).getCell(0).click();
 		t1.getRow(0).getCell(0).click();
 		
-		popupAssignPermissionsPageObject.getOk().click();
+		popupAssignPermissionsPageObject.getPermPopOk().click();
 		
 		new SeleniumActionExecutor(driver,
 				RoleManagementPageObject.getPermissionsSearchCriteria(), RoleManagementPageObject.getRolesTableSearchCriteria()) {

@@ -9106,7 +9106,7 @@
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="ded87288-e524-4890-bae9-ee08f292ad35">
                               <style uid="c51507f2-dfc6-481b-8feb-f49eea2ca0d8"/>
-                              <children xsi:type="tura.form:Button" nickname="ok" uid="2801738a-3a90-4a9c-8013-be069b68f5f7" label="Save">
+                              <children xsi:type="tura.form:Button" nickname="perm_pop_ok" uid="2801738a-3a90-4a9c-8013-be069b68f5f7" label="Save">
                                 <style uid="acbcae7c-2070-41cf-9924-713900bcbe19" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="334d8886-aab4-430d-b71b-e83fc375d204" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopupOnSuccess()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9146,7 +9146,7 @@
                                   </parameters>
                                 </icon>
                               </children>
-                              <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="5a2c8d80-ca2e-4ca7-b302-e7f0efeab738" label="Cancel">
+                              <children xsi:type="tura.form:Button" nickname="perm_pop_cancel" order="1" uid="5a2c8d80-ca2e-4ca7-b302-e7f0efeab738" label="Cancel">
                                 <style uid="704940bd-3a57-4eb1-8728-36f919fcaf94" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="af489ef2-7d74-4ee7-b4a5-b2ba37965373" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopup()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9386,7 +9386,7 @@
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="3" uid="09be738e-21e2-44f4-a4cb-7159c46caec9" columns="2">
-                            <children xsi:type="tura.form:Button" nickname="ok" uid="964d947c-ebfd-4a0f-b5c9-db1c70e9b51a" label="ok">
+                            <children xsi:type="tura.form:Button" nickname="usk_pop_ok" uid="964d947c-ebfd-4a0f-b5c9-db1c70e9b51a" label="ok">
                               <style uid="167bae4b-8bfb-4136-87dd-abb1afa726cc" constant="true" value="width:30px;height:30px"/>
                               <enabled uid="7248bd00-a65e-4ac8-a9db-5d923505eae7"/>
                               <fields uid="d47adcf3-89ec-438c-af0c-7d6b2cecc353" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.applyUserChanges()">
@@ -9432,7 +9432,7 @@
                                 </parameters>
                               </icon>
                             </children>
-                            <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="815b46c9-c888-4c94-9799-13ec77b1f789" label="cancel">
+                            <children xsi:type="tura.form:Button" nickname="usk_pop_cancel" order="1" uid="815b46c9-c888-4c94-9799-13ec77b1f789" label="cancel">
                               <style uid="af15bc84-501e-4d6b-905a-b93f908fdc19" constant="true" value="width:30px;height:30px"/>
                               <fields uid="6392b95b-2c61-4ca9-98fb-f5b1ed8af8b7" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.rallbackUserChanges()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>

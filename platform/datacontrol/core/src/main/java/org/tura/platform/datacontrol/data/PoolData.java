@@ -57,5 +57,8 @@ public class PoolData {
 		return ++id;
 	}
 	
+	public long getCurrentId() {
+		return id;
+	}
 	
 }
