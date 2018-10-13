@@ -321,14 +321,14 @@ public abstract class MasterDetailDataControlPool {
 			for (int  i= 0; i<5; i++) {
 				dpt.add( dcd.getCurrentObject());
 				emp.add( dce.getCurrentObject());
-                System.out.println(dpt.get(i).getObjId().toString() +"    "+ emp.get(i).getObjId().toString() );				
+//                System.out.println(dpt.get(i).getObjId().toString() +"    "+ emp.get(i).getObjId().toString() );				
 				dcd.nextObject();
 			}
 			
 			dcd.setCurrentPosition(3);
 	        DepartmentType rowd =  dcd.getCurrentObject();
 	        EmployeeType  rowe = dce.getCurrentObject();
-            System.out.println( "Before remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
+//            System.out.println( "Before remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
 
 			DepartmentType newrow = factory.getNewDepartmentType();
 			newrow.setObjId(dpt.get(0).getObjId());
@@ -343,7 +343,7 @@ public abstract class MasterDetailDataControlPool {
 	        
 	        rowd =  dcd.getCurrentObject();
 	        rowe = dce.getCurrentObject();
-            System.out.println( "After remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
+//            System.out.println( "After remove"+ rowd.getObjId().toString() +"    "+ rowe.getObjId().toString() );				
 	        assertEquals(dpt.get(2).getObjId(), rowd.getObjId());
 	        assertEquals(emp.get(2).getObjId(), rowe.getObjId());
 	        
