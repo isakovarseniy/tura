@@ -294,14 +294,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		if (pager.listSize() == -1)
 			pager.queryDS(0, pager.getLoadStep());
 
-		int position;
-		try {
-			position = (int) pager.getShifter().getObject((int) crtPosition,
-					true);
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
-		Object obj = pager.getObject(position);
+		Object obj = pager.getObject((int) crtPosition);
 		if (obj != null) {
 			this.currentPosition = (int) crtPosition;
 			notifyLiteners(new RowChangedEvent(this));

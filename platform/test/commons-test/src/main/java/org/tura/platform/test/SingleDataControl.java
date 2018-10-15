@@ -22,6 +22,7 @@
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.InputStream;
@@ -590,6 +591,36 @@ public class SingleDataControl {
 
 	}
 
+	
+	@Test
+	public void t13_removeWithPositioning() {
+
+		try {
+			
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+
+			dc.setCurrentPosition(24);
+			
+			DepartmentType d = dc.getCurrentObject();
+			assertEquals(new Long(250), d.getObjId());
+			
+			dc.removeObject();
+			
+			boolean isSet = dc.setCurrentPosition(25);
+			assertTrue(isSet);
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+
+	
+	
 	
 	
 	public class DeparmentPostCreatTrigger implements PostCreateTrigger {
