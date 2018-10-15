@@ -1910,9 +1910,13 @@
             <operations uid="8f47eedc-7c94-4b24-a546-4298e942eae9" name="openUserPopup"/>
             <operations uid="e2be12bb-d77a-4a3e-9eba-3555d2af855a" name="deleteUser"/>
             <operations uid="7e24f9ab-dbc6-48e4-8337-3c618c99e48e" name="createUserPopup"/>
-            <operations uid="e458b5d0-8c4d-434d-8659-0408d9d3d312" name="openUserSelectorPopup()"/>
+            <operations uid="e458b5d0-8c4d-434d-8659-0408d9d3d312" name="openRoleSelectorPopup"/>
             <operations uid="c048955e-0e6f-4042-bf56-c214bbe0c69e" name="applyUserChanges"/>
             <operations uid="dd3bf31b-6196-4f4a-9521-5d120ff05d03" name="rallbackUserChanges"/>
+            <operations uid="b8477a7b-063a-48b2-8d1d-91ff966b3a94" name="applyRolesModification"/>
+            <operations uid="d2532eb2-7e66-46cd-8685-750a8d31cb4e" name="rallbackRolessModification"/>
+            <operations uid="98d7cc84-2be8-4db5-a453-d86321e8c2ba" name="modifyRoles"/>
+            <operations uid="9170e148-061c-4055-8203-ed3ffe82865c" name="deleteRoleRef"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8481,6 +8485,22 @@
                             <style uid="8acd14c5-fb33-41d5-a624-1c8a76c107f5"/>
                             <children xsi:type="tura.form:Button" uid="29062c27-6be6-45c1-8647-e06b46cc74d8" label="Save">
                               <style uid="4641d83b-ddc8-4c82-bf68-06b5c136b79e" constant="true" value="width:30px;height:30px"/>
+                              <fields uid="5170570a-45cc-43d9-8a31-189ebce6ea68" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.saveApplication()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="548cd408-2ceb-4124-84af-e6ed1bfde8fe" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="29062c27-6be6-45c1-8647-e06b46cc74d8" group="1"/>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="1"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="1"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="1"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="1"/>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="2"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                               <multiLangLabel uid="d122cfd1-fd52-446a-91c1-cc19ebeb261d"/>
                               <icon uid="634de022-df01-4e84-8ee4-49b356485e65" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -8500,6 +8520,17 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="1" uid="85d82665-76f7-4648-aed6-4c7e251c0dd1" label="Rollback">
                               <style uid="49095a26-3e84-4381-900a-867aafb2c4ae" constant="true" value="width:30px;height:30px"/>
+                              <fields uid="8607052b-f1cd-4098-ac6a-285709dac7c6" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.rallbackApplication()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="c5d7b436-a0f2-4228-bf9f-0770046764d9" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="2"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                               <icon uid="edae59c4-b3d9-45f2-a960-72c547a3aa29" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -8671,7 +8702,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" nickname="roles ref table" order="4" uid="80f290b9-ad76-438f-82c2-933f1615ee4c" columns="2">
                             <style uid="2b01105e-aea5-4134-a7d8-017b5f5018fe" constant="true" value="width:30%"/>
-                            <children xsi:type="tura.form:Table" uid="0d068d89-4d4d-4a53-94d4-786a841be363" sourcePointer="659d957b-879a-48c4-9667-5700a23a007d" columns="3" label="Roles" rowNumber="5">
+                            <children xsi:type="tura.form:Table" nickname="RolesOnUser" uid="0d068d89-4d4d-4a53-94d4-786a841be363" sourcePointer="659d957b-879a-48c4-9667-5700a23a007d" columns="3" label="Roles" rowNumber="5">
                               <style uid="73b2ca33-eeaf-4159-a104-a87b8d5f99bc" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                               <multiLangLabel uid="b9efd75d-2ee2-435b-8ee7-44524104f6b7"/>
                               <cols uid="8a713e24-e360-467f-95bd-f78c3cf6573c">
@@ -8689,6 +8720,16 @@
                                 <style uid="50d281c1-31f6-46d3-b00f-9f1370819a20" constant="true" value="width:40px"/>
                                 <element xsi:type="tura.form:Button" uid="de5e2393-ace8-471a-8ea0-4a329eff8ff5" label="Remove">
                                   <style uid="39c92eb5-8753-4060-937d-549cc34fce9c" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="f80da9e1-be4f-4960-8357-074bc8d118b9" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
+                                  <fields uid="60db2f45-5fba-466d-af93-7786f80d3fb6" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.deleteRoleRef()">
+                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                    <expression objRef="5f9070b4-43ea-49e2-940e-d679db847b57" order="3" expressionType="TypeImpl"/>
+                                    <expression objRef="9170e148-061c-4055-8203-ed3ffe82865c" order="4" expressionType="OperationImpl"/>
+                                  </fields>
+                                  <required uid="9a8d1821-da85-40e6-a079-6265e398775a"/>
+                                  <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
                                   <icon uid="184ea51a-7671-40dc-b09c-9f34dbb04b97" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9000,11 +9041,15 @@
                                 <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
                                 <expression objRef="548cd408-2ceb-4124-84af-e6ed1bfde8fe" order="4" expressionType="OperationImpl"/>
                               </fields>
-                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
-                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
                               <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="1"/>
                               <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="1"/>
                               <refreshAreas area="fc31410d-4f91-4cef-89e7-a44dcba2df36" group="1"/>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="1"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="1"/>
+                              <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
+                              <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="2"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
                               <icon uid="aab78429-1c52-4719-8f08-d3c4f9f37548" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9032,6 +9077,8 @@
                               </fields>
                               <refreshAreas area="2f19e0e5-53c4-4ff6-8363-4f624f51c8f1" group="2"/>
                               <refreshAreas area="60269cda-16bf-4903-be00-039c759df97b" group="2"/>
+                              <refreshAreas area="b013768a-8b8e-4bdb-aa38-6dfe1021479a" group="2"/>
+                              <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
                               <icon uid="92a41d69-1ccf-4010-b3b0-ee4bb117b3fb" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9500,13 +9547,23 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="dd0839dd-c802-4364-a2e8-5e9430060d24" columns="2">
                             <style uid="8133b584-0ce9-49bf-8c32-cd973f2d8221"/>
-                            <children xsi:type="tura.form:Table" uid="dce48561-8d19-475d-b3dd-fee6f5ce6ea1" sourcePointer="39f7462c-8ab9-4e9e-8da6-4ea08827004d" columns="2" label="Roles" rowNumber="5">
+                            <children xsi:type="tura.form:Table" nickname="PopUpAssignRoleTable" uid="dce48561-8d19-475d-b3dd-fee6f5ce6ea1" sourcePointer="39f7462c-8ab9-4e9e-8da6-4ea08827004d" columns="2" label="Roles" rowNumber="5">
                               <style uid="9b59a6e8-4ba1-4db1-8106-b5a9f040db37" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                               <multiLangLabel uid="9be74fcd-99a0-4451-9c1f-028571af9313"/>
                               <cols uid="c2ec617d-6d03-406c-9a82-f5b5e893f90e">
                                 <style uid="a460a7e6-6c92-409b-a061-0cd85f10c864" constant="true" value="width:30px;text-align: center"/>
                                 <element xsi:type="tura.form:CheckBox" uid="1e1b3c76-cb43-44cf-9922-f319fc052fd6" valuePointer="15ab2340-a0bb-4d74-b7f2-6d162a008ebd">
                                   <style uid="a2e08842-e4c4-4993-8e09-e1d97f17386d"/>
+                                  <fields uid="fa8c0ea1-dcd5-4dbe-a494-d7242001fff6" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.modifyRoles()">
+                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                    <expression objRef="5f9070b4-43ea-49e2-940e-d679db847b57" order="3" expressionType="TypeImpl"/>
+                                    <expression objRef="98d7cc84-2be8-4db5-a453-d86321e8c2ba" order="4" expressionType="OperationImpl"/>
+                                    <classifiers uid="3edf4e8b-0041-4d05-b20a-b8ac88a7129a" hint="a295b816-d320-4bee-84a1-51bc2a935252"/>
+                                  </fields>
+                                  <refreshAreas area="dce48561-8d19-475d-b3dd-fee6f5ce6ea1" group="2"/>
+                                  <refreshAreas area="1e1b3c76-cb43-44cf-9922-f319fc052fd6" group="1"/>
                                 </element>
                               </cols>
                               <cols order="1" uid="50938f16-1947-45eb-929b-8cb0a30c3a82" label="Role name">
@@ -9525,6 +9582,28 @@
                               <style uid="bd67f482-6eba-494a-af2f-c5f2183c2387"/>
                               <children xsi:type="tura.form:Button" uid="5e7320b7-6ec4-4e40-b935-387bc491cf06" label="ok">
                                 <style uid="3f33ca86-e9db-464f-adff-895cdb29cadf" constant="true" value="width:30px;height:30px"/>
+                                <fields uid="75a0ce42-a6de-4fee-a818-77bc53af783b" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopupOnSuccess()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="74f6e110-73a0-4c30-bc42-426cde36ac40" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="12d27ed6-861f-421d-8a46-2c15869e91cd" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="1b765e29-3006-42da-987b-d1642f15ae94" refObj="3b389a53-0e59-4404-9127-7a1fb96b6bf9">
+                                    <value uid="f09015a8-4809-4db9-bc82-ed3cd07b4b69" constant="true" value="popupRoleSelector"/>
+                                  </parameters>
+                                  <parameters uid="bde37038-bde6-4c67-b63a-2eec4d321118" refObj="1f1bc3c6-1100-4896-9c7e-3b9d674a228e">
+                                    <value uid="72698c54-e875-48e6-95a5-c9432edcfd1a" constant="true" value="##args"/>
+                                  </parameters>
+                                  <classifiers uid="051095e5-0b56-4566-b248-e0cea4da7a5e" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
+                                </fields>
+                                <fields uid="2ab18c19-2db6-4ed7-b212-594fa699f58a" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.applyRolesModification()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="5f9070b4-43ea-49e2-940e-d679db847b57" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="b8477a7b-063a-48b2-8d1d-91ff966b3a94" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
                                 <icon uid="ab613136-c552-4f40-85a3-8cb355a2c3ac" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9543,6 +9622,25 @@
                               </children>
                               <children xsi:type="tura.form:Button" order="1" uid="1a804046-2e21-4458-a2bb-4202924fb4b8" label="cancel">
                                 <style uid="0ea1f26e-f7dd-497d-bbf5-99ffb87fc4e3" constant="true" value="width:30px;height:30px"/>
+                                <fields uid="47e467e4-31f9-4371-adc8-1b6f781d4dc3" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin users.rallbackRolessModification()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="5f9070b4-43ea-49e2-940e-d679db847b57" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="d2532eb2-7e66-46cd-8685-750a8d31cb4e" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <fields uid="7fa2ec6f-51a1-4de0-9367-270d795d99af" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopup()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="74f6e110-73a0-4c30-bc42-426cde36ac40" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="05035e68-79b1-4a23-b176-702abf865bf0" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="2d9bd572-1b76-4d8d-85c8-069af12ce8a9" refObj="ca9eff87-9431-4b7a-abaf-e28b116a5c37">
+                                    <value uid="145804ce-d88d-4d1c-91ec-751c3afbf101" constant="true" value="popupRoleSelector"/>
+                                  </parameters>
+                                  <classifiers uid="546e695c-b9f1-48d4-ae5b-ae9d669305db" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
+                                </fields>
+                                <refreshAreas area="0d068d89-4d4d-4a53-94d4-786a841be363" group="2"/>
                                 <icon uid="e0350006-64f2-4c60-8055-30763e274aab" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9684,6 +9782,7 @@
                         </parameters>
                       </search>
                       <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="d544addb-19fb-44e1-b7bb-38899df2aaf2" name="selected"/>
+                      <defaultSearch/>
                       <defaultOrderBy/>
                       <relationMappers uid="f1c3c40e-d15e-4ab4-b3e3-41b45ab1a34f" typeRef="d145e66d-8468-4309-ae17-4bc85378d672" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
                     </controls>
@@ -9913,6 +10012,7 @@
                         </parameters>
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="580b0c5f-60cf-451b-a26e-f58fb8adcfd7" name="role name"/>
+                      <defaultOrderBy/>
                       <relationMappers uid="fa1c34a9-56c3-4035-a62f-4c039479f277" typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
                     </controls>
                     <controls uid="1eb2341d-6c2c-4263-a589-b6f2316da1a4" name="Popup User">
@@ -10029,12 +10129,228 @@
                         </parameters>
                       </search>
                       <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="15ab2340-a0bb-4d74-b7f2-6d162a008ebd" name="selected"/>
+                      <defaultSearch/>
                       <defaultOrderBy/>
                       <relationMappers uid="b7e38bd5-5780-4a9f-8172-9e2cbd146447" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                       <relationMappers uid="7dd2f76e-491c-4b8f-a984-0cd1cfe0a8b6" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
                     </controls>
+                    <controls uid="a4b4ad98-d777-4ca7-a62c-716307d5fee1" name="RoleHelper">
+                      <baseType typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="47f5f626-5dba-4473-b4d5-36ac39f9eb3f">
+                        <parameters uid="74a9945b-c15a-4a05-bbca-eb326a8aa8b4" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="92e3dcbc-fe6e-41bc-9555-7b3ac57fb60d" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role">
+                            <expression uid="df44a6c6-979b-437b-9404-4ae5337fbd46" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="f51cf701-302c-4ed7-883b-c3e0d68b7b43" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="4e90b730-5f33-4258-9498-0ce15b4ed3bb" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c80ad4e3-eeef-4c08-86e9-9071287cd810" objRef="6f829f95-55fd-4dfe-b375-05f257bb2802" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="e8702f72-5cc0-4ab1-842e-93b8f6640653">
+                        <parameters uid="ee359f67-fe3e-43ec-94aa-37fe9977f8f4" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="a9c49b08-ddad-4c97-8a95-59becbf296b7" value="Data controls.RoleHelper.searchCriteria">
+                            <expression uid="2ecee743-e6cb-4734-b93f-98f717595019" expressionType="DataControlHolder"/>
+                            <expression uid="4a19dc11-8597-4a51-a1d4-2067f94ae30c" objRef="a4b4ad98-d777-4ca7-a62c-716307d5fee1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="656afc52-f61e-4032-9f33-49f3494fd38a" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f274d03a-2cd2-476a-b011-4b776a7d5f88" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="5c390c68-80dc-47df-bc79-21d701c3746d" value="Data controls.RoleHelper.orderCriteria">
+                            <expression uid="d804a941-f567-4859-9ff7-4fffae457bd0" expressionType="DataControlHolder"/>
+                            <expression uid="2e73d582-2099-4c16-8660-5f93f83d4c88" objRef="a4b4ad98-d777-4ca7-a62c-716307d5fee1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ef3ee51e-1e3c-436b-8191-886c7386bef3" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="1a54f850-e7c4-4364-814f-48bf0082e96c" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="5dcc48a0-9ded-43cb-a4cc-034a28209fe7" value="Data controls.RoleHelper.start Index">
+                            <expression uid="44d09ca3-da8e-4184-bdf2-97a567f10570" expressionType="DataControlHolder"/>
+                            <expression uid="7e33d799-0784-4486-9497-d86ecb6bba03" objRef="a4b4ad98-d777-4ca7-a62c-716307d5fee1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="a9fc1da1-7ce0-417e-85c3-d629e2f11286" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="1ca55009-a3e4-4196-964b-85f2f002831b" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="253a61cc-e0f7-4c0e-9eac-c7301bebe44b" value="Data controls.RoleHelper.end Index">
+                            <expression uid="28e6ac01-3f84-479e-89ff-64e8675d7214" expressionType="DataControlHolder"/>
+                            <expression uid="21dfd1b6-239f-4ecb-abd1-0f0c476683bb" objRef="a4b4ad98-d777-4ca7-a62c-716307d5fee1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d3996a7b-7e48-4713-b1c5-81afc2d91af5" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e772dffd-a329-4038-a87a-fc488f507cca" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="13bc2bb4-bbc3-4caf-9224-181f0e42a6d3" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role">
+                            <expression uid="2364f27e-d7d6-415a-bfdd-196d650daa85" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="8b2a146e-1b49-4e75-9e2a-29a1c20b1fff" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="1b6a10b9-a9fc-4a20-a4fa-7b3338ce32e0" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="983744b1-4e8f-4e1d-8dcf-5cca78d061cc" objRef="6f829f95-55fd-4dfe-b375-05f257bb2802" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                      <relationMappers uid="1ee9ffc7-4386-4699-b57c-5b6bdebd2703" dataControlRef="a73cdbc2-b858-428a-a8cf-18c04233d7c9" typeRef="4393d2b0-f16e-4f42-be7e-d9bf176518d9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
+                      <relationMappers uid="66d0967b-d230-4a6e-aae5-2427ce58b6bb" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
+                    </controls>
+                    <controls uid="a73cdbc2-b858-428a-a8cf-18c04233d7c9" name="Permission References Helper">
+                      <baseType typeRef="d145e66d-8468-4309-ae17-4bc85378d672"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="58d5111e-6648-40d0-a14a-03251fb0d6fb">
+                        <parameters uid="1621597f-9a71-47c1-971c-4e2adfa7bb88" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="846af88d-e697-46dc-9e3a-46cb29d9d80d" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="0626b787-61b8-4443-9382-90d9175921d5" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="c2f494cb-7eb8-4421-8024-ad88f9d27d90" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="79b2f840-bf28-4ae6-8f75-db4a2196098c" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="48abc68f-54d7-426a-8bb2-d317677192f5" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="11366fd0-f766-4fb7-8262-6fe33179cbb2">
+                        <parameters uid="50b835a8-452a-489d-8051-da74d2dcc838" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="dd3be405-8007-447c-b47b-fe19d34bd6af" value="Data controls.Permission References Helper.searchCriteria">
+                            <expression uid="67b8eb22-1842-49f8-987c-76eea4f8899e" expressionType="DataControlHolder"/>
+                            <expression uid="98207459-7438-4105-803e-695d4c6f6ac3" objRef="a73cdbc2-b858-428a-a8cf-18c04233d7c9" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="00eee739-190b-4582-969f-d824789b70ad" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b762ef2b-6608-4a00-9aa0-284cdc373ed7" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="32a40b9c-825f-4f0a-aee2-4ae93fc57a14" value="Data controls.Permission References Helper.orderCriteria">
+                            <expression uid="29c901ad-634a-4ea5-b1c7-36806c4e3dd0" expressionType="DataControlHolder"/>
+                            <expression uid="65c69ab5-c3c6-41ce-b79b-df08fa5ab687" objRef="a73cdbc2-b858-428a-a8cf-18c04233d7c9" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0d4d41df-22a7-425d-b57d-bcabc5585945" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="8b6a15d5-24ba-4d75-8dc7-19f6aa6359bc" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="5230fc9c-acce-491c-8ff3-3ae3aae917c6" value="Data controls.Permission References Helper.start Index">
+                            <expression uid="fb988fe5-8e5a-4654-892d-785949f502f0" expressionType="DataControlHolder"/>
+                            <expression uid="1a67c5f7-696a-4446-89de-4978c74d4c1d" objRef="a73cdbc2-b858-428a-a8cf-18c04233d7c9" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="e8d4ea0b-6735-4422-8b9b-43f90e163675" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="cd239014-2168-4a2a-9604-f8a2326a3090" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="a9d3520a-7e08-4de8-affb-46acdc8d16ab" value="Data controls.Permission References Helper.end Index">
+                            <expression uid="cec9b6ad-ecb2-408c-bd31-6cb3c27849b1" expressionType="DataControlHolder"/>
+                            <expression uid="737bcd52-96fb-497a-aeca-5622209b8092" objRef="a73cdbc2-b858-428a-a8cf-18c04233d7c9" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="fa647cf1-3065-46d9-bfe2-411f987f8e2f" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="817d2612-a154-4bd9-b3d7-41859da50a6c" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="294b916c-a4ce-4f1d-a34f-421a38d38985" value="Types repository.Sales Analyzer.database.database::Permission References ">
+                            <expression uid="81476bb0-2c80-4dbc-8f53-32d697ff96d0" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="57f491e7-e7c8-4e27-85c3-a7b13912a8df" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="50be335f-3ac0-4b89-af67-a7149869cea7" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="83c80b7d-9875-49c9-81d6-060e82ce969c" objRef="d145e66d-8468-4309-ae17-4bc85378d672" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <relationMappers uid="0e2304a9-4fe2-4373-9e91-7e23fb4c0ce3" typeRef="e12ef913-4fe6-49b1-af3b-58435b162739" assosiationRef="69685963-f14d-4b35-8b9d-b79da981fc48"/>
+                    </controls>
+                    <controls uid="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" name="User Helper">
+                      <baseType typeRef="68b54791-f4c6-40ff-a475-0e5f55b72369"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="41c3c0a0-e883-47c2-8625-3b87c11dfefa">
+                        <parameters uid="a20f73a5-647e-47a1-964d-1c37f063d2f2" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="1da11102-3786-4ec4-966b-6ec2e6a42b95" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::User">
+                            <expression uid="6ca0e5af-1e2c-46c1-a5a6-92c61cb96398" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="7f043843-a37a-4903-a81d-5914e9b64ea0" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="9536ab9d-2a0c-4736-b72c-aaae2e1dee01" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="28e27859-acbf-4c5b-af5d-e2e8473565f2" objRef="68b54791-f4c6-40ff-a475-0e5f55b72369" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="2e10c18e-4f17-4531-8a2c-90da4fc5db1e">
+                        <parameters uid="9b3d3f16-5e58-4971-bb12-8dad2e3932c2" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="80417a2c-edc7-4762-a748-8968602ca526" value="Data controls.User Helper.searchCriteria">
+                            <expression uid="19001081-9f01-47a0-87fd-650b12aae096" expressionType="DataControlHolder"/>
+                            <expression uid="1ad51f96-7b0e-4b4e-8e4f-7bf622fd1fb5" objRef="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="abb7e7b1-f387-466c-96ab-0c665c04c515" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="819f7b5b-06d5-4585-809b-199cfca70e59" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="edd70797-7620-4601-9af7-fe2acc953473" value="Data controls.User Helper.orderCriteria">
+                            <expression uid="995f90a8-cd82-4fa4-b182-00367bb9f5e9" expressionType="DataControlHolder"/>
+                            <expression uid="97f9bbc0-c58b-4843-86ab-c4fd9adb89d3" objRef="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ae1129c8-2216-435b-9a5a-f6efc4aa90ba" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4ea404b7-c248-4c4f-a0be-93c35af2af8e" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="0ef3ce53-61f6-4b63-b3bf-d9f0d3dc9326" value="Data controls.User Helper.start Index">
+                            <expression uid="fc0c4df4-7682-47a3-9e52-66c377aae09c" expressionType="DataControlHolder"/>
+                            <expression uid="0428700b-c419-43f7-a060-2153a290fb7a" objRef="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="a40edc15-d4d5-4b51-8d82-732d21e36744" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="696a83b3-efeb-41bf-8d10-00a9abd0b6fa" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="f29ccdb1-c7ae-46df-a402-36dfa39fa1ca" value="Data controls.User Helper.end Index">
+                            <expression uid="868c323e-de62-4ae9-bb53-3b418acaa961" expressionType="DataControlHolder"/>
+                            <expression uid="9a25e04c-c709-4e63-84cf-3d8a05d893ab" objRef="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="74b97a1b-29e0-4362-840b-d2b1eceb15c8" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c7992392-1db2-41c0-9cbe-ec1b158af1b1" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="3c39f836-6781-43f1-bfab-e746540b1fea" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::User">
+                            <expression uid="eab23dd8-ac3d-4608-ae43-22407b621ec6" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="3da4ecdb-d78c-4551-96a7-8ba915b0f3b5" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="2fc6d00e-aa32-49ce-8427-dca58445373d" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="33c76e4f-d4da-426e-8c70-96663d8512c3" objRef="68b54791-f4c6-40ff-a475-0e5f55b72369" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <relationMappers uid="4faf6b2c-1822-4431-b09a-ed8013e24f46" typeRef="b06e830e-8815-4e00-83a2-7846ac8480a7" assosiationRef="60dd5e66-ea1e-47da-a9f1-0152e611f5ac"/>
+                      <relationMappers uid="888f4aca-1647-475f-bc1c-d42e7582a1dc" typeRef="033c7e48-74b5-430c-b6c4-9f501fcd687f" assosiationRef="082a4c5c-712e-4e15-96da-737df3409fdb"/>
+                      <relationMappers uid="1d864f6b-9590-41a1-a83c-296dc68b0432" typeRef="f3eb9e2b-0119-4481-9c07-23c410bfa708" assosiationRef="48b43368-3a8d-4d97-b86c-491997fa45a8"/>
+                      <relationMappers uid="a92d8e92-dc8f-455b-95a8-16df96b6cd4b" dataControlRef="99619d76-752d-44a6-861d-d32b240319d5" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="d865e35e-4be3-4e71-bfd9-54977da637dc"/>
+                    </controls>
+                    <controls uid="99619d76-752d-44a6-861d-d32b240319d5" name="Role reference Helper">
+                      <baseType typeRef="7a82cb48-e500-41cb-8021-7de9210e317a"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="a3c99a80-5686-433a-b372-b28726efa4ad">
+                        <parameters uid="8dfaf88e-47b6-42a0-bfab-17d1388ed753" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="7d758df7-bb2e-4009-a02b-f568375bdbd3" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role reference">
+                            <expression uid="2cfa8ec1-8687-4f3a-973a-11be4b97235b" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="53b6b0af-3503-4881-b7d1-23042b57a67b" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="629c2f96-e929-4bd4-b276-b0b74d44797c" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c19cf89f-8841-4046-bb69-a3d68f75804d" objRef="7a82cb48-e500-41cb-8021-7de9210e317a" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="52b7649d-d0cb-463b-8639-0f74e9e8a78b">
+                        <parameters uid="05287814-0293-4373-bf45-4bf5d84603a3" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="dd3fc090-f159-4cd1-b87f-caa829cf0ea8" value="Data controls.Role reference Helper.searchCriteria">
+                            <expression uid="22716809-89e9-4216-b81d-4b1edc70fed1" expressionType="DataControlHolder"/>
+                            <expression uid="cf3ee6d4-2c6a-4ccd-858d-b11a1d23318e" objRef="99619d76-752d-44a6-861d-d32b240319d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="5637e30b-c1be-425c-9c61-b050ac661fce" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="fe2d05f1-0aad-406a-98b9-f53f5081d945" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="26afde6d-df03-4cc4-99ce-6f2c5a7a3155" value="Data controls.Role reference Helper.orderCriteria">
+                            <expression uid="e543986b-63b2-4955-b36d-3a9dc6a744d6" expressionType="DataControlHolder"/>
+                            <expression uid="5213c4c0-6ed1-4380-950e-f60c99c7a4db" objRef="99619d76-752d-44a6-861d-d32b240319d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="395c0aca-f86a-4b15-9d3a-6b1e17ef46a4" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0c4c1bb2-42bf-476a-9ddb-a3192d0eaac0" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="1152b9ba-21c9-4cb2-b071-9647efb8bd22" value="Data controls.Role reference Helper.start Index">
+                            <expression uid="c5c97aea-1277-4738-ae57-ef7229898878" expressionType="DataControlHolder"/>
+                            <expression uid="b58425e3-cbdd-4828-9fb2-c6d72cb6b6eb" objRef="99619d76-752d-44a6-861d-d32b240319d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="51cf4831-33e0-40ee-8d58-ea27b9aac06d" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="606d3310-09a0-47ea-8b04-4a9da6709634" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="f605b10f-c191-4707-9abf-bd7f2a761e8e" value="Data controls.Role reference Helper.end Index">
+                            <expression uid="233bd173-9022-4128-aad5-602bff3d873f" expressionType="DataControlHolder"/>
+                            <expression uid="2c65812d-bc1c-40aa-becd-9b4b2e8f77d4" objRef="99619d76-752d-44a6-861d-d32b240319d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="c539ae7a-c643-47d6-8a99-7b5416df4830" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f4530e6e-9f37-434b-a676-1f20d1ffcc77" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="e815b90b-bf52-458f-8637-97227919e1cc" value="Types repository.Sales Analyzer.KeyCloak.KeyCloak::Role reference">
+                            <expression uid="7c313d7d-ba7d-4177-ad2f-ece86dd4e4ae" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="637d5594-7af8-4fc2-a39d-88b3f63b4dd5" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="6606237a-9943-4555-bcc1-8447ab143c47" objRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="70f906b5-7730-4f62-b7dd-7586f890d7f0" objRef="7a82cb48-e500-41cb-8021-7de9210e317a" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <relationMappers uid="f55d6369-78ab-4fbb-af42-794f2570fbe4" typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802" assosiationRef="11b47ea5-9193-411f-a846-e0997a354733"/>
+                    </controls>
                     <relations xsi:type="tura.form:InternalRelation" uid="73e5d3db-aa66-4007-b865-0b89849bb464" master="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" detail="45a53e9a-93ac-463c-ac09-0bff1a67d8a8" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="a46bf30b-b637-47bb-b379-75bc2d5217b4" master="fd9ac78a-5112-40a9-ae48-50b64ab7b5fc" detail="659d957b-879a-48c4-9667-5700a23a007d" assosiationRef="d865e35e-4be3-4e71-bfd9-54977da637dc"/>
+                    <relations xsi:type="tura.form:InternalRelation" uid="e61d795c-b512-431e-8b69-547e96510f8f" master="a4b4ad98-d777-4ca7-a62c-716307d5fee1" detail="a73cdbc2-b858-428a-a8cf-18c04233d7c9" assosiationRef="e9ba1585-cbca-4c68-adf7-5bf3513b9e97"/>
+                    <relations xsi:type="tura.form:InternalRelation" uid="04dbc6b5-184d-4f52-a8c7-e5c2c8c01f6a" master="ec1c280f-3cb6-4f65-8587-39aa5868c1f4" detail="99619d76-752d-44a6-861d-d32b240319d5" assosiationRef="d865e35e-4be3-4e71-bfd9-54977da637dc"/>
                   </datacontrols>
                 </forms>
                 <forms uid="43bbb8af-e20a-4051-862d-10e3353aa5f5" name="ErrorHandling">

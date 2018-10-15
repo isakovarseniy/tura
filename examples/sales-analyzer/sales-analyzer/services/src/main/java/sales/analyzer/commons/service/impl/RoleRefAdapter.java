@@ -1,7 +1,5 @@
 package sales.analyzer.commons.service.impl;
 
-import java.util.UUID;
-
 import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
 
@@ -12,7 +10,7 @@ public class RoleRefAdapter extends RoleRef {
 	private String id;
 
 	public RoleRefAdapter( String roleRef) {
-		this.id = UUID.randomUUID().toString();
+		this.id = roleRef;
 		this.roleRef = roleRef;
 		idDirectMapping = false;
 		userDirectMapping = false;

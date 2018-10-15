@@ -115,9 +115,9 @@ public class Actions implements EventAccessor {
 
 			}
 			if (isSelected != null && !isSelected) {
-				IBeanFactory bfHelper = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministrationHelper}");
-				DataControl dcHelper = (DataControl) bfHelper.getRole();
-				DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
+				IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+				DataControl dcHelper = (DataControl) bf.getRoleHelper();
+				DataControl dc = (DataControl) bf.getRole();
 				Role role = (Role) dc.getCurrentObject();
 
 				dcHelper.getDefaultSearchCriteria().clear();
@@ -131,7 +131,7 @@ public class Actions implements EventAccessor {
 				dcHelper.forceRefresh();
 
 				dcHelper.getCurrentObject();
-				DataControl peermRefHelper = (DataControl) bfHelper.getPermissionReferences();
+				DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
 				peermRefHelper.getCurrentObject();
 				int i = 0;
 				boolean found = false;

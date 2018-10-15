@@ -125,17 +125,11 @@ operation  datacontrolgeneration(hash) {
     buffer = beanFactory.process();
     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",buffer);   
 
-    hash.put("bfSuffix", "Helper");
-    var beanFactory : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);
-    beanFactory.setFormatter(f);
-    buffer = beanFactory.process();
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactoryHelper.java",buffer);   
 
-
-      var factoryInitProducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/factoryInitProducer.egl",hash,TemplateFactory);
-      factoryInitProducer.setFormatter(f);
-      var buffer = factoryInitProducer.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",buffer);  
+	 var factoryInitProducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/factoryInitProducer.egl",hash,TemplateFactory);
+	 factoryInitProducer.setFormatter(f);
+	 var buffer = factoryInitProducer.process();
+	 util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",buffer);  
 
   }
 %]

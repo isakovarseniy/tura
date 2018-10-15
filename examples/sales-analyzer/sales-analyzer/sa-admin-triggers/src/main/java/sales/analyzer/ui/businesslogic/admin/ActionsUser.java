@@ -15,13 +15,22 @@ import javax.inject.Named;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.admin.admin.administration.datacontrol.RoleReferenceArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.admin.admin.administration.datacontrol.RoleSelectorArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.serialized.keycloak.Role;
+import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
+import org.tura.salesanalyzer.serialized.keycloak.RoleReferenceProxy;
 import org.tura.salesanalyzer.serialized.keycloak.User;
+
+import com.octo.java.sql.exp.Operator;
 
 public class ActionsUser implements EventAccessor {
 
@@ -124,6 +133,26 @@ public class ActionsUser implements EventAccessor {
 
 	}
 
+	
+	public void applyRolesModification() {
+		UIComponent target = ViewModel.findComponent(IBeanFactory.POPUPASSIGNROLETABLE);
+		cleanup(target);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void rallbackRolessModification() {
+		try {
+			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.roleReference}");
+			dc.getCommandStack().rallbackSavePoint();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
+	
+	
 	@SuppressWarnings("rawtypes")
 	public void deleteUser() {
 		try {
@@ -134,7 +163,6 @@ public class ActionsUser implements EventAccessor {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
 			bf.setUserId(((User) (row[2])).getId());
 			dc.forceRefresh();
-			User usr = (User) dc.getCurrentObject();
 			dc.removeObject();
 
 		} catch (Exception e) {
@@ -160,6 +188,131 @@ public class ActionsUser implements EventAccessor {
 		}
 
 	}
-	
 
+	
+	@SuppressWarnings({ "rawtypes" })
+	public void modifyRoles() {
+		try {
+			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			
+
+			Role p = (Role) bf.getRoleSelector().getCurrentObject();
+
+			Boolean isSelected = new RoleSelectorArtifitialFieldsAdapter((ObjectControl) p).getSelected();
+			if (isSelected != null && isSelected) {
+				DataControl dcRef = (DataControl) bf.getRoleReference();
+				User user = (User)  bf.getUser().getCurrentObject();
+
+				RoleReferenceProxy pf = (RoleReferenceProxy) dcRef.createObject();
+				pf.setId( user.getUsername()+ "-" +  p.getName());
+				pf.notifyListner();
+
+				pf.setRole(p);
+				pf.notifyListner();
+
+				RoleReferenceArtifitialFieldsAdapter ad = new RoleReferenceArtifitialFieldsAdapter((ObjectControl) pf);
+				ad.setRoleName(p.getName());
+
+			}
+			if (isSelected != null && !isSelected) {
+				DataControl dcHelper = (DataControl) bf.getUserHelper();
+				DataControl dc = (DataControl) bf.getUser();
+				User user = (User) dc.getCurrentObject();
+
+				dcHelper.getDefaultSearchCriteria().clear();
+
+				SearchCriteria sc = new SearchCriteria();
+				sc.setName("username");
+				sc.setComparator(Operator.EQ.name());
+				sc.setValue(user.getUsername());
+				dcHelper.getDefaultSearchCriteria().add(sc);
+
+				dcHelper.forceRefresh();
+
+				dcHelper.getCurrentObject();
+				DataControl roleRefHelper = (DataControl) bf.getRoleReferenceHelper();
+				roleRefHelper.getCurrentObject();
+				int i = 0;
+				boolean found = false;
+				for ( Object o : roleRefHelper.getScroller()) {
+					RoleReference roleRef = (RoleReference) o;
+					if (roleRef.getRole().equals(p)) {
+						found = true;
+						break;
+					}
+					i++;
+				}
+				if (found) {
+					roleRefHelper.setCurrentPosition(i);
+					roleRefHelper.removeObject();
+				}
+
+			}
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
+	
+	@SuppressWarnings("rawtypes")
+	public void openRoleSelectorPopup() {
+		try {
+
+			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.roleSelector}");
+			dc.forceRefresh();
+
+			dc.getCommandStack().savePoint();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void deleteRoleRef() {
+		try {
+			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+			RoleReference p = (RoleReference) row[2] ;
+			
+			IBeanFactory bfHelper = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			DataControl dcHelper = (DataControl) bfHelper.getUserHelper();
+			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.user}");
+			User user = (User) dc.getCurrentObject();
+
+			dcHelper.getDefaultSearchCriteria().clear();
+
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName("username");
+			sc.setComparator(Operator.EQ.name());
+			sc.setValue(user.getUsername());
+			dcHelper.getDefaultSearchCriteria().add(sc);
+
+			dcHelper.forceRefresh();
+
+			dcHelper.getCurrentObject();
+			DataControl roleRefHelper = (DataControl) bfHelper.getRoleReferenceHelper();
+			roleRefHelper.getCurrentObject();
+			int i = 0;
+			boolean found = false;
+			for ( Object o : roleRefHelper.getScroller()) {
+				RoleReference roleRef = (RoleReference) o;
+				if (roleRef.equals(p)) {
+					found = true;
+					break;
+				}
+				i++;
+			}
+			if (found) {
+				roleRefHelper.setCurrentPosition(i);
+				roleRefHelper.removeObject();
+			}
+			
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	
 }
