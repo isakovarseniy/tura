@@ -29,6 +29,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
+import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
@@ -94,7 +95,7 @@ public class GridModel {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent || event instanceof ControlRallbackEvent) {
+			if (event instanceof MasterRowChangedEvent || event instanceof ControlRallbackEvent ||  event instanceof ControlRefreshedEvent) {
 				lazyModel = new LazyDataGridModel();
 				array = new Object[] { 0, 0, null };
 				lazyModel.setDatacontrol((DataControl) event.getSource());
