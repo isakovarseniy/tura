@@ -55,7 +55,7 @@ public class ActionsUser implements EventAccessor {
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setUserId(((User) (row[2])).getId());
+			bf.setUserId(((User) (row[2])).getUsername());
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
@@ -73,7 +73,7 @@ public class ActionsUser implements EventAccessor {
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
 			if (user != null) {
-				bf.setUserId(user.getId());
+				bf.setUserId(user.getUsername());
 			} else {
 				bf.setUserId(null);
 			}
@@ -161,7 +161,7 @@ public class ActionsUser implements EventAccessor {
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setUserId(((User) (row[2])).getId());
+			bf.setUserId(((User) (row[2])).getUsername());
 			dc.forceRefresh();
 			dc.removeObject();
 
@@ -205,6 +205,7 @@ public class ActionsUser implements EventAccessor {
 
 				RoleReferenceProxy pf = (RoleReferenceProxy) dcRef.createObject();
 				pf.setId( user.getUsername()+ "-" +  p.getName());
+				pf.setRoleId(p.getId());
 				pf.notifyListner();
 
 				pf.setRole(p);
