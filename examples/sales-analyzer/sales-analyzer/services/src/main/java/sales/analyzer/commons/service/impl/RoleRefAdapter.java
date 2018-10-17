@@ -8,13 +8,17 @@ public class RoleRefAdapter extends RoleRef {
 	private String roleRef;
 	private User user;
 	private String id;
+	private String roleId;
 
-	public RoleRefAdapter( String roleRef) {
-		this.id = roleRef;
+	public RoleRefAdapter( String roleRef, String id) {
+		this.id = id;
 		this.roleRef = roleRef;
+		this.roleId = roleRef;
 		idDirectMapping = false;
 		userDirectMapping = false;
 		roleRefDirectMapping = false;
+		roleIdDirectMapping = false;
+		
 	}
 
 	public String getObj() {
@@ -64,6 +68,16 @@ public class RoleRefAdapter extends RoleRef {
 	@Override
 	protected String delegateGetRoleRef() {
 		return roleRef;
+	}
+
+	@Override
+	protected String delegateGetRoleId() {
+		return roleId;
+	}
+
+	@Override
+	protected void delegateSetRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 
 }

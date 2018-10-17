@@ -1717,6 +1717,7 @@
             <classifiers uid="eb3768a5-2f6d-466d-a466-feba1b6b5432" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="dee4402b-bab1-42b8-aa2e-707d223b1211" name="id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e7fe5a26-1348-4379-87ca-b5ec8d34ee07" name="roleRef"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9995c173-1d3a-400d-84f0-76288d1f584e" name="roleId"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="f3eb9e2b-0119-4481-9c07-23c410bfa708" typeRef="8ca8ec6f-a4ba-4e37-b940-4f4d483b898d"/>
           <types xsi:type="tura.type:TypeReference" uid="b06e830e-8815-4e00-83a2-7846ac8480a7" typeRef="807d71a4-b40c-49c9-92e7-0b169c806fb6"/>

@@ -24,7 +24,7 @@ public class SPAAdapterLoader implements AdapterLoader {
 			return new UserAdapter(new UserRepresentation(),realmResource);
 		}
 		if (RoleRef.class.equals(clazz)) {
-			return new RoleRefAdapter(null);
+			return new RoleRefAdapter(null,null);
 		}
 
 		throw new RuntimeException("Unsupportable class " + clazz);
@@ -36,7 +36,7 @@ public class SPAAdapterLoader implements AdapterLoader {
 			return new UserAdapter((UserRepresentation) obj,realmResource);
 		}
 		if (obj instanceof String) {
-			return new RoleRefAdapter((String) obj);
+			return new RoleRefAdapter((String) obj,null);
 		}
 
 		throw new RuntimeException("Unsupportable class " + obj.getClass().getName());
@@ -54,7 +54,7 @@ public class SPAAdapterLoader implements AdapterLoader {
 			}
 			List<String> removeRole = new ArrayList<>();
 			for (RoleRef r : ((UserAdapter) obj).getRemoveRoles()) {
-				removeRole.add(r.getRoleRef());
+				removeRole.add(r.getRoleId());
 			}
 			map.put("addRole", addRole);
 			map.put("removeRole", removeRole);

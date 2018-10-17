@@ -21,9 +21,10 @@ public class UserAdapter extends User {
 		if (this.userRepresentation.getId() != null) {
 			List<RoleRepresentation> realRoles = realmResource.users().get(this.userRepresentation.getId()).roles()
 					.realmLevel().listAll();
+			String username = userRepresentation.getUsername();
 			if (realRoles != null) {
 				for (RoleRepresentation r : realRoles) {
-					roles.add(new RoleRefAdapter(r.getId()));
+					roles.add(new RoleRefAdapter(r.getId(), username+"-"+r.getName()  ));
 				}
 			}
 		}
