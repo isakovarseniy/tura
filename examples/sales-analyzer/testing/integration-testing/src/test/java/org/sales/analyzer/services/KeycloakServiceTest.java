@@ -422,7 +422,7 @@ public class KeycloakServiceTest {
 			repository.insert(country, Country.class.getName());
 			
 			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
-			cntRef.setCountry(country);
+			cntRef.setCountryId(country.getObjId());
 			user.getCountryReference().add(cntRef);
 			
 			State state = (State) repository.create(State.class.getName());
@@ -430,7 +430,7 @@ public class KeycloakServiceTest {
 			
 			StateReference stateRef = (StateReference) repository.create(StateReference.class.getName());
 			user.getStateReference().add(stateRef);
-			stateRef.setState(state);
+			stateRef.setStateId(state.getObjId());
 			
 			
 			City city = (City) repository.create(City.class.getName());
@@ -438,7 +438,7 @@ public class KeycloakServiceTest {
 			
 			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
 			user.getCityRefeence().add(cityRef);
-			cityRef.setCity(city);
+			cityRef.setCityId(city.getObjId());
 			
 			repository.applyChanges(null);
 			
@@ -538,14 +538,14 @@ public class KeycloakServiceTest {
 			repository.insert(country, Country.class.getName());
 			
 			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
-			cntRef.setCountry(country);
+			cntRef.setCountryId(country.getObjId());
 			user.getCountryReference().add(cntRef);
 
 			Country countryAdm = (Country) repository.create(Country.class.getName());
 			repository.insert(countryAdm, Country.class.getName());
 			
 			CountryReference cntRefAdm = (CountryReference) repository.create(CountryReference.class.getName());
-			cntRefAdm.setCountry(countryAdm);
+			cntRefAdm.setCountryId(countryAdm.getObjId());
 			cntRefAdm.setAdmin(true);
 			user.getCountryReference().add(cntRefAdm);
 			
@@ -556,7 +556,7 @@ public class KeycloakServiceTest {
 			
 			StateReference stateRef = (StateReference) repository.create(StateReference.class.getName());
 			user.getStateReference().add(stateRef);
-			stateRef.setState(state);
+			stateRef.setStateId(state.getObjId());
 			
 
 			State stateAdm = (State) repository.create(State.class.getName());
@@ -564,7 +564,7 @@ public class KeycloakServiceTest {
 			
 			StateReference stateRefAdm = (StateReference) repository.create(StateReference.class.getName());
 			user.getStateReference().add(stateRefAdm);
-			stateRefAdm.setState(stateAdm);
+			stateRefAdm.setStateId(stateAdm.getObjId());
 			stateRefAdm.setAdmin(true);
 			
 
@@ -574,7 +574,7 @@ public class KeycloakServiceTest {
 			
 			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
 			user.getCityRefeence().add(cityRef);
-			cityRef.setCity(city);
+			cityRef.setCityId(city.getObjId());
 			
 
 			City cityAdm = (City) repository.create(City.class.getName());
@@ -582,7 +582,7 @@ public class KeycloakServiceTest {
 			
 			CityRefeence cityRefAdm = (CityRefeence) repository.create(CityRefeence.class.getName());
 			user.getCityRefeence().add(cityRefAdm);
-			cityRefAdm.setCity(cityAdm);
+			cityRefAdm.setCityId(cityAdm.getObjId());
 			cityRefAdm.setAdmin(true);
 
 			

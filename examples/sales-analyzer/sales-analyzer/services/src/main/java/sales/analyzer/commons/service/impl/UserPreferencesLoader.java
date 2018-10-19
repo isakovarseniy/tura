@@ -51,11 +51,11 @@ public class UserPreferencesLoader implements UserReferencesProvider {
 		pref.setCities(new ArrayList<>());
 		pref.setCitiesForAdmin(new ArrayList<>());
 		for (CityRefeence cityRef : user.getCityRefeence()) {
-			pref.getCities().add(cityRef.getCity().getObjId());
+			pref.getCities().add(cityRef.getCityId());
 		}
 		for (CityRefeence cityRef : user.getCityRefeence()) {
 			if (cityRef.getAdmin()) {
-			 pref.getCitiesForAdmin().add(cityRef.getCity().getObjId());
+			 pref.getCitiesForAdmin().add(cityRef.getCityId());
 			}
 		}
 		
@@ -64,11 +64,11 @@ public class UserPreferencesLoader implements UserReferencesProvider {
 		pref.setStates(new ArrayList<>());
 		pref.setStatesForAdmin(new ArrayList<>());
 		for (StateReference stateRef : user.getStateReference()) {
-			pref.getStates().add(stateRef.getState().getObjId());
+			pref.getStates().add(stateRef.getStateId());
 		}
 		for (StateReference stateRef : user.getStateReference()) {
 			if (stateRef.getAdmin()) {
-			 pref.getStatesForAdmin().add(stateRef.getState().getObjId());
+			 pref.getStatesForAdmin().add(stateRef.getStateId());
 			}
 		}
 
@@ -77,11 +77,11 @@ public class UserPreferencesLoader implements UserReferencesProvider {
 		pref.setCountries(new ArrayList<>());
 		pref.setCountriesForAdmin(new ArrayList<>());
 		for (CountryReference cntRef : user.getCountryReference()) {
-			pref.getCountries().add(cntRef.getCountry().getObjId());
+			pref.getCountries().add(cntRef.getCountryId());
 		}
 		for (CountryReference cntRef : user.getCountryReference()) {
 			if (cntRef.getAdmin()) {
-				pref.getCountriesForAdmin().add(cntRef.getCountry().getObjId());
+				pref.getCountriesForAdmin().add(cntRef.getCountryId());
 			}
 		}
 
