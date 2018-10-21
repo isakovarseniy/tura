@@ -255,6 +255,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 				if (getParent() != null){
 				
 					List<SearchCriteria> ls = getParent().getChildSearchCriteria();
+					ObjectControl cnt = (ObjectControl) obj;
+					Object wobj = cnt.getWrappedObject();
+
 					for (SearchCriteria sc : ls ) {
 
 						String name = sc.getName();
@@ -265,7 +268,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 							String method = "set"
 									+ StringUtils.capitalize(name);
 
-							Reflection.callTyped(obj, method,
+							Reflection.callTyped(wobj, method,
 									Class.forName(className), value);
 						}
 					}
