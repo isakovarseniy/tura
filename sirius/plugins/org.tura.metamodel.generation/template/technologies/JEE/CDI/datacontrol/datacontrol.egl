@@ -399,4 +399,14 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	}
 [%}%]	
 	
+	@Override
+	@javax.inject.Inject
+	public void setAutoCreateObjectRule(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.AutoCreateObject("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.DCRule autoCreateObjectRule) {
+		this.autoCreateObjectRule = autoCreateObjectRule;
+	}
+	
+	
+	
 }

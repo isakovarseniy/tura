@@ -45,5 +45,10 @@ public class [%=util.mergeAndCapitalize(control.name)%]TriggerProducer {
 
 	}
 	
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.AutoCreateObject("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.DCRule getAutoCreateObject(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
 	
 }

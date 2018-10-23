@@ -139,7 +139,13 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 			return null;
 
 		pager.setScrollDirection(SCROLL_DOWN);
-		return pager.getObject(currentPosition);
+		T t =  pager.getObject(currentPosition);
+		if ( t == null && autoCreateObjectRule != null) {
+			if (autoCreateObjectRule.execute(this)) {
+				return createObject();
+			}
+		}
+		return t;
 	}
 
 	public boolean hasNext() throws TuraException {

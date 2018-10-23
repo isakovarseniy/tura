@@ -33,7 +33,7 @@ public class UserSelectionPostQueryTrigger implements PostQueryTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj) throws TuraException {
 		IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-		if( bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
+		if( bf.getUserSwitch() != null && bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
 			executeState(datacontrol,obj);
 		}else {
 			executeCity(datacontrol,obj);

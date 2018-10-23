@@ -50,7 +50,9 @@ import java.util.List;
 
 import org.junit.Test;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
@@ -71,7 +73,7 @@ public class CompanyDCStructureTest {
 
 	@Test
 	public void checkCompanyDCStructure(){
-		assertEquals(17, CompanyDC.class.getDeclaredMethods().length);
+		assertEquals(18, CompanyDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CompanyDC.class,"init" ));
 		
@@ -171,6 +173,9 @@ public class CompanyDCStructureTest {
 		order.add(new OrderCriteria("companyName",SelectQuery.Order.ASC.name()));
 		checkDefaultOrderCriteria(m,order);
 		
+		
+		assertTrue(findMethod( DepartmentDC.class,"setAutoCreateObjectRule" ,new Class[]{DCRule.class}));
+
 	}
 
 	

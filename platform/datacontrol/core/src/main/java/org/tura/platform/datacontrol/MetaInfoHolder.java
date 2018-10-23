@@ -65,6 +65,7 @@ public abstract class MetaInfoHolder {
 	protected PreInsertTrigger preInsertTrigger;
 	protected PreUpdateTrigger preUpdateTrigger;
 	protected PreDeleteTrigger preDeleteTrigger;
+	protected DCRule autoCreateObjectRule;
 
 	
 	public abstract void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) ;
@@ -78,6 +79,7 @@ public abstract class MetaInfoHolder {
 	public abstract void setDefaultSearchCriteria(List<SearchCriteria> searchCriteria);
 	public abstract void setCreateObjectParameters(CreateObjectParameters createObjectParameters);
 	public abstract void setSearchObjectParameters(SearchObjectParameters searchObjectParameters);
+	public abstract void setAutoCreateObjectRule(DCRule rule);
 
 	
 	

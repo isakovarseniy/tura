@@ -51,6 +51,7 @@ import java.util.List;
 import org.junit.Test;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.command.base.CallParameter;
@@ -73,7 +74,7 @@ public class DepartmentDCStructureTest {
 
 	@Test
 	public void checkDepartmentDCStructure(){
-		assertEquals(19, DepartmentDC.class.getDeclaredMethods().length);
+		assertEquals(20, DepartmentDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( DepartmentDC.class,"init" ));
 
@@ -181,6 +182,9 @@ public class DepartmentDCStructureTest {
 		ArrayList<OrderCriteria> order = new ArrayList<>();
 		order.add(new OrderCriteria("objId",SelectQuery.Order.ASC.name()));
 		checkDefaultOrderCriteria(m,order);
+
+		assertTrue(findMethod( DepartmentDC.class,"setAutoCreateObjectRule" ,new Class[]{DCRule.class}));
+
 		
 	}
 

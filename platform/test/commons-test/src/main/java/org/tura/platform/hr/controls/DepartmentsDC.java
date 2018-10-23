@@ -23,6 +23,7 @@ package org.tura.platform.hr.controls;
 
 import java.util.List;
 
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
@@ -104,6 +105,11 @@ public class DepartmentsDC<T> extends DataControl<T> {
 	@Override
 	public void setSearchObjectParameters(SearchObjectParameters searchObjectParameters) {
 		this.searchObjectParameters=searchObjectParameters;
+	}
+
+	@Override
+	public void setAutoCreateObjectRule(DCRule rule) {
+		
 	}
 
 

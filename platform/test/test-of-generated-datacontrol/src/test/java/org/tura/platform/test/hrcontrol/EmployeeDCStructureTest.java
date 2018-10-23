@@ -49,8 +49,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Test;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.EmployeeDC;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
@@ -71,7 +73,7 @@ public class EmployeeDCStructureTest {
 
 	@Test
 	public void checkEmployeeDCStructure(){
-		assertEquals(17, EmployeeDC.class.getDeclaredMethods().length);
+		assertEquals(18, EmployeeDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( EmployeeDC.class,"init" ));
 
@@ -168,6 +170,8 @@ public class EmployeeDCStructureTest {
 		order.add(new OrderCriteria("objId",SelectQuery.Order.ASC.name()));
 		checkDefaultOrderCriteria(m,order);
 		
+		assertTrue(findMethod( DepartmentDC.class,"setAutoCreateObjectRule" ,new Class[]{DCRule.class}));
+
 	}
 
 	

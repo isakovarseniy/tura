@@ -50,7 +50,9 @@ import java.util.List;
 
 import org.junit.Test;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CityDC;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
@@ -71,7 +73,7 @@ public class CityDCStructureTest {
 
 	@Test
 	public void checkCityDCStructure(){
-		assertEquals(17, CityDC.class.getDeclaredMethods().length);
+		assertEquals(18, CityDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CityDC.class,"init" ));
 		
@@ -168,6 +170,9 @@ public class CityDCStructureTest {
 		ArrayList<OrderCriteria> order = new ArrayList<>();
 		order.add(new OrderCriteria("objId",SelectQuery.Order.ASC.name()));
 		checkDefaultOrderCriteria(m,order);
+	
+		assertTrue(findMethod( DepartmentDC.class,"setAutoCreateObjectRule" ,new Class[]{DCRule.class}));
+
 		
 	}
 

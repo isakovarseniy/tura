@@ -49,8 +49,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Test;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.tree2tree.datacontrol.CountryDC;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
@@ -71,7 +73,7 @@ public class CountryDCStructureTest {
 
 	@Test
 	public void checkCountryDCStructure(){
-		assertEquals(17, CountryDC.class.getDeclaredMethods().length);
+		assertEquals(18, CountryDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CountryDC.class,"init" ));
 		
@@ -171,6 +173,9 @@ public class CountryDCStructureTest {
 		ArrayList<OrderCriteria> order = new ArrayList<>();
 		order.add(new OrderCriteria("objId",SelectQuery.Order.ASC.name()));
 		checkDefaultOrderCriteria(m,order);
+		
+		assertTrue(findMethod( DepartmentDC.class,"setAutoCreateObjectRule" ,new Class[]{DCRule.class}));
+
 		
 	}
 
