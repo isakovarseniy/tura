@@ -93,7 +93,7 @@ public class CDIRegistry extends Registry {
 					.build();
 			RealmResource realmResource = keycloak.realm(keycloakManagedRealm);
 
-			KeyCloakServicesInstantiator initK = new KeyCloakServicesInstantiator(
+			KeyCloakServicesServletInstantiator initK = new KeyCloakServicesServletInstantiator(
 					 keycloakUrl
 					,keycloakAdminRealm
 					,keycloakAdminClientid
