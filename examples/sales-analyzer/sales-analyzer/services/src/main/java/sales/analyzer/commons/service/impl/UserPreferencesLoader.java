@@ -47,6 +47,12 @@ public class UserPreferencesLoader implements UserReferencesProvider {
 		User user = (User) result.getSearchResult().get(0);
 
 		UserPreferences pref = new UserPreferences();
+		
+		if ( user.getPreferences().getSuperAdmin() == null) {
+			pref.setSuperAdmin(false);
+		}else {
+			pref.setSuperAdmin(user.getPreferences().getSuperAdmin());
+		}
 
 		pref.setCities(new ArrayList<>());
 		pref.setCitiesForAdmin(new ArrayList<>());

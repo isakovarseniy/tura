@@ -28,16 +28,28 @@ public class CopySalesAnalyzerDB extends CopyArtifact<CopySalesAnalyzerDB> {
 	private static String targetPath = System.getProperty("user.home");
 	private static String targetName = "SalesAnalyzerDB.dump";
 	private static String sourceName = "${application}/assets/SalesAnalyzerDB.dump";
+	private static String sourceNameWithDate = "${application}/assets/SalesAnalyzerDBWithCases.dump";
+	private boolean withData = false;
 
 	public CopySalesAnalyzerDB() {
 		this.setTargetLocation(targetPath);
 		this.setTargetName(targetName);
 	}
 
+	public CopySalesAnalyzerDB withData(boolean withData) {
+		this.withData = withData;
+		return this;
+	}
+	
+	
 	@Override
 	public CopySalesAnalyzerDB setApplication(String application) {
 		super.setApplication(application);
-		this.setSourceResource(sourceName.replace("${application}", application));
+		if (withData) {
+			this.setSourceResource(sourceNameWithDate.replace("${application}", application));
+		}else {
+			this.setSourceResource(sourceName.replace("${application}", application));
+		}
 		return this;
 	}
 

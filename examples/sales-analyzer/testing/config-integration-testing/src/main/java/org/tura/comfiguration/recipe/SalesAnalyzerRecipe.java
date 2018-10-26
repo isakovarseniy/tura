@@ -21,7 +21,11 @@ public class SalesAnalyzerRecipe {
 			System.out.println("Number of parameters should be one");
 		}
 		try {
-		runRecipe(args[0],args[1]);
+		Boolean	withdata = false;
+		if ( args.length == 3  ) {
+			withdata = new Boolean (args[2]);
+		}
+		runRecipe(args[0],args[1], withdata );
 		System.exit(0);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -30,7 +34,7 @@ public class SalesAnalyzerRecipe {
 
 	}
 
-	public static void runRecipe(String jboss_home , String tura_home) throws Exception {
+	public static void runRecipe(String jboss_home , String tura_home, Boolean  withdata) throws Exception {
                   new StendaloneFullXml(jboss_home)
                           .setApplication("sales-analyzer")
                           .setServerType("wildfly-10.1.0.Final")
@@ -79,6 +83,7 @@ public class SalesAnalyzerRecipe {
                           .doDeployExploaded();
                   
                   new CopySalesAnalyzerDB()
+                         .withData(withdata)
                          .setApplication("sales-analyzer")
                          .copyFromClassPath();
                   

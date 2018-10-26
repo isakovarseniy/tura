@@ -8288,8 +8288,12 @@
                             <cols order="1" uid="dcf4bebc-27d6-4e0d-bb9d-aebd7e2e239e" label="City">
                               <element xsi:type="tura.form:OutputText" uid="5c741ffe-1572-47b3-8ced-93c7987d0674"/>
                             </cols>
-                            <cols order="2" uid="16e02aa9-5be8-4a89-a540-07d3fb57ee65" label="Product"/>
-                            <cols order="3" uid="40e32a37-21e4-4aa5-9922-57c292459e50" label="Case Id"/>
+                            <cols order="2" uid="16e02aa9-5be8-4a89-a540-07d3fb57ee65" label="Product">
+                              <style uid="c0dd960b-cab8-4f4a-8cbb-a1b7b3546eef"/>
+                            </cols>
+                            <cols order="3" uid="40e32a37-21e4-4aa5-9922-57c292459e50" label="Case Id">
+                              <style uid="1456e024-e886-4b3f-99d5-e4077962c57b"/>
+                            </cols>
                             <cols order="4" uid="35b54c9a-afce-44b1-9410-95501498130f" label="Status">
                               <element xsi:type="tura.form:OutputText" uid="16767c64-f8f0-4ed6-a903-7e3218a25b2a"/>
                             </cols>
