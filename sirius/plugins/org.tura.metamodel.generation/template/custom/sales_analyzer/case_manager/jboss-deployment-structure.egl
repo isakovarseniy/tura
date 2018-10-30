@@ -1,0 +1,29 @@
+[%
+operation  main(hash) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var component = hash.get("component");
+     var configuration = hash.get("configuration");
+     var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+     var configuration = hash.get("configuration");
+     var realms = hash.get("realms");
+     var windows = hash.get("windows");
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var model_mapper = hash.get('model_mapper');
+
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+%]      
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <deployment>
+     <dependencies>
+       <module name="org.infinispan" services="export"/>  
+       <module name="org.infinispan.commons" services="export"/>  
+    </dependencis>
+  </deployment>
+</jboss-deployment-structure>
+
+[%
+     util.saveFile( webapp,"jboss-deployment-structure.xml",out.toString());   
+ }     
+ %]

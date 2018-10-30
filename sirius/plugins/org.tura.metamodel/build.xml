@@ -12,7 +12,7 @@
  -->
 <project default="main">
 	
-	<target name="main" depends="common,permission,artifact,type,style,infrastructure,messages,mapper,recipe,form,application,repository,domain,genmodel">
+	<target name="main" depends="common,permission,artifact,type,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel">
 	</target>
 	
 
@@ -64,9 +64,6 @@
 		<epsilon.eugenia   src="model/application.emf" laststep="ecore" />		
 	</target>			
 	
-	<target name="repository">
-		<epsilon.eugenia   src="model/repository.emf" laststep="ecore" />		
-	</target>			
 
 	
 	<target name="domain">

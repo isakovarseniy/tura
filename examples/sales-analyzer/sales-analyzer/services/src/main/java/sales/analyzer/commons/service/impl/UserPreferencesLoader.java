@@ -17,10 +17,10 @@ import org.tura.salesanalyzer.serialized.keycloak.User;
 import com.octo.java.sql.exp.Operator;
 
 import sales.analyzer.process.commons.Constants;
-import sales.analyzer.service.UserReferencesProvider;
+import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.user.UserPreferences;
 
-public class UserPreferencesLoader implements UserReferencesProvider {
+public class UserPreferencesLoader implements UserPreferencesProvider {
 
 	private Repository repository;
 

@@ -53,7 +53,7 @@ import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.commons.service.impl.JbpmServiceInstantiator;
 import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
 import sales.analyzer.process.commons.Constants;
-import sales.analyzer.service.UserReferencesProvider;
+import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.user.UserPreferences;
@@ -240,7 +240,7 @@ public class JbpmServiceTest {
 	}
 	
 	
-	class UserPeferencesProviderImpl implements UserReferencesProvider{
+	class UserPeferencesProviderImpl implements UserPreferencesProvider{
 		
 		@Override
 		public UserPreferences getUserPreferences(String userName) {

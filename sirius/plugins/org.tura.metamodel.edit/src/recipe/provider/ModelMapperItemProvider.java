@@ -57,6 +57,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			addArtifactRootPropertyDescriptor(object);
 			addArtifactExecutionStringPropertyDescriptor(object);
 			addSkipPropertyDescriptor(object);
+			addArtifactExtensionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -172,6 +173,28 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Artifact Extension feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArtifactExtensionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelMapper_artifactExtension_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_artifactExtension_feature", "_UI_ModelMapper_type"),
+				 RecipePackage.Literals.MODEL_MAPPER__ARTIFACT_EXTENSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -246,6 +269,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
 			case RecipePackage.MODEL_MAPPER__SKIP:
+			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:

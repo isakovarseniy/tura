@@ -20,11 +20,11 @@ operation form::Column generateBody(hash){
         
 %]
            <p:column [%=title%] [%=self.styleAttributes(hash)%]>
-[%      if ( "tree".equals(hash.get("context") ))  {%]
+[%      if ( self.element <> null and "tree".equals(hash.get("context") ))  {%]
                    [%=self.treecontext(hash)%]
                    
 [%  }
-     if ( "table".equals(hash.get("context") ))  {  %]
+     if ( self.element <> null and  "table".equals(hash.get("context") ))  {  %]
                    [%=self.tablecontext(hash)%]
 [% }%]                   
             </p:column>   

@@ -13,7 +13,7 @@ operation web_xml_serverspecific(hash){
    
 %]
 <jboss-web>
-        <context-root>[%=util.mergeAndCapitalize(app.name).toLowerCase()%]</context-root> 
+        <context-root>[%=util.mergeAndCapitalize(component.artifactId).toLowerCase()%]</context-root> 
 </jboss-web>
 [%
  

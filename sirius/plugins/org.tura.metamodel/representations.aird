@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_K-CDYC6uEeaLjpWhaM97tA" version="10.1.0.201509162000"/>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_K-CDYC6uEeaLjpWhaM97tA" version="10.1.0.201509162000">
+  <semanticResources>model/domain.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>model/artifact.ecore</semanticResources>
+  <semanticResources>model/type.ecore</semanticResources>
+  <semanticResources>model/application.ecore</semanticResources>
+  <semanticResources>model/permission.ecore</semanticResources>
+  <semanticResources>model/infrastructure.ecore</semanticResources>
+  <semanticResources>model/messages.ecore</semanticResources>
+  <semanticResources>model/style.ecore</semanticResources>
+  <semanticResources>model/form.ecore</semanticResources>
+  <semanticResources>model/recipe.ecore</semanticResources>
+  <semanticResources>model/mapper.ecore</semanticResources>
+  <semanticResources>model/common.ecore</semanticResources>
+  <semanticResources>platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel</semanticResources>
+  <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+  <semanticResources>platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.ecore</semanticResources>
+  <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+  <semanticResources>model/domain.genmodel</semanticResources>
+  <semanticResources>model/domain.gmfgraph</semanticResources>
+  <semanticResources>model/domain.gmfmap</semanticResources>
+  <semanticResources>model/domain.gmftool</semanticResources>
+  <semanticResources>model/domain.gmfgen</semanticResources>
+</viewpoint:DAnalysis>

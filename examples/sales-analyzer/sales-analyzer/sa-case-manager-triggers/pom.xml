@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>sales-analyzer</groupId>
+		<artifactId>sales-analyzer-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sa-case-manager-triggers</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Sales Analyzer :: Case management Web application :: triggers</name>
+	<description>Businnes logic for Case management web application</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>web-app-commons</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cdi</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.sales-analyzer</groupId>
+			<artifactId>sa-case-manager-interface</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+
+</project>

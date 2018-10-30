@@ -91,6 +91,18 @@
 			<version>${version.deltaspike}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-commons</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 
 
 	</dependencies>

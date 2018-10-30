@@ -22,14 +22,14 @@ import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstancePK;
 import sales.analyzer.api.model.impl.SalesAnalyzerRowsNumber;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
-import sales.analyzer.service.UserReferencesProvider;
+import sales.analyzer.service.UserPreferencesProvider;
 
 public class JbpmSearchService extends AbstaractSearchService {
 
 	private QueryServicesClient queryClient;
-	private UserReferencesProvider prefRef;
+	private UserPreferencesProvider prefRef;
 
-	public JbpmSearchService(KieServicesClient client ,UserReferencesProvider prefRef) {
+	public JbpmSearchService(KieServicesClient client ,UserPreferencesProvider prefRef) {
 		queryClient = client.getServicesClient(QueryServicesClient.class);
 		this.prefRef = prefRef;
 	}

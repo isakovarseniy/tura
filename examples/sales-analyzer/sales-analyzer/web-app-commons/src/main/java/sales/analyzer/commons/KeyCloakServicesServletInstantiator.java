@@ -1,16 +1,12 @@
 package sales.analyzer.commons;
 
 import java.util.Arrays;
-import java.util.Enumeration;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.http.HttpHeaders;
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
@@ -54,7 +50,7 @@ public class KeyCloakServicesServletInstantiator implements Instantiator{
 
 	
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
 		if (realmResource == null) {

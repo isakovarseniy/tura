@@ -116,6 +116,7 @@ class ModelMapper extends ArtifactRef,common.Orderable , artifact.Categorized{
    val Query[*] queries;
    attr EString artifactExecutionString;
    attr EBoolean skip;
+   attr EString artifactExtension;
 }
 
 class Property{

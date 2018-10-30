@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.ModelMapper#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  *   <li>{@link recipe.ModelMapper#isSkip <em>Skip</em>}</li>
+ *   <li>{@link recipe.ModelMapper#getArtifactExtension <em>Artifact Extension</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getModelMapper()
@@ -164,5 +165,31 @@ public interface ModelMapper extends ArtifactRef, Orderable, Categorized {
 	 * @generated
 	 */
 	void setSkip(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Artifact Extension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Artifact Extension</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Artifact Extension</em>' attribute.
+	 * @see #setArtifactExtension(String)
+	 * @see recipe.RecipePackage#getModelMapper_ArtifactExtension()
+	 * @model
+	 * @generated
+	 */
+	String getArtifactExtension();
+
+	/**
+	 * Sets the value of the '{@link recipe.ModelMapper#getArtifactExtension <em>Artifact Extension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Artifact Extension</em>' attribute.
+	 * @see #getArtifactExtension()
+	 * @generated
+	 */
+	void setArtifactExtension(String value);
 
 } // ModelMapper

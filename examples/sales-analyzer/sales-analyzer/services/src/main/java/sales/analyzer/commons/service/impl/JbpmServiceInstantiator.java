@@ -9,17 +9,17 @@ import org.kie.server.client.KieServicesFactory;
 import org.tura.platform.repository.core.Instantiator;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
-import sales.analyzer.service.UserReferencesProvider;
+import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 
 public class JbpmServiceInstantiator implements Instantiator{
 
 	private String kieserverUrl;
-	private UserReferencesProvider prefRef;
+	private UserPreferencesProvider prefRef;
 	private CredentialsProvider credentialsProvider;
 	
-	public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserReferencesProvider prefRef) {
+	public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef) {
 		this.kieserverUrl = kieserverUrl;
 		this.prefRef = prefRef;
 		this.credentialsProvider =  credentialsProvider;

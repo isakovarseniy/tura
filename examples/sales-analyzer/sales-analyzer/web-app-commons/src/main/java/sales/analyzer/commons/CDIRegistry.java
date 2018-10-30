@@ -39,7 +39,6 @@ import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.commons.service.impl.JbpmServiceInstantiator;
-import sales.analyzer.commons.service.impl.KeyCloakServicesInstantiator;
 import sales.analyzer.commons.service.impl.SPAAdapterLoader;
 import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
@@ -112,7 +111,7 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(),new SPAAdapterLoader(realmResource));
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(),new SPAAdapterLoader(realmResource));
 
-			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new TemporaryUserPeferencesProviderImpl());
+			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new CDIUserPeferencesProviderImpl());
 			spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initJ);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerProcessInstance.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerTaskInstance.class,JbpmCRUDService.class);

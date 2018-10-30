@@ -1,0 +1,12 @@
+[%
+@template
+operation  webResourceMapping(){
+%]
+<resource-ref>  
+        <res-ref-name>userPreferencesCache</res-ref-name>  
+        <lookup-name>java:jboss/infinispan/replicated_cache/userPreferencesCache</lookup-name>  
+ </resource-ref>
+[%   
+}
+
+%]

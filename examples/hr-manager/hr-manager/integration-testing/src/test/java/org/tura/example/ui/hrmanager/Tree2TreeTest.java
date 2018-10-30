@@ -53,7 +53,7 @@ public class Tree2TreeTest {
 	
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String app_url = "http://localhost:8080/hrapplication/hrmanager/tree2tree/Tree2TreeRelations.xhtml";
+	static private String app_url = "http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml";
 	static private String driver_location = "${user.home}/chromedriver";
 
 	

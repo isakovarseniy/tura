@@ -65,8 +65,11 @@ operation  web_xml(hash) {
      css:*=[%=configuration.get("Resource library location")%]/css/*     
      </param-value>
  </context-param>  
+   [%=webResourceMapping()%]
  
  [%
+ 
+ 
    if (realms <> null){
 //Unclear why should I do like this   
      for ( ls in realms){

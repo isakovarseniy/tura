@@ -4,23 +4,20 @@
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${View_implementation}/web-xml.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Deployment_environment}/server-control-files.egl";
+<#if (model_mapper.artifactExtension) ??>
+import "${model_mapper.artifactExtension}";
+</#if>
 ${percent}${end}
-
-
  [%
  
       var util = new Native('org.tura.metamodel.commons.Util');
       var app = util.runQuery(model_mapper,"Query application",model_mapper);
+      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
       var realms = app.applicationRole.realms;
       var win = new Native('java.util.ArrayList');
-      
-      for (  pkg in app.applicationUILayer.applicationUIPackages ){
-          for  ( frm in pkg.forms){
-            for (form in frm){
-              win.addAll(form.view.canvases->select(q|q.isKindOf(form::Window))->collect(r|r));
-            }
-          }
-      }
+       for (form in forms){
+          win.addAll(form.view.canvases->select(q|q.isKindOf(form::Window))->collect(r|r));
+       }
 
       var hash = new Native('java.util.HashMap');
  
@@ -38,4 +35,13 @@ ${percent}${end}
       web_xml(hash);
       web_xml_serverspecific(hash);  
       
+
 %]
+${start}${percent} 
+<#if (model_mapper.artifactExtension) ??>
+<#else>
+@template
+operation webResourceMapping(){
+}
+</#if>
+${percent}${end}

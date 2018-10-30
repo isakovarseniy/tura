@@ -44,6 +44,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#isSkip <em>Skip</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExtension <em>Artifact Extension</em>}</li>
  * </ul>
  *
  * @generated
@@ -178,6 +179,26 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @ordered
 	 */
 	protected boolean skip = SKIP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArtifactExtension() <em>Artifact Extension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArtifactExtension()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARTIFACT_EXTENSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getArtifactExtension() <em>Artifact Extension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArtifactExtension()
+	 * @generated
+	 * @ordered
+	 */
+	protected String artifactExtension = ARTIFACT_EXTENSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,6 +365,27 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getArtifactExtension() {
+		return artifactExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArtifactExtension(String newArtifactExtension) {
+		String oldArtifactExtension = artifactExtension;
+		artifactExtension = newArtifactExtension;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION, oldArtifactExtension, artifactExtension));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -381,6 +423,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return getArtifactExecutionString();
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				return isSkip();
+			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
+				return getArtifactExtension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -421,6 +465,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				setSkip((Boolean)newValue);
 				return;
+			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
+				setArtifactExtension((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -457,6 +504,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				setSkip(SKIP_EDEFAULT);
 				return;
+			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
+				setArtifactExtension(ARTIFACT_EXTENSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -485,6 +535,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return ARTIFACT_EXECUTION_STRING_EDEFAULT == null ? artifactExecutionString != null : !ARTIFACT_EXECUTION_STRING_EDEFAULT.equals(artifactExecutionString);
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				return skip != SKIP_EDEFAULT;
+			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
+				return ARTIFACT_EXTENSION_EDEFAULT == null ? artifactExtension != null : !ARTIFACT_EXTENSION_EDEFAULT.equals(artifactExtension);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -553,6 +605,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		result.append(artifactExecutionString);
 		result.append(", skip: ");
 		result.append(skip);
+		result.append(", artifactExtension: ");
+		result.append(artifactExtension);
 		result.append(')');
 		return result.toString();
 	}

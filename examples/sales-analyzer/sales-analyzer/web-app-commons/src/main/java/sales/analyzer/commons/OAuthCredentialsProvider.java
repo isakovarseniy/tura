@@ -1,11 +1,11 @@
 package sales.analyzer.commons;
 
-import java.util.Enumeration;
-
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpHeaders;
+import org.keycloak.KeycloakPrincipal;
+import org.keycloak.KeycloakSecurityContext;
 import org.kie.server.client.CredentialsProvider;
 
 public class OAuthCredentialsProvider implements CredentialsProvider{
@@ -15,10 +15,13 @@ public class OAuthCredentialsProvider implements CredentialsProvider{
 		return HttpHeaders.AUTHORIZATION;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public String getAuthorization() {
-		Enumeration<String> header = ((HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest()).getHeaders(HttpHeaders.AUTHORIZATION);
-		String token = header.nextElement();
+		HttpServletRequest request = ((HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest());
+		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
+		String token = p.getKeycloakSecurityContext().getTokenString();
+
 		return "Bearer "+token;
 	}
 

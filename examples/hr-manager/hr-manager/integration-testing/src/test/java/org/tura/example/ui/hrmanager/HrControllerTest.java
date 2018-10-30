@@ -73,7 +73,7 @@ public class HrControllerTest {
 	static ChromeDriverService service;
 	static private String USERNAME = "qwerty";
 	static private String PASSWORD = "qwerty";
-	static private String app_url = "http://localhost:8080/hrapplication/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2";
+	static private String app_url = "http://localhost:8080/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2";
 	static private String driver_location = "${user.home}/chromedriver";
 	
 	

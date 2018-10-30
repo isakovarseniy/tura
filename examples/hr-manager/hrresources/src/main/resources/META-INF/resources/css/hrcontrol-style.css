@@ -1,5 +1,5 @@
 .add-row-button {
-    background-image: url(/hrapplication/images/24x24/add01.png) !important;
+    background-image: url(/hrform/images/24x24/add01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -8,7 +8,7 @@
 }
 
 .create-row-button {
-    background-image: url(/hrapplication/images/24x24/add03.png) !important;
+    background-image: url(/hrform/images/24x24/add03.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -17,7 +17,7 @@
 }
 
 .add-child-row-button {
-    background-image: url(/hrapplication/images/24x24/arrow_right01.png) !important;
+    background-image: url(/hrform/images/24x24/arrow_right01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -26,7 +26,7 @@
 }
 
 .save-button {
-    background-image: url(/hrapplication/images/24x24/checkmark01.png) !important;
+    background-image: url(/hrform/images/24x24/checkmark01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -35,7 +35,7 @@
 }
 
 .popup-details-button{
-    background-image: url(/hrapplication/images/24x24/magnifying_glass01.png) !important;
+    background-image: url(/hrform/images/24x24/magnifying_glass01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -44,7 +44,7 @@
 }
 
 .rallback-button {
-    background-image: url(/hrapplication/images/24x24/backup01.png) !important;
+    background-image: url(/hrform/images/24x24/backup01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -53,7 +53,7 @@
 }
 
 .remove-row-button {
-    background-image: url(/hrapplication/images/24x24/delete01.png) !important;
+    background-image: url(/hrform/images/24x24/delete01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -62,7 +62,7 @@
 }
 
 .form-parameter-button {
-    background-image: url(/hrapplication/images/24x24/gear01.png) !important;
+    background-image: url(/hrform/images/24x24/gear01.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -72,7 +72,7 @@
 
 
 .logout-button {
-    background-image: url(/hrapplication/images/16x16/exit.png) !important;
+    background-image: url(/hrform/images/16x16/exit.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -81,7 +81,7 @@
 }
 
 .ok-button {
-    background-image: url(/hrapplication/images/24x24/checkmark02.png) !important;
+    background-image: url(/hrform/images/24x24/checkmark02.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -91,7 +91,7 @@
 
 
 .cancel-button {
-    background-image: url(/hrapplication/images/24x24/remove02.png) !important;
+    background-image: url(/hrform/images/24x24/remove02.png) !important;
     width: 24px;
     height: 24px;
     margin-top: -2px !important;
@@ -100,7 +100,7 @@
 }
 
 .canada-flag-button {
-    background-image: url(/hrapplication/images/flags/ca.png) !important;
+    background-image: url(/hrform/images/flags/ca.png) !important;
     width: 16px;
     height: 11px;
     margin-top: -2px !important;
@@ -109,7 +109,7 @@
 }
 
 .russia-flag-button {
-    background-image: url(/hrapplication/images/flags/ru.png) !important;
+    background-image: url(/hrform/images/flags/ru.png) !important;
     width: 16px;
     height: 11px;
     margin-top: -2px !important;
