@@ -8396,6 +8396,8 @@
                       <viewElement xsi:type="tura.form:ViewPort" uid="04d4e5ae-dec5-4c76-9564-b0e4064dc545" name="review window port">
                         <style uid="dc729a67-9ac4-40b5-b64b-4dbfb5c335c2"/>
                       </viewElement>
+                      <classifiers uid="c70a721f-7021-4f7a-8c1e-05671867f6a2" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
+                      <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="e857564b-ab58-4148-b812-06a8026879b4"/>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="9358b8ce-9e9d-4427-a952-cd4675eb32a2" name="Rollout Canvas" defaultCanvas="true">
                       <style uid="ad167722-9321-49e5-a72d-b7f742579277"/>
