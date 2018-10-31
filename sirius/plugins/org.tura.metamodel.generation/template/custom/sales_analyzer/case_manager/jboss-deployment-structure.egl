@@ -19,7 +19,7 @@ operation  main(hash) {
      <dependencies>
        <module name="org.infinispan" services="export"/>  
        <module name="org.infinispan.commons" services="export"/>  
-    </dependencis>
+    </dependencies>
   </deployment>
 </jboss-deployment-structure>
 

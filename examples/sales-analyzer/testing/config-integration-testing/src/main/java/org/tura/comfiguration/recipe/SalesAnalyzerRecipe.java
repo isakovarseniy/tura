@@ -165,10 +165,16 @@ public class SalesAnalyzerRecipe {
 
                    
                    
-           		new DoDeploy(jboss_home,"sa-admin.war")
-                   		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war")
+           		new DoDeploy(jboss_home,"sa-case-manager.war")
+                   		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-case-manager/1.0/sa-case-manager-1.0.war")
                    		.doDeployExploaded();
 
+           		new DoDeploy(jboss_home,"sa-admin.war")
+           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war")
+           		.doDeployExploaded();
+           		
+           		
+           		
            		new DoDeploy(jboss_home,"sa-resources.war")
 		           		.setSourceResource( System.getProperty("user.home")+"/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war")
 		           		.doDeployExploaded();

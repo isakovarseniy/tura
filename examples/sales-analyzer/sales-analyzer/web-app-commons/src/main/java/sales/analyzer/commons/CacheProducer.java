@@ -10,7 +10,7 @@ public class CacheProducer {
   
    @SuppressWarnings("rawtypes")
    @Produces
-   @Resource(name="userPreferencesCache") 
+   @Resource(name="userPreferencesCache")
    private Cache  cache;
   
 }
