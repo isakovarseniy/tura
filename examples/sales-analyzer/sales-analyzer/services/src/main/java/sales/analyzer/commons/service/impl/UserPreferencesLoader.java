@@ -48,7 +48,7 @@ public class UserPreferencesLoader implements UserPreferencesProvider {
 
 		UserPreferences pref = new UserPreferences();
 		
-		if ( user.getPreferences().getSuperAdmin() == null) {
+		if ( user.getPreferences() == null || user.getPreferences().getSuperAdmin() == null) {
 			pref.setSuperAdmin(false);
 		}else {
 			pref.setSuperAdmin(user.getPreferences().getSuperAdmin());
