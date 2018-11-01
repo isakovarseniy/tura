@@ -54,6 +54,7 @@ public class UserPreferencesLoaderProducer {
 
 		UserPreferencesLoader loader = new UserPreferencesLoader();
 		ProxyRepository proxyRepository = new ProxyRepository(repository, stackProvider);
+		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		loader.setRepository(proxyRepository);
 
 		return loader;

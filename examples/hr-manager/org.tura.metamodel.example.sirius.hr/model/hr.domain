@@ -7982,11 +7982,17 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="e8146455-8555-4749-8a3b-2d9f89aeda28"/>
                         </mappers>
                         <mappers uid="7c369547-3c4e-4ffc-b5a6-262a1280b105" artifactRef="838919d0-d0ac-453c-b3d2-d459cdb1cf8e" name="Profile">
-                          <queries uid="303d0931-545b-4036-9003-fb35c0c1eb5a" name="Query UI package" queryRef="34d7295b-ab0d-4338-ac07-e70d375cdc87">
+                          <queries uid="303d0931-545b-4036-9003-fb35c0c1eb5a" name="Query UI admin" queryRef="34d7295b-ab0d-4338-ac07-e70d375cdc87">
                             <variables queryParamRef="1ed451b2-2ba1-4868-9a7a-1d9b05c14375" value="ERP"/>
                             <variables queryParamRef="5f81ad48-0892-4739-a78d-a8e85e3309bd" value="CRM"/>
                             <variables queryParamRef="1bcdfd87-f0e5-4e7e-9179-af2c75ed98b8" value="Sales Analysis"/>
                             <variables queryParamRef="f8e97866-37d2-4626-bb24-8883ee9916cf" value="Admin"/>
+                          </queries>
+                          <queries uid="36a76177-d40c-4655-9eab-df8d518cf27e" name="Query UI case manager" queryRef="34d7295b-ab0d-4338-ac07-e70d375cdc87">
+                            <variables queryParamRef="1ed451b2-2ba1-4868-9a7a-1d9b05c14375" value="ERP"/>
+                            <variables queryParamRef="5f81ad48-0892-4739-a78d-a8e85e3309bd" value="CRM"/>
+                            <variables queryParamRef="1bcdfd87-f0e5-4e7e-9179-af2c75ed98b8" value="Sales Analysis"/>
+                            <variables queryParamRef="f8e97866-37d2-4626-bb24-8883ee9916cf" value="Analysis"/>
                           </queries>
                         </mappers>
                       </components>

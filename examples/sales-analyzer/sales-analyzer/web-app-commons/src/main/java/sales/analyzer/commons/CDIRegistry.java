@@ -46,6 +46,7 @@ import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import uILayer.admin.AdministrationProfile;
+import uILayer.analysis.CaseManagerProfile;
 
 @ApplicationScoped
 public class CDIRegistry extends Registry {
@@ -120,6 +121,11 @@ public class CDIRegistry extends Registry {
 
 			AdministrationProfile p = new AdministrationProfile();
 			this.addProfile(p.getProfileName(), p);
+			CaseManagerProfile p1 = new CaseManagerProfile();
+			this.addProfile(p1.getProfileName(), p1);
+			
+			this.addProfile(AllowEverythingProfile.class.getName(), new  AllowEverythingProfile());
+			
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
