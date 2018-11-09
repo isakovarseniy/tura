@@ -56,6 +56,9 @@ public class W3Adapter extends W3 implements Adapter {
 
 	@Override
 	protected W1 delegateGetW1() {
+		if (w3Source.getHash().get("W1") == null) {
+			return null;
+		}
 		return new W1Adapter(w3Source.getHash().get("W1"));
 	}
 

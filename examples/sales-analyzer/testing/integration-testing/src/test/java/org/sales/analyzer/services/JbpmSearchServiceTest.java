@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -331,6 +332,13 @@ public class JbpmSearchServiceTest {
 		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) {
 			return null;
 		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
+				Map<Object, Object> context) throws RepositoryException {
+			// TODO Auto-generated method stub
+			return null;
+		}
 		
 	}
 
@@ -348,6 +356,12 @@ public class JbpmSearchServiceTest {
 
 		@Override
 		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) {
+			return null;
+		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
+				Map<Object, Object> context) throws RepositoryException {
 			return null;
 		}
 		

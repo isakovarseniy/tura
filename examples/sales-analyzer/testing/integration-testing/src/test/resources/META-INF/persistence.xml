@@ -39,6 +39,7 @@
 		<class>org.tura.salesanalyzer.persistence.db.State</class>
 		<class>org.tura.salesanalyzer.persistence.db.StateReference</class>
 		<class>org.tura.salesanalyzer.persistence.db.WriteupOutcome</class>
+		<class>org.tura.salesanalyzer.persistence.db.Preferences</class>
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
      

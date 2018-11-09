@@ -57,6 +57,9 @@ public class W5Adapter extends W5 implements Adapter{
 
 	@Override
 	protected W4 delegateGetW4() {
+		if (w5Source.getHash().get("W4") == null) {
+			return null;
+		}
 		return  new W4Adapter( w5Source.getHash().get("W4"));
 	}
 

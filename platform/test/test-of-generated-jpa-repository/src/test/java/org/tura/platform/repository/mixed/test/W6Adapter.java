@@ -56,6 +56,9 @@ public class W6Adapter extends W6 implements Adapter {
 
 	@Override
 	protected W4 delegateGetW4() {
+		if (w6Source.getHash().get("W4") == null) {
+			return null;
+		}
 		return new W4Adapter(w6Source.getHash().get("W4"));
 	}
 

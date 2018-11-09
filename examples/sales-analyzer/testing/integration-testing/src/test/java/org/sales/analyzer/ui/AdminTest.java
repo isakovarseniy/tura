@@ -36,7 +36,7 @@ public class AdminTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String app_url = "http://localhost:8080/salesanalysis/admin/administration/AdminWindow.xhtml";
+	static private String app_url = "http://localhost:8080/sa-admin/admin/administration/AdminWindow.xhtml";
 	static private String driver_location = "${user.home}/chromedriver";
 	
 	

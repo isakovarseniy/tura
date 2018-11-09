@@ -111,6 +111,16 @@ ${start}${percent}
 	    
 	    }
  
+	@Override
+	public Object copyFromRepository2Persistence(Object repositoryObject, java.util.Map<Object, Object> context) throws RepositoryException {
+		return null;
+	}
+
+	@Override
+	public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,java.util.Map<Object, Object> context)
+			throws RepositoryException {
+		return null;
+	}
 	    
  
  }
