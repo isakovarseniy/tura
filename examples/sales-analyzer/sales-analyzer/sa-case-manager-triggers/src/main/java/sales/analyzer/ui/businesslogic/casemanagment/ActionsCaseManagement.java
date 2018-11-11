@@ -1,13 +1,20 @@
 package sales.analyzer.ui.businesslogic.casemanagment;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
+import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.serialized.db.City;
 
 
 public class ActionsCaseManagement  implements EventAccessor {
@@ -42,6 +49,35 @@ public class ActionsCaseManagement  implements EventAccessor {
 		
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public void applyCitySelection() {
+		try {
+			
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getSearchObject();
+			SearchObjectArtifitialFieldsAdapter adapter =  new SearchObjectArtifitialFieldsAdapter((ObjectControl) dc.getCurrentObject());
+			DataControl citydc = (DataControl) bf.getSelectCity();
+			City city  = (City) citydc.getCurrentObject();
+			adapter.setCityId(city.getObjId());
+			adapter.setCityName(city.getName());
+			
+		}catch(Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void popupCitySelection()  {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getSearchObject();
+			SearchObjectArtifitialFieldsAdapter adapter =  new SearchObjectArtifitialFieldsAdapter((ObjectControl) dc.getCurrentObject());
+			bf.setStateId(adapter.getStateid());
+			dc.forceRefresh();
+		}catch(Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
 	
 	
 }

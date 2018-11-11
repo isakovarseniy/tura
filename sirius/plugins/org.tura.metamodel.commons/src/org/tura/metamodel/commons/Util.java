@@ -697,4 +697,15 @@ public class Util {
 	public static String splitByCapitalLatterAndCapitalize(String s){
 		return splitByCapitalLatter(s).toUpperCase();
 	}
+	
+	public static String unEscapeString(String s){
+	    StringBuilder sb = new StringBuilder();
+	    for (int i=0; i<s.length(); i++)
+	        switch (s.charAt(i)){
+	            case '\'': sb.append("\\\'"); break;
+	            default: sb.append(s.charAt(i));
+	        }
+	    return sb.toString();
+	}	
+	
 }
