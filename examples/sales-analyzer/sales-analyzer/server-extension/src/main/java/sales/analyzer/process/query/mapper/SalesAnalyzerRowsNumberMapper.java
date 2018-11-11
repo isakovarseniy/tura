@@ -22,7 +22,7 @@ implements QueryResultMapper<SalesAnalyzerListOfRowsNumber> {
 			SalesAnalyzerListOfRowsNumber r = new SalesAnalyzerListOfRowsNumber();
 			r.setRows(new ArrayList<>());
 			SalesAnalyzerRowsNumber n = new SalesAnalyzerRowsNumber();
-			n.setRowsNumber(new Long(dataSetResult.getRowCount()));
+			n.setRowsNumber(new Long(dataSetResult.getRowCountNonTrimmed()));
 			r.getRows().add(n);
 			
 			return r;

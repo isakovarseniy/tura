@@ -138,8 +138,10 @@ public class JbpmSearchService extends AbstaractSearchService {
 			throw new RuntimeException("Wrong value for rows numbers");
 		}
 
-		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters ,startIndex,
-				endIndex - startIndex, clazz);
+		int pagesize = endIndex - startIndex;
+		int page = startIndex/pagesize;
+		
+		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters ,page,pagesize, clazz);
 
 		if (instances == null) {
 			return new SearchResult(new ArrayList<>(), 0);
