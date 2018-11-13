@@ -73,7 +73,7 @@ public class EmployeeDCStructureTest {
 
 	@Test
 	public void checkEmployeeDCStructure(){
-		assertEquals(18, EmployeeDC.class.getDeclaredMethods().length);
+		assertEquals(19, EmployeeDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( EmployeeDC.class,"init" ));
 

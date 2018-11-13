@@ -23,6 +23,7 @@ package org.tura.platform.repository.core;
 
 import java.util.Map;
 
+import org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
 
@@ -44,10 +45,13 @@ public interface ObjectControl {
 	
 	void addListener( ProxyObjectUpdateListener listener);
 	
+	void addArtificialFieldWrapperProvider( ArtificialFieldWrapperProvider wapper );
+	
     void setStackProvider(ProxyCommadStackProvider stackProvider);
     
     ObjectControl clone(); 
     
+    Object getArtificialFieldWrapper ( );
 
 
 

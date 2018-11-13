@@ -73,6 +73,7 @@ public class ActionsCaseManagement  implements EventAccessor {
 			DataControl dc = (DataControl) bf.getSearchObject();
 			SearchObjectArtifitialFieldsAdapter adapter =  new SearchObjectArtifitialFieldsAdapter((ObjectControl) dc.getCurrentObject());
 			bf.setStateId(adapter.getStateid());
+			dc = (DataControl) bf.getSelectCity();
 			dc.forceRefresh();
 		}catch(Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);

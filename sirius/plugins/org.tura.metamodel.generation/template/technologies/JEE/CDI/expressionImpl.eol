@@ -2,9 +2,9 @@ operation ArtificialFieldImpl(expression:String, contextValue , paramId: Integer
    var util = new Native('org.tura.metamodel.commons.Util');
    var attr =  contextValue.expression.get(paramId).objRef;
     if (inOutParams.get("context") == null ){
-        return expression.replaceAll("<holder>", "attributes['ATTRIBUTE_"+util.mergeAndUnCapitalize(attr.name).toUpperCase()  +"'].<holder>");
+        return expression.replaceAll("<holder>", "artificialFieldWrapper."+util.mergeAndUnCapitalize(attr.name)  +".<holder>");
     }else{
-        return "attributes['ATTRIBUTE_"+util.mergeAndUnCapitalize(attr.name).toUpperCase()+"']"+".<holder>";
+        return "artificialFieldWrapper."+util.mergeAndUnCapitalize(attr.name)+".<holder>";
     }
     
 }

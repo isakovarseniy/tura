@@ -35,10 +35,12 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 
     protected Object connectObject(Object obj, boolean isRunPostQueryTrigger ) throws TuraException {
         ((ObjectControl) obj).addListener(new UpdateListener());
+        ((ObjectControl) obj).addArtificialFieldWrapperProvider((org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider) datacontrol);
         org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
         sp.setDataControl(datacontrol);
         sp.setCommandStack(this.getCommandStack());
         ((ObjectControl) obj).setStackProvider(sp);
+        
         
         ((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(Constants.DATA_CONTROL, datacontrol);
         ((ObjectControl) obj).getAttributes().put(Constants.PARENT_OBJECT, getParent());

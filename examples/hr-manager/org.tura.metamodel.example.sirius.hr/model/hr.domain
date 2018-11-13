@@ -8911,6 +8911,13 @@
                                 </parameters>
                                 <classifiers uid="e494a0fb-134c-490c-a6a1-e29160a3dd7d" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
+                              <fields uid="d5350afe-89d7-4e87-80cd-2631f2f4fdc5" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.applyCitySelection()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="57d8b90b-978b-4d1c-9603-1420438c55c7" order="4" expressionType="OperationImpl"/>
+                              </fields>
                               <refreshAreas area="781eeffe-87b4-4ea7-914e-2768ef1a7def" group="1"/>
                               <refreshAreas area="0e6eab00-a772-4b8b-ae6c-a224005fd74d" group="2"/>
                               <multiLangLabel uid="1ea315e7-e1de-41c9-b4a5-33065fe5f749"/>

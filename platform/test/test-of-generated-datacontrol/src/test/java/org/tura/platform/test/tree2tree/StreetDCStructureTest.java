@@ -71,7 +71,7 @@ public class StreetDCStructureTest {
 
 	@Test
 	public void checkStreetDCStructure(){
-		assertEquals(17, StreetDC.class.getDeclaredMethods().length);
+		assertEquals(18, StreetDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( StreetDC.class,"init" ));
 		

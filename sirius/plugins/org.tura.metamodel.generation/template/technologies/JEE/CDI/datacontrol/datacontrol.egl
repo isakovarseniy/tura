@@ -12,7 +12,7 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable, org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -407,6 +407,21 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.autoCreateObjectRule = autoCreateObjectRule;
 	}
 	
+	@Override
+	public  Object wrap(Object obj){
+	[%
+	if (control.artificialFields.size() <> 0){
+	%]
+          return new [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter((org.tura.platform.repository.core.ObjectControl)obj);
+     [%     
+	}else{
+	%]
+          return obj;
+     [%     
+	}
+	%]
+	
+    }
 	
 	
 }

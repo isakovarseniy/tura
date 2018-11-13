@@ -73,7 +73,7 @@ public class FileDSStructureTest {
 
 	@Test
 	public void checkFileDCStructure(){
-		assertEquals(18, FileDC.class.getDeclaredMethods().length);
+		assertEquals(19, FileDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( FileDC.class,"init" ));
 

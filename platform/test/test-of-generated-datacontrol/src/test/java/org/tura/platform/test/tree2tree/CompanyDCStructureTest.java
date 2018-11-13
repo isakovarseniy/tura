@@ -73,7 +73,7 @@ public class CompanyDCStructureTest {
 
 	@Test
 	public void checkCompanyDCStructure(){
-		assertEquals(18, CompanyDC.class.getDeclaredMethods().length);
+		assertEquals(19, CompanyDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CompanyDC.class,"init" ));
 		

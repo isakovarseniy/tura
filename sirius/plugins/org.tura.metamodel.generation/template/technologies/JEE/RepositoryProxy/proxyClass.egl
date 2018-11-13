@@ -30,6 +30,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
     private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
 
+    private org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider artificialFieldWrapper;
     private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
     public  [%=tp.~class%]Proxy([%=tp.~fullName%] object, org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
@@ -48,6 +49,18 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     public  Boolean getAttached(){
         return object.getAttached();
     }
+    
+    
+    public Object getArtificialFieldWrapper(){
+         if (artificialFieldWrapper != null){
+             return artificialFieldWrapper.wrap(this);
+         }
+         return this;
+    }
+    
+	public void addArtificialFieldWrapperProvider( ArtificialFieldWrapperProvider artificialFieldWrapper ){
+	       this.artificialFieldWrapper = artificialFieldWrapper;
+	}
     
     
     public  [%=tp.~class%]Proxy clone(){
