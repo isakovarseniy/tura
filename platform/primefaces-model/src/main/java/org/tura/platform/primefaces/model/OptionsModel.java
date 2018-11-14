@@ -76,10 +76,16 @@ public class OptionsModel {
 		}
 		return this;
 	}
-
+	public OptionsModel setAction(String expression) {
+		datacontrol.getElResolver().getValue("#{"+expression+"}");
+		return this;
+	}	
+	
+	
 	public void changeValueListener() {
 	}
 
+	
 	public List<Object[]> getOptions() {
 		if (options != null)
 			return options;

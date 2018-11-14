@@ -1950,6 +1950,7 @@
             <operations uid="df436a06-c03b-4d84-876c-daac964445d7" name="popupCitySelection"/>
             <operations uid="57d8b90b-978b-4d1c-9603-1420438c55c7" name="applyCitySelection"/>
             <operations uid="260ba3fb-81ec-46e2-973e-a9917c9b247c" name="emptyCall"/>
+            <operations uid="6fdece77-065c-44b0-9d55-42c0e824158e" name="cleanOnChange"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8787,6 +8788,14 @@
                                 <children xsi:type="tura.form:DropDownSelection" order="1" uid="2172bad4-49e9-4ca1-a4ff-921ce91c329a" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="248fb7b2-b723-48ec-98be-ea5b39c16852" optionPointer="8c499a37-e62b-4103-bfc7-60502b344e2e" initialOptionValue="-1">
                                   <style uid="36b0e809-1332-4361-a6d8-f03ac182fef2"/>
                                   <enabled uid="dbf8efcb-42e6-48a1-a9d0-93b3661494da"/>
+                                  <fields uid="2eb57a75-1d8f-4e43-876e-f49b3fcf1fa3" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.cleanOnChange()">
+                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                    <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                    <expression objRef="6fdece77-065c-44b0-9d55-42c0e824158e" order="4" expressionType="OperationImpl"/>
+                                  </fields>
+                                  <refreshAreas area="0e6eab00-a772-4b8b-ae6c-a224005fd74d" group="2"/>
                                   <refreshAreas area="2172bad4-49e9-4ca1-a4ff-921ce91c329a" group="1"/>
                                   <selection displayOptionPointer="f610fc2a-9859-480f-b555-9c1c414a82a4" valueOptionPointer="1e381513-8390-44c3-ba4a-f63cfe51da4d"/>
                                   <initialOptionMessage value="Application Message Libraries.Case management.SELECT_VALUE">

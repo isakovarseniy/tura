@@ -76,8 +76,18 @@ operation form::DropDownSelection rw(hash,value) {
     [%}
     %]
     <f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
-    [%if (self.isRefreshArias()){%]
-    <p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=util.unEscapeString(value)%]').changeValueListener}" />
+    [%if (self.isRefreshArias()){
+        var action = null;
+        for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 ){
+            continue;
+          }
+           action = buildExpression(field,hints,hash);
+           break; 
+      }
+    %]
+    
+    <p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=util.unEscapeString(value)%]')[% if (action <> null){%].setAction('[%=util.unEscapeString(action)%]')[%}%].changeValueListener}" />
     [%}%]
 </p:selectOneMenu>
 [%

@@ -36,8 +36,9 @@ import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider;
 
-public class DepartmentsDC<T> extends DataControl<T> {
+public class DepartmentsDC<T> extends DataControl<T> implements ArtificialFieldWrapperProvider{
 
 	public DepartmentsDC() throws Exception {
 		super();
@@ -110,6 +111,11 @@ public class DepartmentsDC<T> extends DataControl<T> {
 	@Override
 	public void setAutoCreateObjectRule(DCRule rule) {
 		
+	}
+
+	@Override
+	public Object wrap(Object obj) {
+		return obj;
 	}
 
 

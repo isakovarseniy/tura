@@ -67,6 +67,16 @@ public class ActionsCaseManagement  implements EventAccessor {
 	}
 	
 	@SuppressWarnings("rawtypes")
+	public void cleanOnChange() throws TuraException {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		DataControl dc = (DataControl) bf.getSearchObject();
+		SearchObjectArtifitialFieldsAdapter adapter =  new SearchObjectArtifitialFieldsAdapter((ObjectControl) dc.getCurrentObject());
+		adapter.setCityId(null);
+		adapter.setCityName(null);
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
 	public void popupCitySelection()  {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");

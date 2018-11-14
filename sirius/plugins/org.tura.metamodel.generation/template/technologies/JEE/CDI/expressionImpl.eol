@@ -119,9 +119,9 @@ operation OperationImpl(expression:String, contextValue , paramId: Integer , arr
         if (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper)){
 
         if (hints.get("actionListener") <> null  and hints.get("actionListener") )
-           return contextValue.javaTrigger(inOutParams);
+           return contextValue.javaTrigger(inOutParams,hints);
         else
-           return contextValue.javaCall(inOutParams);
+           return contextValue.javaCall(inOutParams,hints);
         }
         return "";   
    }else{
@@ -285,14 +285,28 @@ operation form::Context  scriptTrigger( hash){
    return '#{scriptGenerator'+hash.get("beanFactoryName")+".scriptBuilder('"+self.mkuid()+"')}";
 }
 
-operation form::Context  javaTrigger(  hash){
+operation form::Context  javaTrigger(  hash,hints){
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+
    hash.get("actionTriggers").add(self);
-   return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').eventListener}";
+   return begin+'actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').eventListener"+end;
 }
 
-operation form::Context  javaCall( hash){
+operation form::Context  javaCall( hash,hints){
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+
    hash.get("actionTriggers").add(self);
-   return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').action}";
+   return begin+'actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').action"+end;
 }
 
 
