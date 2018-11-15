@@ -191,7 +191,7 @@ public class ActionsCaseManagement implements EventAccessor {
 
 			}
 			
-			if (adapter.getCaseId() != null) {
+			if (adapter.getCaseId() != null && !"".equals(adapter.getCaseId())) {
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName(Constants.VAR_CASE_ID);
 				sc.setValue(adapter.getCaseId());
