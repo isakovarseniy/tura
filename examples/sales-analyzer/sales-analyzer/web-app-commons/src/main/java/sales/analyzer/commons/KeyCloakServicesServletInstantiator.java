@@ -53,7 +53,7 @@ public class KeyCloakServicesServletInstantiator implements Instantiator{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
-		if (realmResource == null) {
+//		if (realmResource == null) {
 			HttpServletRequest request = ((HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest());
 			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 	          
@@ -68,7 +68,7 @@ public class KeyCloakServicesServletInstantiator implements Instantiator{
 					.build();
 	         realmResource = keycloak.realm(managedRealm);
 			
-		}
+//		}
 		
 		
 		if (KeyCloakCRUDService.class.equals(clazz)){

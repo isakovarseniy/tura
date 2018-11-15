@@ -1954,6 +1954,7 @@
             <operations uid="1ff54035-490b-4e7a-976c-3bd691fc7f34" name="selectUser"/>
             <operations uid="051673d4-55e6-4f3b-83cc-0423947d48ae" name="assignMyself"/>
             <operations uid="00d593b6-0f9e-4ff5-bdec-589c9f110507" name="cleanSearch"/>
+            <operations uid="104a6ca0-3281-4e49-878b-527e98947d17" name="search"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8884,6 +8885,21 @@
                                     </fields>
                                     <refreshAreas area="4b896b56-0207-4083-810f-8fb2c57ed93b" group="2"/>
                                     <refreshAreas area="5b187169-add5-4e22-af96-dbcabe7db396" group="1"/>
+                                    <icon uid="b685e3bd-9283-48ff-94ea-95b3643041dc" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                      <parameters uid="f0ec1991-9719-4a68-9ec7-ce23d850e627" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                        <value uid="ecb72896-56f8-45ce-a4d3-792754a721b4" value="Application Style Libraries.Application styles.Common library.user">
+                                          <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                          <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                          <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                          <expression objRef="a9400565-157b-4904-b09a-a2d37dd6b099" order="3" expressionType="StyleSetImpl"/>
+                                        </value>
+                                      </parameters>
+                                    </icon>
                                   </children>
                                 </children>
                               </children>
@@ -8900,9 +8916,49 @@
                                 </fields>
                                 <refreshAreas area="4b896b56-0207-4083-810f-8fb2c57ed93b" group="2"/>
                                 <refreshAreas area="af9862a7-e118-45a5-89a0-38c9cc1ba5e3" group="1"/>
+                                <icon uid="de5b354c-5c40-444e-9459-7c589ba1b937" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="82322cdf-2239-41ad-af0f-436d389fdac9" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                    <value uid="67b15d6c-539f-44bd-81a0-5ca0a892ac2a" value="Application Style Libraries.Application styles.Common library.cancel-2-button">
+                                      <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                      <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                      <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                      <expression objRef="dfc3eb5b-b9b8-4148-97a1-3d2d7c3a04b7" order="3" expressionType="StyleSetImpl"/>
+                                    </value>
+                                  </parameters>
+                                </icon>
                               </children>
                               <children xsi:type="tura.form:Button" order="1" uid="e4e3d24b-7ccd-4158-a71d-ce734df6eeb4" label="Search">
                                 <style uid="762529a7-cd19-4730-a82c-ceadb348976d" constant="true" value="width:30px;height:30px"/>
+                                <fields uid="b385a694-15b1-45df-8c02-80860d56ab1e" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.search()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="104a6ca0-3281-4e49-878b-527e98947d17" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="e4e3d24b-7ccd-4158-a71d-ce734df6eeb4" group="1"/>
+                                <refreshAreas area="0e6eab00-a772-4b8b-ae6c-a224005fd74d" group="1"/>
+                                <refreshAreas area="4b896b56-0207-4083-810f-8fb2c57ed93b" group="2"/>
+                                <icon uid="61232c80-bf15-4633-a325-5aa450700bf4" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="cf857dbb-5eb9-42ed-ad57-1eb51fb748cf" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                    <value uid="91d5959c-465c-4d54-9edf-7c0807d773b1" value="Application Style Libraries.Application styles.Common library.find-button">
+                                      <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                      <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                      <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                      <expression objRef="7236f570-da44-4a7c-b11e-d26f70f7977d" order="3" expressionType="StyleSetImpl"/>
+                                    </value>
+                                  </parameters>
+                                </icon>
                               </children>
                             </children>
                           </children>
@@ -12927,6 +12983,9 @@
                   <styles uid="270540e4-9bd1-4501-87df-161b97376c63" name="center"/>
                   <styles uid="d107a38d-bae6-4595-8cde-c04909ed70af" name="logout-button"/>
                   <styles uid="062217aa-440e-48c6-962f-2b559dc1bc3c" name="create-row-button"/>
+                  <styles uid="7236f570-da44-4a7c-b11e-d26f70f7977d" name="find-button"/>
+                  <styles uid="dfc3eb5b-b9b8-4148-97a1-3d2d7c3a04b7" name="cancel-2-button"/>
+                  <styles uid="a9400565-157b-4904-b09a-a2d37dd6b099" name="user"/>
                 </libraries>
               </styleLibraries>
             </applicationStyle>
