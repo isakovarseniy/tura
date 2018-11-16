@@ -6310,6 +6310,7 @@
                           <children xsi:type="tura.form:OutputText" order="9" uid="374b93c6-befd-49ff-a711-1884e5151a67" sourcePointer="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" valuePointer="2ec9aa76-28dd-4914-b224-c04fb2d708a9"/>
                         </baseCanvas>
                       </viewElement>
+                      <multiLangLabel uid="63bc62b8-1353-4bac-a7cb-0241118126be"/>
                       <classifiers uid="968e98f8-f5a2-4c36-8720-1a6f18900c63" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
                       <classifiers uid="cbffcacd-57a7-4e9a-9861-d33b29fd92d5" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
                       <classifiers uid="649ac42c-7c1c-4451-8732-3030b9b376a3" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>

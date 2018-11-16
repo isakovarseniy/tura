@@ -49,13 +49,8 @@ public class TaskPostQueryTrigger implements PostQueryTrigger{
 		dc.forceRefresh();
 		State state =   (State) dc.getCurrentObject();
 		adapter.setStates(state.getName());
+		adapter.setCaseId(task.getProcess().getCaseId());
 		
-		
-		if ( task.getProcess().getCaseId() != null && "".equals(task.getProcess().getCaseId() ))  {
-			adapter.setCaseId(task.getProcess().getCaseId());
-		}else {
-			adapter.setCaseId(task.getProcess().getId().toString());
-		}
 
 	}
 

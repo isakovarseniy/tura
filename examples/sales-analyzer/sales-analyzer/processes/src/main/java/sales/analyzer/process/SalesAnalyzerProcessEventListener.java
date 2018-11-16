@@ -55,6 +55,10 @@ public class SalesAnalyzerProcessEventListener implements  ProcessEventListener{
 					Integer city = (Integer) variableScopeInstance.getVariable(Constants.VAR_CITY); 
 					String caseId = (String) variableScopeInstance.getVariable(Constants.VAR_CASE_ID);
 					
+					
+					if (caseId == null || caseId.equals("")) {
+						caseId = new Long(event.getProcessInstance().getId()).toString();
+					}
 					CaseDetails caseDetails = new CaseDetails();
 					BusinessInfo info = new BusinessInfo();
 					info.setProduct(product);

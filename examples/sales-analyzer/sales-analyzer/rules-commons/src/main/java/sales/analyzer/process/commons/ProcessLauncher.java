@@ -28,7 +28,7 @@ public class ProcessLauncher {
 			params.put(Constants.VAR_CITY, model.getId_city().intValue());
 			params.put(Constants.VAR_STATE, model.getId_state().intValue());
 			params.put(Constants.VAR_PRODUCT,model.getProduct());
-			params.put(Constants.VAR_CASE_ID,UUID.randomUUID().toString());
+//			params.put(Constants.VAR_CASE_ID,UUID.randomUUID().toString());
 			
 			processService.startProcess(Constants.CONTAINER_ID, Constants.CASE_INVESTIGATION_PROCESS,params);
 		} catch (Exception e) {
