@@ -50,6 +50,8 @@ public class TaskPostQueryTrigger implements PostQueryTrigger{
 		State state =   (State) dc.getCurrentObject();
 		adapter.setStates(state.getName());
 		adapter.setCaseId(task.getProcess().getCaseId());
+
+		adapter.setSelected(false);
 		
 
 	}

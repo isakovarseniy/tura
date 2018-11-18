@@ -54,10 +54,15 @@ operation form::CheckBox rw(hash,value) {
 
 @template
 operation form::CheckBox ro(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+
 %]
-<h:outputText value="[%=value%]">
-   [%=self.readOnlyConverter(hash)%]
-</h:outputText>
+       <ui:fragment rendered="[%=value%]">
+            <span>&#10003;</span>
+       </ui:fragment>
+       <ui:fragment rendered="#{! [%=util.bracketRemover(value)%] }">
+            <span>&#9885;</span>
+       </ui:fragment>
 [%
 }
 %]
