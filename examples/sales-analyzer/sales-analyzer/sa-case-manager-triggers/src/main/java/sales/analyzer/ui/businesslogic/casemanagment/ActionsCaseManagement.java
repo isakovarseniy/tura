@@ -1,5 +1,6 @@
 package sales.analyzer.ui.businesslogic.casemanagment;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,20 +13,21 @@ import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.primefaces.model.GridModel;
+import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.TaskArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.City;
+import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 
 import com.octo.java.sql.exp.Operator;
-import com.octo.java.sql.query.SelectQuery;
 
-import sales.analyzer.commons.CachedUserPreferences;
 import sales.analyzer.process.commons.Constants;
 
 public class ActionsCaseManagement implements EventAccessor {
@@ -102,8 +104,74 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 	}
 
+	public void openPopupUserForFilter() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		bf.setUserSelectionPopupContext("PopupUserForFilter");
+	}
+	
+	public void openPopupUserForAssign() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		bf.setUserSelectionPopupContext("PopupUserForAssign");
+		
+	}
+
+	public Boolean renderedButtonselectUserForFilter() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		if ("PopupUserForFilter".equals(bf.getUserSelectionPopupContext())) {
+			return true;
+		}
+		return false;
+		
+	}
+
+	public Boolean renderedButtonselectUserForAssign() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		if ("PopupUserForAssign".equals(bf.getUserSelectionPopupContext())) {
+			return true;
+		}
+		return false;
+	}
+	
+	
 	@SuppressWarnings("rawtypes")
-	public void selectUser() {
+	public void selectUserForAssign() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getSelectUser();
+			User user = (User) dc.getCurrentObject();
+			assignUsers(user.getUsername());
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void assignUsers(String username) {
+		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
+		GridModel model = (GridModel) viewmodel.getModel("tura104d965f_253d_4210_8bfa_0577367e9cec", null, null);
+		List <Object[]> list =  (List<Object[]>) model.getLazyModel().getWrappedData();
+		for ( Object[] array : list ) {
+			Task t = (Task) array[2];
+			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) t);
+			if (adapter.getSelected() ) {
+				t.setActualOwner(username);
+			}
+		}
+	}
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void assignMyselfWI() {
+		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+				.getRequest());
+		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
+		String username = p.getName();
+		assignUsers(username);
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	public void selectUserForFilter() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 			DataControl dc = (DataControl) bf.getSearchObject();
@@ -162,6 +230,10 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	public void selectWorkItem() {
+		
+	}
+	
 	
 	@SuppressWarnings("rawtypes")
 	public void search() {
