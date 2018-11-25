@@ -52,4 +52,8 @@ public class Constants {
 	public static final String PARAMETER_STATE = "PARAMETER_STATE";
 	public static final String PARAMETER_PRODUCT = "PARAMETER_PRODUCT";
 
+	
+	public static final String SIGNAL_ASSIGN = "Signal_assign";
+	public static final String SIGNAL_TERMINATE = "Signal_terminate_process";
+	
 }

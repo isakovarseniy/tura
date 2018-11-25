@@ -7,24 +7,29 @@ import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.GridModel;
 import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.TaskArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -37,6 +42,13 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@Inject
 	ELResolver elResolver;
+
+	@Inject
+	@Named("analysis.casemanager")
+	CommandStack commandStack;
+
+	@Inject
+	Repository repository;
 
 	@Override
 	public void setEvent(ActionEvent event) {
@@ -108,11 +120,11 @@ public class ActionsCaseManagement implements EventAccessor {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForFilter");
 	}
-	
+
 	public void openPopupUserForAssign() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForAssign");
-		
+
 	}
 
 	public Boolean renderedButtonselectUserForFilter() {
@@ -121,7 +133,7 @@ public class ActionsCaseManagement implements EventAccessor {
 			return true;
 		}
 		return false;
-		
+
 	}
 
 	public Boolean renderedButtonselectUserForAssign() {
@@ -131,8 +143,7 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 		return false;
 	}
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	public void selectUserForAssign() {
 		try {
@@ -144,22 +155,35 @@ public class ActionsCaseManagement implements EventAccessor {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void assignUsers(String username) {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
 		GridModel model = (GridModel) viewmodel.getModel("tura104d965f_253d_4210_8bfa_0577367e9cec", null, null);
-		List <Object[]> list =  (List<Object[]>) model.getLazyModel().getWrappedData();
-		for ( Object[] array : list ) {
+		List<Object[]> list = (List<Object[]>) model.getLazyModel().getWrappedData();
+		for (Object[] array : list) {
 			Task t = (Task) array[2];
 			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) t);
-			if (adapter.getSelected() ) {
+			if (adapter.getSelected()) {
 				t.setActualOwner(username);
 			}
 		}
+
+		try {
+			CommandStackProvider sp = new CommandStackProvider();
+			sp.setCommandStack(commandStack);
+
+			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+
+			proxyRepository.applyChanges(null);
+			commandStack.commitSavePoint();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
 	}
-	
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void assignMyselfWI() {
 		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
@@ -168,8 +192,7 @@ public class ActionsCaseManagement implements EventAccessor {
 		String username = p.getName();
 		assignUsers(username);
 	}
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	public void selectUserForFilter() {
 		try {
@@ -218,12 +241,12 @@ public class ActionsCaseManagement implements EventAccessor {
 			adapter.setAssignto(null);
 			adapter.setCaseId(null);
 			adapter.setProduct(null);
-			
+
 			dc = (DataControl) bf.getTask();
 			dc.getDefaultSearchCriteria().clear();
-			
+
 			dc.forceRefresh();
-			
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -231,29 +254,29 @@ public class ActionsCaseManagement implements EventAccessor {
 	}
 
 	public void selectWorkItem() {
-		
+
 	}
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	public void search() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 			DataControl dc = (DataControl) bf.getSearchObject();
-			SearchObjectArtifitialFieldsAdapter adapter = new SearchObjectArtifitialFieldsAdapter((ObjectControl) dc.getCurrentObject());
+			SearchObjectArtifitialFieldsAdapter adapter = new SearchObjectArtifitialFieldsAdapter(
+					(ObjectControl) dc.getCurrentObject());
 			dc = (DataControl) bf.getTask();
-			
+
 			dc.getDefaultSearchCriteria().clear();
-			
-			if (adapter.getStateid() != null  && adapter.getStateid() != -1) {
+
+			if (adapter.getStateid() != null && adapter.getStateid() != -1) {
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName(Constants.VAR_STATE);
 				sc.setValue(adapter.getStateid());
 				sc.setComparator(Operator.EQ.name());
 				dc.getDefaultSearchCriteria().add(sc);
-				
+
 			}
-			
+
 			if (adapter.getCityId() != null) {
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName(Constants.VAR_CITY);
@@ -262,7 +285,7 @@ public class ActionsCaseManagement implements EventAccessor {
 				dc.getDefaultSearchCriteria().add(sc);
 
 			}
-			
+
 			if (adapter.getCaseId() != null && !"".equals(adapter.getCaseId())) {
 				SearchCriteria sc = new SearchCriteria();
 				sc.setName(Constants.VAR_CASE_ID);
@@ -280,13 +303,13 @@ public class ActionsCaseManagement implements EventAccessor {
 				dc.getDefaultSearchCriteria().add(sc);
 
 			}
-			
+
 			dc.forceRefresh();
-			
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
 	}
-	
+
 }

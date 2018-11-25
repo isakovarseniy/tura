@@ -100,6 +100,7 @@ public class SalesAnalyzerProcessInstanceMapper extends AbstractQueryMapper<Sale
 		SalesAnalyzerTaskInstance ti = new SalesAnalyzerTaskInstance();
 		ti.setId(getColumnLongValue(dataSetResult, "ID", index));
 		ti.setProcessId(getColumnStringValue(dataSetResult, COLUMN_TASK_PROCESSID, index));
+		ti.setProcessInstanceId(getColumnLongValue(dataSetResult, COLUMN_TASK_PROCESSINSTANCEID, index));
 		ti.setActualOwner(getColumnStringValue(dataSetResult, COLUMN_ACTUALOWNER, index));
 		ti.setCreatedBy(getColumnStringValue(dataSetResult, COLUMN_CREATEDBY, index));
 		ti.setName(getColumnStringValue(dataSetResult, COLUMN_NAME, index));

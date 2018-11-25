@@ -38,6 +38,8 @@
 	<required-roles />
 	<remoteable-classes>
 		<remoteable-class>sales.analyzer.process.CaseDetails</remoteable-class>
+		<remoteable-class>sales.analyzer.api.model.impl.AssignInfo</remoteable-class>
+		<remoteable-class>sales.analyzer.api.model.impl.TerminateProcessEvent</remoteable-class>
 	</remoteable-classes>
 	<limit-serialization-classes>true</limit-serialization-classes>
 </deployment-descriptor>

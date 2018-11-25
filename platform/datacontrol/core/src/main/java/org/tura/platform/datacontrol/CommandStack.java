@@ -107,6 +107,10 @@ public  class CommandStack {
 
 	}
 
+	public synchronized void commitSavePoint() throws TuraException {
+		initSavePoint();
+	}	
+	
 	private void initSavePoint() {
 		savePoints = new Stack<SavePoint>();
 		SavePoint sp = new SavePoint();

@@ -7,28 +7,38 @@ import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.tura.platform.repository.core.Instantiator;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
 import sales.analyzer.service.jbpm.JbpmSearchService;
+import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 
 public class JbpmServiceInstantiator implements Instantiator{
 
 	private String kieserverUrl;
 	private UserPreferencesProvider prefRef;
 	private CredentialsProvider credentialsProvider;
+	private Registry registry;
+	private SpaObjectRegistry spaRegistry;
 	
-	public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef) {
+	
+	
+	public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef,Registry registry,SpaObjectRegistry spaRegistry) {
 		this.kieserverUrl = kieserverUrl;
 		this.prefRef = prefRef;
 		this.credentialsProvider =  credentialsProvider;
+		this.registry=registry;
+		this.spaRegistry=spaRegistry;
 	}
 	
 	
 	private static String[] knownObjects = new String[] {
 			JbpmCRUDService.class.getName(),
-			JbpmSearchService.class.getName()
+			JbpmSearchService.class.getName(),
+			AssignActorCommand.class.getName()
 			};
 	
 	
@@ -47,6 +57,11 @@ public class JbpmServiceInstantiator implements Instantiator{
 		if (JbpmSearchService.class.equals(clazz)) {
 			return (T) new JbpmSearchService(client,prefRef);
 		}
+		
+		if (AssignActorCommand.class.equals(clazz)) {
+			return (T) new AssignActorCommand(registry,spaRegistry);
+		}
+		
 		return null;
 	}
 

@@ -36,6 +36,7 @@ import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
+import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.commons.service.impl.JbpmServiceInstantiator;
@@ -43,6 +44,7 @@ import sales.analyzer.commons.service.impl.SPAAdapterLoader;
 import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
 import sales.analyzer.service.jbpm.JbpmSearchService;
+import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import uILayer.admin.AdministrationProfile;
@@ -112,13 +114,18 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(),new SPAAdapterLoader(realmResource));
 			spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(),new SPAAdapterLoader(realmResource));
 
-			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new CDIUserPeferencesProviderImpl());
+			JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new CDIUserPeferencesProviderImpl(),this, spaRegistry);
 			spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initJ);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerProcessInstance.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerTaskInstance.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerProcessInstance.class,JbpmSearchService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerTaskInstance.class,JbpmSearchService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(AssignInfo.class,JbpmCRUDService.class);
 
+			
+			
+			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorCommand.class);
+			
 			AdministrationProfile p = new AdministrationProfile();
 			this.addProfile(p.getProfileName(), p);
 			CaseManagerProfile p1 = new CaseManagerProfile();

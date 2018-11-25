@@ -99,6 +99,12 @@
 			<artifactId>run_rules_0_1</artifactId>
 			<version>6.0.0</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>sales-analyzer</groupId>
+			<artifactId>api-extension</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 

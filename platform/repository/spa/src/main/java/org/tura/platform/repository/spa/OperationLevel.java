@@ -29,7 +29,8 @@ import org.tura.platform.repository.spa.merge.rules.UpdateMergeRule;
 public enum OperationLevel {
 	UPDATE( new UpdateMergeRule()),
 	INSERT(new InsertMergeRule()),
-	DELETE( new DeleteMergeRule());
+	DELETE( new DeleteMergeRule()),
+	OPERATION(null);
 	
 	private MergeRule rule;
 	

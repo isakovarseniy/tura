@@ -167,7 +167,7 @@ public class JbpmServiceTest {
 		initSpa.initProvider();
 
 
-		JbpmServiceInstantiator init = new JbpmServiceInstantiator( TestCommons.KIE_SERVER_URL , new OAuthCredentialsProvider(new TestCommons().getToken()),new UserPeferencesProviderImpl());
+		JbpmServiceInstantiator init = new JbpmServiceInstantiator( TestCommons.KIE_SERVER_URL , new OAuthCredentialsProvider(new TestCommons().getToken()),new UserPeferencesProviderImpl(),registry,spaRegistry);
 		
 		
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));

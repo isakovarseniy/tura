@@ -257,6 +257,8 @@ public class Actions implements EventAccessor {
 			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 
 			proxyRepository.applyChanges(null);
+			commandStack.commitSavePoint();
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}

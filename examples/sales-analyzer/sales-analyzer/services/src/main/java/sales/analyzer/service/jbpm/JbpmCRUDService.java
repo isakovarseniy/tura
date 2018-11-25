@@ -10,6 +10,7 @@ import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 
+import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
@@ -42,9 +43,29 @@ public class JbpmCRUDService implements CRUDProvider{
 			delete(control);
 			return;
 		}
+		
+		if (control.getLevel().equals(OperationLevel.OPERATION)) {
+			executeOperation(control);
+			return;
+		}
+		
 		throw new Exception("Unknown operation");
 		
 	}
+
+	private void executeOperation(SpaControl control) {
+		if ( control.getObject() instanceof  AssignInfo) {
+			assignActor((AssignInfo) control.getObject() );
+		}
+		
+	}
+
+
+	private void assignActor(AssignInfo obj) {
+		ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
+		processClient.signalProcessInstance(Constants.CONTAINER_ID, obj.getProcessId(), Constants.SIGNAL_ASSIGN, obj);
+	}
+
 
 	private void insert(SpaControl control) throws Exception {
 		if (control.getObject() instanceof SalesAnalyzerProcessInstance ) {

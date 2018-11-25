@@ -16,6 +16,8 @@ public class ExtraClasses {
 		list.add(SalesAnalyzerTaskInstance.class);
 		list.add(SalesAnalyzerListOfRowsNumber.class);
 		list.add(UserPreferences.class);
+		list.add(AssignInfo.class);
+		list.add(TerminateProcessEvent.class);
 
 	}
 
