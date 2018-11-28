@@ -13,6 +13,7 @@ import org.tura.platform.repository.spa.SpaControl;
 import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
+import sales.analyzer.api.model.impl.TerminateProcessEvent;
 import sales.analyzer.process.commons.Constants;
 
 public class JbpmCRUDService implements CRUDProvider{
@@ -57,7 +58,16 @@ public class JbpmCRUDService implements CRUDProvider{
 		if ( control.getObject() instanceof  AssignInfo) {
 			assignActor((AssignInfo) control.getObject() );
 		}
+		if ( control.getObject() instanceof  TerminateProcessEvent) {
+			terminateFlow((TerminateProcessEvent) control.getObject() );
+		}
 		
+	}
+
+
+	private void terminateFlow(TerminateProcessEvent obj) {
+		ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
+		processClient.signalProcessInstance(Constants.CONTAINER_ID, obj.getProcessId(), Constants.SIGNAL_TERMINATE, obj);
 	}
 
 

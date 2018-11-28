@@ -184,6 +184,39 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public void closeWF() {
+		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
+		GridModel model = (GridModel) viewmodel.getModel("tura104d965f_253d_4210_8bfa_0577367e9cec", null, null);
+		List<Object[]> list = (List<Object[]>) model.getLazyModel().getWrappedData();
+		for (Object[] array : list) {
+			Task t = (Task) array[2];
+			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) t);
+			if (adapter.getSelected()) {
+				t.setCloseProcess("TRUE");
+			}
+		}
+
+		try {
+			CommandStackProvider sp = new CommandStackProvider();
+			sp.setCommandStack(commandStack);
+
+			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+
+			proxyRepository.applyChanges(null);
+			commandStack.commitSavePoint();
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
+
+	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void assignMyselfWI() {
 		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
@@ -304,6 +337,16 @@ public class ActionsCaseManagement implements EventAccessor {
 
 			}
 
+			if (adapter.getAssignto() != null && !"".equals(adapter.getAssignto())) {
+				SearchCriteria sc = new SearchCriteria();
+				sc.setName(Constants.VAR_ACTUAL_OWNER);
+				sc.setValue(adapter.getAssignto());
+				sc.setComparator(Operator.EQ.name());
+				dc.getDefaultSearchCriteria().add(sc);
+
+			}
+			
+			
 			dc.forceRefresh();
 
 		} catch (Exception e) {

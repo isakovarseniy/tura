@@ -1,11 +1,14 @@
 [%
 @template
- operation serializer (type,skipAttributes, inObj, outObj){
+ operation serializer (type,skipAttributes, inObj, outObj,model_mapper){
         var util = new Native('org.tura.metamodel.commons.Util');
 		for ( field in type.attributes){
 		     if (skipAttributes.contains(field) ){
 		        continue; 
 		     }   
+		    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+		        continue; 
+		    }
         	%][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]()  );
  			[%}
  }

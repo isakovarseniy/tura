@@ -73,7 +73,7 @@ ${start}${percent}
 	       var tp = type;
 	        while  (1 == 1) {
 	         %]
-	          [%=serializer(tp,type.~skipAttributes,"jpa","obj")%]
+	          [%=serializer(tp,type.~skipAttributes,"jpa","obj",model_mapper)%]
 	         [%  
 	            if (tp.~extension.isDefined()){
 	               tp = tp.~extension;
@@ -97,7 +97,7 @@ ${start}${percent}
 	       var tp = type;
 	        while  (1 == 1) {
 	         %]
-	          [%=serializer(tp,type.~skipAttributes,"obj","jpa")%]
+	          [%=serializer(tp,type.~skipAttributes,"obj","jpa",model_mapper)%]
 	         [%  
 	            if (tp.~extension.isDefined()){
 	               tp = tp.~extension;

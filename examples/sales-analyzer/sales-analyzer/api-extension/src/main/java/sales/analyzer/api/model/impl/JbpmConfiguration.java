@@ -62,7 +62,7 @@ public class JbpmConfiguration {
 			"INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID\n" +
 			"INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID\n"+
 			"WHERE \n" +
-			"TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0\n"
+			"TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0  ORDER BY PROC_PROCESSINSTANCEID\n"
 			;
 	
 	private static String TASK_NUMBER_OF_ROWS_QUERY = "SELECT DISTINCT( TSK.ID ) TSK_ID , CD.CITY AS CITY, CD.PRODUCT AS PRODUCT, CD.STATE AS STATES, \n"+

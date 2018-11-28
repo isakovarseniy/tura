@@ -49,6 +49,7 @@
             <hints uid="e5396704-1a58-4715-a92a-020749b8accc" name="Sequence" hint="8ab73b44-bfc9-4a10-9f62-7438696132d7"/>
             <hints uid="e2f34482-41c1-422e-947e-3ae974117e80" name="Many2ManyTable" hint="73cbcbe9-3531-4a65-b662-0a1f9787779b"/>
             <hints uid="8d8a2c5f-5972-45e6-ab61-b13dc115a932" name="Table" hint="33258c88-1dfa-4c6f-b714-6a0cef9d1d91"/>
+            <hints uid="70726a8c-6b3c-4458-ad73-7b16774224e6" name="SignalField" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
           </artifacts>
           <artifacts uid="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/mainPersistence-xml.egl">
             <configVariables uid="0ce719ac-79f2-44e7-806f-0c6dd531d973" name="DataBase IP" var="59b08248-2e8c-4f86-bba6-076b43f5f7f7"/>
@@ -111,6 +112,7 @@
             <hints uid="252afd5b-810b-4d81-b363-b94d29cba704" name="OneWayAssociation" hint="092db6fe-1f0f-4f02-9ed8-c355d477f214"/>
             <hints uid="506df12b-04c8-4de0-9604-ce075d440e57" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
             <hints uid="738f3f3f-578c-4480-bda8-2ebc9b9ba44e" name="SPA Object" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
+            <hints uid="90c31441-f8f5-4542-9aee-92dab7b1ebfb" name="SignalField" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
           </artifacts>
           <artifacts uid="838919d0-d0ac-453c-b3d2-d459cdb1cf8e" name="Repository profile" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainProfile.egl">
             <configVariables uid="4c4ef805-dfcb-440b-977c-ea549800a227" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -497,6 +499,7 @@
           <hints uid="092db6fe-1f0f-4f02-9ed8-c355d477f214" name="OneWayAssociation"/>
           <hints uid="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9" name="Adapter"/>
           <hints uid="a33bf8db-5036-434d-9670-c89e8aa7ef73" name="SPA Object"/>
+          <hints uid="b85caaed-4c99-4983-b88e-7c707b725e99" name="SignalField"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
         </techLeafs>
@@ -1692,6 +1695,9 @@
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="46d8f371-6966-41ae-a7c8-bbc9bcbfcafd" name="expirationTime"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="6d8f587d-260e-4521-b90c-a92f2d0b237c" name="processInstanceId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="83b13ac3-ecdc-418e-8893-77a63067b8b3" name="processId"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9cc1febd-28a3-4cc7-bbfe-c6ac36f94f1e" name="closeProcess">
+              <classifiers uid="8f26e526-0d0a-428e-8380-a0253ba1c09d" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
+            </attributes>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="47ac8328-b408-4f71-81fb-5a505ca7202b" typeRef="f60a553d-c740-4f24-9c09-44159d89b55f"/>
           <types xsi:type="tura.type:TypeReference" uid="6adec885-0af3-4fa6-837b-c4105c14eef7" typeRef="019fce0b-b5a7-4882-8c03-52c94f2b11f8"/>
@@ -1962,6 +1968,7 @@
             <operations uid="c2c52ea3-51e2-415c-8c60-bf9d6ab63a1a" name="selectUserForAssign"/>
             <operations uid="4a1e58b2-c016-41e3-961d-e3b8e8292061" name="renderedButtonselectUserForFilter"/>
             <operations uid="43924330-e5ff-4410-b78e-c8426c1ab5cf" name="renderedButtonselectUserForAssign"/>
+            <operations uid="8e81d5a9-b8d5-4b3b-b97e-b1d26754e8f3" name="closeWF"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -9063,6 +9070,15 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="3" uid="dc573a5e-01f7-4a16-aee5-1f95fa32743f" label="close">
                               <style uid="63a61ff1-5d79-4efa-b690-879bb3818361" constant="true" value="width:30px;height:30px"/>
+                              <fields uid="fd8a6f8d-5f55-4676-ba15-77b1c6d1f5fd" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.closeWF()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="8e81d5a9-b8d5-4b3b-b97e-b1d26754e8f3" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="dc573a5e-01f7-4a16-aee5-1f95fa32743f" group="1"/>
+                              <refreshAreas area="4b896b56-0207-4083-810f-8fb2c57ed93b" group="2"/>
                               <icon uid="dc6a107b-bb70-410a-a2a2-baa711f80307" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>

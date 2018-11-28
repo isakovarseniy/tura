@@ -23,6 +23,7 @@ public class Constants {
 	public static final String VAR_STATE = "state";
 	public static final String VAR_PRODUCT = "product";
 	public static final String VAR_CASEDETAILS = "caseDetails";
+	public static final String VAR_ACTUAL_OWNER = "taskActualOwner";
 
 	public static final String VAR_USERNAME = "username";
 	public static final String VAR_FIRSTNAME = "firstName";
@@ -51,6 +52,7 @@ public class Constants {
 	public static final String PARAMETER_CITY = "PARAMETER_CITY";
 	public static final String PARAMETER_STATE = "PARAMETER_STATE";
 	public static final String PARAMETER_PRODUCT = "PARAMETER_PRODUCT";
+	public static final String PARAMETER_ACTUAL_OWNER = "PARAMETER_ACTUAL_OWNER";
 
 	
 	public static final String SIGNAL_ASSIGN = "Signal_assign";

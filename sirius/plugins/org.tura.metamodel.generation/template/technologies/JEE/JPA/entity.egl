@@ -26,6 +26,10 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 [%for ( field in type.attributes){
      if (type.~skipAttributes.contains(field) )
         continue; 
+
+    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+        continue; 
+    }
      
     field.typeRef.mappingType2Java(recipe,ingredient);
 
