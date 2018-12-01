@@ -59,6 +59,13 @@ operation  viewgeneration(hash) {
       var buffer = viewporttriggerproducer.process();
       util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
 
+
+      var menutriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/menuPostProcessorProducer.egl",hash,TemplateFactory);
+      menutriggerproducer.setFormatter(f);
+      var buffer = menutriggerproducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "MenuPostProcessorProducer.java",buffer);  
+
+
       menuGenerator(hash);
       menuProvider(hash);
       actionExecutor(hash);

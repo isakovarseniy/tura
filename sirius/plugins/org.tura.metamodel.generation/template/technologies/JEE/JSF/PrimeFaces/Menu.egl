@@ -5,12 +5,26 @@ operation form::Menu draw(hash) {
      var form = hash.get("form");
      var menuReferences = hash.get("menuReferences");
      var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var hints = new Native('java.util.HashMap');
+     
      hash.get("menuReferences").add(self);
+ 
+ 
+      var menuType = "p:menubar";
+      var currentMenueItem="";
+     if (self.findClassifier(util.getHint(model_mapper,"tabMenu"))){
+       var expression = constructExpression(self,'tabMenu.currentItem',hints, hash);
+       if (expression <> ""){
+         currentMenueItem ="activeIndex=\""+expression+"\"";
+       }
+       menuType = "p:tabMenu";
+     }
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      
 %]
-    <p:menubar model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}" />    
+    <[%=menuType%] [%=currentMenueItem%]  model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]/>    
 [%
      hash.put("context",null);
      util.traceIfDebug("UI element","Menu end: "+self.uid);     

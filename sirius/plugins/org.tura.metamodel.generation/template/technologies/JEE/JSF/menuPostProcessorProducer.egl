@@ -1,0 +1,17 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class MenuPostProcessorProducer {
+
+	  @javax.enterprise.inject.Produces
+       @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+       @org.tura.platform.datacontrol.annotations.MenuPostProcessingTrigger
+	public org.tura.platform.datacontrol.command.MenuPostPocessingCommand produceMenuPostProcessorTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+	}
+}

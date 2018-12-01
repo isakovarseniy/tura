@@ -18,9 +18,16 @@ operation form::Button draw(hash) {
      if (self.findClassifier(util.getHint(model_mapper,"immediate"))){
         immediate = " immediate=\"true\"";
      }
+     
+     var buttonType = "p:commandButton";
+     if (self.findClassifier(util.getHint(model_mapper,"commandLink"))){
+        buttonType = "p:commandLink";
+     }
+
+
 
  %]
-<p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
+<[%=buttonType%]  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
        var expression = constructExpression(self,'onclick',hints, hash);
        if (expression <> ""){
        %] onclick="[%=expression%]"[%
@@ -43,7 +50,7 @@ operation form::Button draw(hash) {
         [%
         }
 %]
-</p:commandButton>
+</[%=buttonType%]>
  [%
      util.traceIfDebug("UI element","Button end: "+self.uid);     
  

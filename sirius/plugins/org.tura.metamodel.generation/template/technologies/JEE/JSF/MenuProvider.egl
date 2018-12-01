@@ -14,6 +14,11 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
  @javax.inject.Named("menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class MenuProvider  implements java.io.Serializable {
 
+   @javax.inject.Inject
+   @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+   @org.tura.platform.datacontrol.annotations.MenuPostProcessingTrigger
+   private org.tura.platform.datacontrol.command.MenuPostPocessingCommand menuPostPocessingCommand;
+
 	private static final long serialVersionUID = 1L;
 
     private java.util.HashMap<String,Class<?>> hash = new  java.util.HashMap<String,Class<?>>();
@@ -51,6 +56,9 @@ public class MenuProvider  implements java.io.Serializable {
     	try {
 			org.tura.platform.primefaces.menu.AbsractMenuProvider obj = (org.tura.platform.primefaces.menu.AbsractMenuProvider)clazz.newInstance();
 			org.primefaces.model.menu.DefaultMenuModel model =  (org.primefaces.model.menu.DefaultMenuModel)obj.getMenu(elResolver);
+			if (menuPostPocessingCommand != null){
+				   menuPostPocessingCommand.execute(model, menuId, obj);
+		    }
            model.generateUniqueIds();
  			return model;
 		} catch (Exception  e) {

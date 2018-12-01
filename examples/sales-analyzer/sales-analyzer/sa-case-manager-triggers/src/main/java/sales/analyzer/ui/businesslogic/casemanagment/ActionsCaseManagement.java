@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.MenuItem;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
@@ -33,6 +36,7 @@ import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
+import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
 
 public class ActionsCaseManagement implements EventAccessor {
@@ -49,6 +53,10 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@Inject
 	Repository repository;
+	
+	@Inject
+	WorkItemMenuDynamic workItemMenu;
+	
 
 	@Override
 	public void setEvent(ActionEvent event) {
@@ -354,5 +362,31 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 
 	}
+	
+	public void openCase() {
+		Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+		TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) row[2]);
+		
+		String value =  "Case #"+ adapter.getCaseId();
+		int currentItem = 1;
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		
+		for ( MenuItem item : workItemMenu.getMenuItemsList()) {
+			if (item.getValue().equals(value)) {
+				bf.setCurrentOpenedCase(currentItem);
+				return;
+			}
+			currentItem++;
+		}
 
+		if( workItemMenu.getMenuItemsList().size() == 5 ) {
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "To many open windows"));
+	        return;
+		}
+		
+		DefaultMenuItem item = new DefaultMenuItem( value);
+		workItemMenu.getMenuItemsList().add(item);
+		bf.setCurrentOpenedCase(workItemMenu.getMenuItemsList().size());
+	}
+	
 }

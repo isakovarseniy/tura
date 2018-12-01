@@ -37,12 +37,26 @@ operation form::MessageElement tableContext(hash,hints) {
 @template
 operation form::MessageElement noContext(hash,hints) { 
    var link = form::LinkToMessage->allInstances()->select(r|r.target.uid=self.uid)->first();
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+   
    var forRef = "";
    if ( link <> null and  link.source <> null){
       forRef="for=\""+link.source.mkuid()+"\"";
    }
+   
+     if (self.findClassifier(util.getHint(model_mapper,"messages"))){
+    %]
+    <p:messages  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  showDetail="true" closable="true"/>
+    [%
+     }else{
+    %]<p:message  [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />[%
+     }
+   
+   
 %]
-	<p:message  [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
+
+
 [%   
 }
 %]
