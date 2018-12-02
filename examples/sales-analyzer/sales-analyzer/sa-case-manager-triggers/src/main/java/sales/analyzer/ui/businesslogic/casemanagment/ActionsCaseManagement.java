@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
+import org.primefaces.event.MenuActionEvent;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.MenuItem;
 import org.tura.platform.datacontrol.CommandStack;
@@ -36,7 +37,6 @@ import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
-import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.process.commons.Constants;
 
 public class ActionsCaseManagement implements EventAccessor {
@@ -53,15 +53,21 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@Inject
 	Repository repository;
-	
+
 	@Inject
 	WorkItemMenuDynamic workItemMenu;
-	
 
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;
 
+	}
+
+	public Object resolver(String experssion, ELResolver eLResolver) {
+		if (experssion.length() > 2 && "#{".equals(experssion.substring(0, 2))) {
+			return eLResolver.getValue(experssion);
+		}
+		return experssion;
 	}
 
 	public String searchIcon() {
@@ -192,7 +198,6 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	public void closeWF() {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
@@ -221,10 +226,6 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
-
-	
-	
-	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void assignMyselfWI() {
 		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
@@ -353,8 +354,7 @@ public class ActionsCaseManagement implements EventAccessor {
 				dc.getDefaultSearchCriteria().add(sc);
 
 			}
-			
-			
+
 			dc.forceRefresh();
 
 		} catch (Exception e) {
@@ -362,31 +362,89 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 
 	}
-	
+
+	@SuppressWarnings({ "rawtypes" })
 	public void openCase() {
-		Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
-		TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) row[2]);
-		
-		String value =  "Case #"+ adapter.getCaseId();
-		int currentItem = 1;
-		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
-		
-		for ( MenuItem item : workItemMenu.getMenuItemsList()) {
-			if (item.getValue().equals(value)) {
-				bf.setCurrentOpenedCase(currentItem);
+		try {
+			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) row[2]);
+
+			String value = "Case #" + adapter.getCaseId();
+			int currentItem = 1;
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+
+			for (MenuItem item : workItemMenu.getMenuItemsList()) {
+				if (item.getValue().equals(value)) {
+					bf.setCurrentOpenedCase(currentItem);
+					bf.setCurrentOpenedCaseId(adapter.getCaseId());
+					((DataControl) bf.getCaseManager()).forceRefresh();
+					bf.setCanvasType("CASE");
+					return;
+				}
+				currentItem++;
+			}
+
+			if (workItemMenu.getMenuItemsList().size() == 5) {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "To many open windows"));
 				return;
 			}
-			currentItem++;
+
+			DefaultMenuItem item = new DefaultMenuItem(value);
+			workItemMenu.getMenuItemsList().add(item);
+			bf.setCurrentOpenedCase(workItemMenu.getMenuItemsList().size());
+			item.setParam("case_id", adapter.getCaseId());
+			item.setIncludeViewParams(true);
+			item.setUpdate((String) resolver(
+					"#{viewmodel.getClientId(turaf279a609_bd23_4610_971f_91f9c788f39e)},#{viewmodel.getClientId(tura16dc93c8_bf33_4cb1_92fa_082f68441f88)}",
+					elResolver));
+			item.setCommand(
+					"#{actionExecutorAnalysisCaseManager.setSource('tura354d416a_83e5_43c9_a83a_37f58dd3e905').eventListener}");
+
+			bf.setCurrentOpenedCaseId(adapter.getCaseId());
+			((DataControl) bf.getCaseManager()).forceRefresh();
+
+			bf.setCanvasType("CASE");
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
-		if( workItemMenu.getMenuItemsList().size() == 5 ) {
-	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "To many open windows"));
-	        return;
-		}
-		
-		DefaultMenuItem item = new DefaultMenuItem( value);
-		workItemMenu.getMenuItemsList().add(item);
-		bf.setCurrentOpenedCase(workItemMenu.getMenuItemsList().size());
 	}
-	
+
+	@SuppressWarnings("rawtypes")
+	public void switchToWorkItem() {
+		try {
+
+			String caseId = null;
+			MenuActionEvent menuEvent = (MenuActionEvent) event;
+			if (menuEvent.getMenuItem().getParams() != null) {
+				List array = menuEvent.getMenuItem().getParams().get("case_id");
+				caseId = (String) (array.get(0));
+			}
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+
+			if (caseId == null) {
+				bf.setCanvasType("WorkItem");
+				bf.setCurrentOpenedCase(0);
+			} else {
+				String value = "Case #" + caseId;
+				int currentItem = 1;
+				for (MenuItem item : workItemMenu.getMenuItemsList()) {
+					if (item.getValue().equals(value)) {
+						bf.setCurrentOpenedCase(currentItem);
+						bf.setCurrentOpenedCaseId(caseId);
+						((DataControl) bf.getCaseManager()).forceRefresh();
+						bf.setCanvasType("CASE");
+						return;
+					}
+					currentItem++;
+				}
+			}
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
 }

@@ -1,6 +1,7 @@
 package org.tura.metamodel.sirius.properties.selections.grid.impl;
 
 import form.AreaRef;
+import form.MenuItem;
 import form.NickNamed;
 
 public class RefreshAreaRow{
@@ -20,6 +21,11 @@ public class RefreshAreaRow{
 		this.element = element;
 		this.THIS = THIS;
 	}			
+	
+	public RefreshAreaRow( MenuItem  menuItem, String THIS ){
+		this.THIS = THIS;
+	}			
+
 	
 	
 	public void setRef(AreaRef  ref){

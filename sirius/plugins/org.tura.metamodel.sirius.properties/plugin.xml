@@ -1109,13 +1109,27 @@
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MenuItemOnEventRefreshAreaPropertySelection"
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaMenuItemSetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuItemSectionFilter"
 	            id="form.MenuItem.RefreshArias"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaMenuItemGetPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuItemSectionFilter"
+	            id="form.MenuItem.RefreshArias"
+	            tab="tab.form.UIelement.RefreshArias">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
 
 
 

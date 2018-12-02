@@ -1978,6 +1978,7 @@
             <operations uid="43924330-e5ff-4410-b78e-c8426c1ab5cf" name="renderedButtonselectUserForAssign"/>
             <operations uid="8e81d5a9-b8d5-4b3b-b97e-b1d26754e8f3" name="closeWF"/>
             <operations uid="36ae25cc-9a38-422a-9de2-7ebf262b8e69" name="openCase"/>
+            <operations uid="88f5025c-5740-4039-99c6-d6e9174c8845" name="switchToWorkItem"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -8459,7 +8460,7 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
-                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="16dc93c8-bf33-4cb1-92fa-082f68441f88" name="CaseViewport">
+                      <viewElement xsi:type="tura.form:ViewPort" nickname="CaseViewport" order="1" uid="16dc93c8-bf33-4cb1-92fa-082f68441f88" name="CaseViewport">
                         <style uid="42ed4f2d-b57e-487a-bc4d-c69f03542225"/>
                       </viewElement>
                       <classifiers uid="ac18f903-1b05-4a79-a0cd-7e927a1088be" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
@@ -8806,8 +8807,8 @@
                                   <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
                                   <expression objRef="36ae25cc-9a38-422a-9de2-7ebf262b8e69" order="4" expressionType="OperationImpl"/>
                                 </fields>
-                                <refreshAreas area="4b896b56-0207-4083-810f-8fb2c57ed93b" group="2"/>
                                 <refreshAreas area="f279a609-bd23-4610-971f-91f9c788f39e" group="2"/>
+                                <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                                 <refreshAreas area="801a36e2-322c-426e-ae46-8426d2af4af9" group="1"/>
                                 <multiLangLabel uid="fff4f929-d8de-4e4a-8462-518c8bac612f" constant="true" value="#{row[2].artificialFieldWrapper.caseId}"/>
                               </element>
@@ -9238,9 +9239,78 @@
                         </baseCanvas>
                       </viewElement>
                     </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="d55e07d5-9a36-4183-80a1-631a1c06f64c" name="Case description">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="32c9fe66-c41b-40b5-96da-6ff841be2fa5" name="Case description aria">
+                        <style uid="c27c2c38-d5c8-4ed3-96b8-fc625014664d"/>
+                        <baseCanvas uid="123c8fc8-761f-427c-8af0-a3a1d3690b46" columns="6">
+                          <children xsi:type="tura.form:Label" uid="8d95024f-1c17-4d60-9990-ebc77d229392" label="State">
+                            <multiLangLabel uid="e38401ef-875a-4dbe-b840-a63030ba5307" value="Application Message Libraries.Case management.STATE">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="d48611c6-000c-41a0-895f-d066e1b7732f" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="1" uid="342a4bb2-c973-4896-b095-8750c9e1c3ac" label="City">
+                            <multiLangLabel uid="127b57ba-2d10-4f15-97e5-77d6e7f523d8" value="Application Message Libraries.Case management.CITY">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="7bce2d9a-03b9-4c45-9020-43f4ced95291" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="2" uid="b52efbf8-0fe6-41e5-9235-bf9d7c7770ce" label="Product">
+                            <multiLangLabel uid="0469ec1b-c94b-40e2-a3c5-ee34e3f3ca4c" value="Application Message Libraries.Case management.PRODUCT">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="29213869-5bd7-4449-a035-676fe36b7866" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="3" uid="681fa529-a1ab-495a-9c06-e1644621b51f" label="Case id">
+                            <multiLangLabel uid="5319ba16-e063-4234-925a-17157702697c" value="Application Message Libraries.Case management.CASE_ID">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="bcf527af-1dfa-4489-8077-417037798cfe" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="4" uid="07a2a06a-0e93-4ec6-b324-967376223178" label="Status">
+                            <multiLangLabel uid="ae57334c-cc16-4fff-ae76-f7281f20f277" value="Application Message Libraries.Case management.STATUS">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="80bb01ba-137f-4441-9357-54c2d049ac59" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="5" uid="cba8787f-6ad0-4f79-bb25-0e7d2125c42b" label="Assign to">
+                            <multiLangLabel uid="15f3820f-0e6b-42e8-9566-eb4a22aa4a4a" value="Application Message Libraries.Case management.ASSIGN_TO">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="11846de8-cd59-4512-9757-8e6428757924" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:OutputText" order="11" uid="c4034c10-959e-4695-ac14-785639daa914" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="bad653a2-144f-455c-99cb-0c1168dc0a25"/>
+                          <children xsi:type="tura.form:OutputText" order="6" uid="eca5d2d6-6c1c-4ab5-b13d-25efcf62b3fe" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="546f039b-52d7-4e95-a2e1-d037242ea088"/>
+                          <children xsi:type="tura.form:OutputText" order="7" uid="e6e1ef58-d9b2-4bd9-b8d1-2bc1ec621b50" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="c59d44f6-ba9d-4d2c-8e49-d55471370863"/>
+                          <children xsi:type="tura.form:OutputText" order="8" uid="ce6a25f9-aba3-4972-8880-d3afbf661ad6" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="c1c4a24a-7a6b-4d62-a8a5-781210571d3b"/>
+                          <children xsi:type="tura.form:OutputText" order="9" uid="5a2ef5dc-62c8-4b39-8c93-14d9864132e7" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="99398110-a923-4a53-8765-536e14a5cfdf"/>
+                          <children xsi:type="tura.form:OutputText" order="10" uid="185e961e-08b3-4a02-a411-c1e7c2902235" sourcePointer="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" valuePointer="c840ebc7-d423-42f2-96d6-813b9932edf1"/>
+                        </baseCanvas>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="db5c6793-2c42-4623-9399-3858c84e49e3" name="Case detail"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabCanvas" uid="00d6d341-d053-4dd8-8cdc-e4e3c80f6e21" name="Case details">
+                      <style uid="928ebdbb-b8bf-4fce-8c06-81f302298c88"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabPage" uid="1e63bfc7-3eac-4290-9468-1ec1909dfbab" name="Write Outcome">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="0b688cb0-3a45-42f1-a983-047065039996" name="Write outcome aria"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:TabPage" uid="be02e062-ae3f-40e2-8c4d-37f7af62ccaa" name="Case History">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="ebc7ac53-1748-436c-bcf6-1e04d7b19704" name="Case History Aria"/>
+                    </canvases>
                     <viewInheritances uid="8270ecd9-631e-4096-bfdf-052824904a23" source="69dfc76d-61d6-4a48-a979-65dd1fa113d4" target="48d7014d-1877-4010-8b22-d1734ae8e72e"/>
                     <viewInheritances uid="7d7118cb-ba99-4741-955a-291dc6e3aa45" source="028f7779-d30b-49e7-95f3-ac1f1afcf412" target="a1b353dd-a8ad-44e2-b2cf-950cd3cc999d"/>
                     <viewInheritances uid="cf4ffcec-70d4-4c67-94cb-0fe01db90ade" source="16dc93c8-bf33-4cb1-92fa-082f68441f88" target="b4f388ef-afc6-4385-b82f-3e5e3f7b9d9d"/>
+                    <viewInheritances uid="51254737-333a-4041-af20-a6cf8d2122b5" source="16dc93c8-bf33-4cb1-92fa-082f68441f88" target="d55e07d5-9a36-4183-80a1-631a1c06f64c"/>
+                    <viewInheritances uid="3af71549-ccf5-4aed-9960-81d307e6df38" source="db5c6793-2c42-4623-9399-3858c84e49e3" target="00d6d341-d053-4dd8-8cdc-e4e3c80f6e21"/>
+                    <tabPagesInheritances uid="9e6281dd-65cf-490e-9ffb-bbef97a26d52" source="00d6d341-d053-4dd8-8cdc-e4e3c80f6e21" target="1e63bfc7-3eac-4290-9468-1ec1909dfbab"/>
+                    <tabPagesInheritances uid="9b6215c8-69a1-40a8-a3ab-ff5c26630688" source="00d6d341-d053-4dd8-8cdc-e4e3c80f6e21" target="be02e062-ae3f-40e2-8c4d-37f7af62ccaa"/>
                     <menus uid="8761b8bf-3e87-4db7-9dc7-5e84047a3caa" name="Buttons Menue">
                       <style uid="a70baf6d-f5ee-4dc0-bbed-731f2d4fafac"/>
                       <menuFolders uid="6cd381ff-bb67-4ffc-85ed-d5b6d971c8f8" name="WorkItemsMenue">
@@ -9251,6 +9321,18 @@
                             <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
                             <expression objRef="550fc7dd-107e-4e08-be4e-5dbf72731a9c" order="2" expressionType="MessageImpl"/>
                           </multiLangLabel>
+                          <style uid="929f48fc-f3fe-4f99-a284-2d816c7280f2"/>
+                          <enabled uid="b17873c4-a7d0-4d25-9b85-492d1dd4d304"/>
+                          <fields uid="354d416a-83e5-43c9-a83a-37f58dd3e905" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.switchToWorkItem()">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                            <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                            <expression objRef="88f5025c-5740-4039-99c6-d6e9174c8845" order="4" expressionType="OperationImpl"/>
+                          </fields>
+                          <icon uid="8c0dc2f0-a213-46c8-823c-8fecc69fe734"/>
+                          <refreshAreas area="f279a609-bd23-4610-971f-91f9c788f39e" group="2"/>
+                          <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                         </menuElements>
                       </menuFolders>
                     </menus>
@@ -9262,6 +9344,8 @@
                       <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="3ba8a56f-7df0-4230-9843-f0c3d73496dd" name="showSearchPanelForWI"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1282252d-2232-4614-af51-7e402dcbeace" name="userSelectionPopupContext"/>
                       <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="5a630ca6-5d07-420e-b1a1-5d6458951bcd" name="currentOpenedCase"/>
+                      <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="a4c7afc7-9e91-428f-8860-b544d5a31986" name="currentOpenedCaseId"/>
+                      <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8124d32c-c476-4884-bd47-e4ef33b00986" name="canvasType"/>
                     </root>
                     <controls uid="9694e8d3-2a79-4857-9eec-12f98d920ac6" name="Task">
                       <baseType typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c"/>
@@ -9321,113 +9405,6 @@
                       <defaultSearch/>
                       <defaultOrderBy/>
                     </controls>
-                    <controls uid="3c9fada6-706d-471b-809e-5466eb2f6f9e" name="Assign">
-                      <baseType typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c"/>
-                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="3650540f-744c-4257-807b-8d709de1ffa8">
-                        <parameters uid="d955f8dc-f115-4ab5-9f1a-65c5d64ed22f" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
-                          <value uid="f6ddc967-1006-4180-8efb-92304d959750" value="Types repository.Sales Analyzer.JBPM.JBPM::Task">
-                            <expression uid="f5fb8101-c8d4-4168-8e3f-be03b1e4b2ae" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="52c71525-7562-4988-9282-d5efc5b71727" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="da5a543d-08bf-451a-bb31-1d0a39ac53ab" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="cfb19811-e0a1-4b2b-86d9-ed1451b6b993" objRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </create>
-                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="23acacc6-1437-420a-b28d-84e2430c93bd">
-                        <parameters uid="cb4ac282-21e9-43e0-93c1-f5b79a333646" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
-                          <value uid="c680e99a-f947-4168-a277-389be5d45149" value="Data controls.Assign.searchCriteria">
-                            <expression uid="291e36fa-e758-4e83-9ccd-2d0ab58baf0b" expressionType="DataControlHolder"/>
-                            <expression uid="a8be51e4-5945-4eb3-93ed-a04872c74d4c" objRef="3c9fada6-706d-471b-809e-5466eb2f6f9e" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="a7ff5ec9-06ca-4a77-8194-976360e84deb" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="1196bb9c-1bfa-4bcb-96d1-2aaefd839950" refObj="82321931-ce03-428e-b54d-562a21b72c06">
-                          <value uid="b91daac1-c6dc-4fee-9a33-cacf4e418758" value="Data controls.Assign.orderCriteria">
-                            <expression uid="8ca467b3-a0ba-4558-ba20-16146183fd07" expressionType="DataControlHolder"/>
-                            <expression uid="7407e644-84ab-4701-bc64-b6d05933c1ea" objRef="3c9fada6-706d-471b-809e-5466eb2f6f9e" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="68f16c3f-17ae-4daa-930d-035ec4781dad" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="bd8b005a-55cd-45b6-8a93-dbdca7c734db" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
-                          <value uid="83ca93a4-3838-49bb-b287-bd0f1409add4" value="Data controls.Assign.start Index">
-                            <expression uid="5605be68-a347-4c84-9a02-ce222bda4ac9" expressionType="DataControlHolder"/>
-                            <expression uid="a0c2ba97-04e5-4300-ac25-4bad9fa3ce4b" objRef="3c9fada6-706d-471b-809e-5466eb2f6f9e" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="d4e74cb6-5cfa-4f5c-b55b-4fb1419be943" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="4f43a388-aa00-463d-91cb-29177ff35290" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
-                          <value uid="8c0584c0-d7ad-455e-8748-31836d9c7cdd" value="Data controls.Assign.end Index">
-                            <expression uid="7aa8be94-46e6-4f21-9857-c238597a395e" expressionType="DataControlHolder"/>
-                            <expression uid="69815266-7926-4352-9ee4-68d3a3732713" objRef="3c9fada6-706d-471b-809e-5466eb2f6f9e" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="ad665dd5-b4e6-45cf-a851-364a853da0e0" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="444dc06e-a6ab-457d-9b4c-40a45cac9082" refObj="ab025094-583b-4699-b19b-41549870fa75">
-                          <value uid="ca1aa36c-d5c6-42ff-a518-5cb74c61b592" value="Types repository.Sales Analyzer.JBPM.JBPM::Task">
-                            <expression uid="511541dd-de09-49f8-9983-fbcb68bc7f2e" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="4faf3f16-8513-4308-8071-cb996b604f34" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="ae3f0be7-4ea3-4524-ae88-60cec9b475b3" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="57bc2661-6be7-4bde-aa14-ee205f5f560f" objRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </search>
-                      <defaultOrderBy/>
-                    </controls>
-                    <controls uid="93669f25-6d32-47c5-ba3d-eede07e6c572" name="Close case">
-                      <baseType typeRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7"/>
-                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="124947c3-41fd-4a27-b47e-f66ac545b1dd">
-                        <parameters uid="aecac4e0-26eb-49be-beb1-c9b496f60897" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
-                          <value uid="d708045b-062d-4c97-81f8-f2be5c23171f" value="Types repository.Sales Analyzer.JBPM.JBPM::CaseProcess">
-                            <expression uid="95bb00db-f1dc-4e85-afb0-f5c31c7b1330" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="68a6f243-5be4-4329-90cc-820c11271741" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="e8eab9b6-e417-42b5-8fba-568ee54d5191" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="f464184b-b440-475c-bc92-93a363087691" objRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </create>
-                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="fc1c46f3-d674-4597-9cc6-efae79db1d41">
-                        <parameters uid="65794c4c-88f0-4a3b-a882-415cdf9860f2" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
-                          <value uid="7efc0916-3d81-48e9-9808-e3c8a4611e16" value="Data controls.Close case.searchCriteria">
-                            <expression uid="1836bb37-ff81-4297-9d8f-676a4f7a99b0" expressionType="DataControlHolder"/>
-                            <expression uid="58b207b9-286f-4943-b11e-7ca7dd6215ef" objRef="93669f25-6d32-47c5-ba3d-eede07e6c572" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="73fb2b51-5527-46ad-8f2b-c68296aa01fd" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="a14c37ce-3860-4df6-a8d9-fbbbf9c394c1" refObj="82321931-ce03-428e-b54d-562a21b72c06">
-                          <value uid="52f9de6e-0541-443d-9914-4c94d250e06b" value="Data controls.Close case.orderCriteria">
-                            <expression uid="bdede903-ecaf-4bc1-8671-b590bc353d1d" expressionType="DataControlHolder"/>
-                            <expression uid="923b2f33-69e4-420b-a764-62cfcb071463" objRef="93669f25-6d32-47c5-ba3d-eede07e6c572" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="11336529-1c53-42fb-88db-0858ee140021" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="6a3b9c10-0372-4c25-ab3c-25186fdd6b1d" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
-                          <value uid="96567d79-28b8-4523-a294-448363418055" value="Data controls.Close case.start Index">
-                            <expression uid="fcd61a09-ccd4-47c1-bc2b-2f0aba2dd341" expressionType="DataControlHolder"/>
-                            <expression uid="ed128de2-f049-4f00-92f4-1b0c3cfa1395" objRef="93669f25-6d32-47c5-ba3d-eede07e6c572" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="67a40918-10c3-46da-8810-9cda1659e1de" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="68c8e16e-7a87-4845-93a3-3e4a14c1070d" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
-                          <value uid="129c8f20-6bd7-4982-903c-077aa3f51736" value="Data controls.Close case.end Index">
-                            <expression uid="2f329818-45aa-49c4-b022-76654a3381dd" expressionType="DataControlHolder"/>
-                            <expression uid="e7c3a712-2a15-48c7-8a58-4fc59e708f1e" objRef="93669f25-6d32-47c5-ba3d-eede07e6c572" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="13c5dc28-66c3-4eeb-9a8c-6691deccb91b" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="9d06f0b1-9875-4a7b-a0b3-5cc316c80660" refObj="ab025094-583b-4699-b19b-41549870fa75">
-                          <value uid="3a52c783-1c81-47ce-a805-36f2398460d4" value="Types repository.Sales Analyzer.JBPM.JBPM::CaseProcess">
-                            <expression uid="b3e63a8a-1894-4cd5-af32-262a18fd66d2" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="3813be87-1de3-4a8c-9f15-7d00465099ad" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="8de88a77-536a-43d3-88b5-3200bed9553f" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="3973b139-f999-4fb7-89e2-d01c25f32d72" objRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </search>
-                      <defaultOrderBy/>
-                      <relationMappers uid="dad23cd2-dfa0-4388-afa4-9de9b825bb82" typeRef="6adec885-0af3-4fa6-837b-c4105c14eef7" assosiationRef="3fe16052-ee15-4f1b-a844-4f28e44a68c0"/>
-                      <relationMappers uid="4e0fdf8f-45a0-41be-9986-637ab8b0986a" typeRef="47ac8328-b408-4f71-81fb-5a505ca7202b" assosiationRef="5799987e-e3d2-459b-9581-d6eddf00429d"/>
-                      <relationMappers uid="1ceab6d7-3da9-487e-bc62-4e5ffc68bfe1" typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" assosiationRef="cfd26db5-3769-41b6-8768-c2a2aa731ea1"/>
-                    </controls>
                     <controls uid="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" name="Case manager">
                       <baseType typeRef="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7"/>
                       <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="ef06638a-ce92-41df-bd37-3466b4bd9170">
@@ -9478,9 +9455,19 @@
                           </value>
                         </parameters>
                       </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c840ebc7-d423-42f2-96d6-813b9932edf1" name="status"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="bad653a2-144f-455c-99cb-0c1168dc0a25" name="assignTo"/>
+                      <defaultSearch>
+                        <parameters uid="20ab7fd5-12a4-44d6-947b-e90dfac6c89f" refObj="99398110-a923-4a53-8765-536e14a5cfdf">
+                          <value uid="8e13a89c-d9a2-443e-ab8c-43e1decc762e" value="Form variables.currentOpenedCaseId">
+                            <expression objRef="22d39abc-54ce-425a-912e-72dc224328bc" expressionType="RootImpl"/>
+                            <expression objRef="a4c7afc7-9e91-428f-8860-b544d5a31986" order="1" expressionType="FormVariableImpl"/>
+                          </value>
+                        </parameters>
+                      </defaultSearch>
                       <defaultOrderBy/>
-                      <relationMappers uid="d32c2941-c61d-4fc0-b5ff-9618e95f2a25" typeRef="6adec885-0af3-4fa6-837b-c4105c14eef7" assosiationRef="3fe16052-ee15-4f1b-a844-4f28e44a68c0"/>
-                      <relationMappers uid="11bbfbae-c7b5-437c-b3f9-0e0db491368a" typeRef="47ac8328-b408-4f71-81fb-5a505ca7202b" assosiationRef="5799987e-e3d2-459b-9581-d6eddf00429d"/>
+                      <relationMappers uid="d32c2941-c61d-4fc0-b5ff-9618e95f2a25" dataControlRef="d39e75c5-b486-49be-af46-94d28b256056" typeRef="6adec885-0af3-4fa6-837b-c4105c14eef7" assosiationRef="3fe16052-ee15-4f1b-a844-4f28e44a68c0"/>
+                      <relationMappers uid="11bbfbae-c7b5-437c-b3f9-0e0db491368a" dataControlRef="f234be4e-408f-4453-97fa-02bdd576867d" typeRef="47ac8328-b408-4f71-81fb-5a505ca7202b" assosiationRef="5799987e-e3d2-459b-9581-d6eddf00429d"/>
                       <relationMappers uid="6bac31f8-1e25-4ae1-9ac0-fef8c7ccc865" typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" assosiationRef="cfd26db5-3769-41b6-8768-c2a2aa731ea1"/>
                     </controls>
                     <controls uid="5c18fba8-1df8-45d7-9366-40b3086f13e5" name="State">
@@ -9838,6 +9825,117 @@
                       <relationMappers uid="9cf3dec2-cb02-44ab-a86c-92177af6c074" typeRef="f3eb9e2b-0119-4481-9c07-23c410bfa708" assosiationRef="48b43368-3a8d-4d97-b86c-491997fa45a8"/>
                       <relationMappers uid="712983b1-9af4-47aa-a809-1ec99912c24b" typeRef="7a82cb48-e500-41cb-8021-7de9210e317a" assosiationRef="d865e35e-4be3-4e71-bfd9-54977da637dc"/>
                     </controls>
+                    <controls uid="d39e75c5-b486-49be-af46-94d28b256056" name="Product group history">
+                      <baseType typeRef="019fce0b-b5a7-4882-8c03-52c94f2b11f8"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="4603988b-1fa2-435e-a830-224e27ea5849">
+                        <parameters uid="ec81aec2-8813-4ddc-b98f-35cc2c358576" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="833efe9f-eb42-4fb1-9a72-ad13182af15a" value="Types repository.Sales Analyzer.database.database::Product group history">
+                            <expression uid="68344289-3559-4ed4-82fe-a9ffcd709bd7" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="37b76762-0709-4902-acc5-95fb909c8833" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="c190e5c8-800a-46a7-94dd-084c3b19ffcf" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="488c8eb5-6aff-43f7-bafe-45bce9ab937c" objRef="019fce0b-b5a7-4882-8c03-52c94f2b11f8" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="b56fb58c-aa18-4975-aa5a-3a0b137b9021">
+                        <parameters uid="b290815c-9da2-4c78-a4e0-584e5bb6ca36" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="c13e957f-3705-4992-bca6-91923ff237a4" value="Data controls.Product group history.searchCriteria">
+                            <expression uid="fe310e0e-3427-4ace-ae57-ee12e99eefcc" expressionType="DataControlHolder"/>
+                            <expression uid="56f1c457-4105-49f7-abb8-d549ac975416" objRef="d39e75c5-b486-49be-af46-94d28b256056" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b924970f-30bd-4ae3-8af0-fefd0873d707" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d8fc1944-4767-41cc-b381-8de2f4b5b913" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="e3e6cdb5-6899-455e-9ed7-275772c4bb7f" value="Data controls.Product group history.orderCriteria">
+                            <expression uid="3e51210b-b2b6-4509-90c7-0ce5fdb885bb" expressionType="DataControlHolder"/>
+                            <expression uid="b47e2d06-357a-4756-aabf-588907c58665" objRef="d39e75c5-b486-49be-af46-94d28b256056" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="15c9f376-a97e-4483-a71c-2c603434ed28" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7770e371-f43d-4d6e-a0d3-3eaec6c8a27b" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="58fc96c6-a125-4341-8868-89ba94ee6d53" value="Data controls.Product group history.start Index">
+                            <expression uid="c018c292-b31d-4f9d-bc65-6b79749e5e42" expressionType="DataControlHolder"/>
+                            <expression uid="9c6b62b8-e609-40b7-aa1c-16b8f030673a" objRef="d39e75c5-b486-49be-af46-94d28b256056" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="4c9e497d-de94-4348-b970-08769f4d4d6b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="bc13b581-3c94-4477-8f49-55522adb54f0" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="44333094-290d-40bb-a958-4735c1be06cb" value="Data controls.Product group history.end Index">
+                            <expression uid="2177a800-323e-4a7f-959c-7b8e69f52dc3" expressionType="DataControlHolder"/>
+                            <expression uid="85d2fe92-084c-4295-a585-104bfb85cfe2" objRef="d39e75c5-b486-49be-af46-94d28b256056" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="fcbd50da-ef83-4ff1-9d3f-89558ec0fd1f" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="2d441bde-b208-4694-8494-ffb04b02590a" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="91ea34dd-451d-4853-a862-cba06e682017" value="Types repository.Sales Analyzer.database.database::Product group history">
+                            <expression uid="9d3efa62-04f8-4dd4-bd11-7dc965efdd8e" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="b63c7af4-8d3f-429f-a7fb-48a9fadb3869" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="562c3f06-f3d6-4197-ac16-84afbdbfe1e3" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="0ef7adfd-6c0a-486c-ba0c-9459fe094e20" objRef="019fce0b-b5a7-4882-8c03-52c94f2b11f8" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch/>
+                      <defaultOrderBy/>
+                      <relationMappers uid="63e49b87-6e4d-482f-85ac-363449bbdedd" typeRef="93fd5d1e-a335-4092-85ed-7c14c0cc97b2" assosiationRef="5f28d08a-03d0-4c87-a79a-6ef34ad8eaf2"/>
+                      <relationMappers uid="c0962096-2cff-47e1-98b6-0546df9e07ea" typeRef="2041e5cd-03ec-4169-a55f-3750c640f790" assosiationRef="b2676bde-fd72-4038-bdc3-88be89747899"/>
+                      <relationMappers uid="4139e380-2f3e-4251-954e-8c95eadc9ac6" typeRef="449d1a03-82be-4018-8df3-e472502af2ce" assosiationRef="c2459290-effd-46e3-b84d-309ef1f243d7"/>
+                      <relationMappers uid="66cd3b9b-c440-49a4-9c99-65fb6a08ead0" typeRef="7c0a0618-b7d0-4069-9a65-aab91107a314" assosiationRef="02bad159-7c8d-49af-bffd-477a9d3f02b4"/>
+                    </controls>
+                    <controls uid="f234be4e-408f-4453-97fa-02bdd576867d" name="WriteupOutcome">
+                      <baseType typeRef="f60a553d-c740-4f24-9c09-44159d89b55f"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="71bead14-95ce-45d7-95bb-cf058bc275c1">
+                        <parameters uid="80be2cae-6037-4119-8da4-39a99558b102" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="ff708808-6c50-4d20-bd75-473f434730c6" value="Types repository.Sales Analyzer.database.database::WriteupOutcome">
+                            <expression uid="eacd5844-fc42-4c80-831f-900b08764116" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="2c95f3dc-c9a9-44ab-a6ee-0cffd5e0c2e2" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="c1cc152b-e5be-485e-b7ff-9f67f02c29b4" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="1014227f-767a-4ac2-aa97-bf0c5a521ebb" objRef="f60a553d-c740-4f24-9c09-44159d89b55f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="32312744-1dfe-4f09-ba4f-4667cd16d217">
+                        <parameters uid="070733fb-64c0-4752-9236-e71c13735b9a" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="9cd8778e-0a52-4bb4-8a4a-7804aac9e108" value="Data controls.WriteupOutcome.searchCriteria">
+                            <expression uid="e15292c6-7a83-4660-93cf-a4044e5dce89" expressionType="DataControlHolder"/>
+                            <expression uid="73fe0cca-0cbe-47b1-8609-f3352c1f7b81" objRef="f234be4e-408f-4453-97fa-02bdd576867d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0e5ba0c9-8af7-4167-8f00-45f254f251ab" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="1a16211a-3db0-485b-8e18-02277cf0f5b4" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="c64a111e-6cf4-4ed4-afb5-97f236fe0626" value="Data controls.WriteupOutcome.orderCriteria">
+                            <expression uid="02bfd028-af17-485b-95cd-403bb489db9c" expressionType="DataControlHolder"/>
+                            <expression uid="49e284ee-c1af-4b70-a73b-bb0aac03a6a6" objRef="f234be4e-408f-4453-97fa-02bdd576867d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="7b57bf53-ca01-4b21-af32-86ab3b5a637d" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f50ac918-36fb-47b3-923f-dcf53e243085" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="aa46ae11-acc4-4557-8bfe-669f6a885b34" value="Data controls.WriteupOutcome.start Index">
+                            <expression uid="1d3af356-bf02-4a16-a623-c9fdac8b2358" expressionType="DataControlHolder"/>
+                            <expression uid="aa010149-108d-45ca-b4fb-d45405980d65" objRef="f234be4e-408f-4453-97fa-02bdd576867d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b0b7e2a0-7ba1-4ecb-98c1-766eab772454" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c628978e-53fb-4476-a1e5-ece10ef80b15" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="6434a86c-7cab-4dd0-8ae9-0209e7a529ce" value="Data controls.WriteupOutcome.end Index">
+                            <expression uid="f55faf0f-20a4-4e01-a437-09764dd2b647" expressionType="DataControlHolder"/>
+                            <expression uid="57048c94-b19f-420f-bdde-8afcbe0529f8" objRef="f234be4e-408f-4453-97fa-02bdd576867d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="c0b87946-33b1-44c6-99d7-be45b5f9916d" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0b7dac8d-1bf8-4b2d-a0f3-7131dcde6a70" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="3d5c2e48-7078-484d-902c-53e7f0b4df56" value="Types repository.Sales Analyzer.database.database::WriteupOutcome">
+                            <expression uid="9efb2026-de5e-4d3d-9b92-4b94703ccb09" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="793a7dca-e045-4fc2-946f-e5dbc336e139" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="c6ae48e5-9189-454b-b855-c3f4bec1eb3c" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="6762755b-5e91-4785-a2d6-7d617eb1358f" objRef="f60a553d-c740-4f24-9c09-44159d89b55f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch/>
+                    </controls>
+                    <relations xsi:type="tura.form:InternalRelation" uid="02c266ef-4a40-4f0e-bdf1-e3f7308edf15" master="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" detail="d39e75c5-b486-49be-af46-94d28b256056" assosiationRef="3fe16052-ee15-4f1b-a844-4f28e44a68c0"/>
+                    <relations xsi:type="tura.form:InternalRelation" uid="df6f96c4-59ee-4bc0-bf32-74ff524829d0" master="4dff36d2-bb6b-48c5-9bda-11b9d7f70bf7" detail="f234be4e-408f-4453-97fa-02bdd576867d" assosiationRef="5799987e-e3d2-459b-9581-d6eddf00429d"/>
                   </datacontrols>
                 </forms>
                 <forms uid="325fc229-0e87-4bd3-8f92-6e2993968661" name="ErrorHandling">
