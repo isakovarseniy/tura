@@ -106,7 +106,11 @@ public class DataControlFactory {
 			c.setClassName(criteria.type().getName());
 			c.setComparator(criteria.comparator().name());
 			c.setName(criteria.field());
-			c.setValue(criteria.expression());
+			if (criteria.expression() != null && !"".equals(criteria.expression())) {
+				c.setValue(criteria.expression());
+			}else {
+				c.setValue(criteria.value());
+			}
 			
 			ls.add(c);
 			
