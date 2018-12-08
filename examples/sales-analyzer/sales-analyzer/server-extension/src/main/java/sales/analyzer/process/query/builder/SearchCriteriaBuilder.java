@@ -1,7 +1,6 @@
 package sales.analyzer.process.query.builder;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.dashbuilder.dataset.filter.ColumnFilter;
@@ -47,28 +46,27 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		UserPreferences preferences = (UserPreferences) parameters.get(Constants.PARAMETER_USER_PREFERENCES);
 		filters.addAll(SecurityRulesHelper.securityBoundaries(preferences,username));
 		
+		if (  !preferences.isSuperAdmin() &&  !preferences.isAdminForCity()  && !preferences.isAdminForStates())
 		/*
-		  (t.taskData.actualOwner.id = :userId or t.taskData.actualOwner is null) and
+		  (t.taskData.actualOwner.id = :userId l) and
 		 */
 		 {
 			 ColumnFilter f1 = FilterFactory.equalsTo(username);
 			 f1.setColumnId(SecurityRulesHelper.COLUMN_ACTUALOWNER_ID);
-			 ColumnFilter f2 = FilterFactory.isNull();
-			 f2.setColumnId(SecurityRulesHelper.COLUMN_ACTUALOWNER_ID);
-			 ColumnFilter filter = FilterFactory.OR(f1,f2);
-			 filters.add(filter);
+			 filters.add(f1);
 		 }
+		
 		/*
-    ( potentialOwners.id = :userId or potentialOwners.id in (:groupIds) ) and
-		 */
-		 {
-			 List<String> groups = userGroupCallback.getGroupsForUser(username,null,null);
-			 ColumnFilter f1 = FilterFactory.equalsTo(username);
-			 f1.setColumnId(SecurityRulesHelper.COLUMN_ORG_ID);
-			 ColumnFilter f2 = FilterFactory.in(SecurityRulesHelper.COLUMN_ORG_ID,groups);
-			 ColumnFilter filter = FilterFactory.OR(f1,f2);
-			 filters.add(filter);
-		 }
+//    ( potentialOwners.id = :userId or potentialOwners.id in (:groupIds) ) and
+//		 */
+//		 {
+//			 List<String> groups = userGroupCallback.getGroupsForUser(username,null,null);
+//			 ColumnFilter f1 = FilterFactory.equalsTo(username);
+//			 f1.setColumnId(SecurityRulesHelper.COLUMN_ORG_ID);
+//			 ColumnFilter f2 = FilterFactory.in(SecurityRulesHelper.COLUMN_ORG_ID,groups);
+//			 ColumnFilter filter = FilterFactory.OR(f1,f2);
+//			 filters.add(filter);
+//		 }
 		
 
 		if (parameters.get(Constants.PARAMETER_CITY) != null) {

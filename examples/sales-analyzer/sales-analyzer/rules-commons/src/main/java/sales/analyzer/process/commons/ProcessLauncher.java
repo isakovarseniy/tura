@@ -1,7 +1,6 @@
 package sales.analyzer.process.commons;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 import org.jbpm.services.api.ProcessService;
 import org.kie.server.services.api.KieServerExtension;

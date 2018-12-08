@@ -162,7 +162,7 @@ operation form::DataControl processDependencies(recipe:Recipe, ingredient :Ingre
              if (dependent.~dependObject = null)
                 dependent.~dependObject = new Native('java.util.ArrayList');  
          
-            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+            dependent.~dependObject.add(master.getBaseClass(recipe,ingredient).~fullName);
          
              if (master.~dependArray = null)     
                  master.~dependArray = new Native('java.util.ArrayList');    

@@ -29,6 +29,7 @@ import org.tura.platform.repository.core.SearchResult;
 
 import com.octo.java.sql.query.SelectQuery.Order;
 
+import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
@@ -300,7 +301,15 @@ public class JbpmSearchServiceTest {
 			pref.setStates(allowerStates);
 			pref.setCities(allowerCities);
 			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
+			assertEquals(0, result.getSearchResult().size());
+			
+			AssignInfo info = new AssignInfo();
+			info.setAnalyst("sales-manager");
+			processClient.signalProcessInstance(Constants.CONTAINER_ID, procesInsatnceId2, Constants.SIGNAL_ASSIGN, info);
+
+			result = service.find(searchCriteria, orderCriteria,0,100, SalesAnalyzerTaskInstance.class.getName());
 			assertNotEquals(0, result.getSearchResult().size());
+
 			for (Object o : result.getSearchResult()) {
 				SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
 				SalesAnalyzerProcessInstance pi = ti.getProcess();
