@@ -47,6 +47,9 @@ public class ImportProcessTest {
 	@RunAsClient
 	public void t0000_MonthlyDataLoader_HappyPath() {
 		try {
+			
+			
+			
 			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
 					null);
 			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));

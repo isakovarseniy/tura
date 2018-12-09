@@ -13,7 +13,25 @@ public class BusinessInfo {
 	private Integer city;
 	private String product;
 	private String caseId;
+	private String analystActor;
+	private String managerActor;
 
+
+	public String getAnalystActor() {
+		return analystActor;
+	}
+
+	public void setAnalystActor(String analystActor) {
+		this.analystActor = analystActor;
+	}
+
+	public String getManagerActor() {
+		return managerActor;
+	}
+
+	public void setManagerActor(String managerActor) {
+		this.managerActor = managerActor;
+	}
 
 	public String getCaseId() {
 		return caseId;
@@ -70,13 +88,31 @@ public class BusinessInfo {
 			out.writeUTF(caseId);
 		} else {
 			out.writeUTF("");
+		}
+		
+		if (analystActor != null) {
+			out.writeUTF(analystActor);
+		} else {
+			out.writeUTF("");
 		}		
+
+		if (analystActor != null) {
+			out.writeUTF(analystActor);
+		} else {
+			out.writeUTF("");
+		}		
+
+		
 	}
 
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		state = in.readInt();
 		city = in.readInt();
 		product = in.readUTF();
+		caseId = in.readUTF();
+		analystActor = in.readUTF();
+		managerActor = in.readUTF();
+		
 	}
 
     @Override
@@ -87,6 +123,8 @@ public class BusinessInfo {
         result = prime * result + ((city == null) ? 0 : city.hashCode());
         result = prime * result + ((product == null) ? 0 : product.hashCode());
         result = prime * result + ((caseId == null) ? 0 : caseId.hashCode());
+        result = prime * result + ((analystActor == null) ? 0 : analystActor.hashCode());
+        result = prime * result + ((managerActor == null) ? 0 : managerActor.hashCode());
         return result;
     }
 	
@@ -106,6 +144,12 @@ public class BusinessInfo {
             return false;
         }
         if ( this.caseId != other.caseId ) {
+            return false;
+        }
+        if ( this.analystActor != other.analystActor ) {
+            return false;
+        }
+        if ( this.managerActor != other.managerActor ) {
             return false;
         }
 	  return true;

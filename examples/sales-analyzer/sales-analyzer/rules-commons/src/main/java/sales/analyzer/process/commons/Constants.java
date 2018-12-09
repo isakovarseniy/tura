@@ -16,6 +16,7 @@ public class Constants {
 	public static final String CASE_INVESTIGATION_PROCESS = "sales.analyzer.SalesDropInvestigation";
 	public static final String SALES_DROP_INVESTIGATION_PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
 	public static final String PROCESS_CONSTRUCTOR = "Init";
+	public static final String ASSIGN_ACTOR =   "Assign actor";
 
 	
 	public static final String VAR_CASE_ID = "case_id";
@@ -24,7 +25,12 @@ public class Constants {
 	public static final String VAR_PRODUCT = "product";
 	public static final String VAR_CASEDETAILS = "caseDetails";
 	public static final String VAR_ACTUAL_OWNER = "taskActualOwner";
-
+	
+	public static final String VAR_ANALYSTACTOR = "analystActor";
+	public static final String VAR_MANAGERACTOR = "managerActor";
+	public static final String VAR_ACTORS = "actors";
+	
+	
 	public static final String VAR_USERNAME = "username";
 	public static final String VAR_FIRSTNAME = "firstName";
 	public static final String VAR_LASTNAME = "lastName";

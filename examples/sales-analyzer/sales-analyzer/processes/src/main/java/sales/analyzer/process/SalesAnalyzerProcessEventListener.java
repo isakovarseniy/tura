@@ -21,7 +21,17 @@ public class SalesAnalyzerProcessEventListener implements  ProcessEventListener{
 
 	@Override
 	public void afterNodeTriggered(ProcessNodeTriggeredEvent event) {
-		
+		if (event.getNodeInstance().getNodeName().equals(Constants.ASSIGN_ACTOR)) {
+			VariableScopeInstance variableScopeInstance = (VariableScopeInstance) ((RuleFlowProcessInstance ) event.getProcessInstance()).getContextInstance(VariableScope.VARIABLE_SCOPE);
+			if (variableScopeInstance != null) {
+				CaseDetails caseDetails = (CaseDetails) variableScopeInstance.getVariable(Constants.VAR_CASEDETAILS);
+				String analystActor = (String) variableScopeInstance.getVariable (Constants.VAR_ANALYSTACTOR);
+				String managerActor = (String) variableScopeInstance.getVariable (Constants.VAR_MANAGERACTOR);
+				caseDetails.getInfo().setAnalystActor(analystActor);
+				caseDetails.getInfo().setManagerActor(managerActor);
+			    variableScopeInstance.setVariable(Constants.VAR_CASEDETAILS, caseDetails);
+			}
+		}
 	}
 
 	@Override
