@@ -35,6 +35,7 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		KieServerRegistry registry = server.getServerRegistry();
 		IdentityProvider identityProvider = registry.getIdentityProvider();
 		Boolean bypassAuthUser = Boolean.parseBoolean(registry.getConfig().getConfigItemValue(KieServerConstants.CFG_BYPASS_AUTH_USER, "false"));
+		@SuppressWarnings("unused")
 		UserGroupCallback userGroupCallback = UserDataServiceProvider.getUserGroupCallback();
 		
 		ArrayList<ColumnFilter> filters = new ArrayList<>();

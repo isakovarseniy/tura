@@ -31,6 +31,7 @@ import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBe
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.TaskArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.City;
+import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
@@ -140,7 +141,21 @@ public class ActionsCaseManagement implements EventAccessor {
 		bf.setUserSelectionPopupContext("PopupUserForAssign");
 
 	}
+	
+	
+	public void openPopupUserForForAssignAnalyst() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		bf.setUserSelectionPopupContext("PopupUserForAssignAnalyst");
 
+	}
+	
+	public void openPopupUserForForAssignManager() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		bf.setUserSelectionPopupContext("PopupUserForAssignManager");
+
+	}
+
+	
 	public Boolean renderedButtonselectUserForFilter() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		if ("PopupUserForFilter".equals(bf.getUserSelectionPopupContext())) {
@@ -158,6 +173,24 @@ public class ActionsCaseManagement implements EventAccessor {
 		return false;
 	}
 
+	public Boolean renderedButtonselectUserForAssignAnalyst() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		if ("PopupUserForAssignAnalyst".equals(bf.getUserSelectionPopupContext())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Boolean renderedButtonselectUserForAssignManager() {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		if ("PopupUserForAssignManager".equals(bf.getUserSelectionPopupContext())) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
 	@SuppressWarnings("rawtypes")
 	public void selectUserForAssign() {
 		try {
@@ -170,6 +203,34 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
+	public void selectUserForAssignAnalyst() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getSelectUser();
+			User user = (User) dc.getCurrentObject();
+			CaseProcess process  = (CaseProcess) bf.getCaseManager().getCurrentObject();
+			process.setAnalystActor(user.getUsername());
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void selectUserForAssignManager() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getSelectUser();
+			User user = (User) dc.getCurrentObject();
+			CaseProcess process  = (CaseProcess) bf.getCaseManager().getCurrentObject();
+			process.setManagerActor(user.getUsername());
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	private void assignUsers(String username) {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
@@ -234,6 +295,38 @@ public class ActionsCaseManagement implements EventAccessor {
 		String username = p.getName();
 		assignUsers(username);
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void assignMyselfForAnalyst() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+					.getRequest());
+			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
+			String username = p.getName();
+			CaseProcess process  = (CaseProcess) bf.getCaseManager().getCurrentObject();
+			process.setAnalystActor(username);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void assignMyselfForManager() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+					.getRequest());
+			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
+			String username = p.getName();
+			CaseProcess process  = (CaseProcess) bf.getCaseManager().getCurrentObject();
+			process.setManagerActor(username);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	
 
 	@SuppressWarnings("rawtypes")
 	public void selectUserForFilter() {

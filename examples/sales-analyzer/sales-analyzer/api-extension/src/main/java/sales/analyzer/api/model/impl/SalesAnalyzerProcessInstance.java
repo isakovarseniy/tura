@@ -25,6 +25,10 @@ public class SalesAnalyzerProcessInstance {
 	private String product;
 	@XmlElement(name = "case-id")
 	private String caseId;
+	@XmlElement(name = "analyst-actor")
+	private String analystActor;
+	@XmlElement(name = "manager-actor")
+	private String managerActor;
 	@XmlElement(name = "process-instance-id")
 	private Long id;
 	@XmlElement(name = "process-id")
@@ -54,10 +58,29 @@ public class SalesAnalyzerProcessInstance {
 	@XmlElement(name = "process-instance-variables")
 	private Map<String, Object> variables;
 
+	
+	
 	public static Builder builder() {
 		return new Builder();
 	}
+	
+	public String getAnalystActor() {
+		return analystActor;
+	}
 
+	public void setAnalystActor(String analystActor) {
+		this.analystActor = analystActor;
+	}
+
+	public String getManagerActor() {
+		return managerActor;
+	}
+
+	public void setManagerActor(String managerActor) {
+		this.managerActor = managerActor;
+	}
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -284,10 +307,17 @@ public class SalesAnalyzerProcessInstance {
 			return this;
 		}
 
-		public Builder product(String product) {
-			processInstance.setProduct(product);
+		public Builder analystActor(String analystActor) {
+			processInstance.setAnalystActor(analystActor);
 			return this;
 		}
+		
+		public Builder managerActor(String managerActor) {
+			processInstance.setManagerActor(managerActor);
+			return this;
+		}
+		
+		
 	}
 
 }
