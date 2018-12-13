@@ -201,3 +201,44 @@
     margin-left: -7px !important;
     top: 15% !important;
 }
+
+.blue-arrow-button {
+    background-image: url(/sa-resources/images/24x24/blue-arrow.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+
+
+.cross-cancel-button {
+    background-image: url(/sa-resources/images/64x64/cross__cancel.png) !important;
+    width: 64px;
+    height: 64px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+.clipboard-cross-button {
+    background-image: url(/sa-resources/images/64x64/clipboard_cross.png) !important;
+    width: 72px;
+    height: 72px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+
+.switch-button {
+    background-image: url(/sa-resources/images/24x24/switch_off01.png) !important;
+    width: 24px;
+    height: 24px;
+    margin-top: -2px !important;
+    margin-left: -7px !important;
+    top: 15% !important;
+}
+
+

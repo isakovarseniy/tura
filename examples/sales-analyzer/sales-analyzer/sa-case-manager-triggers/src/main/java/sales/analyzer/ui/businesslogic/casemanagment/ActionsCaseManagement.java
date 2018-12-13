@@ -44,6 +44,7 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	private transient Logger logger = Logger.getLogger(ActionsCaseManagement.class.getName());
 	private ActionEvent event;
+	private String pattern = "Case #" ;
 
 	@Inject
 	ELResolver elResolver;
@@ -363,6 +364,73 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	
+	@SuppressWarnings("rawtypes")
+	public void saveCase() {
+		try {
+			saveCaseOperation();
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+  	     	((DataControl) bf.getCaseManager()).forceRefresh();
+			
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+	
+	private void saveCaseOperation() throws Exception {
+			CommandStackProvider sp = new CommandStackProvider();
+			sp.setCommandStack(commandStack);
+
+			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+
+			proxyRepository.applyChanges(null);
+			commandStack.commitSavePoint();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void closeCase() {
+		try {
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+		CaseProcess process =  (CaseProcess) bf.getCaseManager().getCurrentObject();
+		process.setCloseProcess("TRUE");
+		saveCaseOperation();
+		
+		String value = pattern + process.getCaseId();
+		MenuItem removeItem = null;
+		int currentItem = 1;
+
+		for (MenuItem item : workItemMenu.getMenuItemsList()) {
+			if (item.getValue().equals(value) ) {
+				removeItem = item;
+				break;
+			}
+			currentItem++;
+		}		
+		workItemMenu.getMenuItemsList().remove(currentItem-1);
+		currentItem--;
+		if (currentItem == 0) {
+			bf.setCanvasType("WorkItem");
+			bf.setCurrentOpenedCase(0);
+			((DataControl) bf.getTask()).forceRefresh();
+			
+		}else {
+			bf.setCurrentOpenedCase(currentItem);
+			value = (String) workItemMenu.getMenuItemsList().get(currentItem-1).getValue();
+			String caseId = value.substring(pattern.length());
+			bf.setCurrentOpenedCaseId(caseId);
+			((DataControl) bf.getCaseManager()).forceRefresh();
+			bf.setCanvasType("CASE");
+			return;
+		}
+		
+		
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+	
+	
 	@SuppressWarnings("rawtypes")
 	public void cleanSearch() {
 		try {
@@ -462,7 +530,7 @@ public class ActionsCaseManagement implements EventAccessor {
 			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
 			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) row[2]);
 
-			String value = "Case #" + adapter.getCaseId();
+			String value = pattern + adapter.getCaseId();
 			int currentItem = 1;
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 
@@ -521,7 +589,7 @@ public class ActionsCaseManagement implements EventAccessor {
 				bf.setCanvasType("WorkItem");
 				bf.setCurrentOpenedCase(0);
 			} else {
-				String value = "Case #" + caseId;
+				String value = pattern + caseId;
 				int currentItem = 1;
 				for (MenuItem item : workItemMenu.getMenuItemsList()) {
 					if (item.getValue().equals(value)) {

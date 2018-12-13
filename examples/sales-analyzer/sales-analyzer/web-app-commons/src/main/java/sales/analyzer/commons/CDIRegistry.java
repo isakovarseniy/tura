@@ -46,6 +46,8 @@ import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
 import sales.analyzer.service.jbpm.JbpmCRUDService;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.service.jbpm.commands.AssignActorCommand;
+import sales.analyzer.service.jbpm.commands.AssignActorsCaseProcessCommand;
+import sales.analyzer.service.jbpm.commands.CloseWFCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCommand;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
@@ -128,7 +130,9 @@ public class CDIRegistry extends Registry {
 			
 			
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorCommand.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorsCaseProcessCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCommand.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCaseProcessCommand.class);
 			
 			AdministrationProfile p = new AdministrationProfile();
 			this.addProfile(p.getProfileName(), p);
