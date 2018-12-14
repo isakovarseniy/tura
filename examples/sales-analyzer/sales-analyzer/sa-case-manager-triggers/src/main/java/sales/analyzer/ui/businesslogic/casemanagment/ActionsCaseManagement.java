@@ -27,6 +27,7 @@ import org.tura.platform.primefaces.model.GridModel;
 import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.CaseManagerArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.TaskArtifitialFieldsAdapter;
@@ -39,6 +40,7 @@ import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 import com.octo.java.sql.exp.Operator;
 
 import sales.analyzer.process.commons.Constants;
+import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 
 public class ActionsCaseManagement implements EventAccessor {
 
@@ -387,21 +389,32 @@ public class ActionsCaseManagement implements EventAccessor {
 			commandStack.commitSavePoint();
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public void closeCase() {
 		try {
+			closeProcessAndWindow(true);
+		
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	private void closeProcessAndWindow( boolean isclose) throws Exception{
+		
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		CaseProcess process =  (CaseProcess) bf.getCaseManager().getCurrentObject();
-		process.setCloseProcess("TRUE");
-		saveCaseOperation();
+		if (isclose ) {
+			process.setCloseProcess("TRUE");
+			saveCaseOperation();
+		}
 		
 		String value = pattern + process.getCaseId();
-		MenuItem removeItem = null;
 		int currentItem = 1;
 
 		for (MenuItem item : workItemMenu.getMenuItemsList()) {
 			if (item.getValue().equals(value) ) {
-				removeItem = item;
 				break;
 			}
 			currentItem++;
@@ -422,7 +435,12 @@ public class ActionsCaseManagement implements EventAccessor {
 			bf.setCanvasType("CASE");
 			return;
 		}
-		
+
+	}
+	
+	public void closeWindow() {
+		try {
+			closeProcessAndWindow(false);
 		
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -608,4 +626,34 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	public void completeTask() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
+			CaseManagerArtifitialFieldsAdapter adapter = new CaseManagerArtifitialFieldsAdapter((ObjectControl) process);
+			if ( AssignActorCommand.TASK1_NAME.equals(  adapter.getStatus() )) {
+				process.setCompleteTask(0);
+				saveCaseOperation();				
+			}else {
+				String approveStatus = process.getWriteupOutcome().get(0).getApprovedStatus();
+				if ( approveStatus == null) {
+					FacesContext.getCurrentInstance().addMessage(null,
+							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Approve status is undefined"));
+				}else {
+					if (  approveStatus.equals("approved")   ) {
+						process.setCompleteTask(0);
+					}else {
+						process.setCompleteTask(1);
+					}
+					saveCaseOperation();				
+				}
+			}
+			
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+	
+	
 }

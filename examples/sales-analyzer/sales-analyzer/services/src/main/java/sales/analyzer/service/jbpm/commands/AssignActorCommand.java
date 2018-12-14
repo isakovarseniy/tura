@@ -22,8 +22,8 @@ import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 
 public class AssignActorCommand extends SpaRepositoryCommand {
 
-	private static String TASK1_NAME = "Case analysis";
-	private static String TASK2_NAME = "Decision";
+	public static String TASK1_NAME = "Case analysis";
+	public static String TASK2_NAME = "Decision";
 
 	private RepoObjectKey pk;
 	private RepoKeyPath extendedPk;

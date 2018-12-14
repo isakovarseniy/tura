@@ -18,7 +18,7 @@ public class ExtraClasses {
 		list.add(UserPreferences.class);
 		list.add(AssignInfo.class);
 		list.add(TerminateProcessEvent.class);
-
+		list.add(TaskComletion.class);
 	}
 
 }

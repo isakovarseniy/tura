@@ -1693,6 +1693,9 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e58c2a3e-c359-42bf-912f-6a2476c68d7e" name="closeProcess">
               <classifiers uid="60ab57a9-66c6-4ff5-b756-eb41ea419bcc" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
             </attributes>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="4b672de5-85ae-4270-a239-231c71d76c3b" name="completeTask">
+              <classifiers uid="e50c4344-887f-4a35-a53b-0c6ae850431e" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
+            </attributes>
           </types>
           <types xsi:type="tura.type:Type" uid="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" name="Task">
             <classifiers uid="9acae2fc-5d18-4be5-8cac-1f787056b328" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -1986,6 +1989,8 @@
             <operations uid="c667db84-6423-4212-928a-ba5b7ad215ce" name="assignMyselfForManager"/>
             <operations uid="a470f87e-edd3-4045-98be-482d47d0e285" name="saveCase"/>
             <operations uid="fd780c1d-5a69-48a9-84e8-6a3f18483f4e" name="closeCase"/>
+            <operations uid="6b516c73-a6a2-4e4d-91c1-0bbb5cba00c3" name="closeWindow"/>
+            <operations uid="19069855-0bb4-40cb-b156-0fa953500002" name="completeTask"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -9401,6 +9406,16 @@
                           </children>
                           <children xsi:type="tura.form:Button" order="1" uid="07d86003-7abc-4f5f-84de-81677faf15bc">
                             <style uid="7f72ee6f-5673-4e99-8d96-c2061f892bb7" constant="true" value="width:80px;height:80px;margin-left: 50px;"/>
+                            <fields uid="727363ef-9ee1-4d87-873d-52bc249fd488" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.closeWindow()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="6b516c73-a6a2-4e4d-91c1-0bbb5cba00c3" order="4" expressionType="OperationImpl"/>
+                            </fields>
+                            <refreshAreas area="07d86003-7abc-4f5f-84de-81677faf15bc" group="1"/>
+                            <refreshAreas area="f279a609-bd23-4610-971f-91f9c788f39e" group="2"/>
+                            <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                             <icon uid="fa25e997-0d96-4c8e-8b91-02d9b8e264db" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                               <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                               <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9632,6 +9647,16 @@
                             <children xsi:type="tura.form:LayerHolder" order="15" uid="a1ee9898-4d8c-4f00-a7ba-30e43a84283d">
                               <children xsi:type="tura.form:Button" uid="40be93c2-becb-48c7-843e-80d064bfb758" label="Submit review">
                                 <style uid="a8099422-8656-4c09-8433-2b2131d35e64" constant="true" value="width:30px;height:30px"/>
+                                <fields uid="920414f7-b0ff-43a1-8ddf-0b4c9ad43874" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.completeTask()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="19069855-0bb4-40cb-b156-0fa953500002" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="1"/>
+                                <refreshAreas area="40be93c2-becb-48c7-843e-80d064bfb758" group="1"/>
+                                <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                                 <icon uid="ac999ae1-918a-4c03-8248-12b90dc6e1e0" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>

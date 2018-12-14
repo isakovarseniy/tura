@@ -3,8 +3,12 @@ package sales.analyzer.service.jbpm;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.kie.api.task.model.Status;
+import org.kie.api.task.model.Task;
+import org.kie.server.api.model.instance.TaskInstance;
 import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.ProcessServicesClient;
+import org.kie.server.client.UserTaskServicesClient;
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
@@ -13,6 +17,7 @@ import org.tura.platform.repository.spa.SpaControl;
 import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
+import sales.analyzer.api.model.impl.TaskComletion;
 import sales.analyzer.api.model.impl.TerminateProcessEvent;
 import sales.analyzer.process.commons.Constants;
 
@@ -61,6 +66,9 @@ public class JbpmCRUDService implements CRUDProvider{
 		if ( control.getObject() instanceof  TerminateProcessEvent) {
 			terminateFlow((TerminateProcessEvent) control.getObject() );
 		}
+		if ( control.getObject() instanceof  TaskComletion) {
+			completeTask((TaskComletion) control.getObject() );
+		}
 		
 	}
 
@@ -76,6 +84,20 @@ public class JbpmCRUDService implements CRUDProvider{
 		processClient.signalProcessInstance(Constants.CONTAINER_ID, obj.getProcessId(), Constants.SIGNAL_ASSIGN, obj);
 	}
 
+	private void completeTask(TaskComletion obj) {
+		UserTaskServicesClient taskClient = client.getServicesClient(UserTaskServicesClient.class);
+		TaskInstance task = taskClient.getTaskInstance(Constants.CONTAINER_ID, obj.getTaskId());
+		if ( Status.Reserved.name().equals(task.getStatus())) {
+			taskClient.startTask(Constants.CONTAINER_ID, obj.getTaskId(),null);
+		}
+		Map<String, Object> params = new HashMap<>();
+		if (obj.getDirection() != null) {
+			params.put("direction", obj.getDirection());
+		}
+		
+		taskClient.completeTask(Constants.CONTAINER_ID,obj.getTaskId(),null, params);
+	}
+	
 
 	private void insert(SpaControl control) throws Exception {
 		if (control.getObject() instanceof SalesAnalyzerProcessInstance ) {

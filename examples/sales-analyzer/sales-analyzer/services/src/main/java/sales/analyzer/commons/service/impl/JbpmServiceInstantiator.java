@@ -18,6 +18,7 @@ import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 import sales.analyzer.service.jbpm.commands.AssignActorsCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCommand;
+import sales.analyzer.service.jbpm.commands.TaskCompletionCommand;
 
 public class JbpmServiceInstantiator implements Instantiator{
 
@@ -44,7 +45,8 @@ public class JbpmServiceInstantiator implements Instantiator{
 			AssignActorCommand.class.getName(),
 			CloseWFCommand.class.getName(),
 			AssignActorsCaseProcessCommand.class.getName(),
-			CloseWFCaseProcessCommand.class.getName()
+			CloseWFCaseProcessCommand.class.getName(),
+			TaskCompletionCommand.class.getName()
 			};
 	
 	
@@ -78,6 +80,9 @@ public class JbpmServiceInstantiator implements Instantiator{
 		
 		if (CloseWFCaseProcessCommand.class.equals(clazz)) {
 			return (T) new CloseWFCaseProcessCommand(registry,spaRegistry);
+		}
+		if (TaskCompletionCommand.class.equals(clazz)) {
+			return (T) new TaskCompletionCommand(registry,spaRegistry);
 		}
 		
 		return null;

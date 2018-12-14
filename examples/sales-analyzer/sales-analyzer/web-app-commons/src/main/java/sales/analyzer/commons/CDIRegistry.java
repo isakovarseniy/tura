@@ -39,6 +39,7 @@ import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
+import sales.analyzer.api.model.impl.TaskComletion;
 import sales.analyzer.api.model.impl.TerminateProcessEvent;
 import sales.analyzer.commons.service.impl.JbpmServiceInstantiator;
 import sales.analyzer.commons.service.impl.SPAAdapterLoader;
@@ -49,6 +50,7 @@ import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 import sales.analyzer.service.jbpm.commands.AssignActorsCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCommand;
+import sales.analyzer.service.jbpm.commands.TaskCompletionCommand;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import uILayer.admin.AdministrationProfile;
@@ -125,14 +127,15 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerProcessInstance.class,JbpmSearchService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(SalesAnalyzerTaskInstance.class,JbpmSearchService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(AssignInfo.class,JbpmCRUDService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(TaskComletion.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(TerminateProcessEvent.class,JbpmCRUDService.class);
 
-			
-			
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorsCaseProcessCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCaseProcessCommand.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(TaskCompletionCommand.class);
+
 			
 			AdministrationProfile p = new AdministrationProfile();
 			this.addProfile(p.getProfileName(), p);
