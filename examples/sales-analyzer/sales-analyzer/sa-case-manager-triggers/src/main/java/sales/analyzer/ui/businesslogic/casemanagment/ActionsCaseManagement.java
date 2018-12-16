@@ -39,8 +39,11 @@ import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
+import sales.analyzer.commons.CDIUserPeferencesProviderImpl;
+import sales.analyzer.commons.PrefConstants;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.jbpm.commands.AssignActorCommand;
+import sales.analyzer.user.UserPreferences;
 
 public class ActionsCaseManagement implements EventAccessor {
 
@@ -640,7 +643,7 @@ public class ActionsCaseManagement implements EventAccessor {
 					FacesContext.getCurrentInstance().addMessage(null,
 							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Approve status is undefined"));
 				}else {
-					if (  approveStatus.equals("approved")   ) {
+					if (  approveStatus.equals("4")   ) {
 						process.setCompleteTask(0);
 					}else {
 						process.setCompleteTask(1);
@@ -655,5 +658,86 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 	
+	public boolean allowAssign() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.AA) &&  pref.getPermissions().contains(PrefConstants.AR)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	
+	public boolean allowAssignAnalyst() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.AA) ) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	
+	public boolean allowCompleteTask() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.SCR) &&  pref.getPermissions().contains(PrefConstants.AC)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	
+	public boolean allowSubmitForReview() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.SCR) ) {
+			return true;
+		}else {
+			return false;
+		}
+	}	
+	
+	public boolean allowApproveCase() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.AC) ) {
+			return true;
+		}else {
+			return false;
+		}
+	}	
+	
+	
+	
+	
+	public boolean allowAssignManager() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.AR) ) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	
+	
+	public boolean allowCloseCase() {
+		UserPreferences pref =  getUserPreferences();
+		if (pref.getPermissions().contains(PrefConstants.CC)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private UserPreferences getUserPreferences() {
+		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+				.getRequest());
+		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
+		String username = p.getName();
+		return new CDIUserPeferencesProviderImpl().getUserPreferences(username);
+	}
 	
 }

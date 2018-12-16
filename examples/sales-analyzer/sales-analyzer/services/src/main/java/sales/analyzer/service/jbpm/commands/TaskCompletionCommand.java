@@ -81,7 +81,7 @@ public class TaskCompletionCommand extends SpaRepositoryCommand {
 			cmd.setProcessInstanceId(process.getId());
 			cmd.setTaskId(task.getId());
 			
-			if (AssignActorCommand.TASK2_NAME.equals(property)) {
+			if (AssignActorCommand.TASK2_NAME.equals(task.getName())) {
 				cmd.setDirection((Integer) value);
 			}
 
