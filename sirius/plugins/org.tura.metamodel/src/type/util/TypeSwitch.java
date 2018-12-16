@@ -194,6 +194,7 @@ public class TypeSwitch<T> extends Switch<T> {
 				Enumerator enumerator = (Enumerator)theEObject;
 				T result = caseEnumerator(enumerator);
 				if (result == null) result = caseTypeElement(enumerator);
+				if (result == null) result = caseCategorized(enumerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

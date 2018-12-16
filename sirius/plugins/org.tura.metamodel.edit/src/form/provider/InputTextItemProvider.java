@@ -46,6 +46,8 @@ public class InputTextItemProvider extends InputElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addFormatPropertyDescriptor(object);
+			addRowsPropertyDescriptor(object);
+			addColumnsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +70,50 @@ public class InputTextItemProvider extends InputElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rows feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRowsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputText_rows_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputText_rows_feature", "_UI_InputText_type"),
+				 FormPackage.Literals.INPUT_TEXT__ROWS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputText_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputText_columns_feature", "_UI_InputText_type"),
+				 FormPackage.Literals.INPUT_TEXT__COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -111,6 +157,8 @@ public class InputTextItemProvider extends InputElementItemProvider {
 
 		switch (notification.getFeatureID(InputText.class)) {
 			case FormPackage.INPUT_TEXT__FORMAT:
+			case FormPackage.INPUT_TEXT__ROWS:
+			case FormPackage.INPUT_TEXT__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

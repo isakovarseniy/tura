@@ -970,13 +970,22 @@ public interface TypePackage extends EPackage {
 	int ENUMERATOR__NAME = TYPE_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATOR__CLASSIFIERS = TYPE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 0;
+	int ENUMERATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Enumerator</em>' class.
@@ -985,7 +994,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
+	int ENUMERATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link type.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.

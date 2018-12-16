@@ -264,7 +264,8 @@ class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
 }
 
 class InputText extends InputElement ,Formatable{
-
+    attr EInt rows;
+    attr EInt columns;
 }
 
 class Password extends InputElement ,Formatable{

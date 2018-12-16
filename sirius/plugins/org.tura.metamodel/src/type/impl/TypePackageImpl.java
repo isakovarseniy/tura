@@ -1085,6 +1085,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		parameterEClass.getESuperTypes().add(this.getTypePointer());
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumeratorEClass.getESuperTypes().add(this.getTypeElement());
+		enumeratorEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		enumAttributeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 
 		// Initialize classes and features; add operations and parameters

@@ -291,6 +291,7 @@
             <hints uid="32f59ceb-0b88-4884-a364-149de7a50567" name="tabMenu" hint="5374adbe-ecee-46a4-be35-0e2f846b8b96"/>
             <hints uid="e4bd6671-412f-4862-8955-116780f92f00" name="tabMenu.currentItem" hint="ff76c993-15a7-40e3-b43b-51c383cd0b9e"/>
             <hints uid="5e1db8e9-32b3-40af-acdc-ffa69c77272b" name="messages" hint="13ee1559-017d-44bf-9cba-2b0f6ab9ce72"/>
+            <hints uid="04048254-d3d3-496d-ac76-15f3947e25d3" name="InputTextAria" hint="63bb3ae6-de08-4705-addc-6e22559eb9b0"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -477,6 +478,7 @@
             <hints uid="5374adbe-ecee-46a4-be35-0e2f846b8b96" name="tabMenu"/>
             <hints uid="ff76c993-15a7-40e3-b43b-51c383cd0b9e" name="tabMenu.currentItem"/>
             <hints uid="13ee1559-017d-44bf-9cba-2b0f6ab9ce72" name="messages"/>
+            <hints uid="63bb3ae6-de08-4705-addc-6e22559eb9b0" name="InputTextAria"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -9866,7 +9868,9 @@
                                   <expression objRef="7ebb1eaf-9556-4d24-832e-343db7640425" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
                               </children>
-                              <children xsi:type="tura.form:InputText" order="9" uid="222f7976-9b0d-4a12-a30e-fb423de92be4" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="d05f9830-2194-486e-8a60-354b1089eac3"/>
+                              <children xsi:type="tura.form:InputText" order="9" uid="222f7976-9b0d-4a12-a30e-fb423de92be4" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="d05f9830-2194-486e-8a60-354b1089eac3" rows="5" columns="50">
+                                <classifiers uid="e0bcfb77-3dc4-4d8f-abcb-d14c5e5aa6c7" hint="63bb3ae6-de08-4705-addc-6e22559eb9b0"/>
+                              </children>
                             </children>
                           </children>
                         </baseCanvas>

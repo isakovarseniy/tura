@@ -2976,13 +2976,31 @@ public interface FormPackage extends EPackage {
 	int INPUT_TEXT__FORMAT = INPUT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_TEXT__ROWS = INPUT_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_TEXT__COLUMNS = INPUT_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Input Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 1;
+	int INPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.PasswordImpl <em>Password</em>}' class.
@@ -8340,6 +8358,28 @@ public interface FormPackage extends EPackage {
 	EClass getInputText();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.InputText#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rows</em>'.
+	 * @see form.InputText#getRows()
+	 * @see #getInputText()
+	 * @generated
+	 */
+	EAttribute getInputText_Rows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.InputText#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Columns</em>'.
+	 * @see form.InputText#getColumns()
+	 * @see #getInputText()
+	 * @generated
+	 */
+	EAttribute getInputText_Columns();
+
+	/**
 	 * Returns the meta object for class '{@link form.Password <em>Password</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10899,6 +10939,22 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INPUT_TEXT = eINSTANCE.getInputText();
+
+		/**
+		 * The meta object literal for the '<em><b>Rows</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_TEXT__ROWS = eINSTANCE.getInputText_Rows();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_TEXT__COLUMNS = eINSTANCE.getInputText_Columns();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.PasswordImpl <em>Password</em>}' class.

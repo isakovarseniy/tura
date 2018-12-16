@@ -108,7 +108,7 @@ class ReturnValue extends TypePointer{
     id attr EString uid;
 }
 
-class Enumerator extends TypeElement{
+class Enumerator extends TypeElement, artifact.Categorized{
    val EnumAttribute[*]  values;
 }
 

@@ -2009,6 +2009,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInputText_Rows() {
+		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInputText_Columns() {
+		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPassword() {
 		return passwordEClass;
 	}
@@ -3439,6 +3457,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		layerHolderEClass = createEClass(LAYER_HOLDER);
 
 		inputTextEClass = createEClass(INPUT_TEXT);
+		createEAttribute(inputTextEClass, INPUT_TEXT__ROWS);
+		createEAttribute(inputTextEClass, INPUT_TEXT__COLUMNS);
 
 		passwordEClass = createEClass(PASSWORD);
 
@@ -3952,6 +3972,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(layerHolderEClass, LayerHolder.class, "LayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInputText_Rows(), ecorePackage.getEInt(), "rows", null, 0, 1, InputText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputText_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, InputText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(passwordEClass, Password.class, "Password", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

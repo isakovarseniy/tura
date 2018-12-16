@@ -3,6 +3,8 @@
 package type.provider;
 
 
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,6 +64,7 @@ public class EnumeratorItemProvider extends TypeElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(TypePackage.Literals.ENUMERATOR__VALUES);
 		}
 		return childrenFeatures;
@@ -118,6 +121,7 @@ public class EnumeratorItemProvider extends TypeElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Enumerator.class)) {
+			case TypePackage.ENUMERATOR__CLASSIFIERS:
 			case TypePackage.ENUMERATOR__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -135,6 +139,11 @@ public class EnumeratorItemProvider extends TypeElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

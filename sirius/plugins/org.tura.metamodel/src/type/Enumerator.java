@@ -2,6 +2,7 @@
  */
 package type;
 
+import artifact.Categorized;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -20,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Enumerator extends TypeElement {
+public interface Enumerator extends TypeElement, Categorized {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
 	 * The list contents are of type {@link type.EnumAttribute}.

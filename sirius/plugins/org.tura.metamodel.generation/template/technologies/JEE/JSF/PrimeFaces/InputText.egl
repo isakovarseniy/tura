@@ -40,12 +40,22 @@ operation form::InputText noContext(hash,value) {
 
 @template
 operation form::InputText rw(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var model_mapper = hash.get('model_mapper');
+
+     var inputTextType = "p:inputText";
+     var extraAttributes="";
+     if (self.findClassifier(util.getHint(model_mapper,"InputTextAria"))){
+       inputTextType = "p:inputTextarea";
+       extraAttributes = "rows=\""+self.rows+"\" cols=\""+self.columns+"\"";
+     }
+
 
 %]
-<p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
+<[%=inputTextType%]  [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]   [%=extraAttributes%]>
    [%=self.validator(hash)%]
    [%=self.convertor(hash)%]
-</p:inputText>
+</[%=inputTextType%] >
 [%
 }
 
