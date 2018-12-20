@@ -34,6 +34,8 @@ import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
+import sales.analyzer.commons.CachedUserPreferences;
+
 public class Actions implements EventAccessor {
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
@@ -48,7 +50,17 @@ public class Actions implements EventAccessor {
 
 	@Inject
 	Repository repository;
+	
+	@SuppressWarnings("rawtypes")
+	@Inject
+	CachedUserPreferences  userPref;
 
+	
+	
+	public void clearAllUserPreferences() {
+		userPref.clearAll();
+	}
+	
 	@SuppressWarnings("rawtypes")
 	public void openRolePopup() {
 		try {

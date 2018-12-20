@@ -35,4 +35,9 @@ public class CachedUserPreferences  {
 		return pref;
 	}
 	
+	
+	public void clearAll() {
+		cache.clear();
+	}
+	
 }

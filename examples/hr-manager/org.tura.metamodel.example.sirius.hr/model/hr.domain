@@ -1936,6 +1936,7 @@
             <operations uid="0238250d-5adc-4f09-b2ed-c70233b3bc2b" name="rallbackPermissionsModification"/>
             <operations uid="548cd408-2ceb-4124-84af-e6ed1bfde8fe" name="saveApplication"/>
             <operations uid="c5d7b436-a0f2-4228-bf9f-0770046764d9" name="rallbackApplication"/>
+            <operations uid="14267b41-c7d0-4614-ac62-71e5e2388095" name="clearAllUserPreferences"/>
           </types>
           <types xsi:type="tura.type:Type" uid="5f9070b4-43ea-49e2-940e-d679db847b57" name="SA Admin users">
             <operations uid="8f47eedc-7c94-4b24-a546-4298e942eae9" name="openUserPopup"/>
@@ -8102,7 +8103,7 @@
                             <variables queryParamRef="c7d733c5-b134-4414-a260-0852636e2be2" value="SA Admin business logic"/>
                           </queries>
                         </mappers>
-                        <mappers uid="537c2cbe-3f24-437f-b5ad-d4218e59139c" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml">
+                        <mappers uid="537c2cbe-3f24-437f-b5ad-d4218e59139c" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/web_xml_custom_ext.egl">
                           <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
                           <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
                           <queries uid="83563cbc-5ee1-477b-b556-4ec84939dfa2" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
@@ -8139,6 +8140,7 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
+                        <mappers uid="b0343dab-e755-4c4a-aef2-2ca8aa565099" artifactRef="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="jboss-deployment-structure" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/jboss-deployment-structure.egl"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="9b67298c-b0e9-42e0-a500-8f4588661c8b" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
                         <mappers uid="2e147b9d-2136-4a09-baf5-9513f12a48e9" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Data control interface">
@@ -9468,7 +9470,9 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
-                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="db5c6793-2c42-4623-9399-3858c84e49e3" name="Case detail"/>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="db5c6793-2c42-4623-9399-3858c84e49e3" name="Case detail">
+                        <style uid="93036ef0-bf1f-4c41-b9a0-0fed34fc5b3e"/>
+                      </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="00d6d341-d053-4dd8-8cdc-e4e3c80f6e21" name="Case details">
                       <style uid="928ebdbb-b8bf-4fce-8c06-81f302298c88"/>
@@ -9482,7 +9486,7 @@
                             <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                             <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="1"/>
                             <refreshAreas area="fbf35d05-849a-4ffd-a929-542443aa48ff" group="1"/>
-                            <children xsi:type="tura.form:LayerHolder" order="1" uid="a1ee9898-4d8c-4f00-a7ba-30e43a84283d">
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="a1ee9898-4d8c-4f00-a7ba-30e43a84283d" columns="3">
                               <children xsi:type="tura.form:Button" uid="40be93c2-becb-48c7-843e-80d064bfb758" label="Submit review">
                                 <style uid="a8099422-8656-4c09-8433-2b2131d35e64" constant="true" value="width:30px;height:30px"/>
                                 <fields uid="920414f7-b0ff-43a1-8ddf-0b4c9ad43874" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.completeTask()">
@@ -9500,9 +9504,10 @@
                                   <expression objRef="c988764c-40e5-4d11-bbb6-8d20e7bd8abc" order="4" expressionType="OperationImpl"/>
                                   <classifiers uid="b4852818-e88d-49d0-a012-d267b78b0de0" hint="41114f86-3709-482c-937b-5ddce650956d"/>
                                 </fields>
+                                <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
+                                <refreshAreas area="f279a609-bd23-4610-971f-91f9c788f39e" group="2"/>
                                 <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="1"/>
                                 <refreshAreas area="40be93c2-becb-48c7-843e-80d064bfb758" group="1"/>
-                                <refreshAreas area="16dc93c8-bf33-4cb1-92fa-082f68441f88" group="2"/>
                                 <icon uid="ac999ae1-918a-4c03-8248-12b90dc6e1e0" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -9788,35 +9793,6 @@
                                   <expression objRef="5fd4bc93-8c86-40db-9546-b827fe1bcfcb" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
                               </children>
-                              <children xsi:type="tura.form:LayerHolder" order="5" uid="20384303-96e7-4c9c-a9ef-9332c2f24c6c" columns="2">
-                                <children xsi:type="tura.form:DropDownSelection" uid="719fa92e-5130-4367-893f-34bb5369ae06" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="3a3620e1-6764-4e9a-863e-3fa0d8e698c2" optionPointer="0a008f7a-3051-4a75-bd3d-91c2bad46e8e" initialOptionValue="#{null}">
-                                  <fields uid="75a23088-cc75-423e-b785-0311b77e58e0" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowSubmitForReview()">
-                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
-                                    <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
-                                    <expression objRef="ffd82c61-aecf-4d88-b679-22ee32191067" order="4" expressionType="OperationImpl"/>
-                                    <classifiers uid="a1981ea4-566b-4d33-922c-02b73be586ac" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                                  </fields>
-                                  <required uid="a4610175-ef3e-4961-a46e-6db4c66af245" constant="true" value="true"/>
-                                  <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
-                                  <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
-                                    <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                    <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
-                                    <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
-                                  </initialOptionMessage>
-                                </children>
-                                <children xsi:type="tura.form:MessageElement" order="1" uid="3545986d-0e8c-4539-af8b-ba693fec48ab" label="Error message">
-                                  <fields uid="39539ea2-2b29-4ef9-a17d-c0f698cef3a1" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowSubmitForReview()">
-                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
-                                    <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
-                                    <expression objRef="ffd82c61-aecf-4d88-b679-22ee32191067" order="4" expressionType="OperationImpl"/>
-                                    <classifiers uid="16c3f0a0-712e-4b22-b837-5aa8544b0def" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                                  </fields>
-                                </children>
-                              </children>
                               <children xsi:type="tura.form:Label" order="6" uid="e57a1c85-3244-4432-a48c-934e16fd199a" label="Approved status">
                                 <fields uid="6eec0f32-1b2f-4aaf-8eea-2ff5371297c9" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowApproveCase()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -9832,35 +9808,6 @@
                                   <expression objRef="a7e5cf90-8467-4802-8d1b-d0c819cdd7e8" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
                               </children>
-                              <children xsi:type="tura.form:LayerHolder" order="7" uid="f7f8b127-09ae-4061-8dac-3930292349d0" columns="2">
-                                <children xsi:type="tura.form:DropDownSelection" uid="57d0b542-fb3f-439a-80d7-516bf4b449f2" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="6e05019d-16c3-4262-923b-c93d4d75398d" optionPointer="19cf942b-540a-47fd-8687-de0c152b1109" initialOptionValue="#{null}">
-                                  <fields uid="60ba3bb5-f34c-46c6-a3b9-8d26f03f9810" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowApproveCase()">
-                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
-                                    <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
-                                    <expression objRef="f3f0c347-a02e-40d4-ae39-6582b3ac305a" order="4" expressionType="OperationImpl"/>
-                                    <classifiers uid="9e1be7c2-d31e-41a3-83f9-e81c4e6ba25c" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                                  </fields>
-                                  <required uid="d2ac9a6e-49b6-4567-9b0a-6e23146c5c63" constant="true" value="true"/>
-                                  <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
-                                  <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
-                                    <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                    <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
-                                    <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
-                                  </initialOptionMessage>
-                                </children>
-                                <children xsi:type="tura.form:MessageElement" order="1" uid="a7c507ec-aca2-45d9-bb60-bce711c89dd3" label="Error message">
-                                  <fields uid="8263649c-791c-49e1-bd47-9d4d09b96294" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowApproveCase()">
-                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                    <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                    <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
-                                    <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
-                                    <expression objRef="f3f0c347-a02e-40d4-ae39-6582b3ac305a" order="4" expressionType="OperationImpl"/>
-                                    <classifiers uid="84392ef2-c8ff-4f33-b7d3-d0e4a132f5e0" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                                  </fields>
-                                </children>
-                              </children>
                               <children xsi:type="tura.form:Label" order="8" uid="35098e1f-ad38-4905-81cc-b89e252247d7" label="Comments">
                                 <multiLangLabel uid="107313dd-91ce-4a91-8e50-eec7fd85be9b" value="Application Message Libraries.Case management.COMMENTS">
                                   <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -9871,13 +9818,43 @@
                               <children xsi:type="tura.form:InputText" order="9" uid="222f7976-9b0d-4a12-a30e-fb423de92be4" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="d05f9830-2194-486e-8a60-354b1089eac3" rows="5" columns="50">
                                 <classifiers uid="e0bcfb77-3dc4-4d8f-abcb-d14c5e5aa6c7" hint="63bb3ae6-de08-4705-addc-6e22559eb9b0"/>
                               </children>
+                              <children xsi:type="tura.form:DropDownSelection" order="5" uid="719fa92e-5130-4367-893f-34bb5369ae06" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="3a3620e1-6764-4e9a-863e-3fa0d8e698c2" optionPointer="0a008f7a-3051-4a75-bd3d-91c2bad46e8e" initialOptionValue="#{null}">
+                                <fields uid="75a23088-cc75-423e-b785-0311b77e58e0" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowSubmitForReview()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="ffd82c61-aecf-4d88-b679-22ee32191067" order="4" expressionType="OperationImpl"/>
+                                  <classifiers uid="a1981ea4-566b-4d33-922c-02b73be586ac" hint="41114f86-3709-482c-937b-5ddce650956d"/>
+                                </fields>
+                                <required uid="a4610175-ef3e-4961-a46e-6db4c66af245"/>
+                                <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
+                                <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
+                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
+                                </initialOptionMessage>
+                              </children>
+                              <children xsi:type="tura.form:DropDownSelection" order="7" uid="57d0b542-fb3f-439a-80d7-516bf4b449f2" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="6e05019d-16c3-4262-923b-c93d4d75398d" optionPointer="19cf942b-540a-47fd-8687-de0c152b1109" initialOptionValue="#{null}">
+                                <fields uid="60ba3bb5-f34c-46c6-a3b9-8d26f03f9810" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowApproveCase()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="f3f0c347-a02e-40d4-ae39-6582b3ac305a" order="4" expressionType="OperationImpl"/>
+                                  <classifiers uid="9e1be7c2-d31e-41a3-83f9-e81c4e6ba25c" hint="41114f86-3709-482c-937b-5ddce650956d"/>
+                                </fields>
+                                <required uid="d2ac9a6e-49b6-4567-9b0a-6e23146c5c63"/>
+                                <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
+                                <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
+                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
+                                </initialOptionMessage>
+                              </children>
                             </children>
                           </children>
                         </baseCanvas>
-                        <linkToLabels uid="c7f32222-a72c-4605-adad-28d462eaff2b" source="57d0b542-fb3f-439a-80d7-516bf4b449f2" target="e57a1c85-3244-4432-a48c-934e16fd199a"/>
-                        <linkToLabels uid="1887f8d6-ebe9-4453-95a0-2099cdea81e4" source="719fa92e-5130-4367-893f-34bb5369ae06" target="a4d77b72-64e4-49e0-bb55-84641bb7b280"/>
-                        <linkToMessages uid="48d1b200-4845-4981-83a4-9fb0c6bd6433" source="719fa92e-5130-4367-893f-34bb5369ae06" target="3545986d-0e8c-4539-af8b-ba693fec48ab"/>
-                        <linkToMessages uid="dccea0f6-7401-484f-bf72-026e1efcbcca" source="57d0b542-fb3f-439a-80d7-516bf4b449f2" target="a7c507ec-aca2-45d9-bb60-bce711c89dd3"/>
                       </viewElement>
                       <multiLangLabel uid="57a08ac0-60e4-412f-a6e0-d14f29984fe1" value="Application Message Libraries.Case management.WRITE_OUTCOME">
                         <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -9890,7 +9867,9 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="ebc7ac53-1748-436c-bcf6-1e04d7b19704" name="Case History Aria">
                         <style uid="466055e0-4f9b-4385-aefc-d61e0df14c98"/>
                         <baseCanvas uid="0745776c-7ae5-45e3-ab4b-8cfc6f6fa943">
+                          <style uid="39848d18-dc6e-404d-9812-a7627a769024" value=""/>
                           <children xsi:type="tura.form:Table" uid="a47c2d35-d1f3-4210-9a8b-363171793a86" sourcePointer="a563dc9b-0183-4b7b-a0b2-9eccb2ec27ef" columns="3" rowNumber="10">
+                            <style uid="8833042f-de56-4d52-9a1b-eb90e050b900"/>
                             <multiLangLabel uid="9929d930-ac22-4309-894d-6152a85f7276"/>
                             <cols uid="2047f5a9-6f14-4018-8747-2650ec9f3acf" label="Date">
                               <style uid="2a314b8b-d22d-4202-8674-cd12f0bccea5"/>
@@ -10834,7 +10813,7 @@
                         <style uid="280e500c-967b-44d6-88fe-ae9df9e059ad"/>
                         <baseCanvas uid="dad74c05-fb0c-401a-8e1e-7888b0295db5">
                           <style uid="bb2c3648-d05c-4942-bf48-61b12de148a7"/>
-                          <children xsi:type="tura.form:LayerHolder" uid="75e9817b-6dd6-44fb-b50d-0e1703f0fd20" columns="2">
+                          <children xsi:type="tura.form:LayerHolder" uid="75e9817b-6dd6-44fb-b50d-0e1703f0fd20" columns="3">
                             <style uid="8acd14c5-fb33-41d5-a624-1c8a76c107f5"/>
                             <children xsi:type="tura.form:Button" uid="29062c27-6be6-45c1-8647-e06b46cc74d8" label="Save">
                               <style uid="4641d83b-ddc8-4c82-bf68-06b5c136b79e" constant="true" value="width:30px;height:30px"/>
@@ -10903,6 +10882,17 @@
                                   </value>
                                 </parameters>
                               </icon>
+                            </children>
+                            <children xsi:type="tura.form:Button" order="2" uid="b937045a-20a5-4192-84ac-c7e5b6a4232d" label="Clear cache">
+                              <style uid="3450b041-2e3a-4845-b2d1-9f10de7736b6" constant="true" value="width:30px;height:30px"/>
+                              <fields uid="fbbb96fe-d610-466c-b563-9e258809989a" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.clearAllUserPreferences()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="14267b41-c7d0-4614-ac62-71e5e2388095" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="b937045a-20a5-4192-84ac-c7e5b6a4232d" group="1"/>
                             </children>
                           </children>
                           <children xsi:type="tura.form:Label" order="1" uid="b435800f-882d-471e-a75e-c68e318c632c" label="Users">
@@ -11412,7 +11402,7 @@
                               <expression objRef="a8bf54ed-80e4-4d99-b070-96d737f7d800" order="2" expressionType="MessageImpl"/>
                             </multiLangLabel>
                           </children>
-                          <children xsi:type="tura.form:LayerHolder" uid="82eac22a-d8d3-4214-b9e7-2944483c5170" columns="2">
+                          <children xsi:type="tura.form:LayerHolder" uid="82eac22a-d8d3-4214-b9e7-2944483c5170" columns="3">
                             <children xsi:type="tura.form:Button" uid="fc31410d-4f91-4cef-89e7-a44dcba2df36" label="Commit">
                               <style uid="06c9f808-799c-4f17-941a-25b3198839d4" constant="true" value="width:30px;height:30px"/>
                               <fields uid="eec5a7e8-1996-4f6c-b4fe-bf074f687371" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.saveApplication()">
@@ -11475,6 +11465,17 @@
                                   </value>
                                 </parameters>
                               </icon>
+                            </children>
+                            <children xsi:type="tura.form:Button" order="2" uid="6aaad4e9-4ac0-48ad-9af4-ded3f7618421" label="Clear cache">
+                              <style uid="3fa1acda-f1fd-4509-bda1-94f515fb7dac" constant="true" value="width:30px;height:30px"/>
+                              <fields uid="67e7ced8-a2da-4244-88f6-7519109c9288" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.clearAllUserPreferences()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="14267b41-c7d0-4614-ac62-71e5e2388095" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="6aaad4e9-4ac0-48ad-9af4-ded3f7618421" group="1"/>
                             </children>
                           </children>
                         </baseCanvas>
@@ -12330,7 +12331,15 @@
                               </children>
                             </children>
                           </children>
-                          <children xsi:type="tura.form:LayerHolder" uid="9cf2357f-e924-48aa-989b-01a238621d2e" columns="2">
+                          <children xsi:type="tura.form:LayerHolder" uid="9cf2357f-e924-48aa-989b-01a238621d2e" columns="3">
+                            <fields uid="6cbe875c-c187-4606-810d-6b0bf27ed1c6" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.createRolePopup()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="4aae3cf0-529b-4fd6-9790-51ecacf3aa89" order="4" expressionType="OperationImpl"/>
+                            </fields>
+                            <refreshAreas area="9cf2357f-e924-48aa-989b-01a238621d2e" group="1"/>
                             <children xsi:type="tura.form:Button" order="1" uid="71bd911f-cbf5-47af-b44b-817d16453dc1" label="Rallback">
                               <style uid="4dab70a6-493e-48b1-a9e6-31b9b10ee543" constant="true" value="width:30px;height:30px"/>
                               <fields uid="05addb01-d469-47e6-a97d-14de2b9494e9" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.rallbackApplication()">
@@ -12406,6 +12415,17 @@
                                   </value>
                                 </parameters>
                               </icon>
+                            </children>
+                            <children xsi:type="tura.form:Button" order="2" uid="e064dfce-51d3-4ab8-b0f5-65c777bdccfa" label="Clear cache">
+                              <style uid="cc8752a6-9e56-41f0-b10c-ac655f1cd448"/>
+                              <fields uid="a27cc013-0aba-4657-a8d3-3eb8d83831ff" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Admin business logic.clearAllUserPreferences()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="14267b41-c7d0-4614-ac62-71e5e2388095" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="e064dfce-51d3-4ab8-b0f5-65c777bdccfa" group="1"/>
                             </children>
                           </children>
                         </baseCanvas>
