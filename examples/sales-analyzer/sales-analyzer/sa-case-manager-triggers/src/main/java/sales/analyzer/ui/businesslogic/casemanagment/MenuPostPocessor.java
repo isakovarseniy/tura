@@ -27,6 +27,9 @@ public class MenuPostPocessor implements MenuPostPocessingCommand,Serializable{
 
 	@Override
 	public void execute(DefaultMenuModel model, String menuId, AbsractMenuProvider provider) {
+		if ( !menuId.equals("tura5214fbad_aeb9_4d3e_b16c_3a945b89db6b")  ) {
+			return;
+		}
 		for ( MenuItem item : workItemMenu.getMenuItemsList()) {
 			model.addElement(item);
 		}

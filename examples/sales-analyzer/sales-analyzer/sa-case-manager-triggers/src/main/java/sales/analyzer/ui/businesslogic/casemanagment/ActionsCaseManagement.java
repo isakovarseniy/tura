@@ -5,10 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.keycloak.KeycloakPrincipal;
@@ -406,10 +408,9 @@ public class ActionsCaseManagement implements EventAccessor {
 
 		closeWindow(process);
 	}
-	
-	
+
 	@SuppressWarnings("rawtypes")
-	private void closeWindow( CaseProcess process ) throws Exception {
+	private void closeWindow(CaseProcess process) throws Exception {
 
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 
@@ -440,8 +441,6 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 
 	}
-	
-	
 
 	public void closeWindow() {
 		try {
@@ -656,11 +655,12 @@ public class ActionsCaseManagement implements EventAccessor {
 				} else {
 					if (approveStatus.equals("4")) {
 						process.setCompleteTask(0);
+						saveCaseOperation();
+						closeWindow(process);
 					} else {
 						process.setCompleteTask(1);
+						saveCaseOperation();
 					}
-					saveCaseOperation();
-					closeWindow(process);
 				}
 			}
 
@@ -776,6 +776,17 @@ public class ActionsCaseManagement implements EventAccessor {
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		return p.getName();
 
+	}
+
+	public void logout() {
+		try {
+			ExternalContext externalContext  = FacesContext.getCurrentInstance().getExternalContext();
+			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
+			request.logout();
+			externalContext.redirect("/sa-case-manager/analysis/casemanager/WorkItemWindow.xhtml");
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 	}
 
 }

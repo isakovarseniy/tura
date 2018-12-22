@@ -7,10 +7,12 @@ import java.util.logging.Logger;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.component.visit.VisitContext;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
@@ -292,5 +294,15 @@ public class Actions implements EventAccessor {
 
 	}
 
-	
+	public void logout() {
+		try {
+			ExternalContext externalContext  = FacesContext.getCurrentInstance().getExternalContext();
+			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
+			request.logout();
+			externalContext.redirect("/sa-admin/admin/administration/AdminWindow.xhtml");
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
 }

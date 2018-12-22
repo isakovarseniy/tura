@@ -117,6 +117,14 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 		    for ( field in  list){
 		           %][%=setAttribute(util.mergeAndUnCapitalize(self.name),"Url",buildExpression(field,hints,hash))%][%
 		    }        
+
+            var classifierUUID = util.getHint(model_mapper,"transitionAction");
+            var list = self.findClassifiedField(classifierUUID);
+		    for ( field in  list){
+		           %][%=setAttribute(util.mergeAndUnCapitalize(self.name),"action",buildExpression(field,hints,hash))%][%
+		    }        
+
+
         %]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
 

@@ -26,6 +26,11 @@ operation form::MenuItem mkuid_(){
  return "tura"+ self.uid.replaceAll("\\-","_");
 }
 
+operation form::ViewArea mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+
 @template
 operation form::CanvasFrame mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
@@ -46,6 +51,9 @@ operation form::FlexField mkuid(){
 operation form::Context mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
+
+
+
 
 
 %]
