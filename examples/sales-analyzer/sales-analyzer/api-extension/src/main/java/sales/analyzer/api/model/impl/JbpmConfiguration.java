@@ -25,6 +25,33 @@ public class JbpmConfiguration {
 			;
 	
 	
+	private static String ETL_PROCESS_QUERY = "SELECT \n"+
+			 "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID \n"+
+			 ",pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,\n"+
+			 "pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,\n"+
+			 "pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" +
+			"TSK.* , ORG.ID ORG_ID \n"+
+			"FROM KIESERVER.PROCESSINSTANCELOG pl \n"+ 
+			"INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
+			"INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
+			"INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+			"WHERE  \n"+
+			"TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n";
+						
+	private static String ETL_PROCESS_NUMBER_OF_ROWS_QUERY = "SELECT DISTINCT( pl.ID ) DIST_PROC_ID, \n"+
+			 "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID \n"+
+			 ",pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,\n"+
+			 "pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,\n"+
+			 "pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" +
+			 "TSK.* , ORG.ID ORG_ID \n"+
+			"FROM KIESERVER.PROCESSINSTANCELOG pl \n"+ 
+			"INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
+			"INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
+			"INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+			"WHERE  \n"+
+			"TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n";
+						
+	
 	private static String PROCESS_QUERY_BY_CASEID = "SELECT \n"+
  "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID,pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" +	
          	"TSK.* ,\n"+
@@ -90,6 +117,46 @@ public class JbpmConfiguration {
 		initProcessessBySearchCriteriaQuery(queryClient, datasource);
 		initProcessessNumberOfRowsBySearchCriteriaQuery(queryClient, datasource);
 		initProcessByPrimaryKeyCaseIdQuery(queryClient, datasource);
+		initETLProcessBySearchCriteriaQuery(queryClient, datasource);
+		initETLProcessessNumberOfRowsBySearchCriteriaQuery(queryClient, datasource);
+	}
+	
+	private static void initETLProcessBySearchCriteriaQuery(QueryServicesClient queryClient, String datasource) {
+
+		try {
+			queryClient.getQuery(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA);
+			queryClient.unregisterQuery(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA);
+		} catch (Exception e) {
+			// Query not found
+		}
+
+		QueryDefinition query = new QueryDefinition();
+		query.setName(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA);
+		query.setSource(datasource);
+		query.setTarget(Target.PROCESS.name());
+		query.setExpression(ETL_PROCESS_QUERY);
+
+		queryClient.registerQuery(query);
+		
+	}
+
+	private static void initETLProcessessNumberOfRowsBySearchCriteriaQuery(QueryServicesClient queryClient, String datasource) {
+
+		try {
+			queryClient.getQuery(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA+Constants.NUMBER_OF_ROWS_SUFFIX);
+			queryClient.unregisterQuery(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA+Constants.NUMBER_OF_ROWS_SUFFIX);
+		} catch (Exception e) {
+			// Query not found
+		}
+
+		QueryDefinition query = new QueryDefinition();
+		query.setName(Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA+Constants.NUMBER_OF_ROWS_SUFFIX);
+		query.setSource(datasource);
+		query.setTarget(Target.PROCESS.name());
+		query.setExpression(ETL_PROCESS_NUMBER_OF_ROWS_QUERY);
+
+		queryClient.registerQuery(query);
+		
 	}
 	
 	

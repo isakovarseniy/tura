@@ -2,3 +2,4 @@ sales.analyzer.process.query.builder.SearchCriteriaBuilderFactory
 sales.analyzer.process.query.builder.TaskIdColumnBuilderFactory
 sales.analyzer.process.query.builder.ProcessInstanceIdColumnFactory
 sales.analyzer.process.query.builder.CaseIdColumnFactory
+sales.analyzer.process.query.builder.ETLProcessSearchCriteriaBuilderFactory

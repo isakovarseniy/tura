@@ -46,6 +46,7 @@ public class Constants {
 	
 	
 	public static final String QUERY_PROCESS_BY_SEARCH_CRITERIA = "getProcessBySearchCriteria";
+	public static final String QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA = "getETLProcessBySearchCriteria";
 	public static final String QUERY_TASK_BY_SEARCH_CRITERIA = "getTaskBySearchCriteria";
 
 	public static final String BUILDER_SUFFIX = "BUILDER_SUFFIX";
@@ -59,6 +60,7 @@ public class Constants {
 	public static final String PARAMETER_STATE = "PARAMETER_STATE";
 	public static final String PARAMETER_PRODUCT = "PARAMETER_PRODUCT";
 	public static final String PARAMETER_ACTUAL_OWNER = "PARAMETER_ACTUAL_OWNER";
+	public static final String PARAMETER_PROCESS_IDS = "PARAMETER_PROCESS_IDS";
 
 	
 	public static final String SIGNAL_ASSIGN = "Signal_assign";

@@ -19,7 +19,11 @@ public class ExtraClasses {
 		list.add(AssignInfo.class);
 		list.add(TerminateProcessEvent.class);
 		list.add(TaskComletion.class);
+		list.add(ETLListOfProcessInstances.class);
+		list.add(ETLListOfTaskInstances.class);
+		list.add(ETLProcessInstance.class);
+		list.add(ETLTaskInstance.class);
+
 	}
 
 }
-

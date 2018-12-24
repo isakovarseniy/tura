@@ -30,6 +30,8 @@ import org.tura.platform.repository.core.SearchResult;
 import com.octo.java.sql.query.SelectQuery.Order;
 
 import sales.analyzer.api.model.impl.AssignInfo;
+import sales.analyzer.api.model.impl.ETLProcessInstance;
+import sales.analyzer.api.model.impl.ETLTaskInstance;
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
@@ -40,10 +42,11 @@ import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.service.jbpm.JbpmSearchService;
 import sales.analyzer.user.UserPreferences;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class JbpmSearchServiceTest {
 
 	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
+	private static final String ETL_PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
 	
 	private static UserPreferences pref ;
 	
@@ -325,6 +328,9 @@ public class JbpmSearchServiceTest {
 		}
 	}
 
+	
+	
+	
 
 	class ProcessMapper implements Mapper{
 		@Override
@@ -351,6 +357,62 @@ public class JbpmSearchServiceTest {
 		
 	}
 
+	class ETLProcessMapper implements Mapper{
+		@Override
+		public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
+			return ((ETLProcessInstance )persistenceObject).getId();
+		}
+
+		@Override
+		public Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
+			return null;
+		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) {
+			return null;
+		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
+				Map<Object, Object> context) throws RepositoryException {
+			return null;
+		}
+		
+	}
+	
+	@Test
+	@RunAsClient
+	public void t0000_ETLProcessMapper() {
+		try {
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
+					null);
+			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
+			config.addExtraClasses(ExtraClasses.list);
+
+			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
+			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
+			JbpmConfiguration.init(client, TestCommons.JNDI_FOR_JBPM_ACCESS);
+			
+			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
+			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, ETL_PROCESS_ID, new HashMap<String, Object>());
+	
+			
+			JbpmSearchService service = new JbpmSearchService(client, provider);
+			service.setMapper(new ProcessMapper());
+			SearchResult result = service.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(),0,100, ETLProcessInstance.class.getName());
+			assertNotEquals(0, result.getSearchResult().size());
+			
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
+	
+	
 	class TaskMapper implements Mapper{
 
 		@Override
@@ -375,6 +437,33 @@ public class JbpmSearchServiceTest {
 		}
 		
 	}
+
+	class ETLTaskMapper implements Mapper{
+
+		@Override
+		public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
+			return ((ETLTaskInstance )persistenceObject).getId();
+		}
+
+		@Override
+		public Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
+			return null;
+		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) {
+			return null;
+		}
+
+		@Override
+		public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
+				Map<Object, Object> context) throws RepositoryException {
+			return null;
+		}
+		
+	}
+	
+	
 	class UserPeferencesProviderImpl implements UserPreferencesProvider{
 		
 		@Override

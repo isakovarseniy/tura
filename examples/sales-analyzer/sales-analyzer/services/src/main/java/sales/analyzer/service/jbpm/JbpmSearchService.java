@@ -16,6 +16,7 @@ import org.tura.platform.repository.spa.AbstaractSearchService;
 
 import com.octo.java.sql.query.SelectQuery.Order;
 
+import sales.analyzer.api.model.impl.ETLProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerListOfTaskInstances;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstancePK;
@@ -48,6 +49,15 @@ public class JbpmSearchService extends AbstaractSearchService {
 			parameters.put(Constants.PARAMETER_CASE_ID, o.getCaseId());
 
 		}
+		if (ETLProcessInstance.class.getName().equals(objectClass)) {
+			SalesAnalyzerProcessInstancePK o = (SalesAnalyzerProcessInstancePK) pk;
+			query = Constants.QUERY_PROCESS_BY_CASE_ID;
+			mapper = ETLProcessInstance.class.getSimpleName();
+			clazz = ETLProcessInstance.class;
+			parameters.put(Constants.PARAMETER_CASE_ID, o.getCaseId());
+
+		}
+		
 		if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
 			query = Constants.QUERY_TASK_BY_PK;
 			mapper = SalesAnalyzerTaskInstance.class.getSimpleName();
@@ -120,6 +130,19 @@ public class JbpmSearchService extends AbstaractSearchService {
 			clazz = SalesAnalyzerProcessInstance.class;
 
 		}
+
+		if (ETLProcessInstance.class.getName().equals(objectClass)) {
+			query = Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA;
+			mapper = ETLProcessInstance.class.getSimpleName();
+			clazz = ETLProcessInstance.class;
+			
+			parameters.clear();
+			ArrayList<String> array = new ArrayList<>();
+			array.add(Constants.SALES_DROP_INVESTIGATION_PROCESS_ID);
+			parameters.put(Constants.PARAMETER_PROCESS_IDS,array);
+		}
+		
+		
 		if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
 			query = Constants.QUERY_TASK_BY_SEARCH_CRITERIA;
 			mapper = SalesAnalyzerTaskInstance.class.getSimpleName();

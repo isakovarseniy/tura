@@ -1720,10 +1720,34 @@
             </attributes>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="47ac8328-b408-4f71-81fb-5a505ca7202b" typeRef="f60a553d-c740-4f24-9c09-44159d89b55f"/>
+          <types xsi:type="tura.type:Type" uid="a23c68c0-0a57-49e1-96f2-79fbef23206c" name="EtlProcess">
+            <classifiers uid="29749e4c-cc42-4d34-af7d-19b5c0315a81" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="3e5dc3eb-fe53-4995-a3ba-f6b14d981a58" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f8fd4e26-0ec8-4e98-9822-549936f816c7" name="id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d68e4921-f532-49ae-98d6-c74969237ced" name="processId"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="582d8d82-b236-4097-867d-1392927446ed" name="processName"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8f6047f5-bc72-4236-95cd-02c74e47d812" name="processVersion"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="23381845-4877-4e0f-85ac-ae24189ac406" name="EtlTask">
+            <classifiers uid="9d7d597b-ac6d-4a91-96f4-b80d0f7a9250" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="7546837f-1cf2-457c-96f6-17ea125a492c" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="0eb61539-0e52-450a-9470-39c66a800dd7" name="id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5c075c0d-12e7-4513-8ea8-1c1e212296a8" name="name"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="54bf6f91-3d23-463d-b017-f901c1dda336" name="description"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="86b64cf2-0f12-4a63-bf36-4f60977943aa" name="status"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9e79c3e1-6cf0-4319-aeca-c08469099f44" name="actualOwner"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="b171d136-546d-434b-889e-f2f5b861927e" name="createdBy"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1d04676d-5e59-4e4a-905b-db85a6a38cfb" name="createdOn"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="754f7a34-6c9b-403a-83c9-54ebc45a9ce8" name="activationTime"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="83c50fac-435c-4a1c-9bd9-b3546bedd9a6" name="expirationTime"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c94b1233-8c4e-4cfa-b253-d724cd0d4072" name="processInstanceId"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="24ee0c56-4629-430b-b9b0-b8a4e48f4504" name="processId"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="cfd26db5-3769-41b6-8768-c2a2aa731ea1" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
           <relationships xsi:type="tura.type:Assosiation" uid="5799987e-e3d2-459b-9581-d6eddf00429d" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="47ac8328-b408-4f71-81fb-5a505ca7202b" type="One2Many">
             <links uid="e8d687e8-0191-4fc7-90cc-6ebd71cfa190" masterField="99398110-a923-4a53-8765-536e14a5cfdf" detailField="0ea02a79-83a1-4955-9352-0cfde9c4cea2"/>
           </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="ebe031f2-a548-4fb3-b4d6-d591d3d3be24" source="a23c68c0-0a57-49e1-96f2-79fbef23206c" target="23381845-4877-4e0f-85ac-ae24189ac406" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
         </repositoryPackages>
         <repositoryPackages uid="868d14bc-9e78-4bf9-b08a-e082b33bac0f" name="KeyCloak">
           <types xsi:type="tura.type:Type" uid="68b54791-f4c6-40ff-a475-0e5f55b72369" name="User">
@@ -8441,6 +8465,8 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="5f9070b4-43ea-49e2-940e-d679db847b57" uid="cd9b3d9e-8a4a-436e-a173-407be029c983" mappedToPackageName="sales.analyzer.ui.businesslogic.admin" mappedToClassName="ActionsUser" artifactId="sa-admin-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="805ba97b-50d0-4eee-8d29-49c0f2cb9c48" uid="ee86f5d9-a03a-42d8-b1ea-927ade66df49" mappedToPackageName="sales.analyzer.ui.businesslogic.admin" mappedToClassName="ActionsLocation" artifactId="sa-admin-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" uid="a726b19d-fa31-4684-a1a0-ee18f7f36c23" mappedToPackageName="sales.analyzer.ui.businesslogic.casemanagment" mappedToClassName="ActionsCaseManagement" artifactId="sa-case-manager-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" uid="580a9d58-2248-4c58-9ea5-cbdde082d4a6" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLProcessInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" uid="68bc35ed-4477-4f7b-adbc-7226ef0e2f41" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLTaskInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
