@@ -30,7 +30,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 	private QueryServicesClient queryClient;
 	private UserPreferencesProvider prefRef;
 
-	public JbpmSearchService(KieServicesClient client ,UserPreferencesProvider prefRef) {
+	public JbpmSearchService(KieServicesClient client, UserPreferencesProvider prefRef) {
 		queryClient = client.getServicesClient(QueryServicesClient.class);
 		this.prefRef = prefRef;
 	}
@@ -50,14 +50,14 @@ public class JbpmSearchService extends AbstaractSearchService {
 
 		}
 		if (ETLProcessInstance.class.getName().equals(objectClass)) {
-			SalesAnalyzerProcessInstancePK o = (SalesAnalyzerProcessInstancePK) pk;
-			query = Constants.QUERY_PROCESS_BY_CASE_ID;
+			Long o = (Long) pk;
+			query = Constants.QUERY_PROCESS_BY_PK;
 			mapper = ETLProcessInstance.class.getSimpleName();
 			clazz = ETLProcessInstance.class;
-			parameters.put(Constants.PARAMETER_CASE_ID, o.getCaseId());
+			parameters.put(Constants.PARAMETER_PROCESSINSTANCE_ID, o);
 
 		}
-		
+
 		if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
 			query = Constants.QUERY_TASK_BY_PK;
 			mapper = SalesAnalyzerTaskInstance.class.getSimpleName();
@@ -73,8 +73,8 @@ public class JbpmSearchService extends AbstaractSearchService {
 
 		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters, 0, 100,
 				clazz);
-		
-		if (instances == null ||instances.isEmpty()) {
+
+		if (instances == null || instances.isEmpty()) {
 			return null;
 		}
 		if (instances.size() > 1) {
@@ -108,7 +108,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_PRODUCT, sc.getValue());
 		}
-		
+
 		sc = helper.checkSearchParam(Constants.VAR_CASE_ID, searchCriteria);
 		if (sc != null) {
 			parameters.put(Constants.PARAMETER_CASE_ID, sc.getValue());
@@ -118,7 +118,7 @@ public class JbpmSearchService extends AbstaractSearchService {
 		if (sc != null && SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
 			parameters.put(Constants.PARAMETER_ACTUAL_OWNER, sc.getValue());
 		}
-		
+
 		if (orderCriteria != null && orderCriteria.size() > 0) {
 			parameters.put("q_order_by", orderCriteria.get(0).getName());
 			parameters.put("q_ascending", orderCriteria.get(0).getOrder().equals(Order.ASC.name()));
@@ -135,14 +135,13 @@ public class JbpmSearchService extends AbstaractSearchService {
 			query = Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA;
 			mapper = ETLProcessInstance.class.getSimpleName();
 			clazz = ETLProcessInstance.class;
-			
+
 			parameters.clear();
 			ArrayList<String> array = new ArrayList<>();
-			array.add(Constants.SALES_DROP_INVESTIGATION_PROCESS_ID);
-			parameters.put(Constants.PARAMETER_PROCESS_IDS,array);
+			array.add(Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID);
+			parameters.put(Constants.PARAMETER_PROCESS_IDS, array);
 		}
-		
-		
+
 		if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
 			query = Constants.QUERY_TASK_BY_SEARCH_CRITERIA;
 			mapper = SalesAnalyzerTaskInstance.class.getSimpleName();
@@ -154,11 +153,11 @@ public class JbpmSearchService extends AbstaractSearchService {
 		}
 
 		parameters.put(Constants.PARAMETER_USER_PREFERENCES, prefRef.getUserPreferences(null));
-		
-		
-		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX, SalesAnalyzerRowsNumber.class.getSimpleName(),
-				query + Constants.BUILDER_SUFFIX, parameters ,0, 10, SalesAnalyzerRowsNumber.class);
-		
+
+		Collection<SalesAnalyzerRowsNumber> rows = queryClient.query(query + Constants.NUMBER_OF_ROWS_SUFFIX,
+				SalesAnalyzerRowsNumber.class.getSimpleName(), query + Constants.BUILDER_SUFFIX, parameters, 0, 10,
+				SalesAnalyzerRowsNumber.class);
+
 		if (rows == null || rows.isEmpty()) {
 			return null;
 		}
@@ -167,9 +166,10 @@ public class JbpmSearchService extends AbstaractSearchService {
 		}
 
 		int pagesize = endIndex - startIndex;
-		int page = startIndex/pagesize;
-		
-		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters ,page,pagesize, clazz);
+		int page = startIndex / pagesize;
+
+		Collection<?> instances = queryClient.query(query, mapper, query + Constants.BUILDER_SUFFIX, parameters, page,
+				pagesize, clazz);
 
 		if (instances == null) {
 			return new SearchResult(new ArrayList<>(), 0);
@@ -181,4 +181,3 @@ public class JbpmSearchService extends AbstaractSearchService {
 	}
 
 }
-

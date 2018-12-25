@@ -1743,6 +1743,12 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c94b1233-8c4e-4cfa-b253-d724cd0d4072" name="processInstanceId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="24ee0c56-4629-430b-b9b0-b8a4e48f4504" name="processId"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="c6d792dd-948e-41b9-9346-328c55acb55c" name="FileEntry">
+            <classifiers uid="dbe7a8b0-547c-4ab4-bb14-cfac3794c25a" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="667e06e6-df57-43fe-aada-211d3597d45b" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="19f4afde-5c04-46c3-ac9d-d7fbf318cfaf" name="name" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f77f5336-86e4-4dd8-b548-fca18ec1b999" name="lines"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="cfd26db5-3769-41b6-8768-c2a2aa731ea1" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
           <relationships xsi:type="tura.type:Assosiation" uid="5799987e-e3d2-459b-9581-d6eddf00429d" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="47ac8328-b408-4f71-81fb-5a505ca7202b" type="One2Many">
             <links uid="e8d687e8-0191-4fc7-90cc-6ebd71cfa190" masterField="99398110-a923-4a53-8765-536e14a5cfdf" detailField="0ea02a79-83a1-4955-9352-0cfde9c4cea2"/>
@@ -8467,6 +8473,7 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="b41e6434-00a6-4270-aa59-7fd561bc47bc" typeRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" uid="a726b19d-fa31-4684-a1a0-ee18f7f36c23" mappedToPackageName="sales.analyzer.ui.businesslogic.casemanagment" mappedToClassName="ActionsCaseManagement" artifactId="sa-case-manager-triggers" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" uid="580a9d58-2248-4c58-9ea5-cbdde082d4a6" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLProcessInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" uid="68bc35ed-4477-4f7b-adbc-7226ef0e2f41" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLTaskInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="c6d792dd-948e-41b9-9346-328c55acb55c" uid="b73955cc-4eac-4ba8-a7b3-73acde98b62e" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="FileEntity" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">

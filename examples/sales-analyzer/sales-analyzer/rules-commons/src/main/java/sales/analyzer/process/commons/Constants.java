@@ -14,7 +14,8 @@ public class Constants {
 	public static final String CONTAINER_ID = "sales-analyzer-container";
 
 	public static final String CASE_INVESTIGATION_PROCESS = "sales.analyzer.SalesDropInvestigation";
-	public static final String SALES_DROP_INVESTIGATION_PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
+	public static final String  ETL_MONTHLY_FILE_LOAD_PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
+	
 	public static final String PROCESS_CONSTRUCTOR = "Init";
 	public static final String ASSIGN_ACTOR =   "Assign actor";
 
