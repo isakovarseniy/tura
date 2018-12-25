@@ -23,7 +23,9 @@ public class ExtraClasses {
 		list.add(ETLListOfTaskInstances.class);
 		list.add(ETLProcessInstance.class);
 		list.add(ETLTaskInstance.class);
-
+		list.add(EtlNodeLog.class);
+		list.add(EtlListOfNodeLogs.class);
+		
 	}
 
 }

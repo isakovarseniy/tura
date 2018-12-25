@@ -1749,11 +1749,23 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="19f4afde-5c04-46c3-ac9d-d7fbf318cfaf" name="name" pk="true"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f77f5336-86e4-4dd8-b548-fca18ec1b999" name="lines"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="d9f28322-2963-43c5-aa90-0c2af921a94b" name="EtlNodeLog">
+            <classifiers uid="e22a2ea5-c840-4048-aea3-8310645af276" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="8056b997-b3c3-4178-84ca-7f262b2133ce" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="62fa4855-284e-47fb-bf83-7d1137ddc70b" name="id" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="ac96e45e-cee1-4d33-bfa2-f462fce2a67d" name="processInstanceId"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="349d4f80-c816-488d-a6af-32a0c7f83135" name="logDate"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="a4c67ced-0f0c-40bb-9b41-9ba5aa4f2205" name="nodeName"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c266cd29-8acc-4278-831b-4269cfa4a4bf" name="nodeType"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="1bcc57fe-3821-45ed-a034-73211e0d887c" name="nodeInstanceId"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="651da77c-9aae-42ac-9c28-07d729e4a621" name="type"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="cfd26db5-3769-41b6-8768-c2a2aa731ea1" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="97b7efd6-a3c9-4b21-8fb5-f63ec582035c" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
           <relationships xsi:type="tura.type:Assosiation" uid="5799987e-e3d2-459b-9581-d6eddf00429d" source="5a2f6b02-f0ae-4088-9dcc-cdb7b199c9c7" target="47ac8328-b408-4f71-81fb-5a505ca7202b" type="One2Many">
             <links uid="e8d687e8-0191-4fc7-90cc-6ebd71cfa190" masterField="99398110-a923-4a53-8765-536e14a5cfdf" detailField="0ea02a79-83a1-4955-9352-0cfde9c4cea2"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="ebe031f2-a548-4fb3-b4d6-d591d3d3be24" source="a23c68c0-0a57-49e1-96f2-79fbef23206c" target="23381845-4877-4e0f-85ac-ae24189ac406" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
+          <relationships xsi:type="tura.type:Assosiation" uid="9799bef8-5b5c-48a6-9689-7a3f849648b1" source="a23c68c0-0a57-49e1-96f2-79fbef23206c" target="d9f28322-2963-43c5-aa90-0c2af921a94b" type="One2Many" containment="Non"/>
         </repositoryPackages>
         <repositoryPackages uid="868d14bc-9e78-4bf9-b08a-e082b33bac0f" name="KeyCloak">
           <types xsi:type="tura.type:Type" uid="68b54791-f4c6-40ff-a475-0e5f55b72369" name="User">
@@ -8474,6 +8486,7 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" uid="580a9d58-2248-4c58-9ea5-cbdde082d4a6" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLProcessInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" uid="68bc35ed-4477-4f7b-adbc-7226ef0e2f41" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="ETLTaskInstance" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="c6d792dd-948e-41b9-9346-328c55acb55c" uid="b73955cc-4eac-4ba8-a7b3-73acde98b62e" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="FileEntity" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" uid="9f6f341f-2e23-4abe-b297-f5126836d4f1" mappedToPackageName="sales.analyzer.api.model.impl" mappedToClassName="EtlNodeLog" artifactId="api-extension" groupId="sales-analyzer" version="1.0.0-SNAPSHOT"/>
                 </mapper>
               </mappers>
               <mappers uid="1ec74a32-f166-4258-b7ab-94ee3f0e9e9a" name="Base package mapping">
