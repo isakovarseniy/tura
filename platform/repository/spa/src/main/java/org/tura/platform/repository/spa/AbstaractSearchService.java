@@ -86,7 +86,7 @@ public abstract class AbstaractSearchService implements SearchProvider {
 		}
 	}
 
-	public Object find(Object pk, String objectClass) {
+	public Object find(Object pk, String objectClass) throws RepositoryException{
 		if (cache != null) {
 			SpaControl control = cache.get(pk);
 			if (control != null) {
@@ -148,6 +148,6 @@ public abstract class AbstaractSearchService implements SearchProvider {
 	protected abstract SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException;
 
-	protected abstract Object serviceCall(Object pk, String objectClass);
+	protected abstract Object serviceCall(Object pk, String objectClass) throws RepositoryException;
 
 }

@@ -3,3 +3,4 @@ sales.analyzer.process.query.builder.TaskIdColumnBuilderFactory
 sales.analyzer.process.query.builder.ProcessInstanceIdColumnFactory
 sales.analyzer.process.query.builder.CaseIdColumnFactory
 sales.analyzer.process.query.builder.ETLProcessSearchCriteriaBuilderFactory
+sales.analyzer.process.query.builder.ETLNodeLogSearchCriteriaBuilderFactory

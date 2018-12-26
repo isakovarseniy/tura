@@ -2,3 +2,4 @@ sales.analyzer.process.query.mapper.SalesAnalyzerProcessInstanceMapper
 sales.analyzer.process.query.mapper.SalesAnalyzerTaskInstanceMapper
 sales.analyzer.process.query.mapper.SalesAnalyzerRowsNumberMapper
 sales.analyzer.process.query.mapper.ETLProcessInstanceMapper
+sales.analyzer.process.query.mapper.ETLNodeLogInstanceMapping

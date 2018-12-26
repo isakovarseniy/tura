@@ -12,7 +12,7 @@ import org.kie.api.remote.Remotable;
 @XmlRootElement
 @Remotable
 
-public class EtlNodeLog {
+public class ETLNodeInstanceLog {
 
     protected Boolean attached;
     protected String serializationid;
@@ -21,7 +21,7 @@ public class EtlNodeLog {
     protected Date logDate;
     protected String nodeName;
     protected String nodeType;
-    protected Long nodeInstanceId;
+    protected String nodeInstanceId;
     protected Integer type;
     protected ETLProcessInstance etlProcess;
 	public Boolean getAttached() {
@@ -66,10 +66,10 @@ public class EtlNodeLog {
 	public void setNodeType(String nodeType) {
 		this.nodeType = nodeType;
 	}
-	public Long getNodeInstanceId() {
+	public String getNodeInstanceId() {
 		return nodeInstanceId;
 	}
-	public void setNodeInstanceId(Long nodeInstanceId) {
+	public void setNodeInstanceId(String nodeInstanceId) {
 		this.nodeInstanceId = nodeInstanceId;
 	}
 	public Integer getType() {

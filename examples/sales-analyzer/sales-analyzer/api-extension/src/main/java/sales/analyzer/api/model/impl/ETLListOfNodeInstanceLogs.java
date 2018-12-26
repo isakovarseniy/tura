@@ -14,29 +14,29 @@ import org.kie.server.api.model.ItemList;
 @XmlRootElement
 @Remotable
 
-public class EtlListOfNodeLogs  implements ItemList<EtlNodeLog>{
+public class ETLListOfNodeInstanceLogs  implements ItemList<ETLNodeInstanceLog>{
 
 	@XmlElement(name = "nodes")
-	List<EtlNodeLog> nodes;
+	List<ETLNodeInstanceLog> nodes;
 
-	public EtlListOfNodeLogs() {
+	public ETLListOfNodeInstanceLogs() {
 
 	}
 
 	
-	public List<EtlNodeLog> getNodes() {
+	public List<ETLNodeInstanceLog> getNodes() {
 		return nodes;
 	}
 
 
 
-	public void setNodes(List<EtlNodeLog> nodes) {
+	public void setNodes(List<ETLNodeInstanceLog> nodes) {
 		this.nodes = nodes;
 	}
 
 
 	@Override
-	public List<EtlNodeLog> getItems() {
+	public List<ETLNodeInstanceLog> getItems() {
 		return nodes;
 	}
 
