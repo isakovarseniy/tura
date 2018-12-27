@@ -2048,6 +2048,7 @@
             <operations uid="c988764c-40e5-4d11-bbb6-8d20e7bd8abc" name="allowCompleteTask"/>
             <operations uid="b029da3c-eee9-4005-a9eb-dd391d066bfd" name="logout"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="3cbccbab-da94-48ba-95fd-976cf2709774" name="SA ETL controller"/>
         </repositoryPackages>
       </typesRepository>
       <primitives>
@@ -8225,7 +8226,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients columns="2" order="7" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
+                    <ingredients columns="2" order="8" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
                       <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Testing" componentRoot="${External path 1}/sales-analyzer/testing">
                         <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Testing" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/testing//builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -8243,7 +8244,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="8" uid="96201863-21a1-4152-bb43-ee60d3524e5d" name="Testing" controllerLayer="06dcbf36-6d39-431b-bf41-b02c0390e50e">
+                    <ingredients order="9" uid="96201863-21a1-4152-bb43-ee60d3524e5d" name="Testing" controllerLayer="06dcbf36-6d39-431b-bf41-b02c0390e50e">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2abf37c-393c-4f36-9e50-4354183bdd3f" name="Selenium testing package" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-pageobjects" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
                         <mappers uid="74c6cd62-bed3-4bc0-9a59-8e1c25befed7" artifactRef="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Page Object">
                           <technologies techRef="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" valueRef="a1acf69c-3adf-45a6-a515-9353cce02808"/>
@@ -8387,6 +8388,122 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients order="7" uid="3c5167b7-21a5-44b8-9298-9d65292fe90d" name="ETLController">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="a02b8445-f4aa-4e52-b11f-8798d6684d50" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="sa-etl-controller" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
+                        <mappers uid="8166c349-d78e-413d-a8b6-097e0daa5789" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
+                          <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
+                          <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
+                          <queries uid="fba53820-d677-4c72-a6d8-bd12432e8c3f" name="Query forms" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
+                            <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
+                            <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
+                            <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="Sales Analysis"/>
+                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="DataLoader"/>
+                          </queries>
+                          <queries uid="54cb3903-e215-48e6-828a-143b5ea2d3d9" name="Query repository" queryRef="74fe4bf9-0396-4e18-b795-b0173f102183">
+                            <variables queryParamRef="19882a6f-a81e-4046-abe0-ad51a3c6cc19" value="ce154fa7-a23b-4ff7-8a2d-ca04732d6b54"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="3c86c9a1-07ab-4531-8e6c-1525c5d0eeb2" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all view">
+                          <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <queries uid="a24a584b-6b8a-4e87-9d4d-c2422b13db04" name="Query form" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
+                            <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
+                            <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
+                            <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="Sales Analysis"/>
+                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="DataLoader"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="68cf5c10-9141-48f6-bd98-71109e69c70b" artifactRef="e7d86967-d594-4f25-8b34-5211665bf367" name="Build application">
+                          <technologies techRef="9c644338-08e7-4b17-bdda-58e6690b8f3d" valueRef="f5220160-61e4-46f2-abaa-750bf4235f27"/>
+                          <technologies techRef="a0eabf01-e648-44ca-8be7-bf2779d04f0e" valueRef="1a2b1010-9329-4acf-9a74-ce8e1f51db82"/>
+                          <technologies techRef="a77433e3-0f05-4914-8f7d-826865199dfc" valueRef="d05628e6-5a6f-40b6-986f-e5b16f9e619e"/>
+                          <queries uid="8bf02d48-d032-4554-8d84-56ba19da89c0" name="Query JBPM model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Sales Analyzer"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="JBPM"/>
+                          </queries>
+                          <queries uid="996442d4-c7d0-4e1b-9648-644600caa1c8" name="Query Keycloak model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Sales Analyzer"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="KeyCloak"/>
+                          </queries>
+                          <queries uid="74b5860c-3a77-44d6-af72-328cd652b140" name="Query database model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Sales Analyzer"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="database"/>
+                          </queries>
+                          <queries uid="3f250c7f-9189-4925-9ba0-045e78d00171" name="Query business logic" queryRef="0710bd35-c15a-4e87-821f-d534dfd8cb5a">
+                            <variables queryParamRef="511cb416-e48c-4eb1-a720-c916b73628ea" value="Sales Analyzer"/>
+                            <variables queryParamRef="193285c6-060b-4e29-a440-6862d33d7302" value="Business logic"/>
+                            <variables queryParamRef="c7d733c5-b134-4414-a260-0852636e2be2" value="SA ETL controller"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="a58d0771-0c42-49e7-a94c-157144d17c2b" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml">
+                          <technologies techRef="0741ec62-d452-459e-a610-1182f366d213"/>
+                          <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e"/>
+                          <queries uid="1b2a3d92-1fec-4ba1-a298-c72199eae0f4" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
+                            <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
+                            <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="CRM"/>
+                            <variables queryParamRef="6bedbda4-2dea-4298-9d2b-eca8cc146548" value="Sales Analysis"/>
+                          </queries>
+                          <queries uid="a63708f5-5ffb-4716-98f9-ef00e252c847" name="Query form" queryRef="84b8f999-85b2-4033-a105-0d45cf95665f">
+                            <variables queryParamRef="3a8ecc42-daf6-44c2-bb9a-a0fb96d11b4c" value="ERP"/>
+                            <variables queryParamRef="b35fe165-845f-4eb7-b79c-af34e425c081" value="CRM"/>
+                            <variables queryParamRef="63f8314a-d101-4436-a01a-3ac085d551d8" value="Sales Analysis"/>
+                            <variables queryParamRef="3df96575-0a3a-4161-8ff6-252d747b5ef7" value="DataLoader"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="9e777068-d79a-4b56-aca3-c3582f4cdd56" artifactRef="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message generator">
+                          <technologies techRef="2b33ca7a-ad2d-45f7-af12-26b58ca73e9d" valueRef="af295254-efd7-4de5-9441-50fb316e20fc"/>
+                          <queries uid="bcca0dad-940e-4ff7-a394-1b7afd788164" name="Query message" queryRef="4952c198-a1c8-4f39-aa8a-9448640d40ae">
+                            <variables queryParamRef="7567233d-4978-48a3-abc8-91c1e6e026b7" value="ERP"/>
+                            <variables queryParamRef="405dac8b-0858-41d7-bcfc-6a2db84a4d4d" value="CRM"/>
+                            <variables queryParamRef="2da04696-e0d1-453e-b7c4-3c69c2c43793" value="Sales Analysis"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="83869f87-065a-4d70-9f4e-065b357d056c" artifactRef="ef56805f-64cc-4d5f-b264-2ed3dd9e7751" name="faces-config">
+                          <technologies techRef="9b3e2153-3251-4507-a7a9-dae7fa52808f" valueRef="ee6aae36-a545-44a8-a48f-94403134f75c"/>
+                          <queries uid="3ea421ee-bf64-4091-ae23-98c16497a301" name="Query message" queryRef="e9a36941-6c8f-4ebe-b774-a7fccface66f">
+                            <variables queryParamRef="d66ba3fc-71af-4eb5-afe7-c5e9dc905574" value="ERP"/>
+                            <variables queryParamRef="1166e87f-29a7-42c4-8612-072cfbe14ee4" value="CRM"/>
+                            <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="Sales Analysis"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="c7967258-b3c3-489c-8f52-147016a2f650" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Etl controller build runner">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                        <mappers uid="0962e743-2e30-4fec-9509-2539b20982d7" artifactRef="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="jboss deployment structure" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/jboss-deployment-structure.egl"/>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="f272856f-5a8e-42cf-8449-23d40057b160" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-etl-controller-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
+                        <mappers uid="a6595d9f-16b2-4275-b14f-3bbe7bbf2f96" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Datacontrol interface">
+                          <queries uid="b33ea088-3f11-453e-8c83-b707f291ad57" name="Query form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
+                            <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
+                            <variables queryParamRef="36bc7750-c0e2-43de-b590-7167d9f4a153" value="CRM"/>
+                            <variables queryParamRef="242a0ac0-7267-48b8-9940-de542577c28a" value="Sales Analysis"/>
+                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="DataLoader"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="0e1bbfc9-0b43-4d3e-8a49-84dce4c10249" artifactRef="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="View port interface">
+                          <queries uid="a27438cc-690e-406a-ba38-98d386221e5e" name="Query form" queryRef="adb8b66d-658c-45ac-9fa7-8389586b6271">
+                            <variables queryParamRef="d62af783-cfc9-444b-b3c7-38252846086f" value="ERP"/>
+                            <variables queryParamRef="4dc59f11-982a-4cfc-970e-80d160594285" value="CRM"/>
+                            <variables queryParamRef="3bd23e05-a410-4c4c-afa2-41ef571daffe" value="Sales Analysis"/>
+                            <variables queryParamRef="5560e2bd-0c7d-439b-a0aa-681f0275fce6" value="DataLoader"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="452f6449-6bcf-40d5-aa23-d256ad7d7850" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="ETL Controller interface builde">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="308f5915-2299-493d-bb6d-2c8c50119dd4" name="Query base type"/>
+                        </mappers>
+                        <mappers uid="0cdd9859-0abe-4c5e-be1a-a318c0aa2fd3" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="ETL Controller interface build runner">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
                       </components>
                     </ingredients>
@@ -14131,6 +14248,199 @@
                   </datacontrols>
                 </forms>
               </applicationUIPackages>
+              <applicationUIPackages uid="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" name="DataLoader">
+                <forms uid="02d0b32a-fae5-4428-8369-41150d6b2016" name="ETLController">
+                  <view uid="182bcd17-9501-4224-8b7c-9cd0835091e1">
+                    <canvases xsi:type="tura.form:Window" uid="220a2954-a6e2-432e-8d0c-82916014f494" name="ETLControlWindow">
+                      <style uid="736a41a8-af76-4987-a72d-0e53c8389e83"/>
+                      <viewElement xsi:type="tura.form:ViewPort" uid="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" name="View Aria">
+                        <style uid="54312f18-7135-4c6b-93e6-10e565e8404d"/>
+                      </viewElement>
+                      <classifiers uid="c7f0fd30-64d9-4781-b6a7-de14ec9a5fa6" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
+                      <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="2649c340-7df0-4c1d-b4fc-c7f890e0d9f1"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="b81472e3-3691-491b-9a84-862652bb04da" name="ProcessSelection">
+                      <style uid="9d828124-3e4a-43b2-ae1b-29a57bd4f326"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="99868e0c-0ee6-44a4-8473-6f09f56d8003" name="ProcessSelectionAria">
+                        <style uid="d76a933c-defe-4fd9-b2a0-d359863b2067"/>
+                        <baseCanvas uid="708f5f08-fe5a-4bb4-accb-bc2dfb35c69f">
+                          <children xsi:type="tura.form:LayerHolder" uid="d7c29eb3-7b10-4a84-8201-0aeff1e714d8">
+                            <children xsi:type="tura.form:Table" order="1" uid="b8c963a7-7950-4cfe-aaa5-44e1f30be51b" sourcePointer="34f23350-3da7-48f7-91b9-a38b6df4e3b1" columns="4">
+                              <style uid="b6c6522d-8446-4a7a-b8c1-16700f78d288"/>
+                              <multiLangLabel uid="91176d40-6f14-4011-936a-19a3306130f8"/>
+                              <cols order="1" uid="dccdf1b7-1d18-41a2-a72b-5805604ee793">
+                                <style uid="fb35f350-2c61-409e-ab2c-47a34042b30a"/>
+                                <multiLangLabel uid="4a6402f4-b6ff-4987-971c-0af39c67c395"/>
+                                <element xsi:type="tura.form:OutputText" uid="cfc4b377-8916-4084-9c10-f655739e07f9" valuePointer="d68e4921-f532-49ae-98d6-c74969237ced">
+                                  <style uid="f4e0f7de-0f19-4f6d-bf8d-14956d5a923e"/>
+                                </element>
+                              </cols>
+                              <cols order="2" uid="6634b1cc-c983-4031-8d2b-4a2717e145c6">
+                                <style uid="8dfd1b62-7432-4756-ba07-8918154b98ea"/>
+                                <element xsi:type="tura.form:OutputText" uid="b8f57129-e7a0-411c-a2e6-98a7ba08168c" valuePointer="582d8d82-b236-4097-867d-1392927446ed"/>
+                              </cols>
+                              <cols uid="efc6b3bf-e158-4188-96c7-8d547e096d4e">
+                                <element xsi:type="tura.form:OutputText" uid="aa6ca389-04a4-4fc1-8e70-37fcd8b2e77d" valuePointer="f8fd4e26-0ec8-4e98-9822-549936f816c7"/>
+                              </cols>
+                              <cols order="3" uid="cf952b04-ca0c-44e2-93b9-461f10b15812">
+                                <element xsi:type="tura.form:Button" uid="e0efc55e-2ea6-4498-a862-2713ad818634"/>
+                              </cols>
+                            </children>
+                            <children xsi:type="tura.form:Label" uid="90d31034-50ad-424f-981e-4297f80de96f" label="Running processes">
+                              <style uid="acb7bff0-bf01-49be-9365-c6f71faf47bf" constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+                              <multiLangLabel uid="755091f4-9a95-4861-827b-be09f161f409" value="Application Message Libraries.ETLController.RUNNING_PROCESSES">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="7acf7ab0-cdcb-4e0c-aecb-49d40e200dc2" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <viewInheritances uid="b9c1bcfd-3176-4073-98a3-2e7467876cb9" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="b81472e3-3691-491b-9a84-862652bb04da"/>
+                  </view>
+                  <datacontrols uid="3adcc17a-62e6-412e-98ba-67cebdd4a931">
+                    <controls uid="34f23350-3da7-48f7-91b9-a38b6df4e3b1" name="EtlProcess">
+                      <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="a6d19258-92a4-403c-a943-785fc49e712f">
+                        <parameters uid="df4df320-31d4-4afd-8529-5cb109d45230" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="3e0fcaab-d718-444a-a1d1-28ed8b7b4cb1" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlProcess">
+                            <expression uid="1284bcc0-037a-4dec-8f39-90436c0a5f05" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="3b6b91f8-9c58-4279-9078-0a95a86a9d15" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="9620b6fb-bf59-4630-b83c-b4681e15ee74" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="81420df0-314e-4950-bafa-5a173b458e94" objRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="a529f71e-950a-49fd-89c9-62985d093e43">
+                        <parameters uid="03cc7603-1ca6-44fe-8b7e-d1722317c600" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="8fe5ad05-cbea-44b3-b6f4-d9ee6ff7aa5f" value="Data controls.EtlProcess.searchCriteria">
+                            <expression uid="689a3832-1b32-40e2-b329-234a631ce9ca" expressionType="DataControlHolder"/>
+                            <expression uid="3913b956-f7f0-4cfa-818b-038a89181cf9" objRef="34f23350-3da7-48f7-91b9-a38b6df4e3b1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d070e694-bff2-45b7-bdce-462b2e2f99e1" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e99a6390-146f-40ce-966d-dbfb1667b468" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="7b2826cf-00aa-40fb-b7fe-1dc1ba6c47b8" value="Data controls.EtlProcess.orderCriteria">
+                            <expression uid="cb9f7548-7c6b-4dec-9a2d-9e660d2c95f7" expressionType="DataControlHolder"/>
+                            <expression uid="65e5e091-8851-4cc4-be3d-254ba60e4314" objRef="34f23350-3da7-48f7-91b9-a38b6df4e3b1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d66ac85b-a431-4d93-bbac-6a570f13560f" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b08a9e58-e831-4f5b-96e1-b9d71452b90e" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="65343875-af28-4d53-a80e-5ca5e28837f7" value="Data controls.EtlProcess.start Index">
+                            <expression uid="48a201dc-1a5c-4df0-b503-49d9c5818595" expressionType="DataControlHolder"/>
+                            <expression uid="557dc5d0-8190-480f-bf8a-05b37ce406af" objRef="34f23350-3da7-48f7-91b9-a38b6df4e3b1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="8edde5da-2ba8-49fa-93a5-dd1adae20637" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d5cfb6ea-405f-4379-a9f3-51f9f0f5a0ad" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="ec386a34-cec9-45e4-b382-c100f5cbc893" value="Data controls.EtlProcess.end Index">
+                            <expression uid="eb288e0c-9814-4b63-a73f-d4dcbdb65740" expressionType="DataControlHolder"/>
+                            <expression uid="ee0d352a-42da-41e1-9b74-131528d5983a" objRef="34f23350-3da7-48f7-91b9-a38b6df4e3b1" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="f6b6182c-36f8-4242-ab04-34c0a8c92abc" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="044a843d-3472-488a-80cc-30511b7f0918" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="b2bd94a4-09e6-4731-a02c-5d9d093e9425" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlProcess">
+                            <expression uid="3f1bd68f-7a5c-4e5a-b398-edc5f8387b94" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="7a5005cb-4d6d-41de-a6a6-94461d816e5a" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="cd44afec-d75c-4d1f-b8f9-cb0d3db9f6fb" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="05c00f26-cce4-4a49-9aa0-9fb56acf24be" objRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch/>
+                      <defaultOrderBy/>
+                      <relationMappers uid="aa376cc3-3a5e-4c88-a3a3-adc6049fcceb" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" assosiationRef="ebe031f2-a548-4fb3-b4d6-d591d3d3be24"/>
+                      <relationMappers uid="4e252ba9-b3ee-4352-8bc9-85df447e7938" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" assosiationRef="9799bef8-5b5c-48a6-9689-7a3f849648b1"/>
+                    </controls>
+                  </datacontrols>
+                </forms>
+                <forms uid="fe918123-1c5c-4026-9345-099f1393b16e" name="ErrorHandeling">
+                  <view uid="e4e8abfa-a8c2-48d4-8b87-0f0a2961789d">
+                    <canvases xsi:type="tura.form:Window" uid="c9f915ab-7606-4b0d-87b7-cdcd57d80bb9" name="Error Page">
+                      <style uid="03ef191c-b9c9-439c-89bb-4376ebce24eb"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="2bfc46ee-e349-4734-8e57-a80d83fef249" name="ErrorAria">
+                        <style uid="62693588-d724-4aed-add9-bfdb3fd1121b"/>
+                        <baseCanvas uid="179b2020-3140-4021-b4c2-1a962e6731bc" columns="2">
+                          <style uid="02e0c816-a271-4829-b54e-6f90b9285a90"/>
+                          <children xsi:type="tura.form:OutputText" order="1" uid="53d3455f-b5f8-4ebc-8b66-c1d0d6895112" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="1dcece5c-5ab5-4a3c-978f-3112a0afe93d"/>
+                          <children xsi:type="tura.form:Label" uid="d042d82a-014a-43f7-8912-a39a30f2381c" label="Error code"/>
+                          <children xsi:type="tura.form:Label" order="2" uid="cb41699f-d165-480c-b9e0-fe5d2df8fb82" label="Error description"/>
+                          <children xsi:type="tura.form:OutputText" order="3" uid="e8624104-3b3b-4e97-ac25-7b30e1afe04e" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="236ef6bb-e375-45c9-b010-95c867f6b1b6"/>
+                          <children xsi:type="tura.form:Label" order="4" uid="0979c8a6-6fa3-4530-ab9b-aee368f8b3b9" label="Exception type"/>
+                          <children xsi:type="tura.form:OutputText" order="5" uid="cf1f525d-e47b-4f46-86d2-2d2f4331e1de" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="c0028bf2-6da0-4be0-b0b2-e2b97c5f53d5"/>
+                          <children xsi:type="tura.form:Label" order="6" uid="9af972b4-dd58-4c71-bb0a-477e1e2266a3" label="Exception"/>
+                          <children xsi:type="tura.form:OutputText" order="7" uid="d38a83c6-f1eb-40eb-a805-8e9efbeec17b" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="9b943775-4039-4e69-b4c8-58290c1abb9a"/>
+                          <children xsi:type="tura.form:Label" order="8" uid="94ce1067-5bbb-4989-8799-ca0ec03da6a3" label="Request URL"/>
+                          <children xsi:type="tura.form:OutputText" order="9" uid="728e5f73-6540-4866-bcce-dce09e0f9615" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="af70c1ea-e780-4fcc-89ad-5e792252aa65"/>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                  </view>
+                  <datacontrols uid="0443aff3-70de-4d6b-a419-d47665efe763">
+                    <controls uid="42576490-7a02-47b7-bea1-6b6c75a41f01" name="Error Record">
+                      <baseType typeRef="29240e87-5405-4987-b25d-f1ea14f0a81f"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="8f83d49e-f49c-461a-98d3-c97e18d0f4b3">
+                        <parameters uid="c2d39d98-1dbd-491e-8773-d2f89f2afc5f" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="1899384c-7c28-4c83-8086-3853408ca0cb" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="84ca3d1e-b2fe-405f-8df6-9cfdde3e8e3a" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="36e7fbe3-31df-4f3a-b537-0996c54ec3fd" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="06f802dd-6d17-4ef0-97c4-8c8ff2186960" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="5803bcad-4c76-4451-a664-67b9851b1bd2" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="a51f7924-3efe-4b8c-a2f9-db03fed427d4">
+                        <parameters uid="4cf2a500-a354-41ef-a7f2-c79804d54372" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="12ad84ca-abb7-42f4-84b1-f83632929a92" value="Data controls.Error Record.searchCriteria">
+                            <expression uid="7a9f411a-2a64-475e-9dcf-91247f4d264a" expressionType="DataControlHolder"/>
+                            <expression uid="c9ad9e79-1f1e-47c3-8324-0c668be68a8d" objRef="42576490-7a02-47b7-bea1-6b6c75a41f01" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="6c2cd155-651e-4b40-a203-90073ad8515b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="bce4a59c-abc1-4478-8d54-e18170845db2" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="7fc5b907-ee21-4714-a122-ba980936bcab" value="Data controls.Error Record.orderCriteria">
+                            <expression uid="4fa0d666-19dc-41a8-910b-952c24a2d9e8" expressionType="DataControlHolder"/>
+                            <expression uid="f3080e7f-c04c-44e8-abf5-6c06f45ffe94" objRef="42576490-7a02-47b7-bea1-6b6c75a41f01" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="866579e0-4fbc-45f5-b797-717dc54a3a5b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="3ae5958c-9f5f-4879-b946-e5ea8e2b9f25" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="0e81b759-fec3-432e-88d1-de29a09218fc" value="Data controls.Error Record.start Index">
+                            <expression uid="003dcfcd-4617-4bda-9541-93c5c5623b2f" expressionType="DataControlHolder"/>
+                            <expression uid="c8c298ae-9e72-4cc6-b694-dafee410c759" objRef="42576490-7a02-47b7-bea1-6b6c75a41f01" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="81e278f6-9bd9-42cd-a8ef-b6cd957fa87c" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b3bc79c8-7567-430a-b2dc-7015c1a96ee8" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="3a0e4fcc-5927-4f02-8e22-b9c0fc86385b" value="Data controls.Error Record.end Index">
+                            <expression uid="74811301-1910-4ce9-8c1f-718c684ef864" expressionType="DataControlHolder"/>
+                            <expression uid="174ea746-97be-4708-a226-166949fec42c" objRef="42576490-7a02-47b7-bea1-6b6c75a41f01" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ed543f6f-d652-404c-a7e1-a626636126f5" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d4c6fe78-299c-4e79-a939-d08ad64bb28f" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="86b47f72-c074-4dd4-8581-dbbfd90f933a" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="58713545-6ca3-42b3-98ac-03adcfe57317" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="da1df482-b03f-4568-8433-ec870c0a93e2" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="e2673fd8-c4d7-40bd-9d7b-b15a48cd3033" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="d11b5e5f-b322-4d7d-ba6b-624e02186f5d" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1dcece5c-5ab5-4a3c-978f-3112a0afe93d" name="statusCode"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="236ef6bb-e375-45c9-b010-95c867f6b1b6" name="message"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c0028bf2-6da0-4be0-b0b2-e2b97c5f53d5" name="exceptionType"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9b943775-4039-4e69-b4c8-58290c1abb9a" name="exception"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="af70c1ea-e780-4fcc-89ad-5e792252aa65" name="requestURI"/>
+                      <defaultOrderBy/>
+                    </controls>
+                  </datacontrols>
+                </forms>
+              </applicationUIPackages>
             </applicationUILayer>
             <applicationInfrastructureLayer uid="b02add19-22db-4397-9f72-84334d3bbc87" name="Infrastructure"/>
             <applicationStyle uid="95b13491-6504-4ddb-a188-effcb7cdea59" name="Style Libraries">
@@ -14382,6 +14692,12 @@
                   <messages uid="061e804d-aaf0-4d38-8f40-cd56aa8d57f3" name="LOGOUT">
                     <translatioins uid="58a8a02a-c608-4184-ac86-226ff6c956b3" translation="Logout" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="d5e13023-de0c-4364-b89f-455086406e15" translation="Выход" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                </libraries>
+                <libraries uid="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" name="ETLController">
+                  <messages uid="7acf7ab0-cdcb-4e0c-aecb-49d40e200dc2" name="RUNNING_PROCESSES">
+                    <translatioins uid="34ad1191-2f32-4561-b824-9be72034669a" translation="Data loading processes" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="71d7f766-f4a6-4257-a5e4-598a26e8bdc6" translation="Процессы загрузки данных"/>
                   </messages>
                 </libraries>
               </messageLibraries>
