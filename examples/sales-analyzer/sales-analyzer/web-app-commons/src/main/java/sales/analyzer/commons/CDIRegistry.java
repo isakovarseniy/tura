@@ -37,6 +37,9 @@ import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import sales.analyzer.api.model.impl.AssignInfo;
+import sales.analyzer.api.model.impl.ETLNodeInstanceLog;
+import sales.analyzer.api.model.impl.ETLProcessInstance;
+import sales.analyzer.api.model.impl.ETLTaskInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.api.model.impl.TaskComletion;
@@ -129,6 +132,12 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(AssignInfo.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(TaskComletion.class,JbpmCRUDService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(TerminateProcessEvent.class,JbpmCRUDService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(ETLProcessInstance.class,JbpmCRUDService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(ETLTaskInstance.class,JbpmCRUDService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(ETLNodeInstanceLog.class,JbpmCRUDService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLProcessInstance.class,JbpmSearchService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLTaskInstance.class,JbpmSearchService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLNodeInstanceLog.class,JbpmSearchService.class);
 
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorsCaseProcessCommand.class);

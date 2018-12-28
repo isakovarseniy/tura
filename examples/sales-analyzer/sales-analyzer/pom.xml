@@ -57,6 +57,7 @@
 		<module>web-app-commons</module>
 		<module>sa-admin-triggers</module>
 		<module>sa-case-manager-triggers</module>
+		<module>sa-etl-controller-triggers</module>
 		<module>sa-resources</module>
 	</modules>
 
