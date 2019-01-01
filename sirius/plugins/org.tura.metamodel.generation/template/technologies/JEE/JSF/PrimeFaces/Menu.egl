@@ -20,6 +20,15 @@ operation form::Menu draw(hash) {
        }
        menuType = "p:tabMenu";
      }
+     if (self.findClassifier(util.getHint(model_mapper,"stepMenu"))){
+       var expression = constructExpression(self,'stepMenu.currentItem',hints, hash);
+       if (expression <> ""){
+         currentMenueItem ="activeIndex=\""+expression+"\"";
+       }
+       menuType = "p:steps";
+     }
+
+
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      

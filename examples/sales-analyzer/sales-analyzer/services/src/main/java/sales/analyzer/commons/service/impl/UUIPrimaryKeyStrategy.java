@@ -35,6 +35,7 @@ import org.tura.salesanalyzer.serialized.db.ProductGroupHistory;
 import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
+import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
@@ -101,6 +102,11 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			return;
 		}
 		
+		if (o instanceof EtlProcess) {
+			((EtlProcess)o).setId( new Long(id));
+			id= id+1;
+			return;
+		}
 		
 		if (o instanceof CountryReference) {
 			((CountryReference)o).setAdmin(false);

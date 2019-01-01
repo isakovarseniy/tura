@@ -47,7 +47,7 @@ public class SearchCriteriaBuilder implements QueryParamBuilder<ColumnFilter> {
 		UserPreferences preferences = (UserPreferences) parameters.get(Constants.PARAMETER_USER_PREFERENCES);
 		filters.addAll(SecurityRulesHelper.securityBoundaries(preferences,username));
 		
-		if (  !preferences.isSuperAdmin() &&  !preferences.isAdminForCity()  && !preferences.isAdminForStates())
+		if (  !preferences.isSuperAdmin() &&  !preferences.checkIfAdminForCity()  && !preferences.checkIfAdminForStates())
 		/*
 		  (t.taskData.actualOwner.id = :userId l) and
 		 */

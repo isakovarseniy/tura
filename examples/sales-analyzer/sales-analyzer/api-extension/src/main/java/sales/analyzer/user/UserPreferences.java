@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.kie.api.remote.Remotable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -22,20 +24,21 @@ public class UserPreferences {
 	private List<Integer> cities;
 	private List<Integer> countries;
 	
-	
-	public boolean isAdminForCountries() {
+	public boolean checkIfAdminForCountries() {
 		if (countriesForAdmin != null && countriesForAdmin.size() > 0) {
 			return true;
 		};
 		return false;
 	}
-	public boolean isAdminForStates() {
+	
+	public boolean checkIfAdminForStates() {
 		if (statesForAdmin != null && statesForAdmin.size() > 0) {
 			return true;
 		};
 		return false;
 	}
-	public boolean isAdminForCity() {
+
+	public boolean checkIfAdminForCity() {
 		if (citiesForAdmin != null && citiesForAdmin.size() > 0) {
 			return true;
 		};

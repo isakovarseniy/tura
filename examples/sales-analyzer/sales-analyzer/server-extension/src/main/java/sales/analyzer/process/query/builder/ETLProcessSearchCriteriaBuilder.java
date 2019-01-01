@@ -65,6 +65,14 @@ public class ETLProcessSearchCriteriaBuilder implements QueryParamBuilder<Column
 			filters.add(filter);
 		}
 
+		String columnName = "PROC_ID";
+		if (parameters.get(Constants.PARAMETER_PROCESSINSTANCE_ID) != null) {
+			ColumnFilter filter = FilterFactory.AND(FilterFactory
+					.equalsTo(((Number) parameters.get(Constants.PARAMETER_PROCESSINSTANCE_ID)).longValue()));
+			filter.setColumnId(columnName);
+			filters.add(filter);
+		}
+
 		ColumnFilter filter = FilterFactory.AND(filters);
 
 		built = true;

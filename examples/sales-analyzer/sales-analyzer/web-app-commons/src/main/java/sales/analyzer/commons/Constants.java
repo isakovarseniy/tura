@@ -11,5 +11,4 @@ public class Constants {
 	public static String KEYCLOAK_MANAGED_REALM = "keycloak_managed_realm";
 	public static String KIE_SERVER_URL="kie_server_url";
 	
-	
 }

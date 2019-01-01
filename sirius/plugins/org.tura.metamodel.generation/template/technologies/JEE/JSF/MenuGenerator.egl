@@ -86,7 +86,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
                [%=setAttribute("model","StyleClass",self.styleClass(hash))%]
                
              [%}
-                 for (item in self.menuElements){%]
+                 for (item in self.menuElements.sortBy(q|q.order)){%]
                    [%=item.addToModel(hash,addOperation)%]
                 [% }
             %]

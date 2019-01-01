@@ -101,6 +101,10 @@ public class JbpmCRUDService implements CRUDProvider {
 		if (control.getObject() instanceof SalesAnalyzerTaskInstance) {
 			insertTask(control);
 		}
+		if (control.getObject() instanceof ETLProcessInstance) {
+			insertProcess(control);
+		}
+		
 	}
 
 	private void update(SpaControl control) throws Exception {

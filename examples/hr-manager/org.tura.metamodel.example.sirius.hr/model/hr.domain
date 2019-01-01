@@ -293,6 +293,9 @@
             <hints uid="5e1db8e9-32b3-40af-acdc-ffa69c77272b" name="messages" hint="13ee1559-017d-44bf-9cba-2b0f6ab9ce72"/>
             <hints uid="04048254-d3d3-496d-ac76-15f3947e25d3" name="InputTextAria" hint="63bb3ae6-de08-4705-addc-6e22559eb9b0"/>
             <hints uid="7e7a8ec3-7b98-4ba3-aa53-86059bf7beae" name="transitionAction" hint="bfeab8ff-f683-41d1-87db-eb5aed41c889"/>
+            <hints uid="c7822907-3460-4c8a-8470-5e8c0762f2f0" name="stepMenu" hint="9140f70e-6b1c-49a2-8481-0dd72284571e"/>
+            <hints uid="d1032385-cddd-47cf-95bf-6e433c5a9078" name="palinOutputText" hint="a7619cc7-cf65-425a-9e1a-ffac190787f5"/>
+            <hints uid="8da4c5df-cef1-4b18-af33-eb2f70a4af14" name="stepMenu.currentItem" hint="16965773-a456-43f6-bfa6-fefd4dbad288"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -480,6 +483,9 @@
             <hints uid="ff76c993-15a7-40e3-b43b-51c383cd0b9e" name="tabMenu.currentItem"/>
             <hints uid="13ee1559-017d-44bf-9cba-2b0f6ab9ce72" name="messages"/>
             <hints uid="63bb3ae6-de08-4705-addc-6e22559eb9b0" name="InputTextAria"/>
+            <hints uid="9140f70e-6b1c-49a2-8481-0dd72284571e" name="stepMenu"/>
+            <hints uid="a7619cc7-cf65-425a-9e1a-ffac190787f5" name="palinOutputText"/>
+            <hints uid="16965773-a456-43f6-bfa6-fefd4dbad288" name="stepMenu.currentItem"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -2048,7 +2054,11 @@
             <operations uid="c988764c-40e5-4d11-bbb6-8d20e7bd8abc" name="allowCompleteTask"/>
             <operations uid="b029da3c-eee9-4005-a9eb-dd391d066bfd" name="logout"/>
           </types>
-          <types xsi:type="tura.type:Type" uid="3cbccbab-da94-48ba-95fd-976cf2709774" name="SA ETL controller"/>
+          <types xsi:type="tura.type:Type" uid="3cbccbab-da94-48ba-95fd-976cf2709774" name="SA ETL controller">
+            <operations uid="72e9bf15-00a7-481a-9e1a-1291b796e946" name="openProcess"/>
+            <operations uid="e530e8f6-024d-4310-a35d-fe9dff60c1e0" name="logout"/>
+            <operations uid="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" name="createMonthlyLoadingProcess"/>
+          </types>
         </repositoryPackages>
       </typesRepository>
       <primitives>
@@ -8546,6 +8556,7 @@
                     <hashProperties uid="f1afc1ad-387c-47d3-9d9a-805153ea5b76" confHashRef="d716c499-dde8-4598-a7df-06282fe54480">
                       <hash uid="ce90e387-b4ec-426d-951b-c94ce82b2fe5" key="analysis" value="http://localhost:8080/sa-case-manager"/>
                       <hash uid="5a89ce7d-a1f4-479b-ae3c-0d03ee34defe" key="admin" value="http://localhost:8080/sa-admin"/>
+                      <hash uid="2e232916-956d-4d72-859e-3114c96c521d" key="dataloader" value="http://localhost:8080/sa-etl-controller"/>
                     </hashProperties>
                   </configurations>
                   <infrastructures uid="92f00187-c3de-4091-8eca-850df9713ef5" name="Dev"/>
@@ -9581,6 +9592,7 @@
                         <baseCanvas uid="123c8fc8-761f-427c-8af0-a3a1d3690b46" columns="6">
                           <style uid="7770befd-970b-43bc-b0ef-3cf69637f85c" constant="true" value="width:100%"/>
                           <children xsi:type="tura.form:LayerHolder" uid="f8a56e72-7a89-41ce-93c7-e2ee8a2b1e75" columns="6">
+                            <style uid="d90412f6-761c-4e7e-90a2-70d242d9c713"/>
                             <children xsi:type="tura.form:Label" uid="8d95024f-1c17-4d60-9990-ebc77d229392" label="State">
                               <multiLangLabel uid="e38401ef-875a-4dbe-b840-a63030ba5307" value="Application Message Libraries.Case management.STATE">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -10128,7 +10140,7 @@
                         <style uid="efbb2e92-a677-4633-b687-6618c723a260"/>
                         <multiLangLabel uid="2fd25eb1-5230-4136-a9ab-fa00dbca77bd"/>
                         <icon uid="b90d65d4-2aee-44bc-9a8f-1b94ef3441a0"/>
-                        <menuElements xsi:type="tura.form:MenuItem" uid="99373fac-429d-429e-972c-89d2d7e9ea6e" name="Case management">
+                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="99373fac-429d-429e-972c-89d2d7e9ea6e" name="Case management">
                           <multiLangLabel uid="f728d7c6-33a2-4e1f-b6f0-7baccfc4d5ad" value="Application Message Libraries.Menu.CASE_MANAGEMENT">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -10145,7 +10157,7 @@
                             <classifiers uid="28edb715-b0ae-4278-bf4b-596ade9ee573" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
                           </fields>
                         </menuElements>
-                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="278ec5a7-eb9a-4df4-b2d3-d0f6cd1842b0" name="Admin">
+                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="278ec5a7-eb9a-4df4-b2d3-d0f6cd1842b0" name="Admin">
                           <multiLangLabel uid="64ab4de5-12f8-406a-a039-e57348c4dbb3" value="Application Message Libraries.Menu.ADMIN">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -10162,7 +10174,7 @@
                             <classifiers uid="9e4ff0dd-169e-42ef-95d5-3c90e66f691b" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
                           </fields>
                         </menuElements>
-                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="ac42c404-40dc-40c9-8d9f-c2783482246e" name="Logout">
+                        <menuElements xsi:type="tura.form:MenuItem" order="3" uid="ac42c404-40dc-40c9-8d9f-c2783482246e" name="Logout">
                           <multiLangLabel uid="7885d4b9-7bc7-4a69-ab6c-dc46ae1db62e" value="Application Message Libraries.Menu.LOGOUT">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -10175,6 +10187,23 @@
                             <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
                             <expression objRef="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" order="3" expressionType="TypeImpl"/>
                             <expression objRef="b029da3c-eee9-4005-a9eb-dd391d066bfd" order="4" expressionType="OperationImpl"/>
+                          </fields>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuItem" uid="49bd6037-49d1-42d9-b8f3-036484b5e8c3" name="Import data">
+                          <multiLangLabel uid="7943fa44-effa-4551-b99d-5c681899e83c" value="Application Message Libraries.Menu.IMPORT_DATA">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="8d942b56-d015-40a6-bcc1-fbd64fac6f33" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="54743556-2215-4bf0-b36a-90f69ff6af83" constant="true" value="margin-right: 50px;"/>
+                          <fields uid="928d1767-1d35-4d00-a1a5-7e45ccfcfa36" value="ERP.CRM.Sales Analysis.DataLoader.ETLController.ETLControlWindow">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="02d0b32a-fae5-4428-8369-41150d6b2016" order="4" expressionType="FormImpl"/>
+                            <expression objRef="220a2954-a6e2-432e-8d0c-82916014f494" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="220feb8d-287c-400a-a936-bbe056bf3e6f" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
                           </fields>
                         </menuElements>
                       </menuFolders>
@@ -12900,7 +12929,7 @@
                       <menuFolders uid="785f300e-514b-4284-b095-880cbcf84ef2" name="Admin Main menu">
                         <style uid="79834b87-d9bd-49d8-8d68-60ff58223811"/>
                         <icon uid="194ca23e-b3e3-4748-9bbb-4335c95ecdf7"/>
-                        <menuElements xsi:type="tura.form:MenuItem" uid="97e5954d-9709-44ed-b31e-c3d12d9c1ba7" name="Case management">
+                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="97e5954d-9709-44ed-b31e-c3d12d9c1ba7" name="Case management">
                           <multiLangLabel uid="1af32553-9b59-4d8b-a010-8be4f1ca3640" value="Application Message Libraries.Menu.CASE_MANAGEMENT">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -12917,7 +12946,7 @@
                             <classifiers uid="66be2552-e73f-4883-8238-2d8abc10e4cb" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
                           </fields>
                         </menuElements>
-                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="34031800-51a2-473a-a6b8-bdbfbf01fc76" name="Admin">
+                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="34031800-51a2-473a-a6b8-bdbfbf01fc76" name="Admin">
                           <multiLangLabel uid="b77abe48-e94e-4e68-8c70-9b0940f0891f" value="Application Message Libraries.Menu.ADMIN">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -12934,7 +12963,7 @@
                             <classifiers uid="335a2ffa-b87a-4e0c-9654-697fc0a53697" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
                           </fields>
                         </menuElements>
-                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="1a94b7b7-c21c-43cb-8d9e-7e75b39ad31f" name="Logout">
+                        <menuElements xsi:type="tura.form:MenuItem" order="3" uid="1a94b7b7-c21c-43cb-8d9e-7e75b39ad31f" name="Logout">
                           <multiLangLabel uid="e5509174-519a-43d5-9e9b-78b3a972a8b6" value="Application Message Libraries.Menu.LOGOUT">
                             <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                             <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
@@ -12948,6 +12977,25 @@
                             <expression objRef="6f79ec07-5850-4462-8cdf-7a7d25a50904" order="3" expressionType="TypeImpl"/>
                             <expression objRef="205ebf01-deb0-42b6-a268-d8f5f7638868" order="4" expressionType="OperationImpl"/>
                           </fields>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuItem" uid="19596662-9704-4fdf-b424-5077c1602eb7" name="Import data">
+                          <multiLangLabel uid="4fc1ef65-869d-4a53-8910-f9bdee7c6e11" value="Application Message Libraries.Menu.IMPORT_DATA">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="8d942b56-d015-40a6-bcc1-fbd64fac6f33" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="e256e866-820c-4ffb-9d9c-2f853a000c7c" constant="true" value="margin-right: 50px;"/>
+                          <enabled uid="ed5fc594-9d60-4789-9cbd-5795e1434ec0"/>
+                          <fields uid="cd418449-b672-48e2-9f5d-69961afdeb7b" value="ERP.CRM.Sales Analysis.DataLoader.ETLController.ETLControlWindow">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="02d0b32a-fae5-4428-8369-41150d6b2016" order="4" expressionType="FormImpl"/>
+                            <expression objRef="220a2954-a6e2-432e-8d0c-82916014f494" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="b68754d5-f92f-42df-8e62-41c310616811" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
+                          <icon uid="c6fdbde7-432c-40c2-91c7-77946e684fb1"/>
                         </menuElements>
                       </menuFolders>
                     </menus>
@@ -14260,8 +14308,20 @@
                   <view uid="182bcd17-9501-4224-8b7c-9cd0835091e1">
                     <canvases xsi:type="tura.form:Window" uid="220a2954-a6e2-432e-8d0c-82916014f494" name="ETLControlWindow">
                       <style uid="736a41a8-af76-4987-a72d-0e53c8389e83"/>
-                      <viewElement xsi:type="tura.form:ViewPort" uid="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" name="View Aria">
+                      <viewElement xsi:type="tura.form:ViewPort" nickname="processSelection" order="1" uid="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" name="View Aria">
                         <style uid="54312f18-7135-4c6b-93e6-10e565e8404d"/>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="8b58fcac-c6de-4ff9-995b-fdcda5a5bf39" name="Menu Aria">
+                        <style uid="382813ab-504a-42a1-8cfa-b7c9e944f657" constant="true" value="width:100%"/>
+                        <baseCanvas uid="043dbe71-9266-4fcf-8429-78a6b3b267f6">
+                          <style uid="ccd2e306-b101-4e81-949f-34ef6b70eb72" constant="true" value="width:100%"/>
+                          <children xsi:type="tura.form:LayerHolder" uid="e8ea5a83-4a99-42a1-a9fc-cf9a5f78a43d">
+                            <style uid="a7cf3934-ee9b-4b3c-8eab-50f315bb20d2" constant="true" value="width:100%;margin-bottom: 25px;"/>
+                            <children xsi:type="tura.form:Menu" menu="5d675661-9e33-4f0a-a610-ac22ef89356a" uid="b494f340-d6ca-40a9-8a56-8f828a45ce4b">
+                              <style uid="025b7734-eef5-4a65-8a19-f342b415e914"/>
+                            </children>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                       <classifiers uid="c7f0fd30-64d9-4781-b6a7-de14ec9a5fa6" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
                       <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="2649c340-7df0-4c1d-b4fc-c7f890e0d9f1"/>
@@ -14271,51 +14331,9 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="99868e0c-0ee6-44a4-8473-6f09f56d8003" name="ProcessSelectionAria">
                         <style uid="d76a933c-defe-4fd9-b2a0-d359863b2067"/>
                         <baseCanvas uid="708f5f08-fe5a-4bb4-accb-bc2dfb35c69f">
+                          <style uid="4076e383-e4a5-4bbb-9f02-a139c5404acf"/>
                           <children xsi:type="tura.form:LayerHolder" uid="d7c29eb3-7b10-4a84-8201-0aeff1e714d8">
-                            <children xsi:type="tura.form:Table" order="1" uid="b8c963a7-7950-4cfe-aaa5-44e1f30be51b" sourcePointer="34f23350-3da7-48f7-91b9-a38b6df4e3b1" columns="4" rowNumber="5">
-                              <style uid="b6c6522d-8446-4a7a-b8c1-16700f78d288" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
-                              <multiLangLabel uid="91176d40-6f14-4011-936a-19a3306130f8"/>
-                              <cols uid="dccdf1b7-1d18-41a2-a72b-5805604ee793" label="Process code">
-                                <style uid="fb35f350-2c61-409e-ab2c-47a34042b30a"/>
-                                <multiLangLabel uid="4a6402f4-b6ff-4987-971c-0af39c67c395" value="Application Message Libraries.ETLController.PROCESS_CODE">
-                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                  <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
-                                  <expression objRef="7abdb09a-bc08-4739-9c40-8e27b9618d99" order="2" expressionType="MessageImpl"/>
-                                </multiLangLabel>
-                                <element xsi:type="tura.form:OutputText" uid="cfc4b377-8916-4084-9c10-f655739e07f9" valuePointer="d68e4921-f532-49ae-98d6-c74969237ced">
-                                  <style uid="f4e0f7de-0f19-4f6d-bf8d-14956d5a923e"/>
-                                </element>
-                              </cols>
-                              <cols order="1" uid="6634b1cc-c983-4031-8d2b-4a2717e145c6" label="Process name">
-                                <style uid="8dfd1b62-7432-4756-ba07-8918154b98ea"/>
-                                <multiLangLabel uid="463e1474-b623-443a-8d1c-1dda8202921e" value="Application Message Libraries.ETLController.PROCESS_NAME">
-                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                  <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
-                                  <expression objRef="31f13d48-9dfb-4c9a-bc7e-a7210b994423" order="2" expressionType="MessageImpl"/>
-                                </multiLangLabel>
-                                <element xsi:type="tura.form:OutputText" uid="b8f57129-e7a0-411c-a2e6-98a7ba08168c" valuePointer="582d8d82-b236-4097-867d-1392927446ed"/>
-                              </cols>
-                              <cols order="2" uid="cf952b04-ca0c-44e2-93b9-461f10b15812">
-                                <element xsi:type="tura.form:Button" uid="e0efc55e-2ea6-4498-a862-2713ad818634">
-                                  <style uid="5d6047d9-efec-49f2-92f3-2d11422b9a5e" constant="true" value="width:30px;height:30px"/>
-                                  <icon uid="105dcc9d-eb23-46b6-a731-7e220b3ffabd" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
-                                    <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                    <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                    <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                                    <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
-                                    <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
-                                    <parameters uid="acacaf4b-bdec-45d8-acd4-34826a32447a" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
-                                      <value uid="5d2f3177-d2de-492d-afea-5a869a58f335" value="Application Style Libraries.Application styles.Common library.popup-details-button">
-                                        <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
-                                        <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
-                                        <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
-                                        <expression objRef="1fec2707-29f8-4878-a988-b622b824c984" order="3" expressionType="StyleSetImpl"/>
-                                      </value>
-                                    </parameters>
-                                  </icon>
-                                </element>
-                              </cols>
-                            </children>
+                            <style uid="bc139cdc-d3d8-4f96-a7ea-afafb1733e62"/>
                             <children xsi:type="tura.form:Label" uid="90d31034-50ad-424f-981e-4297f80de96f" label="Running processes">
                               <style uid="acb7bff0-bf01-49be-9365-c6f71faf47bf" constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
                               <multiLangLabel uid="755091f4-9a95-4861-827b-be09f161f409" value="Application Message Libraries.ETLController.RUNNING_PROCESSES">
@@ -14324,13 +14342,227 @@
                                 <expression objRef="7acf7ab0-cdcb-4e0c-aecb-49d40e200dc2" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="0e64867e-6b05-4bb3-bed7-9c5f1dbd7094" columns="2">
+                              <style uid="444ef6fa-3d73-4f09-b4af-3cbd7d6035d8" constant="true" value="width:60%;"/>
+                              <children xsi:type="tura.form:Table" uid="873bdcf3-2ae0-42fa-8252-33a59760b984" sourcePointer="34f23350-3da7-48f7-91b9-a38b6df4e3b1" columns="4" rowNumber="5">
+                                <style uid="97c391f2-c48f-483c-9cb0-ca4ecae1d7f1" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+                                <cols order="1" uid="56308165-4394-48fc-8db7-642f12903c62" label="Process code">
+                                  <style uid="dd7f4748-a645-4dab-9688-0a312b0d5f27"/>
+                                  <element xsi:type="tura.form:OutputText" uid="b43cd744-67ef-4e19-9680-5017b118e3b5" valuePointer="d68e4921-f532-49ae-98d6-c74969237ced">
+                                    <style uid="f89c1ea3-e8fd-4298-8124-97fac112b2cc"/>
+                                  </element>
+                                </cols>
+                                <cols order="3" uid="991c0cb6-610c-4df8-8663-6d6917155c15">
+                                  <style uid="8c15f374-30d6-438f-8ec4-9fd396222493" constant="true" value="width:40px"/>
+                                  <element xsi:type="tura.form:Button" uid="072e3a3d-68be-49a0-9630-2f925cfbc39d">
+                                    <style uid="a9130de0-ef90-4336-8f0e-06fcc6a7af10" constant="true" value="width:30px;height:30px"/>
+                                    <classifiers uid="fd96f813-42e7-4dcd-9bc9-4efab87a1f2c" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6" details="&lt;f:attribute name=&quot;param1&quot; value=&quot;#{row}&quot; />"/>
+                                    <fields uid="414c07e0-bb25-4fa1-b49a-b07452760018" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.openProcess()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="72e9bf15-00a7-481a-9e1a-1291b796e946" order="4" expressionType="OperationImpl"/>
+                                    </fields>
+                                    <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
+                                    <refreshAreas area="072e3a3d-68be-49a0-9630-2f925cfbc39d" group="1"/>
+                                    <icon uid="95bee1e3-bdfd-468c-a33b-a81a6df7ceb5" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                      <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                      <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                      <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                      <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                      <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                      <parameters uid="ba86dd78-f783-4e2c-ae40-d0e4d64fd6a7" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                        <value uid="bcd8f3df-e477-4bbd-981a-07b239d9f839" value="Application Style Libraries.Application styles.Common library.popup-details-button">
+                                          <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                          <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                          <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                          <expression objRef="1fec2707-29f8-4878-a988-b622b824c984" order="3" expressionType="StyleSetImpl"/>
+                                        </value>
+                                      </parameters>
+                                    </icon>
+                                  </element>
+                                </cols>
+                                <cols order="2" uid="5375de81-117d-4b63-aebc-11caf2af7530" label="Process name">
+                                  <element xsi:type="tura.form:OutputText" uid="5909c86f-754d-4499-8d3d-e47bf9459706" valuePointer="582d8d82-b236-4097-867d-1392927446ed"/>
+                                </cols>
+                                <cols uid="205654c6-f5c2-43dd-81ca-81b677cb0c47" label="Id">
+                                  <style uid="49af496e-9be7-487f-909e-a74cb790ed20"/>
+                                  <multiLangLabel uid="4675409e-e7f1-4ec2-8f14-2517ae72232d" value="Application Message Libraries.Case management.ID">
+                                    <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                    <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                                    <expression objRef="c7ed1b1c-7258-4eac-9bd4-3c40d7fa476f" order="2" expressionType="MessageImpl"/>
+                                  </multiLangLabel>
+                                  <element xsi:type="tura.form:OutputText" uid="70da694e-63a0-40a0-baaf-12c31e5a05b6" valuePointer="f8fd4e26-0ec8-4e98-9822-549936f816c7"/>
+                                </cols>
+                              </children>
+                              <children xsi:type="tura.form:Button" order="1" uid="0c2ca36e-e4d1-46bf-b778-da421d2d9c96" label="Add">
+                                <style uid="7123b259-f542-4b22-bdf2-8b6bd4cecae3" constant="true" value="width:30px;height:30px"/>
+                                <fields uid="bf5c1996-ab8b-4714-bb76-7e605910fb0b" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.createMonthlyLoadingProcess()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" order="4" expressionType="OperationImpl"/>
+                                </fields>
+                                <refreshAreas area="0c2ca36e-e4d1-46bf-b778-da421d2d9c96" group="1"/>
+                                <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
+                                <icon uid="ca5ec2a2-1ec3-44e4-a466-058584379743" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="9c79e3eb-66f3-4c32-840e-e0c84ce3ec8c" order="4" expressionType="OperationImpl"/>
+                                  <parameters uid="9eb0df36-ce5b-4c9e-ba1f-914e66966fec" refObj="fda5860f-5ab5-4316-ba93-bd3a6a97163b">
+                                    <value uid="1147df5e-bb0d-40ac-a591-95cb7159942c" value="Application Style Libraries.Application styles.Common library.add-row-button">
+                                      <expression objRef="95b13491-6504-4ddb-a188-effcb7cdea59" expressionType="ApplicationStyleLibrariesImpl"/>
+                                      <expression objRef="26a4c586-f92e-4f83-bc3d-75e7a17a4099" order="1" expressionType="ApplicationStyleImpl"/>
+                                      <expression objRef="c9a3dee3-fb31-42e5-a589-de2bf2cf9a7a" order="2" expressionType="StyleLibraryImpl"/>
+                                      <expression objRef="25923a25-3fb3-4a3b-b692-9ff365baf224" order="3" expressionType="StyleSetImpl"/>
+                                    </value>
+                                  </parameters>
+                                </icon>
+                              </children>
+                            </children>
                           </children>
                         </baseCanvas>
                       </viewElement>
                     </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="96d21de5-a477-49c2-bfe3-d394d8dc333d" name="Monthly File Loading Process Steps">
+                      <style uid="16df87dd-f69c-48e5-a2f1-444f2465b3ee"/>
+                      <viewElement xsi:type="tura.form:ViewPort" uid="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" name="Step selector">
+                        <style uid="1282ee30-89dd-42b3-a20e-d22851ecc5b7"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="13ac834c-d15d-4c89-8aab-7d364e6bdc25" name="Human Task step">
+                      <style uid="f2ed6be6-a63b-4fd2-a183-35d4c635d6e8"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="59616898-43d9-4d77-ac21-d156b267a9b4" name="Human Task">
+                        <style uid="1c47e9a1-bf10-407f-b17b-cf6dfd293c7d"/>
+                        <baseCanvas uid="4b0a50bc-3378-4412-bb4e-425da9b08456">
+                          <style uid="6604c0f1-68df-48bd-8236-f0225d9cd5a2" constant="true" value="width:100%"/>
+                          <children xsi:type="tura.form:LayerHolder" uid="dc5d1cf5-f655-4fe1-8582-a2f8b935dd57" columns="2">
+                            <style uid="cdbbb674-734c-4a15-83b8-0ff6fdc16d42" constant="true" value="width:100%;margin-bottom: 25px;"/>
+                            <children xsi:type="tura.form:Label" uid="65ea3f24-b7d5-4e42-9f00-6d022ca3a626" label="step name">
+                              <style uid="9975eb9b-4151-4719-b30c-d8507a6b13fb" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <multiLangLabel uid="e14cb6f1-9a7b-4cc1-80fa-ede101a946d9" value="Application Message Libraries.ETLController.STEP_NAME">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="caa9821d-2633-44cd-ad22-4da08c391d90" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:OutputText" order="1" uid="0436421b-c9ef-4a23-bdc2-112ddf98c5d9" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="8c484990-3230-44e9-908c-c941f347aec4">
+                              <style uid="8bda0eb6-6840-4a51-8228-7b15858035b2" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <classifiers uid="820e3068-8828-4b77-9f37-990c87f470fb" hint="9140f70e-6b1c-49a2-8481-0dd72284571e"/>
+                              <enabled uid="937a37da-498d-43e8-8f26-ea887cee2b1c"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="1d3f5fc4-2e0f-4235-a279-a9fb87fed6de" columns="2">
+                            <style uid="c38102b2-f947-4a51-8732-3f16d3b275f6" constant="true" value="width:100%"/>
+                            <children xsi:type="tura.form:Button" uid="c48109b3-1329-496c-bfdb-c03a2873da55" label="Prev">
+                              <style uid="c2d0966c-71d2-4a1a-87af-8316cb6c9855"/>
+                              <multiLangLabel uid="1df6a052-e63f-46ad-87f0-9a9106d9cdaa" value="Application Message Libraries.ETLController.BUTTON_PREV">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="7646ce45-01ef-4c73-bfc9-0de7f0febf83" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:Button" order="1" uid="821aa045-a5fd-437c-8870-016b9bcb015b" label="Next">
+                              <style uid="754eca77-5b90-48ab-8c83-e480d2e5fd49" constant="true" value="float: right"/>
+                              <multiLangLabel uid="0277c5a0-5c23-440c-a954-754bbc57bd42" value="Application Message Libraries.ETLController.BUTTON_NEXT">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="7d2bd9c4-e357-44f9-aa1f-6a62a15092be" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="fe7ff41d-3275-4cb5-b595-1dbc4bad47b7" name="Automated step">
+                      <style uid="7ba023d0-c9d6-4550-9308-6f45cc2c0116"/>
+                    </canvases>
                     <viewInheritances uid="b9c1bcfd-3176-4073-98a3-2e7467876cb9" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="b81472e3-3691-491b-9a84-862652bb04da"/>
+                    <viewInheritances uid="3460e173-fff3-42f8-a750-5d6c23651908" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="96d21de5-a477-49c2-bfe3-d394d8dc333d"/>
+                    <viewInheritances uid="6daca457-dae9-45ac-959e-402e2e087e45" source="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" target="13ac834c-d15d-4c89-8aab-7d364e6bdc25"/>
+                    <viewInheritances uid="58c2aeda-aa81-4a7c-b198-bd4e7ba4e8d9" source="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" target="fe7ff41d-3275-4cb5-b595-1dbc4bad47b7"/>
+                    <menus uid="f3421b84-fcdb-4d49-aee3-69fabfc9ac2a" name="ETLMain menu">
+                      <style uid="58b29b4b-7345-44e6-93c4-630372c530f8"/>
+                      <menuFolders uid="5d675661-9e33-4f0a-a610-ac22ef89356a" name="ETL Main menu">
+                        <icon uid="2ce83364-2142-4de7-b8cd-8aceab00f950"/>
+                        <menuElements xsi:type="tura.form:MenuItem" uid="d5258050-cf8f-4f40-a4f6-96c5d7c1f54d" name="Import data">
+                          <multiLangLabel uid="ef2a345c-f3fd-489e-9b62-d33efcf9a2e7" value="Application Message Libraries.Menu.IMPORT_DATA">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="8d942b56-d015-40a6-bcc1-fbd64fac6f33" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="68b5664e-5be5-4104-8741-f1d2f1e95b97" constant="true" value="margin-right: 50px;"/>
+                          <fields uid="f07ba98d-68e0-4736-9a23-d826373eeeb7" value="ERP.CRM.Sales Analysis.DataLoader.ETLController.ETLControlWindow">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="02d0b32a-fae5-4428-8369-41150d6b2016" order="4" expressionType="FormImpl"/>
+                            <expression objRef="220a2954-a6e2-432e-8d0c-82916014f494" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="f4f246de-b739-4b3a-939d-4b488b6c98f4" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="56ab89f5-9960-4526-b850-f1fc30979317" name="Case management">
+                          <multiLangLabel uid="f7e0938c-33be-4706-a7d2-7edfce81ce52" value="Application Message Libraries.Menu.CASE_MANAGEMENT">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="e1327579-6d82-4c65-8b6b-4a7e3d32990e" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="4c45c7a0-621a-4761-a162-4b6e4df27aa8" constant="true" value="margin-right: 50px;"/>
+                          <fields uid="e64847c7-6ec5-4a0d-b76b-e24f716ff68a" value="ERP.CRM.Sales Analysis.Analysis.Case manager.WorkItem window">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="69e617fe-f87c-4bea-8822-4b5ba94db1b8" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="ca987224-8b71-4ecd-b66b-d2034961d138" order="4" expressionType="FormImpl"/>
+                            <expression objRef="ef4d1512-69ce-48f5-a82f-029fea14a6e2" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="c2e6b70a-1e53-4fa9-a416-04b3cebe4986" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="cd8f75e1-bab9-405a-9684-3d055f572867" name="Admin">
+                          <multiLangLabel uid="d7ea2218-d2ed-474e-bc47-dcfd6cf11aaf" value="Application Message Libraries.Menu.ADMIN">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="5316a7b2-ae6e-4332-8da4-d759d7d0654a" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="5cc50bce-1811-4da7-95bc-212c41a03c91" constant="true" value="margin-right: 50px;"/>
+                          <fields uid="a99e9d98-c90e-4014-a668-a090565bd144" value="ERP.CRM.Sales Analysis.Admin.Administration.Admin Window">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="9901945d-a513-4e9e-98eb-1d2aad26eae7" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="f3acb9fa-3e15-4da5-ad98-146cf9be8e8c" order="4" expressionType="FormImpl"/>
+                            <expression objRef="4cdbf7eb-01a5-4076-afe2-55b7aefca072" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="da97e5fe-439a-408d-b270-18ce93716e2f" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuItem" order="3" uid="f25eea13-65b1-4403-8a62-c27d15f522ab" name="Logout">
+                          <multiLangLabel uid="29b7ff23-d000-449e-8689-4ca81f98d913" value="Application Message Libraries.Menu.LOGOUT">
+                            <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="a12633d3-31aa-406e-a08c-99dadd892137" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="061e804d-aaf0-4d38-8f40-cd56aa8d57f3" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <style uid="0566240a-581f-4020-9369-9864d07a335c" constant="true" value="margin-right: 50px;"/>
+                          <fields uid="32c86ace-2074-419e-aba7-974ea938163d" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.logout()">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                            <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                            <expression objRef="e530e8f6-024d-4310-a35d-fe9dff60c1e0" order="4" expressionType="OperationImpl"/>
+                          </fields>
+                        </menuElements>
+                      </menuFolders>
+                    </menus>
                   </view>
                   <datacontrols uid="3adcc17a-62e6-412e-98ba-67cebdd4a931">
+                    <root uid="d3239e54-cce8-456f-b44f-8589fac6fe60">
+                      <variables typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="85d7bd88-66dc-48a0-bf9c-1ab0044fe6d1" name="selectedProcess"/>
+                      <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="31bd5e9c-8edf-4b2b-baaf-ec7339528002" name="activeStep"/>
+                    </root>
                     <controls uid="34f23350-3da7-48f7-91b9-a38b6df4e3b1" name="EtlProcess">
                       <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>
                       <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="a6d19258-92a4-403c-a943-785fc49e712f">
@@ -14385,6 +14617,69 @@
                       <defaultOrderBy/>
                       <relationMappers uid="aa376cc3-3a5e-4c88-a3a3-adc6049fcceb" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" assosiationRef="ebe031f2-a548-4fb3-b4d6-d591d3d3be24"/>
                       <relationMappers uid="4e252ba9-b3ee-4352-8bc9-85df447e7938" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" assosiationRef="9799bef8-5b5c-48a6-9689-7a3f849648b1"/>
+                    </controls>
+                    <controls uid="2e4e398d-b061-471f-8d43-894505f3668c" name="EtlProcess Selector">
+                      <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="e4e1317a-dc9e-4e31-9303-49d0ae367765">
+                        <parameters uid="553a4028-3dcc-4e44-a302-839fbc473fa1" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="82f0fdee-314c-4a5d-89b7-8735a1fdf9da" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlProcess">
+                            <expression uid="845feba0-b41c-44e8-acaf-6d4e024dec8c" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="c8f45e62-e895-4b0e-995c-dcbd8468d558" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="8333ba72-c4b7-49d3-a7cf-22aff914ad6d" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="6ad4cec7-d54e-44b0-831f-af9ff5fa5836" objRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="5e2b4dce-d72b-4fc3-940a-1fa73f9b7501">
+                        <parameters uid="a5214b64-6eb3-44b5-84b1-986fcbd663b7" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="aa1b1d1e-7c9d-421e-a82d-46fd3a194dc1" value="Data controls.EtlProcess.searchCriteria">
+                            <expression uid="0834e42e-309c-4c9f-8414-35f1b6f934a9" expressionType="DataControlHolder"/>
+                            <expression uid="b765e4bf-0d50-4e8a-9c54-831121a25575" objRef="2e4e398d-b061-471f-8d43-894505f3668c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="88ce80e3-a5b8-4791-8c37-650eff8301ba" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="89f85198-5fd2-40c8-b13d-82e1941d7280" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="40b8faf6-77af-4264-b774-3b0ff7abe43e" value="Data controls.EtlProcess.orderCriteria">
+                            <expression uid="735cffd8-e972-4f08-a90d-e937d7e6756c" expressionType="DataControlHolder"/>
+                            <expression uid="aac5123d-88b6-4321-9848-93f420de26de" objRef="2e4e398d-b061-471f-8d43-894505f3668c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="80fabac7-97b0-46fa-b69c-f00b46e8d1de" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="be6065d7-2a9f-4bb3-accf-64bf4f4cf3cf" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="5fc99381-1d5a-4ed5-9af6-0b5ba8a01513" value="Data controls.EtlProcess.start Index">
+                            <expression uid="771ddcc8-3b8c-4c9e-bb26-ee9002c5fa12" expressionType="DataControlHolder"/>
+                            <expression uid="18709bf6-96d0-414c-ac60-b5b4cd086806" objRef="2e4e398d-b061-471f-8d43-894505f3668c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="1b3ea5d8-d413-48b5-abab-8d6511ab8338" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7e1cdd87-7992-4e57-9186-ac25071ea8d7" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="ca1a4f5d-ae71-43d7-b448-b9461f4dfd46" value="Data controls.EtlProcess.end Index">
+                            <expression uid="c2b58603-4f59-4016-b054-8af6b8d08d4e" expressionType="DataControlHolder"/>
+                            <expression uid="48fef997-37a9-47d7-8ea7-472d6a22f6a7" objRef="2e4e398d-b061-471f-8d43-894505f3668c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d37c16bc-f0a6-4ebe-a0c5-7898d20eaf49" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="1a9be1b1-7e7d-4b5f-aa0f-93704a0f251a" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="63c8847f-0797-464e-90eb-d841c5a161ea" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlProcess">
+                            <expression uid="70952b53-eaf7-4b78-b71a-9bc6933b736b" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="bb829cde-f2b4-44de-8990-d5038088ddea" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="9a9f1c48-3056-4085-a6fb-62976af6b84c" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="4a2035b6-9fd8-43ae-8964-6e3704fb28ad" objRef="a23c68c0-0a57-49e1-96f2-79fbef23206c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8c484990-3230-44e9-908c-c941f347aec4" name="stepName"/>
+                      <defaultSearch>
+                        <parameters uid="9657d8c4-41b6-4888-ae58-dbdf3005147f" refObj="f8fd4e26-0ec8-4e98-9822-549936f816c7">
+                          <value uid="78177521-3748-4ebe-9b35-8553b7b036df" value="Form variables.selectedProcess">
+                            <expression objRef="d3239e54-cce8-456f-b44f-8589fac6fe60" expressionType="RootImpl"/>
+                            <expression objRef="85d7bd88-66dc-48a0-bf9c-1ab0044fe6d1" order="1" expressionType="FormVariableImpl"/>
+                          </value>
+                        </parameters>
+                      </defaultSearch>
+                      <defaultOrderBy/>
+                      <relationMappers uid="d815d68a-6064-40d6-841b-079d79d5cce9" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" assosiationRef="ebe031f2-a548-4fb3-b4d6-d591d3d3be24"/>
+                      <relationMappers uid="f94c114e-f9f3-440d-9504-7a802336871d" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" assosiationRef="9799bef8-5b5c-48a6-9689-7a3f849648b1"/>
                     </controls>
                   </datacontrols>
                 </forms>
@@ -14723,6 +15018,10 @@
                     <translatioins uid="58a8a02a-c608-4184-ac86-226ff6c956b3" translation="Logout" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="d5e13023-de0c-4364-b89f-455086406e15" translation="Выход" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
+                  <messages uid="8d942b56-d015-40a6-bcc1-fbd64fac6f33" name="IMPORT_DATA">
+                    <translatioins uid="e3c8afcb-958c-4043-99e4-6fae7b4ba85b" translation="Import data" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="776747b0-d94c-4d6e-94b9-e3662766dd8c" translation="Загрузка данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
                 </libraries>
                 <libraries uid="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" name="ETLController">
                   <messages uid="7acf7ab0-cdcb-4e0c-aecb-49d40e200dc2" name="RUNNING_PROCESSES">
@@ -14736,6 +15035,54 @@
                   <messages uid="31f13d48-9dfb-4c9a-bc7e-a7210b994423" name="PROCESS_NAME">
                     <translatioins uid="53fca69a-e67b-4d84-91c3-847b6c14af61" translation="Process name" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="c53af4dd-d717-46e9-a8c3-fe53b611fe56" translation="Имя процеса" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="caa9821d-2633-44cd-ad22-4da08c391d90" name="STEP_NAME">
+                    <translatioins uid="1511046e-a2b1-4f33-adfd-36588d2ba24e" translation="Step:" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="ff354e8c-5fb8-4849-ae60-7747bf1eb54e" translation="Шаг:" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="fbe43ead-65c3-4f72-ab32-0d78f85c0214" name="STEP_1">
+                    <translatioins uid="514f6aba-716a-4de2-909f-9314f8be4a26" translation="Select date of loading file" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="b4f08035-c631-40e1-9c22-ee62a397c75a" translation="Выберите дату файла данных"/>
+                  </messages>
+                  <messages uid="03106985-2bb0-4947-b9ba-e4c96d34096b" name="STEP_2">
+                    <translatioins uid="ee12069f-0061-4b56-8813-5656c9137c50" translation="File uploading" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="01038e5e-0be8-452a-be8b-ba668bd72276" translation="Загрузка данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="cbc383f7-2559-4ae6-983b-4ec7dd3649b8" name="STEP_3">
+                    <translatioins uid="18a79061-f334-4f93-a9f5-198cb7c18b01" translation="Review of uplaoding data" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="63818b96-3d28-42e7-8630-7e3476d0b8d9" translation="Обзор загруженных данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="506536f7-70e5-4d4f-9a14-943496dbe23c" name="STEP_4">
+                    <translatioins uid="b68cfc9f-ebbe-4b2b-b127-0b94ab8aa0d4" translation="Prepare data for rules engine" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="df9c9986-b0c9-46a9-b73e-abe2655fa3ef" translation="Подготовка данных дле обработки" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="2d12e083-13d6-4534-93d6-9d67cfc10920" name="STEP_5">
+                    <translatioins uid="2946c548-0607-49b1-8d99-1e59c9404f63" translation="Run business rules" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="46731d92-5f29-417a-b6f5-d955cb0c30a7" translation="Обработка данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="7f0a99a6-c306-4ece-86f5-741c4f0d37aa" name="STEP_6">
+                    <translatioins uid="ce05c991-3e98-4e9b-80db-232e4b8d73d6" translation="Review result of business rules processing" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="36054455-2cf1-490f-9c6b-79283f72b89d" translation="Обзор результата обработки. данных"/>
+                  </messages>
+                  <messages uid="4a0015bd-f049-4ba7-9235-4f852f7b41e7" name="STEP_7">
+                    <translatioins uid="081ad91f-eeaa-41ac-8842-c937dd738ec2" translation="Insert monthly data" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="6cfae54b-3456-4b1b-9689-4a728c99325c" translation="Загрузка данных. за месяц" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="595cba03-0502-4a8f-8a82-f09b7f118c59" name="STEP_8">
+                    <translatioins uid="2198baf0-4a47-4746-9d20-a4b28cf42d81" translation="Case generation" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="bc82b6a9-72fc-4344-8cdf-3ded99736664" translation="Генерация дел" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="056e464b-b670-4c53-a030-ff17ffbd54c4" name="STEP_9">
+                    <translatioins uid="0be40191-9f11-40d4-9935-633425809da7" translation="Review case generation" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="faee1108-9d5a-453d-ac57-4c57702326cf" translation="Обзоре результатов генерации"/>
+                  </messages>
+                  <messages uid="7d2bd9c4-e357-44f9-aa1f-6a62a15092be" name="BUTTON_NEXT">
+                    <translatioins uid="1b4a3b5a-e8c5-405b-975b-52d72e269d5a" translation="Next" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="658d204e-9329-42c8-93c6-d7b828507822" translation="Следующий" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="7646ce45-01ef-4c73-bfc9-0de7f0febf83" name="BUTTON_PREV">
+                    <translatioins uid="015a539b-a363-4740-b6b0-4346d937109d" translation="Prev" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="acd36905-a288-4a38-b902-6bd58ee5bf89" translation="Предыдущий" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                 </libraries>
               </messageLibraries>
