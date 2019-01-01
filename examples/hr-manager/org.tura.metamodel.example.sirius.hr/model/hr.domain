@@ -1748,6 +1748,9 @@
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="83c50fac-435c-4a1c-9bd9-b3546bedd9a6" name="expirationTime"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c94b1233-8c4e-4cfa-b253-d724cd0d4072" name="processInstanceId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="24ee0c56-4629-430b-b9b0-b8a4e48f4504" name="processId"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="b15d0991-48e6-497a-8569-08d1c8cb9f0f" name="completeTask">
+              <classifiers uid="5ad62e79-5453-4e53-9d54-17540dfaa991" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
+            </attributes>
           </types>
           <types xsi:type="tura.type:Type" uid="c6d792dd-948e-41b9-9346-328c55acb55c" name="FileEntry">
             <classifiers uid="dbe7a8b0-547c-4ab4-bb14-cfac3794c25a" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -14387,7 +14390,7 @@
                                   <element xsi:type="tura.form:OutputText" uid="5909c86f-754d-4499-8d3d-e47bf9459706" valuePointer="582d8d82-b236-4097-867d-1392927446ed"/>
                                 </cols>
                                 <cols uid="205654c6-f5c2-43dd-81ca-81b677cb0c47" label="Id">
-                                  <style uid="49af496e-9be7-487f-909e-a74cb790ed20"/>
+                                  <style uid="49af496e-9be7-487f-909e-a74cb790ed20" constant="true" value="width:80px"/>
                                   <multiLangLabel uid="4675409e-e7f1-4ec2-8f14-2517ae72232d" value="Application Message Libraries.Case management.ID">
                                     <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                     <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
@@ -14477,14 +14480,88 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="4f7787c4-f87f-4170-a588-e3d5ba6ffff9" name="htSteps">
+                        <style uid="766b22ab-a7b4-4b6f-b3e5-fc5982187026" constant="true" value="margin-top: 100px;"/>
+                      </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="fe7ff41d-3275-4cb5-b595-1dbc4bad47b7" name="Automated step">
                       <style uid="7ba023d0-c9d6-4550-9308-6f45cc2c0116"/>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" name="auSteps">
+                        <style uid="eb807c2b-5986-4b6d-b9e8-a41eb6fb6bbf" constant="true" value="margin-top: 100px;"/>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="db249a0f-460d-4ff7-8138-9287523adcac" name="AU Node">
+                        <style uid="bdb45182-47bf-46dc-a254-baea75eddfd5"/>
+                        <baseCanvas uid="11670dc0-a6af-4c11-8ea0-eaa0827b6186">
+                          <style uid="6f7005e7-97ef-4e73-8096-4e0ec4081b30" constant="true" value="width:100%"/>
+                          <children xsi:type="tura.form:LayerHolder" uid="4c88ecce-7078-486a-95ff-95a97183fa44" columns="2">
+                            <style uid="62db5bf9-5ecf-4e0d-ae44-3c7ab43cca69" constant="true" value="width:100%;margin-bottom: 25px;"/>
+                            <children xsi:type="tura.form:Label" uid="bd4afccd-7e49-411f-81a0-3651a015cb59" label="Step name"/>
+                            <children xsi:type="tura.form:OutputText" order="1" uid="1b9de96f-92b3-4e2e-8c63-87faad38de08" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="8c484990-3230-44e9-908c-c941f347aec4"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="81926ea2-aedc-4e01-b840-02d0ef7863ce" name="STEP_1">
+                      <style uid="910e9912-6124-42e8-bcb5-908ccb6c345f"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="2b5f6619-c2ff-4f7d-a620-f5e430824025" name="step1Aria">
+                        <style uid="45c07145-7e4b-4188-a4fe-78297f56cc62"/>
+                        <baseCanvas uid="e13de19f-933b-41b2-83d1-78b295c8c3d5">
+                          <style uid="c1c81635-98ec-4012-9689-d9c1081d94f8" constant="true" value="width:100%"/>
+                          <children xsi:type="tura.form:LayerHolder" uid="13f29309-b9ee-45f7-82ad-2aa49668327a" columns="2">
+                            <style uid="1f8d5938-fd33-4ee0-8817-dee76a9f3861" constant="true" value="width:100%"/>
+                            <children xsi:type="tura.form:Label" uid="9df2f858-d334-44c6-90d6-20ea3e79f07f" label="Data">
+                              <style uid="463acb7c-2f99-47b1-81fe-29b87e3bcc0b" constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;"/>
+                              <enabled uid="c9bcb775-2527-41e5-baea-e27237a3101f"/>
+                              <required uid="28b1b4ab-62b4-482b-8d8d-26d24b8a1879"/>
+                              <readOnly uid="3b6ac8e9-a829-4c7e-a28d-e1e7b5f09c37"/>
+                              <multiLangLabel uid="624f74d5-0b0f-4a4c-9063-9cb3557e42c1" value="Application Message Libraries.ETLController.LOADING_DATE">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="68950c70-4ff3-4c3e-a722-1a28c3b6ddd7" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:Date" order="1" uid="f8be55fd-2286-4097-a0c6-02b11d27e378" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="457ef761-375a-4ea3-87ea-350ac86c3cc4" format="dd-MM-yyyy"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="258a3534-b57a-4b0b-9266-b96293f7c492" name="STEP_3">
+                      <style uid="39ec0b6d-ebf7-40e1-a231-bdd886d08f14"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="9b861ca0-1859-40eb-b5fc-ea71d26fb0ea" name="STEP_6">
+                      <style uid="f1c66458-3bf7-4eeb-af46-527db4bc153f"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="eaa195ff-f711-4c98-a29e-5b7198486b90" name="STEP_9">
+                      <style uid="13d601ff-6ff8-4682-a16d-dd0fb1bf9aa6"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="8636bcd2-ce42-49fd-a3c2-f971246f1aef" name="STEP_2">
+                      <style uid="2d3ac034-7cc2-4606-b187-8dd762175673"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="eb4df8c7-06da-4ad4-b575-389fdc111e9f" name="STEP_4">
+                      <style uid="8038c20f-84bb-4dcd-a6cf-74a897b0240c"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="ccf5cac2-0b5a-4c5e-b9b9-6ecc0492a9c2" name="STEP_5">
+                      <style uid="1719b1f1-3f4e-4a02-ab4d-c88f694e0915"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="87cd228d-d198-488e-8da1-d0353cce96f0" name="STEP_7">
+                      <style uid="ff28b611-edb8-4853-b5d3-88a2af693558"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="8a382e60-c3fa-4ebb-9093-b3e384d2189b" name="STEP_8">
+                      <style uid="83135059-b553-4cf8-9431-2fcfbf58d3a2"/>
                     </canvases>
                     <viewInheritances uid="b9c1bcfd-3176-4073-98a3-2e7467876cb9" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="b81472e3-3691-491b-9a84-862652bb04da"/>
                     <viewInheritances uid="3460e173-fff3-42f8-a750-5d6c23651908" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="96d21de5-a477-49c2-bfe3-d394d8dc333d"/>
                     <viewInheritances uid="6daca457-dae9-45ac-959e-402e2e087e45" source="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" target="13ac834c-d15d-4c89-8aab-7d364e6bdc25"/>
                     <viewInheritances uid="58c2aeda-aa81-4a7c-b198-bd4e7ba4e8d9" source="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" target="fe7ff41d-3275-4cb5-b595-1dbc4bad47b7"/>
+                    <viewInheritances uid="8286fdaa-5b04-4171-8bd5-4ae30ba1d7bc" source="4f7787c4-f87f-4170-a588-e3d5ba6ffff9" target="81926ea2-aedc-4e01-b840-02d0ef7863ce"/>
+                    <viewInheritances uid="da5f5aae-691d-4c2a-a3a5-792e7f0d5d86" source="4f7787c4-f87f-4170-a588-e3d5ba6ffff9" target="258a3534-b57a-4b0b-9266-b96293f7c492"/>
+                    <viewInheritances uid="5c2d9a50-1353-487a-a82a-069bbfd3cbd1" source="4f7787c4-f87f-4170-a588-e3d5ba6ffff9" target="9b861ca0-1859-40eb-b5fc-ea71d26fb0ea"/>
+                    <viewInheritances uid="0d041aef-64d0-4f1e-a38d-ea0e6598a89e" source="4f7787c4-f87f-4170-a588-e3d5ba6ffff9" target="eaa195ff-f711-4c98-a29e-5b7198486b90"/>
+                    <viewInheritances uid="8b7b1fa0-b54f-4ab7-853c-4da5465dc14f" source="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" target="8636bcd2-ce42-49fd-a3c2-f971246f1aef"/>
+                    <viewInheritances uid="f661b0bd-b5ef-491f-a062-cc971b1433b1" source="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" target="eb4df8c7-06da-4ad4-b575-389fdc111e9f"/>
+                    <viewInheritances uid="73308891-6dbf-4963-9eeb-4a9fec3dbb71" source="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" target="ccf5cac2-0b5a-4c5e-b9b9-6ecc0492a9c2"/>
+                    <viewInheritances uid="b11dea55-131e-4c7d-9478-23ed69511954" source="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" target="87cd228d-d198-488e-8da1-d0353cce96f0"/>
+                    <viewInheritances uid="faf4a129-c4ae-429f-b013-037be5eb0dc5" source="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" target="8a382e60-c3fa-4ebb-9093-b3e384d2189b"/>
                     <menus uid="f3421b84-fcdb-4d49-aee3-69fabfc9ac2a" name="ETLMain menu">
                       <style uid="58b29b4b-7345-44e6-93c4-630372c530f8"/>
                       <menuFolders uid="5d675661-9e33-4f0a-a610-ac22ef89356a" name="ETL Main menu">
@@ -14669,6 +14746,7 @@
                         </parameters>
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8c484990-3230-44e9-908c-c941f347aec4" name="stepName"/>
+                      <artificialFields typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="457ef761-375a-4ea3-87ea-350ac86c3cc4" name="loadingDate"/>
                       <defaultSearch>
                         <parameters uid="9657d8c4-41b6-4888-ae58-dbdf3005147f" refObj="f8fd4e26-0ec8-4e98-9822-549936f816c7">
                           <value uid="78177521-3748-4ebe-9b35-8553b7b036df" value="Form variables.selectedProcess">
@@ -15083,6 +15161,10 @@
                   <messages uid="7646ce45-01ef-4c73-bfc9-0de7f0febf83" name="BUTTON_PREV">
                     <translatioins uid="015a539b-a363-4740-b6b0-4346d937109d" translation="Prev" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="acd36905-a288-4a38-b902-6bd58ee5bf89" translation="Предыдущий" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="68950c70-4ff3-4c3e-a722-1a28c3b6ddd7" name="LOADING_DATE">
+                    <translatioins uid="45c0383e-562b-4ffb-87db-b5277fcd20fd" translation="Date of monthly file" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="c5c41909-d165-4236-a210-dec860b5c733" translation="Дата данных за месяц" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                 </libraries>
               </messageLibraries>

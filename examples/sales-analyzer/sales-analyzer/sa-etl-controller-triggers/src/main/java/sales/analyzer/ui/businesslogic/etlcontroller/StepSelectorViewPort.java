@@ -1,5 +1,8 @@
 package sales.analyzer.ui.businesslogic.etlcontroller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,10 +51,11 @@ public class StepSelectorViewPort extends ViewPortCommand {
 			if ( process.getActiveUserTasks() != null  && process.getActiveUserTasks().size() != 0) {
 				EtlTask task = process.getActiveUserTasks().get(0);
 				if ( Constants.TASK_STATUS.contains(task.getStatus())) {
-					initHT(process, bf);
+					initStep(process, bf);
 					return HUMAN_TASK;
 				}
 			}else {
+				initStep(process, bf);
 				return AUTOMATED_STEPS;
 			}
 			
@@ -64,7 +68,7 @@ public class StepSelectorViewPort extends ViewPortCommand {
 
 	}
 	
-	private void initHT(EtlProcess process , IBeanFactory bf) {
+	private void initStep(EtlProcess process , IBeanFactory bf) throws Exception {
 		EtlTask task = process.getActiveUserTasks().get(0);
 		int i = Constants.PRC_NODES.indexOf(task.getName());
 		bf.setActiveStep(i);
@@ -73,7 +77,21 @@ public class StepSelectorViewPort extends ViewPortCommand {
 		EtlProcessSelectorArtifitialFieldsAdapter adapter  = new  EtlProcessSelectorArtifitialFieldsAdapter((ObjectControl) process);
 		adapter.setStepName(nodename);
 		
+		initLoadingDate(process,bf);
+		
 	}
 	
 
+	private void initLoadingDate(EtlProcess process , IBeanFactory bf) throws Exception {
+		if (bf.getActiveStep() == 0) {
+			EtlProcessSelectorArtifitialFieldsAdapter adapter  = new  EtlProcessSelectorArtifitialFieldsAdapter((ObjectControl) process);
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			Date d =  formatter.parse("01-11-2017");
+			adapter.setLoadingDate(d);
+		}
+	}
+	
+	
+	
 }

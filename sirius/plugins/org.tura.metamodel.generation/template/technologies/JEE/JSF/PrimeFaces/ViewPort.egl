@@ -6,7 +6,7 @@ operation form::ViewPort draw(hash) {
 
      util.traceIfDebug("UI element","ViewPort start: "+self.name);     
 %]
-<p:panelGrid   [%=self.mkUIDBinding()%]  columns="1">
+<p:panelGrid   [%=self.mkUIDBinding()%]  columns="1"  [%=self.styleAttributes(hash)%] >
 		<ui:include src="#{viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].[%=util.mergeAndUnCapitalize(self.name)%]}"/>
 </p:panelGrid>
 [%               
