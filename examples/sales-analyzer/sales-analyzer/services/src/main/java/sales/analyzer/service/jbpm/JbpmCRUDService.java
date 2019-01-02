@@ -15,6 +15,7 @@ import org.tura.platform.repository.spa.SpaControl;
 
 import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.ETLProcessInstance;
+import sales.analyzer.api.model.impl.EtlMLPMessage;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.api.model.impl.TaskComletion;
@@ -66,7 +67,33 @@ public class JbpmCRUDService implements CRUDProvider {
 		if (control.getObject() instanceof TaskComletion) {
 			completeTask((TaskComletion) control.getObject());
 		}
+		if (control.getObject() instanceof EtlMLPMessage) {
+			completeTask((EtlMLPMessage) control.getObject());
+		}
+	}
 
+	private void completeTask(EtlMLPMessage obj) {
+		UserTaskServicesClient taskClient = client.getServicesClient(UserTaskServicesClient.class);
+		TaskInstance task = taskClient.getTaskInstance(Constants.CONTAINER_ID, obj.getTaskId());
+		
+		if (Status.Ready.name().equals(task.getStatus())) {
+			taskClient.claimTask(Constants.CONTAINER_ID, obj.getTaskId(), null);
+			taskClient.startTask(Constants.CONTAINER_ID, obj.getTaskId(), null);
+		}
+
+		if (Status.Reserved.name().equals(task.getStatus())) {
+			taskClient.startTask(Constants.CONTAINER_ID, obj.getTaskId(), null);
+		}
+		Map<String, Object> params = new HashMap<>();
+		if (obj.getDirection() != null) {
+			params.put("direction", obj.getDirection());
+		}
+		if (obj.getLoadingDate() != null) {
+			params.put("dateOfFile", obj.getLoadingDate());
+		}
+
+		taskClient.completeTask(Constants.CONTAINER_ID, obj.getTaskId(), null, params);
+		
 	}
 
 	private void terminateFlow(TerminateProcessEvent obj) {

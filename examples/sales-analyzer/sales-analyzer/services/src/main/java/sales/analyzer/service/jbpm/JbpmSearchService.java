@@ -53,11 +53,14 @@ public class JbpmSearchService extends AbstaractSearchService {
         }
         if (ETLProcessInstance.class.getName().equals(objectClass)) {
             Long o = (Long) pk;
-            query = Constants.QUERY_PROCESS_BY_PK;
+            query = Constants.QUERY_ETL_PROCESS_BY_SEARCH_CRITERIA;
             mapper = ETLProcessInstance.class.getSimpleName();
             clazz = ETLProcessInstance.class;
             parameters.put(Constants.PARAMETER_PROCESSINSTANCE_ID, o);
 
+            ArrayList<String> array = new ArrayList<>();
+            array.add(Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID);
+            parameters.put(Constants.PARAMETER_PROCESS_IDS, array);
         }
 
         if (SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {

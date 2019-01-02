@@ -122,7 +122,7 @@ public class SalesAnalyzerTaskInstanceMapper extends AbstractQueryMapper<SalesAn
 
 	@Override
 	public Class<?> getType() {
-		return SalesAnalyzerProcessInstance.class;
+		return SalesAnalyzerTaskInstance.class;
 	}
 
 	@Override

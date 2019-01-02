@@ -15,11 +15,18 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.EtlProcessSelectorArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
+import org.tura.salesanalyzer.serialized.jbpm.EtlTask;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import sales.analyzer.api.model.impl.EtlMLPMessage;
 import sales.analyzer.commons.CachedUserPreferences;
 import sales.analyzer.process.commons.Constants;
 
@@ -55,28 +62,28 @@ public class Actions implements EventAccessor {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
 			@SuppressWarnings("rawtypes")
-			DataControl dc =  (DataControl) bf.getEtlProcess();
-			EtlProcess process =  (EtlProcess) dc.createObject();
+			DataControl dc = (DataControl) bf.getEtlProcess();
+			EtlProcess process = (EtlProcess) dc.createObject();
 			process.setProcessId(Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID);
-			
+
 			applyChanges();
-			
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
 	}
 
-	private void applyChanges() throws  Exception{
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
+	private void applyChanges() throws Exception {
+		CommandStackProvider sp = new CommandStackProvider();
+		sp.setCommandStack(commandStack);
 
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
+		proxyRepository.applyChanges(null);
+		commandStack.commitSavePoint();
 	}
-	
+
 	public void logout() {
 		try {
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -92,6 +99,43 @@ public class Actions implements EventAccessor {
 	public void setEvent(ActionEvent event) {
 		this.event = event;
 
+	}
+
+	public void nextStep() {
+		try {
+			EtlMLPMessage message = new EtlMLPMessage();
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+			EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+			if (bf.getActiveStep() == 0) {
+				EtlProcessSelectorArtifitialFieldsAdapter adapter = new EtlProcessSelectorArtifitialFieldsAdapter(
+						(ObjectControl) process);
+				message.setLoadingDate(adapter.getLoadingDate());
+			}
+			message.setDirection(0);
+			changeStep(process,message);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	public void prevStep() {
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+			EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+			EtlMLPMessage message = new EtlMLPMessage();
+			message.setDirection(1);
+			changeStep(process,message);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	private void changeStep(EtlProcess process, EtlMLPMessage message) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		String s = mapper.writeValueAsString(message);
+		EtlTask task =   process.getActiveUserTasks().get(0);
+		task.setCompleteTask(s);
+		applyChanges();
 	}
 
 }

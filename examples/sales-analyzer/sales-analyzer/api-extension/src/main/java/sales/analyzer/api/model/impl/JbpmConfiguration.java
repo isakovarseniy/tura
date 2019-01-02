@@ -104,7 +104,19 @@ public class JbpmConfiguration {
             "WHERE \n" +
             "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0\n"
             ;
-            
+
+    private static String ETL_TASK_QUERY = "SELECT \n"+
+ "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID,pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" +    
+             "TSK.* \n"+
+            "FROM KIESERVER.TASK TSK\n" +
+            "INNER JOIN KIESERVER.PROCESSINSTANCELOG pl ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID\n"+
+//            "INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID\n" +
+//            "INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID\n"+
+            "WHERE \n" +
+            "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0  ORDER BY PROC_PROCESSINSTANCEID\n"
+            ;
+    
+    
     private static String NODELOG_QUERY = "SELECT * FROM KIESERVER.NODEINSTANCELOG ORDER BY ID DESC";
     
     
@@ -124,6 +136,8 @@ public class JbpmConfiguration {
         initETLNodeLogBySearchCriteriaQuery(queryClient, datasource);
         initETLNodeLogNumberOfRowsBySearchCriteriaQuery(queryClient, datasource);
         initETLNodeLogByPrimaryKeyQuery(queryClient, datasource);
+        
+        initETLTasksByPrimaryKeyQuery(queryClient, datasource);
 
     }
     
@@ -346,6 +360,26 @@ public class JbpmConfiguration {
         queryClient.registerQuery(query);
         
     }
+    
+    private static void initETLTasksByPrimaryKeyQuery(QueryServicesClient queryClient, String datasource) {
+
+        try {
+            queryClient.getQuery(Constants.QUERY_ETL_TASK_BY_PK);
+            queryClient.unregisterQuery(Constants.QUERY_ETL_TASK_BY_PK);
+        } catch (Exception e) {
+            // Query not found
+        }
+
+        QueryDefinition query = new QueryDefinition();
+        query.setName(Constants.QUERY_ETL_TASK_BY_PK);
+        query.setSource(datasource);
+        query.setTarget(Target.TASK.name());
+        query.setExpression(ETL_TASK_QUERY);
+
+        queryClient.registerQuery(query);
+        
+    }
+
     
     
     private static void initProcessessBySearchCriteriaQuery(QueryServicesClient queryClient, String datasource) {

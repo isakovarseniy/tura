@@ -40,6 +40,7 @@ import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.ETLNodeInstanceLog;
 import sales.analyzer.api.model.impl.ETLProcessInstance;
 import sales.analyzer.api.model.impl.ETLTaskInstance;
+import sales.analyzer.api.model.impl.EtlMLPMessage;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
 import sales.analyzer.api.model.impl.TaskComletion;
@@ -53,6 +54,7 @@ import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 import sales.analyzer.service.jbpm.commands.AssignActorsCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCaseProcessCommand;
 import sales.analyzer.service.jbpm.commands.CloseWFCommand;
+import sales.analyzer.service.jbpm.commands.ETLCompleteTaskCommand;
 import sales.analyzer.service.jbpm.commands.TaskCompletionCommand;
 import sales.analyzer.service.keycloak.KeyCloakCRUDService;
 import sales.analyzer.service.keycloak.KeyCloakSearchService;
@@ -138,12 +140,15 @@ public class CDIRegistry extends Registry {
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLProcessInstance.class,JbpmSearchService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLTaskInstance.class,JbpmSearchService.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addSearchProvider(ETLNodeInstanceLog.class,JbpmSearchService.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(EtlMLPMessage.class,JbpmCRUDService.class);
+			
 
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(AssignActorsCaseProcessCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCaseProcessCommand.class);
 			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(TaskCompletionCommand.class);
+			spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(ETLCompleteTaskCommand.class);
 
 			
 			AdministrationProfile p = new AdministrationProfile();

@@ -46,6 +46,7 @@ public class Constants {
 
 	public static final String QUERY_PROCESS_BY_PK = "getProcessByPK";
 	public static final String QUERY_TASK_BY_PK = "getTaskByPK";
+	public static final String QUERY_ETL_TASK_BY_PK = "getETLTaskByPK";
 	public static final String QUERY_PROCESS_BY_CASE_ID = "getProcessByCaseIdPK";
 	public static final String QUERY_NODELOG_BY_PK = "getNodeLogByPK";
 

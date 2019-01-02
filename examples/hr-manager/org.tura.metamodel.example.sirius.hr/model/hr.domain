@@ -1748,7 +1748,7 @@
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="83c50fac-435c-4a1c-9bd9-b3546bedd9a6" name="expirationTime"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c94b1233-8c4e-4cfa-b253-d724cd0d4072" name="processInstanceId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="24ee0c56-4629-430b-b9b0-b8a4e48f4504" name="processId"/>
-            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="b15d0991-48e6-497a-8569-08d1c8cb9f0f" name="completeTask">
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="b15d0991-48e6-497a-8569-08d1c8cb9f0f" name="completeTask">
               <classifiers uid="5ad62e79-5453-4e53-9d54-17540dfaa991" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
             </attributes>
           </types>
@@ -2061,6 +2061,8 @@
             <operations uid="72e9bf15-00a7-481a-9e1a-1291b796e946" name="openProcess"/>
             <operations uid="e530e8f6-024d-4310-a35d-fe9dff60c1e0" name="logout"/>
             <operations uid="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" name="createMonthlyLoadingProcess"/>
+            <operations uid="8257b056-ead9-4b53-980a-7dd4b1cdd155" name="prevStep"/>
+            <operations uid="44ed1bf9-6134-4f03-b58c-53e9b8a8b962" name="nextStep"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -14463,6 +14465,15 @@
                             <style uid="c38102b2-f947-4a51-8732-3f16d3b275f6" constant="true" value="width:100%"/>
                             <children xsi:type="tura.form:Button" uid="c48109b3-1329-496c-bfdb-c03a2873da55" label="Prev">
                               <style uid="c2d0966c-71d2-4a1a-87af-8316cb6c9855"/>
+                              <fields uid="1779085a-25bb-4faf-ad24-aaa5fd6aae8b" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.prevStep()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="8257b056-ead9-4b53-980a-7dd4b1cdd155" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="c48109b3-1329-496c-bfdb-c03a2873da55" group="1"/>
+                              <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                               <multiLangLabel uid="1df6a052-e63f-46ad-87f0-9a9106d9cdaa" value="Application Message Libraries.ETLController.BUTTON_PREV">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
@@ -14471,6 +14482,15 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="1" uid="821aa045-a5fd-437c-8870-016b9bcb015b" label="Next">
                               <style uid="754eca77-5b90-48ab-8c83-e480d2e5fd49" constant="true" value="float: right"/>
+                              <fields uid="a6bf98fd-31e9-4fa5-84cc-d5f00ea87030" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.nextStep()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="44ed1bf9-6134-4f03-b58c-53e9b8a8b962" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="821aa045-a5fd-437c-8870-016b9bcb015b" group="1"/>
+                              <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                               <multiLangLabel uid="0277c5a0-5c23-440c-a954-754bbc57bd42" value="Application Message Libraries.ETLController.BUTTON_NEXT">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
