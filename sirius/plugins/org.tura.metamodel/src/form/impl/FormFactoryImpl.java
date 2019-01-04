@@ -112,6 +112,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.COLUMN: return createColumn();
 			case FormPackage.TABLE: return createTable();
 			case FormPackage.MENU: return createMenu();
+			case FormPackage.BLOCK_UI: return createBlockUI();
+			case FormPackage.POLL: return createPoll();
 			case FormPackage.MENU_HOLDER: return createMenuHolder();
 			case FormPackage.MENU_EXTENSION_REF: return createMenuExtensionRef();
 			case FormPackage.MENU_ELEMENT: return createMenuElement();
@@ -737,6 +739,26 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Menu createMenu() {
 		MenuImpl menu = new MenuImpl();
 		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BlockUI createBlockUI() {
+		BlockUIImpl blockUI = new BlockUIImpl();
+		return blockUI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Poll createPoll() {
+		PollImpl poll = new PollImpl();
+		return poll;
 	}
 
 	/**

@@ -1336,6 +1336,52 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.BlockUI} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BlockUIItemProvider blockUIItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.BlockUI}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBlockUIAdapter() {
+		if (blockUIItemProvider == null) {
+			blockUIItemProvider = new BlockUIItemProvider(this);
+		}
+
+		return blockUIItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.Poll} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PollItemProvider pollItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.Poll}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPollAdapter() {
+		if (pollItemProvider == null) {
+			pollItemProvider = new PollItemProvider(this);
+		}
+
+		return pollItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.MenuHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

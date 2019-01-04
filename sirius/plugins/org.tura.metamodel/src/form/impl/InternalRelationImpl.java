@@ -6,11 +6,13 @@ import form.FormPackage;
 import form.InternalRelation;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import type.Assosiation;
-import type.TypeElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ public class InternalRelationImpl extends RelationImpl implements InternalRelati
 	 * @ordered
 	 */
 	protected Assosiation assosiationRef;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

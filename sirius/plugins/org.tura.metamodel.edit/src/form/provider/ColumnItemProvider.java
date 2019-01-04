@@ -346,6 +346,16 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
+				 FormFactory.eINSTANCE.createBlockUI()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.COLUMN__ELEMENT,
+				 FormFactory.eINSTANCE.createPoll()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.COLUMN__ELEMENT,
 				 FormFactory.eINSTANCE.createTree()));
 	}
 

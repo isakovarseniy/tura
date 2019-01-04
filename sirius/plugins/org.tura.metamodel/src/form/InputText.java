@@ -21,7 +21,6 @@ package form;
  * @generated
  */
 public interface InputText extends InputElement, Formatable {
-
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,4 +72,5 @@ public interface InputText extends InputElement, Formatable {
 	 * @generated
 	 */
 	void setColumns(int value);
+
 } // InputText

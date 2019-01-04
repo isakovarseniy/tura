@@ -3,8 +3,6 @@
 package form;
 
 import type.Assosiation;
-import type.TypeElement;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +21,6 @@ import type.TypeElement;
  * @generated
  */
 public interface InternalRelation extends Relation {
-
 	/**
 	 * Returns the value of the '<em><b>Assosiation Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -49,4 +46,5 @@ public interface InternalRelation extends Relation {
 	 * @generated
 	 */
 	void setAssosiationRef(Assosiation value);
+
 } // InternalRelation

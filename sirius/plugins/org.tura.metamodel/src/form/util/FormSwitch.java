@@ -650,6 +650,36 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.BLOCK_UI: {
+				BlockUI blockUI = (BlockUI)theEObject;
+				T result = caseBlockUI(blockUI);
+				if (result == null) result = caseUielement(blockUI);
+				if (result == null) result = caseChildrenHolder(blockUI);
+				if (result == null) result = caseHTMLLayerHolder(blockUI);
+				if (result == null) result = caseStyleElement(blockUI);
+				if (result == null) result = caseNickNamed(blockUI);
+				if (result == null) result = caseCategorized(blockUI);
+				if (result == null) result = caseOrderable(blockUI);
+				if (result == null) result = caseEnabledUIItem(blockUI);
+				if (result == null) result = caseFlexFields(blockUI);
+				if (result == null) result = caseMenuHolder(blockUI);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.POLL: {
+				Poll poll = (Poll)theEObject;
+				T result = casePoll(poll);
+				if (result == null) result = caseUielement(poll);
+				if (result == null) result = caseStyleElement(poll);
+				if (result == null) result = caseNickNamed(poll);
+				if (result == null) result = caseCategorized(poll);
+				if (result == null) result = caseOrderable(poll);
+				if (result == null) result = caseEnabledUIItem(poll);
+				if (result == null) result = caseFlexFields(poll);
+				if (result == null) result = caseMenuHolder(poll);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.MENU_HOLDER: {
 				MenuHolder menuHolder = (MenuHolder)theEObject;
 				T result = caseMenuHolder(menuHolder);
@@ -1776,6 +1806,36 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMenu(Menu object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block UI</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block UI</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlockUI(BlockUI object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Poll</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Poll</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePoll(Poll object) {
 		return null;
 	}
 

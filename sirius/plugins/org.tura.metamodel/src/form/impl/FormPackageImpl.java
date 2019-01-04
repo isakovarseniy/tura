@@ -20,6 +20,7 @@ import domain.impl.DomainPackageImpl;
 
 import form.AreaRef;
 import form.ArtificialField;
+import form.BlockUI;
 import form.Button;
 import form.Canvas;
 import form.CanvasFrame;
@@ -86,8 +87,8 @@ import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
 import form.Password;
+import form.Poll;
 import form.PopupCanvas;
-import form.ProxiesList;
 import form.Relation;
 import form.RelationMapper;
 import form.Root;
@@ -541,6 +542,20 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass menuEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blockUIEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pollEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2243,6 +2258,33 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBlockUI() {
+		return blockUIEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBlockUI_SourceTarget() {
+		return (EReference)blockUIEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPoll() {
+		return pollEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMenuHolder() {
 		return menuHolderEClass;
 	}
@@ -3496,6 +3538,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		menuEClass = createEClass(MENU);
 
+		blockUIEClass = createEClass(BLOCK_UI);
+		createEReference(blockUIEClass, BLOCK_UI__SOURCE_TARGET);
+
+		pollEClass = createEClass(POLL);
+
 		menuHolderEClass = createEClass(MENU_HOLDER);
 		createEReference(menuHolderEClass, MENU_HOLDER__MENU);
 
@@ -3765,6 +3812,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
 		tableEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		menuEClass.getESuperTypes().add(this.getUielement());
+		blockUIEClass.getESuperTypes().add(this.getUielement());
+		blockUIEClass.getESuperTypes().add(this.getChildrenHolder());
+		blockUIEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		pollEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());
 		menuElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
@@ -4010,6 +4061,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getTable_Cols(), this.getColumn(), null, "cols", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(blockUIEClass, BlockUI.class, "BlockUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBlockUI_SourceTarget(), this.getAreaRef(), null, "sourceTarget", null, 0, -1, BlockUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pollEClass, Poll.class, "Poll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(menuHolderEClass, MenuHolder.class, "MenuHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMenuHolder_Menu(), this.getMenuFolder(), null, "menu", null, 0, 1, MenuHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

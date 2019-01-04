@@ -517,6 +517,24 @@ public interface FormFactory extends EFactory {
 	Menu createMenu();
 
 	/**
+	 * Returns a new object of class '<em>Block UI</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Block UI</em>'.
+	 * @generated
+	 */
+	BlockUI createBlockUI();
+
+	/**
+	 * Returns a new object of class '<em>Poll</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Poll</em>'.
+	 * @generated
+	 */
+	Poll createPoll();
+
+	/**
 	 * Returns a new object of class '<em>Menu Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

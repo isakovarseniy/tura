@@ -238,6 +238,16 @@ public class ChildrenHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createBlockUI()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createPoll()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createTree()));
 	}
 
