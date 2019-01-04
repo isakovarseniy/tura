@@ -17,13 +17,13 @@ import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
-import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.EtlProcessSelectorArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.HolderObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.serialized.db.HolderObject;
 import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
 import org.tura.salesanalyzer.serialized.jbpm.EtlTask;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import sales.analyzer.api.model.impl.EtlMLPMessage;
@@ -106,9 +106,10 @@ public class Actions implements EventAccessor {
 			EtlMLPMessage message = new EtlMLPMessage();
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
 			EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+			HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
 			if (bf.getActiveStep() == 0) {
-				EtlProcessSelectorArtifitialFieldsAdapter adapter = new EtlProcessSelectorArtifitialFieldsAdapter(
-						(ObjectControl) process);
+				HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(
+						(ObjectControl) holder);
 				message.setLoadingDate(adapter.getLoadingDate());
 			}
 			message.setDirection(0);

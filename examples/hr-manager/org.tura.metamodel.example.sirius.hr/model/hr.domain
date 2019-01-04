@@ -1774,7 +1774,6 @@
             <links uid="e8d687e8-0191-4fc7-90cc-6ebd71cfa190" masterField="99398110-a923-4a53-8765-536e14a5cfdf" detailField="0ea02a79-83a1-4955-9352-0cfde9c4cea2"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="ebe031f2-a548-4fb3-b4d6-d591d3d3be24" source="a23c68c0-0a57-49e1-96f2-79fbef23206c" target="23381845-4877-4e0f-85ac-ae24189ac406" type="One2Many" internal="true" sourceOperation="activeUserTasks" targetOperation="process"/>
-          <relationships xsi:type="tura.type:Assosiation" uid="9799bef8-5b5c-48a6-9689-7a3f849648b1" source="a23c68c0-0a57-49e1-96f2-79fbef23206c" target="d9f28322-2963-43c5-aa90-0c2af921a94b" type="One2Many" containment="Non"/>
         </repositoryPackages>
         <repositoryPackages uid="868d14bc-9e78-4bf9-b08a-e082b33bac0f" name="KeyCloak">
           <types xsi:type="tura.type:Type" uid="68b54791-f4c6-40ff-a475-0e5f55b72369" name="User">
@@ -14449,16 +14448,18 @@
                             <style uid="cdbbb674-734c-4a15-83b8-0ff6fdc16d42" constant="true" value="width:100%;margin-bottom: 25px;"/>
                             <children xsi:type="tura.form:Label" uid="65ea3f24-b7d5-4e42-9f00-6d022ca3a626" label="step name">
                               <style uid="9975eb9b-4151-4719-b30c-d8507a6b13fb" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <required uid="bcf7ce95-e57b-4a38-b959-6f7685a4b211"/>
                               <multiLangLabel uid="e14cb6f1-9a7b-4cc1-80fa-ede101a946d9" value="Application Message Libraries.ETLController.STEP_NAME">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="caa9821d-2633-44cd-ad22-4da08c391d90" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="0436421b-c9ef-4a23-bdc2-112ddf98c5d9" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="8c484990-3230-44e9-908c-c941f347aec4">
+                            <children xsi:type="tura.form:OutputText" order="1" uid="0436421b-c9ef-4a23-bdc2-112ddf98c5d9" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
                               <style uid="8bda0eb6-6840-4a51-8228-7b15858035b2" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
                               <classifiers uid="820e3068-8828-4b77-9f37-990c87f470fb" hint="9140f70e-6b1c-49a2-8481-0dd72284571e"/>
                               <enabled uid="937a37da-498d-43e8-8f26-ea887cee2b1c"/>
+                              <required uid="0452eeb8-98a2-44f0-ac29-163a6676a0f6"/>
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="1d3f5fc4-2e0f-4235-a279-a9fb87fed6de" columns="2">
@@ -14515,8 +14516,17 @@
                           <style uid="6f7005e7-97ef-4e73-8096-4e0ec4081b30" constant="true" value="width:100%"/>
                           <children xsi:type="tura.form:LayerHolder" uid="4c88ecce-7078-486a-95ff-95a97183fa44" columns="2">
                             <style uid="62db5bf9-5ecf-4e0d-ae44-3c7ab43cca69" constant="true" value="width:100%;margin-bottom: 25px;"/>
-                            <children xsi:type="tura.form:Label" uid="bd4afccd-7e49-411f-81a0-3651a015cb59" label="Step name"/>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="1b9de96f-92b3-4e2e-8c63-87faad38de08" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="8c484990-3230-44e9-908c-c941f347aec4"/>
+                            <children xsi:type="tura.form:Label" uid="bd4afccd-7e49-411f-81a0-3651a015cb59" label="Step name">
+                              <style uid="3a0ec098-0564-46aa-ab97-229ec39ee87f" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <multiLangLabel uid="ff7e4648-2dd6-4bba-9ee1-0c7af8f3444a" value="Application Message Libraries.ETLController.STEP_NAME">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="caa9821d-2633-44cd-ad22-4da08c391d90" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:OutputText" order="1" uid="1b9de96f-92b3-4e2e-8c63-87faad38de08" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
+                              <style uid="7022f11b-3f4d-48c9-b3cc-609e0c1c093a" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                            </children>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -14540,7 +14550,9 @@
                                 <expression objRef="68950c70-4ff3-4c3e-a722-1a28c3b6ddd7" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:Date" order="1" uid="f8be55fd-2286-4097-a0c6-02b11d27e378" sourcePointer="2e4e398d-b061-471f-8d43-894505f3668c" valuePointer="457ef761-375a-4ea3-87ea-350ac86c3cc4" format="dd-MM-yyyy"/>
+                            <children xsi:type="tura.form:Date" order="1" uid="f8be55fd-2286-4097-a0c6-02b11d27e378" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="db6a81bb-276c-419e-ac90-a056aa2945c9" format="dd-MM-yyyy">
+                              <required uid="4c967b9b-89f6-4a77-a187-4d0d896b9938"/>
+                            </children>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -14556,24 +14568,6 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="8636bcd2-ce42-49fd-a3c2-f971246f1aef" name="STEP_2">
                       <style uid="2d3ac034-7cc2-4606-b187-8dd762175673"/>
-                      <viewElement xsi:type="tura.form:ViewArea" uid="dfb17457-da87-4b82-96cf-1f386214eaf0" name="qwert">
-                        <style uid="42dfdc29-d9f4-4df1-b3a0-7f71dad97941"/>
-                        <baseCanvas uid="e8edd3e5-ff91-4f1e-b6f0-594d89763782">
-                          <children xsi:type="tura.form:BlockUI" uid="2a682f9c-156e-4447-bead-5d0cc7192aa6">
-                            <style uid="eace9634-6f97-4c3f-a00c-88a55ffdf5f2"/>
-                            <enabled uid="6ff04ef7-f050-468d-969a-1a63c6dfd99a"/>
-                            <required uid="c7a2bc75-2bfa-431e-859a-dc3b5fe8ab5a"/>
-                            <readOnly uid="4c67b451-8860-4792-b18b-785a0f4016c9"/>
-                            <refreshAreas area="2a682f9c-156e-4447-bead-5d0cc7192aa6" group="2"/>
-                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
-                            <refreshAreas area="2a682f9c-156e-4447-bead-5d0cc7192aa6" group="1"/>
-                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="1"/>
-                            <children xsi:type="tura.form:Image" uid="3e647c0e-0986-4a83-83d8-2c078be91bea"/>
-                            <sourceTarget area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="1"/>
-                            <sourceTarget area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
-                          </children>
-                        </baseCanvas>
-                      </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="eb4df8c7-06da-4ad4-b575-389fdc111e9f" name="STEP_4">
                       <style uid="8038c20f-84bb-4dcd-a6cf-74a897b0240c"/>
@@ -14731,7 +14725,7 @@
                       <defaultSearch/>
                       <defaultOrderBy/>
                       <relationMappers uid="aa376cc3-3a5e-4c88-a3a3-adc6049fcceb" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" assosiationRef="ebe031f2-a548-4fb3-b4d6-d591d3d3be24"/>
-                      <relationMappers uid="4e252ba9-b3ee-4352-8bc9-85df447e7938" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" assosiationRef="9799bef8-5b5c-48a6-9689-7a3f849648b1"/>
+                      <relationMappers uid="4e252ba9-b3ee-4352-8bc9-85df447e7938" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b"/>
                     </controls>
                     <controls uid="2e4e398d-b061-471f-8d43-894505f3668c" name="EtlProcess Selector">
                       <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>
@@ -14783,8 +14777,6 @@
                           </value>
                         </parameters>
                       </search>
-                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8c484990-3230-44e9-908c-c941f347aec4" name="stepName"/>
-                      <artificialFields typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="457ef761-375a-4ea3-87ea-350ac86c3cc4" name="loadingDate"/>
                       <defaultSearch>
                         <parameters uid="9657d8c4-41b6-4888-ae58-dbdf3005147f" refObj="f8fd4e26-0ec8-4e98-9822-549936f816c7">
                           <value uid="78177521-3748-4ebe-9b35-8553b7b036df" value="Form variables.selectedProcess">
@@ -14795,7 +14787,121 @@
                       </defaultSearch>
                       <defaultOrderBy/>
                       <relationMappers uid="d815d68a-6064-40d6-841b-079d79d5cce9" typeRef="23381845-4877-4e0f-85ac-ae24189ac406" assosiationRef="ebe031f2-a548-4fb3-b4d6-d591d3d3be24"/>
-                      <relationMappers uid="f94c114e-f9f3-440d-9504-7a802336871d" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b" assosiationRef="9799bef8-5b5c-48a6-9689-7a3f849648b1"/>
+                      <relationMappers uid="f94c114e-f9f3-440d-9504-7a802336871d" typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b"/>
+                    </controls>
+                    <controls uid="ac5a00c8-2104-4e8d-ab5f-7df5bc55bbc3" name="EtlNodeLog">
+                      <baseType typeRef="d9f28322-2963-43c5-aa90-0c2af921a94b"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="0a37fb19-f3fb-435a-9eb0-fa388d634e65">
+                        <parameters uid="fd03f39f-36d9-4a4c-b2e5-7b97238af51c" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="b7f3a89d-70d4-4b21-aad2-bc6619367353" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlNodeLog">
+                            <expression uid="9ae2054e-e4b6-4c1f-bd27-2d77b2b9c686" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="e530fa27-07f6-447a-bb32-8490046956fd" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="8db97f0a-4da8-4eae-b0c0-d7ea61f4af68" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="067f595c-b4e6-46f7-a0ef-f251b40713ff" objRef="d9f28322-2963-43c5-aa90-0c2af921a94b" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="2522e92a-2402-4645-b65d-2a870d0a851a">
+                        <parameters uid="d6b8e84d-511c-431f-8043-75067afe4c73" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="8e76d657-61ba-41aa-b4a7-cd25c2980c7c" value="Data controls.EtlNodeLog.searchCriteria">
+                            <expression uid="7fd5ce12-3696-4701-892a-3e7a95be5504" expressionType="DataControlHolder"/>
+                            <expression uid="2186467d-8417-4d2c-ac07-bb6db58efe6d" objRef="ac5a00c8-2104-4e8d-ab5f-7df5bc55bbc3" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="3c66d560-8dc4-4da4-a59d-9ce240a7534a" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="85503355-7320-442d-960c-2e1ef0624317" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="0d79f494-e955-4e04-9fee-0c615652827e" value="Data controls.EtlNodeLog.orderCriteria">
+                            <expression uid="f8e4275e-d565-4848-a458-aceb547748b6" expressionType="DataControlHolder"/>
+                            <expression uid="0e43acc4-7bdc-44ff-875c-935551f6d809" objRef="ac5a00c8-2104-4e8d-ab5f-7df5bc55bbc3" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="51251696-a736-4b6b-b096-ad54e188f176" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0e9e06a9-7058-4f64-b91f-5b3f1beeba05" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="683a764c-b2f4-47e0-bbb9-49f162d6c062" value="Data controls.EtlNodeLog.start Index">
+                            <expression uid="d2cc51c9-29dd-4434-ab4d-64ff136b9e30" expressionType="DataControlHolder"/>
+                            <expression uid="6f29e46f-706d-4825-b7e9-083d5fd66ef9" objRef="ac5a00c8-2104-4e8d-ab5f-7df5bc55bbc3" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="89ea87b1-8ed7-454e-ba2a-0e13c6a96bc4" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="fe170ae8-b31f-4f2d-921d-0f3590a1f637" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="c70c120c-a3e0-4d9d-9d82-975f92a4d381" value="Data controls.EtlNodeLog.end Index">
+                            <expression uid="f019e9e1-31b1-473b-b199-144d68be11e3" expressionType="DataControlHolder"/>
+                            <expression uid="439cf7da-8a7d-472a-8293-9f8b0b77837f" objRef="ac5a00c8-2104-4e8d-ab5f-7df5bc55bbc3" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="9bb24fd5-ed3f-4dbe-9ca4-2a3ccddfc7b3" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="8daa3eba-7f99-4b18-9377-4700b30ae750" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="c0599e7f-ab00-429a-92fd-f1bca9ecac67" value="Types repository.Sales Analyzer.JBPM.JBPM::EtlNodeLog">
+                            <expression uid="9c0c50a0-19f3-46e7-9446-4f8730cbe4e1" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="84b8737e-344b-4348-a8e3-18784b201a61" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="75613e06-8165-483b-9855-66cdbe9332c7" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="0c713c85-81b5-44f8-b8b1-5181840c8101" objRef="d9f28322-2963-43c5-aa90-0c2af921a94b" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultSearch>
+                        <parameters uid="bd57ea98-23b8-453c-a25c-987dcd63aa7c" refObj="ac96e45e-cee1-4d33-bfa2-f462fce2a67d">
+                          <value uid="644bbefd-080f-4da2-8ee1-9e8b7712a082" value="Form variables.selectedProcess">
+                            <expression objRef="d3239e54-cce8-456f-b44f-8589fac6fe60" expressionType="RootImpl"/>
+                            <expression objRef="85d7bd88-66dc-48a0-bf9c-1ab0044fe6d1" order="1" expressionType="FormVariableImpl"/>
+                          </value>
+                        </parameters>
+                      </defaultSearch>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="40731043-5d0e-44e9-b707-e18085a1279c" name="Holder Object">
+                      <baseType typeRef="29240e87-5405-4987-b25d-f1ea14f0a81f"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="c9bdd415-ebd2-4bb7-b96c-2d46bda52401">
+                        <parameters uid="196dee63-b664-4897-a01a-225460e8b930" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="6e58f229-394c-4e44-9971-8cc42ac46ddb" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="2c37290f-2058-4a2a-84d7-d3009dc9fb46" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="3519fb46-23c5-4c7f-84d7-914916e603c6" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="07dc6ce5-37c2-49b6-b366-47f764ddef61" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="08eb37f0-5a83-4da4-a2ab-44b7c2f2c5ca" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="7ed590fe-333a-4068-9e97-bec3744c5b08">
+                        <parameters uid="8d3d743b-9236-473a-aa0c-6c9dcf33a3e1" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="94cb4755-5017-40af-9bce-d40139050dbc" value="Data controls.Holder Object.searchCriteria">
+                            <expression uid="c524ea0e-2aad-4778-a3a5-5d31066d2fa6" expressionType="DataControlHolder"/>
+                            <expression uid="e62a1e75-5bc5-41f7-a7df-bf1797f3bfeb" objRef="40731043-5d0e-44e9-b707-e18085a1279c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="40eb37fd-4add-4676-8ff3-21454d2cc2b6" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e211dcb1-c367-42fa-b166-819456123fae" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="2bbcf734-f977-4011-a43e-0fb32f37bdcc" value="Data controls.Holder Object.orderCriteria">
+                            <expression uid="d4f4fa4c-637e-48fa-aeef-e60ff8d23185" expressionType="DataControlHolder"/>
+                            <expression uid="1e900237-3867-4efe-91fd-68900384f67a" objRef="40731043-5d0e-44e9-b707-e18085a1279c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="566b23d6-c058-466e-840f-7022d769f461" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="821032a7-fc97-4249-b116-0f74dd63ec8f" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="177f8759-bbc3-4a7f-85a2-4f361c76abce" value="Data controls.Holder Object.start Index">
+                            <expression uid="dce493d0-310c-4bbe-a428-c1bd6b937ca0" expressionType="DataControlHolder"/>
+                            <expression uid="8576c587-79e6-49be-a179-cfc53686f775" objRef="40731043-5d0e-44e9-b707-e18085a1279c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="7e1cd118-092b-4527-86ef-da6ac99c3427" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="2f93f55d-5450-4907-8405-aba77d1c24ed" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="ae2c19ec-fafd-4a67-90b3-358cce4dca6f" value="Data controls.Holder Object.end Index">
+                            <expression uid="e573b0bb-7ab4-48f1-9fe8-7c9e6be24946" expressionType="DataControlHolder"/>
+                            <expression uid="cc00a74a-6c38-4f07-91f7-7ebdd988a82c" objRef="40731043-5d0e-44e9-b707-e18085a1279c" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b5124a95-3f73-4993-ba69-37d185e8b03e" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9e4e014a-b3d7-4fb3-92d8-71ab911d2486" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="33c53c26-3889-4600-88a5-6ccaa4722403" value="Types repository.Sales Analyzer.database.database::Holder Object">
+                            <expression uid="01d4b2a0-5ecc-4617-a439-e872d152e675" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="50ce33d9-d6c5-4f39-8a93-21f635f3fd26" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="b54bf59d-0de9-42e7-8169-f55130bb3672" objRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="105cc6b2-cc92-4fcc-b9f0-ed47596ca4be" objRef="29240e87-5405-4987-b25d-f1ea14f0a81f" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1aa1eb05-4071-40fa-b595-d939f00405c4" name="stepName"/>
+                      <artificialFields typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="db6a81bb-276c-419e-ac90-a056aa2945c9" name="loadingDate"/>
+                      <defaultSearch/>
                     </controls>
                   </datacontrols>
                 </forms>

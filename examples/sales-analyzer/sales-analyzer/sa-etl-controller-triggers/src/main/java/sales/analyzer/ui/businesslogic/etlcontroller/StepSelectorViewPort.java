@@ -1,6 +1,5 @@
 package sales.analyzer.ui.businesslogic.etlcontroller;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -10,15 +9,15 @@ import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
-import org.kie.server.api.model.instance.TaskInstance;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.ViewPortTrigger;
 import org.tura.platform.datacontrol.command.ViewPortCommand;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.EtlProcessSelectorArtifitialFieldsAdapter;
+import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.HolderObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.serialized.db.HolderObject;
 import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
 import org.tura.salesanalyzer.serialized.jbpm.EtlTask;
 
@@ -48,14 +47,14 @@ public class StepSelectorViewPort extends ViewPortCommand {
 
 			DataControl dc = (DataControl) bf.getEtlProcessSelector();
 			EtlProcess process = (EtlProcess) dc.getCurrentObject();
-			if ( process.getActiveUserTasks() != null  && process.getActiveUserTasks().size() != 0) {
+			if ( process != null && process.getActiveUserTasks() != null  && process.getActiveUserTasks().size() != 0) {
 				EtlTask task = process.getActiveUserTasks().get(0);
 				if ( Constants.TASK_STATUS.contains(task.getStatus())) {
-					initStep(process, bf);
+					initHT(process, bf);
 					return HUMAN_TASK;
 				}
 			}else {
-				initStep(process, bf);
+				initNode( bf);
 				return AUTOMATED_STEPS;
 			}
 			
@@ -68,23 +67,39 @@ public class StepSelectorViewPort extends ViewPortCommand {
 
 	}
 	
-	private void initStep(EtlProcess process , IBeanFactory bf) throws Exception {
+	
+	private void initNode( IBeanFactory bf) throws Exception {
+		int i = bf.getActiveStep();
+
+		String nodename =  (String) elResolver.getValue("#{ETLController['STEP_"+  new Integer(i+1).toString() +"']}");
+		HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
+
+		HolderObjectArtifitialFieldsAdapter adapter  = new  HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
+		adapter.setStepName(nodename);
+		
+	}
+
+	
+	private void initHT(EtlProcess process , IBeanFactory bf) throws Exception {
 		EtlTask task = process.getActiveUserTasks().get(0);
 		int i = Constants.PRC_NODES.indexOf(task.getName());
 		bf.setActiveStep(i);
 
 		String nodename =  (String) elResolver.getValue("#{ETLController['STEP_"+  new Integer(i+1).toString() +"']}");
-		EtlProcessSelectorArtifitialFieldsAdapter adapter  = new  EtlProcessSelectorArtifitialFieldsAdapter((ObjectControl) process);
+		HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
+		HolderObjectArtifitialFieldsAdapter adapter  = new  HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
 		adapter.setStepName(nodename);
 		
-		initLoadingDate(process,bf);
+		initLoadingDate(bf);
 		
 	}
 	
 
-	private void initLoadingDate(EtlProcess process , IBeanFactory bf) throws Exception {
+	private void initLoadingDate( IBeanFactory bf) throws Exception {
 		if (bf.getActiveStep() == 0) {
-			EtlProcessSelectorArtifitialFieldsAdapter adapter  = new  EtlProcessSelectorArtifitialFieldsAdapter((ObjectControl) process);
+			
+			HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
+			HolderObjectArtifitialFieldsAdapter adapter  = new  HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 			Date d =  formatter.parse("01-11-2017");
