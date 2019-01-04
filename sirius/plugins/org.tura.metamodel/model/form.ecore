@@ -260,6 +260,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockUI" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceTarget" upperBound="-1"
+        eType="#//AreaRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Poll" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>
   </eClassifiers>

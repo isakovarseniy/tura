@@ -416,6 +416,12 @@
 
     <propertyTab
              category="domain"
+             id="tab.form.BlockUI.SourceTarget"
+             label="Events source/targets"/>
+
+
+    <propertyTab
+             category="domain"
              id="tab.form.Menu"
              label="Menu"/>
 
@@ -1104,6 +1110,31 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.BlockUISourcePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.BlockUiSectionFilter"
+	            id="form.BockUI.SourceTarget"
+	            tab="tab.form.BlockUI.SourceTarget">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.BlockUITargetPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.BlockUiSectionFilter"
+	            id="form.BockUI.SourceTarget"
+	            tab="tab.form.BlockUI.SourceTarget">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
 
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">

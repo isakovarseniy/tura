@@ -319,13 +319,20 @@ class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HT
 class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
    attr EString label;
    attr EInt rowNumber;
-    val Column[*] cols;
+   val Column[*] cols;
 }
 
 class Menu extends Uielement{
 }
 
 
+class BlockUI  extends Uielement,  ChildrenHolder, common.HTMLLayerHolder {
+     val AreaRef[*]  sourceTarget;	 
+}
+
+class Poll extends Uielement{
+	
+}
 
 class MenuHolder {
 	ref MenuFolder menu;

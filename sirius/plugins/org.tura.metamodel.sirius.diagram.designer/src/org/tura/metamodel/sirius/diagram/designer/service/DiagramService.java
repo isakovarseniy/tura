@@ -43,6 +43,7 @@ import domain.DomainArtifacts;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
+import form.BlockUI;
 import form.Column;
 import form.CreateTrigger;
 import form.DataControl;
@@ -165,6 +166,12 @@ public class DiagramService {
 			return ((Column) eobject).getElement();
 		}
 
+		if (eobject instanceof BlockUI) {
+			return ((BlockUI) eobject).getChildren();
+		}
+
+		
+		
 		return new ArrayList<EObject>();
 	}
 

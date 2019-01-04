@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.sirius.diagram.description.ContainerMapping;
+import org.tura.sirius.diagram.producer.tura.config.items.form.BlockUIConfiguration;
 import org.tura.sirius.diagram.producer.tura.config.items.form.ButtonConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.CheckBoxConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.ColumnConfigurator;
@@ -22,6 +23,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.MenuConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.MessageElementConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.OutputTextConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.PasswordConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.PollConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableColumnsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeColumnsConfigurator;
@@ -115,7 +117,12 @@ public class CanvasDiagram {
 																.addChild(LabelConfigurator.create("4",
 																		"feature:element"))))))
 
-				.addChild(MenuConfigurator.create()).addChild(MessageElementConfigurator.create());
+				.addChild(MenuConfigurator.create()).addChild(MessageElementConfigurator.create())
+				.addChild(PollConfigurator.create())
+				.addChild(BlockUIConfiguration.create()
+						.addChild(ImageConfigurator.create("5"))
+						
+						);
 
 		list.add(cnt);
 
@@ -139,6 +146,8 @@ public class CanvasDiagram {
 		nodeToolSection.addChildrens(TreeConfigurator.getTools());
 		nodeToolSection.addChildrens(MenuConfigurator.getTools());
 		nodeToolSection.addChildrens(MessageElementConfigurator.getTools());
+		nodeToolSection.addChildrens(PollConfigurator.getTools());
+		nodeToolSection.addChildrens(BlockUIConfiguration.getTools());
 
 		tToolSection edgeToolSection = new tToolSection("Connections");
 		list.add(edgeToolSection);

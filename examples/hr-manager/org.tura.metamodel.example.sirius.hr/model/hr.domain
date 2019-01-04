@@ -14556,6 +14556,24 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="8636bcd2-ce42-49fd-a3c2-f971246f1aef" name="STEP_2">
                       <style uid="2d3ac034-7cc2-4606-b187-8dd762175673"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="dfb17457-da87-4b82-96cf-1f386214eaf0" name="qwert">
+                        <style uid="42dfdc29-d9f4-4df1-b3a0-7f71dad97941"/>
+                        <baseCanvas uid="e8edd3e5-ff91-4f1e-b6f0-594d89763782">
+                          <children xsi:type="tura.form:BlockUI" uid="2a682f9c-156e-4447-bead-5d0cc7192aa6">
+                            <style uid="eace9634-6f97-4c3f-a00c-88a55ffdf5f2"/>
+                            <enabled uid="6ff04ef7-f050-468d-969a-1a63c6dfd99a"/>
+                            <required uid="c7a2bc75-2bfa-431e-859a-dc3b5fe8ab5a"/>
+                            <readOnly uid="4c67b451-8860-4792-b18b-785a0f4016c9"/>
+                            <refreshAreas area="2a682f9c-156e-4447-bead-5d0cc7192aa6" group="2"/>
+                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
+                            <refreshAreas area="2a682f9c-156e-4447-bead-5d0cc7192aa6" group="1"/>
+                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="1"/>
+                            <children xsi:type="tura.form:Image" uid="3e647c0e-0986-4a83-83d8-2c078be91bea"/>
+                            <sourceTarget area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="1"/>
+                            <sourceTarget area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="eb4df8c7-06da-4ad4-b575-389fdc111e9f" name="STEP_4">
                       <style uid="8038c20f-84bb-4dcd-a6cf-74a897b0240c"/>
