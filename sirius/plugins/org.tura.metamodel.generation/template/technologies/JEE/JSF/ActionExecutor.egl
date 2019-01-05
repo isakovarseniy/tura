@@ -151,6 +151,9 @@ public class ActionExecutor  implements java.io.Serializable {
         return null;
     }
 
+    public void action() {
+    	  getAction();
+    }
 
     @SuppressWarnings("unchecked")
     public Object action(javax.faces.event.AjaxBehaviorEvent event) {

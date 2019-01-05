@@ -63,6 +63,11 @@ ${percent}${end}
 
         </locale-config>
     </application>
+    <lifecycle>
+	   <phase-listener>[%=component.basePackage%].commons.datacontrol.CDIPhaseBridge</phase-listener>
+	</lifecycle>
+    
+    
 </faces-config>
 
 [%

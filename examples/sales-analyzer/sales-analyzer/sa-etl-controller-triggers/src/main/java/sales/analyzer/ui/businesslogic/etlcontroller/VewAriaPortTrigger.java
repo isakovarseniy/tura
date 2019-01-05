@@ -38,6 +38,7 @@ public class VewAriaPortTrigger extends ViewPortCommand {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
 			if (bf.getSelectedProcess() == null) {
+				bf.setPollStop(true);
 				return processSelection;
 			}
 			
@@ -52,7 +53,11 @@ public class VewAriaPortTrigger extends ViewPortCommand {
 					EtlNodeLog log = (EtlNodeLog) obj;
 					if ( log.getType() == 1 && Constants.STEP9.equals(log.getNodeName())) {
 						dc = (DataControl) bf.getEtlProcess();
-						dc.forceRefresh();
+						bf.setRefreshControl(true);
+//You canot modify model
+//have to do it in application phase					
+//						dc.forceRefresh();
+						bf.setPollStop(true);
 						return processSelection;
 					}
 					if ( log.getType() == 0 && Constants.CT_ARRAY.contains(log.getNodeName())) {

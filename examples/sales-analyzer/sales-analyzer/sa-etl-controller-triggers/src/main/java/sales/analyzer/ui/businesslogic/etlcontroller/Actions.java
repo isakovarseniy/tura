@@ -139,4 +139,7 @@ public class Actions implements EventAccessor {
 		applyChanges();
 	}
 
+	
+	public void poll() {
+	}
 }

@@ -36,7 +36,7 @@ operation form::OutputText noContext(hash,value) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var model_mapper = hash.get('model_mapper');
 
-     if (self.findClassifier(util.getHint(model_mapper,"palinOutputText"))){
+     if (not self.findClassifier(util.getHint(model_mapper,"palinOutputText"))){
          %][%=self.rw(hash,value)%][%   
       }else{
          %][%=self.ro(hash,value)%][%   

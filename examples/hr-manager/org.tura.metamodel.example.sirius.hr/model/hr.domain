@@ -296,6 +296,10 @@
             <hints uid="c7822907-3460-4c8a-8470-5e8c0762f2f0" name="stepMenu" hint="9140f70e-6b1c-49a2-8481-0dd72284571e"/>
             <hints uid="d1032385-cddd-47cf-95bf-6e433c5a9078" name="palinOutputText" hint="a7619cc7-cf65-425a-9e1a-ffac190787f5"/>
             <hints uid="8da4c5df-cef1-4b18-af33-eb2f70a4af14" name="stepMenu.currentItem" hint="16965773-a456-43f6-bfa6-fefd4dbad288"/>
+            <hints uid="a8378779-d0c4-4a1a-8b77-410b279c2700" name="poll.interval" hint="d6eda477-d224-47f9-8c89-e88f7c7655d9"/>
+            <hints uid="5d1fc553-f03f-4a44-abd9-ccd19720d0f3" name="poll.stop" hint="74d8f53b-3aa8-4797-9ca0-b3614877e8f9"/>
+            <hints uid="27429e73-47ec-4fa6-9d1f-2dcd20e930c1" name="poll.autostart" hint="b2ba9e2d-9638-462f-bbee-4ae89e119a98"/>
+            <hints uid="0e5c5e4f-077d-4791-bc1e-3fc0f9310e1b" name="poll.listner" hint="3ddbb371-e065-4191-9201-f4010117e04c"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -486,6 +490,10 @@
             <hints uid="9140f70e-6b1c-49a2-8481-0dd72284571e" name="stepMenu"/>
             <hints uid="a7619cc7-cf65-425a-9e1a-ffac190787f5" name="palinOutputText"/>
             <hints uid="16965773-a456-43f6-bfa6-fefd4dbad288" name="stepMenu.currentItem"/>
+            <hints uid="d6eda477-d224-47f9-8c89-e88f7c7655d9" name="poll.interval"/>
+            <hints uid="74d8f53b-3aa8-4797-9ca0-b3614877e8f9" name="poll.stop"/>
+            <hints uid="b2ba9e2d-9638-462f-bbee-4ae89e119a98" name="poll.autostart"/>
+            <hints uid="3ddbb371-e065-4191-9201-f4010117e04c" name="poll.listner"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -2062,6 +2070,7 @@
             <operations uid="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" name="createMonthlyLoadingProcess"/>
             <operations uid="8257b056-ead9-4b53-980a-7dd4b1cdd155" name="prevStep"/>
             <operations uid="44ed1bf9-6134-4f03-b58c-53e9b8a8b962" name="nextStep"/>
+            <operations uid="b9da27e5-049e-48dc-970d-793e0202a063" name="poll"/>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -14457,7 +14466,7 @@
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="0436421b-c9ef-4a23-bdc2-112ddf98c5d9" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
                               <style uid="8bda0eb6-6840-4a51-8228-7b15858035b2" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
-                              <classifiers uid="820e3068-8828-4b77-9f37-990c87f470fb" hint="9140f70e-6b1c-49a2-8481-0dd72284571e"/>
+                              <classifiers uid="820e3068-8828-4b77-9f37-990c87f470fb" hint="a7619cc7-cf65-425a-9e1a-ffac190787f5"/>
                               <enabled uid="937a37da-498d-43e8-8f26-ea887cee2b1c"/>
                               <required uid="0452eeb8-98a2-44f0-ac29-163a6676a0f6"/>
                             </children>
@@ -14526,7 +14535,24 @@
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="1b9de96f-92b3-4e2e-8c63-87faad38de08" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
                               <style uid="7022f11b-3f4d-48c9-b3cc-609e0c1c093a" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <classifiers uid="919b5de9-bd37-4f84-96bd-0f178c2ea62b" hint="a7619cc7-cf65-425a-9e1a-ffac190787f5"/>
                             </children>
+                          </children>
+                          <children xsi:type="tura.form:Poll" order="1" uid="dd6328b1-f5fb-4b6a-a675-ce4e3a718a1e">
+                            <fields uid="8f1634e7-727f-400d-b78a-edcbe48a1e12" value="Form variables.pollStop">
+                              <expression objRef="d3239e54-cce8-456f-b44f-8589fac6fe60" expressionType="RootImpl"/>
+                              <expression objRef="8e074e97-f62e-4902-bf31-93a7ed60af0d" order="1" expressionType="FormVariableImpl"/>
+                              <classifiers uid="045223b0-a2a3-4900-961f-bf83ec04941d" hint="74d8f53b-3aa8-4797-9ca0-b3614877e8f9"/>
+                            </fields>
+                            <fields uid="6ebc0dd6-4603-4edf-b9cc-4e435936c141" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.poll()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="b9da27e5-049e-48dc-970d-793e0202a063" order="4" expressionType="OperationImpl"/>
+                              <classifiers uid="278652b1-aa9d-47e7-81bb-cc65d4047bc4" hint="3ddbb371-e065-4191-9201-f4010117e04c"/>
+                            </fields>
+                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -14671,6 +14697,8 @@
                     <root uid="d3239e54-cce8-456f-b44f-8589fac6fe60">
                       <variables typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="85d7bd88-66dc-48a0-bf9c-1ab0044fe6d1" name="selectedProcess"/>
                       <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="31bd5e9c-8edf-4b2b-baaf-ec7339528002" name="activeStep"/>
+                      <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="8e074e97-f62e-4902-bf31-93a7ed60af0d" name="pollStop"/>
+                      <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="cf3db52d-0abb-4083-89d8-f0af9d96f065" name="refreshControl"/>
                     </root>
                     <controls uid="34f23350-3da7-48f7-91b9-a38b6df4e3b1" name="EtlProcess">
                       <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>
@@ -14914,17 +14942,50 @@
                         <baseCanvas uid="179b2020-3140-4021-b4c2-1a962e6731bc" columns="2">
                           <style uid="02e0c816-a271-4829-b54e-6f90b9285a90"/>
                           <children xsi:type="tura.form:OutputText" order="1" uid="53d3455f-b5f8-4ebc-8b66-c1d0d6895112" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="1dcece5c-5ab5-4a3c-978f-3112a0afe93d"/>
-                          <children xsi:type="tura.form:Label" uid="d042d82a-014a-43f7-8912-a39a30f2381c" label="Error code"/>
-                          <children xsi:type="tura.form:Label" order="2" uid="cb41699f-d165-480c-b9e0-fe5d2df8fb82" label="Error description"/>
+                          <children xsi:type="tura.form:Label" uid="d042d82a-014a-43f7-8912-a39a30f2381c" label="Error code">
+                            <multiLangLabel uid="b77d208a-9d38-4793-b619-aadb25e1aaf2" value="Application Message Libraries.Error page.ERROR_CODE">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="cecc4ed8-9fd4-4666-8fd5-f523d52e4eac" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="2" uid="cb41699f-d165-480c-b9e0-fe5d2df8fb82" label="Error description">
+                            <multiLangLabel uid="b42a979b-2550-4f9c-83f3-36fd8aef0859" value="Application Message Libraries.Error page.ERROR_DESCRIPTION">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="defecba3-8b0c-457b-ac25-21dbefc20658" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
                           <children xsi:type="tura.form:OutputText" order="3" uid="e8624104-3b3b-4e97-ac25-7b30e1afe04e" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="236ef6bb-e375-45c9-b010-95c867f6b1b6"/>
-                          <children xsi:type="tura.form:Label" order="4" uid="0979c8a6-6fa3-4530-ab9b-aee368f8b3b9" label="Exception type"/>
+                          <children xsi:type="tura.form:Label" order="4" uid="0979c8a6-6fa3-4530-ab9b-aee368f8b3b9" label="Exception type">
+                            <multiLangLabel uid="30d5d0bf-eaa6-48f5-86b4-f8f0ed8abf05" value="Application Message Libraries.Error page.EXCEPTION_TYPE">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="de211d39-08ac-4c77-b297-05c9e3e84107" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
                           <children xsi:type="tura.form:OutputText" order="5" uid="cf1f525d-e47b-4f46-86d2-2d2f4331e1de" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="c0028bf2-6da0-4be0-b0b2-e2b97c5f53d5"/>
-                          <children xsi:type="tura.form:Label" order="6" uid="9af972b4-dd58-4c71-bb0a-477e1e2266a3" label="Exception"/>
+                          <children xsi:type="tura.form:Label" order="6" uid="9af972b4-dd58-4c71-bb0a-477e1e2266a3" label="Exception">
+                            <multiLangLabel uid="7c4ff579-2048-493d-a13b-3616d1253016" value="Application Message Libraries.Error page.EXCEPTION">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="03f865ce-4e02-4a61-a7a2-b9778c9df0f9" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
                           <children xsi:type="tura.form:OutputText" order="7" uid="d38a83c6-f1eb-40eb-a805-8e9efbeec17b" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="9b943775-4039-4e69-b4c8-58290c1abb9a"/>
-                          <children xsi:type="tura.form:Label" order="8" uid="94ce1067-5bbb-4989-8799-ca0ec03da6a3" label="Request URL"/>
+                          <children xsi:type="tura.form:Label" order="8" uid="94ce1067-5bbb-4989-8799-ca0ec03da6a3" label="Request URL">
+                            <multiLangLabel uid="e3617cdc-89d0-40dd-a7a6-9de6c5c49e7a" value="Application Message Libraries.Error page.REQUEST_URI">
+                              <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="c1b6792d-1c11-49af-815c-e50050a36f0f" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="fedb34af-4b50-427a-95c2-6e7b2656ea3c" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
                           <children xsi:type="tura.form:OutputText" order="9" uid="728e5f73-6540-4866-bcce-dce09e0f9615" sourcePointer="42576490-7a02-47b7-bea1-6b6c75a41f01" valuePointer="af70c1ea-e780-4fcc-89ad-5e792252aa65"/>
                         </baseCanvas>
                       </viewElement>
+                      <classifiers uid="03faab88-d33a-4d4b-8788-9d95b2fa09fb" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
+                      <classifiers uid="29399413-03aa-4a27-ade8-92eff6dce78e" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
+                      <classifiers uid="be174144-6c64-41d9-aa7d-31c7e6116ac1" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
                     </canvases>
                   </view>
                   <datacontrols uid="0443aff3-70de-4d6b-a419-d47665efe763">
@@ -14983,6 +15044,7 @@
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c0028bf2-6da0-4be0-b0b2-e2b97c5f53d5" name="exceptionType"/>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9b943775-4039-4e69-b4c8-58290c1abb9a" name="exception"/>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="af70c1ea-e780-4fcc-89ad-5e792252aa65" name="requestURI"/>
+                      <defaultSearch/>
                       <defaultOrderBy/>
                     </controls>
                   </datacontrols>

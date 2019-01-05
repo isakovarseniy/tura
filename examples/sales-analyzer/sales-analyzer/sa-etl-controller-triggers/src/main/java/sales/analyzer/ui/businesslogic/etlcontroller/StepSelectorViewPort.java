@@ -76,7 +76,8 @@ public class StepSelectorViewPort extends ViewPortCommand {
 
 		HolderObjectArtifitialFieldsAdapter adapter  = new  HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
 		adapter.setStepName(nodename);
-		
+		bf.setPollStop(false);
+
 	}
 
 	
@@ -84,6 +85,8 @@ public class StepSelectorViewPort extends ViewPortCommand {
 		EtlTask task = process.getActiveUserTasks().get(0);
 		int i = Constants.PRC_NODES.indexOf(task.getName());
 		bf.setActiveStep(i);
+		bf.setPollStop(true);
+
 
 		String nodename =  (String) elResolver.getValue("#{ETLController['STEP_"+  new Integer(i+1).toString() +"']}");
 		HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();

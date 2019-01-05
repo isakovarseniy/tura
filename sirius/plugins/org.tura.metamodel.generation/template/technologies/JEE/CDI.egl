@@ -116,6 +116,12 @@ operation  datacontrolgeneration(hash) {
     buffer = resolver.process();
     util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",buffer);   
 
+    var bridge : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/cdiphaselistenerbridge.egl",hash,TemplateFactory);
+    bridge.setFormatter(f);
+    buffer = bridge.process();
+    util.saveFile( javaPath+"/commons/datacontrol/"  , "CDIPhaseBridge.java",buffer);   
+
+
     var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
     trans.process();
 
