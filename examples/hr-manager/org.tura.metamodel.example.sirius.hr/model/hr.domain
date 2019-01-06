@@ -14361,6 +14361,11 @@
                                 <style uid="97c391f2-c48f-483c-9cb0-ca4ecae1d7f1" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                                 <cols order="1" uid="56308165-4394-48fc-8db7-642f12903c62" label="Process code">
                                   <style uid="dd7f4748-a645-4dab-9688-0a312b0d5f27"/>
+                                  <multiLangLabel uid="d0a8fcfb-c460-4ccb-94c3-f4aa232422e0" value="Application Message Libraries.ETLController.PROCESS_CODE">
+                                    <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                    <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                    <expression objRef="7abdb09a-bc08-4739-9c40-8e27b9618d99" order="2" expressionType="MessageImpl"/>
+                                  </multiLangLabel>
                                   <element xsi:type="tura.form:OutputText" uid="b43cd744-67ef-4e19-9680-5017b118e3b5" valuePointer="d68e4921-f532-49ae-98d6-c74969237ced">
                                     <style uid="f89c1ea3-e8fd-4298-8124-97fac112b2cc"/>
                                   </element>
@@ -14397,6 +14402,11 @@
                                   </element>
                                 </cols>
                                 <cols order="2" uid="5375de81-117d-4b63-aebc-11caf2af7530" label="Process name">
+                                  <multiLangLabel uid="d2ed7a4f-0214-43c9-85d8-0d5d2b7024e7" value="Application Message Libraries.ETLController.PROCESS_NAME">
+                                    <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                    <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                    <expression objRef="31f13d48-9dfb-4c9a-bc7e-a7210b994423" order="2" expressionType="MessageImpl"/>
+                                  </multiLangLabel>
                                   <element xsi:type="tura.form:OutputText" uid="5909c86f-754d-4499-8d3d-e47bf9459706" valuePointer="582d8d82-b236-4097-867d-1392927446ed"/>
                                 </cols>
                                 <cols uid="205654c6-f5c2-43dd-81ca-81b677cb0c47" label="Id">
