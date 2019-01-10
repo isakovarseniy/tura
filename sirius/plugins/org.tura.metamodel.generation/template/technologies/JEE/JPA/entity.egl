@@ -42,6 +42,8 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
     @javax.persistence.Id
     [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp")%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    [%if (field.typeRef.isKindOf(type::Enumerator ))%]
+    @javax.persistence.Enumerated(javax.persistence.EnumType.STRING)
 	@javax.persistence.Column(name = "[%=util.splitByCapitalLatterAndCapitalize(field.name)%]")
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
 	

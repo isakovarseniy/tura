@@ -10,8 +10,31 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
  ${percent}${end}
  [%
       var util = new Native('org.tura.metamodel.commons.Util');
+     for(type in typeCollection.values()){
+        if (type.isKindOf(type::Type )){
+          continue;
+        }
+%]
+     <xs:simpleType name="[%=type.~class%]" final="restriction" >
+        <xs:restriction base="xs:string">
+       [%
+            for ( field in type.values){
+            %]
+            <xs:enumeration value="[%=field.name%]" />
+            [%
+            }
+       %] 
+        </xs:restriction>
+    </xs:simpleType>
+[%      
+      }
       
       for(type in typeCollection.values()){
+        if (type.isKindOf(type::Enumerator )){
+          continue;
+        }
+      
+      
          %]<xs:complexType name="[%=type.~class%]">
           <xs:annotation>[%
           var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);

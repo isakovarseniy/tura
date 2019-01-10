@@ -123,12 +123,19 @@
               <parameters uid="f8e97866-37d2-4626-bb24-8883ee9916cf" name="Package"/>
             </modelQuery>
           </artifacts>
+          <artifacts uid="3fffa2e2-c9c1-409c-96da-d679b61f6798" name="EnumeratorConverters" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainEnumeratorConveter.egl">
+            <modelQuery uid="443caaa1-c2bf-4342-adaf-be2f75a3c9f1" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+              <parameters uid="b2a67e3e-4546-4034-8daa-5974d06c7b81" name="Repository"/>
+              <parameters uid="ec40121f-9162-47f0-8a61-70cfa32125f0" name="Package"/>
+            </modelQuery>
+            <hints uid="546a9d4c-54ae-4bf1-aca5-1118b128829b" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
           <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" description="" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainModelBuilder.egl">
             <configVariables uid="708d28e3-c832-4ccc-ae6f-2fcfc312a755" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+            <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|((r.oclIsKindOf(tura::type::Type) and r.oclAsType(tura::type::Type).name='${Type}') or (r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(tura::type::Enumerator).name='${Type}')))">
               <parameters uid="b516ddbf-0acc-4279-a974-70fc787c56a7" name="Repository"/>
               <parameters uid="9504b800-0df7-4358-9905-088633212cd2" name="Package"/>
               <parameters uid="e3b370e6-74f9-427e-ae54-603a4f7747c2" name="Type"/>
@@ -418,7 +425,7 @@
           </artifacts>
           <artifacts uid="01788d3b-cb04-49a4-ac90-fe9863806de4" name="XSD serializable objects" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainXSDfromType.egl">
             <configVariables uid="9828e50f-8607-4d9f-ab13-480df0b9e903" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|(r.oclIsKindOf(tura::type::Type) or r.oclIsKindOf(tura::type::Enumerator)) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
               <parameters uid="24d765fa-9d81-488b-8f84-5bdf72735276" name="Repository"/>
               <parameters uid="01e38189-3ce8-4b79-a168-0f4c321d9423" name="Package"/>
             </modelQuery>
@@ -597,6 +604,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="280d20b1-98b2-478a-873e-30d035395c70" name="object type"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="4cd2572f-3745-43a9-bf80-649233e88374" name="create date"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="e9cf4f86-4a70-4f29-810a-6ed30cfd2b81" name="rootId"/>
+            <attributes typeRef="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" uid="912059d1-1f3b-4d5f-93f3-df6c408b2713" name="gendeg"/>
           </types>
           <types xsi:type="tura.type:Type" uid="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" name="Client">
             <classifiers uid="4dacbd4d-a11e-43fe-bc49-d92bf0bbac9d" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
@@ -613,6 +621,7 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="23667c28-181d-44d4-8a56-66002a4adf90" name="objId" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="db051369-09fe-4798-83f1-435b78b2f1e8" name="object type"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="a8bb3dd1-8a56-4921-997c-2b05bf70bde4" name="create date"/>
+            <attributes typeRef="fc0013e5-d81c-4515-bfe0-aeb2da7f840a" uid="dfd9edea-7f73-49d9-8eeb-8d97bd8adda9" name="phoneType"/>
           </types>
           <types xsi:type="tura.type:Type" uid="5b5ef66a-2b7b-4ef1-bb08-653bcc4cd7b3" name="Phone">
             <classifiers uid="aa494925-198c-47cc-8983-f34880fae52b" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
@@ -631,10 +640,12 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ede239a4-5927-4bb4-b51c-301ca1f30243" name="plate"/>
           </types>
           <types xsi:type="tura.type:Enumerator" uid="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" name="Person type">
+            <classifiers uid="366353d6-5d0f-4081-ad28-432056bd27ef" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <values uid="5d247096-124b-4ffc-b544-38357029b2f5" name="FEMALE" value="FEMALE"/>
             <values uid="53b2505c-380c-46c8-9183-3713256f7ddc" name="MALE" value="MALE"/>
           </types>
           <types xsi:type="tura.type:Enumerator" uid="fc0013e5-d81c-4515-bfe0-aeb2da7f840a" name="Phone type">
+            <classifiers uid="cbf2e015-72cc-4863-b09a-3c7390e04bbe" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <values uid="ab5d9bef-629c-4764-9a3a-16c667c0b90c" name="HOME" value="HOME"/>
             <values uid="b35813a2-3a82-47f5-8181-8629f9d0fa79" name="BUSINESS" value="BUSINESS"/>
           </types>
@@ -2238,6 +2249,12 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
+                        <mappers uid="34fa8d0e-cb05-4cfa-aa2f-2eed53c97e7c" artifactRef="3fffa2e2-c9c1-409c-96da-d679b61f6798" name="Enumerator converter">
+                          <queries uid="cd018fc5-4264-4d7a-bc95-f5dd5611c7e2" name="Query objects" queryRef="443caaa1-c2bf-4342-adaf-be2f75a3c9f1">
+                            <variables queryParamRef="b2a67e3e-4546-4034-8daa-5974d06c7b81" value="Testing repository"/>
+                            <variables queryParamRef="ec40121f-9162-47f0-8a61-70cfa32125f0" value="JPA test package"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>

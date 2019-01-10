@@ -94,7 +94,7 @@ ${start}${percent}
 	       var tp = type;
 	        while  (1 == 1) {
 	         %]
-	          [%=serializer(tp,type.~skipAttributes,"spa","obj",model_mapper)%]
+	          [%=serializer(tp,type.~skipAttributes,"spa","obj",model_mapper,recipe,ingredient)%]
 	          [%=saveLink(tp,type.~skipAttributes,"spa","obj")%]
 
 	          [%
@@ -157,7 +157,7 @@ ${start}${percent}
 	       var tp = type;
 	        while  (1 == 1) {
 	         %]
-	          [%=serializer(tp,type.~skipAttributes,"obj","spa",model_mapper)%]
+	          [%=serializer(tp,type.~skipAttributes,"obj","spa",model_mapper,recipe,ingredient)%]
 	          [%
 	           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and  t.internal );
 	           for ( rel in assosiations  ){
