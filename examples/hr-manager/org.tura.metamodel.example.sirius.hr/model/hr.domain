@@ -604,7 +604,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="280d20b1-98b2-478a-873e-30d035395c70" name="object type"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="4cd2572f-3745-43a9-bf80-649233e88374" name="create date"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="e9cf4f86-4a70-4f29-810a-6ed30cfd2b81" name="rootId"/>
-            <attributes typeRef="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" uid="912059d1-1f3b-4d5f-93f3-df6c408b2713" name="gendeg"/>
+            <attributes typeRef="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" uid="912059d1-1f3b-4d5f-93f3-df6c408b2713" name="gender"/>
           </types>
           <types xsi:type="tura.type:Type" uid="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" name="Client">
             <classifiers uid="4dacbd4d-a11e-43fe-bc49-d92bf0bbac9d" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
@@ -682,6 +682,7 @@
             <classifiers uid="f24a2f6f-5d27-4fc4-9e8b-79417024aff1" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="fb41dbd1-17c7-4cae-af7d-9a6eb5716bba" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="bb296040-f300-4197-a065-c540e270ce38" name="objId" pk="true"/>
+            <attributes typeRef="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" uid="9a27a773-212f-4b19-bfeb-cf4d97be4c22" name="enum1"/>
           </types>
           <types xsi:type="tura.type:Type" uid="a3fe0914-7c2d-4544-829c-be02080b0809" name="One2One1B">
             <classifiers uid="4171512a-b2c6-403a-8e21-e4ccc6a07463" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>

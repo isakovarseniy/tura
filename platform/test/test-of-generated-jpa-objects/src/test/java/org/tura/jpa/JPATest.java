@@ -53,7 +53,9 @@ import org.tura.jpa.test.Client;
 import org.tura.jpa.test.File;
 import org.tura.jpa.test.MailAddress;
 import org.tura.jpa.test.Person;
+import org.tura.jpa.test.PersonType;
 import org.tura.jpa.test.Phone;
+import org.tura.jpa.test.PhoneType;
 
 public class JPATest {
 
@@ -156,7 +158,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(16, Person.class.getDeclaredMethods().length);
+		assertEquals(18, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));
@@ -181,6 +183,9 @@ public class JPATest {
 		
 		assertTrue(findMethod( Person.class,"getFile" ));
 		assertTrue(findMethod( Person.class,"setFile",new Class[]{File.class} ));
+		
+		assertTrue(findMethod( Person.class,"getGender" ));
+		assertTrue(findMethod( Person.class,"setGender",new Class[]{PersonType.class} ));
 		
 		
 		Annotation a = findFieldAnnotation(Person.class,Id.class,"objId");
@@ -213,7 +218,7 @@ public class JPATest {
 	
 	@Test
 	public void checkMailAddressClass(){
-		assertEquals(10, MailAddress.class.getDeclaredMethods().length);
+		assertEquals(12, MailAddress.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( MailAddress.class,"getObjId" ));
 		assertTrue(findMethod( MailAddress.class,"setObjId",new Class[]{Long.class} ));
@@ -229,6 +234,10 @@ public class JPATest {
 
 		assertTrue(findMethod( MailAddress.class,"getPerson" ));
 		assertTrue(findMethod( MailAddress.class,"setPerson",new Class[]{Collection.class} ));
+		
+		assertTrue(findMethod( MailAddress.class,"getPhoneType" ));
+		assertTrue(findMethod( MailAddress.class,"setPhoneType",new Class[]{PhoneType.class} ));
+		
 		
 		Annotation a = findFieldAnnotation(MailAddress.class,Id.class,"objId");
 		assertNotNull(a);

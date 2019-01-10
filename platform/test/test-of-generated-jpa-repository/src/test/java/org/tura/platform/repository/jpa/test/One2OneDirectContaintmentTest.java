@@ -55,6 +55,7 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.One2One1A;
 import objects.test.serialazable.jpa.One2One1B;
+import objects.test.serialazable.jpa.PersonType;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 
@@ -202,7 +203,8 @@ public class One2OneDirectContaintmentTest {
 			One2One1B o2 = (One2One1B) repository.create(One2One1B.class.getName());
 			
 			o1.setOne2One1B(o2);
-			
+			o1.setEnum1(PersonType.MALE);
+
 			repository.insert(o1, One2One1A.class.getName());
 			repository.applyChanges(null);
 			
@@ -210,6 +212,7 @@ public class One2OneDirectContaintmentTest {
 			assertEquals(1,result.getSearchResult().size());
 			
 			o1 = (One2One1A) result.getSearchResult().get(0);
+			assertEquals(PersonType.MALE, o1.getEnum1());
 			o1.setOne2One1B(null);
 			assertNull(o1.getOne2One1B());
 
