@@ -21,19 +21,164 @@
  */
 package org.tura.processor;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Collection;
+import java.util.HashMap;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.epsilon.emc.emf.EmfModel;
+import org.tura.metamodel.commons.QueryHelper;
+
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
+import domain.DomainPackage;
+import recipe.DeploymentComponent;
+import recipe.Recipe;
+
 @Parameters(separators = "=", commandDescription = "Build recipe")
-public class BuildCommand extends TuraCommand{
+public class BuildCommand extends TuraCommand {
 
-    @Parameter(names = "--recipeid", description = "Recipe identificator")
-    private String recipeId;
-    
-    public void execute() {
-        
-    }
-    
-    
+	@Parameter(names = "--recipeId", description = "Recipe identificator")
+	private String recipeId;
+
+	@Parameter(names = "--infraId", description = "Recipe configuration")
+	private String infraId;
+
+	@Parameter(names = "--modelFile", description = "Model file location")
+	private String modelFile;
+
+	public void execute() {
+		try {
+
+			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
+
+			EmfModel model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
+
+			Collection<EObject> c = model.getAllOfType("domain::Domain");
+			if (c.isEmpty()) {
+				System.err.println("Model is empty");
+			} else {
+
+				EObject obj = c.iterator().next();
+				QueryHelper queryHelper = new QueryHelper();
+				HashMap<String, Object> configuration = new HashMap<>();
+				getConfiguratioin(queryHelper.getConfiguration(obj, infraId), configuration);
+				Recipe recipe = queryHelper.getRecipe(obj, recipeId);
+				boolean result = depoymentRecipe(recipe);
+				if(result){
+					return;
+				}else{
+					System.exit(-1);
+				}
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+	}
+
+	public boolean depoymentRecipe(Recipe recipe) {
+
+		if (recipe.getDeplymentStep() == null || recipe.getDeplymentStep().size() == 0) {
+			System.err.println("Deployment Sequence is not defined properly");
+			return false;
+		}
+
+		if (recipe.getStartSeq() == null) {
+			System.err.println("Start step  is not defined");
+			return false;
+		}
+
+		DeploymentComponent component = recipe.getStartSeq().getFirstStep();
+		try {
+			while (component != null) {
+				if (!component.isSkip() && component.getMapper().getArtifactExecutionString() != null) {
+					System.out.println("Execution: " + component.getMapper().getArtifactExecutionString());
+					Process proc = Runtime.getRuntime().exec(component.getMapper().getArtifactExecutionString());
+
+					StreamPumper inputPumper = new StreamPumper(proc.getInputStream());
+					StreamPumper errorPumper = new StreamPumper(proc.getErrorStream());
+
+					// starts pumping away the generated output/error
+					inputPumper.start();
+					errorPumper.start();
+
+					// Wait for everything to finish
+					proc.waitFor();
+					inputPumper.join();
+					errorPumper.join();
+					proc.destroy();
+
+					System.out.println("Execution result : " + proc.exitValue());
+					if (proc.exitValue() != 0) {
+						System.err.println("Exception during deployment name=" + component.getMapper().getName() + " uid ="+component.getMapper().getUid()  );
+						return false;
+					}
+
+				} else {
+					System.err.println(component.getName() + " has empty execution string");
+					return false;
+				}
+				component = component.getDeploymentComponentLink();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+
+		}
+
+		return true;
+	}
+
+	class StreamPumper extends Thread {
+		private BufferedReader din;
+		private boolean endOfStream = false;
+		private static final int SLEEP_TIME = 5;
+
+		public StreamPumper(InputStream is) {
+			this.din = new BufferedReader(new InputStreamReader(is));
+		}
+
+		private void outputLog(String line) {
+			System.out.println(line);
+		}
+
+		public void pumpStream() throws IOException {
+			if (!endOfStream) {
+				String line = din.readLine();
+
+				if (line != null) {
+					outputLog(line);
+				} else {
+					endOfStream = true;
+				}
+			}
+		}
+
+		public void run() {
+			try {
+				try {
+					while (!endOfStream) {
+						pumpStream();
+						sleep(SLEEP_TIME);
+					}
+				} catch (InterruptedException ie) {
+					// ignore
+				}
+				din.close();
+			} catch (IOException ioe) {
+				// ignore
+			}
+		}
+	}
+
 }
-

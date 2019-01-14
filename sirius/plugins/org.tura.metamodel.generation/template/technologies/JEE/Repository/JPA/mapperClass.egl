@@ -19,19 +19,19 @@ ${start}${percent}
  public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
  
  
-       	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
+       	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws org.tura.platform.repository.core.RepositoryException {
 	    	try{
 		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
 		      	return pk;
 	    	}catch(Exception e){
-	    		throw new RepositoryException(e);
+	    		throw new org.tura.platform.repository.core.RepositoryException(e);
 	    	}
       	
         }
  
  
  
-       private Object find(String field, java.util.List<FieldValue> list) throws Exception {
+       private Object find(String field, java.util.List<org.tura.platform.repository.core.FieldValue> list) throws Exception {
 		for (org.tura.platform.repository.core.FieldValue f : list) {
 			if (f.getName().equals(field)) {
 				Class<?> clazz = Class.forName(f.getType());
@@ -112,13 +112,13 @@ ${start}${percent}
 	    }
  
 	@Override
-	public Object copyFromRepository2Persistence(Object repositoryObject, java.util.Map<Object, Object> context) throws RepositoryException {
+	public Object copyFromRepository2Persistence(Object repositoryObject, java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException {
 		return null;
 	}
 
 	@Override
 	public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,java.util.Map<Object, Object> context)
-			throws RepositoryException {
+			throws org.tura.platform.repository.core.RepositoryException {
 		return null;
 	}
 	    

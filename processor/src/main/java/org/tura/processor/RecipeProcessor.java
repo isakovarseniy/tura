@@ -36,8 +36,8 @@ public class RecipeProcessor {
 
             JCommander jc = JCommander
                     .newBuilder()
-                    .addCommand(GENERATE_COMMAND, gc)
                     .addCommand(BUILD_COMMAND, bc)
+                    .addCommand(GENERATE_COMMAND, gc)
                     .build();
 
             jc.parse(args);
