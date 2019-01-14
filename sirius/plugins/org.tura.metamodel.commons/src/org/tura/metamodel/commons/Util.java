@@ -21,17 +21,13 @@ import java.util.Set;
 import java.util.Stack;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
-import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
-import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import artifact.GenerationHintWithNickName;
@@ -104,10 +100,9 @@ public class Util {
 		return null;
 	}
 
-	public static boolean ifDataControlIsTreeRoot(DataControl dc,DiagramImpl diagram) throws Exception {
+	public static boolean ifDataControlIsTreeRoot(DataControl dc,Form frm) throws Exception {
 
 		QueryHelper helper = new QueryHelper();
-		Form frm = helper.getForm(diagram);
 		for (TreeDataControl tdc : helper.findTreeRootControls(frm)) {
 			if (tdc.getDc().equals(dc)) {
 				return true;
@@ -152,19 +147,6 @@ public class Util {
 
 	}
 
-//	public static boolean mapperRecognizer(Set<Mapper> mappers,Ingredient ingredient) {
-//
-//		for (Mapper mapper : mappers) {
-//
-//			int ui = mapper.isUiLayer() ? 1 : 0;
-//			int s = mapper.isServiceLayer() ? 1 : 0;
-//			int ingr = ingredient.getLayer().getValue();
-//
-//			if ((((ui << 1) + s) & ingr) != 0)
-//				return true;
-//		}
-//		return false;
-//	}
 
 	private static int powerN(int base, int n) {
 	    int result = 1;
@@ -262,10 +244,8 @@ public class Util {
 	}
 
 	public static void traceIfDebug(String type, String str) {
-		IEclipsePreferences pref = InstanceScope.INSTANCE
-				.getNode("org.tura.metamodel.commons.preferences");
 
-		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
+		if (GeneratotPreferences.debigging) {
 			LogUtil.logInfo(type + " : " + str);
 		}
 	}
@@ -649,8 +629,7 @@ public class Util {
 		StringWriter writer = new StringWriter();
 		t.process(parameters, writer);
 
-		IEclipsePreferences pref = InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
-		if ("true".equals(pref.get(IPreferenceConstants.LOG_TEMPLATES, "false"))) {
+		if (GeneratotPreferences.logTemlates) {
 			LogUtil.logInfo("Template" + templateFile + " : \n"+ writer.toString());
 		}
 

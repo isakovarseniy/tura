@@ -26,6 +26,7 @@ import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.CastChangeEvent;
 
 import form.DataControl;
+import form.Form;
 import type.Type;
 
 public abstract class AbstractCastPropertySelection extends AbstractEnumerationPropertySection {
@@ -54,7 +55,9 @@ public abstract class AbstractCastPropertySelection extends AbstractEnumerationP
 			ArrayList<Object> controls = new ArrayList<>();
 
 			try {
-				if (Util.ifDataControlIsTreeRoot(ndc, root)) {
+				
+				Form frm = helper.getForm(root);
+				if (Util.ifDataControlIsTreeRoot(ndc, frm)) {
 					helper.getTreeLeafs(controls, ndc);
 				} else
 					controls.add(ndc);

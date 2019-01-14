@@ -16,7 +16,7 @@ import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.EolModule;
-import org.eclipse.epsilon.eol.IEolExecutableModule;
+import org.eclipse.epsilon.eol.IEolModule;
 import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelNotFoundException;
@@ -29,11 +29,11 @@ public class EolCommand implements Command{
 	
 	protected ChangeDescription changeDescription;
 	private Resource resource;
-	private IEolExecutableModule module;
+	private IEolModule module;
 	private String uri;
 	private HashMap<String,Object> variables;
 
-	protected IEolExecutableModule createModule() throws Exception{
+	protected IEolModule createModule() throws Exception{
 		return new EolModule();
 	}
 	

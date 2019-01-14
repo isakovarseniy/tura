@@ -18,6 +18,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.sirius.properties.selections.AbstractTuraPropertySection;
@@ -25,6 +26,7 @@ import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
 import form.ControlPointer;
 import form.DataControl;
+import form.Form;
 import form.FormPackage;
 
 public class SourcesPointerSourcePointer implements DropDownDataAdapter {
@@ -47,7 +49,10 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 			DataControl dc = ((ControlPointer) eObject).getSourcePointer();
 			try {
 				Object obj;
-				if (Util.ifDataControlIsTreeRoot(dc, root)) {
+				QueryHelper helper = new QueryHelper();
+				Form frm = helper.getForm(root);
+
+				if (Util.ifDataControlIsTreeRoot(dc, frm)) {
 					obj = new TreeDataControl(dc);
 				} else {
 					obj = dc;

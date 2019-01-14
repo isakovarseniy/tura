@@ -62,10 +62,12 @@ import form.Uielement;
 import form.ViewArea;
 import form.Views;
 import mapper.MappingLayer;
+import recipe.Component;
 import recipe.ConfigExtension;
 import recipe.Configuration;
 import recipe.Infrastructure;
 import recipe.Infrastructure2Configuration;
+import recipe.Ingredient;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.QueryVariable;
@@ -95,7 +97,6 @@ public class QueryHelper {
 	private static String ICON_TYPE = "Icon";
 	private static String BASE_TYPE = "Base type";
 	private static String ANY_TYPE = "Any type";
-	
 
 	private HintHelper hintHelper = new HintHelper();
 
@@ -198,20 +199,6 @@ public class QueryHelper {
 			Views views = (Views) (((MenuDefinition) obj).eContainer());
 			frm = (Form) views.eContainer();
 		}
-		//
-		// if (root.getElement() instanceof domain.CanvasView) {
-		//
-		// domain.Views views = (Views) (((domain.CanvasView) root
-		// .getElement()).getParent().eContainer().eContainer());
-		//
-		// frm = (domain.Form) (views.getParent().eContainer());
-		//
-		// }
-		//
-		// if (root.getElement() instanceof domain.Views) {
-		// domain.Views views = (Views) root.getElement();
-		// frm = (domain.Form) (views.getParent().eContainer());
-		// }
 
 		return frm;
 	}
@@ -243,12 +230,84 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
+	public Recipe getRecipe(EObject obj, String uid) throws Exception {
+		String query = "recipe::Recipe.allInstances()->select(r|r.uid ='" + uid + "')";
+
+		Collection<Recipe> map = (Collection<Recipe>) internalEvaluate(obj, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next();
+		else
+			return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Ingredient getIngredient(EObject obj, String uid) throws Exception {
+		
+		String query = "recipe::Ingredient.allInstances()->select(r|r.uid ='" + uid + "')";
+
+		Collection<Ingredient> map = (Collection<Ingredient>) internalEvaluate(obj, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next();
+		else
+			return null;
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Component getComponent(EObject obj, String uid) throws Exception {
+		
+		String query = "recipe::Component.allInstances()->select(r|r.uid ='" + uid + "')";
+
+		Collection<Component> map = (Collection<Component>) internalEvaluate(obj, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next();
+		else
+			return null;
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ModelMapper getModelMapper(EObject obj, String uid) throws Exception {
+		
+		String query = "recipe::ModelMapper.allInstances()->select(r|r.uid ='" + uid + "')";
+
+		Collection<ModelMapper> map = (Collection<ModelMapper>) internalEvaluate(obj, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next();
+		else
+			return null;
+		
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public Collection<Recipe> getRecipes(EObject obj) throws Exception {
+		String query = "recipe::Recipe.allInstances()";
+
+		Collection<Recipe> map = (Collection<Recipe>) internalEvaluate(obj, query);
+		return map;
+	}
+
+	@SuppressWarnings("unchecked")
 	public Configuration getConfiguration(Infrastructure infra) throws Exception {
 		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + infra.getUid()
 				+ "')";
 
 		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
 				infra, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getTarget();
+		else
+			return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Configuration getConfiguration(EObject obj, String uid) throws Exception {
+		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
+				+ "')";
+
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
+				obj, query);
 		if ((map != null) && (map.size() != 0))
 			return map.iterator().next().getTarget();
 		else
@@ -365,7 +424,7 @@ public class QueryHelper {
 	public Object getDomainApplications(DiagramImpl root) {
 		Form frm = getForm(root);
 		ApplicationUIPackage pkg = (ApplicationUIPackage) frm.eContainer();
-		return  pkg.eContainer().eContainer().eContainer().eContainer();
+		return pkg.eContainer().eContainer().eContainer().eContainer();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -550,129 +609,6 @@ public class QueryHelper {
 		return result;
 	}
 
-	// public Set<ApplicationMapper> findAvailableMappersForRecipe(Recipe
-	// recipe) {
-	// throw new RuntimeException();
-
-	// HashSet<domain.ApplicationMapper> mappers = new
-	// HashSet<domain.ApplicationMapper>();
-	// try {
-	//
-	// List<domain.ApplicationMapper> appMapperLst = recipe.getParent()
-	// .getParent().getParent().getParent()
-	// .getApplicationMappers().getMappers();
-	//
-	// for (Iterator<domain.ApplicationMapper> itr = appMapperLst
-	// .iterator(); itr.hasNext();) {
-	// domain.ApplicationMapper mapper = itr.next();
-	// mappers.add(mapper);
-	// }
-	//
-	// } catch (Exception e) {
-	// LogUtil.log(e);
-	// }
-	// return mappers;
-	// }
-
-	// public Set<domain.ApplicationMapper> findAvailableMappersForIngredient(
-	// domain.Ingredient ingr) {
-	//
-	// HashSet<domain.ApplicationMapper> mappers = new
-	// HashSet<domain.ApplicationMapper>();
-	// try {
-	//
-	// List<domain.ApplicationMapper> appMapperLst = ingr.getParent()
-	// .getParent().getParent().getParent().getParent()
-	// .getApplicationMappers().getMappers();
-	//
-	// List<domain.ApplicationMapper> recipeLs = ingr.getParent()
-	// .getMappers();
-	//
-	// for (Iterator<domain.ApplicationMapper> itr = appMapperLst
-	// .iterator(); itr.hasNext();) {
-	// domain.ApplicationMapper mapper = itr.next();
-	// if (!recipeLs.contains(mapper))
-	// mappers.add(mapper);
-	// }
-	//
-	// } catch (Exception e) {
-	// LogUtil.log(e);
-	// }
-	// return mappers;
-	// }
-	//
-	// @SuppressWarnings({ "rawtypes", "unchecked" })
-	// public List<domain.ApplicationMapper> removeMappersForRecipe(
-	// domain.Recipe eObject) {
-	// ArrayList<domain.ApplicationMapper> removeMappers = new
-	// ArrayList<domain.ApplicationMapper>();
-	// if (eObject.getMappers() == null || eObject.getMappers().size() == 0)
-	// return removeMappers;
-	//
-	// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-	// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
-	// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-	//
-	// List<domain.ApplicationMapper> map = eObject.getMappers();
-	//
-	// List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
-	// .getParent().getParent().getApplicationMappers().getMappers();
-	//
-	// for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
-	// .hasNext();) {
-	// domain.ApplicationMapper ms = itr1.next();
-	// boolean isRemove = true;
-	// for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
-	// .hasNext();) {
-	// domain.ApplicationMapper sp = itr2.next();
-	// if (sp.getUid().equals(ms.getUid()))
-	// isRemove = false;
-	// }
-	// if (isRemove)
-	// removeMappers.add(ms);
-	// }
-	// return removeMappers;
-	//
-	// }
-	//
-	// @SuppressWarnings({ "rawtypes", "unchecked" })
-	// public List<domain.ApplicationMapper> removeMappersForIngredient(
-	// domain.Ingredient eObject) {
-	// ArrayList<domain.ApplicationMapper> removeMappers = new
-	// ArrayList<domain.ApplicationMapper>();
-	//
-	// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-	// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
-	// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-	//
-	// List<domain.ApplicationMapper> map = eObject.getMappers();
-	//
-	// List<domain.ApplicationMapper> map1 = eObject.getParent().getParent()
-	// .getParent().getParent().getParent().getApplicationMappers()
-	// .getMappers();
-	//
-	// List<domain.ApplicationMapper> recipeLs = eObject.getParent()
-	// .getMappers();
-	//
-	// for (Iterator<domain.ApplicationMapper> itr1 = map.iterator(); itr1
-	// .hasNext();) {
-	// domain.ApplicationMapper ms = itr1.next();
-	// boolean isRemove = true;
-	// for (Iterator<domain.ApplicationMapper> itr2 = map1.iterator(); itr2
-	// .hasNext();) {
-	// domain.ApplicationMapper sp = itr2.next();
-	// if (sp.getUid().equals(ms.getUid()))
-	// isRemove = false;
-	// if (recipeLs.contains(ms))
-	// isRemove = true;
-	// }
-	// if (isRemove)
-	// removeMappers.add(ms);
-	// }
-	// return removeMappers;
-	//
-	// }
-	//
 	public List<Object> findTriggerParameters(Operation method, ContextParameters trg, EObject types,
 			EditingDomain editingDomain) throws Exception {
 
@@ -894,99 +830,16 @@ public class QueryHelper {
 		return null;
 	}
 
-	
-	
-	
 	public TypeElement findSearchCriteriaType(Object obj) {
 		throw new RuntimeException();
-
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-		// + InitDiagram.BASE_PACKAGE
-		// + "').oclAsType(domain::Package)."
-		// + "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and
-		// r.oclAsType(domain::Type).name = 'Search criterias') )");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
-
 	}
 
 	public TypeElement findStringType(Object obj) {
 		throw new RuntimeException();
-
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name
-		// = 'String' and r.oclAsType(domain::Primitive).parent.parent.name ='"
-		// + InitDiagram.PRIVATE_PACKAGE + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
-
 	}
 
 	public TypeElement findIntegerType(Object obj) {
 		throw new RuntimeException();
-
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name
-		// = 'Integer' and r.oclAsType(domain::Primitive).parent.parent.name ='"
-		// + InitDiagram.PRIVATE_PACKAGE + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
-
 	}
 
 	public TypeElement findBooleanType(Object obj) {
@@ -1008,7 +861,6 @@ public class QueryHelper {
 		return null;
 	}
 
-	
 	public TypeElement findAnyObjectType(Object obj) {
 		try {
 			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, ANY_TYPE);
@@ -1017,8 +869,7 @@ public class QueryHelper {
 		}
 		return null;
 	}
-	
-	
+
 	public TypeElement findDataControlType(Object obj) {
 		try {
 			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, DATA_CONTROL);
@@ -1287,52 +1138,51 @@ public class QueryHelper {
 
 	}
 
-	@SuppressWarnings({ "unchecked"})
-   public Assosiation getAssosiation(Type typeMaster , Type typeDetail){
+	@SuppressWarnings({ "unchecked" })
+	public Assosiation getAssosiation(Type typeMaster, Type typeDetail) {
 		try {
 
 			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
-					+ typeMaster.getUid() + "' and  r.oclAsType(type::Assosiation).target.uid ='"+ typeDetail.getUid()  +"')";
+					+ typeMaster.getUid() + "' and  r.oclAsType(type::Assosiation).target.uid ='" + typeDetail.getUid()
+					+ "')";
 
 			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(typeMaster, query);
-			if (list1.iterator().hasNext()){
+			if (list1.iterator().hasNext()) {
 				return list1.iterator().next();
-			}else{
+			} else {
 				return null;
 			}
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return null;
 		}
-		
+
 	}
-	
-	
-	@SuppressWarnings({ "unchecked"})
+
+	@SuppressWarnings({ "unchecked" })
 	public Collection<Assosiation>[] getAssosiation(Type type) {
 		try {
 
 			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
-					+ type.getUid() + "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Source ))";
+					+ type.getUid()
+					+ "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Source ))";
 
 			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(type, query);
 
-			
 			query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).target.uid ='"
-					+ type.getUid() + "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Target ))";
+					+ type.getUid()
+					+ "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Target ))";
 
 			Collection<Assosiation> list2 = (Collection<Assosiation>) internalEvaluate(type, query);
-			
-			return new Collection[]{list1,list2};
+
+			return new Collection[] { list1, list2 };
 		} catch (Exception e) {
 			LogUtil.log(e);
-			return new Collection[]{new ArrayList<Assosiation>(),new ArrayList<Assosiation>()};
+			return new Collection[] { new ArrayList<Assosiation>(), new ArrayList<Assosiation>() };
 		}
 
 	}
-	
-	
-	
+
 	private String findHint(EObject obj, int level, String... hints) {
 		try {
 			if (hints.length == 0)
@@ -1407,59 +1257,58 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	public DataControl findDataControlForRelation(DataControl dataControl){
-		try{
-			String query ="form::DataControl.allInstances()->collect(r|r.oclAsType(form::DataControl).relationMappers->"
+	public DataControl findDataControlForRelation(DataControl dataControl) {
+		try {
+			String query = "form::DataControl.allInstances()->collect(r|r.oclAsType(form::DataControl).relationMappers->"
 					+ "select(q|q.oclAsType(form::RelationMapper).dataControlRef<>null  and "
-					+ "q.oclAsType(form::RelationMapper).dataControlRef.uid='"+dataControl.getUid()+"'))";
-	
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) dataControl, TypePackage.Literals.TYPE,
-					query);
+					+ "q.oclAsType(form::RelationMapper).dataControlRef.uid='" + dataControl.getUid() + "'))";
+
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) dataControl,
+					TypePackage.Literals.TYPE, query);
 			if (list == null || list.size() == 0) {
 				return null;
 			}
-	
+
 			return (DataControl) list.iterator().next().eContainer();
-		}catch(Exception e){
+		} catch (Exception e) {
 			LogUtil.log(e);
 			return null;
 		}
 	}
-	
-	
-	public List<MappingLayer> findApplicationLayers(EObject object){
-		 if (object instanceof ApplicationMappers){
-			 ApplicationMappers appMappers = (ApplicationMappers) object;
-			 return appMappers.getAppLayers();
-		 }
-		 if (object instanceof Application){
-			 Application app = (Application) object;
-			 return app.getApplicationMappers().getAppLayers();
-		 }
 
-		 
-		 EObject container = object.eContainer();
-		 if (container == null){
-			 return new ArrayList<MappingLayer>();
-		 }
+	public List<MappingLayer> findApplicationLayers(EObject object) {
+		if (object instanceof ApplicationMappers) {
+			ApplicationMappers appMappers = (ApplicationMappers) object;
+			return appMappers.getAppLayers();
+		}
+		if (object instanceof Application) {
+			Application app = (Application) object;
+			return app.getApplicationMappers().getAppLayers();
+		}
+
+		EObject container = object.eContainer();
+		if (container == null) {
+			return new ArrayList<MappingLayer>();
+		}
 		return findApplicationLayers(container);
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Relation> findRelation( DataControl dataControl) throws Exception{
-		String query = "form::Relation.allInstances()->select(r|r.master.uid ='" + dataControl.getUid()+ "')";
+	public List<Relation> findRelation(DataControl dataControl) throws Exception {
+		String query = "form::Relation.allInstances()->select(r|r.master.uid ='" + dataControl.getUid() + "')";
 		Collection<Relation> list1 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
-		
-		query = "form::Relation.allInstances()->select(r|r.detail.uid ='" + dataControl.getUid()+ "'  and r.detail.uid <> r.master.uid )";
+
+		query = "form::Relation.allInstances()->select(r|r.detail.uid ='" + dataControl.getUid()
+				+ "'  and r.detail.uid <> r.master.uid )";
 		Collection<Relation> list2 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
-		
+
 		ArrayList<Relation> relations = new ArrayList<Relation>();
 		relations.addAll(list1);
 		relations.addAll(list2);
-		
+
 		return relations;
 	}
-	
+
 	
 	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {
 		return internalEvaluate(eobj, strQuery);

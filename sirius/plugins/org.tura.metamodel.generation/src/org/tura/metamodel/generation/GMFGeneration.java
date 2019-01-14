@@ -15,6 +15,8 @@ package org.tura.metamodel.generation;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -26,8 +28,10 @@ import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.View;
+import org.tura.metamodel.commons.GeneratotPreferences;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 import org.tura.metamodel.epsilon.command.EGLCommand;
 
 import recipe.Component;
@@ -94,6 +98,18 @@ public class GMFGeneration {
 
 	private void runGMFGeneration(View target,Infrastructure infrastructure,DiagramEditPart diagramEditPart) {
 
+		IEclipsePreferences pref = InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
+		if ("true".equals(pref.get(IPreferenceConstants.LOG_TEMPLATES, "false"))) {
+			GeneratotPreferences.logTemlates = true;
+		}else{
+			GeneratotPreferences.logTemlates = false;
+		}
+		if ("true".equals(pref.get(IPreferenceConstants.DEBUGING, "false"))) {
+			GeneratotPreferences.debigging = true;
+		}else{
+			GeneratotPreferences.debigging = false;;
+		}
+		
 		if (target.isSetElement() && target.getElement() != null) {
 			try {
 				HashMap<String, Object> configuration = new HashMap<>();
