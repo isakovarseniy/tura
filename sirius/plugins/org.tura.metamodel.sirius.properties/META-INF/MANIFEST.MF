@@ -14,10 +14,16 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.equinox.registry,
  org.eclipse.sirius.diagram,
  org.eclipse.sirius,
- org.tura.metamodel.epsilon;bundle-version="1.0.0"
+ org.tura.metamodel.epsilon;bundle-version="1.0.0",
+ org.tura.metamodel.generation;bundle-version="4.2.0",
+ org.tura.metamodel.commons.preferences;bundle-version="4.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.epsilon.common.dt.util,
  org.tura.metamodel.processor
-Export-Package: org.tura.metamodel.sirius.properties.actions,
- org.tura.metamodel.sirius.properties.selections.adapters.textdata
+Export-Package: org.tura.metamodel.sirius.properties.actions;uses:="org.eclipse.sirius.tools.api.ui,recipe,org.eclipse.jface.viewers",
+ org.tura.metamodel.sirius.properties.selections.adapters.textdata;
+  uses:="org.eclipse.emf.ecore,
+   artifact,
+   org.tura.metamodel.sirius.properties.selections.grid,
+   org.tura.metamodel.sirius.properties.selections"

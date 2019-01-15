@@ -60,6 +60,14 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.tura.metamodel</groupId>
+			<artifactId>org.tura.metamodel.generation</artifactId>
+			<version>${tura.eclipse.version}</version>
+		</dependency>
+
+
+
+		<dependency>
 			<groupId>com.google.googlejavaformat</groupId>
 			<artifactId>google-java-format</artifactId>
 			<version>1.6</version>
