@@ -3,25 +3,17 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Generation
 Bundle-SymbolicName: org.tura.metamodel.generation;singleton:=true
 Bundle-Version: 4.2.0.qualifier
-Bundle-Activator: org.tura.metamodel.generation.Activator
+Bundle-Activator: org.tura.metamodel.processor.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.tura.metamodel.commons;bundle-version="4.0.0",
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.8.0",
  org.eclipse.gmf.runtime.diagram.ui.resources.editor;bundle-version="1.7.0",
  org.eclipse.epsilon.common;bundle-version="1.4.0",
- org.tura.metamodel.commons.preferences;bundle-version="4.0.0",
- org.eclipse.epsilon.egl.engine;bundle-version="1.4.0"
+ org.eclipse.epsilon.egl.engine;bundle-version="1.4.0",
+ org.tura.metamodel.commons.preferences;bundle-version="4.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: lib/antlr-2.7.7.jar,
- lib/hybridlabs-beautifier-core-2.1.0.jar,
- lib/jalopy-core-1.6-beta1.jar,
- lib/jcl-over-slf4j-1.6.1.jar,
- lib/logback-classic-0.9.28.jar,
- lib/logback-core-0.9.28.jar,
- lib/slf4j-api-1.6.1.jar,
- .
 Import-Package: artifact,
  org.eclipse.debug.ui.console,
  org.eclipse.epsilon.common.dt.util,
@@ -32,6 +24,7 @@ Import-Package: artifact,
  org.eclipse.epsilon.eol.execute.context,
  org.eclipse.epsilon.eol.models,
  org.eclipse.ui.console,
+ org.tura.metamodel.commons.preferences,
  org.tura.metamodel.epsilon.command,
  recipe
-Export-Package: org.tura.metamodel.generation
+Export-Package: org.tura.metamodel.processor

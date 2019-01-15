@@ -6,7 +6,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
-import org.tura.metamodel.generation.RecipeGeneration;
+import org.tura.metamodel.processor.RecipeGeneration;
 
 import recipe.Infrastructure;
 

@@ -10,7 +10,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.tura.metamodel.generation;
+package org.tura.metamodel.processor;
 
 import java.util.HashMap;
 
@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
+import org.eclipse.epsilon.egl.formatter.language.JavaFormatter;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.eclipse.epsilon.eol.models.ModelRepository;
@@ -52,6 +53,7 @@ public class GMFGeneration {
 
 	public GMFGeneration(IProgressMonitor monitor) {
 		this.monitor = monitor;
+		org.tura.metamodel.generation.JavaFormatter f = new org.tura.metamodel.generation.JavaFormatter();
 	}
 
 	public boolean isGenerationError() {

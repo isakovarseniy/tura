@@ -68,6 +68,9 @@ public class GenerateCommand extends TuraCommand {
 	@Parameter(names = "--modelFile", description = "Model file location", required = true)
 	private String modelFile;
 
+	@Parameter(names = "--build", description = "Build after generation")
+	private String build;
+
 	public void execute() {
 		try {
 			String action = null;
@@ -91,7 +94,7 @@ public class GenerateCommand extends TuraCommand {
 			}
 
 			URL.setURLStreamHandlerFactory(new PlatformURLStreamHandlerFactory());
-			
+
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
 
 			EmfModel model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
@@ -105,9 +108,8 @@ public class GenerateCommand extends TuraCommand {
 				EObject obj = c.iterator().next();
 				QueryHelper queryHelper = new QueryHelper();
 				HashMap<String, Object> configuration = new HashMap<>();
-				getConfiguratioin( queryHelper.getConfiguration(obj, infraId),  configuration);
+				getConfiguratioin(queryHelper.getConfiguration(obj, infraId), configuration);
 
-				
 				Ingredient ingredient = null;
 				Recipe recipe = null;
 				Component component = null;
@@ -139,6 +141,11 @@ public class GenerateCommand extends TuraCommand {
 				}
 				if (!result) {
 					System.exit(-1);
+				}
+				System.out.println("Generation  completed");
+				if ("true".equals(build)) {
+					BuildCommand buildCmd = new BuildCommand();
+					buildCmd.depoymentRecipe(recipe);
 				}
 			}
 
@@ -195,8 +202,8 @@ public class GenerateCommand extends TuraCommand {
 			return true;
 		}
 		System.out.println("Generation:  Ingredient -> {" + ingredient.getName() + "} Component -> {"
-				+ component.getName() + "} Mapper -> {" + mapper.getName() + "}");		
-		
+				+ component.getName() + "} Mapper -> {" + mapper.getName() + "}");
+
 		String templatePath = mapper.getArtifactRef().getTemplate();
 		if (templatePath == null) {
 			System.err.println("Generation action failed. Ingredient -> {" + ingredient.getName() + "} Component -> {"
@@ -239,7 +246,8 @@ public class GenerateCommand extends TuraCommand {
 			e.printStackTrace();
 			System.err.println("Generation action failed. Ingredient -> {" + ingredient.getName() + "} Component -> {"
 					+ component.getName() + "} Mapper -> {" + mapper.getName() + "}");
-			System.err.println("<command >  --mapperId="+mapperId+ " --infraId="+infraId+ " --modelFile="+modelFile);
+			System.err.println(
+					"<command >  --mapperId=" + mapperId + " --infraId=" + infraId + " --modelFile=" + modelFile);
 			return false;
 		}
 	}

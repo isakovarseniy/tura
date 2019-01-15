@@ -10,7 +10,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.tura.metamodel.generation;
+package org.tura.metamodel.processor;
 
 import java.io.BufferedReader;
 import java.io.IOException;

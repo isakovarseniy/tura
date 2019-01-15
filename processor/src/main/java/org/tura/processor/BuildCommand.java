@@ -52,6 +52,30 @@ public class BuildCommand extends TuraCommand {
 	@Parameter(names = "--modelFile", description = "Model file location")
 	private String modelFile;
 
+	public String getRecipeId() {
+		return recipeId;
+	}
+
+	public void setRecipeId(String recipeId) {
+		this.recipeId = recipeId;
+	}
+
+	public String getInfraId() {
+		return infraId;
+	}
+
+	public void setInfraId(String infraId) {
+		this.infraId = infraId;
+	}
+
+	public String getModelFile() {
+		return modelFile;
+	}
+
+	public void setModelFile(String modelFile) {
+		this.modelFile = modelFile;
+	}
+
 	public void execute() {
 		try {
 

@@ -1,4 +1,4 @@
-package org.tura.metamodel.generation;
+package org.tura.metamodel.processor;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
