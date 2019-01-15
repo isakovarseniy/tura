@@ -4,6 +4,12 @@ package [%=objPackage%];
 
 import com.octo.java.sql.query.SelectQuery;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.datacontrol.commons.LazyList;
+import java.util.List;
+
 
 public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Pager<T>{
     private org.tura.platform.datacontrol.DataControl<T> datacontrol;

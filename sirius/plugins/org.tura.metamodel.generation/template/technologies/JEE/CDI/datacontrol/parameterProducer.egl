@@ -6,6 +6,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
+import java.lang.reflect.InvocationTargetException;
+
 
 @javax.enterprise.inject.Alternative
 @javax.annotation.Priority(0)

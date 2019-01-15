@@ -17,6 +17,7 @@ ${start}${percent}
  
  import org.tura.platform.repository.core.Registry;
  import org.tura.platform.repository.spa.SpaObjectRegistry;
+ import org.tura.platform.repository.spa.SpaRepository;
  
  public class InitSPARepository{
  

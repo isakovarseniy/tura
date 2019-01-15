@@ -11,7 +11,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter  
         this.attributes = obj.getAttributes();
     }
 
-    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(Map<String,Object> attributes){
+    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter( java.util.Map<String,Object> attributes){
         this.attributes = attributes;
     }
 

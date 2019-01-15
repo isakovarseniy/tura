@@ -19,6 +19,7 @@ import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.sirius.properties.selections.context.ContextPropertySelection;
@@ -34,7 +35,7 @@ public abstract class AbstractContextPropertySelection extends ContextPropertySe
 		DSemanticDiagram element = (DSemanticDiagram) root.getElement();
 
 		try {
-			for (Object obj : new QueryHelper().getControlsList(root)){
+			for (Object obj : new QueryHelper1().getControlsList(root)){
 				if (obj != null){
 				  rootOfTree.addChild(obj);
 				}
@@ -45,17 +46,17 @@ public abstract class AbstractContextPropertySelection extends ContextPropertySe
 			    rootOfTree.addChild(obj);
 			}
 
-			obj = new QueryHelper().getRootControl(root);
+			obj = new QueryHelper1().getRootControl(root);
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
-			obj = new QueryHelper().getMessages(root);
+			obj = new QueryHelper1().getMessages(root);
 
 			if (obj != null) {
 				rootOfTree.addChild(obj);
 			}
 			
-			obj = new QueryHelper().getApplicationStyle(root);
+			obj = new QueryHelper1().getApplicationStyle(root);
 
 			if (obj != null) {
 				rootOfTree.addChild(obj);

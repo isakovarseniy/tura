@@ -194,7 +194,7 @@ public class GenerateCommand extends TuraCommand {
 		if (mapper.isSkip()) {
 			return true;
 		}
-		System.out.println("Generation action failed. Ingredient -> {" + ingredient.getName() + "} Component -> {"
+		System.out.println("Generation:  Ingredient -> {" + ingredient.getName() + "} Component -> {"
 				+ component.getName() + "} Mapper -> {" + mapper.getName() + "}");		
 		
 		String templatePath = mapper.getArtifactRef().getTemplate();

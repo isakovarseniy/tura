@@ -2,21 +2,14 @@ package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
-import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ocl.OCL;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.Query;
@@ -24,7 +17,6 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
@@ -32,7 +24,6 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 import application.Application;
 import application.ApplicationMappers;
 import application.ApplicationUILayer;
-import application.ApplicationUIPackage;
 import artifact.GenerationHint;
 import artifact.QueryParameter;
 import artifact.TechLeaf;
@@ -43,14 +34,8 @@ import domain.DomainArtifacts;
 import domain.DomainTypes;
 import form.AreaRef;
 import form.CanvasFrame;
-import form.ContextParameter;
-import form.ContextParameters;
-import form.ContextValue;
-import form.Controls;
 import form.DataControl;
 import form.Form;
-import form.FormFactory;
-import form.FormPackage;
 import form.LayerHolder;
 import form.MenuDefinition;
 import form.MenuExtensionRef;
@@ -76,8 +61,6 @@ import recipe.Recipe2Infrastructure;
 import recipe.impl.Infrastructure2ConfigurationImpl;
 import type.Assosiation;
 import type.Generalization;
-import type.Operation;
-import type.Parameter;
 import type.Primitive;
 import type.PrimitivesGroup;
 import type.Type;
@@ -141,67 +124,12 @@ public class QueryHelper {
 
 	}
 
-	public Object getApplicationRoles(DiagramImpl root) {
-		Form frm = getForm(root);
-
-		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
-		if (app.getApplicationRole() != null) {
-			return app.getApplicationRole();
-		}
-		return null;
-	}
-
-	//
-	public Object getMessages(DiagramImpl root) {
-		Form frm = getForm(root);
-
-		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
-		if (app.getApplicationMessages() != null) {
-			return app.getApplicationMessages().getMessageLibraries();
-		}
-		return null;
-	}
-
-	//
-	public Object getApplicationStyle(DiagramImpl root) {
-		Form frm = getForm(root);
-
-		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
-		if (app.getApplicationStyle() != null) {
-			return app.getApplicationStyle();
-		}
-		return null;
-	}
 
 	public Form getForm(DataControl dc) {
 		return (Form) dc.eContainer().eContainer();
 	}
 
-	public Form getForm(DiagramImpl root) {
-		Form frm = null;
 
-		DSemanticDecorator element = (DSemanticDecorator) root.getElement();
-		EObject obj = element.getTarget();
-
-		if (obj instanceof Views) {
-			frm = (Form) ((Views) obj).eContainer();
-		}
-
-		if (obj instanceof ViewArea) {
-			frm = (Form) ((ViewArea) obj).eContainer().eContainer().eContainer();
-		}
-
-		if (obj instanceof Controls) {
-			frm = (Form) ((Controls) obj).eContainer();
-		}
-
-		if (obj instanceof MenuDefinition) {
-			Views views = (Views) (((MenuDefinition) obj).eContainer());
-			frm = (Form) views.eContainer();
-		}
-
-		return frm;
-	}
 
 	@SuppressWarnings({ "unchecked" })
 	public void getTreeLeafs(List<Object> ls, DataControl root) throws Exception {
@@ -392,11 +320,7 @@ public class QueryHelper {
 			return null;
 	}
 
-	public List<?> getControlsList(DiagramImpl root) throws Exception {
 
-		Form frm = getForm(root);
-		return getControlsList(frm);
-	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<?> getControlsList(Form frm) throws Exception {
@@ -416,16 +340,9 @@ public class QueryHelper {
 
 	}
 
-	public Object getRootControl(DiagramImpl root) throws Exception {
-		Form frm = getForm(root);
-		return frm.getDatacontrols().getRoot();
-	}
 
-	public Object getDomainApplications(DiagramImpl root) {
-		Form frm = getForm(root);
-		ApplicationUIPackage pkg = (ApplicationUIPackage) frm.eContainer();
-		return pkg.eContainer().eContainer().eContainer().eContainer();
-	}
+
+
 
 	@SuppressWarnings("unchecked")
 	public Object getDomainApplications(EObject root) throws Exception {
@@ -609,71 +526,6 @@ public class QueryHelper {
 		return result;
 	}
 
-	public List<Object> findTriggerParameters(Operation method, ContextParameters trg, EObject types,
-			EditingDomain editingDomain) throws Exception {
-
-		ArrayList<ContextParameter> removeParameters = new ArrayList<ContextParameter>();
-		ArrayList<ContextParameter> addParameters = new ArrayList<ContextParameter>();
-
-		Collection<Parameter> map = method.getParameters();
-
-		ArrayList<Parameter> parameters = new ArrayList<Parameter>();
-		parameters.addAll(map);
-
-		Collections.sort(parameters, new ParameterComparator());
-
-		ArrayList<ContextParameter> trgParameters = new ArrayList<ContextParameter>();
-		trgParameters.addAll(trg.getParameters());
-
-		Collections.sort(trgParameters, new ContextParameterComparator());
-
-		boolean renewParameters = false;
-		if (trgParameters.size() != parameters.size()) {
-			removeParameters.addAll(trgParameters);
-			renewParameters = true;
-		} else {
-
-			for (int i = 0; i < trgParameters.size(); i++) {
-				ContextParameter trgParam = trgParameters.get(i);
-				Parameter param = parameters.get(i);
-				if (trgParam.getRefObj() == null
-						|| !((Parameter) trgParam.getRefObj()).getUid().equals(param.getUid())) {
-					removeParameters.addAll(trgParameters);
-					renewParameters = true;
-					break;
-				}
-			}
-		}
-		if (renewParameters) {
-			for (int i = 0; i < parameters.size(); i++) {
-				ContextParameter trgParam = FormFactory.eINSTANCE.createContextParameter();
-				trgParam.setRefObj(parameters.get(i));
-				trgParam.setUid(UUID.randomUUID().toString());
-				addParameters.add(trgParam);
-				ContextValue value = FormFactory.eINSTANCE.createContextValue();
-				value.setUid(UUID.randomUUID().toString());
-				trgParam.setValue(value);
-			}
-		}
-		if (removeParameters.size() != 0) {
-			editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, trg,
-					FormPackage.eINSTANCE.getContextParameters_Parameters(), removeParameters));
-		}
-
-		if (addParameters.size() != 0) {
-			editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, trg,
-					FormPackage.eINSTANCE.getContextParameters_Parameters(), addParameters));
-		}
-
-		trgParameters = new ArrayList<ContextParameter>();
-		trgParameters.addAll(trg.getParameters());
-
-		Collections.sort(trgParameters, new ContextParameterComparator());
-
-		ArrayList<Object> rows = new ArrayList<>();
-		rows.addAll(trgParameters);
-		return rows;
-	}
 
 	@SuppressWarnings("unchecked")
 	public DomainTypes getTypesRepository(EObject obj) throws Exception {
@@ -760,24 +612,6 @@ public class QueryHelper {
 
 	}
 
-	class ParameterComparator implements Comparator<Parameter> {
-		@Override
-		public int compare(Parameter o1, Parameter o2) {
-			return new Integer(o1.getOrder()).compareTo(new Integer(o2.getOrder()));
-		}
-	}
-
-	class ContextParameterComparator implements Comparator<ContextParameter> {
-
-		@Override
-		public int compare(ContextParameter o1, ContextParameter o2) {
-			if (o1.getRefObj() == null || o2.getRefObj() == null)
-				return -1;
-			return new Integer(((Parameter) o1.getRefObj()).getOrder())
-					.compareTo(new Integer(((Parameter) o2.getRefObj()).getOrder()));
-		}
-
-	}
 
 	@SuppressWarnings("unchecked")
 	public void getInheritTypes(List<Type> typesTree, Type type) {

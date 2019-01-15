@@ -58,7 +58,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
          return this;
     }
     
-	public void addArtificialFieldWrapperProvider( ArtificialFieldWrapperProvider artificialFieldWrapper ){
+	public void addArtificialFieldWrapperProvider( org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider artificialFieldWrapper ){
 	       this.artificialFieldWrapper = artificialFieldWrapper;
 	}
     
@@ -68,8 +68,8 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
       return  new [%=tp.~class%]Proxy( c.deepClone(object),stackProvider);
     }
     
-    protected void notifyListner(ObjectControl obj , String property) throws Exception {
-        for (ProxyObjectUpdateListener lst : listeners){
+    protected void notifyListner(org.tura.platform.repository.core.ObjectControl obj , String property) throws Exception {
+        for (org.tura.platform.repository.proxy.ProxyObjectUpdateListener lst : listeners){
             lst.listener(obj, property);
         }
     }
@@ -874,7 +874,7 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
                     }
                     
                        org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-                    command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
+                    command.setMaster( ( org.tura.platform.repository.core.ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
                     command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
                     command.setRelationType("Many2Many");
                     command.setMasterProperty("[%=hash.get("sourceMethodName")%]");

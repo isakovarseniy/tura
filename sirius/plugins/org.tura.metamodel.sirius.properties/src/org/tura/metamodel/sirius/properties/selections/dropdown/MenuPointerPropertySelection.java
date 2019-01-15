@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.MenuMenuHolder;
 
 import form.MenuFolder;
@@ -32,7 +33,7 @@ public class MenuPointerPropertySelection extends AbstractEnumerationPropertySec
 					.getModel();
 
 			
-			List<MenuFolder> ls = query.findMenus(query.getForm(diagram));
+			List<MenuFolder> ls = query.findMenus(new QueryHelper1().getForm(diagram));
 
 			for (MenuFolder p : ls) {
 				values.put(p.getName(), p);

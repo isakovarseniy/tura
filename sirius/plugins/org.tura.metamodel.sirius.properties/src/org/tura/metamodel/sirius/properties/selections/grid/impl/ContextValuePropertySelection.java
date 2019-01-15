@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
@@ -223,22 +224,22 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot().getContents().getModel();
 
 		try {
-			for (Object obj : new QueryHelper().getControlsList(root))
+			for (Object obj : new QueryHelper1().getControlsList(root))
 				rootOfTree.addChild(obj);
 
 			Object obj = new QueryHelper().getTypesRepository(getModel());
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
-			obj = new QueryHelper().getApplicationRoles(root);
+			obj = new QueryHelper1().getApplicationRoles(root);
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
-			obj = new QueryHelper().getRootControl(root);
+			obj = new QueryHelper1().getRootControl(root);
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
-			obj = new QueryHelper().getApplicationStyle(root);
+			obj = new QueryHelper1().getApplicationStyle(root);
 
 			if (obj != null) {
 				rootOfTree.addChild(obj);

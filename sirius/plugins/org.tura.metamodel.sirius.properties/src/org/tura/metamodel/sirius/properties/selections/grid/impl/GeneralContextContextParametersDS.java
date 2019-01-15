@@ -8,7 +8,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
-import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 
 import form.Context;
@@ -37,7 +37,7 @@ public abstract class GeneralContextContextParametersDS extends ContextParameter
 				int i = context.getExpression().size();
 				Object obj = context.getExpression().get(i-1).getObjRef();
 				if (obj  != null  && obj instanceof Operation){
-					ls = new QueryHelper().findTriggerParameters((Operation)obj ,context, types, editingDomain);
+					ls = new QueryHelper1().findTriggerParameters((Operation)obj ,context, types, editingDomain);
 				}
 			}
 			return ls;

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
@@ -56,7 +57,7 @@ public abstract class AbstractCastPropertySelection extends AbstractEnumerationP
 
 			try {
 				
-				Form frm = helper.getForm(root);
+				Form frm = new QueryHelper1().getForm(root);
 				if (Util.ifDataControlIsTreeRoot(ndc, frm)) {
 					helper.getTreeLeafs(controls, ndc);
 				} else

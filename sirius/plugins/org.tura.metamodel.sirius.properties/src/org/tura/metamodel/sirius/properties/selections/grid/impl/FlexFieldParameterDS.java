@@ -8,7 +8,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
-import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 
 import form.ExpressionPart;
@@ -38,7 +38,7 @@ public class FlexFieldParameterDS extends ContextParameterDS {
 			if (field != null && field.getExpression() != null && field.getExpression().size() != 0){
 				ExpressionPart exp = field.getExpression().get(field.getExpression().size()-1);
 				if ( exp.getObjRef() != null &&  exp.getObjRef() instanceof Operation ){
-					ls = new QueryHelper().findTriggerParameters((Operation) exp.getObjRef(),
+					ls = new QueryHelper1().findTriggerParameters((Operation) exp.getObjRef(),
 							field, types, editingDomain);
 				}
 			}

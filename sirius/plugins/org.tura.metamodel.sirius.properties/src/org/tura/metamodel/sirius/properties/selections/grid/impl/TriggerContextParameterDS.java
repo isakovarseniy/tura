@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
-import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 
 import form.Trigger;
@@ -43,7 +43,7 @@ public class TriggerContextParameterDS extends ContextParameterDS {
 			Trigger trg = (Trigger) property.getModel();
 			if (trg.getMethodRef() == null)
 				return ls;
-			ls = new QueryHelper().findTriggerParameters(trg.getMethodRef(),trg, types, editingDomain);
+			ls = new QueryHelper1().findTriggerParameters(trg.getMethodRef(),trg, types, editingDomain);
 
 			return ls;
 		} catch (Exception e) {

@@ -8,6 +8,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.tura.metamodel.commons.Helper;
+import org.tura.metamodel.commons.Helper1;
 
 import form.DataControl;
 import form.FormPackage;
@@ -28,7 +29,7 @@ public class DataControlBaseTypePropertySelection  extends BaseClassTypeNameprop
 			Command setCommand = SetCommand.create(editingDomain, datacontrol, feature, datacontrol.getBaseType().getTypeRef().getName());
 			editingDomain.getCommandStack().execute(setCommand);
 			
-			new Helper().populateObjectMapper(datacontrol, datacontrol);
+			new Helper1().populateObjectMapper(datacontrol, datacontrol);
 		}	
 	}
 	

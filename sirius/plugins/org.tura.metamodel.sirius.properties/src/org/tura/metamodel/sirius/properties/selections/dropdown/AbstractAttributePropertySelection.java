@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.Helper;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
@@ -58,7 +59,7 @@ public abstract class AbstractAttributePropertySelection extends AbstractEnumera
 			QueryHelper helper = new QueryHelper();
 			DiagramImpl root = (DiagramImpl) editPart.getRoot().getContents()
 					.getModel();
-			Form frm = helper.getForm(root);
+			Form frm = new QueryHelper1().getForm(root);
 
 			Map<String, ArrayList<Object>> operations = new HashMap<>();
 			Map<String, ArrayList<Object>> attributes = new HashMap<>();

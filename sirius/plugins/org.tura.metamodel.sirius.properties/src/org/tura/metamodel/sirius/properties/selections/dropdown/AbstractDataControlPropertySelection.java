@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
-import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.QueryHelper1;
 import org.tura.metamodel.commons.properties.selections.adapters.DataControlProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.TreeDataControlProvider;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
@@ -41,7 +41,7 @@ public abstract class AbstractDataControlPropertySelection extends AbstractEnume
 				values = new LinkedHashMap<String, Object>();
 				DiagramImpl root = (DiagramImpl) editPart.getRoot().getContents().getModel();
 
-				for (Object obj : new QueryHelper().getControlsList(root)) {
+				for (Object obj : new QueryHelper1().getControlsList(root)) {
 					if (obj instanceof TreeRootDataControlHolder) {
 						TreeRootDataControlHolder th = (TreeRootDataControlHolder) obj;
 						TreeDataControlProvider provider = new TreeDataControlProvider();
