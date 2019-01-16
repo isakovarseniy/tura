@@ -55,7 +55,6 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			addOrderPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addArtifactRootPropertyDescriptor(object);
-			addArtifactExecutionStringPropertyDescriptor(object);
 			addSkipPropertyDescriptor(object);
 			addArtifactExtensionPropertyDescriptor(object);
 		}
@@ -120,28 +119,6 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 				 getString("_UI_ModelMapper_artifactRoot_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_artifactRoot_feature", "_UI_ModelMapper_type"),
 				 RecipePackage.Literals.MODEL_MAPPER__ARTIFACT_ROOT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Artifact Execution String feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addArtifactExecutionStringPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ModelMapper_artifactExecutionString_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_artifactExecutionString_feature", "_UI_ModelMapper_type"),
-				 RecipePackage.Literals.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING,
 				 true,
 				 false,
 				 false,
@@ -267,7 +244,6 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__ORDER:
 			case RecipePackage.MODEL_MAPPER__NAME:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
-			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
 			case RecipePackage.MODEL_MAPPER__SKIP:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

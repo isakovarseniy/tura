@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.Util;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -43,13 +44,13 @@ import recipe.Recipe;
 @Parameters(separators = "=", commandDescription = "Build recipe")
 public class BuildCommand extends TuraCommand {
 
-	@Parameter(names = "--recipeId", description = "Recipe identificator")
+	@Parameter(names = "--recipeId", description = "Recipe identificator", required = true)
 	private String recipeId;
 
-	@Parameter(names = "--infraId", description = "Recipe configuration")
+	@Parameter(names = "--infraId", description = "Recipe configuration", required = true)
 	private String infraId;
 
-	@Parameter(names = "--modelFile", description = "Model file location")
+	@Parameter(names = "--modelFile", description = "Model file location", required = true)
 	private String modelFile;
 
 	public String getRecipeId() {
@@ -94,12 +95,12 @@ public class BuildCommand extends TuraCommand {
 				getConfiguratioin(queryHelper.getConfiguration(obj, infraId), configuration);
 				Recipe recipe = queryHelper.getRecipe(obj, recipeId);
 				boolean result = depoymentRecipe(recipe);
-				if(result){
+				if (result) {
 					return;
-				}else{
+				} else {
 					System.exit(-1);
 				}
-				
+
 			}
 
 		} catch (Exception e) {
@@ -124,9 +125,15 @@ public class BuildCommand extends TuraCommand {
 		DeploymentComponent component = recipe.getStartSeq().getFirstStep();
 		try {
 			while (component != null) {
-				if (!component.isSkip() && component.getMapper().getArtifactExecutionString() != null) {
-					System.out.println("Execution: " + component.getMapper().getArtifactExecutionString());
-					Process proc = Runtime.getRuntime().exec(component.getMapper().getArtifactExecutionString());
+				String artifactExecutionString = null;
+				try {
+					artifactExecutionString = new Util().getArtifactExecution(component.getMapper());
+				} catch (IOException e) {
+				}
+
+				if (!component.isSkip() && artifactExecutionString != null) {
+					System.out.println("Execution: " + artifactExecutionString);
+					Process proc = Runtime.getRuntime().exec(artifactExecutionString);
 
 					StreamPumper inputPumper = new StreamPumper(proc.getInputStream());
 					StreamPumper errorPumper = new StreamPumper(proc.getErrorStream());
@@ -143,13 +150,15 @@ public class BuildCommand extends TuraCommand {
 
 					System.out.println("Execution result : " + proc.exitValue());
 					if (proc.exitValue() != 0) {
-						System.err.println("Exception during deployment name=" + component.getMapper().getName() + " uid ="+component.getMapper().getUid()  );
+						System.err.println("Exception during deployment name=" + component.getMapper().getName()
+								+ " uid =" + component.getMapper().getUid());
 						return false;
 					}
 
 				} else {
-					System.err.println(component.getName() + " has empty execution string");
-					return false;
+					if (!component.isSkip()) {
+						System.err.println(component.getMapper().getName() + " has empty execution string");
+					}
 				}
 				component = component.getDeploymentComponentLink();
 

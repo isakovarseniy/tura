@@ -15,7 +15,7 @@ operation  maven_build_runner(hash) {
 [%=mavenBuilder_mavenCleanInstall(configuration, util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId,hash)%]
 [%    
 
-    model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
+    util.saveArtifactExecution( model_mapper, os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension());
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
 }
 

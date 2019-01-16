@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.ModelMapper#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.ModelMapper#getTechnologies <em>Technologies</em>}</li>
  *   <li>{@link recipe.ModelMapper#getQueries <em>Queries</em>}</li>
- *   <li>{@link recipe.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  *   <li>{@link recipe.ModelMapper#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactExtension <em>Artifact Extension</em>}</li>
  * </ul>
@@ -113,32 +112,6 @@ public interface ModelMapper extends ArtifactRef, Orderable, Categorized {
 	 * @generated
 	 */
 	EList<Query> getQueries();
-
-	/**
-	 * Returns the value of the '<em><b>Artifact Execution String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Artifact Execution String</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Artifact Execution String</em>' attribute.
-	 * @see #setArtifactExecutionString(String)
-	 * @see recipe.RecipePackage#getModelMapper_ArtifactExecutionString()
-	 * @model
-	 * @generated
-	 */
-	String getArtifactExecutionString();
-
-	/**
-	 * Sets the value of the '{@link recipe.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact Execution String</em>' attribute.
-	 * @see #getArtifactExecutionString()
-	 * @generated
-	 */
-	void setArtifactExecutionString(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Skip</b></em>' attribute.

@@ -2,7 +2,9 @@ package org.tura.metamodel.commons;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -19,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+
+import javax.imageio.stream.FileImageInputStream;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
@@ -686,5 +690,19 @@ public class Util {
 	        }
 	    return sb.toString();
 	}	
+	
+	public void saveArtifactExecution(  ModelMapper mapper, String execution  ) throws IOException{
+		String path = System.getProperty("user.home")+"/.tura/artifactexecution";
+		saveFile(path, mapper.getUid(), execution,"UTF-8");
+	}
+	
+	public String getArtifactExecution(  ModelMapper mapper ) throws IOException{
+		String path = System.getProperty("user.home")+"/.tura/artifactexecution/"+mapper.getUid();
+		FileInputStream in = new FileInputStream(new File(path));
+		byte[] buffer = new byte[ in.available()];
+		in.read(buffer);
+		return new String(buffer,"UTF-8");
+	}
+	
 	
 }

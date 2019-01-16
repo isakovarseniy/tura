@@ -42,7 +42,6 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getTechnologies <em>Technologies</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
- *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExtension <em>Artifact Extension</em>}</li>
  * </ul>
@@ -139,26 +138,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @ordered
 	 */
 	protected EList<Query> queries;
-
-	/**
-	 * The default value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArtifactExecutionString()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ARTIFACT_EXECUTION_STRING_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getArtifactExecutionString() <em>Artifact Execution String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArtifactExecutionString()
-	 * @generated
-	 * @ordered
-	 */
-	protected String artifactExecutionString = ARTIFACT_EXECUTION_STRING_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSkip() <em>Skip</em>}' attribute.
@@ -323,27 +302,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getArtifactExecutionString() {
-		return artifactExecutionString;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setArtifactExecutionString(String newArtifactExecutionString) {
-		String oldArtifactExecutionString = artifactExecutionString;
-		artifactExecutionString = newArtifactExecutionString;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING, oldArtifactExecutionString, artifactExecutionString));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isSkip() {
 		return skip;
 	}
@@ -419,8 +377,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return getTechnologies();
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				return getQueries();
-			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
-				return getArtifactExecutionString();
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				return isSkip();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
@@ -459,9 +415,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				getQueries().clear();
 				getQueries().addAll((Collection<? extends Query>)newValue);
 				return;
-			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
-				setArtifactExecutionString((String)newValue);
-				return;
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				setSkip((Boolean)newValue);
 				return;
@@ -498,9 +451,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				getQueries().clear();
 				return;
-			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
-				setArtifactExecutionString(ARTIFACT_EXECUTION_STRING_EDEFAULT);
-				return;
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				setSkip(SKIP_EDEFAULT);
 				return;
@@ -531,8 +481,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return technologies != null && !technologies.isEmpty();
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				return queries != null && !queries.isEmpty();
-			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
-				return ARTIFACT_EXECUTION_STRING_EDEFAULT == null ? artifactExecutionString != null : !ARTIFACT_EXECUTION_STRING_EDEFAULT.equals(artifactExecutionString);
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				return skip != SKIP_EDEFAULT;
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
@@ -601,8 +549,6 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		result.append(name);
 		result.append(", artifactRoot: ");
 		result.append(artifactRoot);
-		result.append(", artifactExecutionString: ");
-		result.append(artifactExecutionString);
 		result.append(", skip: ");
 		result.append(skip);
 		result.append(", artifactExtension: ");

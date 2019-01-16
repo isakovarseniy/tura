@@ -32,6 +32,7 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.Util;
 
 import recipe.DeploymentComponent;
 import recipe.Infrastructure;
@@ -95,15 +96,20 @@ public class MetamodelDeploymentJob extends Job {
 
 			component = recipe.getStartSeq().getFirstStep();
 
-			monitor.beginTask("Component deployment" , i);
+			monitor.beginTask("Component deployment", i);
 
 			while (component != null) {
 
-				monitor.subTask( component.getMapper().getName());
+				monitor.subTask(component.getMapper().getName());
+				String artifactExecutionString = null;
+				try {
+					artifactExecutionString = new Util().getArtifactExecution(component.getMapper());
+				} catch (IOException e) {
+				}
 
-				if (!component.isSkip() &&  component.getMapper().getArtifactExecutionString() != null) {
-					System.out.println("Execution: " + component.getMapper().getArtifactExecutionString());
-					Process proc = Runtime.getRuntime().exec(component.getMapper().getArtifactExecutionString());
+				if (!component.isSkip() && artifactExecutionString != null) {
+					System.out.println("Execution: " + artifactExecutionString);
+					Process proc = Runtime.getRuntime().exec(artifactExecutionString);
 
 					StreamPumper inputPumper = new StreamPumper(proc.getInputStream());
 					StreamPumper errorPumper = new StreamPumper(proc.getErrorStream());
@@ -125,7 +131,9 @@ public class MetamodelDeploymentJob extends Job {
 					}
 
 				} else {
-					System.err.println(component.getName() + " has empty execution string");
+					if (!component.isSkip()) {
+						System.err.println(component.getMapper().getName() + " has empty execution string");
+					}
 				}
 				component = component.getDeploymentComponentLink();
 				monitor.worked(1);

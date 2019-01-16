@@ -971,7 +971,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModelMapper_ArtifactExecutionString() {
+	public EAttribute getModelMapper_Skip() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -980,17 +980,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModelMapper_Skip() {
-		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getModelMapper_ArtifactExtension() {
-		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1357,7 +1348,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_ROOT);
 		createEReference(modelMapperEClass, MODEL_MAPPER__TECHNOLOGIES);
 		createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
-		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_EXECUTION_STRING);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__SKIP);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_EXTENSION);
 
@@ -1527,7 +1517,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getModelMapper_ArtifactRoot(), ecorePackage.getEString(), "artifactRoot", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelMapper_Technologies(), this.getMappingTecnologiy(), null, "technologies", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelMapper_ArtifactExecutionString(), ecorePackage.getEString(), "artifactExecutionString", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_Skip(), ecorePackage.getEBoolean(), "skip", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_ArtifactExtension(), ecorePackage.getEString(), "artifactExtension", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

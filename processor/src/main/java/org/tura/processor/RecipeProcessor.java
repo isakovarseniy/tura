@@ -40,16 +40,20 @@ public class RecipeProcessor {
                     .addCommand(GENERATE_COMMAND, gc)
                     .build();
 
+            jc.setProgramName("java -jar processor-<version>-jar-with-dependencies.jar");
             jc.parse(args);
             String cmd = jc.getParsedCommand();
             if ( GENERATE_COMMAND.equals(cmd)) {
                 gc.execute();
+                return;
             }
             
             if ( BUILD_COMMAND.equals(cmd)) {
                 bc.execute();
+                return;
             }
             
+            jc.usage();
         } catch (ParameterException e) {
             e.getJCommander().usage();
 

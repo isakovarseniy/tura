@@ -2144,7 +2144,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-domain/builder.sh">
+                        <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -2154,14 +2154,14 @@
                     </ingredients>
                     <ingredients mappers="984b30ff-b1da-47dc-83d0-885b4f71ac99" order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="JPA Persistance " controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
-                        <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
+                        <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="1ccc5377-e128-446d-beb2-069ff23b4c46" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="ae65504b-2f97-483f-95ad-0f6a5bc765e8" artifactRef="902fea93-de0a-4951-923a-45c23168e4d3" name="Enumeratior generaton" artifactExecutionString="">
+                        <mappers uid="ae65504b-2f97-483f-95ad-0f6a5bc765e8" artifactRef="902fea93-de0a-4951-923a-45c23168e4d3" name="Enumeratior generaton">
                           <queries uid="97dcb2b2-b6a9-4017-94aa-e4b2206df50d" name="Query package for enum" queryRef="1b1d46c5-d120-49d1-948c-225d055d4273">
                             <variables queryParamRef="c899e49e-eb96-4625-8588-9e428efca685" value="Testing repository"/>
                             <variables queryParamRef="f18659ab-efc4-4d26-83b2-76b17b82c895" value="JPA test package"/>
@@ -2197,7 +2197,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-jpa/builder.sh">
+                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
@@ -2218,7 +2218,7 @@
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a402227e-405e-4074-ae16-33b2f8a07b39"/>
                         </mappers>
-                        <mappers uid="ed3fba79-6854-4a72-92a6-725b77fd56bd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA serializable  model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-serialization/builder.sh">
+                        <mappers uid="ed3fba79-6854-4a72-92a6-725b77fd56bd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA serializable  model build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2245,7 +2245,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="DD1"/>
                           </queries>
                         </mappers>
-                        <mappers uid="55c762dd-0383-4265-bb38-05b6e3b44559" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository/builder.sh">
+                        <mappers uid="55c762dd-0383-4265-bb38-05b6e3b44559" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2276,7 +2276,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository-proxy/builder.sh">
+                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2306,7 +2306,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Data control"/>
                           </queries>
                         </mappers>
-                        <mappers uid="ac990734-7c7d-4545-a2e9-3a639dece9ac" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Pager build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-objects-pagers/builder.sh">
+                        <mappers uid="ac990734-7c7d-4545-a2e9-3a639dece9ac" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Pager build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2333,7 +2333,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="A1"/>
                           </queries>
                         </mappers>
-                        <mappers uid="a04a770d-eedf-4870-b83f-18d06098ba06" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="SPA Repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-spa-repository/builder.sh">
+                        <mappers uid="a04a770d-eedf-4870-b83f-18d06098ba06" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="SPA Repository build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -2364,7 +2364,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Adapter"/>
                           </queries>
                         </mappers>
-                        <mappers uid="8af2086a-e7d3-4a93-8b75-2d992d5f9a84" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-spa/builder.sh">
+                        <mappers uid="8af2086a-e7d3-4a93-8b75-2d992d5f9a84" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Model build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2425,7 +2425,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="b422bd67-53ef-486b-b99c-9cca982d0077" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model repository build run" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-repository/builder.sh">
+                        <mappers uid="b422bd67-53ef-486b-b99c-9cca982d0077" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model repository build run">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
@@ -2435,7 +2435,7 @@
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="a03d9042-d13e-40b9-acc8-c09c7a2188bd" name="Complex model persistence" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="65c2aece-7aab-4048-bfd0-f7839ed6de03" name="HR complex persistance model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.jpa">
-                        <mappers uid="eac21c0f-42e1-41e8-a089-344836bdee19" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
+                        <mappers uid="eac21c0f-42e1-41e8-a089-344836bdee19" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="f06c0e5f-dad3-400a-852f-b01c7433beca" name="Query package for classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="HR domain"/>
@@ -2463,7 +2463,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
                           </queries>
                         </mappers>
-                        <mappers uid="dbfce43e-8dee-4f2a-bd66-be47eae30dc0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model persistance build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-jpa/builder.sh">
+                        <mappers uid="dbfce43e-8dee-4f2a-bd66-be47eae30dc0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model persistance build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2484,7 +2484,7 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a402227e-405e-4074-ae16-33b2f8a07b39"/>
                         </mappers>
-                        <mappers uid="3ae2e9e6-06f6-4d44-8d1b-0bbf5fb96e47" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model serialization build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-serialization/builder.sh">
+                        <mappers uid="3ae2e9e6-06f6-4d44-8d1b-0bbf5fb96e47" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model serialization build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2509,7 +2509,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Complex model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="5b709b6e-d44b-43fb-8142-de260215bd1f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-proxy/builder.sh">
+                        <mappers uid="5b709b6e-d44b-43fb-8142-de260215bd1f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model repository proxy build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2537,7 +2537,7 @@
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="Simple model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="21363c9c-fec9-451c-9d2f-d94d4752157e" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model persistance build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-jpa/builder.sh">
+                        <mappers uid="21363c9c-fec9-451c-9d2f-d94d4752157e" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model persistance build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2568,7 +2568,7 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a402227e-405e-4074-ae16-33b2f8a07b39"/>
                         </mappers>
-                        <mappers uid="72cab31a-07e4-4e8b-9e3a-7e3b5f2eaff0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model serialization build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-serialization/builder.sh">
+                        <mappers uid="72cab31a-07e4-4e8b-9e3a-7e3b5f2eaff0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model serialization build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2593,7 +2593,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="da5a9b3d-2627-4d85-bd45-dba14342491f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-proxy/builder.sh">
+                        <mappers uid="da5a9b3d-2627-4d85-bd45-dba14342491f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model repository proxy build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
@@ -2619,7 +2619,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Complex model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="8cd51074-c67b-43d6-b47d-2ee8848ec2e2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model repository build run" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-repository/builder.sh">
+                        <mappers uid="8cd51074-c67b-43d6-b47d-2ee8848ec2e2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model repository build run">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2653,7 +2653,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Base type"/>
                           </queries>
                         </mappers>
-                        <mappers uid="33ffd3c8-d913-45e5-9ce0-cd1aede6b063" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Interface build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-model-interface/builder.sh">
+                        <mappers uid="33ffd3c8-d913-45e5-9ce0-cd1aede6b063" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Interface build runner">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -2707,7 +2707,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Triggers"/>
                           </queries>
                         </mappers>
-                        <mappers uid="62831dc4-9799-41a8-9796-afd7960b89c7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-restservice-repository/builder.sh">
+                        <mappers uid="62831dc4-9799-41a8-9796-afd7960b89c7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2716,7 +2716,7 @@
                         <mappers uid="81ea40f0-7b50-47f4-a625-0ce92a44408d" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="9885f08d-1c1d-4af3-acba-34795fb0ce34" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/hr-simple-model-repository-triggers/builder.sh">
+                        <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2740,7 +2740,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Triggers"/>
                           </queries>
                         </mappers>
-                        <mappers uid="309878bc-6437-42d5-a52a-8d867aa14465" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model  build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-restservice-repository/builder.sh">
+                        <mappers uid="309878bc-6437-42d5-a52a-8d867aa14465" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model  build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2749,7 +2749,7 @@
                         <mappers uid="cf2e94ba-c572-4d55-95b6-6ec132c5f3ef" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="39db2632-0f22-4ddd-90c4-c70d5f8a9136" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform">
-                        <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/hr-complex-model-repository-triggers/builder.sh">
+                        <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2773,7 +2773,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Triggers"/>
                           </queries>
                         </mappers>
-                        <mappers uid="9e882c53-3195-4135-aa5c-024cc2166325" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-restservice-repository/builder.sh">
+                        <mappers uid="9e882c53-3195-4135-aa5c-024cc2166325" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -2782,7 +2782,7 @@
                         <mappers uid="3954b242-ef8f-4068-aeb3-d7038d4f5d81" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="2f5cdcb2-9ff8-4e8f-a296-fc47acba4b45" name="Triggers" componentRoot="${External path 1}/rest-services" artifactId="jpa-test-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/rest-services/jpa-test-model-repository-triggers/builder.sh">
+                        <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2850,13 +2850,13 @@
                             <variables queryParamRef="c7d733c5-b134-4414-a260-0852636e2be2" value="Client System library"/>
                           </queries>
                         </mappers>
-                        <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
+                        <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application Build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                         </mappers>
-                        <mappers uid="493f35a8-60d7-44c6-b555-9231a3f568ce" artifactRef="e9d0b499-bc45-4190-a488-40202391c5f4" name="Application deployer" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/deployer.sh">
+                        <mappers uid="493f35a8-60d7-44c6-b555-9231a3f568ce" artifactRef="e9d0b499-bc45-4190-a488-40202391c5f4" name="Application deployer">
                           <technologies techRef="4aff409c-1621-40ea-8607-555c901d6f31" valueRef="a232c26e-2c1e-4a22-acbf-9d2b57846a16"/>
                           <technologies techRef="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" valueRef="cd776e70-0790-4869-8068-bfc861686df9"/>
                           <technologies techRef="4b7af66a-8fb6-4b03-91ab-c9d1cb468b8e" valueRef="9c56c069-91b0-413f-95fa-b5056476b0be"/>
@@ -2920,7 +2920,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="17e4bf61-820a-433e-9b51-229a8738632f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Interface build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-interface/builder.sh">
+                        <mappers uid="17e4bf61-820a-433e-9b51-229a8738632f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Interface build runner">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -2948,7 +2948,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="018eecf2-6087-4f3d-9484-a5460fff806c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Page object build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-pageobjects/builder.sh">
+                        <mappers uid="018eecf2-6087-4f3d-9484-a5460fff806c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Page object build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2958,7 +2958,7 @@
                     </ingredients>
                     <ingredients columns="3" order="2" uid="a80474cb-f110-4a56-86f1-0959d7635179" name="External Archives">
                       <components xsi:type="tura.recipe:JavaComponent" uid="f6649945-4f3c-41b2-b2b1-392037e0cb57" name="Triggers" componentRoot="${External path 1}/hr-manager" artifactId="hrform-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="b49fce8c-ec2b-473a-9882-99e93d90ac92" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hr-manager/hrform-triggers/builder.sh">
+                        <mappers uid="b49fce8c-ec2b-473a-9882-99e93d90ac92" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2966,7 +2966,7 @@
                         </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" order="1" uid="7ed1d21d-9419-47c3-91a0-bed932bb817e" name="Resources" componentRoot="${External path 1}/hr-manager" artifactId="hrresources" groupId="org.tura.example.service">
-                        <mappers uid="94e05de4-6044-40b1-9409-1decdc62bbdb" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Resources build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hr-manager/hrresources/builder.sh">
+                        <mappers uid="94e05de4-6044-40b1-9409-1decdc62bbdb" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Resources build runner">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2974,7 +2974,7 @@
                         </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" order="2" uid="485e8e5e-1f3e-4f05-98d3-3f173fcef890" name="Configuration" componentRoot="${External path 1}/hr-manager" artifactId="hr-manager" groupId="">
-                        <mappers uid="291e56c6-2add-4a00-9050-33201f688868" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Integration test configuration  builder run" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hr-manager/hr-manager/builder.sh">
+                        <mappers uid="291e56c6-2add-4a00-9050-33201f688868" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Integration test configuration  builder run">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -3066,7 +3066,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="CDI Implementation"/>
                           </queries>
                         </mappers>
-                        <mappers uid="a1326ffe-6bf8-4541-b618-59615f4df030" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-simple-object-model/builder.sh">
+                        <mappers uid="a1326ffe-6bf8-4541-b618-59615f4df030" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="0f1005fd-cee5-4792-ba0b-bb04144d4905"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -3127,7 +3127,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="CDI Implementation"/>
                           </queries>
                         </mappers>
-                        <mappers uid="adb68395-9fd8-4424-bb94-99d1422abe8b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-complex-object-model/builder.sh">
+                        <mappers uid="adb68395-9fd8-4424-bb94-99d1422abe8b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="0f1005fd-cee5-4792-ba0b-bb04144d4905"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -7963,7 +7963,7 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                         </mappers>
-                        <mappers uid="df1ec71e-5c76-4dd2-b25d-94d897087c36" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="DB persistance object Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/db-persistence-model/builder.sh">
+                        <mappers uid="df1ec71e-5c76-4dd2-b25d-94d897087c36" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="DB persistance object Build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -8003,7 +8003,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Adapter"/>
                           </queries>
                         </mappers>
-                        <mappers uid="fc3dac6a-6bab-4c73-9805-e1d5192af10a" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Keycloak persistance objects model builder" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/keycloak-persistence-model/builder.sh">
+                        <mappers uid="fc3dac6a-6bab-4c73-9805-e1d5192af10a" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Keycloak persistance objects model builder">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -8032,7 +8032,7 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                         </mappers>
-                        <mappers uid="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Serialization build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/serialized-model/builder.sh">
+                        <mappers uid="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Serialization build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -8065,7 +8065,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="database"/>
                           </queries>
                         </mappers>
-                        <mappers uid="fbae1102-f1f4-423e-9ab2-6258c9e590fd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Proxy repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/proxy-repository/builder.sh">
+                        <mappers uid="fbae1102-f1f4-423e-9ab2-6258c9e590fd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Proxy repository build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -8092,7 +8092,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Country"/>
                           </queries>
                         </mappers>
-                        <mappers uid="3dcc656e-9d88-44f5-8d88-b52b103c56ad" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository  builder runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/jpa-persistence-repository/builder.sh">
+                        <mappers uid="3dcc656e-9d88-44f5-8d88-b52b103c56ad" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository  builder runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -8126,7 +8126,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="KeyCloak"/>
                           </queries>
                         </mappers>
-                        <mappers uid="65e4013f-e969-4cc4-8dec-28f64588b697" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="SPA Repository builder runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/serviceLayer/spa-persistence-repository/builder.sh">
+                        <mappers uid="65e4013f-e969-4cc4-8dec-28f64588b697" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="SPA Repository builder runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -8225,7 +8225,7 @@
                             <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="Sales Analysis"/>
                           </queries>
                         </mappers>
-                        <mappers uid="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Admin build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin/builder.sh">
+                        <mappers uid="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Admin build runner">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
@@ -8259,7 +8259,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Admin form interface Build ruller" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin-interface/builder.sh">
+                        <mappers uid="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Admin form interface Build ruller">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -8269,7 +8269,7 @@
                     </ingredients>
                     <ingredients columns="2" order="8" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
                       <components xsi:type="tura.recipe:JavaComponent" uid="30a543e9-0412-42fa-9377-9cde1c7a01be" name="Testing" componentRoot="${External path 1}/sales-analyzer/testing">
-                        <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Testing" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/testing//builder.sh">
+                        <mappers uid="3c838fe3-958d-4315-821c-246f8bd93b23" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Testing">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -8277,7 +8277,7 @@
                         </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" order="1" uid="f4d79cf9-a880-4bc0-a8ec-1c6e2a6e7058" name="Triggers etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
-                        <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/sales-analyzer/sales-analyzer//builder.sh">
+                        <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -8305,7 +8305,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="34316e90-eb0b-456d-b1b2-31494bfc8c9c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Selenium build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-admin-pageobjects/builder.sh">
+                        <mappers uid="34316e90-eb0b-456d-b1b2-31494bfc8c9c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Selenium build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -8390,7 +8390,7 @@
                             <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="Sales Analysis"/>
                           </queries>
                         </mappers>
-                        <mappers uid="dafeb454-d623-4127-9447-96d8ac1ccf38" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Case manager build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-case-manager/builder.sh">
+                        <mappers uid="dafeb454-d623-4127-9447-96d8ac1ccf38" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Case manager build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -8424,7 +8424,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="96216358-7770-4a2e-958b-ab7ba7a370f0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Case manager interface build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-case-manager-interface/builder.sh">
+                        <mappers uid="96216358-7770-4a2e-958b-ab7ba7a370f0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Case manager interface build runner">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -8509,7 +8509,7 @@
                             <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="Sales Analysis"/>
                           </queries>
                         </mappers>
-                        <mappers uid="c7967258-b3c3-489c-8f52-147016a2f650" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Etl controller build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-etl-controller/builder.sh">
+                        <mappers uid="c7967258-b3c3-489c-8f52-147016a2f650" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Etl controller build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -8543,7 +8543,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="0cdd9859-0abe-4c5e-be1a-a318c0aa2fd3" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="ETL Controller interface build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/sa/uiLayer/sa-etl-controller-interface/builder.sh">
+                        <mappers uid="0cdd9859-0abe-4c5e-be1a-a318c0aa2fd3" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="ETL Controller interface build runner">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
