@@ -34,8 +34,10 @@ import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.epsilon.eol.types.EolClasspathNativeTypeDelegate;
+import org.tura.metamodel.commons.GeneratotPreferences;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.generation.HeadlessLogWrapper;
 import org.tura.processor.connection.PlatformURLStreamHandlerFactory;
 
 import com.beust.jcommander.Parameter;
@@ -92,6 +94,8 @@ public class GenerateCommand extends TuraCommand {
 				System.err.println("One of parameters mapperId/componentId/ingredientId  should be defined");
 				System.exit(-1);
 			}
+
+			GeneratotPreferences.wrapper = new HeadlessLogWrapper();
 
 			URL.setURLStreamHandlerFactory(new PlatformURLStreamHandlerFactory());
 
@@ -246,8 +250,8 @@ public class GenerateCommand extends TuraCommand {
 			e.printStackTrace();
 			System.err.println("Generation action failed. Ingredient -> {" + ingredient.getName() + "} Component -> {"
 					+ component.getName() + "} Mapper -> {" + mapper.getName() + "}");
-			System.err.println(
-					"<command >  --mapperId=" + mapperId + " --infraId=" + infraId + " --modelFile=" + modelFile);
+			System.err.println("<command >  --mapperId=" + mapper.getUid() + " --infraId=" + infraId + " --modelFile="
+					+ modelFile);
 			return false;
 		}
 	}

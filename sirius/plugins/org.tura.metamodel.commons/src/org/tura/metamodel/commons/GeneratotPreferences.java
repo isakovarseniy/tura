@@ -4,5 +4,6 @@ public class GeneratotPreferences {
 
 	public static boolean logTemlates = false;
 	public static boolean debigging = false;
+	public static LoggerWrapper wrapper;
 	
 }

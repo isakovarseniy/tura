@@ -3,5 +3,5 @@
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
-cd "/Users/arseniy/MyPrj/git/tura/examples/rest-services/hr-simple-model-repository-triggers"
+cd "/Users/arseniy/MyPrj/git/tura/scripts/../examples/rest-services/hr-simple-model-repository-triggers"
 "/Users/arseniy/tools/apache-maven-3.2.2"/bin/mvn -B clean install

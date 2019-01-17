@@ -1,7 +1,7 @@
 [%
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
- import "platform:/plugin/org.tura.metamodel.generation/template/technologies//JSE/Object/method.egl";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/method.egl";
  
  var util = new Native('org.tura.metamodel.commons.Util');
  var hash = new Native('java.util.HashMap');
