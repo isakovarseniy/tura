@@ -1,5 +1,21 @@
 [% @template
 operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
+     var model_mapper = hash.get('model_mapper');
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var profile = "";
+     var first = true;
+     for (param in model_mapper.findAllClassifiers(util.getHint(model_mapper,"Profile"))){
+             if ( not first){
+             profile = profile + ",";
+             }        
+             profile = profile+param.details;
+             first = false;
+     }
+     if (profile <> ""){
+        profile = "-P "+profile;
+     }
+     
+
 %]
 #!/bin/sh
 
@@ -15,7 +31,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
 export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java").substring(i)%]`
 
 cd "[%=path%]"
-"[%=configuration.get('Builder location')%]"/bin/mvn -B clean install
+"[%=configuration.get('Builder location')%]"/bin/mvn -B clean install [%=profile%]
 [%
 }
 
@@ -70,7 +86,3 @@ cd "[%=path%]"
 [%
 }
 %]
-
-
-
-

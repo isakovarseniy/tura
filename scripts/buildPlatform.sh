@@ -57,6 +57,11 @@ cd $TURA_PATH/platform
 $MAVEN_CMD clean install
 rc=$?; if [[ $rc != 0 ]]; then cd $CURRENT_DIR; return; fi
 
+
+echo "Generate --- Sales analyzer--- recipe"
+java $JAVA_OPTION "$CONFIG_OPTION1" "$CONFIG_OPTION2" "$CONFIG_OPTION3" -jar $PROCESSOR g --recipeId=be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId=92f00187-c3de-4091-8eca-850df9713ef5 --modelFile=$TURA_PATH/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain --build=true 
+rc=$?; if [[ $rc != 0 ]]; then cd $CURRENT_DIR; return; fi
+
 cd $CURRENT_DIR;
 
 

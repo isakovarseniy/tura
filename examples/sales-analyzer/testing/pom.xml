@@ -10,8 +10,7 @@
     </parent> 
 	<packaging>pom</packaging>
 
-	<name>Sales Analyzer :: Tating</name>
-	<description>Sales Analyzer Parent</description>
+	<name>Sales Analyzer :: Testing</name>
 
 	<artifactId>testing</artifactId>
 

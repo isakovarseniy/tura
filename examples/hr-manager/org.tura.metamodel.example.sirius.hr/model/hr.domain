@@ -192,6 +192,8 @@
               <options uid="6da7cd59-30d6-46be-95b1-187688dc9820" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
               <options uid="e8146455-8555-4749-8a3b-2d9f89aeda28" value="a458cf68-68e3-4ab7-9551-55ed7e781594"/>
             </technologies>
+            <hints uid="dcdcbd28-37f8-4bf7-be27-5bdda9367985" name="ArtifactName" hint="e199bea9-722c-4c26-a9fe-0faa2391cfab"/>
+            <hints uid="320c2af5-d28a-40b0-8f54-1bae4fc693b1" name="Profile" hint="2017c09b-af3d-4746-9a18-a435ef5031fb"/>
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
             <configVariables uid="0e314347-c45c-4817-bb26-d2b8ea022534" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -539,8 +541,11 @@
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
         <techLeafs uid="5c4cfcc0-9025-498a-b587-bce89efacafd" name="Builder">
+          <hints uid="e199bea9-722c-4c26-a9fe-0faa2391cfab" name="ArtifactName"/>
           <configVariables uid="7ad955eb-6fb9-46ca-8005-519cedacf668" name="Builder location"/>
-          <techLeafs uid="b8dc44f4-aaaa-4447-94b2-4c26831416cc" name="Maven"/>
+          <techLeafs uid="b8dc44f4-aaaa-4447-94b2-4c26831416cc" name="Maven">
+            <hints uid="2017c09b-af3d-4746-9a18-a435ef5031fb" name="Profile"/>
+          </techLeafs>
           <techLeafs uid="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1" name="Ant"/>
         </techLeafs>
         <techLeafs uid="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26" name="1.6"/>
@@ -2394,7 +2399,7 @@
                     <properties confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="HR"/>
                     <properties confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
                     <properties confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
-                    <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="jdbc/hrDS"/>
                     <properties confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
                     <properties confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
@@ -2673,7 +2678,7 @@
                     <startSeq uid="634b07ad-ee36-4f36-ad7e-88e3e02cebc9" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.1"/>
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
-                    <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/hrDS"/>
                     <properties uid="78b3baf1-f33b-4777-bdc7-334d89cab9fb" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
                     <properties uid="b113dd69-3add-4f04-a428-b5ae246c245c" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
@@ -2800,7 +2805,7 @@
                   </recipe>
                   <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
                     <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
-                    <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                   </configurations>
                   <infrastructures uid="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" name="Development"/>
@@ -2991,7 +2996,7 @@
                     <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
-                    <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="NA"/>
                     <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/eap-7.0.0"/>
                     <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
@@ -3149,7 +3154,7 @@
                     <startSeq uid="7a08450e-0eec-4ea8-a483-ddfc25f067ef" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.1/@recipe/@deplymentStep.1"/>
                   </recipe>
                   <configurations uid="3e06c28e-87c8-4899-82aa-884cbaee4ba9">
-                    <properties uid="dd55b6cc-70b4-46e7-a0f2-cd6fcb777bf1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="dd55b6cc-70b4-46e7-a0f2-cd6fcb777bf1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="7cb5ea32-930a-4524-b471-6f52d774e462" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
                   </configurations>
                   <infrastructures uid="08794b78-50ee-4267-a64d-c2fea7a950da" name="Development"/>
@@ -8276,12 +8281,21 @@
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="f4d79cf9-a880-4bc0-a8ec-1c6e2a6e7058" name="Triggers etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
-                        <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="f4d79cf9-a880-4bc0-a8ec-1c6e2a6e7058" name="Triggers etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
+                        <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="KieServer artifact">
+                          <classifiers uid="36b92519-effa-448e-bd88-e06adf21b529" hint="2017c09b-af3d-4746-9a18-a435ef5031fb" details="KieServer"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                        </mappers>
+                        <mappers uid="3f7935bb-9e27-4803-a667-5a480fd1bf58" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Triggers">
+                          <classifiers uid="5e0ed90a-7553-4bed-b0dd-151b1d7288ec" hint="2017c09b-af3d-4746-9a18-a435ef5031fb" details="Triggers"/>
+                          <classifiers uid="bd14a0a1-3fe2-497a-8d10-3daad46e9d48" hint="e199bea9-722c-4c26-a9fe-0faa2391cfab" details="builderTrg"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
                       </components>
                     </ingredients>
@@ -8554,7 +8568,7 @@
                     <deplymentStep mapper="df1ec71e-5c76-4dd2-b25d-94d897087c36" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                     <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.13"/>
-                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
+                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.16"/>
                     <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
                     <deplymentStep mapper="65e4013f-e969-4cc4-8dec-28f64588b697" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
                     <deplymentStep mapper="fc3dac6a-6bab-4c73-9805-e1d5192af10a" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
@@ -8567,6 +8581,7 @@
                     <deplymentStep mapper="96216358-7770-4a2e-958b-ab7ba7a370f0" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
                     <deplymentStep mapper="c7967258-b3c3-489c-8f52-147016a2f650" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.11"/>
                     <deplymentStep mapper="0cdd9859-0abe-4c5e-be1a-a318c0aa2fd3" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.10"/>
+                    <deplymentStep mapper="3f7935bb-9e27-4803-a667-5a480fd1bf58" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">

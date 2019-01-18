@@ -15,8 +15,16 @@ operation  maven_build_runner(hash) {
 [%=mavenBuilder_mavenCleanInstall(configuration, util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId,hash)%]
 [%    
 
-    util.saveArtifactExecution( model_mapper,  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension());
-    util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+    var artifactName="builder";
+    var list = model_mapper.findAllClassifiers(util.getHint(model_mapper,"ArtifactName"));
+    
+    if (list <> null and list.size()>0){
+       var c = list.get(0);
+       artifactName = c.details;
+    }
+
+    util.saveArtifactExecution( model_mapper,  os_shell_executor()+" "+path+"/"+ artifactName+"."+os_batch_extension());
+    util.saveFile( path, artifactName+"."+os_batch_extension(),out.toString());   
 }
 
  @template

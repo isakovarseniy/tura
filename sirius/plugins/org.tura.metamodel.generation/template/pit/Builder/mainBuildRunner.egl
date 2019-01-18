@@ -6,6 +6,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${B
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_implementation}.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${OS}.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+
  ${percent}${end}
 
  
