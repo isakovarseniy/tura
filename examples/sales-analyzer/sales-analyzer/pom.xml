@@ -749,6 +749,7 @@
                 <module>sa-case-manager-triggers</module>
                 <module>sa-etl-controller-triggers</module>
                 <module>sa-resources</module>
+                <module>testing</module>
             </modules>
         </profile>
         <profile>
@@ -777,6 +778,13 @@
                 <module>sa-resources</module>
             </modules>
         </profile>
+        <profile>
+            <id>Testing</id>
+            <modules>
+                <module>testing</module>
+            </modules>
+        </profile>
+        
     </profiles>
 
 
