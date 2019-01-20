@@ -49,6 +49,12 @@ operation  viewgeneration(hash) {
       var buffer = viewportclass.process();
       util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
       
+      var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/modelWrapper.egl",hash,TemplateFactory);
+      viewportclass.setFormatter(f);
+      var buffer = viewportclass.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/commons/viewmodel/"  , "ViewModelWrapper.java",buffer);  
+      
+      
       var expproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/expressionsProducer.egl",hash,TemplateFactory);
       expproducer.setFormatter(f);
       var buffer = expproducer.process();

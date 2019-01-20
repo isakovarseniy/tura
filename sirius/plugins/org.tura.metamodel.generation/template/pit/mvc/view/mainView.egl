@@ -35,6 +35,8 @@ ${percent}${end}
          
          hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
 
+        util.populateTechnologies(hash,model_mapper);
+
 
          viewgeneration(hash);
        }

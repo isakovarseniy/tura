@@ -1,9 +1,15 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Environment}.egl";
+${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
 @javax.inject.Named("viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
-@javax.faces.bean.ViewScoped
+[%=viewmodel_scope()%]
 public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHolder, [%}%] java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;

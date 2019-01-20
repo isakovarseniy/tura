@@ -12,7 +12,9 @@ import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+
+import javax.crypto.KeyGenerator;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
@@ -699,6 +703,13 @@ public class Util {
         in.read(buffer);
         return new String(buffer,"UTF-8");
     }
+    
+	public String key() throws NoSuchAlgorithmException {
+			KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+			keyGen.init(256); // Use 128 for 16bit key.
+			String key = Base64.getEncoder().encodeToString(keyGen.generateKey().getEncoded());
+			return key;
+	}
     
     
 }

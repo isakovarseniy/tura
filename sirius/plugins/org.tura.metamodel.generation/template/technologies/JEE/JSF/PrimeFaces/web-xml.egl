@@ -51,11 +51,29 @@ operation  web_xml(hash) {
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>
   </context-param>
+  
+  
+  [%  if ( hash.get("Environment").equals("JEE")  ){ %]
   <context-param>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>server</param-value>
   </context-param>
+  [%}%]
   
+  [%  if ( hash.get("Environment").equals("JEE/CDI/OmniFaces/CLIENT_SAVE")  ){ %]
+  <context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  
+<env-entry>
+    <env-entry-name>jsf/ClientSideSecretKey</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>[%=util.key()%]</env-entry-value>
+</env-entry>  
+  
+  [%}%]
+
   
   <context-param>
      <param-name>org.omnifaces.CDN_RESOURCE_HANDLER_URLS</param-name>

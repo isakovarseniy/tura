@@ -31,14 +31,10 @@ import javax.faces.component.visit.VisitCallback;
 import javax.faces.component.visit.VisitContext;
 import javax.faces.component.visit.VisitResult;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
 
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 
-@ViewScoped
-@Named("viewmodel")
 public class ViewModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -1,4 +1,3 @@
-
 [% @template
 operation  commandstack_scope() {
 %]
@@ -16,6 +15,13 @@ operation  elresolver_scope() {
 
  @template
 operation  datacontrol_scope() {
+%]
+@javax.faces.view.ViewScoped
+[%
+}
+
+ @template
+operation  viewmodel_scope() {
 %]
 @javax.faces.view.ViewScoped
 [%

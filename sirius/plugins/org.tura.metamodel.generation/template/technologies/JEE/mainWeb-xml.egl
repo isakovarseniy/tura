@@ -31,6 +31,7 @@ ${percent}${end}
       hash.put("application",app.get(0));
  
  
+     util.populateTechnologies(hash,model_mapper);
  
       web_xml(hash);
       web_xml_serverspecific(hash);  

@@ -1,0 +1,29 @@
+[% @template
+operation  commandstack_scope() {
+%]
+@org.omnifaces.cdi.ViewScoped
+[%
+}
+
+@template
+operation  elresolver_scope() {
+%]
+
+[%
+}
+
+
+ @template
+operation  datacontrol_scope() {
+%]
+@org.omnifaces.cdi.ViewScoped
+[%
+}
+
+ @template
+operation  viewmodel_scope() {
+%]
+@org.omnifaces.cdi.ViewScoped
+[%
+}
+%]

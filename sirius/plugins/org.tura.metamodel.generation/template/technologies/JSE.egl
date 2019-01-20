@@ -19,4 +19,12 @@ operation  datacontrol_scope() {
 @javax.enterprise.context.ApplicationScoped
 [%
 }
+
+
+ @template
+operation  viewmodell_scope() {
+%]
+@javax.enterprise.context.ApplicationScoped
+[%
+}
 %]
