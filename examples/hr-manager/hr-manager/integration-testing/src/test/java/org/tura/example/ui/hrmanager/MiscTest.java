@@ -40,6 +40,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.example.ui.hrmanager.miscelements.pageobject.MiscElementsWindowPageObject;
 import org.tura.platform.selenium.CheckBox;
 import org.tura.platform.selenium.DropDownSelection;
@@ -51,7 +52,7 @@ public class MiscTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml";
-	static private String driver_location = "${user.home}/chromedriver";
+	static private String driver_location = ConfigConstants.RESOURCE_HOME+"/chromedriver";
 	
 
 	

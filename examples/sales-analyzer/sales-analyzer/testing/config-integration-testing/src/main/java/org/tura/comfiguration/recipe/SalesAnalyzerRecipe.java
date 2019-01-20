@@ -1,5 +1,6 @@
 package org.tura.comfiguration.recipe;
 
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.jboss.CopyFile;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
@@ -35,6 +36,7 @@ public class SalesAnalyzerRecipe {
 	}
 
 	public static void runRecipe(String jboss_home , String tura_home, Boolean  withdata) throws Exception {
+
                   new StendaloneFullXml(jboss_home)
                           .setApplication("sales-analyzer")
                           .setServerType("wildfly-10.1.0.Final")
@@ -106,43 +108,43 @@ public class SalesAnalyzerRecipe {
                   new JobPropertyFile(tura_home,"Default.properties")
                   		  .setApplication("sales-analyzer")
                           .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts")
-                          .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+                          .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
                           .run();
 
                   new JobPropertyFile(tura_home,"Development.properties")
                   		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
 
                   new JobPropertyFile(tura_home,"Default.properties")
 		          		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
 
                   new JobPropertyFile(tura_home,"Default.properties")
 		          		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
                   
                   new JobPropertyFile(tura_home,"Default.properties")
 		          		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
 
                   new JobPropertyFile(tura_home,"Default.properties")
 		          		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
 
                   new JobPropertyFile(tura_home,"Default.properties")
 		          		  .setApplication("sales-analyzer")
 		                  .setRelativeLocation("examples/sales-analyzer/talend-jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts")
-		                  .addProperties("USER_HOME", System.getProperty("user.home")+"/")
+		                  .addProperties("USER_HOME", ConfigConstants.RESOURCE_HOME+"/")
 		                  .run();
                   
                    new CopyFile()
@@ -159,7 +161,7 @@ public class SalesAnalyzerRecipe {
 
                    new CopyFile()
           	      		.setSourceResource("sales-analyzer/assets/update_db.sql")
-         	      		.setTargetLocation(System.getProperty("user.home"))
+         	      		.setTargetLocation(ConfigConstants.RESOURCE_HOME)
           	      		.setTargetName("update_db.sql")
           	      		.copyFromClassPath();
 

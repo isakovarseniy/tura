@@ -310,7 +310,7 @@
 										<classpath />
 										<argument>org.tura.comfiguration.recipe.SalesAnalyzerRecipe</argument>
 										<argument>${project.build.directory}/wildfly-${wildfly-version}</argument>
-										<argument>${project.build.directory}/../../../../..</argument>
+										<argument>${project.build.directory}/../../../../../..</argument>
 										<argument>false</argument>
 									</arguments>
 									<includeProjectDependencies>true</includeProjectDependencies>

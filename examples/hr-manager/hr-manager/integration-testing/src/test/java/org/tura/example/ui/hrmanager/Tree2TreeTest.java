@@ -41,6 +41,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.example.ui.hrmanager.tree2tree.pageobject.Tree2TreeRelationsPageObject;
 import org.tura.platform.selenium.Tree;
 import org.tura.platform.selenium.primefaces.SeleniumActionExecutor;
@@ -54,7 +55,7 @@ public class Tree2TreeTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml";
-	static private String driver_location = "${user.home}/chromedriver";
+	static private String driver_location = ConfigConstants.RESOURCE_HOME+"/chromedriver";
 
 	
 	@BeforeClass

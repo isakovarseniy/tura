@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.tura.comfiguration.artifacts.ConfigConstants;
 
 import ru.yandex.qatools.embed.postgresql.EmbeddedPostgres;
 import ru.yandex.qatools.embed.postgresql.distribution.Version.Main;
@@ -38,7 +39,7 @@ public class LifecycleExecuter {
 			postgres = new EmbeddedPostgres(Main.V9_6);
 			url = postgres.start("localhost", 5432, "postgres", "postgres", "postgres");
 // Create dump  pg_dump -Fc -U postgres postgres > ~/SalesAnalyzerDB.dump			
-			postgres.getProcess().get().restoreFromFile(new File(System.getProperty("user.home") + "/SalesAnalyzerDB.dump"));
+			postgres.getProcess().get().restoreFromFile(new File(ConfigConstants.RESOURCE_HOME + "/SalesAnalyzerDB.dump"));
 //			postgres.getProcess().get().importFromFile(  new File(System.getProperty("user.home") +"/update_db.sql"  ));
 
 		} catch (IOException e) {

@@ -21,11 +21,12 @@
  */
 package org.tura.comfiguration.commons;
 
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.CopyArtifact;
 
 public class CopySalesAnalyzerDB extends CopyArtifact<CopySalesAnalyzerDB> {
 
-	private static String targetPath = System.getProperty("user.home");
+	private static String targetPath = ConfigConstants.RESOURCE_HOME;
 	private static String targetName = "SalesAnalyzerDB.dump";
 	private static String sourceName = "${application}/assets/SalesAnalyzerDB.dump";
 	private static String sourceNameWithDate = "${application}/assets/SalesAnalyzerDBWithCases.dump";

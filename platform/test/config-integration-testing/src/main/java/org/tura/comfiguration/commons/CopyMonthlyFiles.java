@@ -24,11 +24,12 @@ package org.tura.comfiguration.commons;
 import java.io.File;
 import java.io.FileFilter;
 
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.CopyArtifact;
 
 public class CopyMonthlyFiles extends CopyArtifact<CopyMonthlyFiles> {
 
-	private static String targetPath = System.getProperty("user.home");
+	private static String targetPath = ConfigConstants.RESOURCE_HOME;
 	private static String sourceName = "${application}/assets/${file}";
 
 	public CopyMonthlyFiles() {

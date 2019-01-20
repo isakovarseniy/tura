@@ -23,13 +23,14 @@ package org.tura.comfiguration.commons;
 
 import java.io.File;
 
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.Wget;
 import org.tura.comfiguration.artifacts.WgetStatus;
 import org.zeroturnaround.zip.ZipUtil;
 
 public class DownloadChromeSeleniumWebDriver {
 
-	String targetDirectory;
+	String targetDirectory =ConfigConstants.RESOURCE_HOME;
 	String version;
 	OS os;
 	private static String os_name = System.getProperty("os.name").toLowerCase();
@@ -108,7 +109,7 @@ public class DownloadChromeSeleniumWebDriver {
 	public static void main(String[] args) {
   		new DownloadChromeSeleniumWebDriver()
 			.setDriverVersion("2.40")
-			.setTargetDirectory(System.getProperty("user.home"))
+			.setTargetDirectory(ConfigConstants.RESOURCE_HOME)
 			.download();
 
 	}

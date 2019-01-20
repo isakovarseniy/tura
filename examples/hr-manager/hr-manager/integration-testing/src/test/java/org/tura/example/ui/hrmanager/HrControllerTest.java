@@ -44,6 +44,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CityDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CountryDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.DepartmentsDetailsPageObject;
@@ -74,7 +75,7 @@ public class HrControllerTest {
 	static private String USERNAME = "qwerty";
 	static private String PASSWORD = "qwerty";
 	static private String app_url = "http://localhost:8080/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2";
-	static private String driver_location = "${user.home}/chromedriver";
+	static private String driver_location = ConfigConstants.RESOURCE_HOME+"/chromedriver";
 	
 	
 	

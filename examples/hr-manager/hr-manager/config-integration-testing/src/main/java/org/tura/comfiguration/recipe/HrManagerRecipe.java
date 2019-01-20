@@ -1,5 +1,6 @@
 package org.tura.comfiguration.recipe;
 
+import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.jboss.CopyFile;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
@@ -55,13 +56,13 @@ public class HrManagerRecipe {
                           .doDeployExploaded();
 
                   new CopyFile()
-                          .setTargetLocation(System.getProperty("user.home"))
+                          .setTargetLocation(ConfigConstants.RESOURCE_HOME)
                           .setTargetName("hrcontroller.sql")
                           .setSourceResource("hr-manager/assets/hrcontroller.sql")
 		                  .copyFromClassPath();
                   
                   new CopyFile()
-	                  .setTargetLocation(System.getProperty("user.home"))
+	                  .setTargetLocation(ConfigConstants.RESOURCE_HOME)
 	                  .setTargetName("hrschema.sql")
 	                  .setSourceResource("hr-manager/assets/hrschema.sql")
 	                  .copyFromClassPath();
@@ -75,7 +76,6 @@ public class HrManagerRecipe {
                   
           		new DownloadChromeSeleniumWebDriver()
           				.setDriverVersion("2.40")
-          				.setTargetDirectory(System.getProperty("user.home"))
           				.download();
                   
 	}
