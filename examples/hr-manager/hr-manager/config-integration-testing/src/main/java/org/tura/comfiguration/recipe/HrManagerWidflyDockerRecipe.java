@@ -17,7 +17,7 @@ public class HrManagerWidflyDockerRecipe {
 			System.out.println("Number of parameters should be one");
 		}
 		try {
-			runRecipe(args[0],args[1]);
+			runRecipe(args[0] );
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
@@ -26,7 +26,7 @@ public class HrManagerWidflyDockerRecipe {
 	}
 	
 	
-	public static void runRecipe(String jboss_home , String tura_home) throws Exception {
+	public static void runRecipe(String jboss_home ) throws Exception {
 		
 		new Docker()
         	.setContainerName("hr-wf")
@@ -92,7 +92,7 @@ public class HrManagerWidflyDockerRecipe {
         	.stopContainer()
             .portMapping(8000,8000)
             .portMapping(8080, 8080)
-            .volumesMapping(ConfigConstants.RESOURCE_HOME+"/hrmanager/deployments",jboss_home+"/standalone/deployments" )
+            .volumesMapping(ConfigConstants.RESOURCE_HOME+"/hrmanager/standalone/deployments",jboss_home+"/standalone/deployments" )
         	;
         
         

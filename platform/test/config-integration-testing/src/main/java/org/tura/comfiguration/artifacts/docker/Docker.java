@@ -17,6 +17,7 @@ import com.github.dockerjava.api.command.PullImageCmd;
 import com.github.dockerjava.api.command.RemoveContainerCmd;
 import com.github.dockerjava.api.exception.NotFoundException;
 import com.github.dockerjava.api.model.Bind;
+import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.ExposedPort;
 import com.github.dockerjava.api.model.Frame;
 import com.github.dockerjava.api.model.Image;
@@ -40,7 +41,7 @@ public class Docker {
 	private String network;
 	private String containerName;
 	private String alias;
-
+	private CallBack callBack;
 	public Docker() {
 	}
 
@@ -70,7 +71,7 @@ public class Docker {
 		if (dockerClient == null) {
 			build();
 		}
-		startContainer(user);
+		runtContainer(user);
 
 		return this;
 	}
@@ -79,7 +80,7 @@ public class Docker {
 		if (dockerClient == null) {
 			build();
 		}
-		startContainer(null);
+		runtContainer(null);
 
 		return this;
 	}
@@ -207,7 +208,7 @@ public class Docker {
 	}
 	
 
-	private void startContainer(String user) {
+	private void runtContainer(String user) {
 		CreateContainerCmd cmd = dockerClient.createContainerCmd(registry + ":" + version);
 		if (user != null) {
 			cmd = cmd.withUser(user);
@@ -257,6 +258,31 @@ public class Docker {
 		res.awaitSuccess();
 	}
 
+	public Docker containerBuilder(CallBack callBack) {
+		this.callBack = callBack;
+		return this;
+	}
 
+	public Docker validateContainer() throws Exception {
+		if (dockerClient == null) {
+			build();
+		}
+		Map<String, String> labels = new HashMap<>();
+		labels.put("name", containerName);
+		 List<Container> containers = dockerClient.listContainersCmd()
+	                .withShowAll(true)
+	                .withLabelFilter(labels)
+	                .exec();	
+		 
+		 if (containers.size() == 0 && callBack != null){
+			 callBack.build();
+		 }else{
+			 if ( containers.get(0).getStatus().equals("exited") ){
+					dockerClient.startContainerCmd(containers.get(0).getId()).exec();
+			 }
+		 }
+		
+		return this;
+	}
 
 }

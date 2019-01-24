@@ -1,6 +1,5 @@
 package org.tura.comfiguration.recipe;
 
-import org.tura.comfiguration.artifacts.ConfigConstants;
 import org.tura.comfiguration.artifacts.docker.Docker;
 import org.tura.comfiguration.artifacts.jboss.CopyFile;
 
