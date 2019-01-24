@@ -28,6 +28,10 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
+import org.tura.comfiguration.artifacts.docker.Docker;
+
+import com.github.dockerjava.api.command.CreateContainerResponse;
+
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
@@ -42,6 +46,7 @@ public class Artifact<T>  {
 	protected String templateFile;
 	protected String artifactTargerLocation;
 	protected String artifactName;
+	protected CreateContainerResponse container;
 
 	
 	public void setTemplateFile(String templateFile) {
@@ -83,12 +88,28 @@ public class Artifact<T>  {
 		return (T) this;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public T setContainer( CreateContainerResponse container){
+		this.container=container;
+		return (T) this;
+	}
+	
 	
 	public void run() throws Exception{
 		collectProperties();
+		String saveArtifactTargerLocation = null;
+		if (container != null){
+			saveArtifactTargerLocation = artifactTargerLocation;
+			artifactTargerLocation = System.getProperty("java.io.tmpdir");
+		}
 		generate();
+		if (container != null){
+			Docker.mkdir(container, saveArtifactTargerLocation);
+			Docker.copyFilesToDocker( container , artifactTargerLocation, saveArtifactTargerLocation,  artifactName);
+		}
 	}
 	
+
 	private void generate() throws Exception {
 		FileWriter writer = null;
 		try {

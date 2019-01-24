@@ -6,7 +6,7 @@ import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
-import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
+import org.tura.comfiguration.artifacts.jboss.StandaloneFullXml;
 import org.tura.comfiguration.commons.DownloadChromeSeleniumWebDriver;
 
 public class HrManagerRecipe {
@@ -27,8 +27,10 @@ public class HrManagerRecipe {
 
 	}
 
+
+	
 	public static void runRecipe(String jboss_home , String tura_home) throws Exception {
-                  new StendaloneFullXml(jboss_home)
+                  new StandaloneFullXml(jboss_home)
                           .setApplication("hr-manager")
                           .setServerType("wildfly-10.1.0.Final")
                           .addConfigPath("postgres")
