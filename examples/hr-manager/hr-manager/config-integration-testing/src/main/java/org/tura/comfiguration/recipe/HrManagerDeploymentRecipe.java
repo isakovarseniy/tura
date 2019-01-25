@@ -30,8 +30,8 @@ public class HrManagerDeploymentRecipe {
 			}
 		})
 		.setContainerName("hr-pg")
-		.validateContainer()
-		;
+		.buildIfNotExists()
+		.startContainerByName();
 		
 		new Docker()
 		.containerBuilder(new CallBack(){
@@ -41,13 +41,20 @@ public class HrManagerDeploymentRecipe {
 			}
 		})
 		.setContainerName("hr-wf")
-		.validateContainer()
-		;
+		.buildIfNotExists()
+		.stopContainerByName();
+		
 		
         new DoDeploy(ConfigConstants.RESOURCE_HOME+"/hrmanager/deployments","hrform-1.0.war")
         .setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/example/ui/hrform/1.0/hrform-1.0.war")
         .doDeployExploaded();
+
+		new Docker()
+		.setContainerName("hr-wf")
+		.startContainerByName();
 		
+        
+        
 	}
 	
 	

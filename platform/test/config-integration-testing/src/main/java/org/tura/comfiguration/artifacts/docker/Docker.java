@@ -3,6 +3,7 @@ package org.tura.comfiguration.artifacts.docker;
 import static com.github.dockerjava.api.model.AccessMode.rw;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class Docker {
 	private String containerName;
 	private String alias;
 	private CallBack callBack;
+
 	public Docker() {
 	}
 
@@ -71,7 +73,7 @@ public class Docker {
 		if (dockerClient == null) {
 			build();
 		}
-		runtContainer(user);
+		buildContainer(user);
 
 		return this;
 	}
@@ -80,7 +82,7 @@ public class Docker {
 		if (dockerClient == null) {
 			build();
 		}
-		runtContainer(null);
+		buildContainer(null);
 
 		return this;
 	}
@@ -93,6 +95,40 @@ public class Docker {
 		return this;
 	}
 
+	public Docker stopContainerByName() throws Exception {
+		if (dockerClient == null) {
+			build();
+		}
+		Container cn = findContainer(containerName);
+		if (cn.getStatus().contains("Up")){
+			dockerClient.stopContainerCmd(cn.getId()).exec();
+		}
+		
+		return this;
+	}
+	
+	
+	public Docker startContainer() throws Exception {
+		if (dockerClient == null) {
+			build();
+		}
+		dockerClient.startContainerCmd(container.getId()).exec();
+		return this;
+	}
+	
+	public Docker startContainerByName() throws Exception {
+		if (dockerClient == null) {
+			build();
+		}
+		Container cn = findContainer(containerName);
+		if (cn.getStatus().contains("Exited")){
+			dockerClient.startContainerCmd(cn.getId()).exec();
+		}
+		return this;
+	}
+	
+	
+	
 	public Docker createImage(String repository, String tag) throws Exception {
 		if (dockerClient == null) {
 			build();
@@ -149,12 +185,11 @@ public class Docker {
 		this.containerName = containerName;
 		return this;
 	}
-	
+
 	public Docker setNetworkAlias(String alias) {
-		this.alias =  alias;
+		this.alias = alias;
 		return this;
 	}
-	
 
 	public static void copyFilesToDocker(CreateContainerResponse container, String sourceDir, String targetDir,
 			String artifact) {
@@ -185,30 +220,27 @@ public class Docker {
 			rm.withForce(true);
 			rm.exec();
 		} catch (NotFoundException e) {
-			System.out.println("Container "+containerName +" not found");
+			System.out.println("Container " + containerName + " not found");
 		}
 	}
-	
+
 	public void removeImage() throws Exception {
 		if (dockerClient == null) {
 			build();
 		}
 		ListImagesCmd ls = dockerClient.listImagesCmd();
-		ls.withImageNameFilter(registry+":"+version);
-		List <Image>  imgs  =  ls.exec();
-		if ( imgs == null || imgs.size() == 0){
-			System.out.println("Omage  "+registry +":"+version+" not found");
+		ls.withImageNameFilter(registry + ":" + version);
+		List<Image> imgs = ls.exec();
+		if (imgs == null || imgs.size() == 0) {
+			System.out.println("Image  " + registry + ":" + version + " not found");
 			return;
 		}
-		for ( Image im : imgs){
-			dockerClient.removeImageCmd(im.getId())
-			.withForce(true)
-			.exec();
+		for (Image im : imgs) {
+			dockerClient.removeImageCmd(im.getId()).withForce(true).exec();
 		}
 	}
-	
 
-	private void runtContainer(String user) {
+	private void buildContainer(String user) {
 		CreateContainerCmd cmd = dockerClient.createContainerCmd(registry + ":" + version);
 		if (user != null) {
 			cmd = cmd.withUser(user);
@@ -237,7 +269,7 @@ public class Docker {
 		if (network != null) {
 			cmd.withNetworkMode(network);
 		}
-		if ( alias != null){
+		if (alias != null) {
 			cmd.withAliases(alias);
 		}
 
@@ -263,26 +295,28 @@ public class Docker {
 		return this;
 	}
 
-	public Docker validateContainer() throws Exception {
+	public Docker buildIfNotExists() throws Exception {
 		if (dockerClient == null) {
 			build();
 		}
-		Map<String, String> labels = new HashMap<>();
-		labels.put("name", containerName);
-		 List<Container> containers = dockerClient.listContainersCmd()
-	                .withShowAll(true)
-	                .withLabelFilter(labels)
-	                .exec();	
-		 
-		 if (containers.size() == 0 && callBack != null){
-			 callBack.build();
-		 }else{
-			 if ( containers.get(0).getStatus().equals("exited") ){
-					dockerClient.startContainerCmd(containers.get(0).getId()).exec();
-			 }
-		 }
-		
+		Container cn = findContainer(containerName);
+
+		if (cn == null ) {
+			callBack.build();
+		}
+
 		return this;
+	}
+
+	private Container findContainer(String cn) {
+		List<Container> containers = dockerClient.listContainersCmd().withShowAll(true).exec();
+		for (Container c : containers) {
+			List<String> list = new ArrayList<String>(Arrays.asList(c.getNames()));
+			if (list.contains("/" + cn)) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 }
