@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.processor;
+package org.apache.felix.gogo.jline.command;
 
 import java.net.URL;
 import java.util.Collection;
@@ -40,40 +40,39 @@ import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.generation.HeadlessLogWrapper;
 import org.tura.processor.connection.PlatformURLStreamHandlerFactory;
 
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
-
 import domain.DomainPackage;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 import recipe.Component;
 import recipe.Ingredient;
 import recipe.ModelMapper;
 import recipe.Recipe;
 
-@Parameters(separators = "=", commandDescription = "Generate source code for recipe")
-public class GenerateCommand extends TuraCommand {
+@Command(name = "generate")
+public class GenerateCommand extends TuraCommand implements Runnable{
 
-	@Parameter(names = "--recipeId", description = "Recipe identificator")
+	@Option(names = "--recipeId",   description = "Recipe identificator")
 	private String recipeId;
 
-	@Parameter(names = "--componentId", description = "Component identificator")
+	@Option(names = "--componentId", description = "Component identificator")
 	private String componentId;
 
-	@Parameter(names = "--ingredientId", description = "Ingredient identificator")
+	@Option(names = "--ingredientId", description = "Ingredient identificator")
 	private String ingredientId;
 
-	@Parameter(names = "--mapperId", description = "Ingredient identificator")
+	@Option(names = "--mapperId", description = "Ingredient identificator")
 	private String mapperId;
 
-	@Parameter(names = "--infraId", description = "Recipe configuration", required = true)
+	@Option(names = "--infraId", description = "Recipe configuration", required = true)
 	private String infraId;
 
-	@Parameter(names = "--modelFile", description = "Model file location", required = true)
+	@Option(names = "--modelFile", description = "Model file location", required = true)
 	private String modelFile;
 
-	@Parameter(names = "--build", description = "Build after generation")
-	private String build;
+	@Option(names = "--build", description = "Build after generation")
+	private boolean build;
 
-	public void execute() {
+	public void run() {
 		try {
 			String action = null;
 
@@ -91,8 +90,7 @@ public class GenerateCommand extends TuraCommand {
 				action = "recipeId";
 			}
 			if (action == null) {
-				System.err.println("One of parameters mapperId/componentId/ingredientId  should be defined");
-				System.exit(-1);
+				throw new IllegalArgumentException("One of parameters mapperId/componentId/ingredientId  should be defined");
 			}
 
 			GeneratotPreferences.wrapper = new HeadlessLogWrapper();
@@ -105,7 +103,7 @@ public class GenerateCommand extends TuraCommand {
 
 			Collection<EObject> c = model.getAllOfType("domain::Domain");
 			if (c.isEmpty()) {
-				System.err.println("Model is empty");
+				throw new IllegalArgumentException("Model is empty");
 			} else {
 
 				boolean result = false;
@@ -144,7 +142,7 @@ public class GenerateCommand extends TuraCommand {
 					break;
 				}
 				if (!result) {
-					System.exit(-1);
+		            throw new IllegalArgumentException("Wrong arguments");
 				}
 				System.out.println("Generation  completed");
 				if ("true".equals(build)) {
@@ -154,8 +152,7 @@ public class GenerateCommand extends TuraCommand {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(-1);
+			throw new RuntimeException(e);
 		}
 	}
 

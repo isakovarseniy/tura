@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.processor;
+package org.apache.felix.gogo.jline.command;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,23 +34,22 @@ import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
-
 import domain.DomainPackage;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 import recipe.DeploymentComponent;
 import recipe.Recipe;
 
-@Parameters(separators = "=", commandDescription = "Build recipe")
-public class BuildCommand extends TuraCommand {
+@Command(name = "build")
+public class BuildCommand extends TuraCommand implements Runnable{
 
-	@Parameter(names = "--recipeId", description = "Recipe identificator", required = true)
+	@Option(names = "--recipeId", description = "Recipe identificator", required = true)
 	private String recipeId;
 
-	@Parameter(names = "--infraId", description = "Recipe configuration", required = true)
+	@Option(names = "--infraId", description = "Recipe configuration", required = true)
 	private String infraId;
 
-	@Parameter(names = "--modelFile", description = "Model file location", required = true)
+	@Option(names = "--modelFile", description = "Model file location", required = true)
 	private String modelFile;
 
 	public String getRecipeId() {
@@ -77,7 +76,7 @@ public class BuildCommand extends TuraCommand {
 		this.modelFile = modelFile;
 	}
 
-	public void execute() {
+	public void run() {
 		try {
 
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
@@ -86,7 +85,7 @@ public class BuildCommand extends TuraCommand {
 
 			Collection<EObject> c = model.getAllOfType("domain::Domain");
 			if (c.isEmpty()) {
-				System.err.println("Model is empty");
+				throw new RuntimeException("Model is empty");
 			} else {
 
 				EObject obj = c.iterator().next();
@@ -98,14 +97,13 @@ public class BuildCommand extends TuraCommand {
 				if (result) {
 					return;
 				} else {
-					System.exit(-1);
+					throw new RuntimeException("Eror during build process");
 				}
 
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(-1);
+			throw new RuntimeException("Eror during build process",e);
 		}
 
 	}

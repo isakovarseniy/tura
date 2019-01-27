@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.processor;
+package org.apache.felix.gogo.jline.command;
 
 import java.net.URI;
 import java.net.URISyntaxException;

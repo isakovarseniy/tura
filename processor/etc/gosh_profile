@@ -1,0 +1,33 @@
+# Load base profile
+if { $.reader } {
+    source ((($.reader parser) class) getResource "/gosh_profile")
+}
+
+
+try {
+
+setproperty chromedriverversion '2.40'
+setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
+
+complete -c tura:install -e
+complete -c tura:install -d "Tura install" 
+complete -c tura:install -a '__install_picocliCompleter'
+
+complete -c tura:generate -e
+complete -c tura:generate -d "Generate recipe" 
+complete -c tura:generate -a '__generate_picocliCompleter'
+
+complete -c tura:build -e
+complete -c tura:build -d "Build recipe" 
+complete -c tura:build -a '__build_picocliCompleter'
+
+complete -c tura:mvn -e
+complete -c tura:mvn -d "Build maven project" 
+complete -c tura:mvn -a '__mvn_picocliCompleter'
+
+
+
+} catch {
+    $exception printStackTrace
+}
+
