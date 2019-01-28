@@ -26,6 +26,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
 
 import org.apache.felix.gogo.jline.BaseConverters;
 import org.apache.felix.gogo.jline.Builtin;
@@ -77,6 +78,8 @@ public class TuraMain {
                 CommandSession session = processor.createSession(in, out, out);
                 session.put(Shell.VAR_CONTEXT, context);
                 session.put(Shell.VAR_TERMINAL, terminal);
+                session.put(Shell.VAR_COMPLETIONS, new HashMap<>());
+ 
                 try {
                     String[] argv = new String[args.length + 1];
                     argv[0] = "--login";

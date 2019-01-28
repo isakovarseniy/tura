@@ -1,7 +1,5 @@
 # Load base profile
-if { $.reader } {
-    source ((($.reader parser) class) getResource "/gosh_profile")
-}
+source ((($.terminal ) class) getResource "/gosh_profile")
 
 
 try {
