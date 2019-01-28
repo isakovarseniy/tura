@@ -18,9 +18,12 @@ DIRNAME=$(dirname "${REALNAME}")
 PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
 TARGETDIR=${DIRNAME}/target
+TURA_HOME=${ROOTDIR}
+ECLIPSE_SIRIUS=${HOME}/tools/epsilon-1.3-sirius-3.1.6/Eclipse.app/Contents/Eclipse/
 
 opts="${JLINE_OPTS}"
 logconf="${DIRNAME}/etc/logging.properties"
+cmd=
 while [ "${1}" != "" ]; do
     case ${1} in
         'debug')
@@ -35,10 +38,13 @@ while [ "${1}" != "" ]; do
             logconf="${DIRNAME}/etc/logging-verbose.properties"
             shift
             ;;
+        *)
+            cmd="${1}"
+            shift
+            ;;
 
-    esac
+     esac
 done
-
 cygwin=false
 mingw=false
 case "$(uname)" in
@@ -62,6 +68,8 @@ trap 'nothing' TSTP
 
 java $opts \
     -Dgosh.home="${DIRNAME}" \
+    -DTURA_HOME="${TURA_HOME}" \
+    -DECLIPSE_SIRIUS="${ECLIPSE_SIRIUS}" \
     -Djava.util.logging.config.file="${logconf}" \
-    -jar ${TARGETDIR}/processor-2.0-jar-with-dependencies.jar
+    -jar ${TARGETDIR}/processor-2.0-jar-with-dependencies.jar ${cmd}
 

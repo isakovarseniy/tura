@@ -8,6 +8,8 @@ try {
 
 setproperty chromedriverversion '2.40'
 setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
+tura_home = system:getproperty TURA_HOME
+
 
 complete -c tura:install -e
 complete -c tura:install -d "Tura install" 
@@ -25,6 +27,10 @@ complete -c tura:mvn -e
 complete -c tura:mvn -d "Build maven project" 
 complete -c tura:mvn -a '__mvn_picocliCompleter'
 
+
+buildPluginAndProcessor = {
+     source $tura_home/processor/etc/buildPluginAndProcessor;    
+}
 
 
 } catch {
