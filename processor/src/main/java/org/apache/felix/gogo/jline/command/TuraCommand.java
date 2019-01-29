@@ -42,6 +42,8 @@ import recipe.KeyValuePair;
 import recipe.Property;
 
 public class TuraCommand {
+	
+	public static boolean initURL = false;
 
 	protected EmfModel createEmfModel(String name, String model, String metamodel, boolean readOnLoad,
 			boolean storeOnDisposal) throws EolModelLoadingException, URISyntaxException {

@@ -30,6 +30,12 @@ buildPluginAndProcessor = {
      source $tura_home/processor/etc/buildPluginAndProcessor;    
 }
 
+buildPlatform = {
+     source $tura_home/processor/etc/buildPlatform;    
+}
+
+
+
 
 } catch {
     $exception printStackTrace

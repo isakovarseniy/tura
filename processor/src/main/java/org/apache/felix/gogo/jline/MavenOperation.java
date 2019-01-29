@@ -54,6 +54,8 @@ public class MavenOperation {
 		} catch (HelpException e) {
 			process.err().println(e.getMessage());
 			process.error(0);
+		}catch (RuntimeException e) {
+	        throw e; 
 		} catch (Exception e) {
 			process.err().println(argv[0] + ": " + e.toString());
 			process.error(1);

@@ -2413,7 +2413,7 @@
                     <properties confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="HR"/>
                     <properties confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
                     <properties confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
-                    <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="jdbc/hrDS"/>
                     <properties confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
                     <properties confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
@@ -2692,7 +2692,7 @@
                     <startSeq uid="634b07ad-ee36-4f36-ad7e-88e3e02cebc9" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.1"/>
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
-                    <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/hrDS"/>
                     <properties uid="78b3baf1-f33b-4777-bdc7-334d89cab9fb" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
                     <properties uid="b113dd69-3add-4f04-a428-b5ae246c245c" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
@@ -2818,7 +2818,7 @@
                     <startSeq uid="348579fc-964d-4c37-9ad0-21f7b9f6457e" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.2/@recipe/@deplymentStep.4"/>
                   </recipe>
                   <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
-                    <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
+                    <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
                     <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                   </configurations>
@@ -3012,7 +3012,7 @@
                     <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
-                    <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="NA"/>
                     <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/eap-7.0.0"/>
                     <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
@@ -3170,7 +3170,7 @@
                     <startSeq uid="7a08450e-0eec-4ea8-a483-ddfc25f067ef" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.1/@recipe/@deplymentStep.1"/>
                   </recipe>
                   <configurations uid="3e06c28e-87c8-4899-82aa-884cbaee4ba9">
-                    <properties uid="dd55b6cc-70b4-46e7-a0f2-cd6fcb777bf1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties uid="dd55b6cc-70b4-46e7-a0f2-cd6fcb777bf1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="7cb5ea32-930a-4524-b471-6f52d774e462" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
                   </configurations>
                   <infrastructures uid="08794b78-50ee-4267-a64d-c2fea7a950da" name="Development"/>
@@ -8186,6 +8186,7 @@
                         </mappers>
                         <mappers uid="f1d5ba5b-953a-448a-9bad-9976a04b3be0" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all views">
                           <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <technologies techRef="ff0f27f1-3629-41e8-bac9-8e23f0a809e6" valueRef="cd3997ec-58c3-4f9a-bd56-72dd2b6b003f"/>
                           <queries uid="bcfd4a47-8b86-4be5-86d8-364160f4096b" name="Query forms" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
                             <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
                             <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
@@ -8218,6 +8219,7 @@
                         <mappers uid="537c2cbe-3f24-437f-b5ad-d4218e59139c" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/web_xml_custom_ext.egl">
                           <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
                           <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
+                          <technologies techRef="64f2a66c-8eca-4443-8e62-e0c29cdcbbb0" valueRef="e6b7ff48-840e-4ebf-aea3-7c99b6f8042e"/>
                           <queries uid="83563cbc-5ee1-477b-b556-4ec84939dfa2" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
                             <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
                             <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="CRM"/>
@@ -8360,6 +8362,7 @@
                         </mappers>
                         <mappers uid="10051428-357e-4fd5-8429-451cb3cadaab" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all view">
                           <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <technologies techRef="ff0f27f1-3629-41e8-bac9-8e23f0a809e6" valueRef="cd3997ec-58c3-4f9a-bd56-72dd2b6b003f"/>
                           <queries uid="e64c6ed3-9baa-4fc5-8040-f09985cc8ac3" name="Query form" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
                             <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
                             <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
@@ -8392,6 +8395,7 @@
                         <mappers uid="668e36ae-4161-4d6b-82bf-698c8f1996ff" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/web_xml_custom_ext.egl">
                           <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
                           <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
+                          <technologies techRef="64f2a66c-8eca-4443-8e62-e0c29cdcbbb0" valueRef="e6b7ff48-840e-4ebf-aea3-7c99b6f8042e"/>
                           <queries uid="13e91582-2958-4ed4-b526-0f6e54f759cb" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
                             <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
                             <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="CRM"/>
@@ -8479,6 +8483,7 @@
                         </mappers>
                         <mappers uid="3c86c9a1-07ab-4531-8e6c-1525c5d0eeb2" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all view">
                           <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <technologies techRef="ff0f27f1-3629-41e8-bac9-8e23f0a809e6" valueRef="cd3997ec-58c3-4f9a-bd56-72dd2b6b003f"/>
                           <queries uid="a24a584b-6b8a-4e87-9d4d-c2422b13db04" name="Query form" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
                             <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
                             <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="CRM"/>
@@ -8511,6 +8516,7 @@
                         <mappers uid="a58d0771-0c42-49e7-a94c-157144d17c2b" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/web_xml_custom_ext.egl">
                           <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
                           <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
+                          <technologies techRef="64f2a66c-8eca-4443-8e62-e0c29cdcbbb0" valueRef="e6b7ff48-840e-4ebf-aea3-7c99b6f8042e"/>
                           <queries uid="1b2a3d92-1fec-4ba1-a298-c72199eae0f4" name="Query application" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
                             <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
                             <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="CRM"/>
@@ -8602,7 +8608,7 @@
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
                     <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code/sa"/>
-                    <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
+                    <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="dadf75b2-ef21-4b04-a86f-789e0a37cac7" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                     <properties uid="7f75ec76-23fc-4b76-b37c-4ca1c5cfce8d" confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="NA"/>

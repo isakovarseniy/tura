@@ -95,8 +95,10 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 
 			GeneratotPreferences.wrapper = new HeadlessLogWrapper();
 
-			URL.setURLStreamHandlerFactory(new PlatformURLStreamHandlerFactory());
-
+			if ( initURL == false){
+			   URL.setURLStreamHandlerFactory(new PlatformURLStreamHandlerFactory());
+			   initURL=true;
+			}
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
 
 			EmfModel model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
@@ -142,12 +144,15 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 					break;
 				}
 				if (!result) {
-		            throw new IllegalArgumentException("Wrong arguments");
+		            throw new IllegalArgumentException("Generation error");
 				}
 				System.out.println("Generation  completed");
-				if ("true".equals(build)) {
+				if (build) {
 					BuildCommand buildCmd = new BuildCommand();
-					buildCmd.depoymentRecipe(recipe);
+					result =buildCmd.depoymentRecipe(recipe);
+					if (!result) {
+			            throw new IllegalArgumentException("Building error");
+					}
 				}
 			}
 
