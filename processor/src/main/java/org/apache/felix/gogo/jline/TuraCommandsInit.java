@@ -24,22 +24,23 @@ package org.apache.felix.gogo.jline;
 import org.apache.felix.gogo.runtime.CommandProcessorImpl;
 
 public class TuraCommandsInit {
-	
-	public static void initProcessor(CommandProcessorImpl processor){
-        processor.addCommand("tura", new InstallOperation(), "install");
-        processor.addCommand("tura", new InstallOperation(), "__install_picocliCompleter");
 
-        processor.addCommand("tura", new GenerateOperation(), "generate");
-        processor.addCommand("tura", new GenerateOperation(), "__generate_picocliCompleter");
+	public static void initProcessor(CommandProcessorImpl processor) {
+		processor.addCommand("tura", new InstallOperation(), "install");
+		processor.addCommand("tura", new InstallOperation(), "__install_picocliCompleter");
 
-        processor.addCommand("tura", new BuildOperation(), "build");
-        processor.addCommand("tura", new BuildOperation(), "__build_picocliCompleter");
-	
-        
-        processor.addCommand("tura", new MavenOperation(), "mvn");
-        processor.addCommand("tura", new MavenOperation(), "__mvn_picocliCompleter");
-        
+		processor.addCommand("tura", new GenerateOperation(), "generate");
+		processor.addCommand("tura", new GenerateOperation(), "__generate_picocliCompleter");
+
+		processor.addCommand("tura", new BuildOperation(), "build");
+		processor.addCommand("tura", new BuildOperation(), "__build_picocliCompleter");
+
+		processor.addCommand("tura", new MavenOperation(), "mvn");
+		processor.addCommand("tura", new MavenOperation(), "__mvn_picocliCompleter");
+
+		processor.addCommand("tura", new DockerOperation(), "docker");
+		processor.addCommand("tura", new DockerOperation(), "__docker_picocliCompleter");
+
 	}
 
-	
 }

@@ -19,17 +19,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.configuration.dsl.commons;
+package org.apache.felix.gogo.jline.command;
 
-public class ConfigConstants {
-	public static String TURA_WORKING_DIRECTORY= System.getProperty("user.home")+"/.tura";
-	public static String RESOURCE_HOME = TURA_WORKING_DIRECTORY+"/resources";
-	public static String MAVEN_HOME = RESOURCE_HOME+"/apache-maven";
-	
-	public static String CHROMEDRIVERVERSION="chromedriverversion";
-	public static String MAVENURL="mavenurl";
-	public static String DOCKER_CONFIG = "DOCKER_CONFIG";
-	
-	
-	
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+
+@Command(name = "commitContainer")
+public class DockerCommitContainer extends DockerCommand{
+
+    @Option(names = "--registry", required = true)
+    private String registry;
+    
+    @Option(names = "--tag", required = true)
+    private String tag;
+    
+    
 }
+

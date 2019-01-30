@@ -19,17 +19,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.configuration.dsl.commons;
+package org.apache.felix.gogo.jline.command;
 
-public class ConfigConstants {
-	public static String TURA_WORKING_DIRECTORY= System.getProperty("user.home")+"/.tura";
-	public static String RESOURCE_HOME = TURA_WORKING_DIRECTORY+"/resources";
-	public static String MAVEN_HOME = RESOURCE_HOME+"/apache-maven";
-	
-	public static String CHROMEDRIVERVERSION="chromedriverversion";
-	public static String MAVENURL="mavenurl";
-	public static String DOCKER_CONFIG = "DOCKER_CONFIG";
-	
-	
-	
+import com.github.dockerjava.api.command.RemoveContainerCmd;
+import com.github.dockerjava.api.exception.NotFoundException;
+
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+
+@Command(name = "removeContainer")
+public class DockerRemoveContainerCommand extends DockerCommand{
+
+    @Option(names = "--name", required = true)
+    private String name;
+
+    
+    @Override
+    public void run() {
+        try {
+            RemoveContainerCmd rm = dockerClient.removeContainerCmd(name);
+            rm.withForce(true);
+            rm.exec();
+        } catch (NotFoundException e) {
+            System.out.println("Container " + name + " not found");
+        }
+        
+    }
+    
 }
+
