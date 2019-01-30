@@ -38,10 +38,13 @@ public class DockerCommand implements Runnable{
 
     @Override
     public void run() {
-        DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
-        dockerClient = DockerClientBuilder.getInstance(config).build();
     }
 
+    protected void _init() {
+        DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
+        dockerClient = DockerClientBuilder.getInstance(config).build();
+    }   
+    
     protected Container findContainer(String cn) {
         List<Container> containers = dockerClient.listContainersCmd().withShowAll(true).exec();
         for (Container c : containers) {

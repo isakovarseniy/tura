@@ -40,6 +40,7 @@ public class DockerRemoveImage extends DockerCommand {
 
     @Override
     public void run() {
+    	_init();
         ListImagesCmd ls = dockerClient.listImagesCmd();
         ls.withImageNameFilter(registry + ":" + tag);
         List<Image> imgs = ls.exec();

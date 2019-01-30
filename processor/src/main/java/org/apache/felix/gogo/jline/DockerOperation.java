@@ -43,77 +43,69 @@ import org.jline.reader.ParsedLine;
 import picocli.CommandLine;
 import picocli.shell.jline3.PicocliJLineCompleter;
 
-public class DockerOperation extends DockerCommand{
+public class DockerOperation extends DockerCommand {
 
-    
-    public List<Candidate> __docker_picocliCompleter(CommandSession session) {
-        ParsedLine line = Shell.getParsedLine(session);
-        LineReader reader = Shell.getReader(session);
-        List<Candidate> candidates = new ArrayList<>();
-        
-        
-        CommandLine cmd = getCommandLine();
-        new PicocliJLineCompleter(cmd.getCommandSpec()).complete(reader, line, candidates);
-        return candidates;
-    }
-    
-    public void _main(CommandSession session, String[] argv) {
-        if (argv == null || argv.length < 1) {
-            throw new IllegalArgumentException();
-        }
-        Process process = Process.Utils.current();
-        try {
-            String args[] = new String[argv.length - 1];
-            System.arraycopy(argv, 1, args, 0, argv.length - 1);
-            run(session, process, args);
-        } catch (IllegalArgumentException e) {
-            process.err().println(e.getMessage());
-            process.error(2);
-        } catch (HelpException e) {
-            process.err().println(e.getMessage());
-            process.error(0);
-        }catch (RuntimeException e) {
-            throw e; 
-        } catch (Exception e) {
-            process.err().println(argv[0] + ": " + e.toString());
-            process.error(1);
-        }
-    }
-    
-    
+	public List<Candidate> __docker_picocliCompleter(CommandSession session) {
+		ParsedLine line = Shell.getParsedLine(session);
+		LineReader reader = Shell.getReader(session);
+		List<Candidate> candidates = new ArrayList<>();
 
-    protected Object run(CommandSession session, Process process, Object[] argv) throws Exception {
+		CommandLine cmd = getCommandLine();
+		new PicocliJLineCompleter(cmd.getCommandSpec()).complete(reader, line, candidates);
+		return candidates;
+	}
 
-        CommandLine line = getCommandLine();
+	public void _main(CommandSession session, String[] argv) {
+		if (argv == null || argv.length < 1) {
+			throw new IllegalArgumentException();
+		}
+		Process process = Process.Utils.current();
+		try {
+			String args[] = new String[argv.length - 1];
+			System.arraycopy(argv, 1, args, 0, argv.length - 1);
+			run(session, process, args);
+		} catch (IllegalArgumentException e) {
+			process.err().println(e.getMessage());
+			process.error(2);
+		} catch (HelpException e) {
+			process.err().println(e.getMessage());
+			process.error(0);
+		} catch (RuntimeException e) {
+			throw e;
+		} catch (Exception e) {
+			process.err().println(argv[0] + ": " + e.toString());
+			process.error(1);
+		}
+	}
 
-        List<CommandLine> commands = line.parseArgs((String[]) argv).asCommandLineList();
-        Runnable cmd = commands.get(0).getCommand();
-        if (cmd instanceof SessionAware) {
-            ((SessionAware)cmd).setSession(session);
-        }
-        cmd.run();
+	protected Object run(CommandSession session, Process process, Object[] argv) throws Exception {
 
-        return null;
+		CommandLine line = getCommandLine();
 
-    }
-    
-    
-    protected CommandLine getCommandLine() {
-        return new CommandLine(new DockerCommand())
-                .addSubcommand("createContainer", new DockerCreateContainer())
-                .addSubcommand("commitContainer", new DockerCommitContainer())
-                .addSubcommand("config", new DockerConfig())
-                .addSubcommand("removeContainer", new DockerRemoveContainerCommand())
-                .addSubcommand("removeImage", new DockerRemoveImage())
-                .addSubcommand("startContainer", new DockerStartContainer())
-                .addSubcommand("stopContainer", new DockerStopContainer())
-                .addSubcommand("pullImage", new DockerPullImage())
-                
-                ;
-    }
-    
-    
-    
-    
+		List<CommandLine> commands = line.parseArgs((String[]) argv).asCommandLineList();
+		for (CommandLine command : commands) {
+			Runnable cmd = command.getCommand();
+			if (cmd instanceof SessionAware) {
+				((SessionAware) cmd).setSession(session);
+			}
+			cmd.run();
+		}
+
+		return null;
+
+	}
+
+	protected CommandLine getCommandLine() {
+		return new CommandLine(new DockerCommand()).addSubcommand("createContainer", new DockerCreateContainer())
+				.addSubcommand("commitContainer", new DockerCommitContainer())
+				.addSubcommand("config", new DockerConfig())
+				.addSubcommand("removeContainer", new DockerRemoveContainerCommand())
+				.addSubcommand("removeImage", new DockerRemoveImage())
+				.addSubcommand("startContainer", new DockerStartContainer())
+				.addSubcommand("stopContainer", new DockerStopContainer())
+				.addSubcommand("pullImage", new DockerPullImage())
+
+		;
+	}
+
 }
-

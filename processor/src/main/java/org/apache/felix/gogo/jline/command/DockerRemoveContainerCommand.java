@@ -37,6 +37,7 @@ public class DockerRemoveContainerCommand extends DockerCommand{
     @Override
     public void run() {
         try {
+        	_init();
             RemoveContainerCmd rm = dockerClient.removeContainerCmd(name);
             rm.withForce(true);
             rm.exec();

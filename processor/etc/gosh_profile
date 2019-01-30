@@ -26,6 +26,11 @@ complete -c tura:mvn -d "Build maven project"
 complete -c tura:mvn -a '__mvn_picocliCompleter'
 
 
+complete -c tura:docker -e
+complete -c tura:docker -d "Run docker" 
+complete -c tura:docker -a '__docker_picocliCompleter'
+
+
 buildPluginAndProcessor = {
      source $tura_home/processor/etc/buildPluginAndProcessor;    
 }
