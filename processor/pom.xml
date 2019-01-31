@@ -21,6 +21,13 @@
 		<epsilon.version>1.4.0</epsilon.version>
 		<gogo.version>1.1.2</gogo.version>
 		<picocli.version>3.9.2</picocli.version>
+		<commons-io.version>2.6</commons-io.version>
+		<maven-invoker.version>3.0.1</maven-invoker.version>
+		<docker-java.version>3.0.14</docker-java.version>
+		<freemarker.version>2.3.20</freemarker.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<google-java-format.version>1.6</google-java-format.version>
+		<slf4j-jdk14.version>1.7.25</slf4j-jdk14.version>
 
 	</properties>
 
@@ -66,7 +73,7 @@
 		<dependency>
 			<groupId>com.google.googlejavaformat</groupId>
 			<artifactId>google-java-format</artifactId>
-			<version>1.6</version>
+			<version>${google-java-format.version}</version>
 		</dependency>
 
 		<dependency>
@@ -84,15 +91,14 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<version>2.3.28</version>
+			<version>${freemarker.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
+			<version>${commons-lang.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.eclipse.ocl</groupId>
@@ -158,28 +164,28 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.6</version>
+			<version>${commons-io.version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
 			<artifactId>maven-invoker</artifactId>
-			<version>3.0.1</version>
+			<version>${maven-invoker.version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>com.github.docker-java</groupId>
 			<artifactId>docker-java</artifactId>
-			<version>3.0.14</version>
+			<version>${docker-java.version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-jdk14</artifactId>
-			<version>1.7.25</version>
+			<version>${slf4j-jdk14.version}</version>
 		</dependency>
 
 	</dependencies>

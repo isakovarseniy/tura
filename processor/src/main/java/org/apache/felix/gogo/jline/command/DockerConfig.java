@@ -55,12 +55,13 @@ public class DockerConfig extends DockerCommand implements SessionAware{
     
     
     @Override
-    public void run() {
+    public Object execute() {
         if (clear) {
           session.put(ConfigConstants.DOCKER_CONFIG, new DockerConfig());
         }else {
            session.put(ConfigConstants.DOCKER_CONFIG, this);
         }
+        return null;
     }
 
 
@@ -70,76 +71,77 @@ public class DockerConfig extends DockerCommand implements SessionAware{
     }
 
 
-	public boolean isClear() {
-		return clear;
-	}
+    public boolean isClear() {
+        return clear;
+    }
 
 
-	public void setClear(boolean clear) {
-		this.clear = clear;
-	}
+    public void setClear(boolean clear) {
+        this.clear = clear;
+    }
 
 
-	public String getCmd() {
-		return cmd;
-	}
+    public String getCmd() {
+        return cmd;
+    }
 
 
-	public void setCmd(String cmd) {
-		this.cmd = cmd;
-	}
+    public void setCmd(String cmd) {
+        this.cmd = cmd;
+    }
 
 
-	public String getNetwork() {
-		return network;
-	}
+    public String getNetwork() {
+        return network;
+    }
 
 
-	public void setNetwork(String network) {
-		this.network = network;
-	}
+    public void setNetwork(String network) {
+        this.network = network;
+    }
 
 
-	public String getUser() {
-		return user;
-	}
+    public String getUser() {
+        return user;
+    }
 
 
-	public void setUser(String user) {
-		this.user = user;
-	}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
 
-	public String getAlias() {
-		return alias;
-	}
+    public String getAlias() {
+        return alias;
+    }
 
 
-	public void setAlias(String alias) {
-		this.alias = alias;
-	}
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
 
-	public List<String> getPortMapper() {
-		return portMapper;
-	}
+    public List<String> getPortMapper() {
+        return portMapper;
+    }
 
 
-	public void setPortMapper(List<String> portMapper) {
-		this.portMapper = portMapper;
-	}
+    public void setPortMapper(List<String> portMapper) {
+        this.portMapper = portMapper;
+    }
 
 
-	public List<String> getVolumesMapping() {
-		return volumesMapping;
-	}
+    public List<String> getVolumesMapping() {
+        return volumesMapping;
+    }
 
 
-	public void setVolumesMapping(List<String> volumesMapping) {
-		this.volumesMapping = volumesMapping;
-	}
+    public void setVolumesMapping(List<String> volumesMapping) {
+        this.volumesMapping = volumesMapping;
+    }
 
     
     
 }
+
 

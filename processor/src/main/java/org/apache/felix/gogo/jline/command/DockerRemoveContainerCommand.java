@@ -28,24 +28,33 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(name = "removeContainer")
-public class DockerRemoveContainerCommand extends DockerCommand{
+public class DockerRemoveContainerCommand extends DockerCommand {
 
-    @Option(names = "--name", required = true)
+    @Option(names = "--name")
     private String name;
 
-    
+    @Option(names = "--id")
+    private String id;
+
     @Override
-    public void run() {
+    public Object execute() {
         try {
-        	_init();
-            RemoveContainerCmd rm = dockerClient.removeContainerCmd(name);
-            rm.withForce(true);
-            rm.exec();
+            _init();
+            if (id != null) {
+                RemoveContainerCmd rm = dockerClient.removeContainerCmd(id);
+                rm.withForce(true);
+                rm.exec();
+            } else {
+
+                RemoveContainerCmd rm = dockerClient.removeContainerCmd(name);
+                rm.withForce(true);
+                rm.exec();
+            }
         } catch (NotFoundException e) {
             System.out.println("Container " + name + " not found");
         }
-        
+        return null;
     }
-    
+
 }
 

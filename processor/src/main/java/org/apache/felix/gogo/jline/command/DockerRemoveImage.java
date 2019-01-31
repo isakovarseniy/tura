@@ -39,20 +39,22 @@ public class DockerRemoveImage extends DockerCommand {
     private String tag;
 
     @Override
-    public void run() {
-    	_init();
+    public Object execute() {
+        _init();
         ListImagesCmd ls = dockerClient.listImagesCmd();
         ls.withImageNameFilter(registry + ":" + tag);
         List<Image> imgs = ls.exec();
         if (imgs == null || imgs.size() == 0) {
             System.out.println("Image  " + registry + ":" + tag + " not found");
-            return;
+            return null;
         }
         for (Image im : imgs) {
             dockerClient.removeImageCmd(im.getId()).withForce(true).exec();
         }
+        return null;
 
     }
 
 }
+
 

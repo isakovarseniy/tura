@@ -1,39 +1,16 @@
-/**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.felix.gogo.jline;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.felix.gogo.jline.Posix.HelpException;
-import org.apache.felix.gogo.jline.command.DockerCommand;
-import org.apache.felix.gogo.jline.command.DockerCommitContainer;
-import org.apache.felix.gogo.jline.command.DockerConfig;
-import org.apache.felix.gogo.jline.command.DockerCreateContainer;
-import org.apache.felix.gogo.jline.command.DockerPullImage;
-import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
-import org.apache.felix.gogo.jline.command.DockerRemoveImage;
-import org.apache.felix.gogo.jline.command.DockerStartContainer;
-import org.apache.felix.gogo.jline.command.DockerStopContainer;
+import org.apache.felix.gogo.jline.command.DSLCommand;
+import org.apache.felix.gogo.jline.command.DSLCopyFile;
+import org.apache.felix.gogo.jline.command.DSLCopyRoles;
+import org.apache.felix.gogo.jline.command.DSLCopyUsers;
+import org.apache.felix.gogo.jline.command.DSLDoDeploy;
+import org.apache.felix.gogo.jline.command.DSLModule;
+import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
 import org.apache.felix.service.command.CommandSession;
 import org.apache.felix.service.command.Process;
 import org.jline.reader.Candidate;
@@ -43,9 +20,9 @@ import org.jline.reader.ParsedLine;
 import picocli.CommandLine;
 import picocli.shell.jline3.PicocliJLineCompleter;
 
-public class DockerOperation  {
+public class DSLOperation  {
 
-    public List<Candidate> __docker_picocliCompleter(CommandSession session) {
+    public List<Candidate> __dsl_picocliCompleter(CommandSession session) {
         ParsedLine line = Shell.getParsedLine(session);
         LineReader reader = Shell.getReader(session);
         List<Candidate> candidates = new ArrayList<>();
@@ -98,15 +75,13 @@ public class DockerOperation  {
     }
 
     protected CommandLine getCommandLine() {
-        return new CommandLine(new DockerCommand()).addSubcommand("createContainer", new DockerCreateContainer())
-                .addSubcommand("commitContainer", new DockerCommitContainer())
-                .addSubcommand("config", new DockerConfig())
-                .addSubcommand("removeContainer", new DockerRemoveContainerCommand())
-                .addSubcommand("removeImage", new DockerRemoveImage())
-                .addSubcommand("startContainer", new DockerStartContainer())
-                .addSubcommand("stopContainer", new DockerStopContainer())
-                .addSubcommand("pullImage", new DockerPullImage())
-
+        return new CommandLine(new DSLCommand())
+        		.addSubcommand("copyFile", new DSLCopyFile())
+                .addSubcommand("copyRoles", new DSLCopyRoles())
+                .addSubcommand("copyUsers", new DSLCopyUsers())
+                .addSubcommand("jbossModule", new DSLModule())
+                .addSubcommand("jbossStandaloneFullXml", new DSLStandaloneFullXml())
+                .addSubcommand("jbossDoDeploy", new DSLDoDeploy())
         ;
     }
 

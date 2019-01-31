@@ -1,10 +1,10 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright (c) 2012 - 2018, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
+ * http://sourceforge.net/p/tura/wiki/Home/
  *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
@@ -21,21 +21,26 @@
  */
 package org.tura.configuration.dsl.commons;
 
-public class ConfigConstants {
-	public static String TURA_WORKING_DIRECTORY= System.getProperty("user.home")+"/.tura";
-	public static String RESOURCE_HOME = TURA_WORKING_DIRECTORY+"/resources";
-	public static String MAVEN_HOME = RESOURCE_HOME+"/apache-maven";
+import java.net.URL;
+
+import freemarker.cache.ClassTemplateLoader;
+
+public class FreeMarkeResourceLoader extends ClassTemplateLoader {
 	
-	public static String TURA_HOME = "TURA_HOME";
-	public static String TURA_CONFIG_REPOSITORY=System.getProperty(TURA_HOME)+"/processor/etc";
-	
-	
-	public static String CHROMEDRIVERVERSION="chromedriverversion";
-	public static String MAVENURL="mavenurl";
-	public static String DOCKER_CONFIG = "DOCKER_CONFIG";
-	
-	
-	
-	
-	
+	private ClassLoader loader;
+	public FreeMarkeResourceLoader(Class<?> loaderClass, String path) {
+		super( loaderClass,  path);
+		loader = loaderClass.getClassLoader();
+	}
+
+	@Override
+	protected URL getURL(String filePath) {
+		URL uri;
+		try {
+			uri =  this.loader.getResource(filePath);
+			return uri;
+		} catch (Exception e) {
+		}
+		return null;
+	}
 }

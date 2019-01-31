@@ -21,16 +21,13 @@
  */
 package org.apache.felix.gogo.jline.command;
 
-import org.apache.felix.gogo.jline.SessionAware;
-import org.apache.felix.service.command.CommandSession;
-
 import com.github.dockerjava.api.command.CommitCmd;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(name = "commitContainer")
-public class DockerCommitContainer extends DockerCommand implements SessionAware{
+public class DockerCommitContainer extends DockerCommand {
 
     @Option(names = "--registry", required = true)
     private String registry;
@@ -41,32 +38,25 @@ public class DockerCommitContainer extends DockerCommand implements SessionAware
     @Option(names = "--cmd")
     private String command;
 
-    private CommandSession session;
-
+    @Option(names = "--id")
+    private String id;
     
     
     @Override
-    public void run() {
-    	_init();
-    	
-    	String id = "";
+    public Object execute() {
+        _init();
+        
 
-		CommitCmd cmd = dockerClient.commitCmd(id).withRepository(registry).withTag(tag);
+        CommitCmd cmd = dockerClient.commitCmd(id).withRepository(registry).withTag(tag);
 
-		if (cmd != null) {
-			cmd = cmd.withCmd(command.split(" "));
-		}
-		cmd.exec();
-    	
+        if (cmd != null) {
+            cmd = cmd.withCmd(command.split(" "));
+        }
+        cmd.exec();
+        return null;
     }
 
-
-
-	@Override
-	public void setSession(CommandSession session) {
-		this.session = session;
-		
-	}
     
 }
+
 

@@ -41,6 +41,11 @@ public class TuraCommandsInit {
 		processor.addCommand("tura", new DockerOperation(), "docker");
 		processor.addCommand("tura", new DockerOperation(), "__docker_picocliCompleter");
 
+		processor.addCommand("tura", new DockerOperation(), "dsl");
+		processor.addCommand("tura", new DockerOperation(), "__dsl_picocliCompleter");
+
+	
+	
 	}
 
 }

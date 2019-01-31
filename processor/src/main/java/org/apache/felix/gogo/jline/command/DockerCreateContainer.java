@@ -33,76 +33,85 @@ import org.tura.configuration.dsl.commons.ConfigConstants;
 import com.github.dockerjava.api.command.CreateContainerCmd;
 import com.github.dockerjava.api.command.CreateContainerResponse;
 import com.github.dockerjava.api.model.Bind;
-import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.ExposedPort;
 import com.github.dockerjava.api.model.Ports;
-import com.github.dockerjava.api.model.Volume;
 import com.github.dockerjava.api.model.Ports.Binding;
+import com.github.dockerjava.api.model.Volume;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-
 @Command(name = "createContainer")
-public class DockerCreateContainer extends DockerCommand implements SessionAware{
+public class DockerCreateContainer extends DockerCommand implements SessionAware {
 
     @Option(names = "--name")
     private String name;
 
     @Option(names = "--registry", required = true)
     private String registry;
-    
+
     @Option(names = "--tag", required = true)
     private String tag;
-    
+
     private CommandSession session;
-    
-    
+
     @Override
-    public void run() {
-    	_init();
-    	DockerConfig conf =  (DockerConfig) session.get(ConfigConstants.DOCKER_CONFIG);
-    	
-		CreateContainerCmd cmd = dockerClient.createContainerCmd(registry + ":" + tag);
-		
-		if (conf.getUser() != null) {
-			cmd = cmd.withUser(conf.getUser());
-		}
-		if (name != null) {
-			cmd = cmd.withName(name);
-		}
+    public Object execute() {
+        _init();
+        DockerConfig conf = (DockerConfig) session.get(ConfigConstants.DOCKER_CONFIG);
 
-		if (conf.getCmd() != null) {
-			cmd = cmd.withCmd(conf.getCmd() );
-		}
+        CreateContainerCmd cmd = dockerClient.createContainerCmd(registry + ":" + tag);
 
-		Ports portBindings = new Ports();
-		List<ExposedPort> expPorts = new ArrayList<>();
-		for (Integer key : portMapper.keySet()) {
-			ExposedPort dPort = ExposedPort.tcp(portMapper.get(key));
-			expPorts.add(dPort);
-			portBindings.bind(dPort, Binding.bindPort(key));
-		}
-		cmd.withExposedPorts(expPorts.toArray(new ExposedPort[] {}));
-		cmd.withPortBindings(portBindings);
+        if (conf != null && conf.getUser() != null) {
+            cmd = cmd.withUser(conf.getUser());
+        }
+        if (name != null) {
+            cmd = cmd.withName(name);
+        }
 
-		List<Bind> bindings = new ArrayList<>();
-		for (String key : volumesMapping.keySet()) {
-			Volume volume = new Volume(volumesMapping.get(key));
-			bindings.add(new Bind(key, volume, rw));
-		}
-		cmd.withBinds(bindings.toArray(new Bind[] {}));
+        if (conf != null && conf.getCmd() != null) {
+            cmd = cmd.withCmd(conf.getCmd());
+        }
 
-		if (conf.getNetwork() != null) {
-			cmd.withNetworkMode(conf.getNetwork());
-		}
-		if (conf.getAlias() != null) {
-			cmd.withAliases(conf.getAlias());
-		}
+        if (conf != null) {
+            Ports portBindings = new Ports();
+            List<ExposedPort> expPorts = new ArrayList<>();
+            for (String str : conf.getPortMapper()) {
+                String[] ports = str.split(":");
+                if (ports.length != 2) {
+                    throw new IllegalArgumentException("Wrong port definition " + str);
+                }
 
-		CreateContainerResponse container = cmd.exec();
-		dockerClient.startContainerCmd(container.getId()).exec();
-    	
+                ExposedPort dPort = ExposedPort.tcp(new Integer(ports[1]));
+                expPorts.add(dPort);
+                portBindings.bind(dPort, Binding.bindPort(new Integer(ports[0])));
+            }
+            cmd.withExposedPorts(expPorts.toArray(new ExposedPort[] {}));
+            cmd.withPortBindings(portBindings);
+
+            List<Bind> bindings = new ArrayList<>();
+            for (String str : conf.getVolumesMapping()) {
+                String[] volumes = str.split(":");
+                if (volumes.length != 2) {
+                    throw new IllegalArgumentException("Wrong volume definition " + str);
+                }
+
+                Volume volume = new Volume(volumes[1]);
+                bindings.add(new Bind(volumes[0], volume, rw));
+            }
+            cmd.withBinds(bindings.toArray(new Bind[] {}));
+
+        }
+        if (conf != null && conf.getNetwork() != null) {
+            cmd.withNetworkMode(conf.getNetwork());
+        }
+        if (conf != null && conf.getAlias() != null) {
+            cmd.withAliases(conf.getAlias());
+        }
+
+        CreateContainerResponse container = cmd.exec();
+        dockerClient.startContainerCmd(container.getId()).exec();
+        return container.getId();
     }
 
     @Override
@@ -110,7 +119,5 @@ public class DockerCreateContainer extends DockerCommand implements SessionAware
         this.session = session;
     }
 
-    
-    
 }
 

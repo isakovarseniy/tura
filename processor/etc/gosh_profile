@@ -31,6 +31,11 @@ complete -c tura:docker -d "Run docker"
 complete -c tura:docker -a '__docker_picocliCompleter'
 
 
+complete -c tura:dsl -e
+complete -c tura:dsl -d "Dsl for configuration" 
+complete -c tura:dsl -a '__dsl_picocliCompleter'
+
+
 buildPluginAndProcessor = {
      source $tura_home/processor/etc/buildPluginAndProcessor;    
 }

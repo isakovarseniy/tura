@@ -36,20 +36,21 @@ public class DockerStartContainer extends DockerCommand{
    private String id;
    
    @Override
-   public void run(){
-   	_init();
-	   
+   public Object execute() {
+       _init();
+       
       if(id!=null){
          dockerClient.startContainerCmd(id).exec();
-         return;
+         return null;
       }
       if(name!=null){
          Container cn=findContainer(name);
          if(cn.getStatus().contains("Exited")){
             dockerClient.startContainerCmd(cn.getId()).exec();
-            return;
+            return null;
          }
       }
       throw new IllegalArgumentException("One of parameters name|id should be defined");
    }   
 }
+

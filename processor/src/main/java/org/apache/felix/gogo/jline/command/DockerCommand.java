@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.felix.gogo.jline.Executable;
+
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
@@ -33,11 +35,12 @@ import com.github.dockerjava.core.DockerClientBuilder;
 import picocli.CommandLine.Command;
 
 @Command(name = "docker")
-public class DockerCommand implements Runnable{
+public class DockerCommand implements Executable{
     protected  DockerClient dockerClient;
 
     @Override
-    public void run() {
+    public Object execute() {
+        return null;
     }
 
     protected void _init() {
@@ -58,4 +61,5 @@ public class DockerCommand implements Runnable{
     
     
 }
+
 
