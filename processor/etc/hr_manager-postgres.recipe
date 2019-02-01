@@ -17,6 +17,8 @@ tura:docker commitContainer --registry tura/hr-manager/postgres --tag 1.0 --id $
 
 tura:docker stopContainer --id $v
 
+tura:docker removeContainer --id $v
+
 c =tura:docker config --port 5432:5432 --network hr-net --alias db
 
 tura:docker createContainer --registry tura/hr-manager/postgres --tag 1.0 --var c --name hr-pg
