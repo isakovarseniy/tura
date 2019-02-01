@@ -1,0 +1,25 @@
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+
+tura:docker removeContainer --name hr-pg
+
+tura:docker removeImage --registry tura/hr-manager/postgres --tag 1.0
+
+tura:docker pullImage --registry postgres --tag 9.6
+
+c = tura:docker config --user 0 
+
+v = tura:docker createContainer --registry postgres --tag 9.6 --var c
+
+tura:dsl copyFile --targetLocation /docker-entrypoint-initdb.d --sourceResource $repo_home/hr-manager/assets/hrschema.sql --container $v
+
+tura:docker commitContainer --registry tura/hr-manager/postgres --tag 1.0 --id $v
+
+tura:docker stopContainer --id $v
+
+c =tura:docker config --port 5432:5432 --network hr-net --alias db
+
+tura:docker createContainer --registry tura/hr-manager/postgres --tag 1.0 --var c --name hr-pg
+
+
+

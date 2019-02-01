@@ -49,7 +49,7 @@ public class DockerCommitContainer extends DockerCommand {
 
         CommitCmd cmd = dockerClient.commitCmd(id).withRepository(registry).withTag(tag);
 
-        if (cmd != null) {
+        if (command != null) {
             cmd = cmd.withCmd(command.split(" "));
         }
         cmd.exec();

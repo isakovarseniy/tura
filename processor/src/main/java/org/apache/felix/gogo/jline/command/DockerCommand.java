@@ -28,9 +28,12 @@ import java.util.List;
 import org.apache.felix.gogo.jline.Executable;
 
 import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.command.ExecCreateCmdResponse;
 import com.github.dockerjava.api.model.Container;
+import com.github.dockerjava.api.model.Frame;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
+import com.github.dockerjava.core.command.ExecStartResultCallback;
 
 import picocli.CommandLine.Command;
 
@@ -59,6 +62,31 @@ public class DockerCommand implements Executable{
         return null;
     }
     
+    
+       public  void copyFilesToDocker(String containerId, String source, String targetDir,
+    		            String targetArtifact) {
+    		        _init();
+    		        
+    		        dockerClient.copyArchiveToContainerCmd(containerId).withRemotePath(targetDir)
+    		                .withHostResource(source).exec();
+
+    		    }
+
+    		    public  void mkdir(String containerId, String targetDir) throws InterruptedException {
+    		        _init();
+    		        ExecCreateCmdResponse exe = dockerClient.execCreateCmd(containerId).withCmd("mkdir", "-p", targetDir)
+    		                .exec();
+
+    		        dockerClient.execStartCmd(exe.getId()).exec(new ExecStartResultCallback() {
+    		            @Override
+    		            public void onNext(Frame frame) {
+    		                super.onNext(frame);
+    		            }
+    		        }).awaitCompletion();
+
+    		    }
+    		    
+    		  
     
 }
 

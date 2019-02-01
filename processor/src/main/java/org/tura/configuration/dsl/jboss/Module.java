@@ -1,10 +1,10 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
+ * Copyright (c) 2012 - 2019, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * https://github.com/isakovarseniy/tura
  *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
@@ -22,14 +22,13 @@
 package org.tura.configuration.dsl.jboss;
 
 import org.tura.configuration.dsl.commons.Artifact;
-import org.tura.configuration.dsl.commons.ConfigConstants;
 
 public class Module extends Artifact<Module>{
 	
     private static String artifactPath = "${JBOSS_HOME}/modules";
     private static String artifactName = "module.xml";
 	
-    private static String templatePath=ConfigConstants.TURA_CONFIG_REPOSITORY+"/${application}/${JBOSS_VERSION}/templates/module.xml";
+    private static String templatePath="${application}/${JBOSS_VERSION}/templates/module.xml";
     
     
 	public Module(String  jboss_home) {

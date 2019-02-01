@@ -23,18 +23,12 @@ package org.apache.felix.gogo.jline.command;
 
 import java.util.List;
 
-import org.apache.felix.gogo.jline.SessionAware;
-import org.apache.felix.service.command.CommandSession;
-import org.tura.configuration.dsl.commons.ConfigConstants;
-
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(name = "config")
-public class DockerConfig extends DockerCommand implements SessionAware{
+public class DockerConfig extends DockerCommand {
 
-    @Option(names = "--clear")
-    private boolean clear;
     @Option(names = "--cmd")
     private String cmd;
     @Option(names = "--network")
@@ -45,46 +39,20 @@ public class DockerConfig extends DockerCommand implements SessionAware{
     private String alias;
     @Option(names = "--port")
     private List<String> portMapper;
-    @Option(names = "--volume",  required = true)
+    @Option(names = "--volume")
     private List<String> volumesMapping;
     
-    
-    private CommandSession session;
-
-
     
     
     @Override
     public Object execute() {
-        if (clear) {
-          session.put(ConfigConstants.DOCKER_CONFIG, new DockerConfig());
-        }else {
-           session.put(ConfigConstants.DOCKER_CONFIG, this);
-        }
-        return null;
-    }
-
-
-    @Override
-    public void setSession(CommandSession session) {
-        this.session = session;
-    }
-
-
-    public boolean isClear() {
-        return clear;
-    }
-
-
-    public void setClear(boolean clear) {
-        this.clear = clear;
+        return this;
     }
 
 
     public String getCmd() {
         return cmd;
     }
-
 
     public void setCmd(String cmd) {
         this.cmd = cmd;

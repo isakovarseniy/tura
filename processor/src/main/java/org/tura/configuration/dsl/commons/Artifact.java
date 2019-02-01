@@ -1,10 +1,10 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
+ * Copyright (c) 2012 - 2019, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * https://github.com/isakovarseniy/tura
  *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
@@ -27,6 +27,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.StringTokenizer;
+
+import org.apache.felix.gogo.jline.command.DockerCommand;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -100,8 +102,8 @@ public class Artifact<T>  {
 		}
 		generate();
 		if (containerId != null){
-			Docker.mkdir(containerId, saveArtifactTargerLocation);
-			Docker.copyFilesToDocker( containerId , artifactTargerLocation, saveArtifactTargerLocation,  artifactName);
+			new DockerCommand().mkdir(containerId, saveArtifactTargerLocation);
+			new DockerCommand().copyFilesToDocker( containerId , artifactTargerLocation+artifactName, saveArtifactTargerLocation,  artifactName);
 		}
 	}
 	
@@ -116,7 +118,7 @@ public class Artifact<T>  {
 			cfg.setObjectWrapper(new DefaultObjectWrapper());
 			cfg.setDefaultEncoding("UTF-8");
 			cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
-			cfg.setTemplateLoader(new FreeMarkeResourceLoader(this.getClass(),""));
+			cfg.setTemplateLoader(new FreeMarkeResourceLoader());
 			cfg.setLocalizedLookup(false);
 
 			Template t = cfg.getTemplate(templateFile);

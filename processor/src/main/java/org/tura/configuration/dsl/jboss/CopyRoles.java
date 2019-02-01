@@ -1,10 +1,10 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
+ * Copyright (c) 2012 - 2019, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * https://github.com/isakovarseniy/tura
  *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance

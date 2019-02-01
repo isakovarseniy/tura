@@ -1,10 +1,10 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
+ * Copyright (c) 2012 - 2019, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * https://github.com/isakovarseniy/tura
  *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
@@ -29,7 +29,7 @@ public class StandaloneFullXml extends Artifact<StandaloneFullXml>{
     private static String artifactPath = "${JBOSS_HOME}/standalone/configuration";
     private static String artifactName = "standalone-full.xml";
     
-    private static String templatePath=ConfigConstants.TURA_CONFIG_REPOSITORY+"/${application}/${JBOSS_VERSION}/templates/standalone-full.xml";
+    private static String templatePath="${application}/${JBOSS_VERSION}/templates/standalone-full.xml";
 	
 	public StandaloneFullXml(String  jboss_home) {
 		    this.setArtifactTargerLocation(artifactPath.replace("${JBOSS_HOME}", jboss_home));

@@ -1,0 +1,36 @@
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+user_home = system:getproperty user.home
+
+tura:docker removeContainer --name hr-wf
+
+tura:docker removeImage --registry tura/hr-manager/wildfly --tag 1.0
+
+tura:docker pullImage --registry jboss/wildfly --tag 10.1.0.Final
+
+c = tura:docker config --user 0 
+
+v = tura:docker createContainer --registry jboss/wildfly --tag 10.1.0.Final --var c
+
+tura:dsl jbossStandaloneFullXml --container $v --configPath postgres/docker --jboss_home /opt/jboss/wildfly --application hr-manager --serverType wildfly-10.1.0.Final
+
+tura:dsl jbossModule --container $v --configPath postgres/docker --jboss_home /opt/jboss/wildfly --application hr-manager --serverType wildfly-10.1.0.Final --relativeLocation org/postgresql/main
+
+tura:dsl copyRoles --container $v --jboss_home /opt/jboss/wildfly --application hr-manager --serverType wildfly-10.1.0.Final
+
+tura:dsl copyUsers --container $v --jboss_home /opt/jboss/wildfly --application hr-manager --serverType wildfly-10.1.0.Final
+
+tura:dsl copyFile --targetLocation /opt/jboss/wildfly/modules/org/postgresql/main --sourceResource $user_home/.m2/repository/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar --container $v
+
+tura:docker commitContainer --registry tura/hr-manager/wildfly --tag 1.0 --id $v --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0"
+
+tura:docker stopContainer --id $v
+
+
+c =tura:docker config --port 8080:8080  --port 3333:3333 --port 8443:8443 --network hr-net
+
+tura:docker createContainer --registry tura/hr-manager/wildfly --tag 1.0 --var c --name hr-wf
+
+
+
+
