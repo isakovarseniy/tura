@@ -30,6 +30,8 @@ import org.apache.felix.gogo.jline.command.DockerCommitContainer;
 import org.apache.felix.gogo.jline.command.DockerConfig;
 import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
+import org.apache.felix.gogo.jline.command.DockerLogWatcher;
+import org.apache.felix.gogo.jline.command.DockerNetwork;
 import org.apache.felix.gogo.jline.command.DockerPullImage;
 import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
 import org.apache.felix.gogo.jline.command.DockerRemoveImage;
@@ -109,6 +111,8 @@ public class DockerOperation  {
                 .addSubcommand("stopContainer", new DockerStopContainer())
                 .addSubcommand("pullImage", new DockerPullImage())
                 .addSubcommand("findContainer", new DockerFindContainer())
+                .addSubcommand("logWatcher", new DockerLogWatcher())
+                .addSubcommand("createNetwork", new DockerNetwork())
         ;
     }
 

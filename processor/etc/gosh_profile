@@ -1,5 +1,14 @@
+# add methods on BundleContext object as commands
+addcommand context ${.context}
+
+# add methods on System object as commands
+addcommand system (((${.context} getClass) getClassLoader) loadClass java.lang.System)
+
+
 # Load base profile
-source ((($.terminal ) class) getResource "/gosh_profile")
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+source $repo_home/go.ext
 
 
 try {
@@ -44,10 +53,31 @@ buildPlatform = {
      source $tura_home/processor/etc/buildPlatform;    
 }
 
+startHRApplication = {
+     source $tura_home/processor/etc/hr-manager-deployment.recipe;    
+}
+
+stopHRApplication = {
+     source $tura_home/processor/etc/hr-manager-stop-all.recipe;    
+}
+
+startHRIntegrationTest = {
+     tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing/pom.xml;    
+}
+
+
+hrUrlList = {
+    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2'
+    echo 'http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
+
+}
+
 
 
 
 } catch {
     $exception printStackTrace
+    e
 }
 

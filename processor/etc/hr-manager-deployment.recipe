@@ -1,0 +1,22 @@
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+user_home = system:getproperty user.home
+
+tura:install chromedriver
+
+echo 'Building postgres container'
+source $repo_home/hr_manager-postgres.recipe
+
+
+c2 = tura:docker findContainer --name hr-wf
+echo 'Wildfly container located? '$c2
+if { %(c2) } { } {
+   echo 'Building wildfly container'
+   source $repo_home/hr_manager-wildfly.recipe
+}
+tura:docker stopContainer --name hr-wf
+
+tura:dsl jbossDoDeploy --jboss_home $user_home/.tura/resources/hrmanager/deployments --targetName hrform-1.0.war --srcResource $user_home/.m2/repository/org/tura/example/ui/hrform/1.0/hrform-1.0.war
+
+tura:docker startContainer --name hr-wf
+

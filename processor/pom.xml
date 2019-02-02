@@ -212,6 +212,7 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+					<outputDirectory>${project.basedir}</outputDirectory>
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
 						<manifest>

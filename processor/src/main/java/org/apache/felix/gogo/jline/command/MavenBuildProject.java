@@ -35,7 +35,7 @@ import org.tura.configuration.dsl.commons.ConfigConstants;
 
 import picocli.CommandLine.Option;
 
-public class MavenBuildProject implements Runnable{
+public class MavenBuildProject implements Runnable {
 
 	@Option(names = "--pom.xml", description = "pom.xml file location", required = true)
 	private String pomxml;
@@ -43,28 +43,37 @@ public class MavenBuildProject implements Runnable{
 	@Option(names = "--P", description = "profile")
 	private List<String> profile;
 
-	
+	@Option(names = "--D", description = "options")
+	private List<String> options;
+
 	@Override
 	public void run() {
 		InvocationRequest request = new DefaultInvocationRequest();
-		request.setGoals( Arrays.asList(new String[]{"clean", "install"})  );
+		request.setGoals(Arrays.asList(new String[] { "clean", "install" }));
 		request.setPomFile(new File(pomxml));
 		request.setProfiles(profile);
-		
+
+		String mavenOpts = "";
+		if (options != null) {
+			for (String opt : options) {
+				mavenOpts = " -D" + opt + " ";
+			}
+		}
+		request.setMavenOpts(mavenOpts);
+
 		Invoker invoker = new DefaultInvoker();
 		invoker.setMavenHome(new File(ConfigConstants.MAVEN_HOME));
 		InvocationResult result;
 		try {
-			result = invoker.execute( request );
+			result = invoker.execute(request);
 		} catch (MavenInvocationException e) {
 			throw new RuntimeException(e);
 		}
-		 
-		if ( result.getExitCode() != 0 )
-		{
-		    throw new IllegalStateException( "Build failed." );
-		}		
-		
+
+		if (result.getExitCode() != 0) {
+			throw new IllegalStateException("Build failed.");
+		}
+
 	}
 
 }

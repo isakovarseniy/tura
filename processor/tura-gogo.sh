@@ -17,7 +17,7 @@ REALNAME=$(realpath "$0")
 DIRNAME=$(dirname "${REALNAME}")
 PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
-TARGETDIR=${DIRNAME}/target
+TARGETDIR=${DIRNAME}
 TURA_HOME=${ROOTDIR}
 ECLIPSE_SIRIUS=${HOME}/tools/epsilon-1.3-sirius-3.1.6/Eclipse.app/Contents/Eclipse/
 
