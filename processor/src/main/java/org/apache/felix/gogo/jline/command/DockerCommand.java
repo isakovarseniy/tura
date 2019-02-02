@@ -38,8 +38,8 @@ import com.github.dockerjava.core.command.ExecStartResultCallback;
 import picocli.CommandLine.Command;
 
 @Command(name = "docker")
-public class DockerCommand implements Executable{
-    protected  DockerClient dockerClient;
+public class DockerCommand implements Executable {
+    protected DockerClient dockerClient;
 
     @Override
     public Object execute() {
@@ -49,8 +49,8 @@ public class DockerCommand implements Executable{
     protected void _init() {
         DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
         dockerClient = DockerClientBuilder.getInstance(config).build();
-    }   
-    
+    }
+
     protected Container findContainer(String cn) {
         List<Container> containers = dockerClient.listContainersCmd().withShowAll(true).exec();
         for (Container c : containers) {
@@ -61,33 +61,26 @@ public class DockerCommand implements Executable{
         }
         return null;
     }
-    
-    
-       public  void copyFilesToDocker(String containerId, String source, String targetDir,
-    		            String targetArtifact) {
-    		        _init();
-    		        
-    		        dockerClient.copyArchiveToContainerCmd(containerId).withRemotePath(targetDir)
-    		                .withHostResource(source).exec();
 
-    		    }
+    public void copyFilesToDocker(String containerId, String source, String targetDir, String targetArtifact) {
+        _init();
 
-    		    public  void mkdir(String containerId, String targetDir) throws InterruptedException {
-    		        _init();
-    		        ExecCreateCmdResponse exe = dockerClient.execCreateCmd(containerId).withCmd("mkdir", "-p", targetDir)
-    		                .exec();
+        dockerClient.copyArchiveToContainerCmd(containerId).withRemotePath(targetDir).withHostResource(source).exec();
 
-    		        dockerClient.execStartCmd(exe.getId()).exec(new ExecStartResultCallback() {
-    		            @Override
-    		            public void onNext(Frame frame) {
-    		                super.onNext(frame);
-    		            }
-    		        }).awaitCompletion();
+    }
 
-    		    }
-    		    
-    		  
-    
+    public void mkdir(String containerId, String targetDir) throws InterruptedException {
+        _init();
+        ExecCreateCmdResponse exe = dockerClient.execCreateCmd(containerId).withCmd("mkdir", "-p", targetDir).exec();
+
+        dockerClient.execStartCmd(exe.getId()).exec(new ExecStartResultCallback() {
+            @Override
+            public void onNext(Frame frame) {
+                super.onNext(frame);
+            }
+        }).awaitCompletion();
+
+    }
+
 }
-
 

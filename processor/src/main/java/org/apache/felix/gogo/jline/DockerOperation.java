@@ -29,6 +29,7 @@ import org.apache.felix.gogo.jline.command.DockerCommand;
 import org.apache.felix.gogo.jline.command.DockerCommitContainer;
 import org.apache.felix.gogo.jline.command.DockerConfig;
 import org.apache.felix.gogo.jline.command.DockerCreateContainer;
+import org.apache.felix.gogo.jline.command.DockerFindContainer;
 import org.apache.felix.gogo.jline.command.DockerPullImage;
 import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
 import org.apache.felix.gogo.jline.command.DockerRemoveImage;
@@ -98,7 +99,8 @@ public class DockerOperation  {
     }
 
     protected CommandLine getCommandLine() {
-        return new CommandLine(new DockerCommand()).addSubcommand("createContainer", new DockerCreateContainer())
+        return new CommandLine(new DockerCommand())
+                .addSubcommand("createContainer", new DockerCreateContainer())
                 .addSubcommand("commitContainer", new DockerCommitContainer())
                 .addSubcommand("config", new DockerConfig())
                 .addSubcommand("removeContainer", new DockerRemoveContainerCommand())
@@ -106,9 +108,10 @@ public class DockerOperation  {
                 .addSubcommand("startContainer", new DockerStartContainer())
                 .addSubcommand("stopContainer", new DockerStopContainer())
                 .addSubcommand("pullImage", new DockerPullImage())
-
+                .addSubcommand("findContainer", new DockerFindContainer())
         ;
     }
 
 }
+
 
