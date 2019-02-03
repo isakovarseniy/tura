@@ -73,6 +73,11 @@ hrUrlList = {
 
 }
 
+hrLogWatch = {
+   tura:docker logWatcher --name hr-wf --name hr-pg 
+
+}
+
 
 
 

@@ -23,7 +23,6 @@ package org.tura.example.ui.hrmanager;
 
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.io.File;
 
@@ -57,12 +56,6 @@ public class Tree2TreeTest extends AbstractTest{
 	
 	@BeforeClass
 	public static void beforeClass() {
-		try {
-			healthCheckt();
-		} catch (Exception e) {
-			fail();
-		}
-				
 		try {
 			
 			String home = System.getProperty("user.home");

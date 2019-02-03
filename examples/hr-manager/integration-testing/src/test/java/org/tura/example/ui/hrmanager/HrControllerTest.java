@@ -77,12 +77,6 @@ public class HrControllerTest extends AbstractTest {
 	@BeforeClass
 	public static void beforeClass() {
 		try {
-			healthCheckt();
-		} catch (Exception e) {
-			fail();
-		}
-		
-		try {
 			String home = System.getProperty("user.home");
 			service = new ChromeDriverService.Builder()
 					.usingDriverExecutable(new File(driver_location.replace("${user.home}", home))).usingAnyFreePort()
