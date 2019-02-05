@@ -21,6 +21,7 @@
  */
 package org.apache.felix.gogo.jline.command;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -91,13 +92,16 @@ public class DockerLogWatcher extends DockerCommand {
 
 					LogContainerCallback callback = new LogContainerCallback();
 
-					this.dockerClient.logContainerCmd(container.getId()).withStdErr(true).withStdOut(true)
-							.withFollowStream(true).withTail(10).exec(callback);
+					this.dockerClient.logContainerCmd(container.getId()).withStdErr(true)
+					         .withStdOut(true)
+					         .withTail(10)
+							.withFollowStream(true).exec(callback);
 
-					callback.awaitCompletion(3, TimeUnit.SECONDS);
+					callback.awaitCompletion();
+					callback.close();
 
 				}
-			} catch (InterruptedException e) {
+			} catch (InterruptedException | IOException e) {
 				return;
 			}
 

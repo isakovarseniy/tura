@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.tura.configuration.dsl.commons.CopyArtifact;
 import org.zeroturnaround.zip.ZipUtil;
 
@@ -42,6 +43,7 @@ public class DoDeploy extends CopyArtifact<DoDeploy> {
 	}
 
 	public void doDeployExploaded() throws Exception {
+		FileUtils.deleteDirectory(new File(targetLocation + "/" + targetName));
 		ZipUtil.unpack(new File(srcResource), new File(targetLocation + "/" + targetName));
 		touch(new File(targetLocation + "/" + targetName + ".dodeploy"));
 	}
