@@ -37,11 +37,13 @@ public class Postgres96OnDockerHealthCheck extends DockerCommand {
 	@Override
     public Object execute() {
 
+		int success = 0;
+		
 		for (int i = 0; i < 10; i++) {
 			ExecutorService exErrorService = Executors.newSingleThreadExecutor();
 			ExecutorService exInfoService = Executors.newSingleThreadExecutor();
 			try {
-				System.out.println(String.format("Attempt  %s", i) );
+				System.out.println(String.format("Attempt  %s  success %s", i,success) );
 				
 				String job = getCommand();
 
@@ -54,9 +56,19 @@ public class Postgres96OnDockerHealthCheck extends DockerCommand {
 				exInfoService.submit(infoStreamGobbler);
 
 				int exitCode = process.waitFor();
-				if (exitCode == 0) {
+				if (exitCode != 0  ) {
+					success = 0;
+			    }
+				
+				if (exitCode == 0 && success == 3 ) {
 						return null;
 				}
+				
+				if (exitCode == 0 && success < 3 ) {
+					success ++;
+			     }
+				
+				
 				Thread.sleep(2000);
 
 			} catch (Exception e) {

@@ -45,7 +45,7 @@ public class DockerStartContainer extends DockerCommand{
       }
       if(name!=null){
          Container cn=findContainer(name);
-         if(cn.getStatus().contains("Exited")){
+         if( cn != null && cn.getStatus().contains("Exited")){
             dockerClient.startContainerCmd(cn.getId()).exec();
             return null;
          }

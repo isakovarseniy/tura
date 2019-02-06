@@ -2,6 +2,9 @@ tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
 
 try {
+
+tura:docker stopContainer --name sa-pg
+
 tura:docker removeContainer --name sa-pg
 
 tura:docker removeImage --registry tura/sa/postgres --tag 1.0

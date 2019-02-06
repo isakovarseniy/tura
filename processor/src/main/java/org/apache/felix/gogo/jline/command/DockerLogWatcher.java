@@ -108,7 +108,9 @@ public class DockerLogWatcher extends DockerCommand {
 				return;
 			}finally {
 				try {
-					callback.close();
+					if (callback != null ) {
+					   callback.close();
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

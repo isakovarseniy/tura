@@ -1,6 +1,10 @@
 tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
 
+
+try {
+tura:docker stopContainer --name hr-pg
+
 tura:docker removeContainer --name hr-pg
 
 tura:docker removeImage --registry tura/hr-manager/postgres --tag 1.0
@@ -24,6 +28,9 @@ tura:docker removeContainer --id $v
 c =tura:docker config --port 5432:5432 --network hr-net --alias db
 
 tura:docker createContainer --registry tura/hr-manager/postgres --tag 1.0 --var c --name hr-pg
+} catch {
+   e
+}
 
 
 
