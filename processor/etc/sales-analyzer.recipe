@@ -1,0 +1,10 @@
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
+
+source $repo_home/sales-analyzer-postgres.recipe
+
+
+
+
+

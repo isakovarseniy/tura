@@ -30,6 +30,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import com.github.dockerjava.api.model.Container;
+import com.github.dockerjava.api.model.Frame;
+import com.github.dockerjava.core.command.LogContainerResultCallback;
 
 import picocli.CommandLine.Option;
 
@@ -81,6 +83,7 @@ public class DockerLogWatcher extends DockerCommand {
 
 		@Override
 		public void run() {
+			LogContainerCallback callback=null;
 			try {
 				while (true) {
 					Container container = findContainer(name);
@@ -90,7 +93,7 @@ public class DockerLogWatcher extends DockerCommand {
 						continue;
 					}
 
-					LogContainerCallback callback = new LogContainerCallback();
+					callback = new LogContainerCallback();
 
 					this.dockerClient.logContainerCmd(container.getId()).withStdErr(true)
 					         .withStdOut(true)
@@ -103,10 +106,27 @@ public class DockerLogWatcher extends DockerCommand {
 				}
 			} catch (InterruptedException | IOException e) {
 				return;
+			}finally {
+				try {
+					callback.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+			
 
 		}
 
 	}
+	
+
+ class LogContainerCallback extends LogContainerResultCallback {
+
+    @Override
+    public void onNext(Frame frame) {
+		System.out.print( new String(frame.getPayload()));
+    }
+
+}
 
 }
