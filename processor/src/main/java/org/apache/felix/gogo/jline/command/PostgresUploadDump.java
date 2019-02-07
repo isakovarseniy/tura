@@ -24,16 +24,19 @@ package org.apache.felix.gogo.jline.command;
 import picocli.CommandLine.Option;
 
 public class PostgresUploadDump extends DockerCommand{
-	
-	@Option(names = "--dump")
-	private String dump;
+    
+    @Option(names = "--dump")
+    private String dump;
 
+    @Option(names = "--name")
+    private String name;
 
     @Override
     public Object execute() {
-    	new ExecuteExternalOperation(String.format( "docker exec -i sa-pg sh -c '/usr/lib/postgresql/9.6/bin/pg_restore -U postgres -C -d postgres'  < %s",dump) ).execute();
-    	return null;
+        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c '/usr/lib/postgresql/9.6/bin/pg_restore -U postgres -C -d postgres'  < %s",name,dump) ).execute();
+        return null;
     }
-	
-	
+    
+    
 }
+

@@ -32,12 +32,14 @@ import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
 import org.apache.felix.gogo.jline.command.DockerLogWatcher;
 import org.apache.felix.gogo.jline.command.DockerNetwork;
+import org.apache.felix.gogo.jline.command.DockerPostgresSQL;
 import org.apache.felix.gogo.jline.command.DockerPullImage;
 import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
 import org.apache.felix.gogo.jline.command.DockerRemoveImage;
 import org.apache.felix.gogo.jline.command.DockerStartContainer;
 import org.apache.felix.gogo.jline.command.DockerStopContainer;
 import org.apache.felix.gogo.jline.command.Postgres96OnDockerHealthCheck;
+import org.apache.felix.gogo.jline.command.PostgresDBDump;
 import org.apache.felix.gogo.jline.command.PostgresUploadDump;
 import org.apache.felix.service.command.CommandSession;
 import org.apache.felix.service.command.Process;
@@ -115,9 +117,12 @@ public class DockerOperation  {
                 .addSubcommand("findContainer", new DockerFindContainer())
                 .addSubcommand("logWatcher", new DockerLogWatcher())
                 .addSubcommand("createNetwork", new DockerNetwork())
-                .addSubcommand("postgresHealthCheck", new Postgres96OnDockerHealthCheck())
-                .addSubcommand("postgresUploadDump", new PostgresUploadDump())
-                
+                .addSubcommand("postgres", new CommandLine(new DockerPostgresSQL())
+                		                      .addSubcommand("postgresHealthCheck", new Postgres96OnDockerHealthCheck())
+                		                      .addSubcommand("postgresUploadDump", new PostgresUploadDump())
+                		                      .addSubcommand("postgresDBDump", new PostgresDBDump())
+                		                      )
+                		                 
         ;
     }
 
