@@ -30,6 +30,8 @@ import org.apache.felix.gogo.jline.command.DockerCommitContainer;
 import org.apache.felix.gogo.jline.command.DockerConfig;
 import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
+import org.apache.felix.gogo.jline.command.DockerKeyCloak;
+import org.apache.felix.gogo.jline.command.DockerKeyCloakAdapter;
 import org.apache.felix.gogo.jline.command.DockerLogWatcher;
 import org.apache.felix.gogo.jline.command.DockerNetwork;
 import org.apache.felix.gogo.jline.command.DockerPostgresSQL;
@@ -122,8 +124,9 @@ public class DockerOperation  {
                 		                      .addSubcommand("postgresUploadDump", new PostgresUploadDump())
                 		                      .addSubcommand("postgresDBDump", new PostgresDBDump())
                 		                      )
-                		                 
-        ;
+                .addSubcommand("keycloak", new CommandLine(new DockerKeyCloak())   
+	                                        .addSubcommand("doDeployAdapter", new DockerKeyCloakAdapter())
+                		) ;
     }
 
 }

@@ -9,28 +9,28 @@ tura:docker removeContainer --name sa-wf
 
 tura:docker removeImage --registry tura/sa/wildfly --tag 1.0
 
-tura:docker pullImage --registry jboss/wildfly --tag 10.1.0.Final
+tura:docker pullImage --registry jboss/wildfly --tag 13.0.0.Final
 
 tura:docker createNetwork --network sa-net
 
 c = tura:docker config --user 0
 
-v = tura:docker createContainer --registry jboss/wildfly --tag 10.1.0.Final --var c
+v = tura:docker createContainer --registry jboss/wildfly --tag 13.0.0.Final --var c
 
 tura:dsl jbossStandaloneFullXml                                \
                      --container $v                            \
                      --jboss_home /opt/jboss/wildfly           \
                      --application sales-analyzer              \
-                     --serverType wildfly-10.1.0.Final         \
+                     --serverType wildfly-13.0.0.Final         \
                      --configPath postgres/docker              \
                      --configPath kie-server                   \
                      --configPath ui-app                       \
-                     --property TALEND_JOB_ROOT:$tura_home/examples/sales-analyzer/talend-jobs
+                     --property TALEND_JOB_ROOT:/opt/jboss/jobs
  
 tura:dsl jbossModule --container $v                            \
                      --jboss_home /opt/jboss/wildfly           \
                      --application sales-analyzer              \
-                     --serverType wildfly-10.1.0.Final         \
+                     --serverType wildfly-13.0.0.Final         \
                      --relativeLocation config/main            \
                      --configPath talend-job-configuration     \
                      --property TURA_SOURCE_LOCATION:$tura_home
@@ -38,7 +38,7 @@ tura:dsl jbossModule --container $v                            \
 tura:dsl jbossModule  --container $v                           \
                       --jboss_home /opt/jboss/wildfly          \
                       --application sales-analyzer             \
-                      --serverType wildfly-10.1.0.Final        \
+                      --serverType wildfly-13.0.0.Final        \
                       --relativeLocation org/postgresql/main   \
                       --configPath postgres/docker 
 
@@ -50,14 +50,48 @@ tura:dsl copyFile     --container $v                           \
 tura:dsl copyRoles    --container $v                           \
                       --jboss_home /opt/jboss/wildfly          \
                       --application sales-analyzer             \
-                      --serverType wildfly-10.1.0.Final
+                      --serverType wildfly-13.0.0.Final
 
 tura:dsl copyUsers    --container $v                           \
                       --jboss_home /opt/jboss/wildfly          \
                       --application sales-analyzer             \
-                      --serverType wildfly-10.1.0.Final
+                      --serverType wildfly-13.0.0.Final
 
 
+tura:docker keycloak doDeployAdapter                          \
+                     --container $v                           \
+                     --jboss_home /opt/jboss/wildfly          \
+                     --serverType wildfly-13.0.0.Final        \
+                     --application sales-analyzer             \
+                     --keyCloakAdapter $user_home/.m2/repository/org/keycloak/keycloak-wildfly-adapter-dist/4.8.3.Final/keycloak-wildfly-adapter-dist-4.8.3.Final.zip
+
+
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c 'chown -R jboss:jboss /opt/jboss'"
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c 'rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/'"
+
+
+tura:docker commitContainer                                    \
+                      --registry tura/sa/wildfly               \
+                      --tag 1.0                                \
+                      --id $v                                  \
+                      --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0"
+
+
+
+tura:docker stopContainer --id $v
+
+tura:docker removeContainer --id $v
+
+
+c = tura:docker config                                        \
+                      --port 8080:8080                        \
+                      --port 3333:3333                        \
+                      --port 8443:8443                        \
+                      --network sa-net                        \
+                      --volume $user_home/.tura/resources/sa/deployments:/opt/jboss/wildfly/standalone/deployments        \
+                      --volume $user_home/.tura/resources/sa/jobs:/opt/jboss/jobs
+
+tura:docker createContainer --registry tura/sa/wildfly --tag 1.0 --var c --name sa-wf
 
 
 } catch {

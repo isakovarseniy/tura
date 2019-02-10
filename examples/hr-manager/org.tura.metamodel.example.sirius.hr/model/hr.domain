@@ -2994,21 +2994,12 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="2" uid="485e8e5e-1f3e-4f05-98d3-3f173fcef890" name="Configuration" componentRoot="${External path 1}/hr-manager" artifactId="hr-manager" groupId="">
-                        <mappers uid="291e56c6-2add-4a00-9050-33201f688868" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Integration test configuration  builder run">
-                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
-                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
-                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
-                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
-                        </mappers>
-                      </components>
                     </ingredients>
                     <deplymentStep mapper="17e4bf61-820a-433e-9b51-229a8738632f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.3"/>
                     <deplymentStep mapper="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="018eecf2-6087-4f3d-9484-a5460fff806c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.5"/>
+                    <deplymentStep mapper="018eecf2-6087-4f3d-9484-a5460fff806c"/>
                     <deplymentStep mapper="94e05de4-6044-40b1-9409-1decdc62bbdb" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="b49fce8c-ec2b-473a-9882-99e93d90ac92" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.1"/>
-                    <deplymentStep mapper="291e56c6-2add-4a00-9050-33201f688868"/>
                     <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">

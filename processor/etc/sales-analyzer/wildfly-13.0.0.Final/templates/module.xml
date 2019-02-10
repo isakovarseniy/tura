@@ -1,0 +1,13 @@
+<module xmlns="urn:jboss:module:1.5" name="${module_group}">
+    <properties>
+         ${module_properties}
+    </properties>
+
+    <resources>
+         ${module_resources}
+    </resources>
+
+    <dependencies>
+         ${module_dependencies}
+    </dependencies>
+</module>

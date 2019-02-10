@@ -21,7 +21,10 @@
  */
 package org.apache.felix.gogo.jline.command;
 
+import java.io.File;
+
 import org.tura.configuration.dsl.commons.CopyFile;
+import org.zeroturnaround.zip.ZipUtil;
 
 import picocli.CommandLine.Option;
 
@@ -35,6 +38,9 @@ public class DSLCopyFile extends DSLCommand{
 	private String sourceResource;
 	@Option(names = "--container")
 	private String containerId;
+	@Option(names = "--unzip")
+	private boolean unzip;
+	
 	
 	
 	@Override
@@ -46,6 +52,11 @@ public class DSLCopyFile extends DSLCommand{
             .setSourceResource(sourceResource)
             .setContainer(containerId)
             .copyFromExternal();
+        
+        
+        if (unzip ) {
+    		ZipUtil.unpack(new File(targetLocation+"/"+targetName ), new File(targetLocation));
+        }
 		
 		return null;
 	}

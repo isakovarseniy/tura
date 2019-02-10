@@ -30,6 +30,8 @@ import org.apache.felix.gogo.jline.command.DSLCopyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyRoles;
 import org.apache.felix.gogo.jline.command.DSLCopyUsers;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
+import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
+import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
 import org.apache.felix.gogo.jline.command.DSLModule;
 import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
 import org.apache.felix.service.command.CommandSession;
@@ -104,6 +106,8 @@ public class DSLOperation  {
                 .addSubcommand("jbossModule", new DSLModule())
                 .addSubcommand("jbossStandaloneFullXml", new DSLStandaloneFullXml())
                 .addSubcommand("jbossDoDeploy", new DSLDoDeploy())
+                .addSubcommand("jobPropertyFile", new DSLJobPropertyFile())
+                .addSubcommand("exec", new DSLExecuteExternal())
         ;
     }
 

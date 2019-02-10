@@ -8,7 +8,7 @@ import org.tura.comfiguration.artifacts.jboss.DeployKeyCloak;
 import org.tura.comfiguration.artifacts.jboss.DeployKeyCloakAdapter;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
-import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
+import org.tura.comfiguration.artifacts.jboss.StandaloneFullXml;
 import org.tura.comfiguration.commons.CopyMonthlyFiles;
 import org.tura.comfiguration.commons.CopySalesAnalyzerDB;
 import org.tura.comfiguration.commons.JobPropertyFile;
@@ -37,7 +37,7 @@ public class SalesAnalyzerRecipe {
 
 	public static void runRecipe(String jboss_home , String tura_home, Boolean  withdata) throws Exception {
 
-                  new StendaloneFullXml(jboss_home)
+                  new StandaloneFullXml(jboss_home)
                           .setApplication("sales-analyzer")
                           .setServerType("wildfly-10.1.0.Final")
                           .addConfigPath("postgres")
@@ -62,7 +62,7 @@ public class SalesAnalyzerRecipe {
                   		.setRelativeLocation("org/postgresql/main")
                   		.run();
                   
-                  new CopyFile()
+		new CopyFile()
 	                  .setTargetLocation("${JBOSS_HOME}/modules/org/postgresql/main".replace("${JBOSS_HOME}", jboss_home))
 	                  .setTargetName("postgresql-42.1.1.jar")
 	                  .setSourceResource(System.getProperty("user.home")+"/.m2/repository/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar")
@@ -103,7 +103,6 @@ public class SalesAnalyzerRecipe {
 		                  .setApplication("sales-analyzer")
 		                  .setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/keycloak/keycloak-wildfly-adapter-dist/3.2.0.Final/keycloak-wildfly-adapter-dist-3.2.0.Final.zip")
 		                  .doDeploy();
-
                   
                   new JobPropertyFile(tura_home,"Default.properties")
                   		  .setApplication("sales-analyzer")

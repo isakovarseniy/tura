@@ -45,8 +45,7 @@ public class DockerCommitContainer extends DockerCommand {
     @Override
     public Object execute() {
         _init();
-        
-
+          
         CommitCmd cmd = dockerClient.commitCmd(id).withRepository(registry).withTag(tag);
 
         if (command != null) {

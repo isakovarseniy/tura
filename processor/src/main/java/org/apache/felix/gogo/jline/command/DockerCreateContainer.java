@@ -108,6 +108,11 @@ public class DockerCreateContainer extends DockerCommand implements SessionAware
 				}
 				cmd.withBinds(bindings.toArray(new Bind[] {}));
 			}
+			if (conf.getVars()!= null ) {
+				cmd.withEnv(conf.getVars().toArray(new String[conf.getVars().size()]));
+			}
+			
+			
 		}
 		if (conf != null && conf.getNetwork() != null) {
 			cmd.withNetworkMode(conf.getNetwork());

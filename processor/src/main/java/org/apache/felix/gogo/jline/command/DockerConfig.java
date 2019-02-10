@@ -41,7 +41,8 @@ public class DockerConfig extends DockerCommand {
     private List<String> portMapper;
     @Option(names = "--volume")
     private List<String> volumesMapping;
-    
+    @Option(names = "--var")
+    private List<String> vars;
     
     
     @Override
@@ -107,6 +108,16 @@ public class DockerConfig extends DockerCommand {
     public void setVolumesMapping(List<String> volumesMapping) {
         this.volumesMapping = volumesMapping;
     }
+
+
+	public List<String> getVars() {
+		return vars;
+	}
+
+
+	public void setVars(List<String> vars) {
+		this.vars = vars;
+	}
 
     
     
