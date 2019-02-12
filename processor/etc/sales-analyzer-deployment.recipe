@@ -99,7 +99,7 @@ tura:dsl jbossDoDeploy                                                     \
 
 tura:dsl jbossDoDeploy                                                     \
          --jboss_home $user_home/.tura/resources/sa/deployments            \
-         --targetName sa-resources.warr                                    \
+         --targetName sa-resources.war                                     \
          --srcResource $user_home/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war
                    
 

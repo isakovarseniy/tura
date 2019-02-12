@@ -74,7 +74,7 @@ tura:docker commitContainer                                    \
                       --registry tura/sa/wildfly               \
                       --tag 1.0                                \
                       --id $v                                  \
-                      --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0"
+                      --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0 -Djboss.socket.binding.port-offset=1"
 
 
 
@@ -84,9 +84,10 @@ tura:docker removeContainer --id $v
 
 
 c = tura:docker config                                        \
-                      --port 8080:8080                        \
+                      --alias wf                              \
+                      --port 8081:8081                        \
                       --port 3333:3333                        \
-                      --port 8443:8443                        \
+                      --port 8444:8444                        \
                       --network sa-net                        \
                       --volume $user_home/.tura/resources/sa/deployments:/opt/jboss/wildfly/standalone/deployments        \
                       --volume $user_home/.tura/resources/sa/jobs:/opt/jboss/jobs
