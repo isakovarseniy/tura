@@ -8608,14 +8608,14 @@
                     <properties uid="48a4d6f5-2f16-470b-89d7-1267690531d0" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="NA"/>
                     <properties uid="e1663144-226d-4753-b4a4-7202afa19541" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/SalesAnalyzerDS"/>
                     <properties uid="3caaf1a7-8d55-4a3a-9612-e308fe1e06f6" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="NA"/>
-                    <properties uid="8bbb46d3-45b4-417a-8f43-d2e76c520511" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="http://localhost:8080/sa-resources"/>
+                    <properties uid="8bbb46d3-45b4-417a-8f43-d2e76c520511" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="http://wf:8081/sa-resources"/>
                     <properties uid="991c567e-9b72-414e-af2b-61ce1dab4451" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="SalesAnalyzer"/>
                     <properties uid="0aaca4d4-b703-4de5-afbd-a7cf105b5069" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="sales_analyzer"/>
                     <properties uid="21d505ba-0b0b-472f-a5b4-7c1cc163a183" confVarRef="ba2fd94e-1867-4349-bdf8-3c7ab266f769" value="na"/>
                     <hashProperties uid="f1afc1ad-387c-47d3-9d9a-805153ea5b76" confHashRef="d716c499-dde8-4598-a7df-06282fe54480">
-                      <hash uid="ce90e387-b4ec-426d-951b-c94ce82b2fe5" key="analysis" value="http://localhost:8080/sa-case-manager"/>
-                      <hash uid="5a89ce7d-a1f4-479b-ae3c-0d03ee34defe" key="admin" value="http://localhost:8080/sa-admin"/>
-                      <hash uid="2e232916-956d-4d72-859e-3114c96c521d" key="dataloader" value="http://localhost:8080/sa-etl-controller"/>
+                      <hash uid="ce90e387-b4ec-426d-951b-c94ce82b2fe5" key="analysis" value="http://wf:8081/sa-case-manager"/>
+                      <hash uid="5a89ce7d-a1f4-479b-ae3c-0d03ee34defe" key="admin" value="http://wf:8081/sa-admin"/>
+                      <hash uid="2e232916-956d-4d72-859e-3114c96c521d" key="dataloader" value="http://wf:8081/sa-etl-controller"/>
                     </hashProperties>
                   </configurations>
                   <infrastructures uid="92f00187-c3de-4091-8eca-850df9713ef5" name="Dev"/>

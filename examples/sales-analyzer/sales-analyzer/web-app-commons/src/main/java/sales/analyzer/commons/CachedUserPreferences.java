@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import org.infinispan.Cache;
+import org.infinispan.manager.EmbeddedCacheManager;
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
 
@@ -23,9 +23,8 @@ public class CachedUserPreferences {
 	@Inject
 	UserPreferencesLoader loader;
 
-	@SuppressWarnings("rawtypes")
 	@Inject
-	Cache cache;
+	EmbeddedCacheManager cacheManager;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public UserPreferences getUserPreferences(String username) {
@@ -34,7 +33,7 @@ public class CachedUserPreferences {
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		username = p.getName();
 
-		String str = (String) cache.get(username);
+		String str = (String) cacheManager.getCache().get(username);
 		UserPreferences pref = null;
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -42,7 +41,7 @@ public class CachedUserPreferences {
 			if (str == null) {
 				pref = loader.getUserPreferences(username);
 				str = mapper.writeValueAsString(pref);
-				cache.put(username, str);
+				cacheManager.getCache().put(username, str);
 			} else {
 				pref = mapper.readValue(str.getBytes(), UserPreferences.class);
 			}
@@ -53,7 +52,7 @@ public class CachedUserPreferences {
 	}
 
 	public void clearAll() {
-		cache.clear();
+		cacheManager.getCache().clear();
 	}
 
 }
