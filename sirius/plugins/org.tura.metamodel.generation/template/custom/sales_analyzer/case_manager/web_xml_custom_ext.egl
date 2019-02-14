@@ -4,7 +4,7 @@ operation  webResourceMapping(){
 %]
 <resource-ref>  
         <res-ref-name>userPreferencesCache</res-ref-name>  
-        <lookup-name>java:jboss/infinispan/container/sa-container</lookup-name>  
+        <lookup-name>java:jboss/infinispan/cache/sa-container/userPreferences</lookup-name>  
  </resource-ref>
 [%   
 }
