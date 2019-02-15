@@ -397,6 +397,11 @@
                 <version>${infinispan.version}</version>
             </dependency>
 
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-admin-client</artifactId>
+				<version>${keycloak-version}</version>
+			</dependency>
 
         </dependencies>
 
@@ -776,6 +781,7 @@
                 <module>sa-case-manager-triggers</module>
                 <module>sa-etl-controller-triggers</module>
                 <module>sa-resources</module>
+                <module>post-deployer</module>
             </modules>
         </profile>
         <profile>

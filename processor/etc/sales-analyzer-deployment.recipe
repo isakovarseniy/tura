@@ -105,4 +105,7 @@ tura:dsl jbossDoDeploy                                                     \
 
 tura:docker startContainer --name sa-wf
 
+#Deploying jbpm artifacts on kieserver
+tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/pom.xml --P deployArtifacts
+
 
