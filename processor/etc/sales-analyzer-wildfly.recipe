@@ -90,7 +90,8 @@ c = tura:docker config                                        \
                       --port 8444:8444                        \
                       --network sa-net                        \
                       --volume $user_home/.tura/resources/sa/deployments:/opt/jboss/wildfly/standalone/deployments        \
-                      --volume $user_home/.tura/resources/sa/jobs:/opt/jboss/jobs
+                      --volume $user_home/.tura/resources/sa/jobs:/opt/jboss/jobs \
+                      --volume $user_home/.m2:/root/.m2  
 
 tura:docker createContainer --registry tura/sa/wildfly --tag 1.0 --var c --name sa-wf
 
