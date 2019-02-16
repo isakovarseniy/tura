@@ -36,48 +36,48 @@ tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs  
+         --property USER_HOME:/opt/jboss/jobs/  
 
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Development.properties        \
          --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs  
+         --property USER_HOME:/opt/jboss/jobs/  
 
 
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1 \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs  
+         --property USER_HOME:/opt/jboss/jobs/  
 
 
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs 
+         --property USER_HOME:/opt/jboss/jobs/  
 
 
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs 
+         --property USER_HOME:/opt/jboss/jobs/  
 
                   
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs 
+         --property USER_HOME:/opt/jboss/jobs/  
                   
 
 tura:dsl jobPropertyFile                          \
          --application sales-analyzer             \
          --artifact Default.properties            \
          --relativeLocation /sa/jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts \
-         --property USER_HOME:$user_home/.tura/resources/sa/jobs 
+         --property USER_HOME:/opt/jboss/jobs/  
                   
 
 tura:dsl jbossDoDeploy                                                     \
@@ -103,7 +103,18 @@ tura:dsl jbossDoDeploy                                                     \
          --srcResource $user_home/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war
                    
 
+
 tura:docker startContainer --name sa-wf
+tura:dsl copyMonthlyFiles --application sales-analyzer --relativeLocation sa/jobs
+
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_data_for_period/Generate_data_for_period_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_monthly_file/Generate_monthly_file_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/History_loader/History_loader_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chown -R jboss:jboss /opt/jboss/jobs'"
+
 
 #Deploying jbpm artifacts on kieserver
 tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/pom.xml --P deployArtifacts

@@ -1,0 +1,10 @@
+echo Stop sa-wf
+tura:docker stopContainer --name sa-wf
+
+echo Stop sa-kc
+tura:docker stopContainer --name sa-kc
+
+echo Stop sa-pg
+tura:docker stopContainer --name sa-pg
+
+

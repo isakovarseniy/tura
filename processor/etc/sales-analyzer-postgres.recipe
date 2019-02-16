@@ -1,7 +1,6 @@
 tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
 
-try {
 
 tura:docker stopContainer --name sa-pg
 
@@ -31,8 +30,4 @@ tura:docker postgres postgresHealthCheck --name sa-pg
 
 tura:docker postgres postgresUploadDump --dump $dump_file --name sa-pg
 
-
-} catch {
-e
-}
 

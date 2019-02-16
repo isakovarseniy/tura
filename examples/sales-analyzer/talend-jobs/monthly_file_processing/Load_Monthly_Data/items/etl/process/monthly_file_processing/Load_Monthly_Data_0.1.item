@@ -390,7 +390,7 @@
   </node>
   <node componentName="tJDBCConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="-32" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJDBCConnection_1" show="false"/>
-    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:postgresql://localhost:5432/postgres&quot;"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:postgresql://db:5432/postgres&quot;"/>
     <elementParameter field="TABLE" name="DRIVER_JAR">
       <elementValue elementRef="JAR_NAME" value="postgresql-9.4-1201.jdbc41.jar"/>
     </elementParameter>

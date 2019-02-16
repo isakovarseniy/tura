@@ -1,0 +1,50 @@
+tura_home = system:getproperty TURA_HOME
+repo_home = $tura_home/processor/etc
+user_home = system:getproperty user.home
+
+
+dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
+
+echo Stop sa-wf
+tura:docker stopContainer --name sa-wf
+
+echo Stop sa-kc
+tura:docker stopContainer --name sa-kc
+
+echo Stop sa-pg
+tura:docker stopContainer --name sa-pg
+
+echo 'Building Postgres container'
+source $repo_home/sales-analyzer-postgres.recipe
+
+c2 = tura:docker findContainer --name sa-kc
+echo 'Keycloak container located? '$c2
+
+if { %(c2) } {
+
+   echo Start sa-kc
+   tura:docker startContainer --name sa-kc
+
+} {
+
+   echo 'Building Keycloak container'
+   source $repo_home/sales-analyzer-keycloak.recipe
+
+}
+
+
+c2 = tura:docker findContainer --name sa-wf
+echo 'WildFly container located? '$c2
+
+if { %(c2) } { } {
+
+   echo 'Building WildFly container'
+   source $repo_home/sales-analyzer-wildfly.recipe
+
+}
+
+echo 'Deploying WildFly container'
+source $repo_home/sales-analyzer-deployment.recipe
+
+
+

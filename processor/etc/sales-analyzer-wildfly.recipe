@@ -2,7 +2,6 @@ tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
 user_home = system:getproperty user.home
 
-try {
 tura:docker stopContainer --name sa-wf
 
 tura:docker removeContainer --name sa-wf
@@ -33,7 +32,7 @@ tura:dsl jbossModule --container $v                            \
                      --serverType wildfly-13.0.0.Final         \
                      --relativeLocation config/main            \
                      --configPath talend-job-configuration     \
-                     --property TURA_SOURCE_LOCATION:$tura_home
+                     --property TALEND_JOB_ROOT:/opt/jboss/jobs
 
 tura:dsl jbossModule  --container $v                           \
                       --jboss_home /opt/jboss/wildfly          \
@@ -96,7 +95,4 @@ c = tura:docker config                                        \
 tura:docker createContainer --registry tura/sa/wildfly --tag 1.0 --var c --name sa-wf
 
 
-} catch {
-  e
-}
 

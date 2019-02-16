@@ -32,7 +32,7 @@ public class PostDeployer {
 
 	public static String KEYCLOAK_ADMIN_REALM = "master";
 	public static String KEYCLOAK_ADMIN_CLIENTID = "realm-management";
-	public static String CLIENT_SECRET = "bfb872e7-77b5-469f-a416-89e92891e81b";
+	public static String CLIENT_SECRET = "029b240b-b862-463f-a528-67db46dc233d";
 	public static String ADMIN_USER = "admin";
 	public static String ADMIN_PASSWORD = "qwerty";
 	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	
@@ -47,6 +47,7 @@ public class PostDeployer {
 
 	private String  url = "jdbc:postgresql:postgres";
 	private KieServicesClient client;
+	private String token;
 
 	public static void main(String[] args) {
 		try {
@@ -63,7 +64,15 @@ public class PostDeployer {
 	public  void postDeployPhase1() throws Exception {
 		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL,
 				null, null);
-		config.setCredentialsProvider(new OAuthCredentialsProvider(getToken()));
+
+		new Repeater("Obtain token") {
+			@Override
+			public void action() throws Exception {
+				token = getToken();
+			}
+		}.repeat(10);
+
+		config.setCredentialsProvider(new OAuthCredentialsProvider(token));
 		
 		new Repeater("Building KieServer client") {
 			@Override
@@ -162,9 +171,9 @@ public class PostDeployer {
 		public Repeater(String message ) {
 			this.message=message;
 		}
-		public abstract void action();
+		public abstract void action() throws Exception;
 
-		public void repeat(int times) {
+		public void repeat(int times) throws Exception {
 			for (int i = 0; i < times; i++) {
 				try {
 					System.out.println(String.format("Attempt  %s    %s  out of  %s", message,i,times));

@@ -13,7 +13,6 @@
     <description>Sales Analyzer Parent</description>
 
     <properties>
-        <skipTests>true</skipTests>
         <wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
         <junit-version>4.11</junit-version>
         <javaee-api-version>7.0</javaee-api-version>
@@ -252,6 +251,14 @@
                 <artifactId>config-integration-testing</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>post-deployer</artifactId>
+                <version>${project.version}</version>
+		</dependency>
+
+
 
             <dependency>
                 <groupId>org.jbpm</groupId>
@@ -754,7 +761,7 @@
                 <module>sa-case-manager-triggers</module>
                 <module>sa-etl-controller-triggers</module>
                 <module>sa-resources</module>
-                <module>testing</module>
+                <module>post-deployer</module>
             </modules>
         </profile>
         <profile>
@@ -782,12 +789,6 @@
                 <module>sa-etl-controller-triggers</module>
                 <module>sa-resources</module>
                 <module>post-deployer</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>Testing</id>
-            <modules>
-                <module>testing</module>
             </modules>
         </profile>
         

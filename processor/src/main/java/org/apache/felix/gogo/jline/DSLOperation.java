@@ -27,6 +27,7 @@ import java.util.List;
 import org.apache.felix.gogo.jline.Posix.HelpException;
 import org.apache.felix.gogo.jline.command.DSLCommand;
 import org.apache.felix.gogo.jline.command.DSLCopyFile;
+import org.apache.felix.gogo.jline.command.DSLCopyMonthlyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyRoles;
 import org.apache.felix.gogo.jline.command.DSLCopyUsers;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
@@ -108,6 +109,8 @@ public class DSLOperation  {
                 .addSubcommand("jbossDoDeploy", new DSLDoDeploy())
                 .addSubcommand("jobPropertyFile", new DSLJobPropertyFile())
                 .addSubcommand("exec", new DSLExecuteExternal())
+                .addSubcommand("copyMonthlyFiles", new DSLCopyMonthlyFile())
+                
         ;
     }
 

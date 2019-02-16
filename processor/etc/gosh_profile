@@ -58,8 +58,10 @@ startHRApplication = {
 }
 
 stopHRApplication = {
+     stopSAApplication;
      source $tura_home/processor/etc/hr-manager-stop-all.recipe;    
 }
+
 
 startHRIntegrationTest = {
      tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing/pom.xml;    
@@ -67,7 +69,7 @@ startHRIntegrationTest = {
 
 
 hrUrlList = {
-    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2'
+    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2           qwerty/qwerty'
     echo 'http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
 
@@ -76,6 +78,36 @@ hrUrlList = {
 hrLogWatch = {
    tura:docker logWatcher --name hr-wf --name hr-pg 
 
+}
+
+
+startSAApplication = {
+     stopHRApplication;
+     source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+}
+
+stopSAApplication = {
+     source $tura_home/processor/etc/sales-analyzer-stop-server.recipe;    
+}
+
+startSAIntegrationTest = {
+     tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml;    
+}
+
+
+saUrlList = {
+    echo 'http://kc:8080/auth/admin/master/console/                                            admin/qwerty'
+    echo 'http://wf:8081/sa-admin/admin/administration/AdminWindow.xhtml                       sales-manager/sales01'
+    echo 'http://wf:8081/sa-case-manager/analysis/casemanager/WorkItemWindow.xhtml             sales-manager/sales01'
+    echo 'http://wf:8081/sa-etl-controller/dataloader/etlcontroller/ETLControlWindow.xhtml     sales-manager/sales01' 
+}
+
+saLogWatch = {
+   tura:docker logWatcher --name sa-wf --name sa-kc --name sa-pg 
+}
+
+removeAll = {
+     source $tura_home/processor/etc/remove-all.recipe;    
 }
 
 
