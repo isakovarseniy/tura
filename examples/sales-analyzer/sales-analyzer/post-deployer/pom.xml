@@ -52,38 +52,39 @@
 
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>deployArtifacts</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>process-test-sources</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>java</executable>
-									<arguments>
-										<argument>-classpath</argument>
-										<classpath />
-										<argument>org.sales.analyzer.process.PostDeployer</argument>
-									</arguments>
-									<includeProjectDependencies>true</includeProjectDependencies>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+	<build>
+		<plugins>
 
-	</profiles>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+						<manifest>
+							<mainClass>org.sales.analyzer.process.PostDeployer</mainClass>
+						</manifest>
+					</archive>
 
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<!-- bind to the packaging phase -->
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
+		</plugins>
+	</build>
 
 </project>

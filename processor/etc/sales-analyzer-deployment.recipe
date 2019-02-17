@@ -4,6 +4,7 @@ user_home = system:getproperty user.home
 
 tura:install chromedriver
 
+tura:dsl exec --cmd "rm -rf $user_home/.tura/resources/sa/deployments/standalone/deployments"
 
 tura:docker stopContainer --name sa-wf
 
@@ -117,6 +118,6 @@ tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chown -R jboss:jbos
 
 
 #Deploying jbpm artifacts on kieserver
-tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/pom.xml --P deployArtifacts
+tura:dsl exec --cmd "java -jar  $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/target/post-deployer-1.0.0-SNAPSHOT-jar-with-dependencies.jar"
 
 

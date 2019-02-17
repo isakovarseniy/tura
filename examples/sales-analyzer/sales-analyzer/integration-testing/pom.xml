@@ -61,31 +61,26 @@
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server-api</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server-client</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>rules-commons</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>services</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -97,87 +92,74 @@
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>post-deployer</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>api-extension</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>db-persistence-model</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>jpa-persistence-repository</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>keycloak-persistence-model</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>proxy-repository</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>serialized-model</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>spa-persistence-repository</artifactId>
 			<version>1.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura</groupId>
 			<artifactId>processor</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
