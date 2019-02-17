@@ -1,408 +1,395 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>sales-analyzer</groupId>
-    <artifactId>sales-analyzer-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-
-    <packaging>pom</packaging>
-
-    <name>Sales Analyzer</name>
-    <description>Sales Analyzer Parent</description>
-
-    <properties>
-        <wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
-        <junit-version>4.11</junit-version>
-        <javaee-api-version>7.0</javaee-api-version>
-        <drools-version>6.5.0.Final</drools-version>
-        <org.wildfly.core-version>2.2.0.Final</org.wildfly.core-version>
-        <org.wildfly.extras.creaper-version>1.6.1</org.wildfly.extras.creaper-version>
-        <wildfly-version>10.1.0.Final</wildfly-version>
-        <infinispan.version>9.2.4.Final</infinispan.version>
-        <h2-version>1.3.175</h2-version>
-        <keycloak-version>3.2.0.Final</keycloak-version>
-        <slf4j-version>1.6.1</slf4j-version>
-        <commons-httpclient-version>3.1</commons-httpclient-version>
-        <tura.platform.version>2.0</tura.platform.version>
-        <reasteasy.version>3.0.8.Final</reasteasy.version>
-        <resteasy-jackson2-provider>3.0.12.Final</resteasy-jackson2-provider>
-        <version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
-        <version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
-        <version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
-        <postgres.jdbc.version>42.1.1</postgres.jdbc.version>
-        <version.postgresql>2.9</version.postgresql>
-        <version.deltaspike>1.6.1</version.deltaspike>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>repo</id>
-            <url> https://mvnrepository.com/artifact/</url>
-        </repository>
-        <repository>
-            <id>redhat</id>
-            <url>https://maven.repository.redhat.com/nexus/content/groups/product-ga</url>
-
-        </repository>
-        <repository>
-        <id> redhat 2</id>
-        <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-        
-        </repository>
-        
-    </repositories>
-
-
-    <dependencyManagement>
-        <dependencies>
-
-
-            <dependency>
-                <groupId>org.tura.platform</groupId>
-                <artifactId>primefaces-selenium</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.datacontrol</groupId>
-                <artifactId>core</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.datacontrol</groupId>
-                <artifactId>annotations</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.repository</groupId>
-                <artifactId>cdi</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>ru.yandex.qatools.embed</groupId>
-                <artifactId>postgresql-embedded</artifactId>
-                <version>${version.postgresql}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgres.jdbc.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>${version.hibernate-jpa-2.1-api}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-entitymanager</artifactId>
-                <version>${version.hibernate-entitymanager}</version>
-            </dependency>
-
-
-
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-client</artifactId>
-                <version>${reasteasy.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jackson2-provider</artifactId>
-                <version>${resteasy-jackson2-provider}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.test</groupId>
-                <artifactId>config-integration-testing</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.repository</groupId>
-                <artifactId>spa</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tura.platform.repository</groupId>
-                <artifactId>core</artifactId>
-                <version>${tura.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-httpclient</groupId>
-                <artifactId>commons-httpclient</artifactId>
-                <version>${commons-httpclient-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-wildfly-adapter-dist</artifactId>
-                <version>${keycloak-version}</version>
-                <type>zip</type>
-            </dependency>
-
-            <dependency>
-                <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-server-overlay</artifactId>
-                <version>${keycloak-version}</version>
-                <type>zip</type>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.ws.rs</groupId>
-                <artifactId>javax.ws.rs-api</artifactId>
-                <version>${version.javax.ws.rs-api}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server</artifactId>
-                <version>${drools-version}</version>
-                <type>war</type>
-                <classifier>ee7</classifier>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-services-api</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server-services-common</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-human-task-jpa</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>api-extension</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server-api</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server-services-drools</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-compiler</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>rules-commons</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>processes</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>web-app-commons</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>services</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>sales-analyzer</groupId>
-                <artifactId>config-integration-testing</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-		<dependency>
-			<groupId>sales-analyzer</groupId>
-			<artifactId>post-deployer</artifactId>
-                <version>${project.version}</version>
-		</dependency>
-
-
-
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-bpmn2</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly</groupId>
-                <artifactId>wildfly-arquillian-container-managed</artifactId>
-                <version>${wildfly-arquillian-container-managed-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.weld.se</groupId>
-                <artifactId>weld-se</artifactId>
-                <version>${version.weld}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>javax</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>${javaee-api-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-persistence-jpa</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <version>${version.org.hsqldb.hsqldb}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server-api</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie.server</groupId>
-                <artifactId>kie-server-client</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-core</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-api</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-internal</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-kie-services</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-kie-services</artifactId>
-                <version>${drools-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.extras.creaper</groupId>
-                <artifactId>creaper-core</artifactId>
-                <version>${org.wildfly.extras.creaper-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.extras.creaper</groupId>
-                <artifactId>creaper-commands</artifactId>
-                <version>${org.wildfly.extras.creaper-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-controller-client</artifactId>
-                <version>${org.wildfly.core-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-cli</artifactId>
-                <version>${org.wildfly.core-version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-patching</artifactId>
-                <version>${org.wildfly.core-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${h2-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-admin-client</artifactId>
-                <version>${keycloak-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.infinispan</groupId>
-                <artifactId>infinispan-core</artifactId>
-                <version>${infinispan.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.infinispan</groupId>
-                <artifactId>infinispan-commons</artifactId>
-                <version>${infinispan.version}</version>
-            </dependency>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>sales-analyzer</groupId>
+	<artifactId>sales-analyzer-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<name>Sales Analyzer</name>
+	<description>Sales Analyzer Parent</description>
+
+	<properties>
+		<wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
+		<junit-version>4.11</junit-version>
+		<javaee-api-version>7.0</javaee-api-version>
+		<drools-version>6.5.0.Final</drools-version>
+		<org.wildfly.core-version>2.2.0.Final</org.wildfly.core-version>
+		<org.wildfly.extras.creaper-version>1.6.1</org.wildfly.extras.creaper-version>
+		<wildfly-version>10.1.0.Final</wildfly-version>
+		<infinispan.version>9.2.4.Final</infinispan.version>
+		<h2-version>1.3.175</h2-version>
+		<keycloak-version>4.8.3.Final</keycloak-version>
+		<slf4j-version>1.6.1</slf4j-version>
+		<commons-httpclient-version>3.1</commons-httpclient-version>
+		<tura.platform.version>2.0</tura.platform.version>
+		<reasteasy.version>3.0.8.Final</reasteasy.version>
+		<resteasy-jackson2-provider>3.0.12.Final</resteasy-jackson2-provider>
+		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
+		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
+		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
+		<postgres.jdbc.version>42.1.1</postgres.jdbc.version>
+		<version.postgresql>2.9</version.postgresql>
+		<version.deltaspike>1.6.1</version.deltaspike>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>repo</id>
+			<url> https://mvnrepository.com/artifact/</url>
+		</repository>
+		<repository>
+			<id>redhat</id>
+			<url>https://maven.repository.redhat.com/nexus/content/groups/product-ga</url>
+
+		</repository>
+		<repository>
+			<id> redhat 2</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+
+		</repository>
+
+	</repositories>
+
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.tura</groupId>
+				<artifactId>processor</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>primefaces-selenium</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.datacontrol</groupId>
+				<artifactId>core</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.datacontrol</groupId>
+				<artifactId>annotations</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>cdi</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>ru.yandex.qatools.embed</groupId>
+				<artifactId>postgresql-embedded</artifactId>
+				<version>${version.postgresql}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgres.jdbc.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>${version.hibernate-jpa-2.1-api}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${version.hibernate-entitymanager}</version>
+			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-client</artifactId>
+				<version>${reasteasy.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson2-provider</artifactId>
+				<version>${resteasy-jackson2-provider}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.test</groupId>
+				<artifactId>config-integration-testing</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>spa</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>core</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons-httpclient-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-wildfly-adapter-dist</artifactId>
+				<version>${keycloak-version}</version>
+				<type>zip</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-server-overlay</artifactId>
+				<version>${keycloak-version}</version>
+				<type>zip</type>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${version.javax.ws.rs-api}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server</artifactId>
+				<version>${drools-version}</version>
+				<type>war</type>
+				<classifier>ee7</classifier>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-services-api</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-services-common</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-human-task-jpa</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>api-extension</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-api</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-services-drools</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-compiler</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>rules-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>processes</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>web-app-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>config-integration-testing</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>post-deployer</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-bpmn2</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-arquillian-container-managed</artifactId>
+				<version>${wildfly-arquillian-container-managed-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.weld.se</groupId>
+				<artifactId>weld-se</artifactId>
+				<version>${version.weld}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee-api-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-persistence-jpa</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>${version.org.hsqldb.hsqldb}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-api</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-client</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-core</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-api</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-internal</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-kie-services</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-kie-services</artifactId>
+				<version>${drools-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly.extras.creaper</groupId>
+				<artifactId>creaper-core</artifactId>
+				<version>${org.wildfly.extras.creaper-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly.extras.creaper</groupId>
+				<artifactId>creaper-commands</artifactId>
+				<version>${org.wildfly.extras.creaper-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly.core</groupId>
+				<artifactId>wildfly-controller-client</artifactId>
+				<version>${org.wildfly.core-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.wildfly.core</groupId>
+				<artifactId>wildfly-cli</artifactId>
+				<version>${org.wildfly.core-version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.wildfly.core</groupId>
+				<artifactId>wildfly-patching</artifactId>
+				<version>${org.wildfly.core-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.keycloak</groupId>
@@ -410,389 +397,407 @@
 				<version>${keycloak-version}</version>
 			</dependency>
 
-        </dependencies>
+			<dependency>
+				<groupId>org.infinispan</groupId>
+				<artifactId>infinispan-core</artifactId>
+				<version>${infinispan.version}</version>
+			</dependency>
 
-    </dependencyManagement>
+			<dependency>
+				<groupId>org.infinispan</groupId>
+				<artifactId>infinispan-commons</artifactId>
+				<version>${infinispan.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-admin-client</artifactId>
+				<version>${keycloak-version}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.1</version>
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <id>advancedPersistentLookupLib</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>advancedPersistentLookupLib-1.0</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/advancedPersistentLookupLib-1.0.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>commons-collections</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>commons-collections-3.2.2</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/commons-collections-3.2.2.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>talendcsv</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>talendcsv</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/talendcsv.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>dom4j-1.6.1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>dom4j-1.6.1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/dom4j-1.6.1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <!-- execution> <id>jakarta-oro-2.0.8</id> <goals> <goal>install-file</goal> 
-                        </goals> <phase>clean</phase> <configuration> <groupId>org.talend.libraries</groupId> 
-                        <artifactId>jakarta-oro-2.0.8</artifactId> <version>6.0.0</version> <packaging>jar</packaging> 
-                        <file>${basedir}/../talend-jobs/monthly_file_processing/lib/jakarta-oro-2.0.8.jar</file> 
-                        <generatePom>true</generatePom> </configuration> </execution -->
-                    <execution>
-                        <id>jboss-serialization</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>jboss-serialization</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/jboss-serialization.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.1</version>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>advancedPersistentLookupLib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>advancedPersistentLookupLib-1.0</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/advancedPersistentLookupLib-1.0.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>commons-collections</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>commons-collections-3.2.2</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/commons-collections-3.2.2.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>talendcsv</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>talendcsv</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/talendcsv.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>dom4j-1.6.1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>dom4j-1.6.1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/dom4j-1.6.1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<!-- execution> <id>jakarta-oro-2.0.8</id> <goals> <goal>install-file</goal> 
+						</goals> <phase>clean</phase> <configuration> <groupId>org.talend.libraries</groupId> 
+						<artifactId>jakarta-oro-2.0.8</artifactId> <version>6.0.0</version> <packaging>jar</packaging> 
+						<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jakarta-oro-2.0.8.jar</file> 
+						<generatePom>true</generatePom> </configuration> </execution -->
+					<execution>
+						<id>jboss-serialization</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>jboss-serialization</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jboss-serialization.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
 
-                    <execution>
-                        <id>json_simple-1.1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>json_simple-1.1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/json_simple-1.1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>jsonpath</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>jsonpath</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/jsonpath.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>log4j-1.2.15</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>log4j-1.2.15</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.15.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>log4j-1.2.16</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>log4j-1.2.16</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.16.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>postgresql-9.4-1201.jdbc41</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>postgresql-9.4-1201.jdbc41</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/postgresql-9.4-1201.jdbc41.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>routines</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>routines</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/routines.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>talend_file_enhanced_20070724</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>talend_file_enhanced_20070724</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/talend_file_enhanced_20070724.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>trove</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>trove</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/lib/trove.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate_data_for_period_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>generate_data_for_period_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Generate_data_for_period/generate_data_for_period_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate_monthly_file_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>generate_monthly_file_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Generate_monthly_file/generate_monthly_file_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>history_loader_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>history_loader_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/History_loader/history_loader_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
+					<execution>
+						<id>json_simple-1.1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>json_simple-1.1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/json_simple-1.1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jsonpath</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>jsonpath</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jsonpath.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>log4j-1.2.15</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>log4j-1.2.15</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.15.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>log4j-1.2.16</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>log4j-1.2.16</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.16.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>postgresql-9.4-1201.jdbc41</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>postgresql-9.4-1201.jdbc41</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/postgresql-9.4-1201.jdbc41.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>routines</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>routines</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/routines.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>talend_file_enhanced_20070724</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>talend_file_enhanced_20070724</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/talend_file_enhanced_20070724.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>trove</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>trove</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/trove.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate_data_for_period_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>generate_data_for_period_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Generate_data_for_period/generate_data_for_period_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate_monthly_file_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>generate_monthly_file_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Generate_monthly_file/generate_monthly_file_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>history_loader_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>history_loader_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/History_loader/history_loader_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
 
-                    <execution>
-                        <id>monthly_file_validation_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>monthly_file_validation_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Monthly_file_validation/monthly_file_validation_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
+					<execution>
+						<id>monthly_file_validation_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>monthly_file_validation_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Monthly_file_validation/monthly_file_validation_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
 
-                    <execution>
-                        <id>prepare_to_rules_run_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>prepare_to_rules_run_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Prepare_to_rules_run/prepare_to_rules_run_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>run_rules_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>run_rules_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Run_rules/run_rules_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>create_cases_0_1</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>org.talend.libraries</groupId>
-                            <artifactId>create_cases_0_1</artifactId>
-                            <version>6.0.0</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/../talend-jobs/monthly_file_processing/Create_cases/create_cases_0_1.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+					<execution>
+						<id>prepare_to_rules_run_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>prepare_to_rules_run_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Prepare_to_rules_run/prepare_to_rules_run_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>run_rules_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>run_rules_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Run_rules/run_rules_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>create_cases_0_1</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<groupId>org.talend.libraries</groupId>
+							<artifactId>create_cases_0_1</artifactId>
+							<version>6.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/../talend-jobs/monthly_file_processing/Create_cases/create_cases_0_1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 
-    </build>
+	</build>
 
-    <profiles>
-        <profile>
-            <id>All modules</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>api-extension</module>
-                <module>services</module>
-                <module>server-extension</module>
-                <module>rules-commons</module>
-                <module>processes</module>
-                <module>web-app-commons</module>
-                <module>sa-admin-triggers</module>
-                <module>sa-case-manager-triggers</module>
-                <module>sa-etl-controller-triggers</module>
-                <module>sa-resources</module>
-                <module>post-deployer</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>KieServer</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>api-extension</module>
-                <module>server-extension</module>
-                <module>rules-commons</module>
-                <module>processes</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>Triggers</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>services</module>
-                <module>web-app-commons</module>
-                <module>sa-admin-triggers</module>
-                <module>sa-case-manager-triggers</module>
-                <module>sa-etl-controller-triggers</module>
-                <module>sa-resources</module>
-                <module>post-deployer</module>
-            </modules>
-        </profile>
-        
-    </profiles>
+	<profiles>
+		<profile>
+			<id>All modules</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>api-extension</module>
+				<module>services</module>
+				<module>server-extension</module>
+				<module>rules-commons</module>
+				<module>processes</module>
+				<module>web-app-commons</module>
+				<module>sa-admin-triggers</module>
+				<module>sa-case-manager-triggers</module>
+				<module>sa-etl-controller-triggers</module>
+				<module>sa-resources</module>
+				<module>post-deployer</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>KieServer</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>api-extension</module>
+				<module>server-extension</module>
+				<module>rules-commons</module>
+				<module>processes</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>Triggers</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>services</module>
+				<module>web-app-commons</module>
+				<module>sa-admin-triggers</module>
+				<module>sa-case-manager-triggers</module>
+				<module>sa-etl-controller-triggers</module>
+				<module>sa-resources</module>
+				<module>post-deployer</module>
+			</modules>
+		</profile>
+
+	</profiles>
 
 
 

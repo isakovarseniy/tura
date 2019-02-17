@@ -8298,14 +8298,6 @@
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
-                        <mappers uid="657d6383-8fe2-4780-bab5-b1a5f3eebb4a" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Testing">
-                          <classifiers uid="147a36ef-a443-46b4-9903-f380fdf838c6" hint="e199bea9-722c-4c26-a9fe-0faa2391cfab" details="builderTesting"/>
-                          <classifiers uid="fd791a71-a918-40ab-af0e-68112440a674" hint="2017c09b-af3d-4746-9a18-a435ef5031fb" details="Testing"/>
-                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
-                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
-                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
-                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
-                        </mappers>
                       </components>
                     </ingredients>
                     <ingredients order="9" uid="96201863-21a1-4152-bb43-ee60d3524e5d" name="Testing" controllerLayer="06dcbf36-6d39-431b-bf41-b02c0390e50e">
@@ -8588,13 +8580,12 @@
                     <deplymentStep mapper="8da20f0c-b60a-427b-85f9-e8a9623c0dc7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.14"/>
                     <deplymentStep mapper="eabdf8ec-1339-42b7-a09b-cfa9aa4ec3de" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.11"/>
                     <deplymentStep mapper="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
-                    <deplymentStep mapper="34316e90-eb0b-456d-b1b2-31494bfc8c9c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.16"/>
+                    <deplymentStep mapper="34316e90-eb0b-456d-b1b2-31494bfc8c9c"/>
                     <deplymentStep mapper="dafeb454-d623-4127-9447-96d8ac1ccf38" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.13"/>
                     <deplymentStep mapper="96216358-7770-4a2e-958b-ab7ba7a370f0" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
                     <deplymentStep mapper="c7967258-b3c3-489c-8f52-147016a2f650" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.10"/>
                     <deplymentStep mapper="0cdd9859-0abe-4c5e-be1a-a318c0aa2fd3" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.9"/>
                     <deplymentStep mapper="3f7935bb-9e27-4803-a667-5a480fd1bf58" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.8"/>
-                    <deplymentStep mapper="657d6383-8fe2-4780-bab5-b1a5f3eebb4a"/>
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">

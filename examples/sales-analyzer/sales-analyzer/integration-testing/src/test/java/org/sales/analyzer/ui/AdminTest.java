@@ -17,7 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.sales.analyzer.process.PostDeployer;
-import org.tura.comfiguration.artifacts.ConfigConstants;
+import org.tura.configuration.dsl.commons.ConfigConstants;
 import org.tura.platform.selenium.InputText;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.primefaces.Repeater;
@@ -33,7 +33,7 @@ public class AdminTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String app_url = "http://localhost:8080/sa-admin/admin/administration/AdminWindow.xhtml";
+	static private String app_url = "http://wf:8081/sa-admin/admin/administration/AdminWindow.xhtml";
 	static private String driver_location = ConfigConstants.RESOURCE_HOME+"/chromedriver";
 	
 	

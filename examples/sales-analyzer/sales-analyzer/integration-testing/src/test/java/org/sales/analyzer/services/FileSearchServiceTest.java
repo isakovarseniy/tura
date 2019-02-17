@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.junit.Test;
-import org.tura.comfiguration.artifacts.ConfigConstants;
+import org.tura.configuration.dsl.commons.ConfigConstants;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
@@ -37,7 +37,7 @@ public class FileSearchServiceTest {
 	@Test
 	public void search_test1() {
 		try {
-			FileSearchService service = new FileSearchService(ConfigConstants.RESOURCE_HOME);
+			FileSearchService service = new FileSearchService(ConfigConstants.RESOURCE_HOME+"/sa/jobs");
 			service.setMapper(new FileEntityMapper());
 
 			ArrayList<SearchCriteria> array = new ArrayList<>();

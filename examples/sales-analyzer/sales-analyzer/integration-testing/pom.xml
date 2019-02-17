@@ -34,6 +34,12 @@
 		</dependency>
 
 
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+			</dependency>
+
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -67,60 +73,50 @@
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>rules-commons</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>services</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>ru.yandex.qatools.embed</groupId>
-			<artifactId>postgresql-embedded</artifactId>
-		</dependency>
-
-
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>processes</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>post-deployer</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
-
 
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>sales-analyzer</groupId>
-			<artifactId>config-integration-testing</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>api-extension</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -140,38 +136,49 @@
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>db-persistence-model</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>jpa-persistence-repository</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>keycloak-persistence-model</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>proxy-repository</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>serialized-model</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.sales-analyzer</groupId>
 			<artifactId>spa-persistence-repository</artifactId>
 			<version>1.0</version>
+			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura</groupId>
+			<artifactId>processor</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -186,7 +193,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-				  <test>org.sales.analyzer.process.TestSute</test>
+					<test>org.sales.analyzer.process.TestSute</test>
 				</configuration>
 			</plugin>
 			<plugin>
