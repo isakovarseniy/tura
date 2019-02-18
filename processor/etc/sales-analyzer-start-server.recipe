@@ -2,9 +2,6 @@ tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
 user_home = system:getproperty user.home
 
-
-dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
-
 echo Stop sa-wf
 tura:docker stopContainer --name sa-wf
 

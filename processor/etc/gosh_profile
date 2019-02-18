@@ -83,8 +83,16 @@ hrLogWatch = {
 
 startSAApplication = {
      stopHRApplication;
+     dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
      source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
 }
+
+startSAApplicationWithData = {
+     stopHRApplication;
+     dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerWithCasesDB.dump
+     source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+}
+
 
 stopSAApplication = {
      source $tura_home/processor/etc/sales-analyzer-stop-server.recipe;    

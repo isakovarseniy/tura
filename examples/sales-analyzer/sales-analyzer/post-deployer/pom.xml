@@ -50,6 +50,15 @@
 		</dependency>
 
 
+      <!--   Dependency for install adapter on docker wildfly -->
+
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-wildfly-adapter-dist</artifactId>
+			<type>zip</type>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
