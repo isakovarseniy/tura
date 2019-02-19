@@ -17,7 +17,6 @@
 
 
   <modules>
-    <module>config-integration-testing</module> 
     <module>commons-test</module>
     <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-domain-objects</module>
