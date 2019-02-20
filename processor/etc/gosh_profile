@@ -45,27 +45,43 @@ complete -c tura:dsl -d "Dsl for configuration"
 complete -c tura:dsl -a '__dsl_picocliCompleter'
 
 
+complete -c tura:closure -e
+complete -c tura:closure -d "Closure for configuration" 
+complete -c tura:closure -a '__closure_Completer'
+
+
+
+
 buildPluginAndProcessor = {
      source $tura_home/processor/etc/buildPluginAndProcessor;    
 }
+addClosure "buildPluginAndProcessor";
+
 
 buildPlatform = {
      source $tura_home/processor/etc/buildPlatform;    
 }
+addClosure "buildPlatform";
+
 
 startHRApplication = {
+     stopSAApplication;
      source $tura_home/processor/etc/hr-manager-deployment.recipe;    
 }
+addClosure "startHRApplication";
+
 
 stopHRApplication = {
-     stopSAApplication;
      source $tura_home/processor/etc/hr-manager-stop-all.recipe;    
 }
+addClosure "stopHRApplication";
+
 
 
 startHRIntegrationTest = {
      tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing/pom.xml;    
 }
+addClosure "startHRIntegrationTest";
 
 
 hrUrlList = {
@@ -74,11 +90,15 @@ hrUrlList = {
     echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
 
 }
+addClosure "hrUrlList";
+
 
 hrLogWatch = {
    tura:docker logWatcher --name hr-wf --name hr-pg 
 
 }
+addClosure "hrLogWatch";
+
 
 
 startSAApplication = {
@@ -86,21 +106,28 @@ startSAApplication = {
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
      source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
 }
+addClosure "startSAApplication";
+
 
 startSAApplicationWithData = {
      stopHRApplication;
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerWithCasesDB.dump
      source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
 }
+addClosure "startSAApplicationWithData";
+
 
 
 stopSAApplication = {
      source $tura_home/processor/etc/sales-analyzer-stop-server.recipe;    
 }
+addClosure "stopSAApplication";
+
 
 startSAIntegrationTest = {
      tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml;    
 }
+addClosure "startSAIntegrationTest";
 
 
 saUrlList = {
@@ -109,15 +136,19 @@ saUrlList = {
     echo 'http://wf:8081/sa-case-manager/analysis/casemanager/WorkItemWindow.xhtml             sales-manager/sales01'
     echo 'http://wf:8081/sa-etl-controller/dataloader/etlcontroller/ETLControlWindow.xhtml     sales-manager/sales01' 
 }
+addClosure "saUrlList";
+
 
 saLogWatch = {
    tura:docker logWatcher --name sa-wf --name sa-kc --name sa-pg 
 }
+addClosure "saLogWatch";
+
 
 removeAll = {
      source $tura_home/processor/etc/remove-all.recipe;    
 }
-
+addClosure "removeAll";
 
 
 

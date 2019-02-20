@@ -44,8 +44,13 @@ public class TuraCommandsInit {
 		processor.addCommand("tura", new DSLOperation(), "dsl");
 		processor.addCommand("tura", new DSLOperation(), "__dsl_picocliCompleter");
 
+		processor.addCommand("tura", new ClosureOperation(), "closure");
+		processor.addCommand("tura", new ClosureOperation(), "__closure_Completer");
 	
-	
+        processor.addCommand("gogo", new ClosureOperation(), "addClosure");
+
+		
+		
 	}
 
 }
