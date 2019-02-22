@@ -26,6 +26,7 @@ import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.CDI;
 import javax.persistence.EntityManager;
+import javax.transaction.UserTransaction;
 
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.TransactionAdapter;
@@ -37,23 +38,23 @@ public class CDITransactionAdapter extends TransactionAdapter {
 	}
 
 	@Override
-	protected void executeBeginTransaction() {
-		EntityManager em = getEntityManager();
-		em.getTransaction().begin();
+	protected void executeBeginTransaction() throws Exception  {
+		UserTransaction trx = getUserTransaction();
+		trx.begin();
 
 	}
 
 	@Override
-	protected void executeCommitTransaction() {
-		EntityManager em = getEntityManager();
-		em.getTransaction().commit();
+	protected void executeCommitTransaction() throws Exception  {
+		UserTransaction trx = getUserTransaction();
+		trx.commit();
 
 	}
 
 	@Override
-	protected void executeRollbackTransaction() {
-		EntityManager em = getEntityManager();
-		em.getTransaction().rollback();
+	protected void executeRollbackTransaction() throws Exception {
+		UserTransaction trx = getUserTransaction();
+		trx.rollback();
 	}
 
 	public static EntityManager getEntityManager(){
@@ -65,6 +66,17 @@ public class CDITransactionAdapter extends TransactionAdapter {
 		return em;
 
 	}
+	
+	public static UserTransaction getUserTransaction(){
+		BeanManager bm = CDI.current().getBeanManager();
+		@SuppressWarnings("unchecked")
+		Bean<UserTransaction> bean = (Bean<UserTransaction>) bm.getBeans(UserTransaction.class).iterator().next();
+		CreationalContext<?> ctx = bm.createCreationalContext(bean);
+		UserTransaction trx = (UserTransaction) bm.getReference(bean, UserTransaction.class, ctx);
+		return trx;
+
+	}
+	
 	
 	
 }

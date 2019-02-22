@@ -2188,7 +2188,7 @@
                         </mappers>
                         <mappers uid="f6b71cfb-1a69-4f43-8888-629e24f62e42" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
-                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="eff84d43-24ed-42d5-9f0b-475a5a9730c4"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="bae1b29d-1dbd-4ccc-a121-830d8cd7352a"/>
                           <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
@@ -2463,7 +2463,7 @@
                         </mappers>
                         <mappers uid="c41e291f-68d1-4401-a427-2fc35d243442" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
-                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="eff84d43-24ed-42d5-9f0b-475a5a9730c4"/>
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
                           <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>
@@ -2546,7 +2546,7 @@
                           </queries>
                         </mappers>
                         <mappers uid="60fa6bb0-c82e-451b-9ced-066f900c0dd9" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
-                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="eff84d43-24ed-42d5-9f0b-475a5a9730c4"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
@@ -7983,7 +7983,7 @@
                         </mappers>
                         <mappers uid="8222eb36-7f1d-4102-8f7c-4891ee47f4fd" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
-                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="eff84d43-24ed-42d5-9f0b-475a5a9730c4"/>
                           <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
                           <technologies techRef="b5193770-7796-442d-a106-99d39a345ce8" valueRef="b012f4a1-541c-48c0-a5ce-142feb71bdc7"/>

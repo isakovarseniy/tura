@@ -21,6 +21,7 @@
  */
 package org.tura.example.ui.commons.service;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
@@ -30,6 +31,8 @@ import javax.persistence.EntityManagerFactory;
 
 import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
 
+
+@ApplicationScoped
 public class EntityManagerProducer
 {
 	

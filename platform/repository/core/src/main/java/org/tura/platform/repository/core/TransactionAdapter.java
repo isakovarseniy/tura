@@ -25,9 +25,9 @@ import java.util.Set;
 
 public abstract class TransactionAdapter {
 	
-	protected abstract void executeBeginTransaction();
-	protected abstract void executeCommitTransaction();
-	protected abstract void executeRollbackTransaction();
+	protected abstract void executeBeginTransaction() throws Exception;
+	protected abstract void executeCommitTransaction() throws Exception;
+	protected abstract void executeRollbackTransaction() throws Exception;
 	
 	private Registry registry;
 
