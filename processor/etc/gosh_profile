@@ -131,6 +131,7 @@ addClosure "startSAIntegrationTest";
 
 
 saUrlList = {
+    echo 'service:jmx:remote+http://wf:9991                                                    admin/qwerty'
     echo 'http://kc:8080/auth/admin/master/console/                                            admin/qwerty'
     echo 'http://wf:8081/sa-admin/admin/administration/AdminWindow.xhtml                       sales-manager/sales01'
     echo 'http://wf:8081/sa-case-manager/analysis/casemanager/WorkItemWindow.xhtml             sales-manager/sales01'

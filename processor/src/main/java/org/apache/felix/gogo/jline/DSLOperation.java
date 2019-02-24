@@ -35,6 +35,7 @@ import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
 import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
 import org.apache.felix.gogo.jline.command.DSLModule;
 import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
+import org.apache.felix.gogo.jline.command.DSLWildFlyConfiguration;
 import org.apache.felix.service.command.CommandSession;
 import org.apache.felix.service.command.Process;
 import org.jline.reader.Candidate;
@@ -110,7 +111,8 @@ public class DSLOperation  {
                 .addSubcommand("jobPropertyFile", new DSLJobPropertyFile())
                 .addSubcommand("exec", new DSLExecuteExternal())
                 .addSubcommand("copyMonthlyFiles", new DSLCopyMonthlyFile())
-                
+                .addSubcommand("wfStartupConfig", new DSLWildFlyConfiguration())
+                                
         ;
     }
 

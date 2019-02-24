@@ -56,6 +56,15 @@ tura:dsl copyUsers    --container $v                           \
                       --application sales-analyzer             \
                       --serverType wildfly-13.0.0.Final
 
+tura:dsl wfStartupConfig                                       \
+                      --container $v                           \
+                      --jboss_home /opt/jboss/wildfly          \
+                      --application sales-analyzer             \
+                      --serverType wildfly-13.0.0.Final
+
+
+tura:dsl exec --cmd "docker exec -i --user jboss $v sh -c '/opt/jboss/wildfly/bin/add-user.sh admin qwerty --silent'"
+
 
 tura:docker keycloak doDeployAdapter                          \
                      --container $v                           \
@@ -73,7 +82,7 @@ tura:docker commitContainer                                    \
                       --registry tura/sa/wildfly               \
                       --tag 1.0                                \
                       --id $v                                  \
-                      --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0 -Djboss.socket.binding.port-offset=1"
+                      --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.socket.binding.port-offset=1"
 
 
 
@@ -85,6 +94,7 @@ tura:docker removeContainer --id $v
 c = tura:docker config                                        \
                       --alias wf                              \
                       --port 8081:8081                        \
+                      --port 9991:9991                        \
                       --port 3333:3333                        \
                       --port 8444:8444                        \
                       --network sa-net                        \
