@@ -23,20 +23,23 @@ import sales.analyzer.service.jbpm.commands.TaskCompletionCommand;
 
 public class JbpmServiceInstantiator implements Instantiator{
 
-	private String kieserverUrl;
 	private UserPreferencesProvider prefRef;
-	private CredentialsProvider credentialsProvider;
 	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
+	private KieServicesClient client;
 	
 	
 	
 	public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef,Registry registry,SpaObjectRegistry spaRegistry) {
-		this.kieserverUrl = kieserverUrl;
 		this.prefRef = prefRef;
-		this.credentialsProvider =  credentialsProvider;
 		this.registry=registry;
 		this.spaRegistry=spaRegistry;
+		
+		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(kieserverUrl, null,null);
+		config.setCredentialsProvider(credentialsProvider);
+		config.addExtraClasses(ExtraClasses.list);
+		client = KieServicesFactory.newKieServicesClient(config);
+
 	}
 	
 	
@@ -56,10 +59,6 @@ public class JbpmServiceInstantiator implements Instantiator{
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
-		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(kieserverUrl, null,null);
-		config.setCredentialsProvider(credentialsProvider);
-		config.addExtraClasses(ExtraClasses.list);
-		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 		
 		if (JbpmCRUDService.class.equals(clazz)){
 			return (T) new JbpmCRUDService(client);
