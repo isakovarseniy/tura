@@ -8,6 +8,9 @@ addcommand system (((${.context} getClass) getClassLoader) loadClass java.lang.S
 # Load base profile
 tura_home = system:getproperty TURA_HOME
 repo_home = $tura_home/processor/etc
+user_home = system:getproperty user.home
+
+
 source $repo_home/go.ext
 
 
@@ -16,6 +19,10 @@ try {
 setproperty chromedriverversion '2.40'
 setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
 tura_home = system:getproperty TURA_HOME
+
+system:setproperty Generation\ path  $user_home/generation-code
+system:setproperty Builder\ location  $user_home/.tura/resources/apache-maven
+system:setproperty External\ path\ 1 $tura_home/examples
 
 
 complete -c tura:install -e
@@ -84,6 +91,20 @@ startHRIntegrationTest = {
 addClosure "startHRIntegrationTest";
 
 
+
+generateHRApplication = {
+      tura:generate --build --recipeId 4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5 --infraId 25ebeb54-7003-4e72-bacc-3d8de138ac52 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+
+}
+addClosure "generateHRApplication";
+
+
+buildHRApplication = {
+      tura:build --recipeId 4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5 --infraId 25ebeb54-7003-4e72-bacc-3d8de138ac52 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+}
+addClosure "buildHRApplication";
+
+
 hrUrlList = {
     echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2           qwerty/qwerty'
     echo 'http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml'
@@ -128,6 +149,20 @@ startSAIntegrationTest = {
      tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml;    
 }
 addClosure "startSAIntegrationTest";
+
+
+generateSAApplication = {
+     tura:generate --build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+
+}
+addClosure "generateSAApplication";
+
+
+buildSAApplication = {
+     tura:build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+
+}
+addClosure "buildSAApplication";
 
 
 saUrlList = {

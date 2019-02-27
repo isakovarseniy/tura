@@ -1,7 +1,3 @@
-tura_home = system:getproperty TURA_HOME
-repo_home = $tura_home/processor/etc
-
-
 tura:docker stopContainer --name sa-kc
 
 tura:docker removeContainer --name sa-kc

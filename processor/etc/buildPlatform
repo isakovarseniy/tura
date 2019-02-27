@@ -1,12 +1,6 @@
 
 try {
 
-tura_home = system:getproperty TURA_HOME
-user_home = system:getproperty user.home
-
-system:setproperty Generation\ path  $user_home/generation-code
-system:setproperty Builder\ location  $user_home/.tura/resources/apache-maven
-system:setproperty External\ path\ 1 $tura_home/examples
 
 
 tura:mvn build --pom.xml  $tura_home/platform/pom.xml --P firstPass
@@ -33,14 +27,14 @@ tura:generate --build --recipeId 79ad0912-2614-4e51-8828-741f315d47d2 --infraId 
 
 
 echo Generate Hr form recipe
-tura:generate --build --recipeId 4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5 --infraId 25ebeb54-7003-4e72-bacc-3d8de138ac52 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+generateHRApplication
 
 echo Build platform
 tura:mvn build --pom.xml  $tura_home/platform/pom.xml
 
 
 echo Generate  Sales analyzer recipe
-tura:generate --build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+generateSAApplication
 
 
 } catch {
