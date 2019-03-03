@@ -1,5 +1,6 @@
 package sales.analyzer.ui.businesslogic.admin;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -265,13 +266,25 @@ public class Actions implements EventAccessor {
 
 	public void saveApplication() {
 		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			
 			CommandStackProvider sp = new CommandStackProvider();
 			sp.setCommandStack(commandStack);
+			
+			@SuppressWarnings("unchecked")
+			HashMap<String, DataControl<?>> h  = (HashMap<String, DataControl<?>>) commandStack.getListOfCommand()[1];
 
 			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 
 			proxyRepository.applyChanges(null);
 			commandStack.commitSavePoint();
+			
+			DataControl<?> dc = (DataControl<?>) bf.getRoleHelper();
+			
+			if (h.containsKey(dc.getId())) {
+				dc =  (DataControl<?>) bf.getRole();
+				dc.forceRefresh();
+			}
 			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
