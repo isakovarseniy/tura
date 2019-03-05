@@ -4678,7 +4678,12 @@
                                 <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
                                 <expression objRef="d759ef64-f8f6-4c6f-9436-fc05278b8dfc" order="4" expressionType="OperationImpl"/>
                               </fields>
-                              <fields uid="e459e829-1f29-4698-b02a-57ac7054cbc6" constant="true">
+                              <fields uid="e459e829-1f29-4698-b02a-57ac7054cbc6" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopupOnSuccess()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="74f6e110-73a0-4c30-bc42-426cde36ac40" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="12d27ed6-861f-421d-8a46-2c15869e91cd" order="4" expressionType="OperationImpl"/>
                                 <parameters uid="ca4718af-e219-4a89-81c4-f59eb77f19a4" refObj="3b389a53-0e59-4404-9127-7a1fb96b6bf9">
                                   <value uid="03964800-bca5-49dc-8e5b-49c06c8a5be6" constant="true" value="popupCompany"/>
                                 </parameters>
