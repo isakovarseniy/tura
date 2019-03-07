@@ -53,6 +53,11 @@ public class DownloadChromeSeleniumWebDriver {
 	}
 
 	public void download() {
+		File dir =  new File(this.targetDirectory);
+        if ( !dir.exists()) {
+            dir.mkdirs();
+        }
+		
 		if (!new File(this.targetDirectory + "/" + os.fileName).exists()) {
 
 			WgetStatus status = Wget.wGet(targetDirectory + "/" + os.fileName, os.url.replace("${version}", version));

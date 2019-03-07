@@ -44,6 +44,7 @@ public class DoDeploy extends CopyArtifact<DoDeploy> {
 
 	public void doDeployExploaded() throws Exception {
 		FileUtils.deleteDirectory(new File(targetLocation + "/" + targetName));
+		new File(targetLocation + "/" + targetName).mkdirs();		
 		ZipUtil.unpack(new File(srcResource), new File(targetLocation + "/" + targetName));
 		touch(new File(targetLocation + "/" + targetName + ".dodeploy"));
 	}

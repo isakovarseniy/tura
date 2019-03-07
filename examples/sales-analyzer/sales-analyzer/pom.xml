@@ -795,6 +795,7 @@
 				<module>sa-etl-controller-triggers</module>
 				<module>sa-resources</module>
 				<module>post-deployer</module>
+                <module>dependency-loader</module>				
 			</modules>
 		</profile>
 

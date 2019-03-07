@@ -38,7 +38,14 @@ public class DownloadMaven {
 	public void download() throws Exception {
 		String url = System.getProperty(ConfigConstants.MAVENURL);
 		String filename = FilenameUtils.getName(new URL(url).getPath());
+		
+		File dir =  new File(this.targetDirectory);
+        if ( !dir.exists()) {
+            dir.mkdirs();
+        }
 
+		
+		
 		if (!new File(this.targetDirectory + "/" + filename).exists()) {
 
 			WgetStatus status = Wget.wGet(targetDirectory + "/" + filename, url);
