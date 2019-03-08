@@ -33,6 +33,7 @@ import org.apache.felix.gogo.jline.command.DockerFindContainer;
 import org.apache.felix.gogo.jline.command.DockerKeyCloak;
 import org.apache.felix.gogo.jline.command.DockerKeyCloakAdapter;
 import org.apache.felix.gogo.jline.command.DockerLogWatcher;
+import org.apache.felix.gogo.jline.command.DockerMySql;
 import org.apache.felix.gogo.jline.command.DockerNetwork;
 import org.apache.felix.gogo.jline.command.DockerPostgresSQL;
 import org.apache.felix.gogo.jline.command.DockerPullImage;
@@ -40,6 +41,7 @@ import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
 import org.apache.felix.gogo.jline.command.DockerRemoveImage;
 import org.apache.felix.gogo.jline.command.DockerStartContainer;
 import org.apache.felix.gogo.jline.command.DockerStopContainer;
+import org.apache.felix.gogo.jline.command.MySqlOnDockerHealthCheck;
 import org.apache.felix.gogo.jline.command.Postgres96OnDockerHealthCheck;
 import org.apache.felix.gogo.jline.command.PostgresDBDump;
 import org.apache.felix.gogo.jline.command.PostgresUploadDump;
@@ -124,6 +126,9 @@ public class DockerOperation  {
                 		                      .addSubcommand("postgresUploadDump", new PostgresUploadDump())
                 		                      .addSubcommand("postgresDBDump", new PostgresDBDump())
                 		                      )
+                .addSubcommand("mysql", new CommandLine(new DockerMySql())
+                        .addSubcommand("mysqlHealthCheck", new MySqlOnDockerHealthCheck())
+                        )
                 .addSubcommand("keycloak", new CommandLine(new DockerKeyCloak())   
 	                                        .addSubcommand("doDeployAdapter", new DockerKeyCloakAdapter())
                 		) ;

@@ -21,101 +21,25 @@
  */
 package org.apache.felix.gogo.jline.command;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import picocli.CommandLine.Option;
 
-public class Postgres96OnDockerHealthCheck extends DockerCommand {
+public class Postgres96OnDockerHealthCheck extends HealthCheck {
 
     @Option(names = "--name")
     private String name;
 
+    @Option(names = "--repeats")
+    private int rpt;
     
     
     public String getCommand() {
         return String.format(" docker exec %s sh -c \"/usr/lib/postgresql/9.6/bin/psql -U postgres postgres -c 'SELECT 1;' \" ",name);
     }
 
+
     @Override
-    public Object execute() {
-
-        int success = 0;
-        
-        for (int i = 0; i < 10; i++) {
-            ExecutorService exErrorService = Executors.newSingleThreadExecutor();
-            ExecutorService exInfoService = Executors.newSingleThreadExecutor();
-            try {
-                System.out.println(String.format("Attempt  %s  success %s", i,success) );
-                
-                String job = getCommand();
-
-                String[] args = new String[] { "/bin/sh", "-c", job };
-                Process process = new ProcessBuilder(args).start();
-
-                StreamReader infoStreamGobbler = new StreamReader(process.getInputStream());
-                StreamReader errorStreamGobbler = new StreamReader(process.getErrorStream());
-                exErrorService.submit(errorStreamGobbler);
-                exInfoService.submit(infoStreamGobbler);
-
-                int exitCode = process.waitFor();
-                if (exitCode != 0  ) {
-                    success = 0;
-                }
-                
-                if (exitCode == 0 && success == 3 ) {
-                        return null;
-                }
-                
-                if (exitCode == 0 && success < 3 ) {
-                    success ++;
-                 }
-                
-                
-                Thread.sleep(2000);
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            } finally {
-                if (exInfoService != null)
-                    exInfoService.shutdownNow();
-                if (exErrorService != null)
-                    exErrorService.shutdownNow();
-            }
-        }
-        throw new RuntimeException("Server did not started");
+    public int getNumberOrRepeats() {
+        return rpt;
     }
 
-    private class StreamReader implements Runnable {
-        private InputStream inputStream;
-        private StringBuilder builder = new StringBuilder();
-
-        public StreamReader(InputStream inputStream) {
-            this.inputStream = inputStream;
-        }
-
-        @Override
-        public void run() {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String inputLine;
-            try {
-                while ((inputLine = reader.readLine()) != null) {
-                    builder.append(inputLine);
-                }
-            } catch (IOException e) {
-
-            }
-        }
-        public String toString() {
-            return builder.toString();
-        }
-    }
-
-    
 }
-

@@ -87,6 +87,10 @@ tura:docker stopContainer --id $v
 tura:docker removeContainer --id $v
 
 
+tura:dsl exec --cmd "mkdir -p $user_home/.tura/resources/sa/deployments"
+tura:dsl exec --cmd "mkdir -p $user_home/.tura/resources/sa/jobs"
+
+
 c = tura:docker config                                        \
                       --alias wf                              \
                       --port 8081:8081                        \
