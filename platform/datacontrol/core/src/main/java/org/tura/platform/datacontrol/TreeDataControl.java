@@ -40,321 +40,324 @@ import org.tura.platform.repository.core.ObjectControl;
 
 public abstract class TreeDataControl implements IDataControl, EventListener {
 
-	protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
-	private Relation parent;
-	private Relation treeRelation;
-	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
+    protected List<DependecyProperty> dependency = new ArrayList<DependecyProperty>();
+    private Relation parent;
+    private Relation treeRelation;
+    protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 
-	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
-	private HashMap<String, IDataControl> treeControls = new HashMap<>();
+    private ArrayList<EventListener> eventLiteners = new ArrayList<>();
+    private HashMap<String, IDataControl> treeControls = new HashMap<>();
 
-	private Object stateObject;
-	private Object currentObject;
-	private TreePath[] currentPosition;
+    private Object stateObject;
+    private Object currentObject;
+    private TreePath[] currentPosition;
 
-	protected boolean blocked = false;
+    protected boolean blocked = false;
 
-	private DataControl<?> root;
+    private DataControl<?> root;
 
-	
-	public DataControl<?> getRoot() {
-		return root;
-	}
+    
+    public DataControl<?> getRoot() {
+        if (blocked)
+            return null;
+        return root;
+    }
 
-	public void setRoot(DataControl<?> root) {
-		this.root = root;
-		currentPosition = new TreePath[] { new TreePath(null, 0) };
-		root.getCommandStack().getPoolFlushAware().add(this);
-	}
+    public void setRoot(DataControl<?> root) {
+        this.root = root;
+        currentPosition = new TreePath[] { new TreePath(null, 0) };
+        root.getCommandStack().getPoolFlushAware().add(this);
+    }
 
-	@Override
-	public void setParent(Relation parent) throws TuraException {
-		this.parent = parent;
-		treeRelation = new Relation();
-		treeRelation.setParent(this);
-		treeRelation.setChild(root);
-		treeRelation.getLinks().addAll(parent.getLinks());
-		root.setParent(treeRelation);
-	}
+    @Override
+    public void setParent(Relation parent) throws TuraException {
+        this.parent = parent;
+        treeRelation = new Relation();
+        treeRelation.setParent(this);
+        treeRelation.setChild(root);
+        treeRelation.getLinks().addAll(parent.getLinks());
+        root.setParent(treeRelation);
+    }
 
-	@Override
-	public Relation getChild(String relationName) {
-		return children.get(relationName);
-	}
+    @Override
+    public Relation getChild(String relationName) {
+        return children.get(relationName);
+    }
 
-	@Override
-	public Collection<String> getRelationsName() {
-		return children.keySet();
-	}
+    @Override
+    public Collection<String> getRelationsName() {
+        return children.keySet();
+    }
 
-	public void addEventLiteners(EventListener listener) {
-		eventLiteners.add(listener);
-	}
+    public void addEventLiteners(EventListener listener) {
+        eventLiteners.add(listener);
+    }
 
-	@Override
-	public void handleChangeMusterCurrentRecordNotification(
-			Object newCurrentObject) throws TuraException {
-		if (newCurrentObject == null) {
-			blocked = true;
-			notifyLiteners(new ControlRefreshedEvent(this));
-			notifyChageRecordAll(null);
-		}
+    @Override
+    public void handleChangeMusterCurrentRecordNotification(
+            Object newCurrentObject) throws TuraException {
+        if (newCurrentObject == null) {
+            blocked = true;
+            notifyLiteners(new ControlRefreshedEvent(this));
+            notifyChageRecordAll(null);
+            return;
+        }
 
-		blocked = false;
-		if (treeRelation != null)
-			treeRelation.setMasterCurrentObject(newCurrentObject);
-		currentObject = null;
-		root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+        blocked = false;
+        if (treeRelation != null)
+            treeRelation.setMasterCurrentObject(newCurrentObject);
+        currentObject = null;
+        root.handleChangeMusterCurrentRecordNotification(newCurrentObject);
 
-		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
-		notifyChageRecordAll(getCurrentObject());
-	}
+        notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
+        notifyChageRecordAll(getCurrentObject());
+    }
 
-	protected void notifyChageRecordAll(Object newCurrentObject)
-			throws TuraException {
-		notifyDependencyListeners(newCurrentObject);
-	}
+    protected void notifyChageRecordAll(Object newCurrentObject)
+            throws TuraException {
+        notifyDependencyListeners(newCurrentObject);
+    }
 
-	private void notifyLiteners(Event event) throws TuraException {
-		for (EventListener listener : eventLiteners) {
-			listener.handleEventListener(event);
-		}
-	}
+    private void notifyLiteners(Event event) throws TuraException {
+        for (EventListener listener : eventLiteners) {
+            listener.handleEventListener(event);
+        }
+    }
 
-	private void notifyDependencyListeners(Object newCurrentObject)
-			throws TuraException {
-		for (DependecyProperty dep : dependency) {
-			ChangeRecordListener listener = (ChangeRecordListener) root
-					.getElResolver().getValue(dep.getExpression());
-			listener.handleChangeRecord(this, newCurrentObject);
-		}
-	}
+    private void notifyDependencyListeners(Object newCurrentObject)
+            throws TuraException {
+        for (DependecyProperty dep : dependency) {
+            ChangeRecordListener listener = (ChangeRecordListener) root
+                    .getElResolver().getValue(dep.getExpression());
+            listener.handleChangeRecord(this, newCurrentObject);
+        }
+    }
 
-	@Override
-	public synchronized Object getCurrentObject() throws TuraException {
-		if (blocked)
-			return null;
-		if (currentObject == null) {
-			currentObject = root.getCurrentObject();
-		}
-		return currentObject;
-	}
+    @Override
+    public synchronized Object getCurrentObject() throws TuraException {
+        if (blocked)
+            return null;
+        if (currentObject == null) {
+            currentObject = root.getCurrentObject();
+        }
+        return currentObject;
+    }
 
-	public Object createChildObject(String relationName) throws TuraException {
-		if (blocked)
-			return null;
-		Object obj = null;
-		try {
-			DataControl<?> dc = getRoot();
-			if (currentObject != null) {
-				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
-			}
-			Relation rel = dc.getChild(relationName);
-			if (rel.getChild() == null)
-				dc.createChild(relationName);
-			obj = rel.getChild().createObject();
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
+    public Object createChildObject(String relationName) throws TuraException {
+        if (blocked)
+            return null;
+        Object obj = null;
+        try {
+            DataControl<?> dc = getRoot();
+            if (currentObject != null) {
+                dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+            }
+            Relation rel = dc.getChild(relationName);
+            if (rel.getChild() == null)
+                dc.createChild(relationName);
+            obj = rel.getChild().createObject();
+        } catch (Exception e) {
+            throw new TuraException(e);
+        }
 
-		if (obj != null) {
-			notifyLiteners(new RowCreatedEvent(this, obj));
-			return obj;
-		}
-		throw new TuraException(
-				"Error during creation new object for tree data control");
+        if (obj != null) {
+            notifyLiteners(new RowCreatedEvent(this, obj));
+            return obj;
+        }
+        throw new TuraException(
+                "Error during creation new object for tree data control");
 
-	}
+    }
 
-	@Override
-	public Object createObject() throws TuraException {
-		if (blocked)
-			return null;
+    @Override
+    public Object createObject() throws TuraException {
+        if (blocked)
+            return null;
 
-		try {
-			DataControl<?> dc = getRoot();
-			if (currentObject != null) {
-				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
-			}
+        try {
+            DataControl<?> dc = getRoot();
+            if (currentObject != null) {
+                dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+            }
 
-			currentObject = dc.createObject();
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
+            currentObject = dc.createObject();
+        } catch (Exception e) {
+            throw new TuraException(e);
+        }
 
-		if (currentObject != null) {
-			notifyLiteners(new RowCreatedEvent(this, currentObject));
-			notifyChageRecordAll(currentObject);
-		} else {
-			throw new TuraException(
-					"Error during creation new object for tree data control");
-		}
-		return currentObject;
-	}
+        if (currentObject != null) {
+            notifyLiteners(new RowCreatedEvent(this, currentObject));
+            notifyChageRecordAll(currentObject);
+        } else {
+            throw new TuraException(
+                    "Error during creation new object for tree data control");
+        }
+        return currentObject;
+    }
 
-	@Override
-	public void removeObject() throws Exception {
-		if (blocked)
-			return;
-		DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+    @Override
+    public void removeObject() throws Exception {
+        if (blocked)
+            return;
+        DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 
 
-		RowRemovedEvent event = new RowRemovedEvent(this, currentObject);
-		dc.removeObject();
-		notifyLiteners(event);
-		notifyChageRecordAll(dc.getCurrentObject());
-	}
+        RowRemovedEvent event = new RowRemovedEvent(this, currentObject);
+        dc.removeObject();
+        notifyLiteners(event);
+        notifyChageRecordAll(dc.getCurrentObject());
+    }
 
-	@Override
-	public void removeAll() throws Exception {
-		if (blocked)
-			return;
+    @Override
+    public void removeAll() throws Exception {
+        if (blocked)
+            return;
 
-		setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
+        setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
-		DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+        DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 
-		dc.removeAll();
+        dc.removeAll();
 
-		notifyLiteners(new RowRemovedEvent(this, null));
-		notifyChageRecordAll(null);
-	}
+        notifyLiteners(new RowRemovedEvent(this, null));
+        notifyChageRecordAll(null);
+    }
 
-	private Object[] treeScaner(TreePath[] path) throws TuraException {
-		IDataControl current = root;
-		Object obj = null;
-		for (int i = 0; i < path.length; i++) {
-			int key = path[i].getKey();
-			if (!current.setCurrentPosition(key))
-				return new Object []{obj,false};
-			Object tmp = current.getCurrentObject();
-			if (tmp != null) {
-				obj = tmp;
-				if (i + 1 < path.length) {
-					String relationName = path[i + 1].getRelation();
-					if (current.getChild(relationName) != null) {
-						Relation rel = current.getChild(relationName);
-						if (rel.getChild() == null)
-							current.createChild(relationName);
-						current = rel.getChild();
+    private Object[] treeScaner(TreePath[] path) throws TuraException {
+        IDataControl current = root;
+        Object obj = null;
+        for (int i = 0; i < path.length; i++) {
+            int key = path[i].getKey();
+            if (!current.setCurrentPosition(key))
+                return new Object []{obj,false};
+            Object tmp = current.getCurrentObject();
+            if (tmp != null) {
+                obj = tmp;
+                if (i + 1 < path.length) {
+                    String relationName = path[i + 1].getRelation();
+                    if (current.getChild(relationName) != null) {
+                        Relation rel = current.getChild(relationName);
+                        if (rel.getChild() == null)
+                            current.createChild(relationName);
+                        current = rel.getChild();
 
-					} else {
-						return new Object []{obj,false};
-					}
-				}
-			} else {
-				return new Object []{obj,false};
-			}
-		}
-		return new Object []{obj,true};
+                    } else {
+                        return new Object []{obj,false};
+                    }
+                }
+            } else {
+                return new Object []{obj,false};
+            }
+        }
+        return new Object []{obj,true};
 
-	}
+    }
 
-	public synchronized boolean setCurrentPosition(Object o)
-			throws TuraException {
-		if (blocked)
-			return false;
+    public synchronized boolean setCurrentPosition(Object o)
+            throws TuraException {
+        if (blocked)
+            return false;
 
-		Object[] a = treeScaner((TreePath[]) o);
-		if ( !(boolean)a[1] )
-			return false;
+        Object[] a = treeScaner((TreePath[]) o);
+        if ( !(boolean)a[1] )
+            return false;
 
-		currentObject = a[0];
-		currentPosition = (TreePath[]) o;
-		notifyLiteners(new RowChangedEvent(this));
-		notifyChageRecordAll(currentObject);
+        currentObject = a[0];
+        currentPosition = (TreePath[]) o;
+        notifyLiteners(new RowChangedEvent(this));
+        notifyChageRecordAll(currentObject);
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public Object getCurrentPosition() {
-		return currentPosition;
-	}
+    @Override
+    public Object getCurrentPosition() {
+        return currentPosition;
+    }
 
-	@Override
-	public void createChild(String relationName) throws TuraException {
-		throw new TuraException(
-				"Tree data contol cannot has master - detail relations");
-	}
+    @Override
+    public void createChild(String relationName) throws TuraException {
+        throw new TuraException(
+                "Tree data contol cannot has master - detail relations");
+    }
 
-	@Override
-	public List<DependecyProperty> getDependency() {
-		return dependency;
-	}
+    @Override
+    public List<DependecyProperty> getDependency() {
+        return dependency;
+    }
 
-	@Override
-	public void setDependency(List<DependecyProperty> dependency) {
-		this.dependency = dependency;
-	}
+    @Override
+    public void setDependency(List<DependecyProperty> dependency) {
+        this.dependency = dependency;
+    }
 
-	public boolean isBlocked() {
-		return blocked;
-	}
+    public boolean isBlocked() {
+        return blocked;
+    }
 
-	public TreeDataControl getTreeContext() {
-		return null;
-	}
+    public TreeDataControl getTreeContext() {
+        return null;
+    }
 
-	public void setTreeContext(TreeDataControl tdc) {
-	}
+    public void setTreeContext(TreeDataControl tdc) {
+    }
 
-	@Override
-	public Relation getParent() {
-		return parent;
-	}
+    @Override
+    public Relation getParent() {
+        return parent;
+    }
 
-	@Override
-	public void handleEventListener(Event event) throws TuraException {
-		notifyLiteners(event);
-	}
+    @Override
+    public void handleEventListener(Event event) throws TuraException {
+        notifyLiteners(event);
+    }
 
-	public void addControl(DataControl<?> dc) {
-		treeControls.put(dc.getId(), dc);
-	}
+    public void addControl(DataControl<?> dc) {
+        treeControls.put(dc.getId(), dc);
+    }
 
-	public HashMap<String, IDataControl> getControls() {
-		return treeControls;
-	}
+    public HashMap<String, IDataControl> getControls() {
+        return treeControls;
+    }
 
-	public void saveState() throws TuraException {
-		stateObject = currentObject;
-	}
+    public void saveState() throws TuraException {
+        stateObject = currentObject;
+    }
 
-	
-	public void flush() throws TuraException {
-	}	
-	
-	public void onPoolUpdate() throws TuraException {
-		root.onPoolUpdate();
-		Object[] a = treeScaner(currentPosition);
-		Object newObject = a[0];
+    
+    public void flush() throws TuraException {
+    }    
+    
+    public void onPoolUpdate() throws TuraException {
+        root.onPoolUpdate();
+        Object[] a = treeScaner(currentPosition);
+        Object newObject = a[0];
 
-		String newObjectKey = null;
-		String stateObjectKey = null;
-		
-		if (newObject != null )
-			 newObjectKey =  ((ObjectControl)newObject).getKey();
-		if (stateObject != null )
-		    stateObjectKey =  ((ObjectControl)stateObject).getKey(); 
+        String newObjectKey = null;
+        String stateObjectKey = null;
+        
+        if (newObject != null )
+             newObjectKey =  ((ObjectControl)newObject).getKey();
+        if (stateObject != null )
+            stateObjectKey =  ((ObjectControl)stateObject).getKey(); 
 
-		if (((newObject == null) && (stateObject != null))
-				|| ((newObject != null) && (stateObject == null))
-				|| !(newObjectKey.equals(stateObjectKey))) {
+        if (((newObject == null) && (stateObject != null))
+                || ((newObject != null) && (stateObject == null))
+                || !(newObjectKey.equals(stateObjectKey))) {
 
-			currentObject = a[0];
-			notifyLiteners(new RowChangedEvent(this));
-			notifyChageRecordAll(newObject);
+            currentObject = a[0];
+            notifyLiteners(new RowChangedEvent(this));
+            notifyChageRecordAll(newObject);
 
-		}else{
-			for (DependecyProperty dep : dependency) {
-				Object o = root.getElResolver().getValue(dep.getExpression());
-				if ( o instanceof IDataControl)
-					((IDataControl)o).onPoolUpdate();
-			}
-			
-		}
+        }else{
+            for (DependecyProperty dep : dependency) {
+                Object o = root.getElResolver().getValue(dep.getExpression());
+                if ( o instanceof IDataControl)
+                    ((IDataControl)o).onPoolUpdate();
+            }
+            
+        }
 
-	}
+    }
 
 }
