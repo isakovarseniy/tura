@@ -23,6 +23,7 @@ package org.tura.example.ui.hrmanager;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 
@@ -155,6 +156,61 @@ public class Tree2TreeTest extends AbstractTest{
 		el = tr.getCell(1);
 		assertEquals("file1", el.getText());
 
+		new SeleniumActionExecutor(driver,Tree2TreeRelationsPageObject.getTree2SearchCriteria()){
+			public void action(WebDriver driver){
+				Tree2TreeRelationsPageObject tree2TreeRelationsPageObject = new Tree2TreeRelationsPageObject(driver);
+				Tree tree =   tree2TreeRelationsPageObject.getTree1();
+
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0_1");
+				tr.open();
+				
+				tr.click();
+			}
+		}.run();		
+		
+		try {
+		 tree =  tree2TreeRelationsPageObject.getTree2();
+ 		  tr = (TreeRow) tree.getRow("0");
+ 		  fail();
+		}catch(Exception e) {
+			
+		}
+
+		new SeleniumActionExecutor(driver,Tree2TreeRelationsPageObject.getTree2SearchCriteria()){
+			public void action(WebDriver driver){
+				Tree2TreeRelationsPageObject tree2TreeRelationsPageObject = new Tree2TreeRelationsPageObject(driver);
+				Tree tree =   tree2TreeRelationsPageObject.getTree1();
+
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0");
+				
+				tr.click();
+			}
+		}.run();		
+		
+		try {
+			  tree =  tree2TreeRelationsPageObject.getTree2();
+	 		  tr = (TreeRow) tree.getRow("0");
+	 		  fail();
+			}catch(Exception e) {
+				
+			}
+
+		new SeleniumActionExecutor(driver,Tree2TreeRelationsPageObject.getTree2SearchCriteria()){
+			public void action(WebDriver driver){
+				Tree2TreeRelationsPageObject tree2TreeRelationsPageObject = new Tree2TreeRelationsPageObject(driver);
+				Tree tree =   tree2TreeRelationsPageObject.getTree1();
+
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0_0");
+				tr.open();
+				
+				tr.click();
+			}
+		}.run();		
+		
+		tree =  tree2TreeRelationsPageObject.getTree2();
+		 tr = (TreeRow) tree.getRow("0");
+		 el = tr.getCell(1);
+		assertEquals("Department 1", el.getText());
 		
 	}	
 	
