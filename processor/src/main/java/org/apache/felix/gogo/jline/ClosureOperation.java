@@ -42,6 +42,9 @@ public class ClosureOperation {
     	closure.add(cl);
     }
     
+    public void removeClosure(String cl) {
+    	closure.remove(cl);
+    }
 	
     public List<Candidate> __closure_Completer(CommandSession session) {
         ParsedLine line = Shell.getParsedLine(session);
