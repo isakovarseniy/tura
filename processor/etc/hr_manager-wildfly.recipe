@@ -54,6 +54,7 @@ tura:docker stopContainer --id $v
 
 tura:docker removeContainer --id $v
 
+tura:dsl exec --cmd "mkdir -p $user_home/.tura/resources/hrmanager/deployments"
 
 c = tura:docker config                                  \
                 --port 8080:8080                        \

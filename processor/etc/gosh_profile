@@ -186,7 +186,7 @@ removeAll = {
 }
 addClosure "removeAll";
 
-
+postInit;
 
 } catch {
     $exception printStackTrace

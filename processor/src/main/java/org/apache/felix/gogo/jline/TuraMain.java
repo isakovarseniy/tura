@@ -28,12 +28,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-import org.apache.felix.gogo.jline.BaseConverters;
-import org.apache.felix.gogo.jline.Builtin;
-import org.apache.felix.gogo.jline.Posix;
-import org.apache.felix.gogo.jline.Procedural;
-import org.apache.felix.gogo.jline.Shell;
 import org.apache.felix.gogo.jline.Shell.Context;
+import org.apache.felix.gogo.jline.ext.ExtensionService;
 import org.apache.felix.gogo.runtime.CommandProcessorImpl;
 import org.apache.felix.gogo.runtime.threadio.ThreadIOImpl;
 import org.apache.felix.service.command.CommandSession;
@@ -64,6 +60,7 @@ public class TuraMain {
                 register(processor, new Posix(processor), Posix.functions);
                 register(processor, shell, Shell.functions);
                 TuraCommandsInit.initProcessor(processor);                
+                ExtensionService.getInstance().initExtension(processor);
                 
                 InputStream in = new FilterInputStream(terminal.input()) {
                     @Override

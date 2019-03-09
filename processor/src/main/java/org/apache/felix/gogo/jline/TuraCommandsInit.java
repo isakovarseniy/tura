@@ -49,7 +49,8 @@ public class TuraCommandsInit {
 	
         processor.addCommand("gogo", new ClosureOperation(), "addClosure");
 
-		
+        processor.addCommand("tura", new ExtensionInitializationOperation(), "postInit");
+
 		
 	}
 
