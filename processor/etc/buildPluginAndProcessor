@@ -1,5 +1,7 @@
 eclipse_sirius = system:getproperty ECLIPSE_SIRIUS
 
+tura:install maven   
+
 echo Build tura eclipse plugin
 tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
 
