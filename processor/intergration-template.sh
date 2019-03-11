@@ -24,4 +24,4 @@ TURA_HOME=~/Repo/tura
 JLINE_OPTS=-DAPP_HOME="$APP_HOME";export JLINE_OPTS
 EXTENSION="$TARGETDIR/processor-extension-1.6.jar";export EXTENSION
 
-$TURA_HOME/processor/tura-gogo.sh
+$TURA_HOME/processor/tura-gogo.sh "$1"
