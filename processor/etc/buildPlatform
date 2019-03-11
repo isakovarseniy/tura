@@ -1,7 +1,7 @@
 
 try {
 
-
+tura:install maven
 
 tura:mvn build --pom.xml  $tura_home/platform/pom.xml --P firstPass
 

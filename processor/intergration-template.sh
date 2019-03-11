@@ -17,11 +17,11 @@ REALNAME=$(realpath "$0")
 DIRNAME=$(dirname "${REALNAME}")
 PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
-SCORM_HOME=${DIRNAME}
-TARGETDIR=$SCORM_HOME/processor-extension/target
+APP_HOME=${DIRNAME}
+TARGETDIR=$APP_HOME/processor-extension/target
 TURA_HOME=~/Repo/tura
 
-JLINE_OPTS=-DSCORM_HOME="$SCORM_HOME";export JLINE_OPTS
+JLINE_OPTS=-DAPP_HOME="$APP_HOME";export JLINE_OPTS
 EXTENSION="$TARGETDIR/processor-extension-1.6.jar";export EXTENSION
 
 $TURA_HOME/processor/tura-gogo.sh
