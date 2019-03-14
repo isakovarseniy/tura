@@ -19,7 +19,6 @@ PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
 TARGETDIR=${DIRNAME}
 TURA_HOME=${ROOTDIR}
-ECLIPSE_SIRIUS=${HOME}/tools/eclipse-sirius/
 
 opts="${JLINE_OPTS}"
 logconf="${DIRNAME}/etc/logging.properties"
@@ -70,6 +69,5 @@ java -cp ${TARGETDIR}/processor-2.0-jar-with-dependencies.jar:${EXTENSION}\
      $opts \
     -Dgosh.home="${DIRNAME}" \
     -DTURA_HOME="${TURA_HOME}" \
-    -DECLIPSE_SIRIUS="${ECLIPSE_SIRIUS}" \
     -Djava.util.logging.config.file="${logconf}" \
     org.apache.felix.gogo.jline.TuraMain ${cmd}

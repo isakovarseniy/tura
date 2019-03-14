@@ -1,11 +1,31 @@
-eclipse_sirius = system:getproperty ECLIPSE_SIRIUS
-
 tura:install maven   
 
 echo Build tura eclipse plugin
 tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
 
+
+tura:dsl copyFile                                         \
+         --targetLocation $user_home/.tura                \
+         --targetName tura.product-linux.gtk.x86_64.zip   \
+         --sourceResource $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product-linux.gtk.x86_64.zip
+
+
+tura:dsl copyFile                                            \
+         --targetLocation $user_home/.tura                   \
+         --targetName tura.product-macosx.cocoa.x86_64.zip   \
+         --sourceResource $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product-macosx.cocoa.x86_64.zip
+
+
+tura:dsl copyFile                                            \
+         --targetLocation $user_home/.tura                   \
+         --targetName tura.product-win32.win32.x86.zip   \
+         --sourceResource $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product-win32.win32.x86.zip
+
+
 echo Install dependency
+
+eclipse_sirius = $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product/linux/gtk/x86_64
+
 
 tura:mvn install --file=$eclipse_sirius/plugins/org.eclipse.ocl.ecore_3.5.0.v20150525-1635.jar --groupId=org.eclipse.ocl  --artifactId=org.eclipse.ocl.ecore --version=3.5.0.v20150525-1635 --packaging=jar
 
