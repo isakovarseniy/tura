@@ -16,8 +16,10 @@
    <launcherArgs>
       <programArgs>-consoleLog
       </programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=256m -Xms256m -Xmx4096m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      <vmArgs>-XX:MaxPermSize=256m -Xms256m -Xmx4096m
       </vmArgs>
+      <vmArgsLin>-Dosgi.requiredJavaVersion=1.7 -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsLin>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
@@ -25,6 +27,7 @@
    <windowImages i16="eclipse16.png" i32="eclipse32.png" i48="eclipse48.png"/>
 
    <splash
+      location="org.eclipse.platform"
       startupProgressRect="2,290,448,10"
       startupMessageRect="7,265,320,20"
       startupForegroundColor="FFFFFF" />
@@ -36,7 +39,6 @@
    </launcher>
 
    <vm>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
    </vm>
 
    <plugins>
@@ -1491,7 +1493,6 @@
       <plugin id="org.w3c.dom.svg.source"/>
    </plugins>
 
-
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
@@ -1499,6 +1500,5 @@
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
    </configurations>
-
 
 </product>
