@@ -30,6 +30,7 @@ import org.apache.felix.gogo.jline.command.DSLCopyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyMonthlyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyRoles;
 import org.apache.felix.gogo.jline.command.DSLCopyUsers;
+import org.apache.felix.gogo.jline.command.DSLCreateLink;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
 import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
 import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
@@ -112,7 +113,7 @@ public class DSLOperation  {
                 .addSubcommand("exec", new DSLExecuteExternal())
                 .addSubcommand("copyMonthlyFiles", new DSLCopyMonthlyFile())
                 .addSubcommand("wfStartupConfig", new DSLWildFlyConfiguration())
-                                
+                .addSubcommand("createLink", new DSLCreateLink())
         ;
     }
 

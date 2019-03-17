@@ -39,13 +39,13 @@
 	<repositories>
 		<repository>
 			<id>repo</id>
-			<url> https://mvnrepository.com/artifact/</url>
+			<url>https://mvnrepository.com/artifact/</url>
 		</repository>
 		<repository>
 			<id>redhat</id>
-			<url>https://maven.repository.redhat.com/nexus/content/groups/product-ga</url>
-
+			<url>https://maven.repository.redhat.com/ga/</url>
 		</repository>
+		
 		<repository>
 			<id> redhat 2</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>

@@ -2418,7 +2418,7 @@
                     <properties confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
                     <properties confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
                     <properties confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="localhost"/>
-                    <properties uid="187df2e9-4445-42d3-84ca-21ae4450d46e" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
+                    <properties uid="187df2e9-4445-42d3-84ca-21ae4450d46e" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
                   </configurations>
                   <infrastructures uid="5d633cff-2139-490a-9bfc-64b5c3d2cf5b" name="Development"/>
                   <recipe2Infrastructures uid="a5cd6142-bb7e-45ac-a8fb-e9a1100c1945" source="8d9145b8-4528-4cde-b96c-ded8331c2011" target="5d633cff-2139-490a-9bfc-64b5c3d2cf5b"/>
@@ -2702,7 +2702,7 @@
                     <properties uid="26b91093-b53c-4c66-99ec-b1c6c1172f9c" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
                     <properties uid="81a3e051-4e9c-4602-becf-4eca269dcc2b" confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="LOCALHOST"/>
                     <properties uid="ff249de0-648d-4626-96e4-a56229a47cc7" confVarRef="6a7494ac-ac73-41db-952e-b47dbc241639" value="postgres"/>
-                    <properties uid="ec31603d-5935-4dc9-b397-e3f0ef416a19" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
+                    <properties uid="ec31603d-5935-4dc9-b397-e3f0ef416a19" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
                   </configurations>
                   <infrastructures uid="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" name="Development"/>
                   <recipe2Infrastructures uid="171611f7-fe02-4f52-a49a-92a5ae58bee2" source="80a7bd65-32b9-4094-9edf-534c7bdc5d3b" target="30c7d8fe-161c-416a-a9e1-d7e6ba28a746"/>
@@ -2818,9 +2818,9 @@
                     <startSeq uid="348579fc-964d-4c37-9ad0-21f7b9f6457e" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.2/@recipe/@deplymentStep.4"/>
                   </recipe>
                   <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
-                    <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/.tura/resources/apache-maven"/>
-                    <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.3.3"/>
-                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
+                    <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
+                    <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
+                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="${HOME}/.tura/tura/examples"/>
                   </configurations>
                   <infrastructures uid="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" name="Development"/>
                   <recipe2Infrastructures uid="dbc26269-9c00-45bc-8dca-f10535597578" source="7ee0d7d5-b270-4c71-b18e-4201158b1152" target="5d499be9-cf3b-4ef5-8e72-85ceec683c6c"/>
@@ -3008,8 +3008,8 @@
                     <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/eap-7.0.0"/>
                     <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
                     <properties uid="2c3d7a7f-2dc8-499b-b8b0-cddc19c32f21" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
-                    <properties uid="8a12267d-7828-41ab-ade7-e0f0b4f1adad" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
-                    <properties uid="5b6cf6b5-e04f-47bb-9722-dd30abf658ff" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
+                    <properties uid="8a12267d-7828-41ab-ade7-e0f0b4f1adad" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
+                    <properties uid="5b6cf6b5-e04f-47bb-9722-dd30abf658ff" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="${HOME}/.tura/tura/examples"/>
                   </configurations>
                   <configurations uid="67fda0b2-5539-4648-ba8a-76c2dc7b9809">
                     <properties uid="f8c812a1-5e0d-422b-be97-2b49c52ebe06" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="/hrapplication"/>
@@ -3162,7 +3162,7 @@
                   </recipe>
                   <configurations uid="3e06c28e-87c8-4899-82aa-884cbaee4ba9">
                     <properties uid="dd55b6cc-70b4-46e7-a0f2-cd6fcb777bf1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
-                    <properties uid="7cb5ea32-930a-4524-b471-6f52d774e462" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code"/>
+                    <properties uid="7cb5ea32-930a-4524-b471-6f52d774e462" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
                   </configurations>
                   <infrastructures uid="08794b78-50ee-4267-a64d-c2fea7a950da" name="Development"/>
                   <recipe2Infrastructures uid="9a4637bf-cbdd-4670-aebd-69426e3b7a14" source="79ad0912-2614-4e51-8828-741f315d47d2" target="08794b78-50ee-4267-a64d-c2fea7a950da"/>
@@ -8594,10 +8594,10 @@
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
-                    <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generation-code/sa"/>
+                    <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code/sa"/>
                     <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="dadf75b2-ef21-4b04-a86f-789e0a37cac7" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
-                    <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
+                    <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="${HOME}/.tura/tura/examples"/>
                     <properties uid="7f75ec76-23fc-4b76-b37c-4ca1c5cfce8d" confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="NA"/>
                     <properties uid="04c53127-5ce1-48fc-b552-6086752bc1a7" confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
                     <properties uid="cc26db33-6161-4abc-9b63-9d7987bf904a" confVarRef="6a7494ac-ac73-41db-952e-b47dbc241639" value="NA"/>

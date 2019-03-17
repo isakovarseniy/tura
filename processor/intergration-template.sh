@@ -19,7 +19,7 @@ PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
 APP_HOME=${DIRNAME}
 TARGETDIR=$APP_HOME/processor-extension/target
-TURA_HOME=~/Repo/tura
+TURA_HOME=${HOME}/.tura/tura
 
 JLINE_OPTS=-DAPP_HOME="$APP_HOME";export JLINE_OPTS
 EXTENSION="$TARGETDIR/processor-extension-1.6.jar";export EXTENSION

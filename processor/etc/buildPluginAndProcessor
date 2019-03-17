@@ -1,4 +1,5 @@
 tura:install maven   
+tura:dsl createLink --targetDirectory $tura_home --sourceDirectory $user_home/.tura --linkName tura
 
 echo Build tura eclipse plugin
 tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
