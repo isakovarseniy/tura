@@ -20,11 +20,6 @@ setproperty chromedriverversion '2.40'
 setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
 tura_home = system:getproperty TURA_HOME
 
-system:setproperty Generation\ path  $user_home/generation-code
-system:setproperty Builder\ location  $user_home/.tura/resources/apache-maven
-system:setproperty External\ path\ 1 $tura_home/examples
-
-
 complete -c tura:install -e
 complete -c tura:install -d "Tura install" 
 complete -c tura:install -a '__install_picocliCompleter'

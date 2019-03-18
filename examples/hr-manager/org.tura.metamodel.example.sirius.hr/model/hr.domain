@@ -3005,7 +3005,7 @@
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
                     <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="NA"/>
-                    <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/eap-7.0.0"/>
+                    <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="NA"/>
                     <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
                     <properties uid="2c3d7a7f-2dc8-499b-b8b0-cddc19c32f21" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="8a12267d-7828-41ab-ade7-e0f0b4f1adad" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code"/>
@@ -7967,7 +7967,7 @@
                 <recipes uid="af390b23-3ad7-4956-adee-d35999b7ef1f" name="Recipe">
                   <recipe mappers="d4fa82b7-af79-41cb-a450-74d234ec4404 b967e6c3-0736-40b4-b482-0a563c758f53 a6a5073b-a000-4dc1-950c-cbebd8dfff6e" uid="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" name="Recipe">
                     <ingredients uid="3999e872-6baa-487e-aef1-45c6b8e17e6c" name="Persistance object" controllerLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer/sa" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="f9be98f4-656b-4495-a580-e89e1e450d41" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Database service persistence object">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="cc160a62-016c-4a4c-8616-2e212ffb0c01" name="Query classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -7998,7 +7998,7 @@
                           </queries>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="20c3f05e-db62-40d0-bbf8-eedfa14bc757" name="Keycloak persistance objects" componentRoot="${Generation path}/serviceLayer" artifactId="keycloak-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="20c3f05e-db62-40d0-bbf8-eedfa14bc757" name="Keycloak persistance objects" componentRoot="${Generation path}/serviceLayer/sa" artifactId="keycloak-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="a5d3db7e-1fbf-4c84-bf03-991c626c12b4" artifactRef="68246b4d-fccf-4565-a0c6-df4c18a8f205" name="Keycloak service persistance object">
                           <queries uid="358d8e98-25ce-40ac-8ddb-d4838d943d6e" name="Query package" queryRef="47a3e12d-a07a-4141-b1a8-2e470cffcd50">
                             <variables queryParamRef="b7bad5a3-e701-4cd2-b1a0-17687a16bbf1" value="Sales Analyzer"/>
@@ -8029,7 +8029,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="1" uid="64e6dd6f-d497-402a-a36c-c3dac28a5c98" name="Serialized objects" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2b86f04-e027-40ca-8ca1-83ae8d93437d" name="Serialization" componentRoot="${Generation path}/serviceLayer" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2b86f04-e027-40ca-8ca1-83ae8d93437d" name="Serialization" componentRoot="${Generation path}/serviceLayer/sa" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="a61d9cc7-a089-47d4-8463-13bf0fb1b015" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialized objects">
                           <queries uid="d370ef61-5aa7-41ac-9da1-30ff66a25b05" name="Query db classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Sales Analyzer"/>
@@ -8058,7 +8058,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="4" uid="d09c96fe-d3e9-48f0-bbc7-8f202be7c09c" name="Proxy  Repository" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="4" uid="ce154fa7-a23b-4ff7-8a2d-ca04732d6b54" name="Proxy" componentRoot="${Generation path}/serviceLayer" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.proxy">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="4" uid="ce154fa7-a23b-4ff7-8a2d-ca04732d6b54" name="Proxy" componentRoot="${Generation path}/serviceLayer/sa" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.proxy">
                         <mappers uid="240dc3ba-43ce-4c61-9ae9-9959ed557517" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository Proxy objects">
                           <queries uid="3e7f470b-8392-4588-a7d6-fa5c8eea940c" name="Query db classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="Sales Analyzer"/>
@@ -8091,7 +8091,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="2" uid="bf5643c8-9774-4782-8c94-1c116cb26300" name="JPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="JPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="jpa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.db.repo">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="JPA Repository" componentRoot="${Generation path}/serviceLayer/sa" artifactId="jpa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.db.repo">
                         <mappers uid="98a58836-2fa1-4c84-95ce-200b2ccc1bfe" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
                           <queries uid="b4131cbf-6284-460a-bc55-725db07b553f" name="Query db classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -8118,7 +8118,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="3" uid="da0548b4-da6f-4caa-941e-9658adf0ba55" name="SPA Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="1ec0c9e9-3ea2-4384-a0a4-35b339d874e5" name="SPA Repository" componentRoot="${Generation path}/serviceLayer" artifactId="spa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.repo">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="1ec0c9e9-3ea2-4384-a0a4-35b339d874e5" name="SPA Repository" componentRoot="${Generation path}/serviceLayer/sa" artifactId="spa-persistence-repository" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.serialized.repo">
                         <mappers uid="eccc6543-eee5-44c7-8f4e-bd27a349faed" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="9029e1ff-668e-4cf2-a5b0-685a294012f2"/>
                           <queries uid="34ce5319-def4-4961-90aa-da823e2ce6bb" name="Query jbpm classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -8166,7 +8166,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="5" uid="634aa7eb-a351-43a9-888b-390f69726959" name="Admin application" vewLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc" modelLayer="fa2406e6-8810-465c-a5d8-14c807a4c4a9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b61f962e-8cf9-4790-a5c3-ffb7150cedee" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b61f962e-8cf9-4790-a5c3-ffb7150cedee" name="UI component" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-admin" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
                         <mappers uid="2ae62993-a244-424a-a2ad-c09417e61252" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
@@ -8252,7 +8252,7 @@
                         </mappers>
                         <mappers uid="b0343dab-e755-4c4a-aef2-2ca8aa565099" artifactRef="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="jboss-deployment-structure" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/jboss-deployment-structure.egl"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="9b67298c-b0e9-42e0-a500-8f4588661c8b" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="9b67298c-b0e9-42e0-a500-8f4588661c8b" name="UI component interface" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-admin-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
                         <mappers uid="2e147b9d-2136-4a09-baf5-9513f12a48e9" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Data control interface">
                           <queries uid="62506c50-c317-425d-86bf-bdd12caeb5c3" name="Query form" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
@@ -8306,7 +8306,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="9" uid="96201863-21a1-4152-bb43-ee60d3524e5d" name="Testing" controllerLayer="06dcbf36-6d39-431b-bf41-b02c0390e50e">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2abf37c-393c-4f36-9e50-4354183bdd3f" name="Selenium testing package" componentRoot="${Generation path}/uiLayer" artifactId="sa-admin-pageobjects" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2abf37c-393c-4f36-9e50-4354183bdd3f" name="Selenium testing package" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-admin-pageobjects" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.admin">
                         <mappers uid="74c6cd62-bed3-4bc0-9a59-8e1c25befed7" artifactRef="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Page Object">
                           <technologies techRef="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" valueRef="a1acf69c-3adf-45a6-a515-9353cce02808"/>
                           <queries uid="1be06941-fb4e-4849-8257-b5c99c2f092d" name="Query Form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
@@ -8334,7 +8334,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="6" uid="6ba2cbb8-3cba-446c-8bcd-bc8bd5462609" name="Case manager" vewLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc" modelLayer="fa2406e6-8810-465c-a5d8-14c807a4c4a9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="4cae40b8-668b-42ae-8089-cc14a6f73442" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="sa-case-manager" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.casemanagment">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="4cae40b8-668b-42ae-8089-cc14a6f73442" name="UI component" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-case-manager" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.casemanagment">
                         <mappers uid="03ce3ea5-c622-423d-8c87-0dc01d1126fe" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
@@ -8420,7 +8420,7 @@
                         </mappers>
                         <mappers uid="76898da3-c51c-442c-8d26-f5a62ccb5ef8" artifactRef="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="jboss-deployment-structure" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/jboss-deployment-structure.egl"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="c2791869-406e-4ecd-b5a8-591170ac45c3" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-case-manager-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.casemanagment">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="c2791869-406e-4ecd-b5a8-591170ac45c3" name="UI component interface" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-case-manager-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.casemanagment">
                         <mappers uid="f4f0d66b-8ee9-4c36-a5ec-2f3668e41f5b" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Datacontrol interface">
                           <queries uid="613b450a-3ec2-4456-a75f-72e5203de263" name="Query form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
                             <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
@@ -8455,7 +8455,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="7" uid="3c5167b7-21a5-44b8-9298-9d65292fe90d" name="ETLController" vewLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc" modelLayer="fa2406e6-8810-465c-a5d8-14c807a4c4a9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="a02b8445-f4aa-4e52-b11f-8798d6684d50" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="sa-etl-controller" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="a02b8445-f4aa-4e52-b11f-8798d6684d50" name="UI component" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-etl-controller" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
                         <mappers uid="8166c349-d78e-413d-a8b6-097e0daa5789" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
@@ -8541,7 +8541,7 @@
                         </mappers>
                         <mappers uid="0962e743-2e30-4fec-9509-2539b20982d7" artifactRef="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="jboss deployment structure" artifactExtension="platform:/plugin/org.tura.metamodel.generation/template/custom/sales_analyzer/case_manager/jboss-deployment-structure.egl"/>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="f272856f-5a8e-42cf-8449-23d40057b160" name="UI component interface" componentRoot="${Generation path}/uiLayer" artifactId="sa-etl-controller-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="f272856f-5a8e-42cf-8449-23d40057b160" name="UI component interface" componentRoot="${Generation path}/uiLayer/sa" artifactId="sa-etl-controller-interface" groupId="org.tura.sales-analyzer" version="1.0" basePackage="org.tura.salesanalyzer.etlcontroller">
                         <mappers uid="a6595d9f-16b2-4275-b14f-3bbe7bbf2f96" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Datacontrol interface">
                           <queries uid="b33ea088-3f11-453e-8c83-b707f291ad57" name="Query form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
                             <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
@@ -8594,7 +8594,7 @@
                     <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
-                    <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code/sa"/>
+                    <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="${HOME}/generation-code/"/>
                     <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="${HOME}/.tura/resources/apache-maven"/>
                     <properties uid="dadf75b2-ef21-4b04-a86f-789e0a37cac7" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="5f1ee150-af86-4162-a900-0bac65e17c6b" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="${HOME}/.tura/tura/examples"/>

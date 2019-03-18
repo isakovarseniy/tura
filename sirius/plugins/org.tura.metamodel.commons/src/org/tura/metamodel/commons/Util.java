@@ -222,9 +222,10 @@ public class Util {
     public static String getComponentRoot(String root, HashMap<String, Object> configuration){
         for (String key : configuration.keySet() ){
             if (configuration.get(key) instanceof String){
-               root = root.replaceAll("\\$\\{"+ key + "\\}", (String)configuration.get(key));
+               root = root.replace("${"+ key + "}", (String)configuration.get(key));
             }
         }
+        root = root.replace("${HOME}", System.getProperty("user.home"));
         return root;
     }
     
