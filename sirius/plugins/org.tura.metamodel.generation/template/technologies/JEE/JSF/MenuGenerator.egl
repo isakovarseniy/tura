@@ -124,6 +124,12 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 		           %][%=setAttribute(util.mergeAndUnCapitalize(self.name),"action",buildExpression(field,hints,hash))%][%
 		    }        
 
+            var classifierUUID = util.getHint(model_mapper,"oncomplete");
+            var list = self.findClassifiedField(classifierUUID);
+		    for ( field in  list){
+		           %][%=setAttribute(util.mergeAndUnCapitalize(self.name),"Oncomplete",buildExpression(field,hints,hash))%][%
+		    }        
+
 
         %]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
