@@ -322,7 +322,7 @@ class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
    val Column[*] cols;
 }
 
-class Menu extends Uielement{
+class Menu extends Uielement,MultiLangLabel{
 }
 
 

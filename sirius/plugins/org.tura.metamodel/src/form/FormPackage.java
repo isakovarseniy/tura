@@ -4824,13 +4824,22 @@ public interface FormPackage extends EPackage {
 	int MENU__REFRESH_AREAS = UIELEMENT__REFRESH_AREAS;
 
 	/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__MULTI_LANG_LABEL = UIELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Menu</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 0;
+	int MENU_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.BlockUIImpl <em>Block UI</em>}' class.

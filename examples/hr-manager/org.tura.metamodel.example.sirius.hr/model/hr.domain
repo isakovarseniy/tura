@@ -315,6 +315,8 @@
             <hints uid="5d1fc553-f03f-4a44-abd9-ccd19720d0f3" name="poll.stop" hint="74d8f53b-3aa8-4797-9ca0-b3614877e8f9"/>
             <hints uid="27429e73-47ec-4fa6-9d1f-2dcd20e930c1" name="poll.autostart" hint="b2ba9e2d-9638-462f-bbee-4ae89e119a98"/>
             <hints uid="0e5c5e4f-077d-4791-bc1e-3fc0f9310e1b" name="poll.listner" hint="3ddbb371-e065-4191-9201-f4010117e04c"/>
+            <hints uid="fce4b150-edb4-4e80-968c-4c9824052a81" name="panelMenu" hint="78aa9935-1217-492d-a6d1-16258b001abd"/>
+            <hints uid="58c7427e-eb4b-4207-8573-778ab288aeec" name="menuButton" hint="70a0b140-c90d-4a8b-b306-5b8170ebe0a6"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -514,6 +516,8 @@
             <hints uid="74d8f53b-3aa8-4797-9ca0-b3614877e8f9" name="poll.stop"/>
             <hints uid="b2ba9e2d-9638-462f-bbee-4ae89e119a98" name="poll.autostart"/>
             <hints uid="3ddbb371-e065-4191-9201-f4010117e04c" name="poll.listner"/>
+            <hints uid="78aa9935-1217-492d-a6d1-16258b001abd" name="panelMenu"/>
+            <hints uid="70a0b140-c90d-4a8b-b306-5b8170ebe0a6" name="menuButton"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>

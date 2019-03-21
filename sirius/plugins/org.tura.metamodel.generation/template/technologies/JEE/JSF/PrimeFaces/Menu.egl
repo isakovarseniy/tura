@@ -9,10 +9,10 @@ operation form::Menu draw(hash) {
      var hints = new Native('java.util.HashMap');
      
      hash.get("menuReferences").add(self);
+     var extrainfo = ""; 
  
- 
-      var menuType = "p:menubar";
-      var currentMenueItem="";
+     var menuType = "p:menubar";
+     var currentMenueItem="";
      if (self.findClassifier(util.getHint(model_mapper,"tabMenu"))){
        var expression = constructExpression(self,'tabMenu.currentItem',hints, hash);
        if (expression <> ""){
@@ -28,14 +28,21 @@ operation form::Menu draw(hash) {
        menuType = "p:steps";
      }
 
+     if (self.findClassifier(util.getHint(model_mapper,"panelMenu"))){
+       menuType = "p:panelMenu";
+     }
 
+     if (self.findClassifier(util.getHint(model_mapper,"menuButton"))){
+       menuType = "p:menuButton";
+       var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";
+       extrainfo = extrainfo+ " "+ title;
+     }
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      
 %]
-    <[%=menuType%] [%=currentMenueItem%]  model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]/>    
+    <[%=menuType%] [%=extrainfo%] [%=currentMenueItem%]  model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]/>    
 [%
-     hash.put("context",null);
      util.traceIfDebug("UI element","Menu end: "+self.uid);     
 }
 %]

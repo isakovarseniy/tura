@@ -640,6 +640,7 @@ public class FormSwitch<T> extends Switch<T> {
 				Menu menu = (Menu)theEObject;
 				T result = caseMenu(menu);
 				if (result == null) result = caseUielement(menu);
+				if (result == null) result = caseMultiLangLabel(menu);
 				if (result == null) result = caseStyleElement(menu);
 				if (result == null) result = caseNickNamed(menu);
 				if (result == null) result = caseCategorized(menu);

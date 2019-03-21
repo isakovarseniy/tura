@@ -13,7 +13,7 @@ operation  form::Canvas draw(hash) {
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:tura="http://primefaces.platform.tura.org/functions"
-        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
+        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="[%=self.columns%]" >
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

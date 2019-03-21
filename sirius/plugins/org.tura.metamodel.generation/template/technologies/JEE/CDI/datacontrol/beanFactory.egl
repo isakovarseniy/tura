@@ -42,10 +42,12 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
 	   for ( frmvar in root.variables){
 	   %]
 	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%](){
+	             init();
 	              return this.[%=util.mergeAndUnCapitalize(frmvar.name)%];
 	   }
 	   
 	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]){
+                  init();
 	              this.[%=util.mergeAndUnCapitalize(frmvar.name)%] = [%=util.mergeAndUnCapitalize(frmvar.name)%];
 	   }
 	   [%

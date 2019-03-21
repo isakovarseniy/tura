@@ -11,20 +11,27 @@
 
 	<name>Sales Analyzer :: Dependency loader</name>
 	<artifactId>dependency-loader</artifactId>
-	
+
 	<packaging>jar</packaging>
 
 	<dependencies>
 
-      <!--   Dependency for install adapter on docker wildfly -->
+		<!-- Dependency for install adapter on docker wildfly -->
 
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-wildfly-adapter-dist</artifactId>
-			<version>4.8.3.Final</version>
+			<version>${keycloak-version}</version>
 			<type>zip</type>
 		</dependency>
 
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server</artifactId>
+			<version>${drools-version}</version>
+			<type>war</type>
+			<classifier>ee7</classifier>
+		</dependency>
 
 	</dependencies>
 

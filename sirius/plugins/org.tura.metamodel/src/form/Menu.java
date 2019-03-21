@@ -13,5 +13,5 @@ package form;
  * @model
  * @generated
  */
-public interface Menu extends Uielement {
+public interface Menu extends Uielement, MultiLangLabel {
 } // Menu
