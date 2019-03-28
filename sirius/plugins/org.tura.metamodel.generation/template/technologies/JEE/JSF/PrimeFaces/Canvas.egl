@@ -5,6 +5,9 @@ operation  form::Canvas draw(hash) {
      var form = hash.get("form");   
      var uipackage = hash.get("uipackage");
 
+     var model_mapper = hash.get('model_mapper');
+     var classifierUUID = util.getHint(model_mapper,"panel.columns.class");
+
      util.traceIfDebug("UI element","Canvas start: "+self.name);     
      
 %]
@@ -13,7 +16,7 @@ operation  form::Canvas draw(hash) {
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:tura="http://primefaces.platform.tura.org/functions"
-        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="[%=self.columns%]" >
+        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="[%=self.columns%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

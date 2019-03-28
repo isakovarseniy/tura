@@ -10,10 +10,18 @@ operation web_xml_serverspecific(hash){
    var ingredient = hash.get("ingredient");
    var app = hash.get("application");
 
+   var model_mapper = hash.get("model_mapper");
+
+   var list = model_mapper.findAllClassifiers(util.getHint(model_mapper,"application.context.root"));
+   var context = util.mergeAndCapitalize(component.artifactId).toLowerCase();
+   if ( list<> null and list.size() <> 0){
+     context = list.get(0).details;
+   }
+
    
 %]
 <jboss-web>
-        <context-root>[%=util.mergeAndCapitalize(component.artifactId).toLowerCase()%]</context-root> 
+        <context-root>[%=context%]</context-root> 
 </jboss-web>
 [%
  

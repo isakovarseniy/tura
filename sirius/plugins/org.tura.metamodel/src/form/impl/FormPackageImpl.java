@@ -3745,6 +3745,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		canvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		canvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		canvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
+		canvasEClass.getESuperTypes().add(this.getFlexFields());
 		windowEClass.getESuperTypes().add(this.getCanvasFrame());
 		windowEClass.getESuperTypes().add(this.getViewPortHolder());
 		windowEClass.getESuperTypes().add(this.getMultiLangLabel());

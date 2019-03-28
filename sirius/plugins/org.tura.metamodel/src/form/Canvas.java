@@ -14,5 +14,5 @@ import artifact.Categorized;
  * @model
  * @generated
  */
-public interface Canvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel, Categorized {
+public interface Canvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel, Categorized, FlexFields {
 } // Canvas

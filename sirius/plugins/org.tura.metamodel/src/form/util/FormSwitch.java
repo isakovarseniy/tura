@@ -152,6 +152,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDefaultCavas(canvas);
 				if (result == null) result = caseMultiLangLabel(canvas);
 				if (result == null) result = caseCategorized(canvas);
+				if (result == null) result = caseFlexFields(canvas);
 				if (result == null) result = caseStyleElement(canvas);
 				if (result == null) result = caseHTMLLayerHolder(canvas);
 				if (result == null) result = defaultCase(theEObject);

@@ -63,7 +63,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized #//FlexFields"/>
   <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized permission.ecore#//Secured"/>
   <eClassifiers xsi:type="ecore:EClass" name="MenuDefinition" eSuperTypes="#//StyleElement artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -362,6 +362,7 @@
             <hints uid="7713d7e1-8898-42e6-8c85-1860c31bdac4" name="login.page" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
             <hints uid="d4468815-5b2c-4371-bef4-f2c02b2d95ce" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
             <hints uid="6edf42fe-78ae-4f3e-b6bf-de5054b17d3b" name="NotConfidential" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
+            <hints uid="3c69d181-abe4-4836-88ca-4f323fa49d4f" name="application.context.root" hint="512d3bdd-19dc-44ad-93ab-9e3c5d894095"/>
           </artifacts>
           <artifacts uid="c2c2a8d3-4b1e-410a-9ade-0971d5a0bef3" name="All Pagers" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/mainAllPagers.egl">
             <configVariables uid="c37f1a01-4cd2-46df-9309-9882e5349dcc" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -497,6 +498,7 @@
           <hints uid="a24ca484-c882-4e80-961a-8093e6dc5803" name="exception.type.handler"/>
           <hints uid="d74f5a9a-dd22-4885-b1ba-2cfb9a078e7a" name="message.encoding"/>
           <hints uid="ec480494-233c-48a5-ab77-4e0c94136b36" name="NotConfidential"/>
+          <hints uid="512d3bdd-19dc-44ad-93ab-9e3c5d894095" name="application.context.root"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">

@@ -639,13 +639,22 @@ public interface FormPackage extends EPackage {
 	int CANVAS__CLASSIFIERS = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANVAS__FIELDS = CANVAS_FRAME_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Canvas</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 5;
+	int CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.WindowImpl <em>Window</em>}' class.
