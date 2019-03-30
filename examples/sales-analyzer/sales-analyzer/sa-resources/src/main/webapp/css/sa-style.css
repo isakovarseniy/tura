@@ -253,3 +253,7 @@
 }
 
 
+.ui-widget,
+.ui-widget .ui-widget {
+    font-size: 0.8vw !important;
+}
