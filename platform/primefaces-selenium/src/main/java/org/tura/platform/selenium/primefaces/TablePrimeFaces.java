@@ -21,8 +21,7 @@
  */
 package org.tura.platform.selenium.primefaces;
 
-import java.util.NoSuchElementException;
-
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,6 +53,24 @@ public class TablePrimeFaces implements Table {
 	@Override
 	public boolean isEmpty() {
 		return element.findElement(By.cssSelector("tr[class='ui-widget-content ui-datatable-empty-message']")).isDisplayed();
+	}
+
+	@Override
+	public void nextPage() {
+		Helper helper = new Helper(driver);
+
+		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "span[class='ui-icon ui-icon-seek-next']" ));
+		pagenatorNextElement.click();
+		helper.waitForJQueryAndPrimeFaces();
+	}
+
+	@Override
+	public void prevPage() {
+		Helper helper = new Helper(driver);
+
+		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "span[class='ui-icon ui-icon-seek-prev']" ));
+		pagenatorNextElement.click();
+		helper.waitForJQueryAndPrimeFaces();
 	}
 
 }

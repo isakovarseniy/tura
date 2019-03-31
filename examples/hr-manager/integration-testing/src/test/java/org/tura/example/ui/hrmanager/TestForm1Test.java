@@ -19,6 +19,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.configuration.dsl.commons.ConfigConstants;
 import org.tura.example.ui.hrmanager.testform1.pageobject.TestForm1PageObject;
 import org.tura.platform.selenium.Table;
+import org.tura.platform.selenium.primefaces.Repeater;
 import org.tura.platform.selenium.primefaces.SeleniumActionExecutor;
 
 public class TestForm1Test extends AbstractTest {
@@ -429,4 +430,98 @@ public class TestForm1Test extends AbstractTest {
 	}
 	
 
+	@Test
+	public void t000_TestForm8() {
+		try {
+			driver.get(app_url);
+
+			TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+			
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+			
+			Table t = testForm1Page.getDeptTable();
+			WebElement el = t.getRow(36).getCell(0);
+			assertEquals("Department 2-10", el.getText());
+			
+			try {
+				 t = testForm1Page.getDeptTable();
+				t.getRow(37).getCell(0);
+				fail();
+			} catch (NoSuchElementException e1) {
+
+			}
+			
+			el.click();
+			
+			
+			for ( int i = 0; i < 6; i++) {
+			
+				new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria(), TestForm1PageObject.getDeptTableSearchCriteria()) {
+					public void action(WebDriver driver) {
+						TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+						testForm1Page.getRmDep().click();
+					}
+				}.run();
+				
+				t = testForm1Page.getDeptTable();
+				assertTrue( t.getRow(35-i).isSelected());
+				Table et = testForm1Page.getEmpTable();
+				assertTrue( et.isEmpty());
+			}
+			
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria(), TestForm1PageObject.getDeptTableSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					testForm1Page.getRmDep().click();
+				}
+			}.run();
+			
+			t = testForm1Page.getDeptTable();
+			assertTrue( t.getRow(29).isSelected());
+			Table et = testForm1Page.getEmpTable();
+			assertTrue( et.isEmpty());
+			
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getAllSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					testForm1Page.getRallback().click();
+				}
+			}.run();
+			
+			t = testForm1Page.getDeptTable();
+			assertTrue( t.getRow(29).isSelected());
+			et = testForm1Page.getEmpTable();
+			assertTrue( et.isEmpty());
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
 }

@@ -282,24 +282,29 @@ public class HrControllerTest extends AbstractTest {
 		assertEquals("123", el.getText());
 
 		t = hrControllerPage.getCompanies();
+		t.getRow(1).enableEditMode();
 		t.getRow(1).getCell(1).click();
 		InputText inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1).findElement(By.cssSelector("input")),
 				driver);
+		inputText.clear();
 		inputText.setValue("567");
+		t.getRow(1).acceptRowChange();;
 
+		
 		t = hrControllerPage.getCompanies();
 		button = new ButtonPrimeFaces(t.getRow(1).getCell(2).findElement(By.cssSelector("button")), driver);
 		button.click();
 
 		assertEquals("567", popUp.getDesk().getValue());
 
+		popUp.getDesk().clear();
 		popUp.getDesk().setValue("891");
 		popUp.getOk().click();
 
 		t = hrControllerPage.getCompanies();
 		el = t.getRow(1).getCell(1);
 
-		assertEquals("567891", el.getText());
+		assertEquals("891", el.getText());
 
 		t = hrControllerPage.getCompanies();
 		el = t.getRow(1).getCell(0);
@@ -326,10 +331,12 @@ public class HrControllerTest extends AbstractTest {
 		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
 
 		Table t = hrControllerPage.getCompanies();
+		t.getRow(1).enableEditMode();
 		t.getRow(1).getCell(1).click();
 		InputText inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("123");
+		t.getRow(1).acceptRowChange();
 
 		t = hrControllerPage.getCompanies();
 		Button button = new ButtonPrimeFaces(t.getRow(1).getCell(2).findElement(By.cssSelector("button")), driver);
@@ -368,15 +375,19 @@ public class HrControllerTest extends AbstractTest {
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
 
 		Table t = hrControllerPage.getCompanies();
+		t.getRow(0).enableEditMode();
 		t.getRow(0).getCell(1).click();
 		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")),
 				driver);
+		inputText.clear();
 		inputText.setValue("t6_123");
+		t.getRow(0).acceptRowChange();
 
+		t.getRow(1).enableEditMode();
 		t.getRow(1).getCell(1).click();
 		inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1).findElement(By.cssSelector("input")), driver);
 		inputText.setValue("t6_456");
-		inputText.setValue(Keys.RETURN);
+		t.getRow(1).acceptRowChange();
 
 		hrControllerPage.getSaveButton().click();
 

@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import com.google.common.base.Function;
 
 
@@ -77,4 +78,16 @@ public class Helper {
 	   return (Boolean) ((JavascriptExecutor) input).executeScript(javascript);
 	}
 
+	public static boolean hasClass(WebElement element, String clazz) {
+	    String classes = element.getAttribute("class");
+	    for (String c : classes.split(" ")) {
+	        if (c.equals(clazz)) {
+	            return true;
+	        }
+	    }
+
+	    return false;
+	}
+	
+	
 }

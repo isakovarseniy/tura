@@ -57,4 +57,9 @@ public class InputTextPrimeFaces implements InputText {
 			element.sendKeys((Keys) value);
 	}
 
+	@Override
+	public void clear() {
+		element.clear();
+	}
+
 }

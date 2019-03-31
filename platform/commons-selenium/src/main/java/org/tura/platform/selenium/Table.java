@@ -30,5 +30,9 @@ public interface Table {
 	
 	public boolean isEmpty();
 	
+	public void nextPage();
+	
+	public void prevPage();
+	
 	
 }
