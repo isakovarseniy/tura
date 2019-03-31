@@ -79,6 +79,14 @@ stopHRApplication = {
 addClosure "stopHRApplication";
 
 
+redeployHRwildfly = {
+     source $tura_home/processor/etc/hr-manager-redeploy-wildfly.recipe;    
+     hrLogWatch;
+}
+addClosure "redeployHRwildfly";
+
+
+
 
 startHRIntegrationTest = {
      tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing/pom.xml;    
@@ -104,6 +112,7 @@ hrUrlList = {
     echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2           qwerty/qwerty'
     echo 'http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm1.xhtml'
 
 }
 addClosure "hrUrlList";

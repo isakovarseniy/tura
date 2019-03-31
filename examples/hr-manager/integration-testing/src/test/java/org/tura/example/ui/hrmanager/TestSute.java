@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ HrControllerTest.class, MiscTest.class, Tree2TreeTest.class })
+@Suite.SuiteClasses({ HrControllerTest.class, MiscTest.class, Tree2TreeTest.class , TestForm1Test.class})
 public class TestSute {
 
 	@ClassRule

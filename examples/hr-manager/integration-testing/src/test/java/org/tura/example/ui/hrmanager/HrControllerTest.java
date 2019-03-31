@@ -112,6 +112,7 @@ public class HrControllerTest extends AbstractTest {
 		loginPage.getSignin().click();
 	}
 
+	
 	@Test
 	public void t000_init() {
 		driver.get(app_url);
@@ -120,10 +121,22 @@ public class HrControllerTest extends AbstractTest {
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
 
+		
 		Table t = hrControllerPage.getCompanies();
+		t.getRow(0).enableEditMode();
 		t.getRow(0).getCell(1).click();
-		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")),
-				driver);
+		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")),driver);
+		
+		inputText.setValue("111");
+		t.getRow(0).acceptRowChange();
+		hrControllerPage.getSaveButton().click();
+		t.getRow(0).enableEditMode();
+		t.getRow(0).rejecttRowChange();
+		
+		
+		t = hrControllerPage.getCompanies();
+		t.getRow(0).getCell(1).click();
+		inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")),driver);
 		inputText.setValue(Keys.DELETE);
 
 		t.getRow(1).getCell(1).click();

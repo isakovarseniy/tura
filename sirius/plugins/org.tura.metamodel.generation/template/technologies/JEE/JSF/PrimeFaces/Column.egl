@@ -11,6 +11,9 @@ operation form::Column draw(hash) {
 @template
 operation form::Column generateBody(hash){
      var hints = new Native('java.util.HashMap');
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var model_mapper = hash.get('model_mapper');
+     
 
      var title = buildExpression(self.multiLangLabel,hints,hash);
      if (title <> "" )
@@ -26,7 +29,10 @@ operation form::Column generateBody(hash){
 [%  }
      if ( self.element <> null and  "table".equals(hash.get("context") ))  {  %]
                    [%=self.tablecontext(hash)%]
-[% }%]                   
+[% }
+     if ( self.element = null  and  "table".equals(hash.get("context"))  and self.findClassifier(util.getHint(model_mapper,"table.edit.column"))   )  {  %]
+                  <p:rowEditor />
+[% }%]        
             </p:column>   
 [%
 }

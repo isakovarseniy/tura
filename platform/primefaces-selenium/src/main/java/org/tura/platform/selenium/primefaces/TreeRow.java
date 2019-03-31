@@ -76,5 +76,20 @@ public class TreeRow implements Row {
 				return true;
 		return false;
 	}
+
+	@Override
+	public void enableEditMode() {
+		doubleClick();
+	}
+
+	@Override
+	public void acceptRowChange() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void rejecttRowChange() {
+		throw new UnsupportedOperationException();
+	}
 	
 }

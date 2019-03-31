@@ -1,0 +1,6 @@
+tura:docker stopContainer --name hr-wf
+
+tura:dsl jbossDoDeploy --jboss_home $user_home/.tura/resources/hrmanager/deployments --targetName hrform-1.0.war --srcResource $user_home/.m2/repository/org/tura/example/ui/hrform/1.0/hrform-1.0.war
+
+tura:docker startContainer --name hr-wf
+

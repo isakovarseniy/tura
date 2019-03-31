@@ -65,7 +65,33 @@ public class TableRow implements Row {
 
 	@Override
 	public void doubleClick() {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 		
+	}
+
+	@Override
+	public void enableEditMode() {
+		WebElement edit = element.findElement(By.cssSelector("span[class*='ui-icon-pencil']"));
+		edit.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+	}
+
+	@Override
+	public void acceptRowChange() {
+		WebElement edit = element.findElement(By.cssSelector("span[class*='ui-icon-check']"));
+		edit.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
+	}
+
+	@Override
+	public void rejecttRowChange() {
+		WebElement edit = element.findElement(By.cssSelector("span[class*='ui-icon-close']"));
+		edit.click();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+
 	}
 }

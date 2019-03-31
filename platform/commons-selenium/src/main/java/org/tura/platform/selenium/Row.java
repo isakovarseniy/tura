@@ -29,5 +29,9 @@ public interface Row {
 	public void click();
 	public boolean isSelected();
 	public void doubleClick();
+	public void enableEditMode();
+	public void acceptRowChange();
+	public void rejecttRowChange();
+	
 	
 }
