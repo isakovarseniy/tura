@@ -524,4 +524,122 @@ public class TestForm1Test extends AbstractTest {
 
 	}
 	
+	@Test
+	public void t000_TestForm9() {
+		try {
+			driver.get(app_url);
+
+			TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+			Table t = testForm1Page.getDeptTable();
+			
+			t.getRow(1).click();
+			
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+			
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					Table t = testForm1Page.getDeptTable();
+					WebElement el =  t.getRow(11).getCell(0);
+					el.click();
+				}
+			}.run();
+
+			
+			WebElement el =  t.getRow(11).getCell(0);
+			assertEquals("Department 12", el.getText());
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+
+	
+	@Test
+	public void t000_TestForm10() {
+		try {
+			driver.get(app_url);
+
+			TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+			Table t = testForm1Page.getDeptTable();
+			
+			
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+
+			
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					Table t = testForm1Page.getDeptTable();
+					WebElement el =  t.getRow(11).getCell(0);
+					el.click();
+				}
+			}.run();
+
+			
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.prevPage(); 
+				}
+			}.repeat(10);
+			
+			new Repeater() {
+				public void action() {
+					Table t = testForm1Page.getDeptTable();
+					t.nextPage(); 
+				}
+			}.repeat(10);
+			
+			
+			WebElement el =  t.getRow(11).getCell(0);
+			assertTrue(t.getRow(11).isSelected());
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	
+	@Test
+	public void t000_TestForm11() {
+		try {
+			driver.get(app_url);
+
+			TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+			Table t = testForm1Page.getDeptTable();
+			assertTrue(t.getRow(0).isSelected());
+			
+			t = testForm1Page.getEmpTable();
+			assertTrue(t.getRow(0).isSelected());
+			
+			
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	
 }

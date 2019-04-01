@@ -167,6 +167,10 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return createOrderFromString(eDataType, initialValue);
 			case FormPackage.ORIENTATION:
 				return createOrientationFromString(eDataType, initialValue);
+			case FormPackage.SORTABLE:
+				return createSortableFromString(eDataType, initialValue);
+			case FormPackage.SELECTION_MODE:
+				return createSelectionModeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -186,6 +190,10 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return convertOrderToString(eDataType, instanceValue);
 			case FormPackage.ORIENTATION:
 				return convertOrientationToString(eDataType, instanceValue);
+			case FormPackage.SORTABLE:
+				return convertSortableToString(eDataType, instanceValue);
+			case FormPackage.SELECTION_MODE:
+				return convertSelectionModeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1158,6 +1166,46 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * @generated
 	 */
 	public String convertOrientationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sortable createSortableFromString(EDataType eDataType, String initialValue) {
+		Sortable result = Sortable.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSortableToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelectionMode createSelectionModeFromString(EDataType eDataType, String initialValue) {
+		SelectionMode result = SelectionMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSelectionModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -9,6 +9,7 @@ import form.Column;
 import form.Context;
 import form.FormPackage;
 import form.MultiLangLabel;
+import form.SelectionMode;
 import form.Table;
 
 import java.util.Collection;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.TableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link form.impl.TableImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link form.impl.TableImpl#getRowNumber <em>Row Number</em>}</li>
+ *   <li>{@link form.impl.TableImpl#getSelectionMode <em>Selection Mode</em>}</li>
  *   <li>{@link form.impl.TableImpl#getCols <em>Cols</em>}</li>
  * </ul>
  *
@@ -113,6 +115,26 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * @ordered
 	 */
 	protected int rowNumber = ROW_NUMBER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelectionMode() <em>Selection Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SelectionMode SELECTION_MODE_EDEFAULT = SelectionMode.SINGLE;
+
+	/**
+	 * The cached value of the '{@link #getSelectionMode() <em>Selection Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected SelectionMode selectionMode = SELECTION_MODE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCols() <em>Cols</em>}' containment reference list.
@@ -254,6 +276,27 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SelectionMode getSelectionMode() {
+		return selectionMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectionMode(SelectionMode newSelectionMode) {
+		SelectionMode oldSelectionMode = selectionMode;
+		selectionMode = newSelectionMode == null ? SELECTION_MODE_EDEFAULT : newSelectionMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TABLE__SELECTION_MODE, oldSelectionMode, selectionMode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Column> getCols() {
 		if (cols == null) {
 			cols = new EObjectContainmentEList<Column>(Column.class, this, FormPackage.TABLE__COLS);
@@ -293,6 +336,8 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				return getLabel();
 			case FormPackage.TABLE__ROW_NUMBER:
 				return getRowNumber();
+			case FormPackage.TABLE__SELECTION_MODE:
+				return getSelectionMode();
 			case FormPackage.TABLE__COLS:
 				return getCols();
 		}
@@ -319,6 +364,9 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				return;
 			case FormPackage.TABLE__ROW_NUMBER:
 				setRowNumber((Integer)newValue);
+				return;
+			case FormPackage.TABLE__SELECTION_MODE:
+				setSelectionMode((SelectionMode)newValue);
 				return;
 			case FormPackage.TABLE__COLS:
 				getCols().clear();
@@ -348,6 +396,9 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 			case FormPackage.TABLE__ROW_NUMBER:
 				setRowNumber(ROW_NUMBER_EDEFAULT);
 				return;
+			case FormPackage.TABLE__SELECTION_MODE:
+				setSelectionMode(SELECTION_MODE_EDEFAULT);
+				return;
 			case FormPackage.TABLE__COLS:
 				getCols().clear();
 				return;
@@ -371,6 +422,8 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case FormPackage.TABLE__ROW_NUMBER:
 				return rowNumber != ROW_NUMBER_EDEFAULT;
+			case FormPackage.TABLE__SELECTION_MODE:
+				return selectionMode != SELECTION_MODE_EDEFAULT;
 			case FormPackage.TABLE__COLS:
 				return cols != null && !cols.isEmpty();
 		}
@@ -437,6 +490,8 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 		result.append(label);
 		result.append(", rowNumber: ");
 		result.append(rowNumber);
+		result.append(", selectionMode: ");
+		result.append(selectionMode);
 		result.append(')');
 		return result.toString();
 	}

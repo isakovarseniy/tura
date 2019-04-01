@@ -310,15 +310,30 @@ class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
 }
 
+enum Sortable {
+   Not;
+   Default;
+   Asc;
+   Desc;
+}
+
+
 class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HTMLLayerHolder,common.Orderable{
     id attr EString uid;
    attr EString label;
+   attr Sortable sortable;
    val Uielement element;   
+}
+
+enum SelectionMode {
+   Single;
+   Multiple;
 }
 
 class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
    attr EString label;
    attr EInt rowNumber;
+   attr SelectionMode selectionMode;
    val Column[*] cols;
 }
 

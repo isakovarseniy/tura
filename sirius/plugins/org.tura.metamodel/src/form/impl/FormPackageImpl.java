@@ -94,6 +94,8 @@ import form.RelationMapper;
 import form.Root;
 import form.SearchTrigger;
 import form.Selection;
+import form.SelectionMode;
+import form.Sortable;
 import form.SourcesPointer;
 import form.StyleElement;
 import form.SubMenu;
@@ -815,6 +817,20 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EEnum orientationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sortableEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum selectionModeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -2204,8 +2220,17 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getColumn_Sortable() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getColumn_Element() {
-		return (EReference)columnEClass.getEStructuralFeatures().get(2);
+		return (EReference)columnEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2240,8 +2265,17 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTable_SelectionMode() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTable_Cols() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(2);
+		return (EReference)tableEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3311,6 +3345,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getSortable() {
+		return sortableEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSelectionMode() {
+		return selectionModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FormFactory getFormFactory() {
 		return (FormFactory)getEFactoryInstance();
 	}
@@ -3529,11 +3581,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__UID);
 		createEAttribute(columnEClass, COLUMN__LABEL);
+		createEAttribute(columnEClass, COLUMN__SORTABLE);
 		createEReference(columnEClass, COLUMN__ELEMENT);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__LABEL);
 		createEAttribute(tableEClass, TABLE__ROW_NUMBER);
+		createEAttribute(tableEClass, TABLE__SELECTION_MODE);
 		createEReference(tableEClass, TABLE__COLS);
 
 		menuEClass = createEClass(MENU);
@@ -3692,6 +3746,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		comparatorEEnum = createEEnum(COMPARATOR);
 		orderEEnum = createEEnum(ORDER);
 		orientationEEnum = createEEnum(ORIENTATION);
+		sortableEEnum = createEEnum(SORTABLE);
+		selectionModeEEnum = createEEnum(SELECTION_MODE);
 	}
 
 	/**
@@ -4055,11 +4111,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Sortable(), this.getSortable(), "sortable", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Element(), this.getUielement(), null, "element", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Label(), ecorePackage.getEString(), "label", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_RowNumber(), ecorePackage.getEInt(), "rowNumber", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_SelectionMode(), this.getSelectionMode(), "selectionMode", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Cols(), this.getColumn(), null, "cols", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4232,6 +4290,16 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		addEEnumLiteral(orientationEEnum, Orientation.BOTTOM);
 		addEEnumLiteral(orientationEEnum, Orientation.LEFT);
 		addEEnumLiteral(orientationEEnum, Orientation.RIGHT);
+
+		initEEnum(sortableEEnum, Sortable.class, "Sortable");
+		addEEnumLiteral(sortableEEnum, Sortable.NOT);
+		addEEnumLiteral(sortableEEnum, Sortable.DEFAULT);
+		addEEnumLiteral(sortableEEnum, Sortable.ASC);
+		addEEnumLiteral(sortableEEnum, Sortable.DESC);
+
+		initEEnum(selectionModeEEnum, SelectionMode.class, "SelectionMode");
+		addEEnumLiteral(selectionModeEEnum, SelectionMode.SINGLE);
+		addEEnumLiteral(selectionModeEEnum, SelectionMode.MULTIPLE);
 
 		// Create resource
 		createResource(eNS_URI);

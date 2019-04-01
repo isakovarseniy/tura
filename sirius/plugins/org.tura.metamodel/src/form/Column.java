@@ -18,6 +18,7 @@ import common.Orderable;
  * <ul>
  *   <li>{@link form.Column#getUid <em>Uid</em>}</li>
  *   <li>{@link form.Column#getLabel <em>Label</em>}</li>
+ *   <li>{@link form.Column#getSortable <em>Sortable</em>}</li>
  *   <li>{@link form.Column#getElement <em>Element</em>}</li>
  * </ul>
  *
@@ -77,6 +78,35 @@ public interface Column extends StyleElement, MultiLangLabel, Categorized, HTMLL
 	 * @generated
 	 */
 	void setLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Sortable</b></em>' attribute.
+	 * The literals are from the enumeration {@link form.Sortable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sortable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sortable</em>' attribute.
+	 * @see form.Sortable
+	 * @see #setSortable(Sortable)
+	 * @see form.FormPackage#getColumn_Sortable()
+	 * @model
+	 * @generated
+	 */
+	Sortable getSortable();
+
+	/**
+	 * Sets the value of the '{@link form.Column#getSortable <em>Sortable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sortable</em>' attribute.
+	 * @see form.Sortable
+	 * @see #getSortable()
+	 * @generated
+	 */
+	void setSortable(Sortable value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.

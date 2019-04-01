@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link form.Table#getLabel <em>Label</em>}</li>
  *   <li>{@link form.Table#getRowNumber <em>Row Number</em>}</li>
+ *   <li>{@link form.Table#getSelectionMode <em>Selection Mode</em>}</li>
  *   <li>{@link form.Table#getCols <em>Cols</em>}</li>
  * </ul>
  *
@@ -76,6 +77,35 @@ public interface Table extends SourcesPointer, MultiLangLabel, HTMLLayerHolder {
 	 * @generated
 	 */
 	void setRowNumber(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Selection Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link form.SelectionMode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selection Mode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selection Mode</em>' attribute.
+	 * @see form.SelectionMode
+	 * @see #setSelectionMode(SelectionMode)
+	 * @see form.FormPackage#getTable_SelectionMode()
+	 * @model
+	 * @generated
+	 */
+	SelectionMode getSelectionMode();
+
+	/**
+	 * Sets the value of the '{@link form.Table#getSelectionMode <em>Selection Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selection Mode</em>' attribute.
+	 * @see form.SelectionMode
+	 * @see #getSelectionMode()
+	 * @generated
+	 */
+	void setSelectionMode(SelectionMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Cols</b></em>' containment reference list.

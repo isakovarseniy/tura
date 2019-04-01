@@ -216,7 +216,7 @@ operation form::Uielement  draw(hash){
           value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
 
           if (hash.get("context").equals("table") ){
-               value =  "#{row[2]."+value+"}";
+               value =  "#{row."+value+"}";
                %] [%=self.tableContext(hash,value)%] [%           
            }  
           if (hash.get("context").equals("tree") ){

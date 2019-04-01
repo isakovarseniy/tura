@@ -14,6 +14,7 @@ import form.Column;
 import form.Context;
 import form.FormPackage;
 import form.MultiLangLabel;
+import form.Sortable;
 import form.Uielement;
 
 import java.util.Collection;
@@ -45,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.ColumnImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link form.impl.ColumnImpl#getSortable <em>Sortable</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getElement <em>Element</em>}</li>
  * </ul>
  *
@@ -150,6 +152,26 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * @ordered
 	 */
 	protected String label = LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSortable() <em>Sortable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Sortable SORTABLE_EDEFAULT = Sortable.NOT;
+
+	/**
+	 * The cached value of the '{@link #getSortable() <em>Sortable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSortable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Sortable sortable = SORTABLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
@@ -324,6 +346,27 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Sortable getSortable() {
+		return sortable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSortable(Sortable newSortable) {
+		Sortable oldSortable = sortable;
+		sortable = newSortable == null ? SORTABLE_EDEFAULT : newSortable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.COLUMN__SORTABLE, oldSortable, sortable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Uielement getElement() {
 		return element;
 	}
@@ -400,6 +443,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return getUid();
 			case FormPackage.COLUMN__LABEL:
 				return getLabel();
+			case FormPackage.COLUMN__SORTABLE:
+				return getSortable();
 			case FormPackage.COLUMN__ELEMENT:
 				return getElement();
 		}
@@ -434,6 +479,9 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 			case FormPackage.COLUMN__LABEL:
 				setLabel((String)newValue);
 				return;
+			case FormPackage.COLUMN__SORTABLE:
+				setSortable((Sortable)newValue);
+				return;
 			case FormPackage.COLUMN__ELEMENT:
 				setElement((Uielement)newValue);
 				return;
@@ -467,6 +515,9 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 			case FormPackage.COLUMN__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
+			case FormPackage.COLUMN__SORTABLE:
+				setSortable(SORTABLE_EDEFAULT);
+				return;
 			case FormPackage.COLUMN__ELEMENT:
 				setElement((Uielement)null);
 				return;
@@ -494,6 +545,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.COLUMN__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case FormPackage.COLUMN__SORTABLE:
+				return sortable != SORTABLE_EDEFAULT;
 			case FormPackage.COLUMN__ELEMENT:
 				return element != null;
 		}
@@ -586,6 +639,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		result.append(uid);
 		result.append(", label: ");
 		result.append(label);
+		result.append(", sortable: ");
+		result.append(sortable);
 		result.append(')');
 		return result.toString();
 	}

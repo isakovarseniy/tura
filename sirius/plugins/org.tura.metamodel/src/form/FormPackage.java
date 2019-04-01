@@ -4507,13 +4507,22 @@ public interface FormPackage extends EPackage {
 	int COLUMN__LABEL = STYLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Sortable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__SORTABLE = STYLE_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 6;
+	int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -4522,7 +4531,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 7;
+	int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link form.impl.TableImpl <em>Table</em>}' class.
@@ -4706,13 +4715,22 @@ public interface FormPackage extends EPackage {
 	int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Selection Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SELECTION_MODE = SOURCES_POINTER_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
+	int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -4721,7 +4739,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
+	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuImpl <em>Menu</em>}' class.
@@ -7329,6 +7347,27 @@ public interface FormPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link form.Sortable <em>Sortable</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.Sortable
+	 * @see form.impl.FormPackageImpl#getSortable()
+	 * @generated
+	 */
+	int SORTABLE = 94;
+
+	/**
+	 * The meta object id for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.SelectionMode
+	 * @see form.impl.FormPackageImpl#getSelectionMode()
+	 * @generated
+	 */
+	int SELECTION_MODE = 95;
+
+
+	/**
 	 * Returns the meta object for class '{@link form.Form <em>Form</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8849,6 +8888,17 @@ public interface FormPackage extends EPackage {
 	EAttribute getColumn_Label();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.Column#getSortable <em>Sortable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sortable</em>'.
+	 * @see form.Column#getSortable()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Sortable();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link form.Column#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8890,6 +8940,17 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTable_RowNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.Table#getSelectionMode <em>Selection Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Mode</em>'.
+	 * @see form.Table#getSelectionMode()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_SelectionMode();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link form.Table#getCols <em>Cols</em>}'.
@@ -10159,6 +10220,26 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOrientation();
+
+	/**
+	 * Returns the meta object for enum '{@link form.Sortable <em>Sortable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Sortable</em>'.
+	 * @see form.Sortable
+	 * @generated
+	 */
+	EEnum getSortable();
+
+	/**
+	 * Returns the meta object for enum '{@link form.SelectionMode <em>Selection Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Selection Mode</em>'.
+	 * @see form.SelectionMode
+	 * @generated
+	 */
+	EEnum getSelectionMode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -11433,6 +11514,14 @@ public interface FormPackage extends EPackage {
 		EAttribute COLUMN__LABEL = eINSTANCE.getColumn_Label();
 
 		/**
+		 * The meta object literal for the '<em><b>Sortable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__SORTABLE = eINSTANCE.getColumn_Sortable();
+
+		/**
 		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11465,6 +11554,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE__ROW_NUMBER = eINSTANCE.getTable_RowNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__SELECTION_MODE = eINSTANCE.getTable_SelectionMode();
 
 		/**
 		 * The meta object literal for the '<em><b>Cols</b></em>' containment reference list feature.
@@ -12497,6 +12594,26 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ORIENTATION = eINSTANCE.getOrientation();
+
+		/**
+		 * The meta object literal for the '{@link form.Sortable <em>Sortable</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.Sortable
+		 * @see form.impl.FormPackageImpl#getSortable()
+		 * @generated
+		 */
+		EEnum SORTABLE = eINSTANCE.getSortable();
+
+		/**
+		 * The meta object literal for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.SelectionMode
+		 * @see form.impl.FormPackageImpl#getSelectionMode()
+		 * @generated
+		 */
+		EEnum SELECTION_MODE = eINSTANCE.getSelectionMode();
 
 	}
 

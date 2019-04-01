@@ -53,6 +53,12 @@ public interface ObjectControl {
     
     Object getArtificialFieldWrapper ( );
 
+   void  setViewModelId1(Object viewModelId1);    
+   
+   Object getViewModelId1();    
 
+   void  setViewModelId2(Object viewModelId2);    
+   
+   Object getViewModelId2();    
 
 }

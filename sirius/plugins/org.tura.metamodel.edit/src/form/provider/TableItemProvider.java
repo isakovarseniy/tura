@@ -53,6 +53,7 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 			addColumnsPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addRowNumberPropertyDescriptor(object);
+			addSelectionModePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selection Mode feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectionModePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_selectionMode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_selectionMode_feature", "_UI_Table_type"),
+				 FormPackage.Literals.TABLE__SELECTION_MODE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -195,6 +218,7 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 			case FormPackage.TABLE__COLUMNS:
 			case FormPackage.TABLE__LABEL:
 			case FormPackage.TABLE__ROW_NUMBER:
+			case FormPackage.TABLE__SELECTION_MODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.TABLE__MULTI_LANG_LABEL:

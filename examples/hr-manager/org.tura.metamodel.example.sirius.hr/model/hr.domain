@@ -6811,6 +6811,74 @@
                         </baseCanvas>
                       </viewElement>
                     </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="c3d89b4a-e255-4317-b6d1-ce39f40b3be4" name="TestForm2">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="b3238e57-69fe-4378-953c-c9dc64ec0731" name="TestForm2Aria">
+                        <baseCanvas uid="c8b6e763-e9b6-4bea-a020-d838332f2298">
+                          <children xsi:type="tura.form:LayerHolder" uid="4b203c1d-7169-48c0-88dd-edfb6bf4ac63">
+                            <children xsi:type="tura.form:Table" uid="32f2445b-95e2-4094-a5b7-b842f8409467" sourcePointer="6b603524-0f9d-406a-91f4-a029d92a910a" columns="4" label="Department" rowNumber="10" selectionMode="Multiple">
+                              <style uid="7b92f6dc-d970-4484-89f8-8354000dfc05"/>
+                              <refreshAreas area="2a4e2527-25a8-4796-9abb-980f1136bd67" group="2"/>
+                              <multiLangLabel uid="f5f1b0aa-2452-471e-9336-68b9873aa33e"/>
+                              <cols order="1" uid="8812d3da-f1f7-44b4-981f-c30698c5ac62" label="Description">
+                                <multiLangLabel uid="68eae208-366a-48f5-9619-f68f3fc71227" value="Application Message Libraries.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
+                                  <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="00bf40a7-fbc3-4452-b8c0-fa73d6273243" order="2" expressionType="MessageImpl"/>
+                                </multiLangLabel>
+                                <element xsi:type="tura.form:InputText" uid="cc482d1d-5241-4eef-b865-81821213d155" valuePointer="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0"/>
+                              </cols>
+                              <cols order="2" uid="33394bef-e7a0-46e0-86c2-1bc2fa2bcab6" label="Creation date">
+                                <multiLangLabel uid="4b5782f9-6edb-463f-8f1f-8e75767a3f2b"/>
+                                <element xsi:type="tura.form:Date" uid="6f83060d-6166-47a6-9ebd-1502ca532b83" valuePointer="57ef5f0a-d322-491d-912f-a988ed14f056" format="MM/dd/yyyy"/>
+                              </cols>
+                              <cols uid="e3a901f5-4ca8-45b0-b492-27a19da7cf30" label="Department name">
+                                <multiLangLabel uid="940d9ae4-0b89-403e-baa5-67692676e253" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
+                                  <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="f034d6ec-17a2-4937-9c06-9b1bb7fee828" order="2" expressionType="MessageImpl"/>
+                                </multiLangLabel>
+                                <element xsi:type="tura.form:InputText" uid="7b16b5d8-cf73-4ff4-99d8-cacaaf02d6bc" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
+                              </cols>
+                              <cols order="3" uid="c0c4bd43-6e3a-4a59-ae5e-1963e94ae805">
+                                <classifiers uid="bee0ec6b-f4e5-4f86-832b-259762d115af" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
+                              </cols>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="f38e0ad9-af16-4b66-8252-f6e2850ad9bc">
+                            <children xsi:type="tura.form:Table" nickname="EmployeesTable" uid="2a4e2527-25a8-4796-9abb-980f1136bd67" sourcePointer="f6ac8df4-11ab-42cf-a48c-0ec5e489d289" columns="4" label="Employees" rowNumber="10">
+                              <multiLangLabel uid="13dcd0d0-ec35-41c0-a3be-454375d5a5be"/>
+                              <cols uid="cd529e12-c63c-4243-8489-58e2e995df04" label="First name">
+                                <multiLangLabel uid="e670f341-544c-4cce-a863-c883d21c9457" value="Application Message Libraries.HR Controller.EMP_TABLE_FIRSTNAME_COLUMN">
+                                  <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="5b8f894b-5b12-424e-a3e2-05f04025d386" order="2" expressionType="MessageImpl"/>
+                                </multiLangLabel>
+                                <element xsi:type="tura.form:InputText" uid="9a49d1d8-a39a-485e-9b4a-dbd03e2c49a5" valuePointer="234f30f1-a5f1-4ee6-9e20-f7f0ac88cd9e"/>
+                              </cols>
+                              <cols order="1" uid="f8b99287-29ee-40a3-8bf4-0ee8ef6304fa" label="Last name">
+                                <multiLangLabel uid="74ba4c73-3507-4302-8c13-2e4aa7a5bcd9" value="Application Message Libraries.HR Controller.EMP_TABLE_LASTNAME_COLUMN">
+                                  <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="24c27fa8-c48c-41fe-91ab-57f83e27ba39" order="2" expressionType="MessageImpl"/>
+                                </multiLangLabel>
+                                <element xsi:type="tura.form:InputText" uid="fdc0b42a-9170-4af9-87b4-1470a10b3698" valuePointer="b0b7031f-8f86-4a22-8fad-44d326c634fb"/>
+                              </cols>
+                              <cols order="3" uid="7c6cf4dd-8c5f-4174-92ae-d8bce7afb536">
+                                <classifiers uid="ac50b811-89b7-47b3-9ca1-2fa89a454c6d" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
+                              </cols>
+                              <cols order="2" uid="1bc84443-80cc-4fae-b805-4ed2831c6a46" label="Hire date">
+                                <multiLangLabel uid="20bfc98b-0fef-4873-b6c6-1ee3a5f5a063" value="Application Message Libraries.HR Controller.EMPLOYEES_TAB_HIREDATE">
+                                  <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="13f85fdf-29f7-411d-a1b6-41b27bf50c9c" order="2" expressionType="MessageImpl"/>
+                                </multiLangLabel>
+                                <element xsi:type="tura.form:Date" uid="5004599b-1747-44b1-8324-6bbd27c0d1b4" valuePointer="3d0a8bd3-351a-4fae-beae-8bde678e4693"/>
+                              </cols>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
                   </view>
                   <datacontrols uid="90eb7336-9be9-439d-9f9a-11521cb637a5">
                     <controls uid="6b603524-0f9d-406a-91f4-a029d92a910a" name="Department">

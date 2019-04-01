@@ -21,11 +21,13 @@
  */
 package org.tura.platform.primefaces.model;
 
+import com.octo.java.sql.exp.Operator;
+import com.octo.java.sql.query.SelectQuery.Order;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
-
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
@@ -35,9 +37,7 @@ import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
-
-import com.octo.java.sql.exp.Operator;
-import com.octo.java.sql.query.SelectQuery.Order;
+import org.tura.platform.repository.core.ObjectControl;
 
 public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
@@ -45,6 +45,13 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 	@SuppressWarnings("rawtypes")
 	private DataControl datacontrol;
 	private java.util.logging.Logger logger;
+	private GridModel gridModel;
+    private Map<String,SortMeta> sortMeta = new HashMap<>();
+
+	
+	public LazyDataGridModel(GridModel gridModel) {
+		this.gridModel = gridModel;
+	}
 
 	public int getRowCount() {
 		return datacontrol.getScroller().size();
@@ -76,30 +83,90 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 		sortMeta.setSortField(sortField);
 		sortMeta.setSortOrder(sortOrder);
 		ArrayList<SortMeta> multiSortMeta = new ArrayList<>();
+        multiSortMeta.add(sortMeta);
 
 		return load(first, pageSize, multiSortMeta, filters);
 	}
 
+    private boolean initSortMeta(List<SortMeta> sort) {
+        if (sort.size() == sortMeta.keySet().size()) {
+            if (compareMeta(sort)) {
+                return false;
+            }else {
+                saveMeta(sort);
+                return true;
+            }
+            
+        }else {
+            saveMeta(sort);
+            return true;
+        }
+    }
+    
+    
+    private void saveMeta(List<SortMeta> sort) {
+        sortMeta =  new HashMap<>();
+        for (SortMeta meta : sort) {
+            sortMeta.put(meta.getSortField(), meta);
+        }
+    }
+    
+    private boolean compareMeta(List<SortMeta> sort) {
+        sortMeta =  new HashMap<>();
+        for (SortMeta meta : sort) {
+            SortMeta saved = sortMeta.get(meta.getSortField());
+            if (saved == null) {
+                return false;
+            }else {
+                if (!saved.equals(meta)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    private List<SortMeta> filterSortMeta(List<SortMeta> sort ){
+        List<SortMeta> filtered = new ArrayList<>();
+        for (SortMeta meta:sort) {
+            if (meta.getSortField() != null) {
+                filtered.add(meta);
+            }
+        }
+        return filtered;
+    }
+ 	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List load(int first, int pageSize, List<SortMeta> multiSortMeta,
 			Map<String, Object> filters) {
+		
+        List<SortMeta> filteredMultiSortMeta = filterSortMeta(multiSortMeta);
+
 		
 		ArrayList datasource = new ArrayList();
 		GridPreQueryTrigger trigger = new GridPreQueryTrigger(multiSortMeta, filters, datacontrol.getPreQueryTrigger());
 		try {
 			datacontrol.setPreQueryTrigger(trigger);
+            if (initSortMeta(filteredMultiSortMeta)) {
+                datacontrol.forceRefresh();
+            }
+			
 			datacontrol.getCurrentObject();
 			List<?> scroler = datacontrol.getScroller();
 			int j = first + pageSize;
 			if ( j >= scroler.size())
 				j = scroler.size();
 
-			for (int i = first, k = 0; i < j; i++, k++) {
+			for (int i = first ; i < j; i++) {
 				if (scroler.get(i) != null) {
 					//Element could be null in case random delete
 					// Size of scroller will be adjusted only after 
 					//scroler.get(i) operation
-				    datasource.add(new Object[] { i, k, scroler.get(i) });
+					ObjectControl oc = (ObjectControl) scroler.get(i);
+					oc.setViewModelId1(i);
+				    datasource.add(oc);
 				}
 			}
 
@@ -114,12 +181,37 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public T getRowData(String rowKey) {
-		return (T) ((Object[]) (((List)this.getWrappedData()).get(new Integer(rowKey))))[2];
+		Integer key = new Integer(rowKey);
+		List data = this.getWrappedData();
+		if ( data == null || data.size() == 0) {
+			return null;
+		}
+		int minIndex = (int) (( ObjectControl)data.get(0)).getViewModelId1();
+		int maxIndex = (int) (( ObjectControl)data.get(data.size()-1 )).getViewModelId1();
+		
+		if (  key >=  minIndex && key<=maxIndex) {
+	        int index  = (key % getPageSize());
+	        ObjectControl	obj = (ObjectControl) (((List)this.getWrappedData()).get(index));
+	        if ( obj .getViewModelId1() .equals(key)) {
+	        	return (T) obj;
+	        }
+			throw new RuntimeException("Wrong object");
+		}else {
+			Object selected = gridModel.getSelected();
+			if (selected instanceof ObjectControl) {
+				ObjectControl obj = (ObjectControl) selected;
+		        if ( obj .getViewModelId1() .equals(key)) {
+		        	return (T) obj;
+		        }
+			}
+		}
+		return null;
+		
 	}
 
 	public Object getRowKey(T object) {
-		Object[] array = (Object[]) object;
-		return array[1];
+		ObjectControl oc = (ObjectControl) object;
+		return oc.getViewModelId1();
 
 	}
 
@@ -179,5 +271,5 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 		}
 
 	}
-
+	
 }
