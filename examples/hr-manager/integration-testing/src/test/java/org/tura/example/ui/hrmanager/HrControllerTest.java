@@ -135,14 +135,17 @@ public class HrControllerTest extends AbstractTest {
 		
 		
 		t = hrControllerPage.getCompanies();
+		t.getRow(0).enableEditMode();
 		t.getRow(0).getCell(1).click();
 		inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")),driver);
-		inputText.setValue(Keys.DELETE);
+		inputText.clear();
+		t.getRow(0).acceptRowChange();
 
+		t.getRow(1).enableEditMode();
 		t.getRow(1).getCell(1).click();
 		inputText = new InputTextPrimeFaces(t.getRow(1).getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue(Keys.DELETE);
-		inputText.setValue(Keys.RETURN);
+		inputText.clear();
+		t.getRow(1).acceptRowChange();
 
 		hrControllerPage.getSaveButton().click();
 
@@ -670,17 +673,18 @@ public class HrControllerTest extends AbstractTest {
 
 		hrControllerPage.getAddCompany().click();
 		Table t = hrControllerPage.getCompanies();
+		
+		t.getRow(0).enableEditMode();
 		t.getRow(0).getCell(0).click();
-
 		InputText inputText = new InputTextPrimeFaces(t.getRow(0).getCell(0).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("Company 3");
-		inputText.setValue(Keys.RETURN);
 
 		t.getRow(0).getCell(1).click();
 		inputText = new InputTextPrimeFaces(t.getRow(0).getCell(1).findElement(By.cssSelector("input")), driver);
 		inputText.setValue("Company 3 description");
-		inputText.setValue(Keys.RETURN);
+
+		t.getRow(0).acceptRowChange();
 
 		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
 
@@ -753,17 +757,18 @@ public class HrControllerTest extends AbstractTest {
 		DepartmentsDetailsPageObject departmentsDetailsPage = new DepartmentsDetailsPageObject(driver);
 		Table deptTable = (Table) departmentsDetailsPage.getDepartmentTable();
 
+		
+		deptTable.getRow(0).enableEditMode();
 		deptTable.getRow(0).getCell(0).click();
 		inputText = new InputTextPrimeFaces(deptTable.getRow(0).getCell(0).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("Dept 1");
-		inputText.setValue(Keys.RETURN);
 
 		deptTable.getRow(0).getCell(1).click();
 		inputText = new InputTextPrimeFaces(deptTable.getRow(0).getCell(1).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("Dept 1 desk");
-		inputText.setValue(Keys.RETURN);
+		deptTable.getRow(0).acceptRowChange();
 
 		new SeleniumActionExecutor(driver, EmployeesPageObject.getEmployeeTableSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -782,6 +787,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				Table empTable = (Table) employeesPage.getEmployeeTable();
+				empTable.getRow(0).enableEditMode();
 				empTable.getRow(0).getCell(0).click();
 			}
 		}.repeat(10);
@@ -789,7 +795,6 @@ public class HrControllerTest extends AbstractTest {
 		Table empTable = (Table) employeesPage.getEmployeeTable();
 		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(0).findElement(By.cssSelector("input")), driver);
 		inputText.setValue("FName 1");
-		inputText.setValue(Keys.RETURN);
 
 		new Repeater() {
 			public void action() {
@@ -800,7 +805,7 @@ public class HrControllerTest extends AbstractTest {
 
 		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(1).findElement(By.cssSelector("input")), driver);
 		inputText.setValue("LName 1");
-		inputText.setValue(Keys.RETURN);
+		empTable.getRow(0).acceptRowChange();
 
 		new SeleniumActionExecutor(driver, EmployeesPageObject.getVehicleTableSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -816,6 +821,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				Table vehicleTable = (Table) employeesPage.getVehicleTable();
+				vehicleTable.getRow(0).enableEditMode();
 				vehicleTable.getRow(0).getCell(0).click();
 			}
 		}.repeat(10);
@@ -837,7 +843,8 @@ public class HrControllerTest extends AbstractTest {
 		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(1).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("1234-567");
-		inputText.setValue(Keys.RETURN);
+		
+		vehicleTable.getRow(0).acceptRowChange();
 
 		MainHolderPageObject mainHolderPageObject = new MainHolderPageObject(driver);
 

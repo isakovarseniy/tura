@@ -4028,7 +4028,7 @@
                         <style uid="d2b8111f-d856-4eef-9429-c1f5e1bdec3d"/>
                         <baseCanvas uid="deaca6de-72c2-412c-9456-80edfb64441f" columns="2">
                           <style uid="6967aae4-889c-4911-bc5e-2c0ebff1da1a" constant="true" value="font: 15px arial, sans-serif;margin:0px 0px 20px 0px;width:50%"/>
-                          <children xsi:type="tura.form:Table" nickname="Department Table" uid="38ae21ba-7f8a-423e-816c-b99b5b935cbb" sourcePointer="ab24f075-799f-46e4-940f-86800438c7c1" columns="3" label="Departments" rowNumber="5">
+                          <children xsi:type="tura.form:Table" nickname="Department Table" uid="38ae21ba-7f8a-423e-816c-b99b5b935cbb" sourcePointer="ab24f075-799f-46e4-940f-86800438c7c1" columns="4" label="Departments" rowNumber="5">
                             <refreshAreas area="0d19a894-e47b-482f-b8de-7c73e109aa85" group="2"/>
                             <refreshAreas area="08d6eb6f-5230-42f9-83c6-ee7d1e42b8be" group="2"/>
                             <multiLangLabel uid="d4211f5c-7968-4e47-a09a-84c0a1fb923e" value="Application Message Libraries.HR Controller.DEPARTMENT_TABLE">
@@ -4036,7 +4036,7 @@
                               <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                               <expression objRef="91eff38c-2604-43fa-9d12-957108d80037" order="2" expressionType="MessageImpl"/>
                             </multiLangLabel>
-                            <cols order="1" uid="6875b5fc-8ed3-49f6-9daa-8b05472c31a3" label="Description">
+                            <cols order="2" uid="6875b5fc-8ed3-49f6-9daa-8b05472c31a3" label="Description">
                               <multiLangLabel uid="0bfc2ec9-f34f-43fa-9320-cd1113d57771" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -4044,7 +4044,7 @@
                               </multiLangLabel>
                               <element xsi:type="tura.form:InputText" uid="b3679c03-c017-40b1-8efb-5630c01fd3dd" valuePointer="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0"/>
                             </cols>
-                            <cols uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
+                            <cols order="1" uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
                               <style uid="72959b40-ea73-48e7-bd38-7321a05c21b2"/>
                               <multiLangLabel uid="54306333-64e4-4eb9-ad1e-03537f6781a2" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
@@ -4053,13 +4053,16 @@
                               </multiLangLabel>
                               <element xsi:type="tura.form:InputText" uid="69414b2f-5231-4a68-b302-1c54215965b5" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
                             </cols>
-                            <cols order="2" uid="43f0d175-fb44-4e76-843a-58ff83e52189" label="Department ID">
+                            <cols uid="43f0d175-fb44-4e76-843a-58ff83e52189" label="Department ID">
                               <multiLangLabel uid="f1b51273-b7b5-4818-8102-17f4b34a49a9" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="def4dfd7-4831-45da-b391-c24180d9275b" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                               <element xsi:type="tura.form:InputText" uid="ef5e0ead-153d-4f80-afcc-a949d71f0e7c" valuePointer="f90b4097-09f1-4bb7-9219-d3ae1b23b3da"/>
+                            </cols>
+                            <cols order="3" uid="50610f4e-91a6-4369-b256-acf4d7d57475">
+                              <classifiers uid="6bfb8656-9ddc-451c-9265-83f59da32474" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
                             </cols>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="abd9431e-fb9e-49d6-afd0-702f3b5fe746">
@@ -4279,7 +4282,7 @@
                         <baseCanvas nickname="employInfo" uid="0d19a894-e47b-482f-b8de-7c73e109aa85" columns="2">
                           <style uid="62b06a9f-9162-4718-8459-3e73af4cfb17" constant="true" value="font: 15px arial, sans-serif;"/>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="8d5872df-8df0-490d-9db4-8e1a963daf04" columns="2">
-                            <children xsi:type="tura.form:Table" nickname="Vehicle Table" uid="3ec3fca4-8998-400b-8d24-1af6e9ef3744" sourcePointer="2661554e-84db-4d99-a62c-41b26d3b596f" columns="2" label="Vehicle" rowNumber="5">
+                            <children xsi:type="tura.form:Table" nickname="Vehicle Table" uid="3ec3fca4-8998-400b-8d24-1af6e9ef3744" sourcePointer="2661554e-84db-4d99-a62c-41b26d3b596f" columns="3" label="Vehicle" rowNumber="5">
                               <multiLangLabel uid="8dd74e04-9e68-433e-9280-6e5a360713ff" value="Application Message Libraries.HR Controller.VEHICLE_TABLE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -4300,6 +4303,9 @@
                                   <expression objRef="0f38ba00-7063-42ce-b04f-0b8b7d23c83f" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
                                 <element xsi:type="tura.form:InputText" uid="ec741ce0-29bf-4758-a269-4f88eae3e906" valuePointer="48550683-19a2-4c2d-b6cd-e3b8b1d5e695"/>
+                              </cols>
+                              <cols order="2" uid="75f4194e-bc9d-4958-9272-da9b1b36c530">
+                                <classifiers uid="4e19eb2e-996a-4ef9-9ce5-4c249e217787" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
                               </cols>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="99788dfb-3b11-46d9-b0fb-9cd02bc16373">
@@ -4378,7 +4384,7 @@
                             <style uid="40894f4d-ff31-40a2-ad5d-b9bf3f66f061"/>
                             <children xsi:type="tura.form:LayerHolder" uid="267ab792-f787-4b19-ad31-a4f8ae8ff161" columns="2">
                               <style uid="f17e34d4-9045-4232-a66d-76f2f5f1169d"/>
-                              <children xsi:type="tura.form:Table" nickname="Employee Table" uid="6ef437a2-e256-45c5-9738-d01e953fc6fd" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" columns="3" label="Employees" rowNumber="5">
+                              <children xsi:type="tura.form:Table" nickname="Employee Table" uid="6ef437a2-e256-45c5-9738-d01e953fc6fd" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" columns="4" label="Employees" rowNumber="5">
                                 <style uid="231d4bdc-9972-40ed-9b99-7ccebf72a519"/>
                                 <refreshAreas area="08d6eb6f-5230-42f9-83c6-ee7d1e42b8be" group="2"/>
                                 <refreshAreas area="50fcf042-4013-4a83-a9ee-99dac6c3923f" group="2"/>
@@ -4410,6 +4416,9 @@
                                     <expression objRef="2a859ec2-dec8-4c26-b1a6-44845b7e3cb6" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
                                   <element xsi:type="tura.form:InputText" uid="601cba0e-6e11-4e6c-84ac-87914a90f444" valuePointer="925a16cc-ca95-49fa-ad4a-0f90dc1a2162"/>
+                                </cols>
+                                <cols order="3" uid="ce5d372b-5dbb-48cd-8d33-687aada934ad">
+                                  <classifiers uid="59c52ea4-dd46-4f76-8e91-0704cf3f42df" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
                                 </cols>
                               </children>
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="51593a36-d469-40e6-b35a-ca6dc1f9bbd8">

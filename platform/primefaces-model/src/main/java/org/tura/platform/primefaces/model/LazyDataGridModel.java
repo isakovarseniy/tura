@@ -146,7 +146,7 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
 		
 		ArrayList datasource = new ArrayList();
-		GridPreQueryTrigger trigger = new GridPreQueryTrigger(multiSortMeta, filters, datacontrol.getPreQueryTrigger());
+		GridPreQueryTrigger trigger = new GridPreQueryTrigger(filteredMultiSortMeta, filters, datacontrol.getPreQueryTrigger());
 		try {
 			datacontrol.setPreQueryTrigger(trigger);
             if (initSortMeta(filteredMultiSortMeta)) {
@@ -169,6 +169,12 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 				    datasource.add(oc);
 				}
 			}
+			
+	        if (first == 0 && gridModel.getSelected() == null && datasource.size() != 0) {
+	        	gridModel.setSelected(datasource.get(0));
+	        }
+
+			
 
 		} catch (Exception e) {
 			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));

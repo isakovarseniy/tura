@@ -41,9 +41,7 @@ public class GridModel {
 	@SuppressWarnings("rawtypes")
 	private DataControl dc;
 	private Logger logger;
-	private Boolean resetCurentPosition = false;
 	private Object selected;
-	private int position;
 
 	@SuppressWarnings("rawtypes")
 	public GridModel(DataControl dc, Logger logger) {
@@ -67,16 +65,14 @@ public class GridModel {
 	}
 
 	public void setSelected(Object selected) {
-		 this.selected = selected;
+		this.selected = selected;
 	}
 
 	public void ajaxSelected(org.primefaces.event.SelectEvent event) {
 
-		ObjectControl oc  = (ObjectControl) event.getObject();
-		position = (int) oc.getViewModelId1();
+		ObjectControl oc = (ObjectControl) event.getObject();
 		try {
-			if (!dc.getCurrentPosition().equals(oc.getViewModelId1()) || resetCurentPosition) {
-				resetCurentPosition = false;
+			if (!dc.getCurrentPosition().equals(oc.getViewModelId1())) {
 				dc.setCurrentPosition(oc.getViewModelId1());
 			}
 		} catch (TuraException e) {
@@ -89,22 +85,28 @@ public class GridModel {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent || event instanceof ControlRallbackEvent ||  event instanceof ControlRefreshedEvent) {
-				position = 0;
-//				lazyModel = new LazyDataGridModel();
-//				lazyModel.setDatacontrol((DataControl) event.getSource());
-//				lazyModel.setLogger(logger);
+			if (event instanceof ControlRallbackEvent || event instanceof ControlRefreshedEvent) {
+
+				DataControl dc = (DataControl) event.getSource();
+				ObjectControl obj = (ObjectControl) selected;
+				int index = (int) obj.getViewModelId1();
+				int max = ((DataControl) event.getSource()).getScroller().size();
+				if (index  == max) {
+					index = max-1;
+				}
+				dc.setCurrentPosition(index);
+				selected = event.getSource().getCurrentObject();
+
+			}
+
+			if (event instanceof MasterRowChangedEvent) {
+				selected = event.getSource().getCurrentObject();
 			}
 			if (event instanceof RowCreatedEvent) {
-				resetCurentPosition = true;
+				selected = event.getSource().getCurrentObject();
 			}
 			if (event instanceof RowRemovedEvent) {
-				resetCurentPosition = true;
-				int max = ((DataControl) event.getSource()).getScroller().size();
-				lazyModel.setRowCount(max);
-				if (position == max && max != 0) {
-					position = position - 1;
-				}
+				selected = event.getSource().getCurrentObject();
 			}
 		}
 	}
