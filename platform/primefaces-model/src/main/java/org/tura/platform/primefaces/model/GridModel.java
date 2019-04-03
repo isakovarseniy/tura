@@ -89,13 +89,18 @@ public class GridModel {
 
 				DataControl dc = (DataControl) event.getSource();
 				ObjectControl obj = (ObjectControl) selected;
-				int index = (int) obj.getViewModelId1();
-				int max = ((DataControl) event.getSource()).getScroller().size();
-				if (index  == max) {
-					index = max-1;
+				int index  = 0; 
+				if (obj !=  null &&  obj.getViewModelId1() != null) {
+					index = (int) obj.getViewModelId1();
+					int max = ((DataControl) event.getSource()).getScroller().size();
+					if (index == max) {
+						index = max - 1;
+					}
 				}
 				dc.setCurrentPosition(index);
 				selected = event.getSource().getCurrentObject();
+				obj = (ObjectControl) selected;
+				obj.setViewModelId1( index);
 
 			}
 

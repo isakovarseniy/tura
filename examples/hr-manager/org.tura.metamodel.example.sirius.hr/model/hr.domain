@@ -4036,7 +4036,7 @@
                               <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                               <expression objRef="91eff38c-2604-43fa-9d12-957108d80037" order="2" expressionType="MessageImpl"/>
                             </multiLangLabel>
-                            <cols order="2" uid="6875b5fc-8ed3-49f6-9daa-8b05472c31a3" label="Description">
+                            <cols order="1" uid="6875b5fc-8ed3-49f6-9daa-8b05472c31a3" label="Description">
                               <multiLangLabel uid="0bfc2ec9-f34f-43fa-9320-cd1113d57771" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -4044,7 +4044,7 @@
                               </multiLangLabel>
                               <element xsi:type="tura.form:InputText" uid="b3679c03-c017-40b1-8efb-5630c01fd3dd" valuePointer="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0"/>
                             </cols>
-                            <cols order="1" uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
+                            <cols uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
                               <style uid="72959b40-ea73-48e7-bd38-7321a05c21b2"/>
                               <multiLangLabel uid="54306333-64e4-4eb9-ad1e-03537f6781a2" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
@@ -4053,7 +4053,7 @@
                               </multiLangLabel>
                               <element xsi:type="tura.form:InputText" uid="69414b2f-5231-4a68-b302-1c54215965b5" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
                             </cols>
-                            <cols uid="43f0d175-fb44-4e76-843a-58ff83e52189" label="Department ID">
+                            <cols order="2" uid="43f0d175-fb44-4e76-843a-58ff83e52189" label="Department ID">
                               <multiLangLabel uid="f1b51273-b7b5-4818-8102-17f4b34a49a9" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>

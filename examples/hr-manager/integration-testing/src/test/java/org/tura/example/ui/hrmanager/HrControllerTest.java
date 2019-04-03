@@ -439,10 +439,10 @@ public class HrControllerTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("0");
 
 		el = tr.getCell(1);
-		assertEquals("Country 1", el.getText());
+		assertEquals("Country 2", el.getText());
 
 		t = hrControllerPage.getCompanies();
-		assertEquals(true, t.getRow(0).isSelected());
+		assertEquals(true, t.getRow(1).isSelected());
 	}
 
 	@Test
@@ -830,7 +830,6 @@ public class HrControllerTest extends AbstractTest {
 		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(0).findElement(By.cssSelector("input")),
 				driver);
 		inputText.setValue("Honda");
-		inputText.setValue(Keys.RETURN);
 
 		new Repeater() {
 			public void action() {

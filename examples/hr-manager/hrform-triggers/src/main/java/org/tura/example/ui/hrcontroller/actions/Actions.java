@@ -68,13 +68,13 @@ public class Actions implements EventAccessor {
 	@SuppressWarnings("rawtypes")
 	public void openCompanyDetailsPopup() {
 		try {
-			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+			Object row = event.getComponent().getAttributes().get("param1");
 
 			DataControl dc = (DataControl) elResolver
 					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
-			bf.setCmpId(((Company) (row[2])).getObjId());
+			bf.setCmpId(((Company) row).getObjId());
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
