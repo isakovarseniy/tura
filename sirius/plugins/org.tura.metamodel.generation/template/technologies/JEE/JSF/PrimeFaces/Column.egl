@@ -14,6 +14,12 @@ operation form::Column generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var model_mapper = hash.get('model_mapper');
      
+     var sortBy="";
+     if ( not self.sortable.toString().equals("Not") ){
+         if ( self.element <> null  and self.element.isKindOf(form::InputElement) )   {
+               sortBy = "sortBy = \""+ self.element.expFunction(hash) +"\"";
+         }
+     }
 
      var title = buildExpression(self.multiLangLabel,hints,hash);
      if (title <> "" )
@@ -22,7 +28,7 @@ operation form::Column generateBody(hash){
         title="";   
         
 %]
-           <p:column [%=title%] [%=self.styleAttributes(hash)%]>
+           <p:column [%=title%]   [%=sortBy%]  [%=self.styleAttributes(hash)%]>
 [%      if ( self.element <> null and "tree".equals(hash.get("context") ))  {%]
                    [%=self.treecontext(hash)%]
                    

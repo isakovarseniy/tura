@@ -26,6 +26,10 @@ operation form::Table generateBody(hash){
      if ( "Multiple".equals( self.selectionMode.toString())){
         selectionMode = 'selectionMode="multiple"';
      } 
+     var sortableCol =  self.cols->select(r|r.sortable.toString()<> "Not" );
+     
+
+     
      
      
      hints.put("noCurlyBracket",true);
@@ -39,6 +43,13 @@ operation form::Table generateBody(hash){
 		paginatorPosition="bottom"
 		>
 		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
+       [%
+            if (sortableCol.size() <> 0){
+            %]
+		<p:ajax event="sort"  [%=self.refreshArias()%]/>
+            [%
+          } 
+       %]		
 		
 [%
                 for (element in self.cols.sortBy(q|q.order)){

@@ -254,6 +254,7 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 				}
 
 				List<OrderCriteria> ord = datacontrol.getOrderCriteria();
+				ord.clear();
 
 				for (SortMeta sortField : multiSortMeta) {
 					OrderCriteria criteria = new OrderCriteria();

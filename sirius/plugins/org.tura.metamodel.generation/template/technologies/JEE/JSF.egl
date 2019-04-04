@@ -229,6 +229,22 @@ operation form::Uielement  draw(hash){
      
 }
 
+operation form::InputElement  expFunction(hash){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var hints = new Native('java.util.HashMap');
+
+          var pointer = self.eContainer().eContainer();
+          hints.put("noCurlyBracket","true");
+          var value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
+
+          if (hash.get("context").equals("table") ){
+               value =  "#{row."+value+"}";
+           }  
+          if (hash.get("context").equals("tree") ){
+               value =  "#{row[1]."+value+"}";
+          }     
+          return value;
+}
 
 @template
 operation form::Uielement  mkUIDBinding(){

@@ -641,5 +641,61 @@ public class TestForm1Test extends AbstractTest {
 
 	}
 	
+	@Test
+	public void t000_TestForm12() {
+		try {
+			driver.get(app_url);
+
+
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					Table t = testForm1Page.getDeptTable();
+					t.getHeader().getCell(0).click();
+				}
+			}.run();
+			
+			TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+			Table t = testForm1Page.getDeptTable();
+
+			
+			WebElement el = t.getRow(0).getCell(0);
+			assertEquals("Department 1", el.getText());
+			assertTrue( t.getRow(0).isSelected());
+
+			t = testForm1Page.getEmpTable();
+			el = t.getRow(0).getCell(0);
+			assertEquals("First Name 1", el.getText());
+			assertTrue( t.getRow(0).isSelected());
+			
+
+			
+			new SeleniumActionExecutor(driver, TestForm1PageObject.getEmplTableSearchCriteria()) {
+				public void action(WebDriver driver) {
+					TestForm1PageObject testForm1Page = new TestForm1PageObject(driver);
+					Table t = testForm1Page.getDeptTable();
+					t.getHeader().getCell(0).click();
+				}
+			}.run();
+			
+			
+			t = testForm1Page.getDeptTable();
+			el = t.getRow(0).getCell(0);
+			assertEquals("Department 9", el.getText());
+			assertTrue( t.getRow(0).isSelected());
+			
+			
+			t = testForm1Page.getEmpTable();
+			assertTrue( t.isEmpty());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+
+	
 	
 }

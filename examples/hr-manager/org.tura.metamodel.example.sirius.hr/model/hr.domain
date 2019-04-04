@@ -6589,7 +6589,8 @@
                               <style uid="5d9d571c-f6b9-4e38-bd95-20c5b6b65bf4"/>
                               <refreshAreas area="e99fe301-07fb-4812-8172-60a38bea54e4" group="2"/>
                               <multiLangLabel uid="715adc4d-b39f-4801-8607-53735616b34d"/>
-                              <cols uid="7aa6af41-373f-457f-a1df-ca739e1a4e1b" label="Department name">
+                              <cols uid="7aa6af41-373f-457f-a1df-ca739e1a4e1b" label="Department name" sortable="Default">
+                                <style uid="7775702c-d84f-467d-be7f-1e6ccaecf127"/>
                                 <multiLangLabel uid="5948ad94-786d-4580-8d04-ffd5d0dd8a72" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
                                   <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -6597,7 +6598,7 @@
                                 </multiLangLabel>
                                 <element xsi:type="tura.form:InputText" uid="0ad1d136-f06b-4179-877b-b838ae8bc70e" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
                               </cols>
-                              <cols order="1" uid="87ff70aa-f85b-474e-98b8-1f93195e1dc5" label="Description">
+                              <cols order="1" uid="87ff70aa-f85b-474e-98b8-1f93195e1dc5" label="Description" sortable="Default">
                                 <multiLangLabel uid="ec674faf-0ef3-42f9-b64a-00de6a343e41" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_DESCRIPTION_COLUMN">
                                   <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
