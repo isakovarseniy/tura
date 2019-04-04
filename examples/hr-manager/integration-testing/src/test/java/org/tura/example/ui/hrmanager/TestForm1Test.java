@@ -607,7 +607,7 @@ public class TestForm1Test extends AbstractTest {
 			}.repeat(10);
 			
 			
-			WebElement el =  t.getRow(11).getCell(0);
+			t.getRow(11).getCell(0);
 			assertTrue(t.getRow(11).isSelected());
 
 
