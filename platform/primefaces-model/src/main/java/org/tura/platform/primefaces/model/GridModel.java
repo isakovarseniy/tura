@@ -37,83 +37,84 @@ import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.repository.core.ObjectControl;
 
 public class GridModel {
-	private LazyDataGridModel<?> lazyModel;
-	@SuppressWarnings("rawtypes")
-	private DataControl dc;
-	private Logger logger;
-	private Object selected;
+    private LazyDataGridModel<?> lazyModel;
+    @SuppressWarnings("rawtypes")
+    private DataControl dc;
+    private Logger logger;
+    private Object selected;
 
-	@SuppressWarnings("rawtypes")
-	public GridModel(DataControl dc, Logger logger) {
-		this.dc = dc;
-		this.logger = logger;
+    @SuppressWarnings("rawtypes")
+    public GridModel(DataControl dc, Logger logger) {
+        this.dc = dc;
+        this.logger = logger;
 
-		lazyModel = new LazyDataGridModel(this);
-		lazyModel.setDatacontrol(dc);
-		lazyModel.setLogger(logger);
+        lazyModel = new LazyDataGridModel(this);
+        lazyModel.setDatacontrol(dc);
+        lazyModel.setLogger(logger);
 
-		dc.addEventLiteners(new RecordListener());
+        dc.addEventLiteners(new RecordListener());
 
-	}
+    }
 
-	public LazyDataGridModel<?> getLazyModel() {
-		return lazyModel;
-	}
+    public LazyDataGridModel<?> getLazyModel() {
+        return lazyModel;
+    }
 
-	public Object getSelected() {
-		return selected;
-	}
+    public Object getSelected() {
+        return selected;
+    }
 
-	public void setSelected(Object selected) {
-		this.selected = selected;
-	}
+    public void setSelected(Object selected) {
+        this.selected = selected;
+    }
 
-	public void ajaxSelected(org.primefaces.event.SelectEvent event) {
+    public void ajaxSelected(org.primefaces.event.SelectEvent event) {
 
-		ObjectControl oc = (ObjectControl) event.getObject();
-		try {
-			if (!dc.getCurrentPosition().equals(oc.getViewModelId1())) {
-				dc.setCurrentPosition(oc.getViewModelId1());
-			}
-		} catch (TuraException e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
-		}
-	}
+        ObjectControl oc = (ObjectControl) event.getObject();
+        try {
+            if (!dc.getCurrentPosition().equals(oc.getViewModelId1())) {
+                dc.setCurrentPosition(oc.getViewModelId1());
+            }
+        } catch (TuraException e) {
+            logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+        }
+    }
 
-	class RecordListener implements EventListener {
+    class RecordListener implements EventListener {
 
-		@SuppressWarnings("rawtypes")
-		@Override
-		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof ControlRallbackEvent || event instanceof ControlRefreshedEvent) {
+        @SuppressWarnings("rawtypes")
+        @Override
+        public void handleEventListener(Event event) throws TuraException {
+            if (event instanceof ControlRallbackEvent || event instanceof ControlRefreshedEvent) {
 
-				DataControl dc = (DataControl) event.getSource();
-				ObjectControl obj = (ObjectControl) selected;
-				int index  = 0; 
-				if (obj !=  null &&  obj.getViewModelId1() != null) {
-					index = (int) obj.getViewModelId1();
-					int max = ((DataControl) event.getSource()).getScroller().size();
-					if (index == max) {
-						index = max - 1;
-					}
-				}
-				dc.setCurrentPosition(index);
-				selected = event.getSource().getCurrentObject();
-				obj = (ObjectControl) selected;
-				obj.setViewModelId1( index);
+                DataControl dc = (DataControl) event.getSource();
+                ObjectControl obj = (ObjectControl) selected;
+                int index  = 0; 
+                if (obj !=  null &&  obj.getViewModelId1() != null) {
+                    index = (int) obj.getViewModelId1();
+                    int max = ((DataControl) event.getSource()).getScroller().size();
+                    if (index == max) {
+                        index = max - 1;
+                    }
+                }
+                dc.setCurrentPosition(index);
+                selected = event.getSource().getCurrentObject();
+                obj = (ObjectControl) selected;
+                obj.setViewModelId1( index);
 
-			}
+            }
 
-			if (event instanceof MasterRowChangedEvent) {
-				selected = event.getSource().getCurrentObject();
-			}
-			if (event instanceof RowCreatedEvent) {
-				selected = event.getSource().getCurrentObject();
-			}
-			if (event instanceof RowRemovedEvent) {
-				selected = event.getSource().getCurrentObject();
-			}
-		}
-	}
+            if (event instanceof MasterRowChangedEvent) {
+                selected = event.getSource().getCurrentObject();
+            }
+            if (event instanceof RowCreatedEvent) {
+                selected = event.getSource().getCurrentObject();
+            }
+            if (event instanceof RowRemovedEvent) {
+                selected = event.getSource().getCurrentObject();
+            }
+        }
+    }
+
 
 }

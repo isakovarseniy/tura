@@ -41,52 +41,58 @@ import org.tura.platform.repository.core.ObjectControl;
 
 public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
-	private static final long serialVersionUID = -3916551980941958271L;
-	@SuppressWarnings("rawtypes")
-	private DataControl datacontrol;
-	private java.util.logging.Logger logger;
-	private GridModel gridModel;
+    private static final long serialVersionUID = -3916551980941958271L;
+    @SuppressWarnings("rawtypes")
+    private DataControl datacontrol;
+    private java.util.logging.Logger logger;
+    private GridModel gridSingleSelectModel;
+    private GridModelMultiSelect gridMultiSelectModel;
     private Map<String,SortMeta> sortMeta = new HashMap<>();
 
-	
-	public LazyDataGridModel(GridModel gridModel) {
-		this.gridModel = gridModel;
-	}
+    
+    public LazyDataGridModel(GridModel gridSingleSelectModel) {
+        this.gridSingleSelectModel = gridSingleSelectModel;
+    }
 
-	public int getRowCount() {
-		return datacontrol.getScroller().size();
-	}
+    public LazyDataGridModel(GridModelMultiSelect gridMultiSelectModel) {
+        this.gridMultiSelectModel = gridMultiSelectModel;
+    }
+    
+    
+    public int getRowCount() {
+        return datacontrol.getScroller().size();
+    }
 
-	@SuppressWarnings("rawtypes")
-	public DataControl getDatacontrol() {
-		return datacontrol;
-	}
+    @SuppressWarnings("rawtypes")
+    public DataControl getDatacontrol() {
+        return datacontrol;
+    }
 
-	@SuppressWarnings("rawtypes")
-	public void setDatacontrol(DataControl datacontrol) {
-		this.datacontrol = datacontrol;
-	}
+    @SuppressWarnings("rawtypes")
+    public void setDatacontrol(DataControl datacontrol) {
+        this.datacontrol = datacontrol;
+    }
 
-	public java.util.logging.Logger getLogger() {
-		return logger;
-	}
+    public java.util.logging.Logger getLogger() {
+        return logger;
+    }
 
-	public void setLogger(java.util.logging.Logger logger) {
-		this.logger = logger;
-	}
+    public void setLogger(java.util.logging.Logger logger) {
+        this.logger = logger;
+    }
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List load(int first, int pageSize, String sortField,
-			SortOrder sortOrder, Map<String, Object> filters) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public List load(int first, int pageSize, String sortField,
+            SortOrder sortOrder, Map<String, Object> filters) {
 
-		SortMeta sortMeta = new SortMeta();
-		sortMeta.setSortField(sortField);
-		sortMeta.setSortOrder(sortOrder);
-		ArrayList<SortMeta> multiSortMeta = new ArrayList<>();
+        SortMeta sortMeta = new SortMeta();
+        sortMeta.setSortField(sortField);
+        sortMeta.setSortOrder(sortOrder);
+        ArrayList<SortMeta> multiSortMeta = new ArrayList<>();
         multiSortMeta.add(sortMeta);
 
-		return load(first, pageSize, multiSortMeta, filters);
-	}
+        return load(first, pageSize, multiSortMeta, filters);
+    }
 
     private boolean initSortMeta(List<SortMeta> sort) {
         if (sort.size() == sortMeta.keySet().size()) {
@@ -135,148 +141,157 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
         }
         return filtered;
     }
- 	
-	
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List load(int first, int pageSize, List<SortMeta> multiSortMeta,
-			Map<String, Object> filters) {
-		
+     
+    
+    
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public List load(int first, int pageSize, List<SortMeta> multiSortMeta,
+            Map<String, Object> filters) {
+        
         List<SortMeta> filteredMultiSortMeta = filterSortMeta(multiSortMeta);
 
-		
-		ArrayList datasource = new ArrayList();
-		GridPreQueryTrigger trigger = new GridPreQueryTrigger(filteredMultiSortMeta, filters, datacontrol.getPreQueryTrigger());
-		try {
-			datacontrol.setPreQueryTrigger(trigger);
+        
+        ArrayList datasource = new ArrayList();
+        GridPreQueryTrigger trigger = new GridPreQueryTrigger(filteredMultiSortMeta, filters, datacontrol.getPreQueryTrigger());
+        try {
+            datacontrol.setPreQueryTrigger(trigger);
             if (initSortMeta(filteredMultiSortMeta)) {
                 datacontrol.forceRefresh();
             }
-			
-			datacontrol.getCurrentObject();
-			List<?> scroler = datacontrol.getScroller();
-			int j = first + pageSize;
-			if ( j >= scroler.size())
-				j = scroler.size();
+            
+            datacontrol.getCurrentObject();
+            List<?> scroler = datacontrol.getScroller();
+            int j = first + pageSize;
+            if ( j >= scroler.size())
+                j = scroler.size();
 
-			for (int i = first ; i < j; i++) {
-				if (scroler.get(i) != null) {
-					//Element could be null in case random delete
-					// Size of scroller will be adjusted only after 
-					//scroler.get(i) operation
-					ObjectControl oc = (ObjectControl) scroler.get(i);
-					oc.setViewModelId1(i);
-				    datasource.add(oc);
-				}
-			}
-			
-	        if (first == 0 && gridModel.getSelected() == null && datasource.size() != 0) {
-	        	gridModel.setSelected(datasource.get(0));
-	        }
+            for (int i = first ; i < j; i++) {
+                if (scroler.get(i) != null) {
+                    //Element could be null in case random delete
+                    // Size of scroller will be adjusted only after 
+                    //scroler.get(i) operation
+                    ObjectControl oc = (ObjectControl) scroler.get(i);
+                    oc.setViewModelId1(i);
+                    datasource.add(oc);
+                }
+            }
+            
+            if (gridSingleSelectModel != null && first == 0 && gridSingleSelectModel.getSelected() == null && datasource.size() != 0) {
+                gridSingleSelectModel.setSelected(datasource.get(0));
+            }else {
+                //TODO Inject initializer for multiselect
+            }
 
-			
+            
 
-		} catch (Exception e) {
-			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
-		}finally{
-			datacontrol.setPreQueryTrigger(trigger.getTrigger());
-		}
-		
-		return datasource;
-	}
+        } catch (Exception e) {
+            logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
+        }finally{
+            datacontrol.setPreQueryTrigger(trigger.getTrigger());
+        }
+        
+        return datasource;
+    }
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public T getRowData(String rowKey) {
-		Integer key = new Integer(rowKey);
-		List data = this.getWrappedData();
-		if ( data == null || data.size() == 0) {
-			return null;
-		}
-		int minIndex = (int) (( ObjectControl)data.get(0)).getViewModelId1();
-		int maxIndex = (int) (( ObjectControl)data.get(data.size()-1 )).getViewModelId1();
-		
-		if (  key >=  minIndex && key<=maxIndex) {
-	        int index  = (key % getPageSize());
-	        ObjectControl	obj = (ObjectControl) (((List)this.getWrappedData()).get(index));
-	        if ( obj .getViewModelId1() .equals(key)) {
-	        	return (T) obj;
-	        }
-			throw new RuntimeException("Wrong object");
-		}else {
-			Object selected = gridModel.getSelected();
-			if (selected instanceof ObjectControl) {
-				ObjectControl obj = (ObjectControl) selected;
-		        if ( obj .getViewModelId1() .equals(key)) {
-		        	return (T) obj;
-		        }
-			}
-		}
-		return null;
-		
-	}
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public T getRowData(String rowKey) {
+        Integer key = new Integer(rowKey);
+        List data = this.getWrappedData();
+        if ( data == null || data.size() == 0) {
+            return null;
+        }
+        int minIndex = (int) (( ObjectControl)data.get(0)).getViewModelId1();
+        int maxIndex = (int) (( ObjectControl)data.get(data.size()-1 )).getViewModelId1();
+        
+        if (  key >=  minIndex && key<=maxIndex) {
+            int index  = (key % getPageSize());
+            ObjectControl    obj = (ObjectControl) (((List)this.getWrappedData()).get(index));
+            if ( obj .getViewModelId1() .equals(key)) {
+                return (T) obj;
+            }
+            throw new RuntimeException("Wrong object");
+        }else {
+            if (gridSingleSelectModel != null) {
+                ObjectControl obj = (ObjectControl) gridSingleSelectModel.getSelected();
+                if ( obj .getViewModelId1() .equals(key)) {
+                    return (T) obj;
+                }
+            }else {
+                List<Object> selectedArray = (List<Object>) gridMultiSelectModel.getSelected();
+                for (Object obj : selectedArray) {
+                    ObjectControl o = (ObjectControl) obj;
+                    if ( o .getViewModelId1() .equals(key)) {
+                        return (T) obj;
+                    }
+                }
+            }
+        }
+        return null;
+        
+    }
 
-	public Object getRowKey(T object) {
-		ObjectControl oc = (ObjectControl) object;
-		return oc.getViewModelId1();
+    public Object getRowKey(T object) {
+        ObjectControl oc = (ObjectControl) object;
+        return oc.getViewModelId1();
 
-	}
+    }
 
-	class GridPreQueryTrigger implements PreQueryTrigger {
-		private List<SortMeta> multiSortMeta;
-		private Map<String, Object> filters;
-		private PreQueryTrigger trigger;
+    class GridPreQueryTrigger implements PreQueryTrigger {
+        private List<SortMeta> multiSortMeta;
+        private Map<String, Object> filters;
+        private PreQueryTrigger trigger;
 
-		public GridPreQueryTrigger(List<SortMeta> multiSortMeta,
-				Map<String, Object> filters, PreQueryTrigger trigger) {
-			this.filters = filters;
-			this.multiSortMeta = multiSortMeta;
-			this.trigger = trigger;
-		}
+        public GridPreQueryTrigger(List<SortMeta> multiSortMeta,
+                Map<String, Object> filters, PreQueryTrigger trigger) {
+            this.filters = filters;
+            this.multiSortMeta = multiSortMeta;
+            this.trigger = trigger;
+        }
 
-		public PreQueryTrigger getTrigger() {
-			return trigger;
-		}		
-		
-		@Override
-		public void execute(DataControl<?> datacontrol) throws TuraException {
+        public PreQueryTrigger getTrigger() {
+            return trigger;
+        }        
+        
+        @Override
+        public void execute(DataControl<?> datacontrol) throws TuraException {
 
-			try {
+            try {
 
-				List<SearchCriteria> ls = datacontrol.getSearchCriteria();
+                List<SearchCriteria> ls = datacontrol.getSearchCriteria();
 
-				for (String key : filters.keySet()) {
-					SearchCriteria criteria = new SearchCriteria();
-					Object value = filters.get(key);
-					criteria.setValue(value);
-					criteria.setComparator(Operator.EQ.name());
-					criteria.setName(key);
-					ls.add(criteria);
-				}
+                for (String key : filters.keySet()) {
+                    SearchCriteria criteria = new SearchCriteria();
+                    Object value = filters.get(key);
+                    criteria.setValue(value);
+                    criteria.setComparator(Operator.EQ.name());
+                    criteria.setName(key);
+                    ls.add(criteria);
+                }
 
-				List<OrderCriteria> ord = datacontrol.getOrderCriteria();
-				ord.clear();
+                List<OrderCriteria> ord = datacontrol.getOrderCriteria();
+                ord.clear();
 
-				for (SortMeta sortField : multiSortMeta) {
-					OrderCriteria criteria = new OrderCriteria();
-					criteria.setName(sortField.getSortField());
-					if (sortField.getSortOrder().equals(SortOrder.ASCENDING))
-						criteria.setOrder(Order.ASC.name()); 
-					else
-						criteria.setOrder(Order.DESC.name()); 
-					
-					ord.add(criteria);
-				}
-				
-				if (trigger != null)
-					trigger.execute(datacontrol);
-			
-				
-			} catch (Exception e) {
-				throw new TuraException(e);
-			}
+                for (SortMeta sortField : multiSortMeta) {
+                    OrderCriteria criteria = new OrderCriteria();
+                    criteria.setName(sortField.getSortField());
+                    if (sortField.getSortOrder().equals(SortOrder.ASCENDING))
+                        criteria.setOrder(Order.ASC.name()); 
+                    else
+                        criteria.setOrder(Order.DESC.name()); 
+                    
+                    ord.add(criteria);
+                }
+                
+                if (trigger != null)
+                    trigger.execute(datacontrol);
+            
+                
+            } catch (Exception e) {
+                throw new TuraException(e);
+            }
 
-		}
+        }
 
-	}
-	
+    }
+    
 }

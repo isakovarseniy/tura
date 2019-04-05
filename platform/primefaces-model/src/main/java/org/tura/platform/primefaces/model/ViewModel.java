@@ -36,91 +36,102 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 
 public class ViewModel implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private  Logger logger = Logger.getLogger(ViewModel.class.getName());
-	private HashMap<String, Object> modelHolder = new HashMap<>();
+    private  Logger logger = Logger.getLogger(ViewModel.class.getName());
+    private HashMap<String, Object> modelHolder = new HashMap<>();
 
-	
-	public static UIComponent findComponent(final String id) {
+    
+    public static UIComponent findComponent(final String id) {
 
-	    FacesContext context = FacesContext.getCurrentInstance(); 
-	    UIViewRoot root = context.getViewRoot();
-	    final UIComponent[] found = new UIComponent[1];
+        FacesContext context = FacesContext.getCurrentInstance(); 
+        UIViewRoot root = context.getViewRoot();
+        final UIComponent[] found = new UIComponent[1];
 
-	    root.visitTree( VisitContext.createVisitContext(context), new VisitCallback() {     
-	        @Override
-	        public VisitResult visit(VisitContext context, UIComponent component) {
-	            if(component.getId().equals(id)){
-	                found[0] = component;
-	                return VisitResult.COMPLETE;
-	            }
-	            return VisitResult.ACCEPT;              
-	        }
-	    });
+        root.visitTree( VisitContext.createVisitContext(context), new VisitCallback() {     
+            @Override
+            public VisitResult visit(VisitContext context, UIComponent component) {
+                if(component.getId().equals(id)){
+                    found[0] = component;
+                    return VisitResult.COMPLETE;
+                }
+                return VisitResult.ACCEPT;              
+            }
+        });
 
-	    return found[0];
+        return found[0];
 
-	}
-	
-	
-	
-	public String getClientId(Object obj) {
-		if (obj != null) {
-			UIComponent uc = (UIComponent) obj;
-			String path = uc.getId();
-			if (uc.getClientId() != null)
-				path = uc.getClientId();
+    }
+    
+    
+    
+    public String getClientId(Object obj) {
+        if (obj != null) {
+            UIComponent uc = (UIComponent) obj;
+            String path = uc.getId();
+            if (uc.getClientId() != null)
+                path = uc.getClientId();
 
-			while (uc.getClientId() == null) {
-				uc = uc.getParent();
-				String id = uc.getId();
-				if (uc.getClientId() != null)
-					id = uc.getClientId();
-				path = id + ":" + path;
-			}
+            while (uc.getClientId() == null) {
+                uc = uc.getParent();
+                String id = uc.getId();
+                if (uc.getClientId() != null)
+                    id = uc.getClientId();
+                path = id + ":" + path;
+            }
 
-			return ":" + path;
-		} else
-			return "";
-	}
+            return ":" + path;
+        } else
+            return "";
+    }
 
-	@SuppressWarnings({ "rawtypes" })
-	public Object getModel(String modelId, String modelType, Object obj) {
+    @SuppressWarnings({ "rawtypes" })
+    public Object getModel(String modelId, String modelType, Object obj) {
 
-		Object model = modelHolder.get(modelId);
-		if (model != null) {
-			return model;
-		}
+        Object model = modelHolder.get(modelId);
+        if (model != null) {
+            return model;
+        }
 
-		if ("grid".equals(modelType)) {
-			model = getGridModel((DataControl) obj, logger);
-		}
+        if ("gridSingleSelect".equals(modelType)) {
+            model = getGridModelSingleSelect((DataControl) obj, logger);
+        }
 
-		if ("tree".equals(modelType)) {
-			model = getTreeModel((TreeDataControl) obj);
-		}
-		
-		if ("options".equals(modelType)) {
-			model = getOptionsModel((DataControl) obj);
-		}
+        if ("gridMultiSelect".equals(modelType)) {
+            model = getGridModelMultiSelect((DataControl) obj, logger);
+        }
+        
+        
+        if ("tree".equals(modelType)) {
+            model = getTreeModel((TreeDataControl) obj);
+        }
+        
+        if ("options".equals(modelType)) {
+            model = getOptionsModel((DataControl) obj);
+        }
 
-		modelHolder.put(modelId, model);
-		return model;
+        modelHolder.put(modelId, model);
+        return model;
 
-	}
+    }
 
-	@SuppressWarnings("rawtypes")
-	private GridModel getGridModel(DataControl dc, Logger logger) {
-		return new GridModel(dc, logger);
-	}
+    @SuppressWarnings("rawtypes")
+    private GridModel getGridModelSingleSelect(DataControl dc, Logger logger) {
+        return new GridModel(dc, logger);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private GridModelMultiSelect getGridModelMultiSelect(DataControl dc, Logger logger) {
+        return new GridModelMultiSelect(dc, logger);
+    }
+    
 
-	private TreeModel getTreeModel(TreeDataControl dc) {
-		return new TreeModel(dc, logger);
-	}
+    private TreeModel getTreeModel(TreeDataControl dc) {
+        return new TreeModel(dc, logger);
+    }
 
-	private OptionsModel getOptionsModel(DataControl<?> dc) {
-		return new OptionsModel( dc, logger );
-	}
+    private OptionsModel getOptionsModel(DataControl<?> dc) {
+        return new OptionsModel( dc, logger );
+    }
 
 }

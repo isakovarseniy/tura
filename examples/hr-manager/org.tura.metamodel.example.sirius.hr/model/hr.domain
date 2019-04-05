@@ -6825,7 +6825,7 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="b3238e57-69fe-4378-953c-c9dc64ec0731" name="TestForm2Aria">
                         <baseCanvas uid="c8b6e763-e9b6-4bea-a020-d838332f2298">
                           <children xsi:type="tura.form:LayerHolder" uid="4b203c1d-7169-48c0-88dd-edfb6bf4ac63">
-                            <children xsi:type="tura.form:Table" uid="32f2445b-95e2-4094-a5b7-b842f8409467" sourcePointer="6b603524-0f9d-406a-91f4-a029d92a910a" columns="4" label="Department" rowNumber="10" selectionMode="Multiple">
+                            <children xsi:type="tura.form:Table" nickname="DepartmentTable" uid="32f2445b-95e2-4094-a5b7-b842f8409467" sourcePointer="6b603524-0f9d-406a-91f4-a029d92a910a" columns="4" label="Department" rowNumber="10" selectionMode="Multiple">
                               <style uid="7b92f6dc-d970-4484-89f8-8354000dfc05"/>
                               <refreshAreas area="2a4e2527-25a8-4796-9abb-980f1136bd67" group="2"/>
                               <multiLangLabel uid="f5f1b0aa-2452-471e-9336-68b9873aa33e"/>
