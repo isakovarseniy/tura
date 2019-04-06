@@ -935,6 +935,7 @@ public class FormSwitch<T> extends Switch<T> {
 			case FormPackage.DATA_CONTROL: {
 				DataControl dataControl = (DataControl)theEObject;
 				T result = caseDataControl(dataControl);
+				if (result == null) result = caseCategorized(dataControl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

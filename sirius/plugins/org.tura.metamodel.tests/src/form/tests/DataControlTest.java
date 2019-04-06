@@ -2,6 +2,7 @@
  */
 package form.tests;
 
+import artifact.tests.CategorizedTest;
 import form.DataControl;
 import form.FormFactory;
 
@@ -15,15 +16,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataControlTest extends TestCase {
-
-	/**
-	 * The fixture for this Data Control test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataControl fixture = null;
+public class DataControlTest extends CategorizedTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +38,14 @@ public class DataControlTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Data Control test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(DataControl fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Data Control test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected DataControl getFixture() {
-		return fixture;
+		return (DataControl)fixture;
 	}
 
 	/**

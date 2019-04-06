@@ -3,6 +3,7 @@
 <#assign end = "]" >
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Environment}.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 ${percent}${end}
 [%
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -13,15 +14,15 @@ ${percent}${end}
     var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
     var uipackage = form.eContainer();
 
-    %][%=commandstack(component,uipackage, form)%][%
+    %][%=commandstack(component,uipackage, form,controlSuffix)%][%
     
-     out.formatWith(f);
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",out.toString());   
+    out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack" +util.mergeAndCapitalize(controlSuffix) +".java",out.toString());   
 
 %]
 
 [% @template
-operation  commandstack(component,uipackage,form) {
+operation  commandstack(component,uipackage,form, suffix) {
 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -29,7 +30,12 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 
 [%=commandstack_scope()%]
 @javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
+[%
+if ( not "".equals(suffix)  ){
+%]@org.tura.platform.datacontrol.annotations.Selector("[%=suffix%]")[%
+}
+%]
+public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack[%=util.mergeAndCapitalize(suffix)%]  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 

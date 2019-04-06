@@ -32,6 +32,13 @@ operation  datacontrolgeneration(hash) {
      
          hash.put("control",control);
     
+	    var list = control.findAllClassifiers(util.getHint(model_mapper,"CommandStack"));
+	    var suffix= "";
+	    if ( list <> null and list.size() <> 0 ){
+	         suffix = list.get(0).details;
+	    }
+         hash.put("controlSuffix",suffix);
+    
          var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/datacontrol.egl",hash,TemplateFactory);
          datacontrol.setFormatter(f);
          buffer = datacontrol.process();
@@ -47,6 +54,10 @@ operation  datacontrolgeneration(hash) {
          parameteproducer.setFormatter(f);
          buffer = parameteproducer.process();
          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "ParameterProducer.java",buffer);   
+
+
+	    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
+	    trans.process();
 
 
          if (control.~treeRoot <> null){
@@ -121,9 +132,6 @@ operation  datacontrolgeneration(hash) {
     buffer = bridge.process();
     util.saveFile( javaPath+"/commons/datacontrol/"  , "CDIPhaseBridge.java",buffer);   
 
-
-    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
-    trans.process();
 
     hash.put("bfSuffix", "");
     var beanFactory : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);

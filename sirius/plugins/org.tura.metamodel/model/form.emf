@@ -491,7 +491,7 @@ class FormVariable extends type.TypePointer{
 }
 
 
-class DataControl {
+class DataControl  extends artifact.Categorized{
     id attr EString uid;
    attr EString name;
    val type.TypePointer baseType;

@@ -261,6 +261,7 @@
               <options uid="32cdf13e-2b00-42ea-a6a0-00eadfd814db" value="52052d1c-7313-4684-a8bd-c62091140f59"/>
               <options uid="92af970b-527a-4f69-ae19-d598b5ed65e2" value="84116821-76ad-4b88-987b-318c00f18563"/>
             </technologies>
+            <hints uid="30002d98-4125-4963-b62a-87ef8e351cb1" name="CommandStack" hint="3af89e3a-1a60-40f6-b1cc-2d39bf927f71"/>
           </artifacts>
           <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainView.egl">
             <configVariables uid="c2ff15f2-4cf7-4028-9710-af2bd3eb4312" name="Resource library location" var="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
@@ -534,6 +535,7 @@
           <techLeafs uid="bac478cc-27e1-4f2f-b70b-1ff471e8524b" name="JDBC"/>
         </techLeafs>
         <techLeafs uid="23d58a75-40fc-4824-a82a-8f5af07b0a8e" name="CDI">
+          <hints uid="3af89e3a-1a60-40f6-b1cc-2d39bf927f71" name="CommandStack"/>
           <techLeafs uid="3c986ae4-6acd-45b0-ae5c-e66e8b55eeb6" name="REST">
             <techLeafs uid="a76f07be-f346-4b06-8186-fb217bf52a03" name="Repository"/>
           </techLeafs>

@@ -2,6 +2,7 @@
  */
 package form;
 
+import artifact.ArtifactPackage;
 import common.CommonPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -6778,13 +6779,22 @@ public interface FormPackage extends EPackage {
 	int DATA_CONTROL = 83;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONTROL__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__UID = 0;
+	int DATA_CONTROL__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6793,7 +6803,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__NAME = 1;
+	int DATA_CONTROL__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' containment reference.
@@ -6802,7 +6812,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__BASE_TYPE = 2;
+	int DATA_CONTROL__BASE_TYPE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Pre Query Trigger</b></em>' containment reference.
@@ -6811,7 +6821,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__PRE_QUERY_TRIGGER = 3;
+	int DATA_CONTROL__PRE_QUERY_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Post Query Trigger</b></em>' containment reference.
@@ -6820,7 +6830,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__POST_QUERY_TRIGGER = 4;
+	int DATA_CONTROL__POST_QUERY_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Pre Insert Trigger</b></em>' containment reference.
@@ -6829,7 +6839,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__PRE_INSERT_TRIGGER = 5;
+	int DATA_CONTROL__PRE_INSERT_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Pre Delete Trigger</b></em>' containment reference.
@@ -6838,7 +6848,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__PRE_DELETE_TRIGGER = 6;
+	int DATA_CONTROL__PRE_DELETE_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Post Create Trigger</b></em>' containment reference.
@@ -6847,7 +6857,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__POST_CREATE_TRIGGER = 7;
+	int DATA_CONTROL__POST_CREATE_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Pre Update Trigger</b></em>' containment reference.
@@ -6856,7 +6866,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__PRE_UPDATE_TRIGGER = 8;
+	int DATA_CONTROL__PRE_UPDATE_TRIGGER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Create</b></em>' containment reference.
@@ -6865,7 +6875,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__CREATE = 9;
+	int DATA_CONTROL__CREATE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Search</b></em>' containment reference.
@@ -6874,7 +6884,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__SEARCH = 10;
+	int DATA_CONTROL__SEARCH = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Artificial Fields</b></em>' containment reference list.
@@ -6883,7 +6893,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__ARTIFICIAL_FIELDS = 11;
+	int DATA_CONTROL__ARTIFICIAL_FIELDS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Default Search</b></em>' containment reference.
@@ -6892,7 +6902,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__DEFAULT_SEARCH = 12;
+	int DATA_CONTROL__DEFAULT_SEARCH = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Default Order By</b></em>' containment reference.
@@ -6901,7 +6911,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__DEFAULT_ORDER_BY = 13;
+	int DATA_CONTROL__DEFAULT_ORDER_BY = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Relation Mappers</b></em>' containment reference list.
@@ -6910,7 +6920,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__RELATION_MAPPERS = 14;
+	int DATA_CONTROL__RELATION_MAPPERS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Data Control</em>' class.
@@ -6919,7 +6929,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL_FEATURE_COUNT = 15;
+	int DATA_CONTROL_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.

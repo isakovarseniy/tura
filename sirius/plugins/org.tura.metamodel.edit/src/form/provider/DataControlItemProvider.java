@@ -3,6 +3,7 @@
 package form.provider;
 
 
+import artifact.provider.CategorizedItemProvider;
 import domain.provider.DomainEditPlugin;
 
 import form.DataControl;
@@ -41,13 +42,7 @@ import type.TypeFactory;
  * @generated
  */
 public class DataControlItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CategorizedItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

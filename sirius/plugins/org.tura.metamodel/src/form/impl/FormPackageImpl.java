@@ -3912,6 +3912,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
 		searchTriggerEClass.getESuperTypes().add(this.getTrigger());
 		formVariableEClass.getESuperTypes().add(theTypePackage.getTypePointer());
+		dataControlEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		internalRelationEClass.getESuperTypes().add(this.getRelation());
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 

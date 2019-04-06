@@ -2,6 +2,7 @@
  */
 package form.impl;
 
+import artifact.impl.CategorizedImpl;
 import form.ArtificialField;
 import form.ContextParameters;
 import form.CreateTrigger;
@@ -62,7 +63,7 @@ import type.TypePointer;
  *
  * @generated
  */
-public class DataControlImpl extends EObjectImpl implements DataControl {
+public class DataControlImpl extends CategorizedImpl implements DataControl {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
