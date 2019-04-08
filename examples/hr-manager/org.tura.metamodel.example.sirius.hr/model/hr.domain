@@ -7009,7 +7009,7 @@
                         <baseCanvas nickname="" uid="3604fd27-874c-495a-a1c6-71bc44b6551e" columns="2">
                           <required uid="8a3c02c4-c79c-4b22-b539-c9b18f6443aa"/>
                           <children xsi:type="tura.form:LayerHolder" uid="ce388af3-f150-47ba-a240-ac08fc36fde9">
-                            <children xsi:type="tura.form:Tree" uid="c01bd42c-9469-48a3-957f-32e694093dcd" sourcePointer="9607404d-f52d-48c7-b565-209b224123c2">
+                            <children xsi:type="tura.form:Tree" uid="c01bd42c-9469-48a3-957f-32e694093dcd" sourcePointer="9607404d-f52d-48c7-b565-209b224123c2" selectionMode="Multiple">
                               <cols uid="9109b848-5a02-4d2c-9360-ab848ad3ba1e">
                                 <element xsi:type="tura.form:InputText" uid="309cab71-f82f-4d3f-aa3d-7c11793c5499" valuePointer="49e1f103-fa53-4d52-a7ba-65435179d370">
                                   <style uid="92d120bb-4f3b-4389-b7bc-efc42ee68209"/>

@@ -23,13 +23,20 @@ operation form::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
 
+     var selectionMode = 'selectionMode="single"';
+     var selection = "selectedNode";
+     if ( "Multiple".equals( self.selectionMode.toString())){
+        selectionMode = 'selectionMode="multiple"';
+        selection = "multipleSelectedNode";
+     } 
+
      hints.put("noCurlyBracket",true);
      
 %]
 	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
 		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).root}"
-		var="row" dynamic="true" cache="false" selectionMode="single"
-		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).selectedNode}">
+		var="row" dynamic="true" cache="false" [%=selectionMode%]
+		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).[%=selection%]}">
 
 		<p:ajax event="expand" 
 			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeExpand}" />

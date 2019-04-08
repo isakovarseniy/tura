@@ -313,6 +313,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MenuSeparator" eSuperTypes="#//MenuElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//MultiLangLabel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionMode" eType="#//SelectionMode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"

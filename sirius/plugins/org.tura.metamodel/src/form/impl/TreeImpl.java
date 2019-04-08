@@ -6,6 +6,7 @@ import form.Column;
 import form.Context;
 import form.FormPackage;
 import form.MultiLangLabel;
+import form.SelectionMode;
 import form.Tree;
 
 import java.util.Collection;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link form.impl.TreeImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.TreeImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link form.impl.TreeImpl#getSelectionMode <em>Selection Mode</em>}</li>
  *   <li>{@link form.impl.TreeImpl#getImage <em>Image</em>}</li>
  *   <li>{@link form.impl.TreeImpl#getCols <em>Cols</em>}</li>
  * </ul>
@@ -69,6 +71,26 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * @ordered
 	 */
 	protected String label = LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelectionMode() <em>Selection Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SelectionMode SELECTION_MODE_EDEFAULT = SelectionMode.SINGLE;
+
+	/**
+	 * The cached value of the '{@link #getSelectionMode() <em>Selection Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected SelectionMode selectionMode = SELECTION_MODE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getImage() <em>Image</em>}' containment reference.
@@ -178,6 +200,27 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SelectionMode getSelectionMode() {
+		return selectionMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectionMode(SelectionMode newSelectionMode) {
+		SelectionMode oldSelectionMode = selectionMode;
+		selectionMode = newSelectionMode == null ? SELECTION_MODE_EDEFAULT : newSelectionMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TREE__SELECTION_MODE, oldSelectionMode, selectionMode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Context getImage() {
 		return image;
 	}
@@ -258,6 +301,8 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 				return getMultiLangLabel();
 			case FormPackage.TREE__LABEL:
 				return getLabel();
+			case FormPackage.TREE__SELECTION_MODE:
+				return getSelectionMode();
 			case FormPackage.TREE__IMAGE:
 				return getImage();
 			case FormPackage.TREE__COLS:
@@ -280,6 +325,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 				return;
 			case FormPackage.TREE__LABEL:
 				setLabel((String)newValue);
+				return;
+			case FormPackage.TREE__SELECTION_MODE:
+				setSelectionMode((SelectionMode)newValue);
 				return;
 			case FormPackage.TREE__IMAGE:
 				setImage((Context)newValue);
@@ -306,6 +354,9 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 			case FormPackage.TREE__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
+			case FormPackage.TREE__SELECTION_MODE:
+				setSelectionMode(SELECTION_MODE_EDEFAULT);
+				return;
 			case FormPackage.TREE__IMAGE:
 				setImage((Context)null);
 				return;
@@ -328,6 +379,8 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 				return multiLangLabel != null;
 			case FormPackage.TREE__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case FormPackage.TREE__SELECTION_MODE:
+				return selectionMode != SELECTION_MODE_EDEFAULT;
 			case FormPackage.TREE__IMAGE:
 				return image != null;
 			case FormPackage.TREE__COLS:
@@ -380,6 +433,8 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: ");
 		result.append(label);
+		result.append(", selectionMode: ");
+		result.append(selectionMode);
 		result.append(')');
 		return result.toString();
 	}

@@ -6016,13 +6016,22 @@ public interface FormPackage extends EPackage {
 	int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Selection Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__SELECTION_MODE = SOURCES_POINTER_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Image</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 2;
+	int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
@@ -6031,7 +6040,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 3;
+	int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Tree</em>' class.
@@ -6040,7 +6049,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 4;
+	int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ControlsImpl <em>Controls</em>}' class.
@@ -9269,6 +9278,17 @@ public interface FormPackage extends EPackage {
 	EAttribute getTree_Label();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.Tree#getSelectionMode <em>Selection Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Mode</em>'.
+	 * @see form.Tree#getSelectionMode()
+	 * @see #getTree()
+	 * @generated
+	 */
+	EAttribute getTree_SelectionMode();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link form.Tree#getImage <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11830,6 +11850,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TREE__LABEL = eINSTANCE.getTree_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE__SELECTION_MODE = eINSTANCE.getTree_SelectionMode();
 
 		/**
 		 * The meta object literal for the '<em><b>Image</b></em>' containment reference feature.

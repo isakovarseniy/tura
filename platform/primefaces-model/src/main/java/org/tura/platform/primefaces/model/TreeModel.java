@@ -53,7 +53,8 @@ import org.tura.platform.repository.core.ObjectControl;
 public class TreeModel {
 
     private TreeNode root;
-    private TreeNode selectedNode;
+    private TreeNode currentNode;
+    private List<TreeNode> selectedList;
     private TreeDataControl dc;
     private Logger logger;
 
@@ -82,8 +83,8 @@ public class TreeModel {
                 }
 
                 if (root.getChildren().size() != 0 && !(root.getChildren().get(0).getData() instanceof Fake)) {
-                    selectedNode = root.getChildren().get(0);
-                    selectedNode.setSelected(true);
+                    currentNode = root.getChildren().get(0);
+                    currentNode.setSelected(true);
                 }
             }
         }
@@ -92,55 +93,34 @@ public class TreeModel {
     }
 
     public TreeNode getSelectedNode() {
-        return selectedNode;
+        return currentNode;
     }
 
     public void setSelectedNode(TreeNode selectedNode) throws Exception {
+        this.currentNode = selectedNode;
 
     }
 
-    public void setSelected(TreeNode selectedNode) throws Exception {
 
-        cleanSelection(getRoot());
-        if (selectedNode == null)
-            return;
-
-        this.selectedNode = selectedNode;
-        this.selectedNode.setSelected(true);
-
-        TreePath[] p = getPath(selectedNode);
-        if (!compareArrays((TreePath[]) dc.getCurrentPosition(), p))
-            dc.setCurrentPosition(p);
-
-    }
-
-    private TreePath[] getPath(TreeNode node) {
-
-        TreeNode runner = node;
-        List<TreePath> path = new ArrayList<TreePath>();
-        while (true) {
-            if (runner.getData() instanceof Root)
-                break;
-            Object[] data = (Object[]) runner.getData();
-            path.add((TreePath) data[0]);
-            if (runner.getParent() != null)
-                runner = runner.getParent();
+    public TreeNode[] getMultipleSelectedNode() {
+        if ( selectedList == null) {
+            return null;
         }
-        Collections.reverse(path);
-        TreePath[] p = new TreePath[path.size()];
+        return selectedList.toArray(new TreeNode[selectedList.size()]);
+    }
 
-        for (int i = 0; i < path.size(); i++) {
-            p[i] = path.get(i);
+    public void setMultipleSelectedNode(TreeNode[] selectedList) throws Exception {
+        if ( selectedList != null) {
+           this.selectedList = Arrays.asList( selectedList);
         }
 
-        return p;
     }
-
+    
+    
     @SuppressWarnings("rawtypes")
     public void onNodeExpand(NodeExpandEvent event) throws Exception {
         org.primefaces.component.tree.Tree object = (org.primefaces.component.tree.Tree) event.getSource();
         TreeNode expnode = object.getRowNode();
-        setSelected(expnode);
 
         Object[] data = (Object[]) expnode.getData();
         Object obj = data[1];
@@ -163,22 +143,6 @@ public class TreeModel {
 
     }
 
-    private boolean compareArrays(TreePath[] array1, TreePath[] array2) {
-        boolean b = true;
-        if (array1 != null && array2 != null) {
-            if (array1.length != array2.length)
-                b = false;
-            else
-                for (int i = 0; i < array2.length; i++) {
-                    if (!array2[i].equals(array1[i])) {
-                        b = false;
-                    }
-                }
-        } else {
-            b = false;
-        }
-        return b;
-    }
 
     public void onNodeCollapse(NodeCollapseEvent event) {
         org.primefaces.component.tree.Tree object = (org.primefaces.component.tree.Tree) event.getSource();
@@ -212,11 +176,9 @@ public class TreeModel {
         public void handleEventListener(Event event) throws TuraException {
             if (event instanceof MasterRowChangedEvent && event.getSource() instanceof TreeDataControl) {
                 root = null;
-                selectedNode = null;
             }
             if (event instanceof ControlRefreshedEvent && event.getSource() instanceof TreeDataControl) {
                 root = null;
-                selectedNode = null;
             }
             if (event instanceof ControlRallbackEvent && event.getSource() instanceof DataControl) {
                 root = null;
@@ -229,19 +191,19 @@ public class TreeModel {
                     DataControl<?> newDC = (DataControl<?>) ((ObjectControl) newRow).getAttributes()
                             .get(Constants.DATA_CONTROL);
 
-                    if (selectedNode == null) {
+                    if (currentNode == null) {
                         parent = root;
                     } else {
 
-                        Object[] data = (Object[]) selectedNode.getData();
+                        Object[] data = (Object[]) currentNode.getData();
                         Object obj = data[1];
                         DataControl<?> currentDc = (DataControl<?>) ((ObjectControl) obj).getAttributes()
                                 .get(Constants.DATA_CONTROL);
 
                         if (currentDc.getId().equals(newDC.getId()))
-                            parent = selectedNode.getParent();
+                            parent = currentNode.getParent();
                         else
-                            parent = selectedNode;
+                            parent = currentNode;
                     }
 
                     parent.setExpanded(true);
@@ -255,15 +217,15 @@ public class TreeModel {
                     for (int i = 0; i < scroler.size(); i++) {
                         DefaultTreeNode leaf = new DefaultTreeNode(
                                 new Object[] { new TreePath(relation, i), scroler.get(i) }, parent);
-                        if (selectedNode == null)
-                            selectedNode = leaf;
+                        if (currentNode == null)
+                            currentNode = leaf;
                         new DefaultTreeNode(new Fake(), leaf);
                     }
 
-                    TreePath[] p = getPath(selectedNode);
+                    TreePath[] p = getPath(currentNode);
                     event.getSource().setCurrentPosition(p);
-                    selectedNode.setSelected(true);
-                    setSelected(selectedNode);
+                    currentNode.setSelected(true);
+                    setSelected(currentNode);
                 } catch (Exception e) {
                     logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
                 }
@@ -271,19 +233,19 @@ public class TreeModel {
             if (event instanceof RowRemovedEvent && event.getSource() instanceof TreeDataControl) {
                 try {
 
-                    if (selectedNode == null || (selectedNode != null && selectedNode.getChildren() == null)
-                            || (selectedNode != null && selectedNode.getChildren().size() == 0)
-                            || (selectedNode != null && selectedNode.getChildren().get(0).getData() instanceof Root)) {
+                    if (currentNode == null || (currentNode != null && currentNode.getChildren() == null)
+                            || (currentNode != null && currentNode.getChildren().size() == 0)
+                            || (currentNode != null && currentNode.getChildren().get(0).getData() instanceof Root)) {
                         return;
                     }
 
-                    TreePath[] p = getPath(selectedNode);
+                    TreePath[] p = getPath(currentNode);
 
-                    TreeNode parent = selectedNode.getParent();
+                    TreeNode parent = currentNode.getParent();
                     parent.setExpanded(true);
                     parent.getChildren().clear();
 
-                    Object[] data = (Object[]) selectedNode.getData();
+                    Object[] data = (Object[]) currentNode.getData();
                     Object obj = data[1];
 
                     DataControl<?> currentDc = (DataControl<?>) ((ObjectControl) obj).getAttributes()
@@ -329,6 +291,24 @@ public class TreeModel {
 
     }
 
+    
+    private boolean compareArrays(TreePath[] array1, TreePath[] array2) {
+        boolean b = true;
+        if (array1 != null && array2 != null) {
+            if (array1.length != array2.length)
+                b = false;
+            else
+                for (int i = 0; i < array2.length; i++) {
+                    if (!array2[i].equals(array1[i])) {
+                        b = false;
+                    }
+                }
+        } else {
+            b = false;
+        }
+        return b;
+    }
+    
     private void cleanSelection(TreeNode node) {
         for (TreeNode child : node.getChildren()) {
             child.setSelected(false);
@@ -337,4 +317,33 @@ public class TreeModel {
             }
         }
     }
+    
+    private void setSelected(TreeNode selectedNode) throws Exception {
+        TreePath[] p = getPath(selectedNode);
+        if (!compareArrays((TreePath[]) dc.getCurrentPosition(), p))
+            dc.setCurrentPosition(p);
+    }
+
+    private TreePath[] getPath(TreeNode node) {
+
+        TreeNode runner = node;
+        List<TreePath> path = new ArrayList<TreePath>();
+        while (true) {
+            if (runner.getData() instanceof Root)
+                break;
+            Object[] data = (Object[]) runner.getData();
+            path.add((TreePath) data[0]);
+            if (runner.getParent() != null)
+                runner = runner.getParent();
+        }
+        Collections.reverse(path);
+        TreePath[] p = new TreePath[path.size()];
+
+        for (int i = 0; i < path.size(); i++) {
+            p[i] = path.get(i);
+        }
+
+        return p;
+    }
+    
 }

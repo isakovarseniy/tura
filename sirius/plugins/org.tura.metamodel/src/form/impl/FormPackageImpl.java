@@ -2535,8 +2535,17 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTree_SelectionMode() {
+		return (EAttribute)treeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTree_Image() {
-		return (EReference)treeEClass.getEStructuralFeatures().get(1);
+		return (EReference)treeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2545,7 +2554,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	public EReference getTree_Cols() {
-		return (EReference)treeEClass.getEStructuralFeatures().get(2);
+		return (EReference)treeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3630,6 +3639,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		treeEClass = createEClass(TREE);
 		createEAttribute(treeEClass, TREE__LABEL);
+		createEAttribute(treeEClass, TREE__SELECTION_MODE);
 		createEReference(treeEClass, TREE__IMAGE);
 		createEReference(treeEClass, TREE__COLS);
 
@@ -4161,6 +4171,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTree_Label(), ecorePackage.getEString(), "label", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTree_SelectionMode(), this.getSelectionMode(), "selectionMode", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTree_Image(), this.getContext(), null, "image", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTree_Cols(), this.getColumn(), null, "cols", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

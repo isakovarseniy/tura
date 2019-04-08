@@ -400,6 +400,7 @@ class MenuSeparator extends MenuElement{
 
 class Tree extends SourcesPointer,MultiLangLabel{
    attr EString label;
+   attr SelectionMode selectionMode;
    val Context image;
    val Column[*] cols;
 }

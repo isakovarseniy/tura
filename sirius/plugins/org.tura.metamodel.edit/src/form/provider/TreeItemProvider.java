@@ -49,6 +49,7 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addLabelPropertyDescriptor(object);
+			addSelectionModePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 				 getString("_UI_Tree_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Tree_label_feature", "_UI_Tree_type"),
 				 FormPackage.Literals.TREE__LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selection Mode feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectionModePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tree_selectionMode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tree_selectionMode_feature", "_UI_Tree_type"),
+				 FormPackage.Literals.TREE__SELECTION_MODE,
 				 true,
 				 false,
 				 false,
@@ -146,6 +169,7 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 
 		switch (notification.getFeatureID(Tree.class)) {
 			case FormPackage.TREE__LABEL:
+			case FormPackage.TREE__SELECTION_MODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.TREE__MULTI_LANG_LABEL:
