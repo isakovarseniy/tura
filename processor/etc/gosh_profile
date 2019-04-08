@@ -114,6 +114,7 @@ hrUrlList = {
     echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm1.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm2.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform2/TestFormWindow.xhtml'
 
 }
 addClosure "hrUrlList";
