@@ -43,10 +43,12 @@ public class OptionsModel {
 	private String value;
 	private List<Object[]> options;
 	private Logger logger;
+	private Object callback;
 
-	public OptionsModel(DataControl<?> datacontrol, Logger logger) {
+	public OptionsModel(DataControl<?> datacontrol, Logger logger, Object callback) {
 		this.datacontrol = datacontrol;
 		this.logger = logger;
+		this.callback=callback;
 		datacontrol.addEventLiteners(new RecordListener());
 
 	}

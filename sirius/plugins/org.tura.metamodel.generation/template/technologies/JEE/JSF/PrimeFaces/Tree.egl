@@ -22,6 +22,7 @@ operation form::Tree draw(hash) {
 operation form::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
+     var form = hash.get("form");   
 
      var selectionMode = 'selectionMode="single"';
      var selection = "selectedNode";
@@ -34,22 +35,22 @@ operation form::Tree generateTreeBody(hash){
      
 %]
 	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
-		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).root}"
+		value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).root}"
 		var="row" dynamic="true" cache="false" [%=selectionMode%]
-		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).[%=selection%]}">
+		selection="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).[%=selection%]}">
 
 		<p:ajax event="expand" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeExpand}" />
+			listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeExpand}" />
 
 		<p:ajax event="collapse"
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeCollapse}" />
+			listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeCollapse}" />
 			
 		<p:ajax event="unselect" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeUnselect}" />
+			listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeUnselect}" />
 
 
 		<p:ajax event="select" 
-			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeSelect}"  [%=self.refreshArias()%] />
+			listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeSelect}"  [%=self.refreshArias()%] />
 
 
 		<p:treeNode>

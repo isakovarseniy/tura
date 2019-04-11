@@ -17,6 +17,7 @@ operation form::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var model_mapper = hash.get('model_mapper');
+     var form = hash.get("form");   
      
      var selector = "\"5,10,15\"";
      if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){
@@ -38,18 +39,18 @@ operation form::Table generateBody(hash){
      hints.put("noCurlyBracket",true);
 %]
     <p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
-        value="#{viewmodel.getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
+        value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
         paginator="true" rows="[%=self.rowNumber%]" lazy="true"
         paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
         rowsPerPageTemplate=[%=selector%] [%=selectionMode%]   rowKey="#{row.viewModelId1}" editable="true" 
-        selection="#{viewmodel.getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
+        selection="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
         paginatorPosition="bottom"
         >
         
 [%
      if ("Single".equals(self.selectionMode.toString())){
 %]                    
-        <p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
+        <p:ajax event="rowSelect" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
        [%
       }else{
 %]                    

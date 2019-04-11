@@ -35,11 +35,13 @@ public class GridModelMultiSelect {
     @SuppressWarnings("unused")
     private Logger logger;
     private List<Object> selected = new ArrayList<>();
+    private Object callback;
 
     @SuppressWarnings("rawtypes")
-    public GridModelMultiSelect(DataControl dc, Logger logger) {
+    public GridModelMultiSelect(DataControl dc, Logger logger, Object callback) {
         this.dc = dc;
         this.logger = logger;
+        this.callback=callback;
 
         lazyModel = new LazyDataGridModel(this);
         lazyModel.setDatacontrol(dc);

@@ -357,7 +357,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
-            GridModel model = new GridModel(companyDC, logger);
+            GridModel model = new GridModel(companyDC, logger,null);
 
             LazyDataGridModel lazy = model.getLazyModel();
             List ls = lazy.load(0, 5, new ArrayList<>(), new HashMap<>());

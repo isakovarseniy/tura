@@ -67,6 +67,8 @@ operation form::DropDownSelection rw(hash,value) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var emptyhints = new Native('java.util.HashMap');
+     var form = hash.get("form");   
+     
      hints.put("noCurlyBracket",true);
      
 %]
@@ -75,7 +77,7 @@ operation form::DropDownSelection rw(hash,value) {
     <f:selectItem itemLabel="[%=buildExpression(self.initialOptionMessage,emptyhints,hash)%]" itemValue="[%=self.initialOptionValue%]" />
     [%}
     %]
-    <f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+    <f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
     [%if (self.isRefreshArias()){
         var action = null;
         for ( field in  self.fields){
@@ -87,7 +89,7 @@ operation form::DropDownSelection rw(hash,value) {
       }
     %]
     
-    <p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=util.unEscapeString(value)%]')[% if (action <> null){%].setAction('[%=util.unEscapeString(action)%]')[%}%].changeValueListener}" />
+    <p:ajax [%=self.refreshArias()%]  listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=util.unEscapeString(value)%]')[% if (action <> null){%].setAction('[%=util.unEscapeString(action)%]')[%}%].changeValueListener}" />
     [%}%]
 </p:selectOneMenu>
 [%

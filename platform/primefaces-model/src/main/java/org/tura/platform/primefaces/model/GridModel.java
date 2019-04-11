@@ -42,11 +42,13 @@ public class GridModel {
     private DataControl dc;
     private Logger logger;
     private Object selected;
+    private Object callback;
 
     @SuppressWarnings("rawtypes")
-    public GridModel(DataControl dc, Logger logger) {
+    public GridModel(DataControl dc, Logger logger , Object callback) {
         this.dc = dc;
         this.logger = logger;
+        this.callback = callback;
 
         lazyModel = new LazyDataGridModel(this);
         lazyModel.setDatacontrol(dc);

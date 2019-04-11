@@ -52,7 +52,19 @@ operation  viewgeneration(hash) {
       var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/modelWrapper.egl",hash,TemplateFactory);
       viewportclass.setFormatter(f);
       var buffer = viewportclass.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/commons/viewmodel/"  , "ViewModelWrapper.java",buffer);  
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"   , "ViewModelWrapper.java",buffer);  
+      
+      
+      var viewmodelcallbackproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/callbackProducer.egl",hash,TemplateFactory);
+      viewmodelcallbackproducer.setFormatter(f);
+      var buffer = viewmodelcallbackproducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewModelCallBackProducer.java",buffer);  
+      
+      
+      var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/viewIdentificator.egl",hash,TemplateFactory);
+      viewportclass.setFormatter(f);
+      var buffer = viewportclass.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/commons/viewmodel/"  , "ViewIdentificatorWrapper.java",buffer);  
       
       
       var expproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/expressionsProducer.egl",hash,TemplateFactory);

@@ -1,0 +1,16 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class ViewModelCallBackProducer {
+
+	  @javax.enterprise.inject.Produces
+      @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+	public org.tura.platform.primefaces.model.CallbackProducer  produceViewModelCallBack(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+	}
+}

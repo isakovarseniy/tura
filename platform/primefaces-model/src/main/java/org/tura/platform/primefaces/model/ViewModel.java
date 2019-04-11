@@ -40,6 +40,7 @@ public class ViewModel implements Serializable {
 
     private  Logger logger = Logger.getLogger(ViewModel.class.getName());
     private HashMap<String, Object> modelHolder = new HashMap<>();
+    private CallbackProducer  callbackProducer;
 
     
     public static UIComponent findComponent(final String id) {
@@ -63,27 +64,10 @@ public class ViewModel implements Serializable {
 
     }
     
-    
-    
-    public String getClientId(Object obj) {
-        if (obj != null) {
-            UIComponent uc = (UIComponent) obj;
-            String path = uc.getId();
-            if (uc.getClientId() != null)
-                path = uc.getClientId();
-
-            while (uc.getClientId() == null) {
-                uc = uc.getParent();
-                String id = uc.getId();
-                if (uc.getClientId() != null)
-                    id = uc.getClientId();
-                path = id + ":" + path;
-            }
-
-            return ":" + path;
-        } else
-            return "";
+    public void setCallBackProducer( CallbackProducer  callbackProducer ) {
+    	this.callbackProducer = callbackProducer;
     }
+    
 
     @SuppressWarnings({ "rawtypes" })
     public Object getModel(String modelId, String modelType, Object obj) {
@@ -92,22 +76,26 @@ public class ViewModel implements Serializable {
         if (model != null) {
             return model;
         }
+        Object callback = null;
+        if ( callbackProducer != null ) {
+        	callback = callbackProducer.getCallBackObject(modelId);
+        }
 
         if ("gridSingleSelect".equals(modelType)) {
-            model = getGridModelSingleSelect((DataControl) obj, logger);
+            model = getGridModelSingleSelect((DataControl) obj, logger,callback);
         }
 
         if ("gridMultiSelect".equals(modelType)) {
-            model = getGridModelMultiSelect((DataControl) obj, logger);
+            model = getGridModelMultiSelect((DataControl) obj, logger,callback);
         }
         
         
         if ("tree".equals(modelType)) {
-            model = getTreeModel((TreeDataControl) obj);
+            model = getTreeModel((TreeDataControl) obj,callback);
         }
         
         if ("options".equals(modelType)) {
-            model = getOptionsModel((DataControl) obj);
+            model = getOptionsModel((DataControl) obj,callback);
         }
 
         modelHolder.put(modelId, model);
@@ -116,22 +104,22 @@ public class ViewModel implements Serializable {
     }
 
     @SuppressWarnings("rawtypes")
-    private GridModel getGridModelSingleSelect(DataControl dc, Logger logger) {
-        return new GridModel(dc, logger);
+    private GridModel getGridModelSingleSelect(DataControl dc, Logger logger,Object callback) {
+        return new GridModel(dc, logger,callback);
     }
     
     @SuppressWarnings("rawtypes")
-    private GridModelMultiSelect getGridModelMultiSelect(DataControl dc, Logger logger) {
-        return new GridModelMultiSelect(dc, logger);
+    private GridModelMultiSelect getGridModelMultiSelect(DataControl dc, Logger logger,Object callback) {
+        return new GridModelMultiSelect(dc, logger,callback);
     }
     
 
-    private TreeModel getTreeModel(TreeDataControl dc) {
-        return new TreeModel(dc, logger);
+    private TreeModel getTreeModel(TreeDataControl dc,Object callback) {
+        return new TreeModel(dc, logger,callback);
     }
 
-    private OptionsModel getOptionsModel(DataControl<?> dc) {
-        return new OptionsModel( dc, logger );
+    private OptionsModel getOptionsModel(DataControl<?> dc,Object callback) {
+        return new OptionsModel( dc, logger,callback );
     }
 
 }

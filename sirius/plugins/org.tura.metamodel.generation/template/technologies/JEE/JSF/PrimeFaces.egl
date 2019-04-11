@@ -74,7 +74,7 @@ operation refreshAriasGroup(list, obj ){
          if  (uid == refaria){
             result = result+"@this";
          }else{
-             result = result+"#{viewmodel.getClientId("+refaria+")}";
+             result = result+"#{viewIdentificator.getClientId("+refaria+")}";
          }
          
          first=1;
