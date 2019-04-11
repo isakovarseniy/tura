@@ -157,6 +157,13 @@ startSAIntegrationTest = {
 addClosure "startSAIntegrationTest";
 
 
+redeploySAwildfly = {
+     source $tura_home/processor/etc/sales-analyzer-deployment.recipe; 
+     saLogWatch;
+}
+addClosure "redeploySAwildfly";
+
+
 generateSAApplication = {
      tura:generate --build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
 

@@ -1,8 +1,8 @@
 tura:install chromedriver
 
-tura:dsl exec --cmd "rm -rf $user_home/.tura/resources/sa/deployments/standalone/deployments"
-
 tura:docker stopContainer --name sa-wf
+
+tura:dsl exec --cmd "rm -rf $user_home/.tura/resources/sa/deployments/standalone/deployments"
 
 
 tura:dsl jbossDoDeploy                                                \
