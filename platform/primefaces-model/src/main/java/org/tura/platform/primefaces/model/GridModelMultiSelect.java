@@ -23,9 +23,12 @@ package org.tura.platform.primefaces.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.repository.core.ObjectControl;
 
 public class GridModelMultiSelect {
 
@@ -35,13 +38,13 @@ public class GridModelMultiSelect {
     @SuppressWarnings("unused")
     private Logger logger;
     private List<Object> selected = new ArrayList<>();
-    private Object callback;
+    private GridModelTriggers callback;
 
     @SuppressWarnings("rawtypes")
     public GridModelMultiSelect(DataControl dc, Logger logger, Object callback) {
         this.dc = dc;
         this.logger = logger;
-        this.callback=callback;
+        this.callback=(GridModelTriggers) callback;
 
         lazyModel = new LazyDataGridModel(this);
         lazyModel.setDatacontrol(dc);
@@ -61,5 +64,36 @@ public class GridModelMultiSelect {
         this.selected =  selected;
     }
 
+    
+    public GridModelTriggers getModelTriggers() {
+        return callback;
+    }
+    
+    public void ajaxSelected(org.primefaces.event.SelectEvent event) {
+        try {
+            if (callback != null) {
+                ObjectControl oc = (ObjectControl) event.getObject();
+                callback.onSelect(oc);
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+        }
+
+    }
+
+
+    public void ajaxUnSelected(org.primefaces.event.UnselectEvent event) {
+        try {
+            if (callback != null) {
+                ObjectControl oc = (ObjectControl) event.getObject();
+                callback.onUnselect(oc);
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+        }
+
+    }
+
+    
     
 }

@@ -42,13 +42,13 @@ public class GridModel {
     private DataControl dc;
     private Logger logger;
     private Object selected;
-    private Object callback;
+    private GridModelTriggers callback;
 
     @SuppressWarnings("rawtypes")
-    public GridModel(DataControl dc, Logger logger , Object callback) {
+    public GridModel(DataControl dc, Logger logger, Object callback) {
         this.dc = dc;
         this.logger = logger;
-        this.callback = callback;
+        this.callback = (GridModelTriggers) callback;
 
         lazyModel = new LazyDataGridModel(this);
         lazyModel.setDatacontrol(dc);
@@ -77,9 +77,24 @@ public class GridModel {
             if (!dc.getCurrentPosition().equals(oc.getViewModelId1())) {
                 dc.setCurrentPosition(oc.getViewModelId1());
             }
+            if (callback != null) {
+                callback.onSelect(oc);
+            }
         } catch (TuraException e) {
             logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
         }
+    }
+
+    public void ajaxUnSelected(org.primefaces.event.SelectEvent event) {
+        try {
+            if (callback != null) {
+                ObjectControl oc = (ObjectControl) event.getObject();
+                callback.onUnselect(oc);
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+        }
+
     }
 
     class RecordListener implements EventListener {
@@ -91,8 +106,8 @@ public class GridModel {
 
                 DataControl dc = (DataControl) event.getSource();
                 ObjectControl obj = (ObjectControl) selected;
-                int index  = 0; 
-                if (obj !=  null &&  obj.getViewModelId1() != null) {
+                int index = 0;
+                if (obj != null && obj.getViewModelId1() != null) {
                     index = (int) obj.getViewModelId1();
                     int max = ((DataControl) event.getSource()).getScroller().size();
                     if (index == max) {
@@ -102,7 +117,7 @@ public class GridModel {
                 dc.setCurrentPosition(index);
                 selected = event.getSource().getCurrentObject();
                 obj = (ObjectControl) selected;
-                obj.setViewModelId1( index);
+                obj.setViewModelId1(index);
 
             }
 
@@ -117,6 +132,5 @@ public class GridModel {
             }
         }
     }
-
 
 }
