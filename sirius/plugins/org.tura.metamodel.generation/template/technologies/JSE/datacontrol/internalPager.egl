@@ -71,14 +71,16 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
         ((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(org.tura.platform.datacontrol.commons.Constants.DATA_CONTROL, datacontrol);
         ((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(org.tura.platform.datacontrol.commons.Constants.PARENT_OBJECT, getParent());
         
-        getShifter().add(datacontrol.getCurrentPosition(), obj);
-        putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.C);
-        registerForCleaning();
-        
         org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = datacontrol.getPostCreateTrigger(); 
         if (trigger != null){
            trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject(),((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
         }
+        
+        getShifter().add(datacontrol.getCurrentPosition(), obj);
+        putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.C);
+        registerForCleaning();
+        
+        
             return (T) connectObject(obj,false);
         }catch(Exception e){
           throw new TuraException(e);

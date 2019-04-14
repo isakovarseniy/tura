@@ -57,7 +57,8 @@ public class TreeModel {
     private List<TreeNode> selectedList;
     private TreeDataControl dc;
     private Logger logger;
-    private Object callback;
+    @SuppressWarnings("unused")
+	private Object callback;
 
     public TreeModel(TreeDataControl dc, Logger logger, Object callback) {
         this.dc = dc;

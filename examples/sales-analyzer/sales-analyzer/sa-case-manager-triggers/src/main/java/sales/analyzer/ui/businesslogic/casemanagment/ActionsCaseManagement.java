@@ -1,18 +1,16 @@
 package sales.analyzer.ui.businesslogic.casemanagment;
 
+import com.octo.java.sql.exp.Operator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
 import org.primefaces.event.MenuActionEvent;
@@ -25,7 +23,7 @@ import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.lib.EventAccessor;
-import org.tura.platform.primefaces.model.GridModel;
+import org.tura.platform.primefaces.model.GridModelMultiSelect;
 import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
@@ -39,9 +37,6 @@ import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
-
-import com.octo.java.sql.exp.Operator;
-
 import sales.analyzer.commons.CDIUserPeferencesProviderImpl;
 import sales.analyzer.commons.PrefConstants;
 import sales.analyzer.process.commons.Constants;
@@ -54,6 +49,9 @@ public class ActionsCaseManagement implements EventAccessor {
 	private ActionEvent event;
 	private String pattern = "Case #";
 
+	private static String CASE_TABLE =  "tura"+"104d965f_253d_4210_8bfa_0577367e9cec";
+	
+	
 	@Inject
 	ELResolver elResolver;
 
@@ -234,17 +232,13 @@ public class ActionsCaseManagement implements EventAccessor {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void assignUsers(String username) {
-		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
-		GridModel model = (GridModel) viewmodel.getModel("tura104d965f_253d_4210_8bfa_0577367e9cec", null, null);
-		List<Object[]> list = (List<Object[]>) model.getLazyModel().getWrappedData();
-		for (Object[] array : list) {
-			Task t = (Task) array[2];
-			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) t);
-			if (adapter.getSelected()) {
-				t.setActualOwner(username);
-			}
+		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelCaseManager}");
+		GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(CASE_TABLE, null, null);
+		List<Object> list = (List<Object>) model.getSelected();
+		for (Object  obj : list) {
+			Task t = (Task) obj;
+			t.setActualOwner(username);
 		}
 
 		try {
@@ -262,17 +256,13 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	public void closeWF() {
-		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodel}");
-		GridModel model = (GridModel) viewmodel.getModel("tura104d965f_253d_4210_8bfa_0577367e9cec", null, null);
-		List<Object[]> list = (List<Object[]>) model.getLazyModel().getWrappedData();
-		for (Object[] array : list) {
-			Task t = (Task) array[2];
-			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) t);
-			if (adapter.getSelected()) {
-				t.setCloseProcess("TRUE");
-			}
+		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelCaseManager}");
+		GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(CASE_TABLE, null, null);
+		List<Object> list = (List<Object>) model.getSelected();
+		for (Object  obj : list) {
+			Task t = (Task) obj;
+			t.setCloseProcess("TRUE");
 		}
 
 		try {
@@ -396,7 +386,6 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
-	@SuppressWarnings("rawtypes")
 	private void closeProcessAndWindow(boolean isclose) throws Exception {
 
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
@@ -548,8 +537,8 @@ public class ActionsCaseManagement implements EventAccessor {
 	@SuppressWarnings({ "rawtypes" })
 	public void openCase() {
 		try {
-			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
-			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter((ObjectControl) row[2]);
+			ObjectControl oc = (ObjectControl) event.getComponent().getAttributes().get("param1");
+			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter(oc);
 
 			String value = pattern + adapter.getCaseId();
 			int currentItem = 1;
@@ -578,7 +567,7 @@ public class ActionsCaseManagement implements EventAccessor {
 			item.setParam("case_id", adapter.getCaseId());
 			item.setIncludeViewParams(true);
 			item.setUpdate((String) resolver(
-					"#{viewmodel.getClientId(turaf279a609_bd23_4610_971f_91f9c788f39e)},#{viewmodel.getClientId(tura16dc93c8_bf33_4cb1_92fa_082f68441f88)}",
+					"#{viewIdentificator.getClientId(turaf279a609_bd23_4610_971f_91f9c788f39e)},#{viewIdentificator.getClientId(tura16dc93c8_bf33_4cb1_92fa_082f68441f88)}",
 					elResolver));
 
 			item.setProcess("@this");

@@ -2,33 +2,21 @@ package sales.analyzer.ui.businesslogic.admin;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.lib.EventAccessor;
-import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.CityRefeenceArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.StateReferenceArtifitialFieldsAdapter;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.UserSelectionArtifitialFieldsAdapter;
-import org.tura.salesanalyzer.serialized.db.City;
-import org.tura.salesanalyzer.serialized.db.CityRefeence;
-import org.tura.salesanalyzer.serialized.db.CityRefeenceProxy;
-import org.tura.salesanalyzer.serialized.db.State;
-import org.tura.salesanalyzer.serialized.db.StateReference;
-import org.tura.salesanalyzer.serialized.db.StateReferenceProxy;
-import org.tura.salesanalyzer.serialized.keycloak.User;
 
 public class ActionsLocation implements EventAccessor {
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
+	@SuppressWarnings("unused")
 	private ActionEvent event;
 
 	public static String STATE ="State";
@@ -105,105 +93,7 @@ public class ActionsLocation implements EventAccessor {
 		}
 	}
 
-	public void modifyUsers() {
-		IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-		if( bf.getUserSwitch().equals(STATE) ) {
-			modifyStateUsers();
-		}else {
-			modifyCityUsers();
-		}
-	}	
-	
-	
-	@SuppressWarnings({ "rawtypes" })
-	public void modifyStateUsers() {
-		try {
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User p = (User) bf.getUserSelection().getCurrentObject();
-			Boolean isSelected = new UserSelectionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
-			State state = (State) bf.getState().getCurrentObject();
-			if (isSelected != null && isSelected) {
-				DataControl dcRef = (DataControl) bf.getStateReference();
-				
-				StateReferenceProxy stateRef = (StateReferenceProxy) dcRef.createObject();
-				p.getStateReference().add(stateRef);
-				stateRef.setStateId(state.getObjId());
-				StateReferenceArtifitialFieldsAdapter af = new StateReferenceArtifitialFieldsAdapter(stateRef);
-				af.setFirstName(p.getFirstName());
-				af.setLastName(p.getLastName());
-				af.setUserName(p.getUsername());
-				
-				stateRef.notifyListner();
-				
-			}else {
-				DataControl dc = (DataControl) bf.getStateReferenceForSelection();
-				int i = 0;
-				boolean found = false;
-				for (Object obj : dc.getScroller()) {
-					StateReference stateRef = (StateReference) obj;
-					if (stateRef.getStateId().equals(state.getObjId()) ) {
-						found = true;
-						break;
 
-					}
-				}
-				if (found) {
-					dc.setCurrentPosition(i);
-					dc.removeObject();
-				}
-			}
-			
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-
-	}
-
-	@SuppressWarnings({ "rawtypes" })
-	public void modifyCityUsers() {
-		try {
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User p = (User) bf.getUserSelection().getCurrentObject();
-			Boolean isSelected = new UserSelectionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
-			City city = (City) bf.getCity().getCurrentObject();
-			if (isSelected != null && isSelected) {
-				DataControl dcRef = (DataControl) bf.getCityRefeence();
-				
-				CityRefeenceProxy cityRef = (CityRefeenceProxy) dcRef.createObject();
-				
-				p.getCityRefeence().add(cityRef);
-				cityRef.setCityId(city.getObjId());
-				CityRefeenceArtifitialFieldsAdapter af = new CityRefeenceArtifitialFieldsAdapter(cityRef);
-				af.setFirstName(p.getFirstName());
-				af.setLastName(p.getLastName());
-				af.setUserName(p.getUsername());
-				
-				cityRef.notifyListner();
-				
-			}else {
-				DataControl dc = (DataControl) bf.getCityRefeenceForSelection();
-				int i = 0;
-				boolean found = false;
-				for (Object obj : dc.getScroller()) {
-					CityRefeence cityRef = (CityRefeence) obj;
-					if (cityRef.getCityId().equals(city.getObjId()) ) {
-						found = true;
-						break;
-
-					}
-				}
-				if (found) {
-					dc.setCurrentPosition(i);
-					dc.removeObject();
-				}
-			}
-			
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-
-	}
-	
 	
 	
 	public void setAdmin(){

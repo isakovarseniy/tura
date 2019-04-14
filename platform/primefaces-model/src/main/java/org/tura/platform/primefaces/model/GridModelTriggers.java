@@ -27,7 +27,7 @@ public interface GridModelTriggers {
     
     public void onSelect(Object obj);
     public void onUnselect(Object obj);
-    public List<Object> initSeceted();
+    public List<Object> initSelected( List<Object> obj );
     
 
 }

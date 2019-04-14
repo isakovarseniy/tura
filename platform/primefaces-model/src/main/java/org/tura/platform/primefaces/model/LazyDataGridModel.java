@@ -179,10 +179,10 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
             if (gridSingleSelectModel != null && first == 0 && gridSingleSelectModel.getSelected() == null && datasource.size() != 0) {
                 gridSingleSelectModel.setSelected(datasource.get(0));
             }
-            if ( gridMultiSelectModel != null && first == 0 && gridMultiSelectModel.getSelected() == null && datasource.size() != 0 ) {
-                GridModelTriggers triggers = gridMultiSelectModel.getModelTriggers();
-                if ( triggers != null) {
-                    List<Object> selected = gridMultiSelectModel.getModelTriggers().initSeceted();
+            if ( gridMultiSelectModel != null &&  datasource.size() != 0 ) {
+                GridModelTriggers callback = gridMultiSelectModel.getModelTriggers();
+                if ( callback != null) {
+                    List<Object> selected = callback.initSelected(datasource);
                     gridMultiSelectModel.setSelected(selected);
                 }
             }

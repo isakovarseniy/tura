@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.component.visit.VisitContext;
@@ -14,29 +13,18 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
-
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
-import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionArtifitialFieldsAdapter;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionReferencesArtifitialFieldsAdapter;
-import org.tura.salesanalyzer.serialized.db.Permission;
-import org.tura.salesanalyzer.serialized.db.PermissionReferences;
-import org.tura.salesanalyzer.serialized.db.PermissionReferencesProxy;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
-
-import com.octo.java.sql.exp.Operator;
-
 import sales.analyzer.commons.CachedUserPreferences;
 
 public class Actions implements EventAccessor {
@@ -54,7 +42,6 @@ public class Actions implements EventAccessor {
 	@Inject
 	Repository repository;
 	
-	@SuppressWarnings("rawtypes")
 	@Inject
 	CachedUserPreferences  userPref;
 
@@ -67,12 +54,12 @@ public class Actions implements EventAccessor {
 	@SuppressWarnings("rawtypes")
 	public void openRolePopup() {
 		try {
-			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+			Role role = (Role) event.getComponent().getAttributes().get("param1");
 
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setRoleId(((Role) (row[2])).getId());
+			bf.setRoleId(role.getId());
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
@@ -105,71 +92,71 @@ public class Actions implements EventAccessor {
 		}
 	}
 
-	@SuppressWarnings({ "rawtypes" })
-	public void modifyPermissions() {
-		try {
-			DataControl dcPermission = (DataControl) elResolver
-					.getValue("#{beanFactoryAdminAdministration.permission}");
-			Permission p = (Permission) dcPermission.getCurrentObject();
-
-			Boolean isSelected = new PermissionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
-			if (isSelected != null && isSelected) {
-				DataControl dcRef = (DataControl) elResolver
-						.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
-
-				PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
-				pf.notifyListner();
-
-				pf.setPermission(p);
-				pf.notifyListner();
-
-				PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
-						(ObjectControl) pf);
-				ad.setPermissionDescription(p.getDescription());
-				ad.setPermissionName(p.getName());
-
-			}
-			if (isSelected != null && !isSelected) {
-				IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-				DataControl dcHelper = (DataControl) bf.getRoleHelper();
-				DataControl dc = (DataControl) bf.getRole();
-				Role role = (Role) dc.getCurrentObject();
-
-				dcHelper.getDefaultSearchCriteria().clear();
-
-				SearchCriteria sc = new SearchCriteria();
-				sc.setName("id");
-				sc.setComparator(Operator.EQ.name());
-				sc.setValue(role.getId());
-				dcHelper.getDefaultSearchCriteria().add(sc);
-
-				dcHelper.forceRefresh();
-
-				dcHelper.getCurrentObject();
-				DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
-				peermRefHelper.getCurrentObject();
-				int i = 0;
-				boolean found = false;
-				for ( Object o : peermRefHelper.getScroller()) {
-					PermissionReferences permRef = (PermissionReferences) o;
-					if (permRef.getPermission().equals(p)) {
-						found = true;
-						break;
-					}
-					i++;
-				}
-				if (found) {
-					peermRefHelper.setCurrentPosition(i);
-					peermRefHelper.removeObject();
-				}
-
-			}
-
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-
-	}
+//	@SuppressWarnings({ "rawtypes" })
+//	public void modifyPermissions() {
+//		try {
+//			DataControl dcPermission = (DataControl) elResolver
+//					.getValue("#{beanFactoryAdminAdministration.permission}");
+//			Permission p = (Permission) dcPermission.getCurrentObject();
+//
+//			Boolean isSelected = new PermissionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
+//			if (isSelected != null && isSelected) {
+//				DataControl dcRef = (DataControl) elResolver
+//						.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
+//
+//				PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
+//				pf.notifyListner();
+//
+//				pf.setPermission(p);
+//				pf.notifyListner();
+//
+//				PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
+//						(ObjectControl) pf);
+//				ad.setPermissionDescription(p.getDescription());
+//				ad.setPermissionName(p.getName());
+//
+//			}
+//			if (isSelected != null && !isSelected) {
+//				IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+//				DataControl dcHelper = (DataControl) bf.getRoleHelper();
+//				DataControl dc = (DataControl) bf.getRole();
+//				Role role = (Role) dc.getCurrentObject();
+//
+//				dcHelper.getDefaultSearchCriteria().clear();
+//
+//				SearchCriteria sc = new SearchCriteria();
+//				sc.setName("id");
+//				sc.setComparator(Operator.EQ.name());
+//				sc.setValue(role.getId());
+//				dcHelper.getDefaultSearchCriteria().add(sc);
+//
+//				dcHelper.forceRefresh();
+//
+//				dcHelper.getCurrentObject();
+//				DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
+//				peermRefHelper.getCurrentObject();
+//				int i = 0;
+//				boolean found = false;
+//				for ( Object o : peermRefHelper.getScroller()) {
+//					PermissionReferences permRef = (PermissionReferences) o;
+//					if (permRef.getPermission().equals(p)) {
+//						found = true;
+//						break;
+//					}
+//					i++;
+//				}
+//				if (found) {
+//					peermRefHelper.setCurrentPosition(i);
+//					peermRefHelper.removeObject();
+//				}
+//
+//			}
+//
+//		} catch (Exception e) {
+//			logger.log(Level.INFO, e.getMessage(), e);
+//		}
+//
+//	}
 
 	public void applyPermissionsModification() {
 		UIComponent target = ViewModel.findComponent(IBeanFactory.PERMITIONSTABLE);
@@ -203,12 +190,12 @@ public class Actions implements EventAccessor {
 	@SuppressWarnings("rawtypes")
 	public void deleteRole() {
 		try {
-			Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
+			Role role = (Role) event.getComponent().getAttributes().get("param1");
 
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setRoleId(((Role) (row[2])).getId());
+			bf.setRoleId(role.getId());
 			dc.forceRefresh();
 			dc.removeObject();
 
@@ -229,6 +216,7 @@ public class Actions implements EventAccessor {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
 			bf.setRoleId("UNDEFINED");
 
+			@SuppressWarnings("unused")
 			Role cmp = (Role) dc.createObject();
 
 

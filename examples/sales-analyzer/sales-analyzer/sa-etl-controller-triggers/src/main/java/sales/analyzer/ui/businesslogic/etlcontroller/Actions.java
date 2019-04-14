@@ -49,8 +49,7 @@ public class Actions implements EventAccessor {
 	CachedUserPreferences userPref;
 
 	public void openProcess() {
-		Object[] row = (Object[]) event.getComponent().getAttributes().get("param1");
-		EtlProcess process = (EtlProcess) row[2];
+		EtlProcess process = (EtlProcess) event.getComponent().getAttributes().get("param1");
 		if (process != null) {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
 			bf.setSelectedProcess(process.getId());
