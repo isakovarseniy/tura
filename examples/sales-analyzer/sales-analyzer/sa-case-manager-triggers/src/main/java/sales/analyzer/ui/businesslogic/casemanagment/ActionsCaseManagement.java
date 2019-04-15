@@ -1,6 +1,7 @@
 package sales.analyzer.ui.businesslogic.casemanagment;
 
 import com.octo.java.sql.exp.Operator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -250,6 +251,8 @@ public class ActionsCaseManagement implements EventAccessor {
 			proxyRepository.applyChanges(null);
 			commandStack.commitSavePoint();
 
+			model.setSelected(new ArrayList<Object>());
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -273,6 +276,9 @@ public class ActionsCaseManagement implements EventAccessor {
 
 			proxyRepository.applyChanges(null);
 			commandStack.commitSavePoint();
+			
+			model.setSelected(new ArrayList<Object>());
+
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
