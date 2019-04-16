@@ -15646,6 +15646,24 @@
                             </fields>
                             <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                           </children>
+                          <children xsi:type="tura.form:Table" order="2" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2">
+                            <cols uid="cb77fa12-02a2-4563-943c-180c7ea2f17a">
+                              <multiLangLabel uid="e55981c2-3f80-4ead-9ecf-688378774c06" value="Application Message Libraries.ETLController.FILES_TABLE">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="bfa99f7b-6fcb-4c29-af84-fb5b9949c016" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                              <element xsi:type="tura.form:OutputText" uid="ed7e4c82-c647-4813-a348-a8b35ca6ff8a" valuePointer="19f4afde-5c04-46c3-ac9d-d7fbf318cfaf"/>
+                            </cols>
+                            <cols order="1" uid="6cc027b8-b5a4-490f-b63f-9b159e00d7c6">
+                              <multiLangLabel uid="12f8c87f-b6db-43d3-a7ad-7a28c715be38" value="Application Message Libraries.ETLController.LINES_TABLE">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="46ab74b9-4f40-41fe-bb26-ac18227fd48d" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                              <element xsi:type="tura.form:OutputText" uid="0188faa1-edaa-428d-b78d-888a983b42b2" valuePointer="f77f5336-86e4-4dd8-b548-fca18ec1b999"/>
+                            </cols>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                     </canvases>
@@ -16022,6 +16040,57 @@
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1aa1eb05-4071-40fa-b595-d939f00405c4" name="stepName"/>
                       <artificialFields typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="db6a81bb-276c-419e-ac90-a056aa2945c9" name="loadingDate"/>
                       <defaultSearch/>
+                    </controls>
+                    <controls uid="3cd54df4-8475-4a9e-80b5-cbf846e7e306" name="FileEntry">
+                      <baseType typeRef="c6d792dd-948e-41b9-9346-328c55acb55c"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="ff20fe9a-faf2-4990-9286-7f58a8fdd5b7">
+                        <parameters uid="57fd2bc1-35d5-47d8-af06-10b314b005c5" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="22092fd5-7681-436a-9f49-28cea144024e" value="Types repository.Sales Analyzer.JBPM.JBPM::FileEntry">
+                            <expression uid="ca532803-d287-463b-b836-ca15ad5d39c6" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="d692889e-9ae2-4d4b-a361-f482342823d4" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="13816f80-7034-453b-94ec-6de520ab6f98" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c366366c-5a14-4d75-9f08-5a96de9155f4" objRef="c6d792dd-948e-41b9-9346-328c55acb55c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="3e0c6891-b768-434c-b007-2afc56e71175">
+                        <parameters uid="aab699f8-2904-451f-8420-999a94f4825c" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="3825aa52-2130-401f-8183-a5fda01f7ad4" value="Data controls.FileEntry.searchCriteria">
+                            <expression uid="a12dce71-25ba-4988-9752-06834436077b" expressionType="DataControlHolder"/>
+                            <expression uid="fe9481ee-d922-4310-8a65-7f328718de19" objRef="3cd54df4-8475-4a9e-80b5-cbf846e7e306" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="e7b3ef8d-06a0-4a35-9cf7-7f409ca77e35" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ca353f20-ea53-48a7-85dd-86555364f0f0" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="7c43906a-ce30-49d0-8fad-b78ce5b61773" value="Data controls.FileEntry.orderCriteria">
+                            <expression uid="64e8b622-d98a-4645-baf0-3c819ceedd4e" expressionType="DataControlHolder"/>
+                            <expression uid="e1967de0-9163-46bb-b13d-fc5da4c56c53" objRef="3cd54df4-8475-4a9e-80b5-cbf846e7e306" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="f9298f65-5a5e-480f-92f5-df42fb65fe5c" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e5e80b5a-5b59-4d96-a114-bcd5131ea9e8" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="983aac59-086d-46c4-b95c-09654e2a5aac" value="Data controls.FileEntry.start Index">
+                            <expression uid="f186cc3a-1241-46ec-9a04-7f940c3dd292" expressionType="DataControlHolder"/>
+                            <expression uid="2e6e3e99-5035-476e-b795-8effc255cb47" objRef="3cd54df4-8475-4a9e-80b5-cbf846e7e306" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="7261744a-17f2-4dd0-8fba-f4c8dc419f2a" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0962297e-700f-40b1-8ec5-0c533a5baf63" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="c2b523eb-c046-4c3d-8ab4-f401cc214577" value="Data controls.FileEntry.end Index">
+                            <expression uid="47447b78-f405-4bef-b2f1-d26dd982fb22" expressionType="DataControlHolder"/>
+                            <expression uid="6cf951eb-682f-4045-87af-3b3cdecdc23d" objRef="3cd54df4-8475-4a9e-80b5-cbf846e7e306" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="cde0d7f7-868e-4e36-b016-d867d8af8060" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="83f451ac-4956-4a7a-a073-104b401e50f9" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="dd1f1bf4-b1ed-46a8-8113-c025778697b7" value="Types repository.Sales Analyzer.JBPM.JBPM::FileEntry">
+                            <expression uid="92f0557b-34ed-4b4e-baee-6c84d0b31fd2" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="c8133682-1eda-4788-9dff-89fac44471c4" objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="b8778633-201b-4eb8-8e9e-8795b0389307" objRef="7c396b34-4bca-4544-b4c4-dd4495278b38" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="d25c96a7-f23b-40eb-bc4a-a18902e7dd1a" objRef="c6d792dd-948e-41b9-9346-328c55acb55c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
                     </controls>
                   </datacontrols>
                 </forms>
@@ -16463,6 +16532,14 @@
                   <messages uid="68950c70-4ff3-4c3e-a722-1a28c3b6ddd7" name="LOADING_DATE">
                     <translatioins uid="45c0383e-562b-4ffb-87db-b5277fcd20fd" translation="Date of monthly file" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="c5c41909-d165-4236-a210-dec860b5c733" translation="Дата данных за месяц" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="bfa99f7b-6fcb-4c29-af84-fb5b9949c016" name="FILES_TABLE">
+                    <translatioins uid="b1bd39ef-e4dc-4a84-a703-388cd4d3d23e" translation="Files" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="6e7a837c-c139-48fb-adfb-fb4b9de7bbcf" translation="Файлы" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="46ab74b9-4f40-41fe-bb26-ac18227fd48d" name="LINES_TABLE">
+                    <translatioins uid="238799ce-2542-44fa-ae70-725d2a6c5a28" translation="Lines" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="e291d5ec-249c-4603-ae83-e18bca261b04" translation="Строки" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                 </libraries>
               </messageLibraries>

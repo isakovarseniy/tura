@@ -57,6 +57,7 @@ operation form::Table generateBody(hash){
       <p:column selectionMode="multiple" style="width:16px;text-align:center"/>      
       <p:ajax event="rowSelectCheckbox" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
       <p:ajax event="rowUnselectCheckbox" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxUnSelected}" [%=self.refreshArias()%]/>
+      <p:ajax event="toggleSelect" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxToggleSelect}" [%=self.refreshArias()%]/>
 [%
       }
       

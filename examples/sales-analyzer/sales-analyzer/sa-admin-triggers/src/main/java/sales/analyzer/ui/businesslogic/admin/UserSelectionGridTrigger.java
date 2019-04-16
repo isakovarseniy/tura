@@ -9,7 +9,9 @@ import java.util.logging.Logger;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.primefaces.model.GridModelMultiSelect;
 import org.tura.platform.primefaces.model.GridModelTriggers;
+import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.CityRefeenceArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
@@ -27,192 +29,211 @@ public class UserSelectionGridTrigger  implements GridModelTriggers{
     private ELResolver elResolver;
     private transient Logger logger = Logger.getLogger(UserSelectionGridTrigger.class.getName());
 
-	
-	public UserSelectionGridTrigger(ELResolver elResolver) {
+    
+    public UserSelectionGridTrigger(ELResolver elResolver) {
         this.elResolver = elResolver;
-	}
+    }
 
-	@Override
-	public void onSelect(Object obj) {
-		IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-		if( bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
-			onSelectStateUsers(obj);
-		}else {
-			onSelectCityUsers(obj);
-		}
-	}
+    @Override
+    public void onSelect(Object obj) {
+        IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+        if( bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
+            onSelectStateUsers(obj);
+        }else {
+            onSelectCityUsers(obj);
+        }
+    }
 
 
-	@Override
-	public void onUnselect(Object obj) {
-		IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-		if( bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
-			onUnSelectStateUsers(obj);
-		}else {
-			onUnSelectCityUsers(obj);
-		}
-	}
+    @Override
+    public void onUnselect(Object obj) {
+        IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+        if( bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
+            onUnSelectStateUsers(obj);
+        }else {
+            onUnSelectCityUsers(obj);
+        }
+    }
 
-	
-	@SuppressWarnings("rawtypes")
-	private void onSelectCityUsers(Object obj) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void toggleSelect(boolean selected) {
+        ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelAdministration}");
+        GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(AdminCallBackProducer.USER_SELECTION_TABLE, null, null);
+        if (selected) {
+            List<Object> list = model.getSelected();
+            for (Object obj : list) {
+                onSelect(obj);
+            }
+        } else {
+            List<Object> list = (List<Object>) model.getLazyModel().getWrappedData();
+            for (Object obj : list) {
+                onUnselect(obj);
+            }
+        }
+        
+    }
+
+    
+    @SuppressWarnings("rawtypes")
+    private void onSelectCityUsers(Object obj) {
         try {
-        	
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User p = (User) obj;
-			City city = (City) bf.getCity().getCurrentObject();
+            
+            IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            User p = (User) obj;
+            City city = (City) bf.getCity().getCurrentObject();
 
-			DataControl dcRef = (DataControl) bf.getCityRefeence();
-			CityRefeenceProxy cityRef = (CityRefeenceProxy) dcRef.createObject();
-			
-			p.getCityRefeence().add(cityRef);
-			cityRef.setCityId(city.getObjId());
-			CityRefeenceArtifitialFieldsAdapter af = new CityRefeenceArtifitialFieldsAdapter(cityRef);
-			af.setFirstName(p.getFirstName());
-			af.setLastName(p.getLastName());
-			af.setUserName(p.getUsername());
-			
-			cityRef.notifyListner();
-        	
+            DataControl dcRef = (DataControl) bf.getCityRefeence();
+            CityRefeenceProxy cityRef = (CityRefeenceProxy) dcRef.createObject();
+            
+            p.getCityRefeence().add(cityRef);
+            cityRef.setCityId(city.getObjId());
+            CityRefeenceArtifitialFieldsAdapter af = new CityRefeenceArtifitialFieldsAdapter(cityRef);
+            af.setFirstName(p.getFirstName());
+            af.setLastName(p.getLastName());
+            af.setUserName(p.getUsername());
+            
+            cityRef.notifyListner();
+            
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
-	}
+    }
 
-	@SuppressWarnings("rawtypes")
-	private void onSelectStateUsers(Object obj) {
+    @SuppressWarnings("rawtypes")
+    private void onSelectStateUsers(Object obj) {
         try {
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User p = (User) obj;
-			State state = (State) bf.getState().getCurrentObject();
+            IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            User p = (User) obj;
+            State state = (State) bf.getState().getCurrentObject();
 
-			DataControl dcRef = (DataControl) bf.getStateReference();
-			StateReferenceProxy stateRef = (StateReferenceProxy) dcRef.createObject();
-			p.getStateReference().add(stateRef);
-			stateRef.setStateId(state.getObjId());
-			StateReferenceArtifitialFieldsAdapter af = new StateReferenceArtifitialFieldsAdapter(stateRef);
-			af.setFirstName(p.getFirstName());
-			af.setLastName(p.getLastName());
-			af.setUserName(p.getUsername());
-			
-			stateRef.notifyListner();
-        	
+            DataControl dcRef = (DataControl) bf.getStateReference();
+            StateReferenceProxy stateRef = (StateReferenceProxy) dcRef.createObject();
+            p.getStateReference().add(stateRef);
+            stateRef.setStateId(state.getObjId());
+            StateReferenceArtifitialFieldsAdapter af = new StateReferenceArtifitialFieldsAdapter(stateRef);
+            af.setFirstName(p.getFirstName());
+            af.setLastName(p.getLastName());
+            af.setUserName(p.getUsername());
+            
+            stateRef.notifyListner();
+            
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
-	}
-	
-	
-	@SuppressWarnings("rawtypes")
-	private void onUnSelectCityUsers(Object o) {
+    }
+    
+    
+    @SuppressWarnings("rawtypes")
+    private void onUnSelectCityUsers(Object o) {
         try {
-        	
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User user = (User) o;
-        	
-			DataControl dc = (DataControl) bf.getCityRefeenceForSelection();
-			int i = 0;
-			boolean found = false;
-			for (Object obj : dc.getScroller()) {
-				CityRefeence cityRef = (CityRefeence) obj;
-				if (cityRef.getUser() != null &&  cityRef.getUser().getId().equals(user.getId()))  {
-					found = true;
-					break;
-				}
-			}
-			if (found) {
-				dc.setCurrentPosition(i);
-				dc.removeObject();
-			}
+            
+            IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            User user = (User) o;
+            
+            DataControl dc = (DataControl) bf.getCityRefeenceForSelection();
+            int i = 0;
+            boolean found = false;
+            for (Object obj : dc.getScroller()) {
+                CityRefeence cityRef = (CityRefeence) obj;
+                if (cityRef.getUser() != null &&  cityRef.getUser().getId().equals(user.getId()))  {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                dc.setCurrentPosition(i);
+                dc.removeObject();
+            }
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
-	}
+    }
 
-	@SuppressWarnings("rawtypes")
-	private void onUnSelectStateUsers(Object o) {
+    @SuppressWarnings("rawtypes")
+    private void onUnSelectStateUsers(Object o) {
         try {
-			IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			User user = (User) o;
-        	
-			DataControl dc = (DataControl) bf.getStateReferenceForSelection();
-			int i = 0;
-			boolean found = false;
-			for (Object obj : dc.getScroller()) {
-				StateReference stateRef = (StateReference) obj;
-				if (stateRef.getUser() != null && stateRef.getUser().getId().equals(user.getId()))  {
-					found = true;
-					break;
+            IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            User user = (User) o;
+            
+            DataControl dc = (DataControl) bf.getStateReferenceForSelection();
+            int i = 0;
+            boolean found = false;
+            for (Object obj : dc.getScroller()) {
+                StateReference stateRef = (StateReference) obj;
+                if (stateRef.getUser() != null && stateRef.getUser().getId().equals(user.getId()))  {
+                    found = true;
+                    break;
 
-				}
-			}
-			if (found) {
-				dc.setCurrentPosition(i);
-				dc.removeObject();
-			}
-        	
+                }
+            }
+            if (found) {
+                dc.setCurrentPosition(i);
+                dc.removeObject();
+            }
+            
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
-	}
+    }
 
-	@Override
-	public List<Object> initSelected(List<Object> ls) {
-    	Map<String, Object > map =   new HashMap<>();
-    	for ( Object obj : ls  ) {
-    	   ObjectControl oc = (ObjectControl) obj;	
-    	   map.put(oc.getKey(), obj);
-    	}
+    @Override
+    public List<Object> initSelected(List<Object> ls) {
+        Map<String, Object > map =   new HashMap<>();
+        for ( Object obj : ls  ) {
+           ObjectControl oc = (ObjectControl) obj;    
+           map.put(oc.getKey(), obj);
+        }
         List<Object> selected = new ArrayList<>();
         try {
-    		IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-    		if( bf.getUserSwitch() != null && bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
-    			initSelectedStateUsers(bf,map,selected);
-    		}else {
-    			initSelectedCityUsers(bf,map,selected);
-    		}
+            IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            if( bf.getUserSwitch() != null && bf.getUserSwitch().equals(ActionsLocation.STATE) ) {
+                initSelectedStateUsers(bf,map,selected);
+            }else {
+                initSelectedCityUsers(bf,map,selected);
+            }
         
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
         return selected;
-	}
+    }
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void initSelectedStateUsers(IBeanFactory bf,Map<String, Object > map,List<Object> selected   ) throws TuraException {
-		DataControl dcRef = (DataControl) bf.getStateReference();
-		List<Object > ls =   dcRef.getScroller();
-		for (Object o : ls) {
-			StateReference ref = (StateReference) o;
-			if (ref.getUser() !=null ) {
-            	ObjectControl oc = (ObjectControl) ref.getUser();
-            	oc = (ObjectControl) map.get(oc.getKey());
-            	if ( oc != null) {
-            		selected.add(oc);
-            	}
-				
-				
-			}
-		}
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void initSelectedCityUsers(IBeanFactory bf,Map<String, Object > map,List<Object> selected ) throws TuraException {
-		DataControl dcRef = (DataControl) bf.getCityRefeence();
-		List<Object > ls =   dcRef.getScroller();
-		for (Object o : ls) {
-			CityRefeence ref = (CityRefeence) o;
-			if (ref.getUser() !=null ) {
-            	ObjectControl oc = (ObjectControl) ref.getUser();
-            	oc = (ObjectControl) map.get(oc.getKey());
-            	if ( oc != null) {
-            		selected.add(oc);
-            	}
-			}
-		}
-		
-	}
-	
-	
-	
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    private void initSelectedStateUsers(IBeanFactory bf,Map<String, Object > map,List<Object> selected   ) throws TuraException {
+        DataControl dcRef = (DataControl) bf.getStateReference();
+        List<Object > ls =   dcRef.getScroller();
+        for (Object o : ls) {
+            StateReference ref = (StateReference) o;
+            if (ref.getUser() !=null ) {
+                ObjectControl oc = (ObjectControl) ref.getUser();
+                oc = (ObjectControl) map.get(oc.getKey());
+                if ( oc != null) {
+                    selected.add(oc);
+                }
+                
+                
+            }
+        }
+    }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private void initSelectedCityUsers(IBeanFactory bf,Map<String, Object > map,List<Object> selected ) throws TuraException {
+        DataControl dcRef = (DataControl) bf.getCityRefeence();
+        List<Object > ls =   dcRef.getScroller();
+        for (Object o : ls) {
+            CityRefeence ref = (CityRefeence) o;
+            if (ref.getUser() !=null ) {
+                ObjectControl oc = (ObjectControl) ref.getUser();
+                oc = (ObjectControl) map.get(oc.getKey());
+                if ( oc != null) {
+                    selected.add(oc);
+                }
+            }
+        }
+        
+    }
+    
+    
+    
 }

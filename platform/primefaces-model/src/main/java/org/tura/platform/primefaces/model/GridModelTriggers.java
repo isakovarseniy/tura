@@ -28,6 +28,7 @@ public interface GridModelTriggers {
     public void onSelect(Object obj);
     public void onUnselect(Object obj);
     public List<Object> initSelected( List<Object> obj );
+    public void toggleSelect(boolean selected);
     
 
 }

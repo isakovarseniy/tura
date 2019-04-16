@@ -27,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.primefaces.event.ToggleSelectEvent;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.repository.core.ObjectControl;
 
@@ -94,6 +95,14 @@ public class GridModelMultiSelect {
 
     }
 
-    
+    public void ajaxToggleSelect(ToggleSelectEvent event) {
+        try {
+            if (callback != null) {
+                callback.toggleSelect(event.isSelected());
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+        }
+    }
     
 }

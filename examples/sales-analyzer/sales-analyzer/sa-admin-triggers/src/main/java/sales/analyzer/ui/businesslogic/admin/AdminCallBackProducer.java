@@ -26,11 +26,11 @@ public class AdminCallBackProducer implements Serializable, CallbackProducer{
 
     private Map<String,Object> map = new HashMap<>();
     
-    private static String ROLE_SELECTION_TABLE = "tura"+"dce48561-8d19-475d-b3dd-fee6f5ce6ea1".replace("-", "_");
+    public static String ROLE_SELECTION_TABLE = "tura"+"dce48561-8d19-475d-b3dd-fee6f5ce6ea1".replace("-", "_");
     
-    private static String  PERMISSION_SELECTION_TABLE =  "tura"+"da7d6000-299d-4f95-a7e7-e9117ebfb94f".replace("-", "_");
+    public static String  PERMISSION_SELECTION_TABLE =  "tura"+"da7d6000-299d-4f95-a7e7-e9117ebfb94f".replace("-", "_");
     
-    private static String   USER_SELECTION_TABLE =    "tura"+ "d8bdfe00-910f-4baa-9c1e-e203c4eeb2a6".replace("-", "_");
+    public static String   USER_SELECTION_TABLE =    "tura"+ "d8bdfe00-910f-4baa-9c1e-e203c4eeb2a6".replace("-", "_");
     
     @Override
     public Object getCallBackObject(String id) {
