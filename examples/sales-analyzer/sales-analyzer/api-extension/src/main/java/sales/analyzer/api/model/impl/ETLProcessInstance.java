@@ -38,6 +38,16 @@ public class ETLProcessInstance {
 	private String correlationKey;
 	@XmlElement(name = "parent-instance-id")
 	private Long parentId;
+	@XmlElement(name = "file-processing-date")
+	private Date fileProcessingDate;
+	
+	public Date getFileProcessingDate() {
+		return fileProcessingDate;
+	}
+
+	public void setFileProcessingDate(Date fileProcessingDate) {
+		this.fileProcessingDate = fileProcessingDate;
+	}
 
 	@XmlElement(name = "process-active-user-tasks")
 	private Collection<ETLTaskInstance> activeUserTasks;

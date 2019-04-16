@@ -1790,6 +1790,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d68e4921-f532-49ae-98d6-c74969237ced" name="processId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="582d8d82-b236-4097-867d-1392927446ed" name="processName"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8f6047f5-bc72-4236-95cd-02c74e47d812" name="processVersion"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="8e4743a8-9a09-40c1-8939-240cbe851cba" name="fileProcessingDate"/>
           </types>
           <types xsi:type="tura.type:Type" uid="23381845-4877-4e0f-85ac-ae24189ac406" name="EtlTask">
             <classifiers uid="9d7d597b-ac6d-4a91-96f4-b80d0f7a9250" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
