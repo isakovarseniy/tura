@@ -36,6 +36,7 @@ public class JbpmConfiguration {
             "INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
             "INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
             "INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+            "INNER JOIN KIESERVER.VARIABLEINSTANCELOG VAR ON VAR.PROCESSINSTANCEID = PL.ID \n"+
             "WHERE  \n"+
             "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n"+
             "AND VAR.VARIABLEID='fileProcessingDate' ";
@@ -51,6 +52,7 @@ public class JbpmConfiguration {
             "INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
             "INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
             "INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+            "INNER JOIN KIESERVER.VARIABLEINSTANCELOG VAR ON VAR.PROCESSINSTANCEID = PL.ID \n"+
             "WHERE  \n"+
             "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n" +
             "AND VAR.VARIABLEID='fileProcessingDate' ";
@@ -428,5 +430,3 @@ public class JbpmConfiguration {
     
     
 }
-
-
