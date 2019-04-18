@@ -15647,7 +15647,7 @@
                             </fields>
                             <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                           </children>
-                          <children xsi:type="tura.form:Table" order="2" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2">
+                          <children xsi:type="tura.form:Table" order="2" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2" rowNumber="10">
                             <cols uid="cb77fa12-02a2-4563-943c-180c7ea2f17a">
                               <multiLangLabel uid="e55981c2-3f80-4ead-9ecf-688378774c06" value="Application Message Libraries.ETLController.FILES_TABLE">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -15810,6 +15810,7 @@
                       <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="31bd5e9c-8edf-4b2b-baaf-ec7339528002" name="activeStep"/>
                       <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="8e074e97-f62e-4902-bf31-93a7ed60af0d" name="pollStop"/>
                       <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="cf3db52d-0abb-4083-89d8-f0af9d96f065" name="refreshControl"/>
+                      <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5527192d-48d6-44c0-a506-31ff5a2e86d9" name="processingDate"/>
                     </root>
                     <controls uid="34f23350-3da7-48f7-91b9-a38b6df4e3b1" name="EtlProcess">
                       <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>

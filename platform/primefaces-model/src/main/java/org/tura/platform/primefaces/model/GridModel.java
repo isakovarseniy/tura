@@ -116,8 +116,10 @@ public class GridModel {
                 }
                 dc.setCurrentPosition(index);
                 selected = event.getSource().getCurrentObject();
-                obj = (ObjectControl) selected;
-                obj.setViewModelId1(index);
+                if ( selected != null) {
+                  obj = (ObjectControl) selected;
+                  obj.setViewModelId1(index);
+                }
 
             }
 

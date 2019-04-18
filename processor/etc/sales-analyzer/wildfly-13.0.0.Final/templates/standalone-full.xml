@@ -41,6 +41,7 @@
     <system-properties>
        ${kieserver_properties}
        <property name="TALEND_JOB_ROOT" value="${TALEND_JOB_ROOT}"/>	
+       <property name="FILE_IMPORT_DIRECTORY" value="${FILE_IMPORT_DIRECTORY}"/>       
 
        <property name="keycloak_url" value="${keycloak_url}"/>	
        <property name="keycloak_admin_realm" value="${keycloak_admin_realm}"/>	

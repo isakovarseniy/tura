@@ -334,6 +334,8 @@ public class JbpmSearchServiceTest {
             SearchResult result = service.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
                     ETLProcessInstance.class.getName());
             assertNotEquals(0, result.getSearchResult().size());
+            ETLProcessInstance ei = (ETLProcessInstance) result.getSearchResult().get(0);
+            assertEquals("2017-11-01",ei.getFileProcessingDate());
 
         } catch (Exception e) {
             e.printStackTrace();

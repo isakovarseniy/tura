@@ -1,5 +1,6 @@
 package sales.analyzer.ui.businesslogic.etlcontroller;
 
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,113 +33,116 @@ import sales.analyzer.process.commons.Constants;
 
 public class Actions implements EventAccessor {
 
-	private transient Logger logger = Logger.getLogger(Actions.class.getName());
-	private ActionEvent event;
+    private transient Logger logger = Logger.getLogger(Actions.class.getName());
+    private ActionEvent event;
 
-	@Inject
-	ELResolver elResolver;
+    @Inject
+    ELResolver elResolver;
 
-	@Inject
-	@Named("dataloader.etlcontroller")
-	CommandStack commandStack;
+    @Inject
+    @Named("dataloader.etlcontroller")
+    CommandStack commandStack;
 
-	@Inject
-	Repository repository;
+    @Inject
+    Repository repository;
 
-	@Inject
-	CachedUserPreferences userPref;
+    @Inject
+    CachedUserPreferences userPref;
 
-	public void openProcess() {
-		EtlProcess process = (EtlProcess) event.getComponent().getAttributes().get("param1");
-		if (process != null) {
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
-			bf.setSelectedProcess(process.getId());
-		}
+    public void openProcess() {
+        EtlProcess process = (EtlProcess) event.getComponent().getAttributes().get("param1");
+        if (process != null) {
+            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+            bf.setSelectedProcess(process.getId());
+            bf.setProcessingDate(process.getFileProcessingDate());
+        }
 
-	}
+    }
 
-	public void createMonthlyLoadingProcess() {
-		try {
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
-			@SuppressWarnings("rawtypes")
-			DataControl dc = (DataControl) bf.getEtlProcess();
-			EtlProcess process = (EtlProcess) dc.createObject();
-			process.setProcessId(Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID);
+    public void createMonthlyLoadingProcess() {
+        try {
+            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+            @SuppressWarnings("rawtypes")
+            DataControl dc = (DataControl) bf.getEtlProcess();
+            EtlProcess process = (EtlProcess) dc.createObject();
+            process.setProcessId(Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID);
 
-			applyChanges();
+            applyChanges();
 
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
 
-	}
+    }
 
-	private void applyChanges() throws Exception {
-		CommandStackProvider sp = new CommandStackProvider();
-		sp.setCommandStack(commandStack);
+    private void applyChanges() throws Exception {
+        CommandStackProvider sp = new CommandStackProvider();
+        sp.setCommandStack(commandStack);
 
-		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+        ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 
-		proxyRepository.applyChanges(null);
-		commandStack.commitSavePoint();
-	}
+        proxyRepository.applyChanges(null);
+        commandStack.commitSavePoint();
+    }
 
-	public void logout() {
-		try {
-			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
-			request.logout();
-			externalContext.redirect("/sa-etl-controller/dataloader/etlcontroller/ETLControlWindow.xhtml");
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-	}
+    public void logout() {
+        try {
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
+            request.logout();
+            externalContext.redirect("/sa-etl-controller/dataloader/etlcontroller/ETLControlWindow.xhtml");
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
+    }
 
-	@Override
-	public void setEvent(ActionEvent event) {
-		this.event = event;
+    @Override
+    public void setEvent(ActionEvent event) {
+        this.event = event;
 
-	}
+    }
 
-	public void nextStep() {
-		try {
-			EtlMLPMessage message = new EtlMLPMessage();
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
-			EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
-			HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
-			if (bf.getActiveStep() == 0) {
-				HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(
-						(ObjectControl) holder);
-				message.setLoadingDate(adapter.getLoadingDate());
-			}
-			message.setDirection(0);
-			changeStep(process,message);
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-	}
+    public void nextStep() {
+        try {
+            EtlMLPMessage message = new EtlMLPMessage();
+            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+            EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+            HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
+            if (bf.getActiveStep() == 0) {
+                HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(
+                        (ObjectControl) holder);
+                message.setLoadingDate(adapter.getLoadingDate());
+                SimpleDateFormat sdfr = new SimpleDateFormat("yyyy-MM-dd");
+                bf.setProcessingDate(sdfr.format(adapter.getLoadingDate()));
+            }
+            message.setDirection(0);
+            changeStep(process,message);
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
+    }
 
-	public void prevStep() {
-		try {
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
-			EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
-			EtlMLPMessage message = new EtlMLPMessage();
-			message.setDirection(1);
-			changeStep(process,message);
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-	}
+    public void prevStep() {
+        try {
+            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+            EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+            EtlMLPMessage message = new EtlMLPMessage();
+            message.setDirection(1);
+            changeStep(process,message);
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
+    }
 
-	private void changeStep(EtlProcess process, EtlMLPMessage message) throws Exception {
-		ObjectMapper mapper = new ObjectMapper();
-		String s = mapper.writeValueAsString(message);
-		EtlTask task =   process.getActiveUserTasks().get(0);
-		task.setCompleteTask(s);
-		applyChanges();
-	}
+    private void changeStep(EtlProcess process, EtlMLPMessage message) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(message);
+        EtlTask task =   process.getActiveUserTasks().get(0);
+        task.setCompleteTask(s);
+        applyChanges();
+    }
 
-	
-	public void poll() {
-	}
+    
+    public void poll() {
+    }
 }

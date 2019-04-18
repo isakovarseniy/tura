@@ -14,6 +14,7 @@ public class Constants {
 	public static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	public static String EXECUTION_ERROR = "Result";
 	public static final String FILE_ROOT = "FILE_ROOT";
+	public static String FILE_IMPORT_DIRECTORY = "FILE_IMPORT_DIRECTORY";
 
 	public static final String CONTAINER_ID = "sales-analyzer-container";
 
