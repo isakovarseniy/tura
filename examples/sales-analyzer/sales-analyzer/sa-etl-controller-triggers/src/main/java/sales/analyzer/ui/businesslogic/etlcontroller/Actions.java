@@ -1,6 +1,8 @@
 package sales.analyzer.ui.businesslogic.etlcontroller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +13,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
+import org.josql.Query;
+import org.josql.QueryResults;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
@@ -107,6 +111,7 @@ public class Actions implements EventAccessor {
             EtlMLPMessage message = new EtlMLPMessage();
             IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
             EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
+
             HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
             if (bf.getActiveStep() == 0) {
                 HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(
@@ -135,9 +140,15 @@ public class Actions implements EventAccessor {
     }
 
     private void changeStep(EtlProcess process, EtlMLPMessage message) throws Exception {
+        List<Object> list = new ArrayList<>();
+        list.addAll(process.getActiveUserTasks());
+        Query query = new Query();
+        query.parse(StepSelectorViewPort.QUERY_LAST);
+        QueryResults result = query.execute(list);
+        
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(message);
-        EtlTask task =   process.getActiveUserTasks().get(0);
+        EtlTask task =   (EtlTask) result.getResults().get(0);
         task.setCompleteTask(s);
         applyChanges();
     }

@@ -2,6 +2,7 @@ package sales.analyzer.process.query.mapper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,13 @@ public class ETLProcessInstanceMapper extends AbstractQueryMapper<ETLProcessInst
         pi.setProcessInstanceDescription(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_PROCESSINSTANCEDESCRIPTION, index));
         pi.setCorrelationKey(getColumnStringValue(dataSetResult, "PROC_"+COLUMN_CORRELATIONKEY, index));
         pi.setParentId(getColumnLongValue(dataSetResult, "PROC_"+COLUMN_PARENTPROCESSINSTANCEID, index));
-        pi.setFileProcessingDate( getColumnStringValue(dataSetResult, "value", index));
+        String s = getColumnStringValue(dataSetResult, "value", index);
+        Date date = new Date();
+        if ( s != null) {
+            date = new Date(s);
+        }
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        pi.setFileProcessingDate( format.format(date));
         
 
         return pi;

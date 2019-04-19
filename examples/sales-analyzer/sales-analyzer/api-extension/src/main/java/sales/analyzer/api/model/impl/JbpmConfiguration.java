@@ -33,13 +33,13 @@ public class JbpmConfiguration {
              "TSK.* , ORG.ID ORG_ID ,\n"+
              "VAR.VARIABLEID, VAR.VALUE \n"+
             "FROM KIESERVER.PROCESSINSTANCELOG pl \n"+ 
-            "INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
-            "INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
-            "INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+            "FULL OUTER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
+            "FULL OUTER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
+            "FULL OUTER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
             "FULL OUTER JOIN KIESERVER.VARIABLEINSTANCELOG VAR ON VAR.PROCESSINSTANCEID = PL.ID  \n"+
             "WHERE  \n"+
-            "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n"+
-            "AND  ( VAR.VARIABLEID IS NULL OR  VAR.VARIABLEID = 'fileProcessingDate')";
+//            "(TSK.STATUS IS NULL OR (TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 )) \n"+
+            "( VAR.VARIABLEID IS NULL OR  VAR.VARIABLEID = 'fileProcessingDate')";
                         
     private static String ETL_PROCESS_NUMBER_OF_ROWS_QUERY = "SELECT DISTINCT( pl.ID ) DIST_PROC_ID, \n"+
              "pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID \n"+
@@ -49,13 +49,13 @@ public class JbpmConfiguration {
              "TSK.* , ORG.ID ORG_ID ,\n"+
              "VAR.VARIABLEID, VAR.VALUE \n"+             
             "FROM KIESERVER.PROCESSINSTANCELOG pl \n"+ 
-            "INNER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
-            "INNER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
-            "INNER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
+            "FULL OUTER JOIN KIESERVER.TASK TSK ON TSK.PROCESSINSTANCEID = pl.PROCESSINSTANCEID \n"+
+            "FULL OUTER JOIN KIESERVER.PEOPLEASSIGNMENTS_POTOWNERS PP ON PP.TASK_ID = TSK.ID \n" +
+            "FULL OUTER JOIN KIESERVER.ORGANIZATIONALENTITY ORG ON PP.ENTITY_ID = ORG.ID \n"+
             "FULL OUTER JOIN KIESERVER.VARIABLEINSTANCELOG VAR ON VAR.PROCESSINSTANCEID = PL.ID  \n"+
             "WHERE  \n"+
-            "TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 \n" +
-            "AND  ( VAR.VARIABLEID IS NULL OR  VAR.VARIABLEID = 'fileProcessingDate')";
+  //          "(TSK.STATUS IS NULL OR (TSK.STATUS IN ('Created', 'Ready', 'Reserved', 'InProgress', 'Suspended') AND TSK.archived = 0 )) \n"+
+            "( VAR.VARIABLEID IS NULL OR  VAR.VARIABLEID = 'fileProcessingDate')";
                         
     
     private static String PROCESS_QUERY_BY_CASEID = "SELECT \n"+

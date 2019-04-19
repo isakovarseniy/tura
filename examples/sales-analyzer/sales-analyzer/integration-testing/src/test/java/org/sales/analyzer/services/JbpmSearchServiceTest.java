@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -326,7 +327,10 @@ public class JbpmSearchServiceTest {
 
             ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
             Map<String, Object> param = new HashMap<>();
-            param.put(Constants.PARAM_FILE_PROCESSING_DATE, "2017-11-01");
+            
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            
+            param.put(Constants.PARAM_FILE_PROCESSING_DATE, format.parse("2017-11-01"));
             processClient.startProcess(Constants.CONTAINER_ID, ETL_PROCESS_ID, param);
 
             JbpmSearchService service = new JbpmSearchService(client, provider);
