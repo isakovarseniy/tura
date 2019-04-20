@@ -150,7 +150,7 @@ public class Actions implements EventAccessor {
         List<Object> list = new ArrayList<>();
         list.addAll(process.getActiveUserTasks());
         Query query = new Query();
-        query.parse(ViewPortUpdate.QUERY_LAST);
+        query.parse(ViewPortUpdate.QUERY_LAST_TASK);
         QueryResults result = query.execute(list);
 
         ObjectMapper mapper = new ObjectMapper();

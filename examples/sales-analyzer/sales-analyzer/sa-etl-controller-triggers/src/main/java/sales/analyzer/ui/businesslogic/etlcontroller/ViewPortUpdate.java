@@ -27,7 +27,8 @@ public class ViewPortUpdate {
     private transient Logger logger = Logger.getLogger(ViewPortUpdate.class.getName());
 
     private static String STEP = "/dataloader/etlcontroller/STEP${STEP}.xhtml";
-    public static String QUERY_LAST = "SELECT * FROM org.tura.salesanalyzer.serialized.jbpm.EtlTask WHERE status != null and status != 'Completed'";
+    public static String QUERY_LAST_TASK = "SELECT * FROM org.tura.salesanalyzer.serialized.jbpm.EtlTask WHERE status != null and status != 'Completed'";
+    public static String QUERY_LAST_NODE = "SELECT * FROM org.tura.salesanalyzer.serialized.jbpm.EtlNodeLog WHERE type = 0";
 
     private String HUMAN_TASK = "/dataloader/etlcontroller/HumanTaskStep.xhtml";
     private String AUTOMATED_STEPS = "/dataloader/etlcontroller/AutomatedStep.xhtml";
@@ -64,7 +65,7 @@ public class ViewPortUpdate {
             DataControl dc = (DataControl) bf.getEtlProcessSelector();
             EtlProcess process = (EtlProcess) dc.getCurrentObject();
 
-            if (process == null || process.getActiveUserTasks() == null || process.getActiveUserTasks().size() == 0) {
+            if (process == null || process.getActiveUserTasks() == null ) {
                 initNode(bf, elResolver);
                 vp.setStepSelector(AUTOMATED_STEPS);
                 return;
@@ -73,7 +74,7 @@ public class ViewPortUpdate {
             List<Object> list = new ArrayList<>();
             list.addAll(process.getActiveUserTasks());
             Query query = new Query();
-            query.parse(QUERY_LAST);
+            query.parse(QUERY_LAST_TASK);
             QueryResults result = query.execute(list);
 
             if (result.getResults().size() != 0) {
@@ -153,11 +154,18 @@ public class ViewPortUpdate {
 
     }
 
-    @SuppressWarnings({ "rawtypes" })
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private void initNode(IBeanFactory bf, ELResolver elResolver) throws Exception {
         DataControl dc = (DataControl) bf.getEtlNodeLog();
         dc.forceRefresh();
-        EtlNodeLog node = (EtlNodeLog) dc.getCurrentObject();
+        
+        List<Object> list = new ArrayList<>();
+        list.addAll(dc.getScroller());
+        Query query = new Query();
+        query.parse(QUERY_LAST_NODE);
+        QueryResults result = query.execute(list);
+
+        EtlNodeLog node = (EtlNodeLog) result.getResults().get(0);
         
         int i = Constants.PRC_NODES.indexOf(node.getNodeName());
         bf.setActiveStep(i);
