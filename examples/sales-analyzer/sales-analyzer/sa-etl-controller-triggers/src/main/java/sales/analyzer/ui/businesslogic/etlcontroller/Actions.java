@@ -24,6 +24,7 @@ import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.HolderObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.IBeanFactory;
+import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.viewmodel.IViewPortHolder;
 import org.tura.salesanalyzer.serialized.db.HolderObject;
 import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
 import org.tura.salesanalyzer.serialized.jbpm.EtlTask;
@@ -48,6 +49,10 @@ public class Actions implements EventAccessor {
     CommandStack commandStack;
 
     @Inject
+    @Named("viewPortHolderDataLoaderETLController")
+    IViewPortHolder vp;
+
+    @Inject
     Repository repository;
 
     @Inject
@@ -59,6 +64,8 @@ public class Actions implements EventAccessor {
             IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
             bf.setSelectedProcess(process.getId());
             bf.setProcessingDate(process.getFileProcessingDate());
+
+            new ViewPortUpdate().setup(vp, elResolver);
         }
 
     }
@@ -121,7 +128,7 @@ public class Actions implements EventAccessor {
                 bf.setProcessingDate(sdfr.format(adapter.getLoadingDate()));
             }
             message.setDirection(0);
-            changeStep(process,message);
+            changeStep(process, message);
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
@@ -133,7 +140,7 @@ public class Actions implements EventAccessor {
             EtlProcess process = (EtlProcess) bf.getEtlProcessSelector().getCurrentObject();
             EtlMLPMessage message = new EtlMLPMessage();
             message.setDirection(1);
-            changeStep(process,message);
+            changeStep(process, message);
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
@@ -143,17 +150,29 @@ public class Actions implements EventAccessor {
         List<Object> list = new ArrayList<>();
         list.addAll(process.getActiveUserTasks());
         Query query = new Query();
-        query.parse(StepSelectorViewPort.QUERY_LAST);
+        query.parse(ViewPortUpdate.QUERY_LAST);
         QueryResults result = query.execute(list);
-        
+
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(message);
-        EtlTask task =   (EtlTask) result.getResults().get(0);
+        EtlTask task = (EtlTask) result.getResults().get(0);
         task.setCompleteTask(s);
         applyChanges();
+
+        new ViewPortUpdate().setup(vp, elResolver);
+
     }
 
-    
+    @SuppressWarnings("rawtypes")
     public void poll() {
+        try {
+            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
+            DataControl dc = (DataControl) bf.getFileEntry();
+            dc.forceRefresh();
+
+            new ViewPortUpdate().setup(vp, elResolver);
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
     }
 }
