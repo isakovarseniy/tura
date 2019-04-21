@@ -1,0 +1,24 @@
+[%@template
+operation form::BlockUI draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","BlockUI start: "+self.uid);     
+     
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+     
+     var block = self.sourceTarget->select(r|r.group > 1);
+     var triggers = self.sourceTarget->select(r|r.group == 1)->sortBy(q|q.group);
+     
+     %]
+            <p:blockUI block="[%=refreshAriasGroup(block, self)%]" trigger="[%=refreshAriasGroup(triggers, self)%]" />
+     [%
+     
+
+     util.traceIfDebug("UI element","BlockUI end: "+self.uid);     
+ 
+}
+%]

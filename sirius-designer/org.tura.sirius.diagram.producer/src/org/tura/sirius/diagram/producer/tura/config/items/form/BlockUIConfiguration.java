@@ -64,6 +64,9 @@ public class BlockUIConfiguration implements ContainerConfigurator {
 		style.setHideLabelByDefault(true);
 		SystemColor foregroundColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("white");
 		style.setForegroundColor(foregroundColor);
+		SystemColor borderColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setBorderColor(borderColor);
+		
 		style.setIconPath("/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png");
 
 		return style;

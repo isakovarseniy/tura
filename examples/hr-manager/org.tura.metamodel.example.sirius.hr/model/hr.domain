@@ -15542,7 +15542,7 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="96d21de5-a477-49c2-bfe3-d394d8dc333d" name="Monthly File Loading Process Steps">
                       <style uid="16df87dd-f69c-48e5-a2f1-444f2465b3ee"/>
-                      <viewElement xsi:type="tura.form:ViewPort" uid="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" name="Step selector">
+                      <viewElement xsi:type="tura.form:ViewPort" nickname="step_selector" uid="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" name="Step selector">
                         <style uid="1282ee30-89dd-42b3-a20e-d22851ecc5b7"/>
                       </viewElement>
                     </canvases>
@@ -15572,7 +15572,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="1d3f5fc4-2e0f-4235-a279-a9fb87fed6de" columns="2">
                             <style uid="c38102b2-f947-4a51-8732-3f16d3b275f6" constant="true" value="width:100%"/>
-                            <children xsi:type="tura.form:Button" uid="c48109b3-1329-496c-bfdb-c03a2873da55" label="Prev">
+                            <children xsi:type="tura.form:Button" nickname="prev" uid="c48109b3-1329-496c-bfdb-c03a2873da55" label="Prev">
                               <style uid="c2d0966c-71d2-4a1a-87af-8316cb6c9855"/>
                               <fields uid="1779085a-25bb-4faf-ad24-aaa5fd6aae8b" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.prevStep()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -15589,7 +15589,7 @@
                                 <expression objRef="7646ce45-01ef-4c73-bfc9-0de7f0febf83" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:Button" order="1" uid="821aa045-a5fd-437c-8870-016b9bcb015b" label="Next">
+                            <children xsi:type="tura.form:Button" nickname="next" order="1" uid="821aa045-a5fd-437c-8870-016b9bcb015b" label="Next">
                               <style uid="754eca77-5b90-48ab-8c83-e480d2e5fd49" constant="true" value="float: right"/>
                               <fields uid="a6bf98fd-31e9-4fa5-84cc-d5f00ea87030" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.nextStep()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -15606,6 +15606,12 @@
                                 <expression objRef="7d2bd9c4-e357-44f9-aa1f-6a62a15092be" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
+                          </children>
+                          <children xsi:type="tura.form:BlockUI" order="2" uid="479f90d4-bcb2-48b7-a9a0-4cd95da9c6f9">
+                            <style uid="9adeee97-8a03-4e44-b5d0-3d9cf3fd9bd1"/>
+                            <sourceTarget area="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" group="2"/>
+                            <sourceTarget area="c48109b3-1329-496c-bfdb-c03a2873da55" group="1"/>
+                            <sourceTarget area="821aa045-a5fd-437c-8870-016b9bcb015b" group="1"/>
                           </children>
                         </baseCanvas>
                       </viewElement>
