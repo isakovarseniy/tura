@@ -47,7 +47,15 @@ operation form::MessageElement noContext(hash,hints) {
    
      if (self.findClassifier(util.getHint(model_mapper,"messages"))){
     %]
-    <p:messages  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  showDetail="true" closable="true"/>
+    <p:messages  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  showDetail="true" closable="true">
+    [%
+     if (self.findClassifier(util.getHint(model_mapper,"messages.autoupdate"))){
+      %]
+         <p:autoUpdate />
+        [%
+     }    
+    %]
+    </p:messages>
     [%
      }else{
     %]<p:message  [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />[%

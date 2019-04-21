@@ -319,6 +319,7 @@
             <hints uid="fce4b150-edb4-4e80-968c-4c9824052a81" name="panelMenu" hint="78aa9935-1217-492d-a6d1-16258b001abd"/>
             <hints uid="58c7427e-eb4b-4207-8573-778ab288aeec" name="menuButton" hint="70a0b140-c90d-4a8b-b306-5b8170ebe0a6"/>
             <hints uid="448365fe-9ed0-468e-b09f-9e12464c3a4e" name="table.edit.column" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
+            <hints uid="98227d04-74fb-4884-aacd-b5c588ca9769" name="messages.autoupdate" hint="4a673482-a330-41e4-8d3d-df9a3baf82c4"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -523,6 +524,7 @@
             <hints uid="78aa9935-1217-492d-a6d1-16258b001abd" name="panelMenu"/>
             <hints uid="70a0b140-c90d-4a8b-b306-5b8170ebe0a6" name="menuButton"/>
             <hints uid="eb820338-63ea-46bd-97f9-240c0553ed4a" name="table.edit.column"/>
+            <hints uid="4a673482-a330-41e4-8d3d-df9a3baf82c4" name="messages.autoupdate"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -12234,6 +12236,10 @@
                           <children xsi:type="tura.form:Menu" menu="785f300e-514b-4284-b095-880cbcf84ef2" uid="b16220f9-e4e3-450d-bcdf-6e94803ec495">
                             <style uid="c0493725-da7b-4242-ba8f-56a69b121a3d"/>
                           </children>
+                          <children xsi:type="tura.form:MessageElement" order="1" uid="b2a14e38-2697-48bf-80c7-496ac455b7cb" label="Message">
+                            <classifiers uid="1a74f1e7-5b48-4bb3-9366-3c6f26f43406" hint="13ee1559-017d-44bf-9cba-2b0f6ab9ce72"/>
+                            <classifiers uid="5cdfa09a-34f1-4e34-8b0b-918307ff4858" hint="4a673482-a330-41e4-8d3d-df9a3baf82c4"/>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <multiLangLabel uid="64fc7cd9-833e-48e2-acfa-881131de7e9e"/>
@@ -15648,6 +15654,7 @@
                             <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                           </children>
                           <children xsi:type="tura.form:Table" order="2" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2" rowNumber="10">
+                            <style uid="8bf179c7-6ebe-4f1a-8e32-622c55a2db60" constant="true" value="width:40%"/>
                             <cols uid="cb77fa12-02a2-4563-943c-180c7ea2f17a">
                               <multiLangLabel uid="e55981c2-3f80-4ead-9ecf-688378774c06" value="Application Message Libraries.ETLController.FILES_TABLE">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -15657,6 +15664,7 @@
                               <element xsi:type="tura.form:OutputText" uid="ed7e4c82-c647-4813-a348-a8b35ca6ff8a" valuePointer="19f4afde-5c04-46c3-ac9d-d7fbf318cfaf"/>
                             </cols>
                             <cols order="1" uid="6cc027b8-b5a4-490f-b63f-9b159e00d7c6">
+                              <style uid="53923e49-393d-4548-aebb-348a3c446da3" constant="true" value="width:30%"/>
                               <multiLangLabel uid="12f8c87f-b6db-43d3-a7ad-7a28c715be38" value="Application Message Libraries.ETLController.LINES_TABLE">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
@@ -16334,6 +16342,18 @@
                   <messages uid="8a79f1d2-5fce-472f-9c13-94a134d234ce" name="IS_SUPER_ADMIN">
                     <translatioins uid="6497d5e6-0c0b-483c-b069-6b7e0d920138" translation="Is super admin" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
                     <translatioins uid="8f3a0f56-b07a-4c69-a411-1c27aee6a862" translation="Супер аднин?" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="3e661e73-2a3a-42d7-a408-b09b3d97a57d" name="SAVE_DATA_MESSAGE">
+                    <translatioins uid="ed0f4f96-1fa4-46cd-9287-51dd1925342a" translation="Information persisted" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="371a040d-e61e-44bc-aa53-0439d908957a" translation="Информация сохранена" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="715055ab-e994-4faa-b1bc-80bfdc70f6e5" name="ROLLBACK_MESSAGE">
+                    <translatioins uid="aaae8c46-3026-4474-ba73-57bde7c03935" translation="Update rolled back" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="3c8a0b23-8b85-4727-bd6f-de5f80507680" translation="Изменениа отменены" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
+                  </messages>
+                  <messages uid="c9d7973d-2c45-40e1-a0c5-302693d432c7" name="ERROR_MESSAGE">
+                    <translatioins uid="3c3b4d43-2525-4c94-91f9-ba0c4fad54dd" translation="Error during execution of operation" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="a659ad35-1292-412a-b7e0-80da5182d466" translation="Ошибка при выполнении операции" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                 </libraries>
                 <libraries uid="c1b6792d-1c11-49af-815c-e50050a36f0f" name="Error page">

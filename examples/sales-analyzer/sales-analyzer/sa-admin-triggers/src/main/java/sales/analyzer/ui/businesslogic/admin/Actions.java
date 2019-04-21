@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.FacesMessage.Severity;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.component.visit.VisitContext;
@@ -274,7 +276,10 @@ public class Actions implements EventAccessor {
 				dc.forceRefresh();
 			}
 			
+			addmessage(FacesMessage.SEVERITY_INFO,"SAVE_DATA_MESSAGE" );
+			
 		} catch (Exception e) {
+			addmessage(FacesMessage.SEVERITY_ERROR,"ERROR_MESSAGE" );
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
@@ -282,12 +287,23 @@ public class Actions implements EventAccessor {
 	public void rallbackApplication() {
 		try {
 			commandStack.rallbackCommand();
+			addmessage(FacesMessage.SEVERITY_INFO,"ROLLBACK_MESSAGE" );
 		} catch (Exception e) {
+			addmessage(FacesMessage.SEVERITY_ERROR,"ERROR_MESSAGE" );
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
-
+	
+	
+	private void addmessage( Severity severity , String key ) {
+		String message = getMessage(key);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "Info", message));
+	}
+	
+	private String getMessage( String key) {
+        return (String) elResolver.getValue("#{Admin['" +key + "']}");
+	}
 	
 	@Override
 	public void setEvent(ActionEvent event) {
