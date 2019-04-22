@@ -29,13 +29,14 @@ operation  commandstack(component,uipackage,form, suffix) {
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 [%=commandstack_scope()%]
-@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 [%
 if ( not "".equals(suffix)  ){
-%]@org.tura.platform.datacontrol.annotations.Selector("[%=suffix%]")[%
+%]@javax.inject.Named("[%=suffix%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
+}else{
+%]@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
 }
 %]
-public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack[%=util.mergeAndCapitalize(suffix)%]  implements java.io.Serializable {
+public class CDICommandStack[%=util.mergeAndCapitalize(suffix)%] extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
