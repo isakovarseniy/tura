@@ -14,11 +14,23 @@ operation form::BlockUI draw(hash) {
      var triggers = self.sourceTarget->select(r|r.group == 1)->sortBy(q|q.group);
      
      %]
-            <p:blockUI block="[%=refreshAriasGroup(block, self)%]" trigger="[%=refreshAriasGroup(triggers, self)%]" />
+            <p:blockUI block="[%=refreshAriasGroup(block, self)%]" trigger="[%=refreshAriasGroup(triggers, self)%]" >
+            [%=self.generateBody(hash)%]     
+            </p:blockUI>
      [%
      
 
      util.traceIfDebug("UI element","BlockUI end: "+self.uid);     
  
 }
+
+@template
+operation form::BlockUI  generateBody(hash){
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+}
 %]
+

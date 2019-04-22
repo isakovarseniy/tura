@@ -15554,6 +15554,7 @@
                           <style uid="6604c0f1-68df-48bd-8236-f0225d9cd5a2" constant="true" value="width:100%"/>
                           <children xsi:type="tura.form:LayerHolder" uid="dc5d1cf5-f655-4fe1-8582-a2f8b935dd57" columns="2">
                             <style uid="cdbbb674-734c-4a15-83b8-0ff6fdc16d42" constant="true" value="width:100%;margin-bottom: 25px;"/>
+                            <required uid="3d351f41-040a-4ee1-b79e-4325768ebcb4"/>
                             <children xsi:type="tura.form:Label" uid="65ea3f24-b7d5-4e42-9f00-6d022ca3a626" label="step name">
                               <style uid="9975eb9b-4151-4719-b30c-d8507a6b13fb" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
                               <required uid="bcf7ce95-e57b-4a38-b959-6f7685a4b211"/>
@@ -15581,6 +15582,7 @@
                                 <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
                                 <expression objRef="8257b056-ead9-4b53-980a-7dd4b1cdd155" order="4" expressionType="OperationImpl"/>
                               </fields>
+                              <required uid="a63f01dd-cb24-4197-95e9-fcd07967c815"/>
                               <refreshAreas area="c48109b3-1329-496c-bfdb-c03a2873da55" group="1"/>
                               <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
                               <multiLangLabel uid="1df6a052-e63f-46ad-87f0-9a9106d9cdaa" value="Application Message Libraries.ETLController.BUTTON_PREV">
@@ -15609,6 +15611,9 @@
                           </children>
                           <children xsi:type="tura.form:BlockUI" order="2" uid="479f90d4-bcb2-48b7-a9a0-4cd95da9c6f9">
                             <style uid="9adeee97-8a03-4e44-b5d0-3d9cf3fd9bd1"/>
+                            <children xsi:type="tura.form:Image" uid="34024a05-466e-4c3e-8d60-36b2b442c2b3" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="cda922fb-f164-4760-b448-48840d80ab32">
+                              <required uid="25e53ac0-4da7-4a6a-9be9-78e9d55cf7c6"/>
+                            </children>
                             <sourceTarget area="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" group="2"/>
                             <sourceTarget area="c48109b3-1329-496c-bfdb-c03a2873da55" group="1"/>
                             <sourceTarget area="821aa045-a5fd-437c-8870-016b9bcb015b" group="1"/>
@@ -16004,6 +16009,7 @@
                       <defaultOrderBy/>
                     </controls>
                     <controls uid="40731043-5d0e-44e9-b707-e18085a1279c" name="Holder Object">
+                      <classifiers uid="970963a2-6bb2-4d72-9cc1-6c6b026313db" hint="3af89e3a-1a60-40f6-b1cc-2d39bf927f71" details="Extra"/>
                       <baseType typeRef="29240e87-5405-4987-b25d-f1ea14f0a81f"/>
                       <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="c9bdd415-ebd2-4bb7-b96c-2d46bda52401">
                         <parameters uid="196dee63-b664-4897-a01a-225460e8b930" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
@@ -16055,6 +16061,7 @@
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1aa1eb05-4071-40fa-b595-d939f00405c4" name="stepName"/>
                       <artificialFields typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="db6a81bb-276c-419e-ac90-a056aa2945c9" name="loadingDate"/>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="cda922fb-f164-4760-b448-48840d80ab32" name="image"/>
                       <defaultSearch/>
                     </controls>
                     <controls uid="3cd54df4-8475-4a9e-80b5-cbf846e7e306" name="FileEntry">
