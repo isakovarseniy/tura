@@ -1359,6 +1359,75 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.FileUpload} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileUploadItemProvider fileUploadItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.FileUpload}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileUploadAdapter() {
+		if (fileUploadItemProvider == null) {
+			fileUploadItemProvider = new FileUploadItemProvider(this);
+		}
+
+		return fileUploadItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.FileDownload} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileDownloadItemProvider fileDownloadItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.FileDownload}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileDownloadAdapter() {
+		if (fileDownloadItemProvider == null) {
+			fileDownloadItemProvider = new FileDownloadItemProvider(this);
+		}
+
+		return fileDownloadItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.DataScroller} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataScrollerItemProvider dataScrollerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.DataScroller}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataScrollerAdapter() {
+		if (dataScrollerItemProvider == null) {
+			dataScrollerItemProvider = new DataScrollerItemProvider(this);
+		}
+
+		return dataScrollerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.Poll} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

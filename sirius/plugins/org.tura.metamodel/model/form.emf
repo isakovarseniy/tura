@@ -345,6 +345,19 @@ class BlockUI  extends Uielement,  ChildrenHolder, common.HTMLLayerHolder {
      val AreaRef[*]  sourceTarget;	 
 }
 
+class FileUpload extends Uielement{
+    
+}
+
+class FileDownload extends Uielement{
+    
+}
+
+
+class DataScroller  extends SourcesPointer, ChildrenHolder, MultiLangLabel, common.HTMLLayerHolder {
+}
+
+
 class Poll extends Uielement{
 	
 }

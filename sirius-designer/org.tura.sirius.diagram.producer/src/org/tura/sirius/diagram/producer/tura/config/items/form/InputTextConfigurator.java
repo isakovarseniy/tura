@@ -23,6 +23,7 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialNodeCreationOperatio
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.Switch;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
+import org.tura.sirius.diagram.producer.tura.CanvasDiagram;
 import org.tura.sirius.dsl.config.NodeConfigurator;
 import org.tura.sirius.dsl.config.ObjectWrapper;
 import org.tura.sirius.dsl.diagram.ToolHelper;
@@ -122,13 +123,22 @@ public class InputTextConfigurator implements NodeConfigurator {
 		c2.getSubModelOperations().add(c3);
 		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 
+		
+		c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::DataScroller)");
+		c1.getCases().add(c2);
+		c3 = ToolHelper.createInstance("form.InputText", "instance", "children");
+		c2.getSubModelOperations().add(c3);
+		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+		
+		
+		
 		c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::Column)");
 		c1.getCases().add(c2);
 
 		c3 = ToolHelper.createInstance("form.InputText", "instance", "element");
 		c2.getSubModelOperations().add(c3);
 		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("InputText" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -148,7 +158,7 @@ public class InputTextConfigurator implements NodeConfigurator {
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
 		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("InputText" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -187,7 +197,12 @@ public class InputTextConfigurator implements NodeConfigurator {
 
 		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
 		ContainerMapping treeContainer = (ContainerMapping) w.getWrapedObject();
-		for (int i = 0; i < 5; i++) {
+		
+		w = (ObjectWrapper) tRoot.context.get("DataScroller" + tContainer.class.getName());
+		ContainerMapping dataScrolleContainer = (ContainerMapping) w.getWrapedObject();
+	
+		
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("InputText" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -197,6 +212,8 @@ public class InputTextConfigurator implements NodeConfigurator {
 			container.getDropDescriptions().add(tool);
 			tableContainer.getDropDescriptions().add(tool);
 			treeContainer.getDropDescriptions().add(tool);
+			dataScrolleContainer.getDropDescriptions().add(tool);
+			
 			tool.getMappings().add(mapper);
 		}
 		return tool;

@@ -36,6 +36,7 @@ import form.ControlPointer;
 import form.Controls;
 import form.CreateTrigger;
 import form.DataControl;
+import form.DataScroller;
 import form.Date;
 import form.DefaultCavas;
 import form.DeleteTrigger;
@@ -43,6 +44,8 @@ import form.Dependency;
 import form.DropDownSelection;
 import form.EnabledUIItem;
 import form.ExpressionPart;
+import form.FileDownload;
+import form.FileUpload;
 import form.FlexField;
 import form.FlexFields;
 import form.Form;
@@ -551,6 +554,27 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass blockUIEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileUploadEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileDownloadEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataScrollerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2310,6 +2334,33 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFileUpload() {
+		return fileUploadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFileDownload() {
+		return fileDownloadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataScroller() {
+		return dataScrollerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPoll() {
 		return pollEClass;
 	}
@@ -3604,6 +3655,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		blockUIEClass = createEClass(BLOCK_UI);
 		createEReference(blockUIEClass, BLOCK_UI__SOURCE_TARGET);
 
+		fileUploadEClass = createEClass(FILE_UPLOAD);
+
+		fileDownloadEClass = createEClass(FILE_DOWNLOAD);
+
+		dataScrollerEClass = createEClass(DATA_SCROLLER);
+
 		pollEClass = createEClass(POLL);
 
 		menuHolderEClass = createEClass(MENU_HOLDER);
@@ -3883,6 +3940,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		blockUIEClass.getESuperTypes().add(this.getUielement());
 		blockUIEClass.getESuperTypes().add(this.getChildrenHolder());
 		blockUIEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		fileUploadEClass.getESuperTypes().add(this.getUielement());
+		fileDownloadEClass.getESuperTypes().add(this.getUielement());
+		dataScrollerEClass.getESuperTypes().add(this.getSourcesPointer());
+		dataScrollerEClass.getESuperTypes().add(this.getChildrenHolder());
+		dataScrollerEClass.getESuperTypes().add(this.getMultiLangLabel());
+		dataScrollerEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		pollEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());
@@ -4135,6 +4198,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(blockUIEClass, BlockUI.class, "BlockUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlockUI_SourceTarget(), this.getAreaRef(), null, "sourceTarget", null, 0, -1, BlockUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fileUploadEClass, FileUpload.class, "FileUpload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(fileDownloadEClass, FileDownload.class, "FileDownload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataScrollerEClass, DataScroller.class, "DataScroller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pollEClass, Poll.class, "Poll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

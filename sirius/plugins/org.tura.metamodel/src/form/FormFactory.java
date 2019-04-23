@@ -526,6 +526,33 @@ public interface FormFactory extends EFactory {
 	BlockUI createBlockUI();
 
 	/**
+	 * Returns a new object of class '<em>File Upload</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Upload</em>'.
+	 * @generated
+	 */
+	FileUpload createFileUpload();
+
+	/**
+	 * Returns a new object of class '<em>File Download</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Download</em>'.
+	 * @generated
+	 */
+	FileDownload createFileDownload();
+
+	/**
+	 * Returns a new object of class '<em>Data Scroller</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Scroller</em>'.
+	 * @generated
+	 */
+	DataScroller createDataScroller();
+
+	/**
 	 * Returns a new object of class '<em>Poll</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

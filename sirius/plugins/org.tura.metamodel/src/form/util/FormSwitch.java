@@ -668,6 +668,53 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.FILE_UPLOAD: {
+				FileUpload fileUpload = (FileUpload)theEObject;
+				T result = caseFileUpload(fileUpload);
+				if (result == null) result = caseUielement(fileUpload);
+				if (result == null) result = caseStyleElement(fileUpload);
+				if (result == null) result = caseNickNamed(fileUpload);
+				if (result == null) result = caseCategorized(fileUpload);
+				if (result == null) result = caseOrderable(fileUpload);
+				if (result == null) result = caseEnabledUIItem(fileUpload);
+				if (result == null) result = caseFlexFields(fileUpload);
+				if (result == null) result = caseMenuHolder(fileUpload);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.FILE_DOWNLOAD: {
+				FileDownload fileDownload = (FileDownload)theEObject;
+				T result = caseFileDownload(fileDownload);
+				if (result == null) result = caseUielement(fileDownload);
+				if (result == null) result = caseStyleElement(fileDownload);
+				if (result == null) result = caseNickNamed(fileDownload);
+				if (result == null) result = caseCategorized(fileDownload);
+				if (result == null) result = caseOrderable(fileDownload);
+				if (result == null) result = caseEnabledUIItem(fileDownload);
+				if (result == null) result = caseFlexFields(fileDownload);
+				if (result == null) result = caseMenuHolder(fileDownload);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.DATA_SCROLLER: {
+				DataScroller dataScroller = (DataScroller)theEObject;
+				T result = caseDataScroller(dataScroller);
+				if (result == null) result = caseSourcesPointer(dataScroller);
+				if (result == null) result = caseChildrenHolder(dataScroller);
+				if (result == null) result = caseMultiLangLabel(dataScroller);
+				if (result == null) result = caseHTMLLayerHolder(dataScroller);
+				if (result == null) result = caseUielement(dataScroller);
+				if (result == null) result = caseControlPointer(dataScroller);
+				if (result == null) result = caseStyleElement(dataScroller);
+				if (result == null) result = caseNickNamed(dataScroller);
+				if (result == null) result = caseCategorized(dataScroller);
+				if (result == null) result = caseOrderable(dataScroller);
+				if (result == null) result = caseEnabledUIItem(dataScroller);
+				if (result == null) result = caseFlexFields(dataScroller);
+				if (result == null) result = caseMenuHolder(dataScroller);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.POLL: {
 				Poll poll = (Poll)theEObject;
 				T result = casePoll(poll);
@@ -1824,6 +1871,51 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBlockUI(BlockUI object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Upload</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Upload</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileUpload(FileUpload object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Download</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Download</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileDownload(FileDownload object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Scroller</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Scroller</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataScroller(DataScroller object) {
 		return null;
 	}
 

@@ -1193,7 +1193,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 68;
+	int TRIGGER = 71;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5015,6 +5015,423 @@ public interface FormPackage extends EPackage {
 	int BLOCK_UI_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link form.impl.FileUploadImpl <em>File Upload</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.FileUploadImpl
+	 * @see form.impl.FormPackageImpl#getFileUpload()
+	 * @generated
+	 */
+	int FILE_UPLOAD = 56;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__STYLE = UIELEMENT__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__NICKNAME = UIELEMENT__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__ORDER = UIELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__ENABLED = UIELEMENT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__FIELDS = UIELEMENT__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__MENU = UIELEMENT__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__UID = UIELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__REQUIRED = UIELEMENT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__READ_ONLY = UIELEMENT__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD__REFRESH_AREAS = UIELEMENT__REFRESH_AREAS;
+
+	/**
+	 * The number of structural features of the '<em>File Upload</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_UPLOAD_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link form.impl.FileDownloadImpl <em>File Download</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.FileDownloadImpl
+	 * @see form.impl.FormPackageImpl#getFileDownload()
+	 * @generated
+	 */
+	int FILE_DOWNLOAD = 57;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__STYLE = UIELEMENT__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__NICKNAME = UIELEMENT__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__CLASSIFIERS = UIELEMENT__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__ORDER = UIELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__ENABLED = UIELEMENT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__FIELDS = UIELEMENT__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__MENU = UIELEMENT__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__UID = UIELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__REQUIRED = UIELEMENT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__READ_ONLY = UIELEMENT__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD__REFRESH_AREAS = UIELEMENT__REFRESH_AREAS;
+
+	/**
+	 * The number of structural features of the '<em>File Download</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DOWNLOAD_FEATURE_COUNT = UIELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link form.impl.DataScrollerImpl <em>Data Scroller</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.DataScrollerImpl
+	 * @see form.impl.FormPackageImpl#getDataScroller()
+	 * @generated
+	 */
+	int DATA_SCROLLER = 58;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__STYLE = SOURCES_POINTER__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__ORDER = SOURCES_POINTER__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__ENABLED = SOURCES_POINTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__FIELDS = SOURCES_POINTER__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__MENU = SOURCES_POINTER__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__UID = SOURCES_POINTER__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__REFRESH_AREAS = SOURCES_POINTER__REFRESH_AREAS;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__CHILDREN = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Data Scroller</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link form.impl.PollImpl <em>Poll</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5022,7 +5439,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPoll()
 	 * @generated
 	 */
-	int POLL = 56;
+	int POLL = 59;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5140,7 +5557,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 57;
+	int MENU_HOLDER = 60;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -5168,7 +5585,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 58;
+	int MENU_EXTENSION_REF = 61;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -5196,7 +5613,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 59;
+	int MENU_ELEMENT = 62;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5287,7 +5704,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 60;
+	int MENU_FOLDER = 63;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5405,7 +5822,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 61;
+	int MENU_ITEM = 64;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5523,7 +5940,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 62;
+	int MENU_EXTENSION_POINT = 65;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5623,7 +6040,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 63;
+	int SUB_MENU = 66;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5723,7 +6140,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getToSubmenu()
 	 * @generated
 	 */
-	int TO_SUBMENU = 64;
+	int TO_SUBMENU = 67;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5769,7 +6186,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 65;
+	int MENU_SEPARATOR = 68;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5860,7 +6277,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 66;
+	int TREE = 69;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6059,7 +6476,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 67;
+	int CONTROLS = 70;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6123,7 +6540,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 69;
+	int PRE_FORM_TRIGGER = 72;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6169,7 +6586,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 70;
+	int PRE_QUERY_TRIGGER = 73;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6215,7 +6632,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 71;
+	int POST_QUERY_TRIGGER = 74;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6261,7 +6678,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 72;
+	int PRE_INSERT_TRIGGER = 75;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6307,7 +6724,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 73;
+	int PRE_DELETE_TRIGGER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6353,7 +6770,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 74;
+	int POST_CREATE_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6399,7 +6816,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 75;
+	int PRE_UPDATE_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6445,7 +6862,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 76;
+	int CREATE_TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6491,7 +6908,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 77;
+	int INSERT_TRIGGER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6537,7 +6954,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 78;
+	int UPDATE_TRIGGER = 81;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6583,7 +7000,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 79;
+	int DELETE_TRIGGER = 82;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6629,7 +7046,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 80;
+	int SEARCH_TRIGGER = 83;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6675,7 +7092,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 81;
+	int ROOT = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6730,7 +7147,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 82;
+	int FORM_VARIABLE = 85;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6785,7 +7202,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 83;
+	int DATA_CONTROL = 86;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -6948,7 +7365,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelationMapper()
 	 * @generated
 	 */
-	int RELATION_MAPPER = 84;
+	int RELATION_MAPPER = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7003,7 +7420,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 85;
+	int ORDERS = 88;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7040,7 +7457,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 86;
+	int ORDER_BY = 89;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7086,7 +7503,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 87;
+	int RELATION = 90;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7159,7 +7576,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInternalRelation()
 	 * @generated
 	 */
-	int INTERNAL_RELATION = 88;
+	int INTERNAL_RELATION = 91;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7241,7 +7658,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 89;
+	int DEPENDENCY = 92;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7296,7 +7713,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 90;
+	int ARTIFICIAL_FIELD = 93;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7342,7 +7759,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 91;
+	int COMPARATOR = 94;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7352,7 +7769,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 92;
+	int ORDER = 95;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7362,7 +7779,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 93;
+	int ORIENTATION = 96;
 
 
 	/**
@@ -7373,7 +7790,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSortable()
 	 * @generated
 	 */
-	int SORTABLE = 94;
+	int SORTABLE = 97;
 
 	/**
 	 * The meta object id for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
@@ -7383,7 +7800,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelectionMode()
 	 * @generated
 	 */
-	int SELECTION_MODE = 95;
+	int SELECTION_MODE = 98;
 
 
 	/**
@@ -9012,6 +9429,36 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBlockUI_SourceTarget();
+
+	/**
+	 * Returns the meta object for class '{@link form.FileUpload <em>File Upload</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Upload</em>'.
+	 * @see form.FileUpload
+	 * @generated
+	 */
+	EClass getFileUpload();
+
+	/**
+	 * Returns the meta object for class '{@link form.FileDownload <em>File Download</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Download</em>'.
+	 * @see form.FileDownload
+	 * @generated
+	 */
+	EClass getFileDownload();
+
+	/**
+	 * Returns the meta object for class '{@link form.DataScroller <em>Data Scroller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Scroller</em>'.
+	 * @see form.DataScroller
+	 * @generated
+	 */
+	EClass getDataScroller();
 
 	/**
 	 * Returns the meta object for class '{@link form.Poll <em>Poll</em>}'.
@@ -11628,6 +12075,36 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BLOCK_UI__SOURCE_TARGET = eINSTANCE.getBlockUI_SourceTarget();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.FileUploadImpl <em>File Upload</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.FileUploadImpl
+		 * @see form.impl.FormPackageImpl#getFileUpload()
+		 * @generated
+		 */
+		EClass FILE_UPLOAD = eINSTANCE.getFileUpload();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.FileDownloadImpl <em>File Download</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.FileDownloadImpl
+		 * @see form.impl.FormPackageImpl#getFileDownload()
+		 * @generated
+		 */
+		EClass FILE_DOWNLOAD = eINSTANCE.getFileDownload();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.DataScrollerImpl <em>Data Scroller</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.DataScrollerImpl
+		 * @see form.impl.FormPackageImpl#getDataScroller()
+		 * @generated
+		 */
+		EClass DATA_SCROLLER = eINSTANCE.getDataScroller();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.PollImpl <em>Poll</em>}' class.

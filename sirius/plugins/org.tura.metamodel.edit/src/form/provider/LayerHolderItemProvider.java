@@ -259,6 +259,21 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createFileUpload()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createFileDownload()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createDataScroller()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createPoll()));
 
 		newChildDescriptors.add

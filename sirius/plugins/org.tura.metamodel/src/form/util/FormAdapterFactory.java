@@ -302,6 +302,18 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createBlockUIAdapter();
 			}
 			@Override
+			public Adapter caseFileUpload(FileUpload object) {
+				return createFileUploadAdapter();
+			}
+			@Override
+			public Adapter caseFileDownload(FileDownload object) {
+				return createFileDownloadAdapter();
+			}
+			@Override
+			public Adapter caseDataScroller(DataScroller object) {
+				return createDataScrollerAdapter();
+			}
+			@Override
 			public Adapter casePoll(Poll object) {
 				return createPollAdapter();
 			}
@@ -1266,6 +1278,48 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBlockUIAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.FileUpload <em>File Upload</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.FileUpload
+	 * @generated
+	 */
+	public Adapter createFileUploadAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.FileDownload <em>File Download</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.FileDownload
+	 * @generated
+	 */
+	public Adapter createFileDownloadAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.DataScroller <em>Data Scroller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.DataScroller
+	 * @generated
+	 */
+	public Adapter createDataScrollerAdapter() {
 		return null;
 	}
 

@@ -276,6 +276,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceTarget" upperBound="-1"
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileUpload" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileDownload" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder"/>
   <eClassifiers xsi:type="ecore:EClass" name="Poll" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>

@@ -113,6 +113,9 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.TABLE: return createTable();
 			case FormPackage.MENU: return createMenu();
 			case FormPackage.BLOCK_UI: return createBlockUI();
+			case FormPackage.FILE_UPLOAD: return createFileUpload();
+			case FormPackage.FILE_DOWNLOAD: return createFileDownload();
+			case FormPackage.DATA_SCROLLER: return createDataScroller();
 			case FormPackage.POLL: return createPoll();
 			case FormPackage.MENU_HOLDER: return createMenuHolder();
 			case FormPackage.MENU_EXTENSION_REF: return createMenuExtensionRef();
@@ -757,6 +760,36 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public BlockUI createBlockUI() {
 		BlockUIImpl blockUI = new BlockUIImpl();
 		return blockUI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileUpload createFileUpload() {
+		FileUploadImpl fileUpload = new FileUploadImpl();
+		return fileUpload;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileDownload createFileDownload() {
+		FileDownloadImpl fileDownload = new FileDownloadImpl();
+		return fileDownload;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataScroller createDataScroller() {
+		DataScrollerImpl dataScroller = new DataScrollerImpl();
+		return dataScroller;
 	}
 
 	/**

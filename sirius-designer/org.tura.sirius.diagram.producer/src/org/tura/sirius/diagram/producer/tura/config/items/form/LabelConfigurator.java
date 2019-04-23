@@ -24,6 +24,7 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialContainerDropOperati
 import org.eclipse.sirius.viewpoint.description.tool.InitialNodeCreationOperation;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
+import org.tura.sirius.diagram.producer.tura.CanvasDiagram;
 import org.tura.sirius.dsl.config.NodeConfigurator;
 import org.tura.sirius.dsl.config.ObjectWrapper;
 import org.tura.sirius.dsl.diagram.ToolHelper;
@@ -119,7 +120,7 @@ public class LabelConfigurator implements NodeConfigurator {
 		c1.getSubModelOperations().add(c2);
 		c2.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 		c2.getSubModelOperations().add(ToolHelper.createSet("name", "service:generateName"));
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("Label" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -139,7 +140,7 @@ public class LabelConfigurator implements NodeConfigurator {
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
 		opr.setFirstModelOperations(ToolHelper.createSet("label", "var:0"));
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("Label" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -178,7 +179,9 @@ public class LabelConfigurator implements NodeConfigurator {
 
 		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
 		ContainerMapping treeContainer = (ContainerMapping) w.getWrapedObject();
-		for (int i = 0; i < 5; i++) {
+		
+		
+		for (int i = 0; i < CanvasDiagram.SUFFIX_LIMIT; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("Label" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();

@@ -3,12 +3,9 @@
 package form.provider;
 
 
-import artifact.ArtifactFactory;
-import artifact.ArtifactPackage;
 import common.CommonPackage;
-import common.provider.HTMLLayerHolderItemProvider;
-import domain.provider.DomainEditPlugin;
-import form.BlockUI;
+
+import form.DataScroller;
 import form.FormFactory;
 import form.FormPackage;
 
@@ -18,7 +15,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -27,19 +23,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link form.BlockUI} object.
+ * This is the item provider adapter for a {@link form.DataScroller} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BlockUIItemProvider extends UielementItemProvider {
+public class DataScrollerItemProvider extends SourcesPointerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BlockUIItemProvider(AdapterFactory adapterFactory) {
+	public DataScrollerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -94,7 +90,7 @@ public class BlockUIItemProvider extends UielementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN);
-			childrenFeatures.add(FormPackage.Literals.BLOCK_UI__SOURCE_TARGET);
+			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 		}
 		return childrenFeatures;
 	}
@@ -113,14 +109,14 @@ public class BlockUIItemProvider extends UielementItemProvider {
 	}
 
 	/**
-	 * This returns BlockUI.gif.
+	 * This returns DataScroller.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BlockUI"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataScroller"));
 	}
 
 	/**
@@ -131,10 +127,10 @@ public class BlockUIItemProvider extends UielementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BlockUI)object).getNickname();
+		String label = ((DataScroller)object).getNickname();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BlockUI_type") :
-			getString("_UI_BlockUI_type") + " " + label;
+			getString("_UI_DataScroller_type") :
+			getString("_UI_DataScroller_type") + " " + label;
 	}
 	
 
@@ -149,12 +145,12 @@ public class BlockUIItemProvider extends UielementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BlockUI.class)) {
-			case FormPackage.BLOCK_UI__COLUMNS:
+		switch (notification.getFeatureID(DataScroller.class)) {
+			case FormPackage.DATA_SCROLLER__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case FormPackage.BLOCK_UI__CHILDREN:
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
+			case FormPackage.DATA_SCROLLER__CHILDREN:
+			case FormPackage.DATA_SCROLLER__MULTI_LANG_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -289,8 +285,13 @@ public class BlockUIItemProvider extends UielementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FormPackage.Literals.BLOCK_UI__SOURCE_TARGET,
-				 FormFactory.eINSTANCE.createAreaRef()));
+				(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 FormFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**
@@ -309,9 +310,8 @@ public class BlockUIItemProvider extends UielementItemProvider {
 			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == FormPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == FormPackage.Literals.UIELEMENT__READ_ONLY ||
-			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS ||
-			childFeature == FormPackage.Literals.UIELEMENT__REFRESH_AREAS ||
-			childFeature == FormPackage.Literals.BLOCK_UI__SOURCE_TARGET;
+			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString
