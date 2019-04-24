@@ -18,6 +18,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.ImageConfigurator
 import org.tura.sirius.diagram.producer.tura.config.items.form.InputTextConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LabelConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderConfiguration;
+import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinDataScroller;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinTableColumn;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinTreeColumn;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LinkToLabelConfigurator;
@@ -37,8 +38,8 @@ import org.tura.sirius.dsl.diagram.tToolSection;
 import org.tura.sirius.dsl.viewpoint.tRoot;
 
 public class CanvasDiagram {
-	public static int SUFFIX_LIMIT = 6;
-	
+    public static int SUFFIX_LIMIT = 7;
+    
     public List<Object> getChildrens() {
         ArrayList<Object> list = new ArrayList<Object>();
 
@@ -136,9 +137,22 @@ public class CanvasDiagram {
                         .addChild(LabelConfigurator.create("5"))
                         .addChild(FileUploadConfigurator.create("5"))
                         .addChild(FileDownloadConfigurator.create("5"))
-                		)
+                        .addChild(LayerHolderinDataScroller.create()
+                            .addChild(ButtonConfigurator.create("6"))
+                            .addChild(CheckBoxConfigurator.create("6"))
+                            .addChild(DateConfigurator.create("6"))
+                            .addChild(DropDownSelectionConfigurator.create("6"))
+                            .addChild(ImageConfigurator.create("6"))
+                            .addChild(InputTextConfigurator.create("6"))
+                            .addChild(OutputTextConfigurator.create("6"))
+                            .addChild(PasswordConfigurator.create("6"))
+                            .addChild(LabelConfigurator.create("6"))
+                            .addChild(FileUploadConfigurator.create("6"))
+                            .addChild(FileDownloadConfigurator.create("6"))
+                          )
+                        )
                 .addChild(BlockUIConfiguration.create()
-                        .addChild(ImageConfigurator.create("6"))
+                        .addChild(ImageConfigurator.create("7"))
                         );
 
         list.add(cnt);
@@ -199,6 +213,16 @@ public class CanvasDiagram {
         }
         mapper.getReusedContainerMappings().add(mapper);
 
+        
+        wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinDataScroller" + tContainer.class.getName());
+
+        mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        mapper.getReusedContainerMappings().add(mapper);
+
+        
         return list;
     }
 }

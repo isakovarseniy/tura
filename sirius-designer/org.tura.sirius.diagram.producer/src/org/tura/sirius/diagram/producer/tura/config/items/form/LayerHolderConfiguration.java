@@ -28,168 +28,191 @@ import org.tura.sirius.dsl.diagram.tContainer;
 import org.tura.sirius.dsl.viewpoint.tRoot;
 
 public class LayerHolderConfiguration implements ContainerConfigurator {
-	private String suffix = "";
+    private String suffix = "";
 
-	public LayerHolderConfiguration(String suffix) {
-		this.suffix = suffix;
-	}
+    public LayerHolderConfiguration(String suffix) {
+        this.suffix = suffix;
+    }
 
-	public LayerHolderConfiguration() {
-	}
+    public LayerHolderConfiguration() {
+    }
 
-	public static tContainer create() {
-		return new tContainer(new LayerHolderConfiguration());
-	}
+    public static tContainer create() {
+        return new tContainer(new LayerHolderConfiguration());
+    }
 
-	public static tContainer create(String suffix) {
-		return new tContainer(new LayerHolderConfiguration(suffix));
-	}
+    public static tContainer create(String suffix) {
+        return new tContainer(new LayerHolderConfiguration(suffix));
+    }
 
-	public String getName() {
-		return "LayerHolder" + this.suffix;
-	}
+    public String getName() {
+        return "LayerHolder" + this.suffix;
+    }
 
-	public String getCandidates() {
-		return "service:getCandidates";
-	}
+    public String getCandidates() {
+        return "service:getCandidates";
+    }
 
-	public String getDomainClass() {
-		return "form.LayerHolder";
-	}
+    public String getDomainClass() {
+        return "form.LayerHolder";
+    }
 
-	public ContainerStyleDescription getStyle() {
-		FlatContainerStyleDescription style = StyleFactory.eINSTANCE.createFlatContainerStyleDescription();
-		style.setLabelExpression("aql:self.name");
-		style.setLabelSize(12);
-		style.setBorderSizeComputationExpression("1");
-		style.setShowIcon(true);
-		style.setHideLabelByDefault(true);
-		SystemColor foregroundColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("white");
-		style.setForegroundColor(foregroundColor);
-		style.setIconPath("/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png");
+    public ContainerStyleDescription getStyle() {
+        FlatContainerStyleDescription style = StyleFactory.eINSTANCE.createFlatContainerStyleDescription();
+        style.setLabelExpression("aql:self.name");
+        style.setLabelSize(12);
+        style.setBorderSizeComputationExpression("1");
+        style.setShowIcon(true);
+        style.setHideLabelByDefault(true);
+        SystemColor foregroundColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("white");
+        style.setForegroundColor(foregroundColor);
+        style.setIconPath("/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png");
 
-		return style;
-	}
+        return style;
+    }
 
-	public ContainerLayout getContainerLayout() {
-		return ContainerLayout.FREE_FORM;
-	}
+    public ContainerLayout getContainerLayout() {
+        return ContainerLayout.FREE_FORM;
+    }
 
-	public static List<ToolEntry> getTools() {
-		List<ToolEntry> list = new ArrayList<ToolEntry>();
+    public static List<ToolEntry> getTools() {
+        List<ToolEntry> list = new ArrayList<ToolEntry>();
 
-		ToolEntry tool = getLayerHolderContainerCreationDescription();
-		list.add(tool);
+        ToolEntry tool = getLayerHolderContainerCreationDescription();
+        list.add(tool);
 
-		tool = getDrugAndDrop();
-		list.add(tool);
+        tool = getDrugAndDrop();
+        list.add(tool);
 
-		return list;
-	}
+        return list;
+    }
 
-	private static ToolEntry getLayerHolderContainerCreationDescription() {
-		ContainerCreationDescription tool = org.eclipse.sirius.diagram.description.tool.ToolFactory.eINSTANCE
-				.createContainerCreationDescription();
-		tool.setName("LayerHolder");
-		tool.setVariable(ToolHelper.createNodeCreationVariable("container"));
-		tool.setViewVariable(ToolHelper.createContainerViewVariable("containerView"));
-		InitialNodeCreationOperation v = ToolHelper.createInitialNodeCreationOperation();
-		tool.setInitialOperation(v);
+    private static ToolEntry getLayerHolderContainerCreationDescription() {
+        ContainerCreationDescription tool = org.eclipse.sirius.diagram.description.tool.ToolFactory.eINSTANCE
+                .createContainerCreationDescription();
+        tool.setName("LayerHolder");
+        tool.setVariable(ToolHelper.createNodeCreationVariable("container"));
+        tool.setViewVariable(ToolHelper.createContainerViewVariable("containerView"));
+        InitialNodeCreationOperation v = ToolHelper.createInitialNodeCreationOperation();
+        tool.setInitialOperation(v);
 
-		Switch c1 = ToolHelper.createSwitch();
-		v.setFirstModelOperations(c1);
+        Switch c1 = ToolHelper.createSwitch();
+        v.setFirstModelOperations(c1);
 
-		Case c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::ViewArea)");
-		c1.getCases().add(c2);
+        Case c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::ViewArea)");
+        c1.getCases().add(c2);
 
-		CreateInstance c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "baseCanvas");
-		c2.getSubModelOperations().add(c3);
-		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+        CreateInstance c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "baseCanvas");
+        c2.getSubModelOperations().add(c3);
+        c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 
-		c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::LayerHolder)");
-		c1.getCases().add(c2);
+        c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::LayerHolder)");
+        c1.getCases().add(c2);
 
-		c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "children");
-		c2.getSubModelOperations().add(c3);
-		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+        c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "children");
+        c2.getSubModelOperations().add(c3);
+        c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 
-		c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::Column)");
-		c1.getCases().add(c2);
+        
+        c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::DataScroller)");
+        c1.getCases().add(c2);
 
-		c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "element");
-		c2.getSubModelOperations().add(c3);
-		c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+        c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "children");
+        c2.getSubModelOperations().add(c3);
+        c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+        
+        
+        c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::Column)");
+        c1.getCases().add(c2);
 
-		ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
+        c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "element");
+        c2.getSubModelOperations().add(c3);
+        c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 
-		ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();
-		if (mapper == null) {
-			throw new RuntimeException("Tool mapping is null");
-		}
-		tool.getContainerMappings().add(mapper);
+        ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
 
-		wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinTableColumn" + tContainer.class.getName());
+        ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        tool.getContainerMappings().add(mapper);
 
-		mapper = (ContainerMapping) wrapper.getWrapedObject();
-		if (mapper == null) {
-			throw new RuntimeException("Tool mapping is null");
-		}
-		tool.getContainerMappings().add(mapper);
+        wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinTableColumn" + tContainer.class.getName());
 
-		wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
+        mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        tool.getContainerMappings().add(mapper);
 
-		mapper = (ContainerMapping) wrapper.getWrapedObject();
-		if (mapper == null) {
-			throw new RuntimeException("Tool mapping is null");
-		}
-		tool.getContainerMappings().add(mapper);
+        wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
 
-		return tool;
-	}
+        mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        tool.getContainerMappings().add(mapper);
 
-	private static ToolEntry getDrugAndDrop() {
-		ContainerDropDescription tool = org.eclipse.sirius.diagram.description.tool.ToolFactory.eINSTANCE
-				.createContainerDropDescription();
-		tool.setName("Table to LayerHolder");
-		tool.setOldContainer(ToolHelper.createDropContainerVariable("oldSemanticContainer"));
-		tool.setNewContainer(ToolHelper.createDropContainerVariable("newSemanticContainer"));
-		tool.setElement(ToolHelper.createElementDropVariable("element"));
-		tool.setNewViewContainer(ToolHelper.createContainerViewVariable("newContainerView"));
-		tool.setDragSource(DragSource.BOTH_LITERAL);
+        wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinDataScroller" + tContainer.class.getName());
 
-		InitialContainerDropOperation opr = ToolHelper.createInitialDropDownOperation();
-		tool.setInitialOperation(opr);
+        mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        tool.getContainerMappings().add(mapper);
+        
+        
+        return tool;
+    }
 
-		ChangeContext c1 = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createChangeContext();
-		c1.setBrowseExpression("var:newSemanticContainer");
-		opr.setFirstModelOperations(c1);
+    private static ToolEntry getDrugAndDrop() {
+        ContainerDropDescription tool = org.eclipse.sirius.diagram.description.tool.ToolFactory.eINSTANCE
+                .createContainerDropDescription();
+        tool.setName("Table to LayerHolder");
+        tool.setOldContainer(ToolHelper.createDropContainerVariable("oldSemanticContainer"));
+        tool.setNewContainer(ToolHelper.createDropContainerVariable("newSemanticContainer"));
+        tool.setElement(ToolHelper.createElementDropVariable("element"));
+        tool.setNewViewContainer(ToolHelper.createContainerViewVariable("newContainerView"));
+        tool.setDragSource(DragSource.BOTH_LITERAL);
 
-		c1.getSubModelOperations().add(ToolHelper.createSet("children", "var:element"));
+        InitialContainerDropOperation opr = ToolHelper.createInitialDropDownOperation();
+        tool.setInitialOperation(opr);
 
-		ObjectWrapper w = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
-		ContainerMapping container = (ContainerMapping) w.getWrapedObject();
+        ChangeContext c1 = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createChangeContext();
+        c1.setBrowseExpression("var:newSemanticContainer");
+        opr.setFirstModelOperations(c1);
 
-		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTableColumn" + tContainer.class.getName());
-		ContainerMapping tableContainer = (ContainerMapping) w.getWrapedObject();
+        c1.getSubModelOperations().add(ToolHelper.createSet("children", "var:element"));
 
-		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
-		ContainerMapping treeContainer = (ContainerMapping) w.getWrapedObject();
+        ObjectWrapper w = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
+        ContainerMapping container = (ContainerMapping) w.getWrapedObject();
 
-		ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
+        w = (ObjectWrapper) tRoot.context.get("LayerHolderinTableColumn" + tContainer.class.getName());
+        ContainerMapping tableContainer = (ContainerMapping) w.getWrapedObject();
 
-		ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();
-		if (mapper == null) {
-			throw new RuntimeException("Tool mapping is null");
-		}
-		container.getDropDescriptions().add(tool);
-		tableContainer.getDropDescriptions().add(tool);
-		treeContainer.getDropDescriptions().add(tool);
-		tool.getMappings().add(mapper);
+        w = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
+        ContainerMapping treeContainer = (ContainerMapping) w.getWrapedObject();
 
-		return tool;
-	}
+        w = (ObjectWrapper) tRoot.context.get("LayerHolderinDataScroller" + tContainer.class.getName());
+        ContainerMapping scrollerContainer = (ContainerMapping) w.getWrapedObject();
 
-	public List<ConditionalContainerStyleDescription> getConditionalStyle() {
-		return null;
-	}
+        
+        ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
+
+        ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        container.getDropDescriptions().add(tool);
+        tableContainer.getDropDescriptions().add(tool);
+        treeContainer.getDropDescriptions().add(tool);
+        scrollerContainer.getDropDescriptions().add(tool);
+        tool.getMappings().add(mapper);
+
+        return tool;
+    }
+
+    public List<ConditionalContainerStyleDescription> getConditionalStyle() {
+        return null;
+    }
 }

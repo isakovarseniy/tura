@@ -223,12 +223,7 @@ operation form::Uielement  draw(hash){
       %] [%=self.noContext(hash,value)%] [%           
       }
      else{
-          var pointer = null;
-          if (hash.get("context").equals("dataScroller") ){
-           pointer = self.eContainer();
-          }else{
-           pointer = self.eContainer().eContainer();
-          }
+          var pointer = util.findSourcePointer(self);
           hints.put("noCurlyBracket","true");
           value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
 

@@ -38,6 +38,7 @@ import artifact.GenerationHintWithNickName;
 import artifact.TechLeaf;
 import form.ArtificialField;
 import form.DataControl;
+import form.DataScroller;
 import form.Form;
 import form.Table;
 import form.Tree;
@@ -138,9 +139,27 @@ public class Util {
             return true;
         if (top instanceof Tree)
             return true;
+        if (top instanceof DataScroller)
+            return true;
 
+        
         return ifInternalElement(top);
 
+    }
+    
+    
+    public Object findSourcePointer(EObject element){
+        EObject top = element.eContainer();
+        if (top == null)
+            return null;
+        if (top instanceof Table)
+            return top;
+        if (top instanceof Tree)
+            return top;
+        if (top instanceof DataScroller)
+            return top;
+        
+        return findSourcePointer(top);
     }
 
     public static void move(String src, String dst) throws IOException {
