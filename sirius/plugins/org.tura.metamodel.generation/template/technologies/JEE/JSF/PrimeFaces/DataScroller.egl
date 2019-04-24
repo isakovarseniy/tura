@@ -24,7 +24,7 @@ operation form::DataScroller generateBody(hash){
 %]
    <p:dataScroller [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row"
         value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','dataScroller', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
-        lazy="true"
+        lazy="true" chunkSize="[%=self.rowNumber%]" mode="inline" scrollHeight="500"
    >     
 [%
                 for (element in self.children.sortBy(q|q.order)){

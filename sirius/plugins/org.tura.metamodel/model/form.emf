@@ -355,6 +355,8 @@ class FileDownload extends Uielement{
 
 
 class DataScroller  extends SourcesPointer, ChildrenHolder, MultiLangLabel, common.HTMLLayerHolder {
+   attr EInt rowNumber;
+   attr EInt colNumber;
 }
 
 

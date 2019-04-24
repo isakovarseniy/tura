@@ -5423,13 +5423,31 @@ public interface FormPackage extends EPackage {
 	int DATA_SCROLLER__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Row Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Col Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SCROLLER__COL_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Data Scroller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SCROLLER_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 3;
+	int DATA_SCROLLER_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link form.impl.PollImpl <em>Poll</em>}' class.
@@ -9461,6 +9479,28 @@ public interface FormPackage extends EPackage {
 	EClass getDataScroller();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.DataScroller#getRowNumber <em>Row Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Row Number</em>'.
+	 * @see form.DataScroller#getRowNumber()
+	 * @see #getDataScroller()
+	 * @generated
+	 */
+	EAttribute getDataScroller_RowNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.DataScroller#getColNumber <em>Col Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Col Number</em>'.
+	 * @see form.DataScroller#getColNumber()
+	 * @see #getDataScroller()
+	 * @generated
+	 */
+	EAttribute getDataScroller_ColNumber();
+
+	/**
 	 * Returns the meta object for class '{@link form.Poll <em>Poll</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12105,6 +12145,22 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_SCROLLER = eINSTANCE.getDataScroller();
+
+		/**
+		 * The meta object literal for the '<em><b>Row Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SCROLLER__ROW_NUMBER = eINSTANCE.getDataScroller_RowNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Col Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SCROLLER__COL_NUMBER = eINSTANCE.getDataScroller_ColNumber();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.PollImpl <em>Poll</em>}' class.

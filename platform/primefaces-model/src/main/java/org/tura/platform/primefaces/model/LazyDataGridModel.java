@@ -47,8 +47,6 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
     private java.util.logging.Logger logger;
     private GridModel gridSingleSelectModel;
     private GridModelMultiSelect gridMultiSelectModel;
-    @SuppressWarnings("unused")
-    private DataScrollerModel dataScrollerModel;
     private Map<String,SortMeta> sortMeta = new HashMap<>();
 
     
@@ -60,10 +58,6 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
         this.gridMultiSelectModel = gridMultiSelectModel;
     }
     
-    public LazyDataGridModel(DataScrollerModel dataScrollerModel) {
-        this.dataScrollerModel = dataScrollerModel;
-    }
-
     
     public int getRowCount() {
         return datacontrol.getScroller().size();
@@ -227,8 +221,7 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
                 if ( obj .getViewModelId1() .equals(key)) {
                     return (T) obj;
                 }
-            }
-            if (gridMultiSelectModel != null) {
+            }else {
                 List<Object> selectedArray = (List<Object>) gridMultiSelectModel.getSelected();
                 for (Object obj : selectedArray) {
                     ObjectControl o = (ObjectControl) obj;

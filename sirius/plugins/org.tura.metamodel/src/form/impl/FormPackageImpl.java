@@ -2361,6 +2361,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataScroller_RowNumber() {
+		return (EAttribute)dataScrollerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataScroller_ColNumber() {
+		return (EAttribute)dataScrollerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPoll() {
 		return pollEClass;
 	}
@@ -3660,6 +3678,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		fileDownloadEClass = createEClass(FILE_DOWNLOAD);
 
 		dataScrollerEClass = createEClass(DATA_SCROLLER);
+		createEAttribute(dataScrollerEClass, DATA_SCROLLER__ROW_NUMBER);
+		createEAttribute(dataScrollerEClass, DATA_SCROLLER__COL_NUMBER);
 
 		pollEClass = createEClass(POLL);
 
@@ -4204,6 +4224,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(fileDownloadEClass, FileDownload.class, "FileDownload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dataScrollerEClass, DataScroller.class, "DataScroller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataScroller_RowNumber(), ecorePackage.getEInt(), "rowNumber", null, 0, 1, DataScroller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataScroller_ColNumber(), ecorePackage.getEInt(), "colNumber", null, 0, 1, DataScroller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pollEClass, Poll.class, "Poll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

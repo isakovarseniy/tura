@@ -51,6 +51,8 @@ public class DataScrollerItemProvider extends SourcesPointerItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addColumnsPropertyDescriptor(object);
+			addRowNumberPropertyDescriptor(object);
+			addColNumberPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +71,50 @@ public class DataScrollerItemProvider extends SourcesPointerItemProvider {
 				 getString("_UI_HTMLLayerHolder_columns_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
 				 CommonPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Row Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRowNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataScroller_rowNumber_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataScroller_rowNumber_feature", "_UI_DataScroller_type"),
+				 FormPackage.Literals.DATA_SCROLLER__ROW_NUMBER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Col Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataScroller_colNumber_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataScroller_colNumber_feature", "_UI_DataScroller_type"),
+				 FormPackage.Literals.DATA_SCROLLER__COL_NUMBER,
 				 true,
 				 false,
 				 false,
@@ -147,6 +193,8 @@ public class DataScrollerItemProvider extends SourcesPointerItemProvider {
 
 		switch (notification.getFeatureID(DataScroller.class)) {
 			case FormPackage.DATA_SCROLLER__COLUMNS:
+			case FormPackage.DATA_SCROLLER__ROW_NUMBER:
+			case FormPackage.DATA_SCROLLER__COL_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.DATA_SCROLLER__CHILDREN:

@@ -22,12 +22,12 @@
 package org.tura.platform.primefaces.model;
 
 import java.util.logging.Logger;
-
 import org.tura.platform.datacontrol.DataControl;
 
 public class DataScrollerModel {
 
-    private LazyDataGridModel<?> lazyModel;
+    @SuppressWarnings("rawtypes")
+	private LazyDataScrollerModel lazyModel;
     @SuppressWarnings("unused")
     private Logger logger;
     
@@ -36,14 +36,14 @@ public class DataScrollerModel {
     public DataScrollerModel(DataControl dc, Logger logger, Object callback) {
         this.logger = logger;
 
-        lazyModel = new LazyDataGridModel(this);
+        lazyModel = new LazyDataScrollerModel();
         lazyModel.setDatacontrol(dc);
         lazyModel.setLogger(logger);
 
     }
 
     
-    public LazyDataGridModel<?> getLazyModel() {
+    public LazyDataScrollerModel<?> getLazyModel() {
         return lazyModel;
     }
     

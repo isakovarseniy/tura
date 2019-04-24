@@ -43,6 +43,7 @@ public class OptionsModel {
 	private String value;
 	private List<Object[]> options;
 	private Logger logger;
+	@SuppressWarnings("unused")
 	private Object callback;
 
 	public OptionsModel(DataControl<?> datacontrol, Logger logger, Object callback) {

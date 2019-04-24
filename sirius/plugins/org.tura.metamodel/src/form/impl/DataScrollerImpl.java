@@ -38,6 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.DataScrollerImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link form.impl.DataScrollerImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.DataScrollerImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.impl.DataScrollerImpl#getRowNumber <em>Row Number</em>}</li>
+ *   <li>{@link form.impl.DataScrollerImpl#getColNumber <em>Col Number</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +84,46 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRowNumber() <em>Row Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ROW_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRowNumber() <em>Row Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int rowNumber = ROW_NUMBER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getColNumber() <em>Col Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COL_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getColNumber() <em>Col Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int colNumber = COL_NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +225,48 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRowNumber() {
+		return rowNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRowNumber(int newRowNumber) {
+		int oldRowNumber = rowNumber;
+		rowNumber = newRowNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_SCROLLER__ROW_NUMBER, oldRowNumber, rowNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getColNumber() {
+		return colNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColNumber(int newColNumber) {
+		int oldColNumber = colNumber;
+		colNumber = newColNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_SCROLLER__COL_NUMBER, oldColNumber, colNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -208,6 +292,10 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 				return getMultiLangLabel();
 			case FormPackage.DATA_SCROLLER__COLUMNS:
 				return getColumns();
+			case FormPackage.DATA_SCROLLER__ROW_NUMBER:
+				return getRowNumber();
+			case FormPackage.DATA_SCROLLER__COL_NUMBER:
+				return getColNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,6 +319,12 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 			case FormPackage.DATA_SCROLLER__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
+			case FormPackage.DATA_SCROLLER__ROW_NUMBER:
+				setRowNumber((Integer)newValue);
+				return;
+			case FormPackage.DATA_SCROLLER__COL_NUMBER:
+				setColNumber((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -252,6 +346,12 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 			case FormPackage.DATA_SCROLLER__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
+			case FormPackage.DATA_SCROLLER__ROW_NUMBER:
+				setRowNumber(ROW_NUMBER_EDEFAULT);
+				return;
+			case FormPackage.DATA_SCROLLER__COL_NUMBER:
+				setColNumber(COL_NUMBER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -270,6 +370,10 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 				return multiLangLabel != null;
 			case FormPackage.DATA_SCROLLER__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
+			case FormPackage.DATA_SCROLLER__ROW_NUMBER:
+				return rowNumber != ROW_NUMBER_EDEFAULT;
+			case FormPackage.DATA_SCROLLER__COL_NUMBER:
+				return colNumber != COL_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -342,6 +446,10 @@ public class DataScrollerImpl extends SourcesPointerImpl implements DataScroller
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (columns: ");
 		result.append(columns);
+		result.append(", rowNumber: ");
+		result.append(rowNumber);
+		result.append(", colNumber: ");
+		result.append(colNumber);
 		result.append(')');
 		return result.toString();
 	}

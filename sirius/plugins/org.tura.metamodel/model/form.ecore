@@ -278,7 +278,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileUpload" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="FileDownload" eSuperTypes="#//Uielement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Poll" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>
