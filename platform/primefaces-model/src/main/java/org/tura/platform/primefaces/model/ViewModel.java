@@ -98,12 +98,22 @@ public class ViewModel implements Serializable {
             model = getOptionsModel((DataControl) obj,callback);
         }
 
+        if ("dataScroller".equals(modelType)) {
+            model = getDataScrollerModel((DataControl) obj,callback);
+        }
+        
+        
         modelHolder.put(modelId, model);
         return model;
 
     }
 
-    @SuppressWarnings("rawtypes")
+	@SuppressWarnings("rawtypes")
+    private Object getDataScrollerModel(DataControl dc, Object callback) {
+        return new DataScrollerModel(dc, logger,callback);
+	}
+
+	@SuppressWarnings("rawtypes")
     private GridModel getGridModelSingleSelect(DataControl dc, Logger logger,Object callback) {
         return new GridModel(dc, logger,callback);
     }

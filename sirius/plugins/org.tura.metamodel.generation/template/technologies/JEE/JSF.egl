@@ -223,13 +223,22 @@ operation form::Uielement  draw(hash){
       %] [%=self.noContext(hash,value)%] [%           
       }
      else{
-          var pointer = self.eContainer().eContainer();
+          var pointer = null;
+          if (hash.get("context").equals("dataScroller") ){
+           pointer = self.eContainer();
+          }else{
+           pointer = self.eContainer().eContainer();
+          }
           hints.put("noCurlyBracket","true");
           value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
 
           if (hash.get("context").equals("table") ){
                value =  "#{row."+value+"}";
                %] [%=self.tableContext(hash,value)%] [%           
+           }  
+          if (hash.get("context").equals("dataScroller") ){
+               value =  "#{row."+value+"}";
+               %] [%=self.noContext(hash,value)%] [%           
            }  
           if (hash.get("context").equals("tree") ){
                value =  "#{row[1]."+value+"}";

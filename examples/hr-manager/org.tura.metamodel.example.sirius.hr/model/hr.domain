@@ -6894,6 +6894,16 @@
                         </baseCanvas>
                       </viewElement>
                     </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="c8371d5a-386b-4fb9-b14e-6e062df774a3" name="TestForm3">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="06cacdb7-2d63-4531-a4ec-bbd9fa6b24df" name="TestForm3Aria">
+                        <baseCanvas uid="6b507395-2e3f-4cbd-a81f-6facf1bfa651">
+                          <children xsi:type="tura.form:DataScroller" uid="4512886e-b75a-4775-9320-ec699f54e236" sourcePointer="6b603524-0f9d-406a-91f4-a029d92a910a">
+                            <children xsi:type="tura.form:OutputText" uid="d9d625e1-7ec6-4887-a9a3-b1de89d8a7a7" valuePointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
+                            <children xsi:type="tura.form:OutputText" order="1" uid="09afaded-6b5d-49aa-a64a-206da416155e" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
                   </view>
                   <datacontrols uid="90eb7336-9be9-439d-9f9a-11521cb637a5">
                     <controls uid="6b603524-0f9d-406a-91f4-a029d92a910a" name="Department">

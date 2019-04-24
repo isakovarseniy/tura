@@ -306,4 +306,10 @@ operation  form::ViewPort accessor(id,methodName)  {
 @template
 operation  form::Menu accessor(id,methodName) {
 }
+
+@template
+operation  form::DataScroller accessor(id,methodName) {
+}
+
 %]
+

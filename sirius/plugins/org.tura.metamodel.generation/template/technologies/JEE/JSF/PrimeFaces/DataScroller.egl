@@ -1,0 +1,40 @@
+[%@template
+operation form::DataScroller draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     hash.put("context","dataScroller");
+     util.traceIfDebug("UI element","DataScroller start: "+self.uid);     
+     
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     hash.put("context",null);
+     util.traceIfDebug("UI element","DataScroller end: "+self.uid);     
+}
+
+
+@template
+operation form::DataScroller generateBody(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+     var form = hash.get("form");   
+
+     hints.put("noCurlyBracket",true);
+
+%]
+   <p:dataScroller [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row"
+        value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','dataScroller', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
+        lazy="true"
+   >     
+[%
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]                
+  </p:dataScroller> 
+[%
+
+}
+%]

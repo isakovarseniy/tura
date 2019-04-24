@@ -14,28 +14,29 @@ package org.tura.metamodel.sirius.properties.selections.adapters.dropdown;
 
 import org.eclipse.emf.ecore.EObject;
 
+import form.DataScroller;
 import form.SourcesPointer;
 import form.Table;
 import form.Tree;
 
 public class SourcesPointerValuePointerExternalIterator extends
-		SourcesPointerValuePointer {
+        SourcesPointerValuePointer {
 
-	public Object[] getWatchPointObject(Object eObject) {
+    public Object[] getWatchPointObject(Object eObject) {
 
-		EObject eobj = (EObject) eObject;
-		do {
-			eobj = eobj.eContainer();
-			if (eobj == null)
-				return new Object[] {};
-		} while (!(eobj instanceof Table) && !(eobj instanceof Tree));
+        EObject eobj = (EObject) eObject;
+        do {
+            eobj = eobj.eContainer();
+            if (eobj == null)
+                return new Object[] {};
+        } while (!(eobj instanceof Table) && !(eobj instanceof Tree) && !(eobj instanceof DataScroller) );
 
-		return new Object[] {
-				((SourcesPointer) eobj).getSourcePointer(),
-				((SourcesPointer) eObject).getSourceCast(),
-				((SourcesPointer) eObject).getSourceCastDataControl()
+        return new Object[] {
+                ((SourcesPointer) eobj).getSourcePointer(),
+                ((SourcesPointer) eObject).getSourceCast(),
+                ((SourcesPointer) eObject).getSourceCastDataControl()
 
-		};
-	}
+        };
+    }
 
 }
