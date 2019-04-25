@@ -1,0 +1,33 @@
+[%@template
+operation form::FileUpload draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","FileUpload start: "+self.uid);     
+     
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+ 
+ %]
+      <p:fileUpload mode="advanced" dragDropSupport="true" update="[%=self.mkuid()%]_msg"  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] [%
+ 
+     for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 )
+            continue;
+           hints.put("actionListener",true); 
+ 
+           %] fileUploadListener="[%=buildExpression(field,hints,hash)%]"[%
+ 
+           hints.remove("actionListener"); 
+     }
+     
+ %] />
+     <p:growl id="[%=self.mkuid()%]_msg" showDetail="true" /> 
+ 
+ [%
+     util.traceIfDebug("UI element","FileUpload end: "+self.uid);     
+ 
+}
+%]

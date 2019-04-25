@@ -26,18 +26,19 @@ import java.util.logging.Logger;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.event.FileUploadEvent;
 import org.tura.example.ui.hrmanager.testform1.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.CommandStack;
-import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.hr.objects.serialization.ProxyRepository;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.primefaces.lib.FileUploadEventAccessor;
 import org.tura.platform.repository.core.Repository;
 
-public class Test1Actions implements EventAccessor {
+public class Test1Actions implements EventAccessor , FileUploadEventAccessor{
 	private ActionEvent event;
-
+	private FileUploadEvent fileUploadEvent;
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
 
 	@Inject
@@ -110,11 +111,20 @@ public class Test1Actions implements EventAccessor {
 		}
 	}
 	
+	public void fileUpload() {
+		
+	}
+	
 	
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;
 
+	}
+
+	@Override
+	public void setEvent(FileUploadEvent fileUploadEvent) {
+		this.fileUploadEvent = fileUploadEvent;
 	}
 
 }

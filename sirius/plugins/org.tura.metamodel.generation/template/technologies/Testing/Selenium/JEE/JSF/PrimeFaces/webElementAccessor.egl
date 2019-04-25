@@ -311,5 +311,10 @@ operation  form::Menu accessor(id,methodName) {
 operation  form::DataScroller accessor(id,methodName) {
 }
 
+@template
+operation  form::FileUpload accessor(id,methodName) {
+}
+
+
 %]
 

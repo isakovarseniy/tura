@@ -18,6 +18,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.lang.reflect.Constructor;
 import java.util.logging.Level;
+import org.primefaces.event.FileUploadEvent;
+import org.tura.platform.primefaces.lib.FileUploadEventAccessor;
 
 import javax.faces.event.ActionEvent;
 
@@ -218,6 +220,35 @@ public class ActionExecutor  implements java.io.Serializable {
             logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
         }
     }
+    
+    @SuppressWarnings("unchecked")
+    public void eventListener(FileUploadEvent event) {
+        try {
+            Object[] array = (Object[]) hash.get(src);
+
+            Method method =
+                array[2].getClass()
+                        .getMethod((String) (array[3]), (Class[]) array[0]);
+            @SuppressWarnings("rawtypes")
+            ArrayList objects = new ArrayList();
+            for (Object exp : (Object[]) array[1]) {
+                Object obj = exp;
+                String expression = (String) exp;
+                if ("#{".equals(expression.substring(0, 2))) {
+                    obj = elResolver.getValue(expression);
+                }
+                objects.add(obj);
+            }
+            if (array[2] instanceof FileUploadEventAccessor) {
+                ((FileUploadEventAccessor) array[2]).setEvent(event);
+            }
+            method.invoke(array[2], objects.toArray());
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.INFO, e.getMessage(), e);
+        }
+    }
+        
+    
 }  
 [%
       var f = new Native("org.tura.metamodel.generation.JavaFormatter");

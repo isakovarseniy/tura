@@ -1628,6 +1628,7 @@
             <operations uid="33d53d96-2b78-4cb6-bbfe-4d10258f5363" name="removeRowFromDepartment"/>
             <operations uid="1529ae2c-36d3-4f8b-a5e5-b4ad26099585" name="addRowToEmpl"/>
             <operations uid="e186314c-a89b-4159-8444-d5dbab1ca7a1" name="removeRowFromEmployee"/>
+            <operations uid="ff894299-7b54-4d41-936c-82d75c795c05" name="fileUpload"/>
           </types>
         </repositoryPackages>
         <repositoryPackages uid="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" name="Complex model">
@@ -6896,12 +6897,23 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Window" uid="c8371d5a-386b-4fb9-b14e-6e062df774a3" name="TestForm3">
                       <viewElement xsi:type="tura.form:ViewArea" uid="06cacdb7-2d63-4531-a4ec-bbd9fa6b24df" name="TestForm3Aria">
-                        <baseCanvas uid="6b507395-2e3f-4cbd-a81f-6facf1bfa651">
+                        <baseCanvas uid="6b507395-2e3f-4cbd-a81f-6facf1bfa651" columns="2">
                           <children xsi:type="tura.form:DataScroller" uid="4512886e-b75a-4775-9320-ec699f54e236" sourcePointer="6b603524-0f9d-406a-91f4-a029d92a910a" rowNumber="10">
+                            <required uid="aba46427-8c7d-4c86-8341-8b54d8dbcec8"/>
                             <children xsi:type="tura.form:LayerHolder" uid="d56666f0-98c8-4893-8665-531cc9260b16">
                               <children xsi:type="tura.form:OutputText" uid="ab730265-2929-427f-a73a-cac3d1ea7692" valuePointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
                               <children xsi:type="tura.form:OutputText" order="1" uid="7ccceed6-bc8e-4e2e-a5af-f4e4c1cb950e" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
                             </children>
+                          </children>
+                          <children xsi:type="tura.form:FileUpload" order="1" uid="bc1a6e3d-e1eb-4576-9d07-bb9d36958c3d">
+                            <fields uid="9fc36b6f-73f3-4033-8357-312e9e10a2a7" value="Types repository.HR domain.HR controller business logic.HR controller business logic::TestForm1Action.fileUpload()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="b96e1268-0982-4818-b155-59b9d3a3292f" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="ff894299-7b54-4d41-936c-82d75c795c05" order="4" expressionType="OperationImpl"/>
+                            </fields>
+                            <required uid="17fa8d14-db65-43d2-bb24-bedd0de8a79a"/>
                           </children>
                         </baseCanvas>
                       </viewElement>

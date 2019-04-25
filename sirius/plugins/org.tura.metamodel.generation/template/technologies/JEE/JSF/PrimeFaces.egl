@@ -27,6 +27,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Poll.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/BlockUI.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DataScroller.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/FileUpload.egl";
+
 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/web-xml.egl";
 
