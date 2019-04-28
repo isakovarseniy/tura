@@ -5642,11 +5642,18 @@
                       <viewElement xsi:type="tura.form:ViewArea" nickname="" uid="e745c341-a719-4b8d-a17c-d3b25b878060" name="Main canvas">
                         <style uid="839822c8-926b-4350-9a07-7efd8ab54487"/>
                         <baseCanvas uid="73e36ce5-8475-4cc8-9449-abf7b165000e">
+                          <style uid="ecda5026-677c-4892-9f3c-d0df71d5de67" constant="true" value="width:100%"/>
                           <children xsi:type="tura.form:LayerHolder" uid="df5dad24-3b13-4495-9cd2-53edac50b481">
                             <classifiers uid="1e677df6-683c-4550-8b75-0bf16b4b677a" hint="47c6f35a-1c31-41a9-906b-f85363352802"/>
                             <children xsi:type="tura.form:Menu" menu="436e75eb-a99d-456c-9126-0ccb6449530e" uid="407f7caa-72f8-47c6-98c1-3fc80a6dbee3"/>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="2" uid="dd8ac837-ec36-4ed5-a76a-37f13228886b" columns="2">
+                            <fields uid="295e969d-569b-4c69-890b-5d32232db278" constant="true" value="verticalalign">
+                              <classifiers uid="8b3e5784-7d98-4d72-9699-59eeccbeddbd" hint="5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
+                            </fields>
+                            <fields uid="7f635314-ea6d-4fa7-b3a3-dfd6edc4acaa" constant="true" value="verticalalign">
+                              <classifiers uid="fc405b44-9a3a-4eb0-be22-f9e4990271ac" hint="5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
+                            </fields>
                             <children xsi:type="tura.form:Tree" nickname="tree1" uid="2ffbfc15-96f8-468b-9582-7add0e18c1c8" sourcePointer="536415eb-22fd-4379-be08-8c458d98a53b" label="First tree">
                               <style uid="d36140ac-2a2e-40c1-bccf-3dcf068e64b7"/>
                               <required uid="7d7f6dce-72e4-40cf-883a-238410cbe3ec"/>
