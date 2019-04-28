@@ -132,8 +132,25 @@
     vertical-align:top;
 } 
 
-.verticalalign{
-   vertical-align:top;
-} 
+.ui-g {
+	margin:0 auto;
+	background-color:#FFFFFF; 
+	max-width: 1140px;
+   border:none;
+}
 
+
+div .ui-widget-content{
+   border-style:none;
+}
+
+		
+body{  
+ font-size: 14px; 
+ margin:0px; 
+ height:100%; 
+ overflow-x:hidden; 
+ overflow-y:auto; 
+ font-family: 'latoregular', "Trebuchet MS", Arial, Helvetica, sans-serif;color:#5C666A;
+}
 

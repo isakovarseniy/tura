@@ -50,7 +50,7 @@ operation form::Window generateBody(hash){
 
 				<h:body>
 				
-                   <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+                   <p:panelGrid  layout="grid"  [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
 					<h:form>
 [%
                 for (element in self.viewElement.sortBy(q|q.order)){

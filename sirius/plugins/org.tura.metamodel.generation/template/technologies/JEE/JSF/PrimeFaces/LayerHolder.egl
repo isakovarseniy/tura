@@ -4,10 +4,15 @@ operation  form::LayerHolder  draw(hash) {
      util.traceIfDebug("UI element","LayerHolder start: "+self.uid);
         
      var model_mapper = hash.get('model_mapper');
-     var classifierUUID = util.getHint(model_mapper,"panel.columns.class");
+
+     var responsive = "tabular";       
+     if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
+        responsive="grid";
+     }
+       
        
 %]
-     <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]   [%=self.rendered(hash)%]  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
+     <p:panelGrid  layout="[%=responsive%]" [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]   [%=self.rendered(hash)%]  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%
