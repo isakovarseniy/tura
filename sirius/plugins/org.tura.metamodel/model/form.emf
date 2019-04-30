@@ -76,7 +76,7 @@ class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabe
 class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized,FlexFields {
 }
 
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized ,permission.Secured{
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized ,permission.Secured,FlexFields{
 }
 
 class MenuDefinition extends StyleElement,artifact.Categorized {
@@ -362,6 +362,10 @@ class DataScroller  extends SourcesPointer, ChildrenHolder, MultiLangLabel, comm
 
 class Poll extends Uielement{
 	
+}
+
+class WindowRef extends Uielement,FlexFields{
+    attr EString label;
 }
 
 class MenuHolder {

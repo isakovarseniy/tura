@@ -10,6 +10,8 @@ import common.CommonPackage;
 import common.HTMLLayerHolder;
 
 import form.Context;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.MultiLangLabel;
 import form.ViewElement;
@@ -48,6 +50,7 @@ import permission.Secured;
  *   <li>{@link form.impl.WindowImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.WindowImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.WindowImpl#getGrants <em>Grants</em>}</li>
+ *   <li>{@link form.impl.WindowImpl#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +115,16 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * @ordered
 	 */
 	protected EList<GrantAccess> grants;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,6 +250,18 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.WINDOW__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -248,6 +273,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case FormPackage.WINDOW__GRANTS:
 				return ((InternalEList<?>)getGrants()).basicRemove(otherEnd, msgs);
+			case FormPackage.WINDOW__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -270,6 +297,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return getClassifiers();
 			case FormPackage.WINDOW__GRANTS:
 				return getGrants();
+			case FormPackage.WINDOW__FIELDS:
+				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,6 +330,10 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				getGrants().clear();
 				getGrants().addAll((Collection<? extends GrantAccess>)newValue);
 				return;
+			case FormPackage.WINDOW__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -328,6 +361,9 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 			case FormPackage.WINDOW__GRANTS:
 				getGrants().clear();
 				return;
+			case FormPackage.WINDOW__FIELDS:
+				getFields().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +386,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return classifiers != null && !classifiers.isEmpty();
 			case FormPackage.WINDOW__GRANTS:
 				return grants != null && !grants.isEmpty();
+			case FormPackage.WINDOW__FIELDS:
+				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -391,6 +429,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.WINDOW__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -428,6 +472,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 		if (baseClass == Secured.class) {
 			switch (baseFeatureID) {
 				case PermissionPackage.SECURED__GRANTS: return FormPackage.WINDOW__GRANTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.WINDOW__FIELDS;
 				default: return -1;
 			}
 		}

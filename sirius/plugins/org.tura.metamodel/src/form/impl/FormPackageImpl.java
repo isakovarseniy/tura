@@ -120,6 +120,7 @@ import form.ViewPortTrigger;
 import form.Views;
 import form.Window;
 
+import form.WindowRef;
 import infrastructure.InfrastructurePackage;
 
 import infrastructure.impl.InfrastructurePackageImpl;
@@ -582,6 +583,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass pollEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass windowRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2388,6 +2396,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getWindowRef() {
+		return windowRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWindowRef_Label() {
+		return (EAttribute)windowRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMenuHolder() {
 		return menuHolderEClass;
 	}
@@ -3683,6 +3709,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		pollEClass = createEClass(POLL);
 
+		windowRefEClass = createEClass(WINDOW_REF);
+		createEAttribute(windowRefEClass, WINDOW_REF__LABEL);
+
 		menuHolderEClass = createEClass(MENU_HOLDER);
 		createEReference(menuHolderEClass, MENU_HOLDER__MENU);
 
@@ -3894,6 +3923,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		windowEClass.getESuperTypes().add(this.getMultiLangLabel());
 		windowEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		windowEClass.getESuperTypes().add(thePermissionPackage.getSecured());
+		windowEClass.getESuperTypes().add(this.getFlexFields());
 		menuDefinitionEClass.getESuperTypes().add(this.getStyleElement());
 		menuDefinitionEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
@@ -3967,6 +3997,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		dataScrollerEClass.getESuperTypes().add(this.getMultiLangLabel());
 		dataScrollerEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		pollEClass.getESuperTypes().add(this.getUielement());
+		windowRefEClass.getESuperTypes().add(this.getUielement());
+		windowRefEClass.getESuperTypes().add(this.getFlexFields());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());
 		menuElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
@@ -4228,6 +4260,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getDataScroller_ColNumber(), ecorePackage.getEInt(), "colNumber", null, 0, 1, DataScroller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pollEClass, Poll.class, "Poll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(windowRefEClass, WindowRef.class, "WindowRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWindowRef_Label(), ecorePackage.getEString(), "label", null, 0, 1, WindowRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuHolderEClass, MenuHolder.class, "MenuHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMenuHolder_Menu(), this.getMenuFolder(), null, "menu", null, 0, 1, MenuHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

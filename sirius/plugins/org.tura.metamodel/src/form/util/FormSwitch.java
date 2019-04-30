@@ -166,6 +166,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMultiLangLabel(window);
 				if (result == null) result = caseCategorized(window);
 				if (result == null) result = caseSecured(window);
+				if (result == null) result = caseFlexFields(window);
 				if (result == null) result = caseStyleElement(window);
 				if (result == null) result = caseHTMLLayerHolder(window);
 				if (result == null) result = defaultCase(theEObject);
@@ -726,6 +727,20 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEnabledUIItem(poll);
 				if (result == null) result = caseFlexFields(poll);
 				if (result == null) result = caseMenuHolder(poll);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.WINDOW_REF: {
+				WindowRef windowRef = (WindowRef)theEObject;
+				T result = caseWindowRef(windowRef);
+				if (result == null) result = caseUielement(windowRef);
+				if (result == null) result = caseStyleElement(windowRef);
+				if (result == null) result = caseNickNamed(windowRef);
+				if (result == null) result = caseCategorized(windowRef);
+				if (result == null) result = caseOrderable(windowRef);
+				if (result == null) result = caseEnabledUIItem(windowRef);
+				if (result == null) result = caseFlexFields(windowRef);
+				if (result == null) result = caseMenuHolder(windowRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1931,6 +1946,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoll(Poll object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Window Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Window Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWindowRef(WindowRef object) {
 		return null;
 	}
 

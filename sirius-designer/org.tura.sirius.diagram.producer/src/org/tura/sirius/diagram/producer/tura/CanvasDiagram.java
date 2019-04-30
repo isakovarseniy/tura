@@ -32,6 +32,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.TableColumnsConfi
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeColumnsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.WindowRefConfigurator;
 import org.tura.sirius.dsl.config.ObjectWrapper;
 import org.tura.sirius.dsl.diagram.tContainer;
 import org.tura.sirius.dsl.diagram.tToolSection;
@@ -55,6 +56,7 @@ public class CanvasDiagram {
                 .addChild(LabelConfigurator.create("0"))
                 .addChild(FileUploadConfigurator.create("0"))
                 .addChild(FileDownloadConfigurator.create("0"))
+                .addChild(WindowRefConfigurator.create("0"))
                 .addChild(
                         TableConfigurator.create()
                                 .addChild(
@@ -74,6 +76,7 @@ public class CanvasDiagram {
                                                                         .addChild(LabelConfigurator.create("1"))
                                                                         .addChild(FileUploadConfigurator.create("1"))
                                                                         .addChild(FileDownloadConfigurator.create("1"))
+                                                                        .addChild(WindowRefConfigurator.create("1"))
                                                                         )
 
                                                                 .addChild(ButtonConfigurator.create("2","feature:element"))
@@ -87,6 +90,8 @@ public class CanvasDiagram {
                                                                 .addChild(LabelConfigurator.create("2","feature:element"))
                                                                 .addChild(FileUploadConfigurator.create("2","feature:element"))
                                                                 .addChild(FileDownloadConfigurator.create("2","feature:element"))
+                                                                .addChild(WindowRefConfigurator.create("2","feature:element"))
+
                                                                 ))))
 
                 .addChild(
@@ -107,6 +112,7 @@ public class CanvasDiagram {
                                                                         .addChild(LabelConfigurator.create("3"))
                                                                         .addChild(FileUploadConfigurator.create("3"))
                                                                         .addChild(FileDownloadConfigurator.create("3"))
+                                                                        .addChild(WindowRefConfigurator.create("3"))
                                                                         )
 
                                                                 .addChild(ButtonConfigurator.create("4","feature:element"))
@@ -120,6 +126,7 @@ public class CanvasDiagram {
                                                                 .addChild(LabelConfigurator.create("4","feature:element"))
                                                                 .addChild(FileUploadConfigurator.create("4","feature:element"))
                                                                 .addChild(FileDownloadConfigurator.create("4","feature:element"))
+                                                                .addChild(WindowRefConfigurator.create("4","feature:element"))
                                                                 
                                                                 ))))
 
@@ -137,6 +144,7 @@ public class CanvasDiagram {
                         .addChild(LabelConfigurator.create("5"))
                         .addChild(FileUploadConfigurator.create("5"))
                         .addChild(FileDownloadConfigurator.create("5"))
+                        .addChild(WindowRefConfigurator.create("5"))
                         .addChild(LayerHolderinDataScroller.create()
                             .addChild(ButtonConfigurator.create("6"))
                             .addChild(CheckBoxConfigurator.create("6"))
@@ -149,6 +157,7 @@ public class CanvasDiagram {
                             .addChild(LabelConfigurator.create("6"))
                             .addChild(FileUploadConfigurator.create("6"))
                             .addChild(FileDownloadConfigurator.create("6"))
+                            .addChild(WindowRefConfigurator.create("6"))
                           )
                         )
                 .addChild(BlockUIConfiguration.create()
@@ -181,6 +190,7 @@ public class CanvasDiagram {
         nodeToolSection.addChildrens(BlockUIConfiguration.getTools());
         nodeToolSection.addChildrens(FileUploadConfigurator.getTools());
         nodeToolSection.addChildrens(FileDownloadConfigurator.getTools());
+        nodeToolSection.addChildrens(WindowRefConfigurator.getTools());
         nodeToolSection.addChildrens(DataScrollerConfiguration.getTools());
         
         tToolSection edgeToolSection = new tToolSection("Connections");

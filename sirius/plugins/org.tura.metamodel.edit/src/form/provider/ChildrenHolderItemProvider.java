@@ -263,6 +263,11 @@ public class ChildrenHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createWindowRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createTree()));
 	}
 

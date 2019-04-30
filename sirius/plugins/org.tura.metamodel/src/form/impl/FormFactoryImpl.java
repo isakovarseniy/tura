@@ -117,6 +117,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.FILE_DOWNLOAD: return createFileDownload();
 			case FormPackage.DATA_SCROLLER: return createDataScroller();
 			case FormPackage.POLL: return createPoll();
+			case FormPackage.WINDOW_REF: return createWindowRef();
 			case FormPackage.MENU_HOLDER: return createMenuHolder();
 			case FormPackage.MENU_EXTENSION_REF: return createMenuExtensionRef();
 			case FormPackage.MENU_ELEMENT: return createMenuElement();
@@ -800,6 +801,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Poll createPoll() {
 		PollImpl poll = new PollImpl();
 		return poll;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WindowRef createWindowRef() {
+		WindowRefImpl windowRef = new WindowRefImpl();
+		return windowRef;
 	}
 
 	/**

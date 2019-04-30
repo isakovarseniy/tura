@@ -562,6 +562,15 @@ public interface FormFactory extends EFactory {
 	Poll createPoll();
 
 	/**
+	 * Returns a new object of class '<em>Window Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Window Ref</em>'.
+	 * @generated
+	 */
+	WindowRef createWindowRef();
+
+	/**
 	 * Returns a new object of class '<em>Menu Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

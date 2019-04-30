@@ -1451,6 +1451,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.WindowRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WindowRefItemProvider windowRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.WindowRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWindowRefAdapter() {
+		if (windowRefItemProvider == null) {
+			windowRefItemProvider = new WindowRefItemProvider(this);
+		}
+
+		return windowRefItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.MenuHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
