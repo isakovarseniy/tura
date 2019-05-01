@@ -1,76 +1,24 @@
 [%@template
 operation  form::Window draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
-     var webapp = hash.get("webapp");   
-     var form = hash.get("form");   
-     var uipackage = hash.get("uipackage");
      var model_mapper = hash.get('model_mapper');
-     
-     util.traceIfDebug("UI element","Window start: "+self.name);     
-     
-%]
-     [%=self.generateBody(hash)%]     
-[%
-     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
-     out.formatWith(x);
-     util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
 
-     util.traceIfDebug("UI element","Window end: "+self.name);     
+     if (self.findClassifier(util.getHint(model_mapper,"jsf.template"))){
+        self.drawAsGenericTemplate(hash);
+     }else{
+        self.drawAsComponent(hash);
+     }
      
 }
 
+
 @template
-operation form::Window generateBody(hash){
+operation form::Window addStylesAndTriggers(hash){
+     var form = hash.get("form");
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
 
-     var form = hash.get("form");   
-     var recipe =  hash.get("recipe");
-     var ingredient  = hash.get("ingredient");
-     var hints = new Native('java.util.HashMap');
-     var model_mapper = hash.get('model_mapper');
-     var util = new Native('org.tura.metamodel.commons.Util');
 
-     var title = buildExpression(self.multiLangLabel,hints,hash);
-        
-%]
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:tura="http://primefaces.platform.tura.org/functions"
-        xmlns:p="http://primefaces.org/ui">
-
-			<f:view contentType="text/html">
-				<h:head>
-					<title>
-						<ui:insert name="title">[%=title%]</ui:insert>
-					</title>
-					<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-				</h:head>
-
-				<h:body>
-				
-                   <p:panelGrid  layout="grid"  [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
-					<h:form>
-[%
-                for (element in self.viewElement.sortBy(q|q.order)){
-                  var isForm = element.findClassifier(util.getHint(model_mapper,"separate.form") );
-                  if (isForm){
-                  %]
-                  </h:form>
-                  <h:form>
-                  [%
-                  }
-                  
-%]                
-                    [%=element.draw(hash)%]
-[%
-                }  
-%]					
-					      </h:form>
-                         </p:panelGrid>
-				</h:body>
-[%      
      var scriptTriggers = hash.get("scriptTriggers");
      var urlHash = new Native('java.util.HashMap');
      for (trigger in scriptTriggers){
@@ -91,11 +39,10 @@ operation form::Window generateBody(hash){
  }    
 %]
 
-
 [%
 
-		var app = form.eContainer().eContainer().eContainer();
-		if (app.getApplicationStyle() <> null){
+        var app = form.eContainer().eContainer().eContainer();
+        if (app.getApplicationStyle() <> null){
             for (pkg in app.getApplicationStyle().styleLibraries ){
                if (pkg.libraries <> null ){
                  for (lib in pkg.libraries ){
@@ -106,10 +53,7 @@ operation form::Window generateBody(hash){
                  }
                }
             }
-		}
-%]				
-			</f:view>
-		</html>
-[%
+        }
 }
+
 %]

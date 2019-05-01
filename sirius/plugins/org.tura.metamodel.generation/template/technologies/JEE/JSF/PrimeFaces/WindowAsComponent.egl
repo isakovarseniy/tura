@@ -1,5 +1,5 @@
 [%@template
-operation  form::Window draw(hash) { 
+operation  form::Window drawAsComponent(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
@@ -9,18 +9,18 @@ operation  form::Window draw(hash) {
      util.traceIfDebug("UI element","Window start: "+self.name);     
      
 %]
-     [%=self.generateBody(hash)%]     
+     [%=self.generateComponentBody(hash)%]     
 [%
      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      out.formatWith(x);
-     util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+     util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndUnCapitalize(self.name)+".xhtml",out.toString());   
 
      util.traceIfDebug("UI element","Window end: "+self.name);     
      
 }
 
 @template
-operation form::Window generateBody(hash){
+operation form::Window generateComponentBody(hash){
 
      var form = hash.get("form");   
      var recipe =  hash.get("recipe");
@@ -48,7 +48,7 @@ operation form::Window generateBody(hash){
 [%
                 var first = true;
                 for (element in self.viewElement.sortBy(q|q.order)){
-                  var  list = self.findAllClassifiers(util.getHint(model_mapper,"jsf.composition.section."));
+                  var  list = self.findAllClassifiers(util.getHint(model_mapper,"jsf.composition.section"));
                   var name =defaultName;
                   if ( list.size() <> 0 ){
                      name = list.get(0).details;
@@ -71,10 +71,10 @@ operation form::Window generateBody(hash){
                   %]
                   <h:form>
                     [%=element.draw(hash)%]
-				 </h:form>
+                 </h:form>
 [%
                 }  
-%]					
+%]                    
              </ui:define>
 </ui:composition>
 [%

@@ -1,6 +1,11 @@
 [%
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/expressionImpl.eol";
+
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Window.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/WindowAsComponent.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/WindowAsGenericTemplate.egl";
+
+
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Canvas.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/PopupCanvas.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/TabCanvas.egl";
@@ -28,6 +33,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/BlockUI.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DataScroller.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/FileUpload.egl";
+
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/WindowRef.egl";
 
 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/web-xml.egl";

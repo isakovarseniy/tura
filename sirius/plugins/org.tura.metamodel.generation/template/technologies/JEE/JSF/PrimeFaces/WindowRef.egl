@@ -1,0 +1,29 @@
+[%@template
+operation form::WindowRef draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","WindowRef start: "+self.uid);     
+     
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+     
+     var ref="";
+     var expression = constructExpression(self,'jsf.composition.section',hints, hash);
+     if (expression <> ""){
+        ref= 'name="'+expression+'"';
+     }
+     
+     var expression = constructExpression(self,'jsf.composition.window',hints, hash);
+     if (expression <> ""){
+        ref= 'src="'+expression+'"';
+     }
+     %]
+     <ui:insert [%=ref%]/> 
+     [%   
+ 
+     util.traceIfDebug("UI element","WindowRef end: "+self.uid);     
+}
+%]

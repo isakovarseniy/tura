@@ -128,8 +128,8 @@ operation  web_xml(hash) {
   %]
 <security-constraint>
     <web-resource-collection>
-        <web-resource-name>[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</web-resource-name>
-        <url-pattern>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</url-pattern>
+        <web-resource-name>[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</web-resource-name>
+        <url-pattern>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</url-pattern>
     </web-resource-collection>
     <auth-constraint>
         <role-name>[%=role.~localRoleName%]</role-name>
@@ -189,13 +189,13 @@ operation  web_xml(hash) {
     <auth-method>FORM</auth-method>
     <realm-name>file</realm-name>
     <form-login-config>
-        <form-login-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(loginWin.name)+".xhtml"%]</form-login-page>
+        <form-login-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(loginWin.name)+".xhtml"%]</form-login-page>
 [%
      if (errorWin <> null) {
       var form =  errorWin.eContainer().eContainer();
       var pkg = form.eContainer();
 %]        
-        <form-error-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(errorWin.name)+".xhtml"%]</form-error-page>
+        <form-error-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(errorWin.name)+".xhtml"%]</form-error-page>
 [%
   }
 %]        
@@ -212,7 +212,7 @@ operation  web_xml(hash) {
         %]
  <error-page>
      <exception-type>[%=hint.details%]</exception-type>
-     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</location>
+     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</location>
  </error-page>   
  [%     
         } 
@@ -227,7 +227,7 @@ operation  web_xml(hash) {
         %]
  <error-page>
      <error-code>[%=hint.details%]</error-code>
-     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</location>
+     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</location>
  </error-page>   
  [%     
         } 

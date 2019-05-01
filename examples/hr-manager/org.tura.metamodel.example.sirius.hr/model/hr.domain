@@ -292,7 +292,6 @@
             <hints uid="bd287129-52bc-4a04-b885-d31b28d32dcc" name="converter" hint="a9c40783-19ab-438b-adeb-cf93e1820b3c"/>
             <hints uid="4eeeea9e-c6fc-4999-b499-34a4fb00c50b" name="readOnlyConverter" hint="a3bdeb94-d20c-4341-9841-cc3a232e69ac"/>
             <hints uid="4529e28e-d895-4797-b966-ea1d6f47f115" name="parameter" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6"/>
-            <hints uid="32b73d8b-d0e5-4dae-9985-12bd1fbd6dee" name="separate.form" hint="d03ec51a-cb9c-4115-bdfc-237180f61384"/>
             <hints uid="229bc3e6-0e5b-47fe-8a07-1fb31c1af236" name="widget.var" hint="0c540a45-6e97-4273-a483-9aed3e27477c"/>
             <hints uid="edb81d98-faab-4c75-aad2-e2a688db4b72" name="login.page" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
             <hints uid="844f8029-775c-411f-86a8-41177a6ff598" name="exception.code.handler" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d"/>
@@ -321,6 +320,9 @@
             <hints uid="448365fe-9ed0-468e-b09f-9e12464c3a4e" name="table.edit.column" hint="eb820338-63ea-46bd-97f9-240c0553ed4a"/>
             <hints uid="98227d04-74fb-4884-aacd-b5c588ca9769" name="messages.autoupdate" hint="4a673482-a330-41e4-8d3d-df9a3baf82c4"/>
             <hints uid="100fbc43-05fa-4b88-b97f-4453c45dc658" name="responsive.grid" hint="47c6f35a-1c31-41a9-906b-f85363352802"/>
+            <hints uid="e55de5bf-a956-4a81-9fcb-ac500cb824a7" name="jsf.template" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+            <hints uid="85e15904-aebd-490e-ada1-1cb996860cc3" name="jsf.composition.section" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+            <hints uid="fea159ee-be0f-470c-82d9-1f773c088fdc" name="jsf.composition.window" hint="6b221ed6-1413-4f86-8b83-d7f6a83d515c"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -495,7 +497,6 @@
           <hints uid="a9c40783-19ab-438b-adeb-cf93e1820b3c" name="converter"/>
           <hints uid="a3bdeb94-d20c-4341-9841-cc3a232e69ac" name="readOnlyConverter"/>
           <hints uid="2810fba1-00d2-4b52-8cd2-90875dc4efd6" name="parameter"/>
-          <hints uid="d03ec51a-cb9c-4115-bdfc-237180f61384" name="separate.form"/>
           <hints uid="4b28d583-e785-4888-bda9-20cdc9db245a" name="login.page"/>
           <hints uid="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" name="exception.code.handler"/>
           <hints uid="b2faf8c7-f1b6-48fa-885c-5174c65ee62e" name="error.page"/>
@@ -503,6 +504,9 @@
           <hints uid="d74f5a9a-dd22-4885-b1ba-2cfb9a078e7a" name="message.encoding"/>
           <hints uid="ec480494-233c-48a5-ab77-4e0c94136b36" name="NotConfidential"/>
           <hints uid="512d3bdd-19dc-44ad-93ab-9e3c5d894095" name="application.context.root"/>
+          <hints uid="3db83d48-137c-41ae-b836-7062f4c09c4a" name="jsf.template"/>
+          <hints uid="994657cd-c31d-4ad3-a22a-3411fc8d1fd4" name="jsf.composition.section"/>
+          <hints uid="6b221ed6-1413-4f86-8b83-d7f6a83d515c" name="jsf.composition.window"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
@@ -3332,7 +3336,7 @@
               <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="Hr manager">
                 <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="HR controller">
                   <view uid="32d7b5bf-2b6a-4a1d-9bf5-76f35f51938a">
-                    <canvases xsi:type="tura.form:Window" uid="a29ed4f1-c30e-4673-8642-04fb7f5260b6" name="HR Controller">
+                    <canvases xsi:type="tura.form:Window" uid="a29ed4f1-c30e-4673-8642-04fb7f5260b6" name="Hr Controller">
                       <style uid="26cefdcd-3ae3-4228-b22f-0268f1276979"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="ead1ce5d-b1f2-40a8-8a3d-74000018e821" name="Company department">
                         <style uid="4d8846af-a53f-43d8-8c8e-30059b7fdb5d"/>
@@ -3932,10 +3936,20 @@
                       </viewElement>
                       <viewElement xsi:type="tura.form:ViewPort" order="2" uid="b194b449-1154-4b02-99c2-936b7e11be68" name="PopupPort">
                         <style uid="e45fecd4-d70e-4a0d-a764-b5fa86a7fc37"/>
-                        <classifiers uid="0e010f83-3eae-4e29-9a19-902993759bf6" hint="d03ec51a-cb9c-4115-bdfc-237180f61384"/>
+                        <classifiers uid="0e010f83-3eae-4e29-9a19-902993759bf6"/>
                       </viewElement>
                       <multiLangLabel uid="9d47309b-17f3-4d03-85cb-73b25ad0d359"/>
                       <grants securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="5f419a40-d47a-45de-bea9-2a26e59dc83f"/>
+                      <fields uid="1f3b914a-60f2-4ec7-9a80-f742abae660b" value="Applications.ERP.HR domain.HR application.Hr manager.HR controller.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" order="5" expressionType="FormImpl"/>
+                        <expression objRef="4c5f5fda-8c19-4b66-a377-1abdffe809c7" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="ba590fcd-90c8-48ad-99cd-a484cf526496" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="d6448cd0-dc5c-4417-affd-5ef631ec9193" name="Country details">
                       <viewElement xsi:type="tura.form:ViewArea" uid="fccc3103-014d-4f4c-989a-102b521d98aa" name="Country">
@@ -4665,6 +4679,16 @@
                       </viewElement>
                       <multiLangLabel uid="f6d47037-dc0b-4760-b008-1b555cf62600"/>
                       <classifiers uid="dc0ee648-dc36-4e02-8c0a-13178e8acd24" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
+                      <fields uid="299b32e2-ede2-4b9c-8c13-425ab03f7daf" value="Applications.ERP.HR domain.HR application.Hr manager.HR controller.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" order="5" expressionType="FormImpl"/>
+                        <expression objRef="4c5f5fda-8c19-4b66-a377-1abdffe809c7" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="6a13cd2b-a12f-457e-bc39-8fe8ffc65055" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:PopupCanvas" uid="a6e67023-511b-4630-8a98-6de2246eaea0" name="PopUp Cpmpany details">
                       <style uid="2c2dd820-95ce-40b7-9601-da514ceb17d7"/>
@@ -4826,6 +4850,18 @@
                       </viewElement>
                       <multiLangLabel uid="9405c480-fa86-417c-a179-c491c2838621"/>
                       <classifiers uid="66b04c6a-a863-441c-a7aa-71fdc330bab3" hint="0c540a45-6e97-4273-a483-9aed3e27477c" details="popupCompany"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="4c5f5fda-8c19-4b66-a377-1abdffe809c7" name="genericTemplate">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="32236646-5475-46f7-97fc-c06bf673d60e" name="TemplateViewAria">
+                        <baseCanvas uid="fa675bf7-ee5a-4e63-baf0-0f338b3dc39e">
+                          <children xsi:type="tura.form:WindowRef" uid="f574fee2-95d4-4ea1-9315-5b16586b57bc">
+                            <fields uid="6f72bb89-7a61-4cd6-af0f-4df29f8d8d0a" constant="true" value="content">
+                              <classifiers uid="e2150f7a-eb3a-418f-b2ce-7400141573c5" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+                            </fields>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="c7556313-ddc4-4eeb-8fef-70b95d52dee6" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
                     </canvases>
                     <viewInheritances uid="4f10fbf9-dbd1-41f4-91ee-c3b668267e90" source="9700618b-bb04-4b25-af40-e3f537976fc5" target="202dc775-763f-4b4b-baea-32e2419d3e5a"/>
                     <viewInheritances uid="292babc4-3a98-4ee7-8fec-6808d811b17a" source="b194b449-1154-4b02-99c2-936b7e11be68" target="a6e67023-511b-4630-8a98-6de2246eaea0"/>
