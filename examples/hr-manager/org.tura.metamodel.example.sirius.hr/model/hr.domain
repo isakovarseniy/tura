@@ -15499,7 +15499,7 @@
               <applicationUIPackages uid="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" name="DataLoader">
                 <forms uid="02d0b32a-fae5-4428-8369-41150d6b2016" name="ETLController">
                   <view uid="182bcd17-9501-4224-8b7c-9cd0835091e1">
-                    <canvases xsi:type="tura.form:Window" uid="220a2954-a6e2-432e-8d0c-82916014f494" name="ETLControlWindow">
+                    <canvases xsi:type="tura.form:Window" uid="220a2954-a6e2-432e-8d0c-82916014f494" name="etlControlWindow">
                       <style uid="736a41a8-af76-4987-a72d-0e53c8389e83"/>
                       <viewElement xsi:type="tura.form:ViewPort" nickname="processSelection" order="1" uid="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" name="View Aria">
                         <style uid="54312f18-7135-4c6b-93e6-10e565e8404d"/>
@@ -15720,7 +15720,7 @@
                       <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7850fb7f-5a5d-42e9-abbe-5171a04f84a3" name="auSteps">
                         <style uid="eb807c2b-5986-4b6d-b9e8-a41eb6fb6bbf" constant="true" value="margin-top: 100px;"/>
                       </viewElement>
-                      <viewElement xsi:type="tura.form:ViewArea" uid="db249a0f-460d-4ff7-8138-9287523adcac" name="AU Node">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="db249a0f-460d-4ff7-8138-9287523adcac" name="au Node">
                         <style uid="bdb45182-47bf-46dc-a254-baea75eddfd5"/>
                         <baseCanvas uid="11670dc0-a6af-4c11-8ea0-eaa0827b6186">
                           <style uid="6f7005e7-97ef-4e73-8096-4e0ec4081b30" constant="true" value="width:100%"/>
@@ -15778,7 +15778,7 @@
                         </baseCanvas>
                       </viewElement>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="81926ea2-aedc-4e01-b840-02d0ef7863ce" name="STEP_1">
+                    <canvases xsi:type="tura.form:Canvas" uid="81926ea2-aedc-4e01-b840-02d0ef7863ce" name="step_1">
                       <style uid="910e9912-6124-42e8-bcb5-908ccb6c345f"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="2b5f6619-c2ff-4f7d-a620-f5e430824025" name="step1Aria">
                         <style uid="45c07145-7e4b-4188-a4fe-78297f56cc62"/>
@@ -15804,28 +15804,28 @@
                         </baseCanvas>
                       </viewElement>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="258a3534-b57a-4b0b-9266-b96293f7c492" name="STEP_3">
+                    <canvases xsi:type="tura.form:Canvas" uid="258a3534-b57a-4b0b-9266-b96293f7c492" name="step_3">
                       <style uid="39ec0b6d-ebf7-40e1-a231-bdd886d08f14"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="9b861ca0-1859-40eb-b5fc-ea71d26fb0ea" name="STEP_6">
+                    <canvases xsi:type="tura.form:Canvas" uid="9b861ca0-1859-40eb-b5fc-ea71d26fb0ea" name="step_6">
                       <style uid="f1c66458-3bf7-4eeb-af46-527db4bc153f"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="eaa195ff-f711-4c98-a29e-5b7198486b90" name="STEP_9">
+                    <canvases xsi:type="tura.form:Canvas" uid="eaa195ff-f711-4c98-a29e-5b7198486b90" name="step_9">
                       <style uid="13d601ff-6ff8-4682-a16d-dd0fb1bf9aa6"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="8636bcd2-ce42-49fd-a3c2-f971246f1aef" name="STEP_2">
+                    <canvases xsi:type="tura.form:Canvas" uid="8636bcd2-ce42-49fd-a3c2-f971246f1aef" name="step_2">
                       <style uid="2d3ac034-7cc2-4606-b187-8dd762175673"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="eb4df8c7-06da-4ad4-b575-389fdc111e9f" name="STEP_4">
+                    <canvases xsi:type="tura.form:Canvas" uid="eb4df8c7-06da-4ad4-b575-389fdc111e9f" name="step_4">
                       <style uid="8038c20f-84bb-4dcd-a6cf-74a897b0240c"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="ccf5cac2-0b5a-4c5e-b9b9-6ecc0492a9c2" name="STEP_5">
+                    <canvases xsi:type="tura.form:Canvas" uid="ccf5cac2-0b5a-4c5e-b9b9-6ecc0492a9c2" name="step_5">
                       <style uid="1719b1f1-3f4e-4a02-ab4d-c88f694e0915"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="87cd228d-d198-488e-8da1-d0353cce96f0" name="STEP_7">
+                    <canvases xsi:type="tura.form:Canvas" uid="87cd228d-d198-488e-8da1-d0353cce96f0" name="step_7">
                       <style uid="ff28b611-edb8-4853-b5d3-88a2af693558"/>
                     </canvases>
-                    <canvases xsi:type="tura.form:Canvas" uid="8a382e60-c3fa-4ebb-9093-b3e384d2189b" name="STEP_8">
+                    <canvases xsi:type="tura.form:Canvas" uid="8a382e60-c3fa-4ebb-9093-b3e384d2189b" name="step_8">
                       <style uid="83135059-b553-4cf8-9431-2fcfbf58d3a2"/>
                     </canvases>
                     <viewInheritances uid="b9c1bcfd-3176-4073-98a3-2e7467876cb9" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="b81472e3-3691-491b-9a84-862652bb04da"/>
