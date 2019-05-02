@@ -47,11 +47,11 @@ import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CountryDetailsPageO
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.DepartmentsDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.EmployeesPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.FilesPageObject;
-import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
-import org.tura.example.ui.hrmanager.hrcontroller.pageobject.LoginPagePageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HrControllerPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.MainHolderPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.PopUpCpmpanyDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.StateDetailsPageObject;
+import org.tura.example.ui.hrmanager.login.pageobject.LoginPagePageObject;
 import org.tura.platform.selenium.Button;
 import org.tura.platform.selenium.InputText;
 import org.tura.platform.selenium.Table;
@@ -119,7 +119,7 @@ public class HrControllerTest extends AbstractTest {
 
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		
 		Table t = hrControllerPage.getCompanies();
@@ -158,7 +158,7 @@ public class HrControllerTest extends AbstractTest {
 			driver.get(app_url);
 			login();
 
-			HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+			HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 			Table t = hrControllerPage.getCompanies();
 			t.getRow(0).getCell(1);
@@ -194,7 +194,7 @@ public class HrControllerTest extends AbstractTest {
 			driver.get(app_url);
 			login();
 
-			HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+			HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 			Table t = hrControllerPage.getCompanies();
 			Tree tree = hrControllerPage.getLocationTree();
@@ -221,7 +221,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getDeleteLocation().click();
 
@@ -240,7 +240,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 		Table t = hrControllerPage.getCompanies();
 		WebElement el = t.getHeader().getCell(0);
 
@@ -268,7 +268,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 		Table t = hrControllerPage.getCompanies();
 
 		Button button = new ButtonPrimeFaces(t.getRow(1).getCell(2).findElement(By.cssSelector("button")), driver);
@@ -329,7 +329,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
 
@@ -375,7 +375,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		Table t = hrControllerPage.getCompanies();
 		t.getRow(0).enableEditMode();
@@ -400,7 +400,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		hrControllerPage = new HRControllerPageObject(driver);
+		hrControllerPage = new HrControllerPageObject(driver);
 
 		t = hrControllerPage.getCompanies();
 		WebElement el = t.getRow(0).getCell(1);
@@ -418,7 +418,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getAddCompany().click();
 		hrControllerPage.getRollbackButton().click();
@@ -451,7 +451,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getAddCompany().click();
 
@@ -493,7 +493,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 		Table t = hrControllerPage.getCompanies();
 		t.getRow(1).getCell(1).click();
 
@@ -517,7 +517,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("0");
@@ -532,7 +532,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0");
 				tr.open();
@@ -550,7 +550,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0_0");
 				tr.open();
@@ -568,7 +568,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0");
 				tr.open();
@@ -669,7 +669,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getAddCompany().click();
 		Table t = hrControllerPage.getCompanies();
@@ -686,10 +686,10 @@ public class HrControllerTest extends AbstractTest {
 
 		t.getRow(0).acceptRowChange();
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				hrControllerPage.getAddToTree().click();
 			}
 		}.run();
@@ -702,9 +702,9 @@ public class HrControllerTest extends AbstractTest {
 		inputText.setValue("Country 3");
 		inputText.setValue(Keys.RETURN);
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				hrControllerPage.getAddChildToTree().click();
 			}
 		}.run();
@@ -717,9 +717,9 @@ public class HrControllerTest extends AbstractTest {
 		inputText.setValue("State 3");
 		inputText.setValue(Keys.RETURN);
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				hrControllerPage.getAddChildToTree().click();
 			}
 		}.run();
@@ -732,9 +732,9 @@ public class HrControllerTest extends AbstractTest {
 		inputText.setValue("City 3");
 		inputText.setValue(Keys.RETURN);
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				hrControllerPage.getAddChildToTree().click();
 			}
 		}.run();
@@ -868,7 +868,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		hrControllerPage = new HRControllerPageObject(driver);
+		hrControllerPage = new HrControllerPageObject(driver);
 
 		t = hrControllerPage.getCompanies();
 		t.getRow(0).click();
@@ -888,7 +888,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0");
 				tr.open();
@@ -906,7 +906,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0_0");
 				tr.open();
@@ -924,7 +924,7 @@ public class HrControllerTest extends AbstractTest {
 
 		new SeleniumActionExecutor(driver, MainHolderPageObject.getDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Tree tree = hrControllerPage.getLocationTree();
 				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0");
 				tr.open();
@@ -970,7 +970,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getCreatCompany().click();
 
@@ -994,7 +994,7 @@ public class HrControllerTest extends AbstractTest {
 		popUp.getDesk().setValue("891");
 		popUp.getCmpName().setValue("12345");
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getCompaniesSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getCompaniesSearchCriteria()) {
 			public void action(WebDriver driver) {
 				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
 				popUp.getOk().click();
@@ -1022,7 +1022,7 @@ public class HrControllerTest extends AbstractTest {
 		driver.get(app_url);
 		login();
 
-		HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 
 		hrControllerPage.getCreatCompany().click();
 
@@ -1047,9 +1047,9 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.run();
 
-		new SeleniumActionExecutor(driver, HRControllerPageObject.getLocationTreeSearchCriteria()) {
+		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
-				HRControllerPageObject hrControllerPage = new HRControllerPageObject(driver);
+				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Table t = hrControllerPage.getCompanies();
 				t.getRow(1).click();
 			}

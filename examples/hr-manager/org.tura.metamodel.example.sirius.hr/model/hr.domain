@@ -7671,6 +7671,7 @@
                     <canvases xsi:type="tura.form:Window" uid="63277e12-539a-444d-9b6d-ca6b9fa48907" name="genericTemplate">
                       <viewElement xsi:type="tura.form:ViewArea" uid="1b063f27-8be6-491d-884e-05b6b20e09b2" name="TemplateViewAria">
                         <baseCanvas uid="46588139-d7fe-471a-9ede-28d72eaefb11">
+                          <style uid="7c1b461f-00e9-4408-8a76-e5c0abd49a38" constant="true" value="width:100%"/>
                           <children xsi:type="tura.form:WindowRef" uid="546fb419-2de6-4f02-b004-3f79625e5718">
                             <fields uid="40be31dd-7910-4bf6-9e93-f9022204fcce" constant="true" value="content">
                               <classifiers uid="f762c01a-7728-4fbf-8582-edec721be7d5" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
@@ -7702,7 +7703,7 @@
                                 <expression objRef="749dea6d-9731-4638-ad73-5645c784a58c" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" order="1" uid="564e335f-1e63-4c44-95aa-6b55a0765bdc" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="9c31a0a1-b781-4089-bf92-096440ef6ed6"/>
+                            <children xsi:type="tura.form:InputText" nickname="user" order="1" uid="564e335f-1e63-4c44-95aa-6b55a0765bdc" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="9c31a0a1-b781-4089-bf92-096440ef6ed6"/>
                             <children xsi:type="tura.form:Label" order="2" uid="df56013e-905a-4d5f-87d8-2de4796e601d" label="Password">
                               <style uid="7ebb0ece-e4c3-423e-8366-ff20a303d0ab" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
                               <multiLangLabel uid="9c2aed5d-26c6-4dd1-bb94-fca5d48c031d" value="Application Message Libraries.HR Controller.PASSWORD">
@@ -7711,7 +7712,7 @@
                                 <expression objRef="5757d0ab-2a8f-49bc-b8d0-c7dfb9f9ee9c" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:Password" order="3" uid="b7040f0e-fd68-48cf-b486-53cff319e7ad" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df"/>
+                            <children xsi:type="tura.form:Password" nickname="password" order="3" uid="b7040f0e-fd68-48cf-b486-53cff319e7ad" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df"/>
                             <children xsi:type="tura.form:Label" order="4" uid="336b5eca-fd09-4495-ab59-942ef9be18f3" label="Label"/>
                             <children xsi:type="tura.form:Label" order="5" uid="400a7bfd-5351-47bb-8313-319d5ce9808e" label="Error message">
                               <style uid="f55e8352-60e3-42a7-9913-ced4ca2bd47a" constant="true" value="font:12px arial, sans-serif;color: #F82E06;"/>
@@ -7730,7 +7731,7 @@
                               </multiLangLabel>
                             </children>
                             <children xsi:type="tura.form:Label" order="6" uid="f0e38fc6-734d-4eb5-8fd1-8b7b0d1b1ac9" label="Label"/>
-                            <children xsi:type="tura.form:Button" order="7" uid="ef7539f4-a6e7-4a09-8fc9-3077c431ab43" label="Sign in">
+                            <children xsi:type="tura.form:Button" nickname="signin" order="7" uid="ef7539f4-a6e7-4a09-8fc9-3077c431ab43" label="Sign in">
                               <fields uid="a7ef67e7-2e3f-495b-bd6c-27062bdf92fc" value="Types repository.Base Repository.Model types.Model types::Authentication manager.login()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
