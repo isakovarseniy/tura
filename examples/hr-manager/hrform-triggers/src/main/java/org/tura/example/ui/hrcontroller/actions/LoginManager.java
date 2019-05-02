@@ -33,8 +33,8 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.UserArtifitialFieldsAdapter;
+import org.tura.example.ui.hrmanager.login.datacontrol.IBeanFactory;
+import org.tura.example.ui.hrmanager.login.datacontrol.UserArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.primefaces.lib.EventAccessor;
@@ -109,7 +109,7 @@ public class LoginManager implements EventAccessor {
 		IBeanFactory bf = null;
 
 		try {
-			bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+			bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerLogin}");
 
 			new UserArtifitialFieldsAdapter((ObjectControl) (bf.getUser().getCurrentObject())).setLoginError(false);
 
@@ -171,7 +171,7 @@ public class LoginManager implements EventAccessor {
 	}
 
 	public boolean isLoginError() {
-		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerLogin}");
 
 		try {
 

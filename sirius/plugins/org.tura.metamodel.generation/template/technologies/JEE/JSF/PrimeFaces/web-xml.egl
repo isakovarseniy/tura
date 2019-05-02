@@ -128,8 +128,8 @@ operation  web_xml(hash) {
   %]
 <security-constraint>
     <web-resource-collection>
-        <web-resource-name>[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</web-resource-name>
-        <url-pattern>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(window.name)+".xhtml"%]</url-pattern>
+        <web-resource-name>[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]</web-resource-name>
+        <url-pattern>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
         <role-name>[%=role.~localRoleName%]</role-name>

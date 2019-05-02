@@ -45,8 +45,6 @@ public class PreFormTrigger implements FactoryInitializeTrigger {
 			IBeanFactory bf = (IBeanFactory) obj;
 			bf.setVar1(param1);
 			
-			bf.getUser().createObject();
-			
 			
 		} catch (Exception e) {
             throw new TuraException(e);

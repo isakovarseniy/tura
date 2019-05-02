@@ -3940,14 +3940,14 @@
                       </viewElement>
                       <multiLangLabel uid="9d47309b-17f3-4d03-85cb-73b25ad0d359"/>
                       <grants securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="5f419a40-d47a-45de-bea9-2a26e59dc83f"/>
-                      <fields uid="1f3b914a-60f2-4ec7-9a80-f742abae660b" value="Applications.ERP.HR domain.HR application.Hr manager.HR controller.genericTemplate">
+                      <fields uid="1f3b914a-60f2-4ec7-9a80-f742abae660b" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
                         <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
                         <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
                         <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
                         <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
                         <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
-                        <expression objRef="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" order="5" expressionType="FormImpl"/>
-                        <expression objRef="4c5f5fda-8c19-4b66-a377-1abdffe809c7" order="6" expressionType="WindowImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
                         <classifiers uid="ba590fcd-90c8-48ad-99cd-a484cf526496" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
                       </fields>
                     </canvases>
@@ -4586,110 +4586,6 @@
                         <expression objRef="f34c4d81-1692-4e68-a341-7c2704dd049c" order="2" expressionType="MessageImpl"/>
                       </multiLangLabel>
                     </canvases>
-                    <canvases xsi:type="tura.form:Window" uid="28dc49d4-6150-4bda-9154-18ab055c151c" name="Login page">
-                      <style uid="4126c7ee-f883-4679-b51e-321715473b46" constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
-                      <viewElement xsi:type="tura.form:ViewArea" uid="500943b0-8215-4b2e-a5c8-4980d8857da2" name="Login">
-                        <style uid="b33fb355-f1b7-469b-a656-003e68df5de5"/>
-                        <baseCanvas uid="e03af5dc-fb1d-4ff4-bef2-6b690e3153bd">
-                          <style uid="db8272c7-f6a8-4b8d-91a0-895e5ac9d4ea"/>
-                          <children xsi:type="tura.form:Label" uid="8323d52f-61f2-4b74-b46b-5da4a21aaaf2" label="Tura demo">
-                            <style uid="13e607d6-560f-46c1-89bd-f97d38cb6edd" constant="true" value="font:25px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
-                            <multiLangLabel uid="0b9f69b5-4ad3-47eb-9f0c-9b08a8fb4a5a" value="Application Message Libraries.HR Controller.LOGIN_HEADER">
-                              <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
-                              <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
-                              <expression objRef="b97e2e57-d767-481d-8caf-e5aa45822f67" order="2" expressionType="MessageImpl"/>
-                            </multiLangLabel>
-                          </children>
-                          <children xsi:type="tura.form:LayerHolder" nickname="Login Page" order="1" uid="9478dd8c-c28c-49f5-931b-3ba24e923ef4" columns="2">
-                            <style uid="5f497eaa-4ee1-44a2-a14c-08078384c871"/>
-                            <children xsi:type="tura.form:Label" uid="5dd33003-f10b-4d55-9a90-0a274a1c1d21" label="User name">
-                              <style uid="b67638e5-d159-4e50-ac16-0fe7d7b8a4f8" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
-                              <multiLangLabel uid="d59b0262-b516-4812-bdf1-5ab3e4bea0c5" value="Application Message Libraries.HR Controller.USER_NAME">
-                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
-                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
-                                <expression objRef="749dea6d-9731-4638-ad73-5645c784a58c" order="2" expressionType="MessageImpl"/>
-                              </multiLangLabel>
-                            </children>
-                            <children xsi:type="tura.form:InputText" nickname="user" order="1" uid="b073329f-ecd7-4a66-9e33-a568f4503904" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="9c31a0a1-b781-4089-bf92-096440ef6ed6" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be">
-                              <style uid="ad1c6715-03b1-4d7f-ae60-7f999d75c6b2"/>
-                            </children>
-                            <children xsi:type="tura.form:Label" order="2" uid="d4d2dbcc-c7ae-49c6-b1ed-8e70a92ca499" label="Password">
-                              <style uid="88f06204-4953-4073-9384-c642b72b8b90" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
-                              <multiLangLabel uid="2f8cc44e-95dc-4d93-bd1b-0747f34c2bc4" value="Application Message Libraries.HR Controller.PASSWORD">
-                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
-                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
-                                <expression objRef="5757d0ab-2a8f-49bc-b8d0-c7dfb9f9ee9c" order="2" expressionType="MessageImpl"/>
-                              </multiLangLabel>
-                            </children>
-                            <children xsi:type="tura.form:Label" order="4" uid="f01a589e-7150-473b-8be6-42216f46653a" label="Label">
-                              <style uid="91dcdff5-47e1-4241-83e6-490510b87f98"/>
-                              <fields uid="51888e77-f7c5-4e68-8f46-2318a2ad497f" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">
-                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
-                                <expression objRef="cae89484-476f-4488-90ef-579d06b0e0bc" order="4" expressionType="OperationImpl"/>
-                                <classifiers uid="b8e1568e-8aba-4fb9-b5d1-d10a78116279" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                              </fields>
-                              <multiLangLabel uid="2c021c7f-e7b9-4775-bd9d-052885333921"/>
-                            </children>
-                            <children xsi:type="tura.form:Label" order="5" uid="b24d7c0d-267a-46d2-831a-0f6fe426037d" label="Error message">
-                              <style uid="743ed406-4f36-48ed-ab44-8f0936b369ae" constant="true" value="font:12px arial, sans-serif;color: #F82E06;"/>
-                              <enabled uid="1d2c242a-0e6f-4e52-add9-eea74e3e5bfb"/>
-                              <fields uid="9e84613b-97ed-4742-9814-b13128cf1279" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">
-                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
-                                <expression objRef="cae89484-476f-4488-90ef-579d06b0e0bc" order="4" expressionType="OperationImpl"/>
-                                <classifiers uid="0c62d815-4f8d-4976-aee4-b04ca6385866" hint="41114f86-3709-482c-937b-5ddce650956d"/>
-                              </fields>
-                              <readOnly uid="0dbaa3a1-c4ee-4864-80a4-70adf7bc146b"/>
-                              <multiLangLabel uid="22927ad3-79bd-4e4b-a04b-996f46061d41" value="Application Message Libraries.HR Controller.LOGIN_ERROR">
-                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
-                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
-                                <expression objRef="5e247cc2-d6b0-48b5-9f33-2d9942146c49" order="2" expressionType="MessageImpl"/>
-                              </multiLangLabel>
-                            </children>
-                            <children xsi:type="tura.form:Label" order="6" uid="f3e562d7-5ba6-4c31-85ca-e3c960a8ffa5" label="Label">
-                              <style uid="3358bdea-3801-464d-a940-dfa05514bffb"/>
-                              <enabled uid="76248abe-a28b-44b1-93c8-4244f45cc3b6"/>
-                            </children>
-                            <children xsi:type="tura.form:Button" nickname="signin" order="7" uid="dc0dc648-bb4e-4647-ad34-82fbb31c049d" label="Sign in">
-                              <style uid="118ed2aa-f5c3-4cc1-898c-282ea01aeac2" constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
-                              <fields uid="e3a7933d-7eed-41e4-8236-b5efc88159de" value="Types repository.Base Repository.Model types.Model types::Authentication manager.login()">
-                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
-                                <expression objRef="eb251e35-a3d2-47a4-85d7-40f832c0378d" order="4" expressionType="OperationImpl"/>
-                              </fields>
-                              <required uid="d9b20df4-d679-4c6d-adf6-ec4a7736d753"/>
-                              <refreshAreas area="9478dd8c-c28c-49f5-931b-3ba24e923ef4" group="2"/>
-                              <multiLangLabel uid="f10f2d5e-fd98-4472-ad77-84cc39c14411" value="Application Message Libraries.HR Controller.SIGN_IN">
-                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
-                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
-                                <expression objRef="d466019b-c0bc-47dd-8d81-2c1466ca8b52" order="2" expressionType="MessageImpl"/>
-                              </multiLangLabel>
-                              <icon uid="9c089bce-443d-4ecd-b6c8-54e01e7f66a4"/>
-                            </children>
-                            <children xsi:type="tura.form:Password" nickname="password" order="3" uid="727257ca-7ea1-4b5e-9768-7ccb07b481ad" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be"/>
-                          </children>
-                        </baseCanvas>
-                      </viewElement>
-                      <multiLangLabel uid="f6d47037-dc0b-4760-b008-1b555cf62600"/>
-                      <classifiers uid="dc0ee648-dc36-4e02-8c0a-13178e8acd24" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
-                      <fields uid="299b32e2-ede2-4b9c-8c13-425ab03f7daf" value="Applications.ERP.HR domain.HR application.Hr manager.HR controller.genericTemplate">
-                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
-                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
-                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
-                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
-                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
-                        <expression objRef="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" order="5" expressionType="FormImpl"/>
-                        <expression objRef="4c5f5fda-8c19-4b66-a377-1abdffe809c7" order="6" expressionType="WindowImpl"/>
-                        <classifiers uid="6a13cd2b-a12f-457e-bc39-8fe8ffc65055" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
-                      </fields>
-                    </canvases>
                     <canvases xsi:type="tura.form:PopupCanvas" uid="a6e67023-511b-4630-8a98-6de2246eaea0" name="PopUp Cpmpany details">
                       <style uid="2c2dd820-95ce-40b7-9601-da514ceb17d7"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="4c942164-dd2c-44e6-92bb-be4941e4ec87" name="Company PopUp">
@@ -4850,18 +4746,6 @@
                       </viewElement>
                       <multiLangLabel uid="9405c480-fa86-417c-a179-c491c2838621"/>
                       <classifiers uid="66b04c6a-a863-441c-a7aa-71fdc330bab3" hint="0c540a45-6e97-4273-a483-9aed3e27477c" details="popupCompany"/>
-                    </canvases>
-                    <canvases xsi:type="tura.form:Window" uid="4c5f5fda-8c19-4b66-a377-1abdffe809c7" name="genericTemplate">
-                      <viewElement xsi:type="tura.form:ViewArea" uid="32236646-5475-46f7-97fc-c06bf673d60e" name="TemplateViewAria">
-                        <baseCanvas uid="fa675bf7-ee5a-4e63-baf0-0f338b3dc39e">
-                          <children xsi:type="tura.form:WindowRef" uid="f574fee2-95d4-4ea1-9315-5b16586b57bc">
-                            <fields uid="6f72bb89-7a61-4cd6-af0f-4df29f8d8d0a" constant="true" value="content">
-                              <classifiers uid="e2150f7a-eb3a-418f-b2ce-7400141573c5" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
-                            </fields>
-                          </children>
-                        </baseCanvas>
-                      </viewElement>
-                      <classifiers uid="c7556313-ddc4-4eeb-8fef-70b95d52dee6" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
                     </canvases>
                     <viewInheritances uid="4f10fbf9-dbd1-41f4-91ee-c3b668267e90" source="9700618b-bb04-4b25-af40-e3f537976fc5" target="202dc775-763f-4b4b-baea-32e2419d3e5a"/>
                     <viewInheritances uid="292babc4-3a98-4ee7-8fec-6808d811b17a" source="b194b449-1154-4b02-99c2-936b7e11be68" target="a6e67023-511b-4630-8a98-6de2246eaea0"/>
@@ -5536,60 +5420,6 @@
                       </defaultSearch>
                       <defaultOrderBy/>
                     </controls>
-                    <controls uid="99c10c45-5375-4984-a913-b3ae38e442be" name="User">
-                      <baseType typeRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba"/>
-                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="abbac3a0-05d8-4b63-b491-e9729f64e240">
-                        <parameters uid="9a166223-0dd6-4e7d-8318-206d7b216f0d" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
-                          <value uid="57906da4-aa9b-4a73-9a17-b082a8a49c9e" value="Types repository.HR domain.Simple model.Simple model::User">
-                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
-                            <expression objRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </create>
-                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="bc39dc2d-4c61-40a1-981a-89d0e91b2724">
-                        <parameters uid="aea93aed-7314-4296-89ee-e82e93e0d47d" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
-                          <value uid="5598fcc0-c957-4208-9b40-198bd247868a" value="Data controls.User.searchCriteria">
-                            <expression uid="31047f3f-64b8-40e0-8502-6cbb3487525b" expressionType="DataControlHolder"/>
-                            <expression uid="7759364a-6dc3-42f4-b242-75849c2ef0f7" objRef="99c10c45-5375-4984-a913-b3ae38e442be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="3484eac7-a99d-4e07-8e03-cdfd8d1f1c68" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="16bfcb22-e171-4b53-bfc2-68996a9f9015" refObj="82321931-ce03-428e-b54d-562a21b72c06">
-                          <value uid="65687b09-bd60-4412-963e-d3cb5f9cd0d2" value="Data controls.User.orderCriteria">
-                            <expression uid="f7799a5e-6c57-46e6-8bfb-3202c45a50f8" expressionType="DataControlHolder"/>
-                            <expression uid="4bf3ea38-c1b1-493a-86cc-9ad1fe8e677c" objRef="99c10c45-5375-4984-a913-b3ae38e442be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="c1acd8af-a181-4b80-b507-30eece6909c7" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="bc0fd6f4-e91f-45c8-9d26-c14112a14369" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
-                          <value uid="52601521-e813-4527-9d84-d9ed7ac33a8c" value="Data controls.User.start Index">
-                            <expression uid="cac18f5f-3dd1-4564-b5ad-80e94fa9a288" expressionType="DataControlHolder"/>
-                            <expression uid="914e931e-7f27-4f07-a8eb-632f4f9c52e2" objRef="99c10c45-5375-4984-a913-b3ae38e442be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="5fbf66a7-bf3d-4da9-bc26-1e9290d57f3d" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="248c04b6-e494-4eb3-a2fe-30fd76ccf580" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
-                          <value uid="47babdd1-6004-48ee-841f-d304d9b83e81" value="Data controls.User.end Index">
-                            <expression uid="b97388e6-b094-46da-8e83-53007a22329c" expressionType="DataControlHolder"/>
-                            <expression uid="8fe2ab2f-05bb-4689-a7ce-dbcff81bbd4d" objRef="99c10c45-5375-4984-a913-b3ae38e442be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="d5c98978-d7d4-4cf9-8f13-ebe5f223025d" order="2" expressionType="DataControlFakeAttribute"/>
-                          </value>
-                        </parameters>
-                        <parameters uid="7537a980-5f63-4e48-bfd6-22b81f193c1c" refObj="ab025094-583b-4699-b19b-41549870fa75">
-                          <value uid="1cf9e745-cbf5-4964-a8d9-23e4e135b928" value="Types repository.HR domain.Simple model.Simple model::User">
-                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
-                            <expression objRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" order="3" expressionType="TypeImpl"/>
-                          </value>
-                        </parameters>
-                      </search>
-                      <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="f09d9b45-322f-4dcc-8c2e-676c1da95292" name="loginError"/>
-                      <defaultSearch/>
-                      <defaultOrderBy/>
-                    </controls>
                     <controls uid="ea4959e9-2b76-4a4c-a125-bfead934733f" name="Employee">
                       <baseType typeRef="a3c99caa-a56f-4e05-b1b4-045ec986dd64"/>
                       <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="bf70dda6-227e-4a96-b74c-cca333ff63b1">
@@ -5716,6 +5546,16 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="333083a0-eece-4371-9722-31f1924686dc" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="035f53fd-20d1-4022-b8b0-9485c8f655a8" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <menus uid="585eec09-b843-4ffc-988c-434a9b3d32f6" name="Menu">
                       <style uid="5d3b71f6-737a-44fe-b4b4-351d0d8f52a9"/>
@@ -6338,6 +6178,16 @@
                           <children xsi:type="tura.form:Image" order="2" uid="3a05b077-aa9c-4d03-898f-310d9580353a" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e0cf9921-012f-4b38-b9cc-7ab6afcd551b"/>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="e61f7ff4-3c61-4acc-b42e-c84199b45a7e" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="c8fb722b-a795-40a6-a851-564a81639335" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="623c845a-b469-4bff-a272-e88c868e72b6">
@@ -6567,6 +6417,16 @@
                       <classifiers uid="968e98f8-f5a2-4c36-8720-1a6f18900c63" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
                       <classifiers uid="cbffcacd-57a7-4e9a-9861-d33b29fd92d5" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
                       <classifiers uid="649ac42c-7c1c-4451-8732-3030b9b376a3" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+                      <fields uid="0871a575-383b-40d1-9b88-f4b904182c82" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="8d064a9e-8113-4379-991d-ec420422301a" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="44caa04c-0d70-4570-8873-b48e26252c67">
@@ -6648,6 +6508,16 @@
                         </baseCanvas>
                       </viewElement>
                       <classifiers uid="d115a068-d8dc-4cc8-a744-bcee4a9d9fbd" hint="a24ca484-c882-4e80-961a-8093e6dc5803" details="javax.faces.application.ViewExpiredException"/>
+                      <fields uid="8d6a6ffc-4bcf-43b7-87b8-522bce336ce2" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="14771191-eda3-4e88-adbd-b607bbc50fe5" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="fb454453-8294-4cf1-bfaa-730fa7ef09df"/>
@@ -6893,6 +6763,16 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="4d9f3b74-fde6-4473-aadc-aea1d8f0577c" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="286caa22-3375-478b-abce-b74d66de6e2c" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:Window" uid="c3d89b4a-e255-4317-b6d1-ce39f40b3be4" name="TestForm2">
                       <viewElement xsi:type="tura.form:ViewArea" uid="b3238e57-69fe-4378-953c-c9dc64ec0731" name="TestForm2Aria">
@@ -6961,6 +6841,16 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="470f3ad5-3f9b-4d96-aa62-81fd752418f3" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="5e9e175d-ada1-43c3-9c5d-9a85d8353e22" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:Window" uid="c8371d5a-386b-4fb9-b14e-6e062df774a3" name="TestForm3">
                       <viewElement xsi:type="tura.form:ViewArea" uid="06cacdb7-2d63-4531-a4ec-bbd9fa6b24df" name="TestForm3Aria">
@@ -6984,6 +6874,16 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="b3eebd02-a36b-4a7e-8d4d-4dc96c560920" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="46d2c6e9-1eb4-49f8-98bc-52057dd0a1c0" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="90eb7336-9be9-439d-9f9a-11521cb637a5">
@@ -7211,6 +7111,16 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <fields uid="5fc66da3-944d-4eeb-a222-13771dab7342" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="804b453f-504b-41e1-98a8-1a2c143b0f27" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="8ec9ee63-a6b8-4eb1-8cf9-8903fd06a042">
@@ -7754,6 +7664,156 @@
                     <relations uid="37a2d0ec-5e53-4d22-93cd-8c474a2d8075" name="" master="f62803dc-6c09-4c09-8be6-a69cead5850b" detail="f62803dc-6c09-4c09-8be6-a69cead5850b" isTree="true">
                       <links uid="a5269210-7e40-4cf1-8b51-2b2a223bbba5" masterField="96d9355b-421b-4812-98f4-d9d9acf40e7b" detailField="e6b9d8e0-783f-46e9-a554-c2da125ed198"/>
                     </relations>
+                  </datacontrols>
+                </forms>
+                <forms uid="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" name="Login">
+                  <view uid="9ee0e30f-a0a4-4b72-bfb7-f0762a7e47e8">
+                    <canvases xsi:type="tura.form:Window" uid="63277e12-539a-444d-9b6d-ca6b9fa48907" name="genericTemplate">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="1b063f27-8be6-491d-884e-05b6b20e09b2" name="TemplateViewAria">
+                        <baseCanvas uid="46588139-d7fe-471a-9ede-28d72eaefb11">
+                          <children xsi:type="tura.form:WindowRef" uid="546fb419-2de6-4f02-b004-3f79625e5718">
+                            <fields uid="40be31dd-7910-4bf6-9e93-f9022204fcce" constant="true" value="content">
+                              <classifiers uid="f762c01a-7728-4fbf-8582-edec721be7d5" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+                            </fields>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="d2868c4f-cbfd-49c6-9780-d8dedd585c7c" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="36999a5b-c202-4081-87d7-dd8eb802bfc6" name="Login page">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="cbfa68e2-b88d-425b-bb53-633cee0ba218" name="Login">
+                        <baseCanvas nickname="Login Page" uid="3027406c-09c0-4159-9c1c-e86bf0461a91">
+                          <style uid="64a8d1d1-b5d3-4af3-a5d6-2db6dc1c8091" constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
+                          <children xsi:type="tura.form:Label" uid="cd3f6fd1-a258-472e-a28b-ae19daa75f76" label="Tura demo">
+                            <style uid="eead0df9-5140-47dc-856b-c20266e6091d" constant="true" value="font:25px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+                            <multiLangLabel uid="ad3ad20c-09e5-4034-a7ce-b2e5f2c4546d" value="Application Message Libraries.HR Controller.LOGIN_HEADER">
+                              <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="b97e2e57-d767-481d-8caf-e5aa45822f67" order="2" expressionType="MessageImpl"/>
+                            </multiLangLabel>
+                          </children>
+                          <children xsi:type="tura.form:Label" order="1" uid="194f65bd-aa4c-4889-b527-dd3e3690aaff"/>
+                          <children xsi:type="tura.form:LayerHolder" order="2" uid="e326089f-a277-4f75-bd6a-24430516c28c" columns="2">
+                            <children xsi:type="tura.form:Label" uid="b13bf933-b75a-4adf-bed6-9cb3c52e4dec" label="User name">
+                              <style uid="3c0a0a32-2176-425c-9add-1aa2d7d49d3e" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
+                              <multiLangLabel uid="c5cbd9d7-9eaa-4775-9622-d7f45fabbee8" value="Application Message Libraries.HR Controller.USER_NAME">
+                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="749dea6d-9731-4638-ad73-5645c784a58c" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:InputText" order="1" uid="564e335f-1e63-4c44-95aa-6b55a0765bdc" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="9c31a0a1-b781-4089-bf92-096440ef6ed6"/>
+                            <children xsi:type="tura.form:Label" order="2" uid="df56013e-905a-4d5f-87d8-2de4796e601d" label="Password">
+                              <style uid="7ebb0ece-e4c3-423e-8366-ff20a303d0ab" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
+                              <multiLangLabel uid="9c2aed5d-26c6-4dd1-bb94-fca5d48c031d" value="Application Message Libraries.HR Controller.PASSWORD">
+                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="5757d0ab-2a8f-49bc-b8d0-c7dfb9f9ee9c" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:Password" order="3" uid="b7040f0e-fd68-48cf-b486-53cff319e7ad" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df"/>
+                            <children xsi:type="tura.form:Label" order="4" uid="336b5eca-fd09-4495-ab59-942ef9be18f3" label="Label"/>
+                            <children xsi:type="tura.form:Label" order="5" uid="400a7bfd-5351-47bb-8313-319d5ce9808e" label="Error message">
+                              <style uid="f55e8352-60e3-42a7-9913-ced4ca2bd47a" constant="true" value="font:12px arial, sans-serif;color: #F82E06;"/>
+                              <fields uid="7c3ad15a-2390-469f-9bfc-896e7ed1631b" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="cae89484-476f-4488-90ef-579d06b0e0bc" order="4" expressionType="OperationImpl"/>
+                                <classifiers uid="a6d2076c-3599-41f8-bfc2-a3c93559f0e3" hint="41114f86-3709-482c-937b-5ddce650956d"/>
+                              </fields>
+                              <multiLangLabel uid="1beb9d8d-49a2-449e-b7f2-8c93cde91f24" value="Application Message Libraries.HR Controller.LOGIN_ERROR">
+                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="5e247cc2-d6b0-48b5-9f33-2d9942146c49" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                            <children xsi:type="tura.form:Label" order="6" uid="f0e38fc6-734d-4eb5-8fd1-8b7b0d1b1ac9" label="Label"/>
+                            <children xsi:type="tura.form:Button" order="7" uid="ef7539f4-a6e7-4a09-8fc9-3077c431ab43" label="Sign in">
+                              <fields uid="a7ef67e7-2e3f-495b-bd6c-27062bdf92fc" value="Types repository.Base Repository.Model types.Model types::Authentication manager.login()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="eb251e35-a3d2-47a4-85d7-40f832c0378d" order="4" expressionType="OperationImpl"/>
+                              </fields>
+                              <refreshAreas area="3027406c-09c0-4159-9c1c-e86bf0461a91" group="2"/>
+                              <multiLangLabel uid="90c943fa-dee8-43f0-a684-35d7ce195fdc" value="Application Message Libraries.HR Controller.SIGN_IN">
+                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="d466019b-c0bc-47dd-8d81-2c1466ca8b52" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="af8d5eea-09ae-4e1f-b04a-c08cc7c74068" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
+                      <fields uid="13c12f84-2112-4d99-8e1d-5986efce7d9e" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="fcb2a90e-ae63-405b-bd8b-b5bdcca54137" order="5" expressionType="FormImpl"/>
+                        <expression objRef="63277e12-539a-444d-9b6d-ca6b9fa48907" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="f5db98b7-0603-441f-b2c2-a59a34e94e63" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
+                    </canvases>
+                  </view>
+                  <datacontrols uid="2936b583-9204-4155-8c54-d512e21f96cd">
+                    <controls uid="ac85d532-bf7b-4602-9d8f-839796d96ffc" name="User">
+                      <baseType typeRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="1dcf9deb-9235-4b29-b62f-3b0173a12b71">
+                        <parameters uid="a1375cd8-ded7-470f-beb7-20f1911f2c60" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="b9efe573-eca7-4e44-9c83-e04819d476b9" value="Types repository.HR domain.Simple model.Simple model::User">
+                            <expression uid="01d85f62-66b0-4475-9d29-8d0d662eb508" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="721232d7-b909-469b-b949-c91f606426ca" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="57f84ea5-a4a5-40d5-bb92-10582f17b422" objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="e53a3b1f-e810-4ee8-8cd4-c14c82ef16fb" objRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="d27e8d0f-04e7-4ff6-bad4-193f5e515806">
+                        <parameters uid="9cfc3a46-ed50-49a6-88e5-a0a2171009a2" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="46c62af1-ecda-490a-8234-18f660bf3977" value="Data controls.User.searchCriteria">
+                            <expression uid="658f8e82-5c10-4da6-96c0-0f0e00806867" expressionType="DataControlHolder"/>
+                            <expression uid="265d4bf3-69e9-49a1-8e5c-1dbbb5361711" objRef="ac85d532-bf7b-4602-9d8f-839796d96ffc" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="e66af16b-2796-438c-98a7-08a458728c9c" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="95644a60-3cb3-4aa1-af89-b640d6ad5ac1" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="66ef8c66-79f3-4d3d-adec-a589fdd9e3b8" value="Data controls.User.orderCriteria">
+                            <expression uid="b22a328b-83bc-4a93-9624-81992ef8af10" expressionType="DataControlHolder"/>
+                            <expression uid="2b3527ad-7f2f-4b7a-abb2-770d2827ea48" objRef="ac85d532-bf7b-4602-9d8f-839796d96ffc" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="57e66367-7b1d-478b-80b5-343b7d538dec" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="65c13cf8-edd8-4acc-82e4-a1fb3337ce36" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="a890a7dd-4d87-45ce-96da-1074ec51bf52" value="Data controls.User.start Index">
+                            <expression uid="0e0e9b95-ebbe-4d12-87b2-c356dcd0be2b" expressionType="DataControlHolder"/>
+                            <expression uid="040e87da-a773-41df-bfa0-8308fa5a6e78" objRef="ac85d532-bf7b-4602-9d8f-839796d96ffc" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="18a203dc-694d-4409-bbc0-39baddb5b53b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0f543322-649d-43fd-b60b-e704c9704c66" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="c734b6aa-184b-4ec2-8a17-cfb41c49ee10" value="Data controls.User.end Index">
+                            <expression uid="67600edc-d757-4cfc-872d-eaa5c54690e0" expressionType="DataControlHolder"/>
+                            <expression uid="41c7a4e1-77eb-4143-b8bc-2b3f1456311a" objRef="ac85d532-bf7b-4602-9d8f-839796d96ffc" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="cbf9c070-f894-45a4-a2ad-388eb79dd13a" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="11c743bb-0f42-47c8-b17f-74fc9d460de5" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="ec454925-d33f-4351-8576-65cf83371d71" value="Types repository.HR domain.Simple model.Simple model::User">
+                            <expression uid="89e88140-3b29-4153-b231-ea807e8bc38b" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="9691951a-06e4-4e23-8dfa-e9725038d8e6" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="9e6d3dc9-c5ab-4d31-8ca2-d03f8fbbdf79" objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="a4d28635-7267-4e46-bfc1-f057e18e9eb4" objRef="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="badc8959-b3a3-4442-9d44-1157ebbe49d6" name="loginError"/>
+                    </controls>
                   </datacontrols>
                 </forms>
               </applicationUIPackages>

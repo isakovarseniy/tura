@@ -26,7 +26,7 @@ import java.util.Map;
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.UserArtifitialFieldsAdapter;
+import org.tura.example.ui.hrmanager.login.datacontrol.UserArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
@@ -36,7 +36,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 
 @Alternative
 @Priority(10)
-@Selector("hrmanager.hrcontroller")
+@Selector("hrmanager.login")
 @PostCreate("user")
 public class UserPostCreateTrigger implements PostCreateTrigger {
 

@@ -109,13 +109,13 @@ addClosure "buildHRApplication";
 
 
 hrUrlList = {
-    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2           qwerty/qwerty'
-    echo 'http://localhost:8080/hrform/hrmanager/miscelements/MiscElementsWindow.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm1.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm2.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/TestForm3.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform2/TestFormWindow.xhtml'
+    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/hrController.xhtml?param1=qwerty2           qwerty/qwerty'
+    echo 'http://localhost:8080/hrform/hrmanager/miscelements/miscElementsWindow.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/tree2tree/tree2TreeRelations.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm1.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm2.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm3.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform2/testFormWindow.xhtml'
 
 }
 addClosure "hrUrlList";
