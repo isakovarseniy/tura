@@ -39,27 +39,27 @@ import org.tura.platform.hr.objects.serialization.Street;
 @Selector("hrmanager.hrcontroller")
 @ViewPortTrigger("details")
 public class ViewPortDetailsTrigger extends ViewPortCommand {
-	 
-	@Inject
-	ELResolver elResolver;
+     
+    @Inject
+    ELResolver elResolver;
 
-	@Override
-	public Object execute() {
-		
-		Object obj = elResolver.getValue("#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}");
-		if (obj instanceof Country)
-			return "/hrmanager/hrcontroller/CountryDetails.xhtml";
-		
-		if (obj instanceof State)
-			return "/hrmanager/hrcontroller/StateDetails.xhtml";
+    @Override
+    public Object execute() {
+        
+        Object obj = elResolver.getValue("#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}");
+        if (obj instanceof Country)
+            return "/hrmanager/hrcontroller/countryDetails.xhtml";
+        
+        if (obj instanceof State)
+            return "/hrmanager/hrcontroller/stateDetails.xhtml";
 
-		if (obj instanceof City)
-			return "/hrmanager/hrcontroller/CityDetails.xhtml";
-		
-		if (obj instanceof Street)
-			return "/hrmanager/hrcontroller/DepartmentsDetails.xhtml";
+        if (obj instanceof City)
+            return "/hrmanager/hrcontroller/cityDetails.xhtml";
+        
+        if (obj instanceof Street)
+            return "/hrmanager/hrcontroller/departmentsDetails.xhtml";
 
-		return this.port;
-	}
+        return this.port;
+    }
 
 }

@@ -75,6 +75,8 @@ operation form::Window generateComponentBody(hash){
 [%
                 }  
 %]                    
+                [%=self.addStylesAndTriggers(hash)%]
+
              </ui:define>
 </ui:composition>
 [%

@@ -63,7 +63,6 @@ operation form::Window generateGenericTemplateBody(hash){
 %]                    
                    </p:panelGrid>
                 </h:body>
-                [%=self.addStylesAndTriggers(hash)%]
             </f:view>
         </html>
 [%

@@ -7713,7 +7713,16 @@
                               </multiLangLabel>
                             </children>
                             <children xsi:type="tura.form:Password" nickname="password" order="3" uid="b7040f0e-fd68-48cf-b486-53cff319e7ad" sourcePointer="ac85d532-bf7b-4602-9d8f-839796d96ffc" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df"/>
-                            <children xsi:type="tura.form:Label" order="4" uid="336b5eca-fd09-4495-ab59-942ef9be18f3" label="Label"/>
+                            <children xsi:type="tura.form:Label" order="4" uid="336b5eca-fd09-4495-ab59-942ef9be18f3" label="Label">
+                              <fields uid="aab8bf4f-1f9c-48b3-8312-18ee3c045324" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">
+                                <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                                <expression objRef="1d17cd28-17dc-4964-bb46-63e1a4003517" order="3" expressionType="TypeImpl"/>
+                                <expression objRef="cae89484-476f-4488-90ef-579d06b0e0bc" order="4" expressionType="OperationImpl"/>
+                                <classifiers uid="2dace94b-1320-4e0c-ab89-f3fb86d5c953" hint="41114f86-3709-482c-937b-5ddce650956d"/>
+                              </fields>
+                            </children>
                             <children xsi:type="tura.form:Label" order="5" uid="400a7bfd-5351-47bb-8313-319d5ce9808e" label="Error message">
                               <style uid="f55e8352-60e3-42a7-9913-ced4ca2bd47a" constant="true" value="font:12px arial, sans-serif;color: #F82E06;"/>
                               <fields uid="7c3ad15a-2390-469f-9bfc-896e7ed1631b" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">

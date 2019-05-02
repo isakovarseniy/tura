@@ -12,14 +12,14 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 [%=viewmodel_scope()%]
 public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHolder, [%}%] java.io.Serializable{
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 [%
       for (port in allPorts){
       var canvases = ViewInheritance->allInstances()->select(vi|vi.source=port);
       var canvas = "";
       if (canvases <> null and canvases.size <> 0){
-        canvas = util.mergeAndCapitalize(canvases.get(0).target.name);
+        canvas = util.mergeAndUnCapitalize(canvases.get(0).target.name);
       }
       
 %]      
