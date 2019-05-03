@@ -10016,6 +10016,16 @@
                       </viewElement>
                       <classifiers uid="ac18f903-1b05-4a79-a0cd-7e927a1088be" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
                       <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="c593e036-a768-400f-b7ed-0545473a926f"/>
+                      <fields uid="872f604a-0a7a-4b3a-86e6-0e8965cd1ab4" value="Applications.ERP.CRM.Sales Analysis.Analysis.Case manager.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="69e617fe-f87c-4bea-8822-4b5ba94db1b8" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="ca987224-8b71-4ecd-b66b-d2034961d138" order="5" expressionType="FormImpl"/>
+                        <expression objRef="9150b54f-5ee4-407a-86fd-6121b6be207d" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="63cd065a-e1c4-45cc-b2b2-ec83280d0ef0" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:PopupCanvas" uid="48d7014d-1877-4010-8b22-d1734ae8e72e" name="Select city popup canvas">
                       <viewElement xsi:type="tura.form:ViewArea" uid="e669d010-0896-4713-b858-4b8953af4fa5" name="SelectCityView">
@@ -11410,6 +11420,18 @@
                         <expression objRef="8b47f8f8-af10-446a-aaf4-21e10a3a8deb" order="2" expressionType="MessageImpl"/>
                       </multiLangLabel>
                     </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="9150b54f-5ee4-407a-86fd-6121b6be207d" name="genericTemplate">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="79e5faa5-34c9-497f-acc9-222f746204b0" name="TemplateAria">
+                        <baseCanvas uid="d5878c74-368f-4d51-ad0d-5fab8859eef9">
+                          <children xsi:type="tura.form:WindowRef" uid="1985b1e3-8449-4bfd-8ba8-8f46d7bd7111">
+                            <fields uid="ccd63dde-b56c-4eee-bfc7-676a9d63024a" constant="true" value="content">
+                              <classifiers uid="f1f99429-79bd-4131-b6ec-307a088590ac" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+                            </fields>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="9282072b-5b26-49e0-9457-cbbdc82f7f62" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                    </canvases>
                     <viewInheritances uid="8270ecd9-631e-4096-bfdf-052824904a23" source="69dfc76d-61d6-4a48-a979-65dd1fa113d4" target="48d7014d-1877-4010-8b22-d1734ae8e72e"/>
                     <viewInheritances uid="7d7118cb-ba99-4741-955a-291dc6e3aa45" source="028f7779-d30b-49e7-95f3-ac1f1afcf412" target="a1b353dd-a8ad-44e2-b2cf-950cd3cc999d"/>
                     <viewInheritances uid="cf4ffcec-70d4-4c67-94cb-0fe01db90ade" source="16dc93c8-bf33-4cb1-92fa-082f68441f88" target="b4f388ef-afc6-4385-b82f-3e5e3f7b9d9d"/>
@@ -12319,6 +12341,16 @@
                       <classifiers uid="f369f39c-6be3-4513-973f-360efc3970be" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
                       <classifiers uid="f44fd878-a5d3-4e2c-81f8-6fdbaabafdcc" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
                       <classifiers uid="7cae4a7f-b0c5-48d8-be30-a277912dd32c" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+                      <fields uid="98a46de5-35ac-48ba-8354-16a208e28e0d" value="Applications.ERP.CRM.Sales Analysis.Analysis.Case manager.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="69e617fe-f87c-4bea-8822-4b5ba94db1b8" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="ca987224-8b71-4ecd-b66b-d2034961d138" order="5" expressionType="FormImpl"/>
+                        <expression objRef="9150b54f-5ee4-407a-86fd-6121b6be207d" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="da52e246-a275-4a1a-b014-b911aa908d48" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="1c653d88-9bc1-4dd3-8808-6126a3a63d62">
@@ -12406,6 +12438,16 @@
                       <multiLangLabel uid="64fc7cd9-833e-48e2-acfa-881131de7e9e"/>
                       <classifiers uid="d150fad9-d606-429b-a688-8fb2535eb514" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
                       <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="223f668e-0310-4eb1-8536-6ef22fba165a"/>
+                      <fields uid="93bf5f68-4ca1-405e-b701-702353dbb47a" value="Applications.ERP.CRM.Sales Analysis.Admin.Administration.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="9901945d-a513-4e9e-98eb-1d2aad26eae7" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="f3acb9fa-3e15-4da5-ad98-146cf9be8e8c" order="5" expressionType="FormImpl"/>
+                        <expression objRef="6d1f86c0-7a9b-4dff-96cb-de21473f5972" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="d91876a3-701c-47ae-974d-bd9cbd127b93" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="75599ebc-04ec-44e8-83cd-045f160dab1a" name="Admin">
                       <style uid="aadebf63-f059-4a89-b7aa-d8905c617ca8"/>
@@ -14178,6 +14220,18 @@
                       </viewElement>
                       <classifiers uid="8a554252-9d6e-49b3-a39b-007a6b3373f6" hint="0c540a45-6e97-4273-a483-9aed3e27477c" details="popUpUserSelection"/>
                     </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="6d1f86c0-7a9b-4dff-96cb-de21473f5972" name="genericTemplate">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="82ede586-e914-422d-91ff-33ac33ea084d" name="TemplateAria">
+                        <baseCanvas uid="c15be07b-42c8-4105-a019-ee4677555c1f">
+                          <children xsi:type="tura.form:WindowRef" uid="3927215b-75ac-4fb3-845a-aef36afa7268">
+                            <fields uid="3e9c9e07-30a8-4b42-8946-97c5d4019771" constant="true" value="content">
+                              <classifiers uid="a613881e-8a3f-4265-8a81-9cb30a274604" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+                            </fields>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="31945433-cbee-46ec-88b9-1f7ca56ac251" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                    </canvases>
                     <viewInheritances uid="ad80cbe5-a495-4ed5-a25c-95ed5316159f" source="c96cac6a-510f-464c-b996-a660f91112f7" target="75599ebc-04ec-44e8-83cd-045f160dab1a"/>
                     <viewInheritances uid="591535a1-a83f-4dba-8fe8-586a24809dc4" source="f68734d3-8997-49bd-942e-c836f90c3322" target="b5254916-ca6b-42d9-83bd-81a94eafc455"/>
                     <viewInheritances uid="c971d1a9-d701-4218-954c-427a89ba736f" source="d3d50992-0d98-4adc-b5b7-f39ea93e5930" target="3fe24463-83f9-4b0e-ac9b-f10bc8bcd373"/>
@@ -15503,6 +15557,16 @@
                       <classifiers uid="79233e67-035d-4d62-b862-a5225b3f6a0f" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
                       <classifiers uid="606a89ba-9091-406f-843d-087e45d8b779" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
                       <classifiers uid="c669c625-913f-491f-9f75-8451f8114c2a" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+                      <fields uid="b5047237-0e95-4580-be85-4d9c9afbb09b" value="Applications.ERP.CRM.Sales Analysis.Admin.Administration.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="9901945d-a513-4e9e-98eb-1d2aad26eae7" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="f3acb9fa-3e15-4da5-ad98-146cf9be8e8c" order="5" expressionType="FormImpl"/>
+                        <expression objRef="6d1f86c0-7a9b-4dff-96cb-de21473f5972" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="8d7c8ae3-7f00-49f4-9b96-3a50926af6c8" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="3f1f2e6e-c641-4a84-921c-6274c1264c58">
@@ -15588,6 +15652,16 @@
                       </viewElement>
                       <classifiers uid="c7f0fd30-64d9-4781-b6a7-de14ec9a5fa6" hint="ec480494-233c-48a5-ab77-4e0c94136b36"/>
                       <grants securityEntity="208ced5c-6979-4b46-abde-9e039cfbfc93" uid="2649c340-7df0-4c1d-b4fc-c7f890e0d9f1"/>
+                      <fields uid="0a974303-de7f-4d07-8bf3-97d40dc13355" value="Applications.ERP.CRM.Sales Analysis.DataLoader.ETLController.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="02d0b32a-fae5-4428-8369-41150d6b2016" order="5" expressionType="FormImpl"/>
+                        <expression objRef="de2fc03c-4c89-48f0-a9c1-85664fcfb96b" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="bb193036-26ea-4200-be51-fc9b64020ac0" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="b81472e3-3691-491b-9a84-862652bb04da" name="ProcessSelection">
                       <style uid="9d828124-3e4a-43b2-ae1b-29a57bd4f326"/>
@@ -15897,6 +15971,18 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="8a382e60-c3fa-4ebb-9093-b3e384d2189b" name="step_8">
                       <style uid="83135059-b553-4cf8-9431-2fcfbf58d3a2"/>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="de2fc03c-4c89-48f0-a9c1-85664fcfb96b" name="genericTemplate">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="827561c9-e8c1-415b-a567-4013ee60ffe3" name="TemplateAria">
+                        <baseCanvas uid="91bb8f05-0643-48f1-8ba4-9dec81e42fe1">
+                          <children xsi:type="tura.form:WindowRef" uid="c222c2a8-9984-41b3-a76e-b3ee4c8aabc1">
+                            <fields uid="26613ed1-ec4c-4684-87bf-b7e0f1622b9c" constant="true" value="content">
+                              <classifiers uid="5d5518d1-e0ca-421e-9fb5-0dbe2d5e7eb3" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
+                            </fields>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <classifiers uid="28bf614f-50c1-41bd-80e4-177be0a7619e" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
                     </canvases>
                     <viewInheritances uid="b9c1bcfd-3176-4073-98a3-2e7467876cb9" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="b81472e3-3691-491b-9a84-862652bb04da"/>
                     <viewInheritances uid="3460e173-fff3-42f8-a750-5d6c23651908" source="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" target="96d21de5-a477-49c2-bfe3-d394d8dc333d"/>
@@ -16331,6 +16417,16 @@
                       <classifiers uid="03faab88-d33a-4d4b-8788-9d95b2fa09fb" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
                       <classifiers uid="29399413-03aa-4a27-ade8-92eff6dce78e" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
                       <classifiers uid="be174144-6c64-41d9-aa7d-31c7e6116ac1" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+                      <fields uid="5de1d520-4799-4866-82cb-d846cf42a2aa" value="Applications.ERP.CRM.Sales Analysis.DataLoader.ETLController.genericTemplate">
+                        <expression objRef="3cdceac2-603d-4e1f-89a1-78103dd3da72" expressionType="DomainApplicationsImpl"/>
+                        <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" order="1" expressionType="DomainApplicationImpl"/>
+                        <expression objRef="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" order="2" expressionType="ApplicationGroupImpl"/>
+                        <expression objRef="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" order="3" expressionType="ApplicationImpl"/>
+                        <expression objRef="fe181577-1d5f-4752-a8bf-70e0f30b3ad8" order="4" expressionType="ApplicationUIPackageImpl"/>
+                        <expression objRef="02d0b32a-fae5-4428-8369-41150d6b2016" order="5" expressionType="FormImpl"/>
+                        <expression objRef="de2fc03c-4c89-48f0-a9c1-85664fcfb96b" order="6" expressionType="WindowImpl"/>
+                        <classifiers uid="727065c5-3cca-4191-b709-f9168f76f43c" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
+                      </fields>
                     </canvases>
                   </view>
                   <datacontrols uid="0443aff3-70de-4d6b-a419-d47665efe763">
