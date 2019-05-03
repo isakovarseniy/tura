@@ -39,7 +39,10 @@ operation form::Window generateComponentBody(hash){
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
 [%
-       var expression = constructExpression(self,'jsf.template',hints, hash);
+
+	   hints.put("relativePath",true); 
+	   var expression = constructExpression(self,'jsf.template',hints, hash);
+	   hints.remove("relativePath"); 
        if (expression <> ""){
        %] template="[%=expression%]"[%
        }

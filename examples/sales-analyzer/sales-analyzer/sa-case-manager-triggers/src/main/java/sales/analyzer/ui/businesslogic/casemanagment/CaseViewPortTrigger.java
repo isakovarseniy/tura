@@ -10,23 +10,22 @@ import org.tura.platform.datacontrol.annotations.ViewPortTrigger;
 import org.tura.platform.datacontrol.command.ViewPortCommand;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
 
-
 @Alternative
 @Priority(10)
 @Selector("analysis.casemanager")
 @ViewPortTrigger("caseViewport")
-public class CaseViewPortTrigger extends ViewPortCommand{
+public class CaseViewPortTrigger extends ViewPortCommand {
 
 	@Inject
 	ELResolver elResolver;
-	
+
 	@Override
 	public Object execute() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		if ("CASE".equals(bf.getCanvasType())) {
-			return "/analysis/casemanager/CaseDescription.xhtml";
-		}else {
-			return "/analysis/casemanager/WorkItemCanvase.xhtml";
+			return "/analysis/casemanager/caseDescription.xhtml";
+		} else {
+			return "/analysis/casemanager/workItemCanvase.xhtml";
 		}
 	}
 }
