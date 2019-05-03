@@ -1,0 +1,21 @@
+
+
+
+removeClosure "hrUrlList";
+removeClosure "hrLogWatch";
+removeClosure "stopHRApplication";
+removeClosure "buildSAApplication";
+removeClosure "generateHRApplication";
+removeClosure "startSAIntegrationTest";
+removeClosure "removeAll";
+removeClosure "saLogWatch";
+removeClosure "stopSAApplication";
+removeClosure "startHRApplication";
+removeClosure "generateSAApplication";
+removeClosure "saUrlList";
+removeClosure "buildHRApplication";
+removeClosure "startSAApplication";
+removeClosure "startHRIntegrationTest";
+removeClosure "startSAApplicationWithData";
+
+#   Register your commands
