@@ -77,11 +77,12 @@ public class BuildCommand extends TuraCommand implements Runnable{
 	}
 
 	public void run() {
+		EmfModel model = null;
 		try {
 
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
 
-			EmfModel model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
+			model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
 
 			Collection<EObject> c = model.getAllOfType("domain::Domain");
 			if (c.isEmpty()) {
@@ -104,6 +105,10 @@ public class BuildCommand extends TuraCommand implements Runnable{
 
 		} catch (Exception e) {
 			throw new RuntimeException("Eror during build process",e);
+		}finally {
+			if (model != null) {
+				model.dispose();
+			}
 		}
 
 	}

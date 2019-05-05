@@ -73,6 +73,7 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 	private boolean build;
 
 	public void run() {
+		EmfModel model = null;
 		try {
 			String action = null;
 
@@ -101,7 +102,7 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 			}
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
 
-			EmfModel model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
+			model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
 
 			Collection<EObject> c = model.getAllOfType("domain::Domain");
 			if (c.isEmpty()) {
@@ -158,6 +159,10 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
+		}finally{
+			if (model != null) {
+				model.dispose();
+			}
 		}
 	}
 
