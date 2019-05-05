@@ -46,12 +46,20 @@ public class MavenBuildProject implements Runnable {
 	@Option(names = "--D", description = "options")
 	private List<String> options;
 
+	@Option(names = "--o", description = "Offline build")
+	private boolean build;
+	
+	
+	
 	@Override
 	public void run() {
 		InvocationRequest request = new DefaultInvocationRequest();
 		request.setGoals(Arrays.asList(new String[] { "clean", "install" }));
 		request.setPomFile(new File(pomxml));
 		request.setProfiles(profile);
+		if (build ) {
+		    request.setOffline(true);
+		}
 
 		String mavenOpts = "";
 		if (options != null) {
