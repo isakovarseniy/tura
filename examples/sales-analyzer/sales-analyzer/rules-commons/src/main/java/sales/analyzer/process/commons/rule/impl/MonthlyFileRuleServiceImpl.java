@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.drools.core.command.impl.GenericCommand;
 import org.drools.core.command.runtime.BatchExecutionCommandImpl;
+import org.drools.core.command.runtime.rule.DeleteObjectCommand;
 import org.drools.core.command.runtime.rule.FireAllRulesCommand;
 import org.drools.core.command.runtime.rule.InsertObjectCommand;
 import org.kie.api.runtime.ExecutionResults;
@@ -35,6 +36,7 @@ public class MonthlyFileRuleServiceImpl {
 
 	    cmds.add( new InsertObjectCommand(model));
         cmds.add(new FireAllRulesCommand());
+        cmds.add(new DeleteObjectCommand(model,"DEFAULT"));
         
         @SuppressWarnings("unused")
 		ExecutionResults results = rulesService.call(container, new BatchExecutionCommandImpl((List<GenericCommand<?>>) cmds));
