@@ -778,7 +778,7 @@ public class ActionsCaseManagement implements EventAccessor {
 			ExternalContext externalContext  = FacesContext.getCurrentInstance().getExternalContext();
 			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
 			request.logout();
-			externalContext.redirect("/sa-case-manager/analysis/casemanager/WorkItemWindow.xhtml");
+			externalContext.redirect("/sa-case-manager/analysis/casemanager/workItemWindow.xhtml");
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}

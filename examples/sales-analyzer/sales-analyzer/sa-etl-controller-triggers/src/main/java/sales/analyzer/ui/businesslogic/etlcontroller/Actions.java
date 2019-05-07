@@ -113,7 +113,7 @@ public class Actions implements EventAccessor {
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
 			request.logout();
-			externalContext.redirect("/sa-etl-controller/dataloader/etlcontroller/ETLControlWindow.xhtml");
+			externalContext.redirect("/sa-etl-controller/dataloader/etlcontroller/etlControlWindow.xhtml");
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
