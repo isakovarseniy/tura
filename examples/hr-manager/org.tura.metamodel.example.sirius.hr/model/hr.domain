@@ -323,6 +323,10 @@
             <hints uid="e55de5bf-a956-4a81-9fcb-ac500cb824a7" name="jsf.template" hint="3db83d48-137c-41ae-b836-7062f4c09c4a"/>
             <hints uid="85e15904-aebd-490e-ada1-1cb996860cc3" name="jsf.composition.section" hint="994657cd-c31d-4ad3-a22a-3411fc8d1fd4"/>
             <hints uid="fea159ee-be0f-470c-82d9-1f773c088fdc" name="jsf.composition.window" hint="6b221ed6-1413-4f86-8b83-d7f6a83d515c"/>
+            <hints uid="63cb990b-003d-427f-a42c-00ab00491c91" name="jsf.external.page" hint="6d42c821-6ebd-4bb5-803d-461a24bf240d"/>
+            <hints uid="a93832d4-10f2-4aa3-9061-5b32b7601339" name="jsf.template.nosection" hint="5aa9a51d-a297-48d9-b81b-c3810493ff61"/>
+            <hints uid="d68df7cd-5779-47bd-ba42-3d4937d536d9" name="additional.namespace" hint="574b0a96-0741-42f2-8e15-b9f97e351cf1"/>
+            <hints uid="6b8c84ee-3fef-41c4-9bd1-513f569bc317" name="avalonMenu" hint="fe3d3632-526f-486c-844b-4d4c5dfab0f7"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -507,6 +511,9 @@
           <hints uid="3db83d48-137c-41ae-b836-7062f4c09c4a" name="jsf.template"/>
           <hints uid="994657cd-c31d-4ad3-a22a-3411fc8d1fd4" name="jsf.composition.section"/>
           <hints uid="6b221ed6-1413-4f86-8b83-d7f6a83d515c" name="jsf.composition.window"/>
+          <hints uid="6d42c821-6ebd-4bb5-803d-461a24bf240d" name="jsf.external.page"/>
+          <hints uid="5aa9a51d-a297-48d9-b81b-c3810493ff61" name="jsf.template.nosection"/>
+          <hints uid="574b0a96-0741-42f2-8e15-b9f97e351cf1" name="additional.namespace"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
@@ -531,6 +538,7 @@
             <hints uid="eb820338-63ea-46bd-97f9-240c0553ed4a" name="table.edit.column"/>
             <hints uid="4a673482-a330-41e4-8d3d-df9a3baf82c4" name="messages.autoupdate"/>
             <hints uid="47c6f35a-1c31-41a9-906b-f85363352802" name="responsive.grid"/>
+            <hints uid="fe3d3632-526f-486c-844b-4d4c5dfab0f7" name="avalonMenu"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -10519,9 +10527,10 @@
                               <style uid="b82af5fc-1a58-41f6-8920-1f5597862286"/>
                               <readOnly uid="497bf961-4673-4001-b443-9830184a14c4"/>
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="85a428c6-7345-4483-a255-9f9dd996e567" columns="2">
+                                <style uid="e8ab284e-f362-4e10-bfac-91caa87e5a91"/>
                                 <readOnly uid="dc35070f-230b-40a5-9c73-9b74430de7ab"/>
                                 <children xsi:type="tura.form:Label" uid="74d0ce48-7dc8-48fe-894d-f912cc4fcdb7" label="City">
-                                  <style uid="7ff57e90-a6b9-4068-a6d9-95ef905e9eae" constant="true" value="padding-right:12px;padding-left:20px;"/>
+                                  <style uid="7ff57e90-a6b9-4068-a6d9-95ef905e9eae" constant="true" value="margin-right:30px;margin-left:20px;"/>
                                   <multiLangLabel uid="b062fc97-eb8d-4b5e-86b9-d015fb7e7c7b" value="Application Message Libraries.Case management.CITY">
                                     <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                     <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
@@ -10577,8 +10586,9 @@
                                 </children>
                               </children>
                               <children xsi:type="tura.form:LayerHolder" uid="57d7dcf5-e886-40cd-8cd6-b92638b250d9" columns="2">
+                                <style uid="ceeeac9f-596d-472e-a65d-84622b66eb9c"/>
                                 <children xsi:type="tura.form:Label" uid="ef064116-4c96-402a-8316-e75cdb51da63" label="State">
-                                  <style uid="7998e898-949b-49f4-b5f2-0d039106eac4" constant="true" value="padding-right:43px"/>
+                                  <style uid="7998e898-949b-49f4-b5f2-0d039106eac4" constant="true" value="margin-right:2px"/>
                                   <multiLangLabel uid="a3416b51-cc91-473b-8109-8eedd89a6df4" value="Application Message Libraries.Case management.STATE">
                                     <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                     <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
@@ -10586,7 +10596,7 @@
                                   </multiLangLabel>
                                 </children>
                                 <children xsi:type="tura.form:DropDownSelection" order="1" uid="2172bad4-49e9-4ca1-a4ff-921ce91c329a" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="248fb7b2-b723-48ec-98be-ea5b39c16852" optionPointer="8c499a37-e62b-4103-bfc7-60502b344e2e" initialOptionValue="-1">
-                                  <style uid="36b0e809-1332-4361-a6d8-f03ac182fef2"/>
+                                  <style uid="36b0e809-1332-4361-a6d8-f03ac182fef2" constant="true" value="width:144px"/>
                                   <enabled uid="dbf8efcb-42e6-48a1-a9d0-93b3661494da"/>
                                   <fields uid="2eb57a75-1d8f-4e43-876e-f49b3fcf1fa3" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.cleanOnChange()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -10626,7 +10636,9 @@
                                     <expression objRef="bcf527af-1dfa-4489-8077-417037798cfe" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
                                 </children>
-                                <children xsi:type="tura.form:InputText" order="1" uid="f5a501f3-ed3e-44bb-9aba-1502e015bd1c" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="b4df5e58-331e-4053-86d8-4ee75d5e835b"/>
+                                <children xsi:type="tura.form:InputText" order="1" uid="f5a501f3-ed3e-44bb-9aba-1502e015bd1c" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="b4df5e58-331e-4053-86d8-4ee75d5e835b">
+                                  <style uid="cce14dac-8f10-45b4-b588-66b935ca2339" constant="true" value="width:195px"/>
+                                </children>
                               </children>
                               <children xsi:type="tura.form:LayerHolder" order="2" uid="16ccc68f-16ec-416d-ac30-1f0054926e58" columns="2">
                                 <style uid="da35461c-30e7-4635-82b3-981a1594ca7e"/>

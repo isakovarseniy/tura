@@ -37,6 +37,12 @@ operation form::Menu draw(hash) {
        var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";
        extrainfo = extrainfo+ " "+ title;
      }
+
+     if (self.findClassifier(util.getHint(model_mapper,"avalonMenu"))){
+       menuType = "pu:menu";
+     }
+
+
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      

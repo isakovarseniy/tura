@@ -17,7 +17,7 @@ REALNAME=$(realpath "$0")
 DIRNAME=$(dirname "${REALNAME}")
 PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
-APP_HOME=${DIRNAME}
+APP_HOME=${ROOTDIR}
 TARGETDIR=$APP_HOME/processor-extension/target
 TURA_HOME=${HOME}/.tura/tura
 

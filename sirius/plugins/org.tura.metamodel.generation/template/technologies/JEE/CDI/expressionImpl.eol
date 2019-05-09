@@ -273,7 +273,7 @@ operation  WindowImpl(expression:String, contextValue , paramId: Integer, array 
      var routingTable = configuration.get("Application routing table");
 
       var serverRoot = "";
-	  if (hints.get("relativePath") == null ){
+	  if (routingTable <> null and hints.get("relativePath") == null){
 		  serverRoot = routingTable.get(util.mergeAndCapitalize(uipackage.name).toLowerCase());
 	  }
       return serverRoot + "/"+ util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/"+ util.mergeAndUnCapitalize(window.name)+".xhtml";

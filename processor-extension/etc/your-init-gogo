@@ -1,3 +1,6 @@
+echo "INIT YOUR-APP"
+
+app_home=system:getproperty APP_HOME	
 
 
 

@@ -8,6 +8,8 @@ operation  form::Window drawAsComponent(hash) {
      
      util.traceIfDebug("UI element","Window start: "+self.name);     
      
+     
+     
 %]
      [%=self.generateComponentBody(hash)%]     
 [%
@@ -29,6 +31,12 @@ operation form::Window generateComponentBody(hash){
      var model_mapper = hash.get('model_mapper');
      var util = new Native('org.tura.metamodel.commons.Util');
      var defaultName = "content";
+
+     var nosection = false;
+     if (self.findClassifier(util.getHint(model_mapper,"jsf.template.nosection"))){
+       nosection = true;
+     }
+
       
      var title = buildExpression(self.multiLangLabel,hints,hash);
         
@@ -39,6 +47,10 @@ operation form::Window generateComponentBody(hash){
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
 [%
+        for (namespace in self.findAllClassifiers(util.getHint(model_mapper,"additional.namespace"))){%]
+             [%=namespace.details%]        
+        [%
+        }
 
 	   hints.put("relativePath",true); 
 	   var expression = constructExpression(self,'jsf.template',hints, hash);
@@ -58,14 +70,14 @@ operation form::Window generateComponentBody(hash){
                   }
                   var newSection =   not first and  not defaultName.equals(name);
                   
-                  if (first){
+                  if (first and not nosection){
                   %]
                   <ui:define name="[%=name%]">
                   [%
                   first = false;
                   }
                   
-                  if ( newSection   ){
+                  if ( newSection and not nosection  ){
                   %]
                   </ui:define>
                   <ui:define name="[%=name%]">
@@ -79,8 +91,10 @@ operation form::Window generateComponentBody(hash){
                 }  
 %]                    
                 [%=self.addStylesAndTriggers(hash)%]
-
+                
+[%if ( not nosection ){%]
              </ui:define>
+[%}%]
 </ui:composition>
 [%
 }

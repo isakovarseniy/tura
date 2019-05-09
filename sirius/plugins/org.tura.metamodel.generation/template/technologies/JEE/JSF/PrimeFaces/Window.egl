@@ -3,6 +3,10 @@ operation  form::Window draw(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var model_mapper = hash.get('model_mapper');
 
+     if (self.findClassifier(util.getHint(model_mapper,"jsf.external.page"))){
+       return;
+     }
+
      if (self.findClassifier(util.getHint(model_mapper,"jsf.template"))){
         self.drawAsGenericTemplate(hash);
      }else{
