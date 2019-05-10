@@ -12576,7 +12576,7 @@
                             </multiLangLabel>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="2" uid="d8010181-8702-451f-85a8-588c807c8128" columns="3">
-                            <style uid="e4ea08d6-c5da-484f-a6bd-243a40a6ec2a" constant="true" value="width:60%"/>
+                            <style uid="e4ea08d6-c5da-484f-a6bd-243a40a6ec2a" constant="true" value="width:80%"/>
                             <children xsi:type="tura.form:Table" nickname="users table" uid="b013768a-8b8e-4bdb-aa38-6dfe1021479a" sourcePointer="fd9ac78a-5112-40a9-ae48-50b64ab7b5fc" columns="5" label="Users" rowNumber="5">
                               <style uid="5b0a6717-d5e1-4746-af0b-681885285955" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                               <refreshAreas area="80f290b9-ad76-438f-82c2-933f1615ee4c" group="2"/>
