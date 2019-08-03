@@ -114,6 +114,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createPopupCanvasAdapter();
 			}
 			@Override
+			public Adapter caseOverlayCanvas(OverlayCanvas object) {
+				return createOverlayCanvasAdapter();
+			}
+			@Override
 			public Adapter caseCanvas(Canvas object) {
 				return createCanvasAdapter();
 			}
@@ -270,8 +274,16 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createCheckBoxAdapter();
 			}
 			@Override
+			public Adapter caseSelectOneFromListOfOptions(SelectOneFromListOfOptions object) {
+				return createSelectOneFromListOfOptionsAdapter();
+			}
+			@Override
 			public Adapter caseDropDownSelection(DropDownSelection object) {
 				return createDropDownSelectionAdapter();
+			}
+			@Override
+			public Adapter caseRadioSelection(RadioSelection object) {
+				return createRadioSelectionAdapter();
 			}
 			@Override
 			public Adapter caseImage(Image object) {
@@ -624,6 +636,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPopupCanvasAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.OverlayCanvas <em>Overlay Canvas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.OverlayCanvas
+	 * @generated
+	 */
+	public Adapter createOverlayCanvasAdapter() {
 		return null;
 	}
 
@@ -1174,6 +1200,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link form.SelectOneFromListOfOptions <em>Select One From List Of Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.SelectOneFromListOfOptions
+	 * @generated
+	 */
+	public Adapter createSelectOneFromListOfOptionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link form.DropDownSelection <em>Drop Down Selection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1184,6 +1224,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDropDownSelectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.RadioSelection <em>Radio Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.RadioSelection
+	 * @generated
+	 */
+	public Adapter createRadioSelectionAdapter() {
 		return null;
 	}
 

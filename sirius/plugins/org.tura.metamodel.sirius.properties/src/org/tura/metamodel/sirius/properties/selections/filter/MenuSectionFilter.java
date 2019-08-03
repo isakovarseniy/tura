@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 import form.Menu;
+import form.Table;
 
 public class MenuSectionFilter implements IFilter{
 
@@ -19,7 +20,7 @@ public class MenuSectionFilter implements IFilter{
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof Menu) {
+			if (element instanceof Menu || element instanceof Table) {
 				return true;
 			}
 		}

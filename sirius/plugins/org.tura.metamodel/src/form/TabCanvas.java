@@ -20,7 +20,7 @@ import artifact.Categorized;
  * @model
  * @generated
  */
-public interface TabCanvas extends CanvasFrame, DefaultCavas, MultiLangLabel, Categorized {
+public interface TabCanvas extends CanvasFrame, DefaultCavas, MultiLangLabel, Categorized, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Orientation</b></em>' attribute.
 	 * The literals are from the enumeration {@link form.Orientation}.

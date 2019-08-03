@@ -12,7 +12,7 @@ operation  form::LayerHolder  draw(hash) {
        
        
 %]
-     <p:panelGrid  layout="[%=responsive%]" [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]   [%=self.rendered(hash)%]   styleClass="[%=self.styleClassByClassifier(util.getHint(model_mapper,"styleClass"))%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
+     <p:panelGrid  layout="[%=responsive%]" [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]   [%=self.rendered(hash)%]   styleClass="[%=self.styleClassByClassifier(util.getHint(model_mapper,"styleClass")).replace(","," ")%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

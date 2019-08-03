@@ -97,7 +97,7 @@ public class ViewAreaConfigurator implements NodeConfigurator {
 		CreateInstance c2 = ToolHelper.createInstance("form.ViewArea", "instance", "viewElement");
 		c1.getSubModelOperations().add(c2);
 		c2.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewArea" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -117,7 +117,7 @@ public class ViewAreaConfigurator implements NodeConfigurator {
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
 		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewArea" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -159,7 +159,11 @@ public class ViewAreaConfigurator implements NodeConfigurator {
 
 		w = (ObjectWrapper) tRoot.context.get("ViewElements3" + tContainer.class.getName());
 		ContainerMapping tabContainer = (ContainerMapping) w.getWrapedObject();
-		for (int i = 0; i < 4; i++) {
+
+		w = (ObjectWrapper) tRoot.context.get("ViewElements4" + tContainer.class.getName());
+		ContainerMapping overlayContainer = (ContainerMapping) w.getWrapedObject();
+
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewArea" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -170,6 +174,7 @@ public class ViewAreaConfigurator implements NodeConfigurator {
 			canvasContainer.getDropDescriptions().add(tool);
 			popupContainer.getDropDescriptions().add(tool);
 			tabContainer.getDropDescriptions().add(tool);
+			overlayContainer.getDropDescriptions().add(tool);
 			tool.getMappings().add(mapper);
 		}
 		return tool;

@@ -135,6 +135,7 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER);
 		}
 		return childrenFeatures;
@@ -196,6 +197,7 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 			case FormPackage.VIEW_PORT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case FormPackage.VIEW_PORT__FIELDS:
 			case FormPackage.VIEW_PORT__VIEW_PORT_TRIGGER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -216,8 +218,36 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(FormPackage.Literals.VIEW_PORT__VIEW_PORT_TRIGGER,
 				 FormFactory.eINSTANCE.createViewPortTrigger()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

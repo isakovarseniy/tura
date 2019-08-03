@@ -54,6 +54,11 @@ public class SystemLibrary {
 		return style;
 	}
 	
+	public Boolean not(Boolean val) {
+		return !val;
+	}
+	
+	
     public void changeLanguage(String language) {
         FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(language));
     }	

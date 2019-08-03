@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link form.Table#getRowNumber <em>Row Number</em>}</li>
  *   <li>{@link form.Table#getSelectionMode <em>Selection Mode</em>}</li>
  *   <li>{@link form.Table#getCols <em>Cols</em>}</li>
+ *   <li>{@link form.Table#isScrollable <em>Scrollable</em>}</li>
+ *   <li>{@link form.Table#getScrollHeight <em>Scroll Height</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getTable()
@@ -122,5 +124,57 @@ public interface Table extends SourcesPointer, MultiLangLabel, HTMLLayerHolder {
 	 * @generated
 	 */
 	EList<Column> getCols();
+
+	/**
+	 * Returns the value of the '<em><b>Scrollable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scrollable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scrollable</em>' attribute.
+	 * @see #setScrollable(boolean)
+	 * @see form.FormPackage#getTable_Scrollable()
+	 * @model
+	 * @generated
+	 */
+	boolean isScrollable();
+
+	/**
+	 * Sets the value of the '{@link form.Table#isScrollable <em>Scrollable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scrollable</em>' attribute.
+	 * @see #isScrollable()
+	 * @generated
+	 */
+	void setScrollable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Scroll Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scroll Height</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scroll Height</em>' attribute.
+	 * @see #setScrollHeight(int)
+	 * @see form.FormPackage#getTable_ScrollHeight()
+	 * @model
+	 * @generated
+	 */
+	int getScrollHeight();
+
+	/**
+	 * Sets the value of the '{@link form.Table#getScrollHeight <em>Scroll Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scroll Height</em>' attribute.
+	 * @see #getScrollHeight()
+	 * @generated
+	 */
+	void setScrollHeight(int value);
 
 } // Table

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extender
+Bundle-SymbolicName: org.tura.metamodel.extender;singleton:=true
+Bundle-Version: 4.2.0.qualifier
+Bundle-Activator: org.tura.metamodel.extender.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.sirius.ecore.extender;bundle-version="3.1.6",
+ org.eclipse.emf.ecore,
+ org.eclipse.sirius.ext.emf;bundle-version="3.1.6",
+ org.tura.metamodel;bundle-version="4.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

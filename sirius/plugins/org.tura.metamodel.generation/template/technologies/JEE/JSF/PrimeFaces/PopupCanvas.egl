@@ -5,6 +5,7 @@ operation  form::PopupCanvas draw(hash) {
      var form = hash.get("form");   
      var uipackage = hash.get("uipackage");
      var model_mapper = hash.get('model_mapper');
+     var hints = new Native('java.util.HashMap');
      util.traceIfDebug("UI element","PopupCanvas start: "+self.name);     
      
      var widvar = "";
@@ -12,13 +13,15 @@ operation  form::PopupCanvas draw(hash) {
          widvar = " widgetVar=\""+ self.~hintDetails +"\"  onHide=\"PF('"+self.~hintDetails+ "').content.empty()\"";
       }
      var modal =" modal=\""+ self.modal+ "\"";
+     var title =  " header=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";  
+     
      
 %]
      <p:dialog xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui" dynamic="true"   [%=modal%] [%=widvar%]  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
+        xmlns:p="http://primefaces.org/ui" dynamic="true" [%=title%]  [%=modal%] [%=widvar%]  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="1" >
      [%=self.generateBody(hash)%]     
      </p:dialog>
 [%

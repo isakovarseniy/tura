@@ -278,6 +278,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.OverlayCanvas} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OverlayCanvasItemProvider overlayCanvasItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.OverlayCanvas}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOverlayCanvasAdapter() {
+		if (overlayCanvasItemProvider == null) {
+			overlayCanvasItemProvider = new OverlayCanvasItemProvider(this);
+		}
+
+		return overlayCanvasItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.Canvas} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1175,6 +1198,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.SelectOneFromListOfOptions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SelectOneFromListOfOptionsItemProvider selectOneFromListOfOptionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.SelectOneFromListOfOptions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSelectOneFromListOfOptionsAdapter() {
+		if (selectOneFromListOfOptionsItemProvider == null) {
+			selectOneFromListOfOptionsItemProvider = new SelectOneFromListOfOptionsItemProvider(this);
+		}
+
+		return selectOneFromListOfOptionsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.DropDownSelection} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1195,6 +1241,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return dropDownSelectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.RadioSelection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RadioSelectionItemProvider radioSelectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.RadioSelection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRadioSelectionAdapter() {
+		if (radioSelectionItemProvider == null) {
+			radioSelectionItemProvider = new RadioSelectionItemProvider(this);
+		}
+
+		return radioSelectionItemProvider;
 	}
 
 	/**

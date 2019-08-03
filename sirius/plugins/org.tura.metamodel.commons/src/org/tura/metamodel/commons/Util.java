@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.UUID;
 
 import javax.crypto.KeyGenerator;
 
@@ -731,6 +732,10 @@ public class Util {
 			return key;
 	}
     
+	
+	public String generateUUID(){
+		return  UUID.randomUUID().toString().replaceAll("\\-","_");
+	}
     
 }
 

@@ -10,7 +10,12 @@ operation form::Button draw(hash) {
      var hints = new Native('java.util.HashMap');
      var model_mapper = hash.get('model_mapper');
      
-     var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";  
+     var t = buildExpression(self.multiLangLabel,hints,hash);
+     var title = "";
+     if (not "".equals(t) ){
+        title =  " value=\"" + t + "\" ";  
+     }
+
      var icon = " icon=\""+buildExpression(self.icon,hints,hash)+"\" ";
  
      var immediate = "";

@@ -5,17 +5,23 @@ package form.impl;
 import common.CommonPackage;
 import common.Orderable;
 
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.ViewPort;
 import form.ViewPortTrigger;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link form.impl.ViewPortImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.ViewPortImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.ViewPortImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.ViewPortImpl#getName <em>Name</em>}</li>
  *   <li>{@link form.impl.ViewPortImpl#getViewPortTrigger <em>View Port Trigger</em>}</li>
@@ -53,6 +60,16 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -149,6 +166,18 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.VIEW_PORT__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -237,6 +266,8 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FormPackage.VIEW_PORT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case FormPackage.VIEW_PORT__VIEW_PORT_TRIGGER:
 				return basicSetViewPortTrigger(null, msgs);
 		}
@@ -253,6 +284,8 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 		switch (featureID) {
 			case FormPackage.VIEW_PORT__ORDER:
 				return getOrder();
+			case FormPackage.VIEW_PORT__FIELDS:
+				return getFields();
 			case FormPackage.VIEW_PORT__UID:
 				return getUid();
 			case FormPackage.VIEW_PORT__NAME:
@@ -268,11 +301,16 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FormPackage.VIEW_PORT__ORDER:
 				setOrder((Integer)newValue);
+				return;
+			case FormPackage.VIEW_PORT__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.VIEW_PORT__UID:
 				setUid((String)newValue);
@@ -298,6 +336,9 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 			case FormPackage.VIEW_PORT__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.VIEW_PORT__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.VIEW_PORT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -321,6 +362,8 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 		switch (featureID) {
 			case FormPackage.VIEW_PORT__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.VIEW_PORT__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.VIEW_PORT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.VIEW_PORT__NAME:
@@ -344,6 +387,12 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.VIEW_PORT__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -357,6 +406,12 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return FormPackage.VIEW_PORT__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.VIEW_PORT__FIELDS;
 				default: return -1;
 			}
 		}

@@ -22,7 +22,7 @@ import common.Orderable;
  * @model
  * @generated
  */
-public interface TabPage extends CanvasFrame, ViewPortHolder, MultiLangLabel, Categorized, Orderable {
+public interface TabPage extends CanvasFrame, ViewPortHolder, MultiLangLabel, Categorized, Orderable, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Tab Sequence</b></em>' attribute.
 	 * <!-- begin-user-doc -->

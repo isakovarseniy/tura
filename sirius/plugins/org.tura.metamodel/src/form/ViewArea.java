@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ViewArea extends ViewElement, Orderable {
+public interface ViewArea extends ViewElement, Orderable, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

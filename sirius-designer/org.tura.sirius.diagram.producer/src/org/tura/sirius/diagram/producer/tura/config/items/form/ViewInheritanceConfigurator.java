@@ -51,6 +51,7 @@ public class ViewInheritanceConfigurator implements EdgeConfigurator {
 		list.add("ViewPort1" + tContainer.class.getName());
 		list.add("ViewPort2" + tContainer.class.getName());
 		list.add("ViewPort3" + tContainer.class.getName());
+		list.add("ViewPort4" + tContainer.class.getName());
 
 		return list;
 	}
@@ -60,6 +61,7 @@ public class ViewInheritanceConfigurator implements EdgeConfigurator {
 		list.add("Canvas" + tContainer.class.getName());
 		list.add("TabCanvas" + tNode.class.getName());
 		list.add("PopupCanvas" + tContainer.class.getName());
+		list.add("OverlayCanvas" + tContainer.class.getName());
 		list.add("Window" + tContainer.class.getName());
 
 		return list;

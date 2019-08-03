@@ -135,6 +135,7 @@ public class ViewAreaItemProvider extends ViewElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.VIEW_AREA__BASE_CANVAS);
 			childrenFeatures.add(FormPackage.Literals.VIEW_AREA__LINK_TO_LABELS);
 			childrenFeatures.add(FormPackage.Literals.VIEW_AREA__LINK_TO_MESSAGES);
@@ -198,6 +199,7 @@ public class ViewAreaItemProvider extends ViewElementItemProvider {
 			case FormPackage.VIEW_AREA__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case FormPackage.VIEW_AREA__FIELDS:
 			case FormPackage.VIEW_AREA__BASE_CANVAS:
 			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
 			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
@@ -220,6 +222,11 @@ public class ViewAreaItemProvider extends ViewElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(FormPackage.Literals.VIEW_AREA__BASE_CANVAS,
 				 FormFactory.eINSTANCE.createLayerHolder()));
 
@@ -232,6 +239,29 @@ public class ViewAreaItemProvider extends ViewElementItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.VIEW_AREA__LINK_TO_MESSAGES,
 				 FormFactory.eINSTANCE.createLinkToMessage()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

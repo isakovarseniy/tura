@@ -198,40 +198,20 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
         return datasource;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({ "unchecked" })
     public T getRowData(String rowKey) {
         Integer key = new Integer(rowKey);
-        List data = this.getWrappedData();
-        if ( data == null || data.size() == 0) {
-            return null;
+        List<?> scroler = datacontrol.getScroller();
+        if (key >= datacontrol.getScroller().size()) {
+            throw new RuntimeException("Wrong object key");
         }
-        int minIndex = (int) (( ObjectControl)data.get(0)).getViewModelId1();
-        int maxIndex = (int) (( ObjectControl)data.get(data.size()-1 )).getViewModelId1();
-        
-        if (  key >=  minIndex && key<=maxIndex) {
-            int index  = (key % getPageSize());
-            ObjectControl    obj = (ObjectControl) (((List)this.getWrappedData()).get(index));
-            if ( obj .getViewModelId1() .equals(key)) {
-                return (T) obj;
-            }
-            throw new RuntimeException("Wrong object");
+        ObjectControl obj =  (ObjectControl) scroler.get(key);
+        if ( obj != null) {
+	        obj .setViewModelId1(key);
+	        return (T) obj;
         }else {
-            if (gridSingleSelectModel != null) {
-                ObjectControl obj = (ObjectControl) gridSingleSelectModel.getSelected();
-                if ( obj .getViewModelId1() .equals(key)) {
-                    return (T) obj;
-                }
-            }else {
-                List<Object> selectedArray = (List<Object>) gridMultiSelectModel.getSelected();
-                for (Object obj : selectedArray) {
-                    ObjectControl o = (ObjectControl) obj;
-                    if ( o .getViewModelId1() .equals(key)) {
-                        return (T) obj;
-                    }
-                }
-            }
+        	return null;
         }
-        return null;
         
     }
 

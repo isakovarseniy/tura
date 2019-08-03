@@ -23,8 +23,10 @@ package org.tura.platform.selenium.primefaces;
 
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.tura.platform.selenium.Header;
 import org.tura.platform.selenium.Row;
 import org.tura.platform.selenium.Table;
@@ -59,8 +61,13 @@ public class TablePrimeFaces implements Table {
 	public void nextPage() {
 		Helper helper = new Helper(driver);
 
-		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "span[class='ui-icon ui-icon-seek-next']" ));
+		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "a[class='ui-paginator-next ui-state-default ui-corner-all']" ));
 		pagenatorNextElement.click();
+		
+		Point p = pagenatorNextElement.getLocation();
+		Actions builder = new Actions(driver);  
+		builder.moveToElement(pagenatorNextElement,p.x+50 , p.y+50).click().build().perform();
+
 		helper.waitForJQueryAndPrimeFaces();
 	}
 
@@ -68,8 +75,13 @@ public class TablePrimeFaces implements Table {
 	public void prevPage() {
 		Helper helper = new Helper(driver);
 
-		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "span[class='ui-icon ui-icon-seek-prev']" ));
+		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "a[class='ui-paginator-prev ui-state-default ui-corner-all']" ));
 		pagenatorNextElement.click();
+		
+		Point p = pagenatorNextElement.getLocation();
+		Actions builder = new Actions(driver);  
+		builder.moveToElement(pagenatorNextElement,p.x+50 , p.y+50).click().build().perform();
+		
 		helper.waitForJQueryAndPrimeFaces();
 	}
 

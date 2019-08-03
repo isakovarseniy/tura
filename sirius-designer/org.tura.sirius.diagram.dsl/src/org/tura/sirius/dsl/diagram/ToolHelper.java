@@ -145,6 +145,13 @@ public class ToolHelper {
 		return var;
 	}
 
+	public static InitialContainerDropOperation createInitialRadioOperation() {
+		InitialContainerDropOperation var = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE
+				.createInitialContainerDropOperation();
+		return var;
+	}
+
+	
 	public static Case createCase(String expression) {
 		Case var = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createCase();
 		var.setConditionExpression(expression);

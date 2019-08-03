@@ -35,6 +35,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
+import org.tura.platform.repository.core.ObjectControl;
 
 public class OptionsModel {
 
@@ -49,7 +50,7 @@ public class OptionsModel {
 	public OptionsModel(DataControl<?> datacontrol, Logger logger, Object callback) {
 		this.datacontrol = datacontrol;
 		this.logger = logger;
-		this.callback=callback;
+		this.callback = callback;
 		datacontrol.addEventLiteners(new RecordListener());
 
 	}
@@ -65,7 +66,7 @@ public class OptionsModel {
 	}
 
 	public OptionsModel setSelectOption(String expression) {
-		Object value = datacontrol.getElResolver().getValue("#{"+expression+"}");
+		Object value = datacontrol.getElResolver().getValue("#{" + expression + "}");
 		try {
 			for (int i = 0; i < options.size(); i++) {
 				Object[] row = options.get(i);
@@ -75,20 +76,19 @@ public class OptionsModel {
 				}
 			}
 		} catch (Exception e) {
-			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
+			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 		return this;
 	}
+
 	public OptionsModel setAction(String expression) {
-		datacontrol.getElResolver().getValue("#{"+expression+"}");
+		datacontrol.getElResolver().getValue("#{" + expression + "}");
 		return this;
-	}	
-	
-	
+	}
+
 	public void changeValueListener() {
 	}
 
-	
 	public List<Object[]> getOptions() {
 		if (options != null)
 			return options;
@@ -102,13 +102,27 @@ public class OptionsModel {
 			Iterator<?> itr = scroler.iterator();
 			while (itr.hasNext()) {
 				Object obj = itr.next();
-				Object objLabel = Reflection.call(obj, label);
-				Object objValue = Reflection.call(obj, value);
+				Object objLabel = null;
+				try {
+					objLabel = Reflection.call(obj, label);
+				} catch (NoSuchMethodException m) {
+					ObjectControl oc = (ObjectControl) obj;
+					String attr = "ATTRIBUTE_" + label.toUpperCase().substring(3);
+					objLabel = oc.getAttributes().get(attr);
+				}
+				Object objValue = null;
+				try {
+					objValue = Reflection.call(obj, value);
+				} catch (NoSuchMethodException m) {
+					ObjectControl oc = (ObjectControl) obj;
+					String attr = "ATTRIBUTE_" + value.toUpperCase().substring(3);
+					objValue = oc.getAttributes().get(attr);
+				}
 				options.add(new Object[] { objLabel, objValue });
 			}
 
 		} catch (Exception e) {
-			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
+			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 
 		return options;
@@ -119,8 +133,7 @@ public class OptionsModel {
 
 		@Override
 		public void handleEventListener(Event event) throws TuraException {
-			if (event instanceof MasterRowChangedEvent
-					|| event instanceof RowRemovedEvent) {
+			if (event instanceof MasterRowChangedEvent || event instanceof RowRemovedEvent) {
 				options = null;
 			}
 		}

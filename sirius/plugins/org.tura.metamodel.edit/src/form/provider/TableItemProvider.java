@@ -54,6 +54,8 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 			addLabelPropertyDescriptor(object);
 			addRowNumberPropertyDescriptor(object);
 			addSelectionModePropertyDescriptor(object);
+			addScrollablePropertyDescriptor(object);
+			addScrollHeightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -147,6 +149,50 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Scrollable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScrollablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_scrollable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_scrollable_feature", "_UI_Table_type"),
+				 FormPackage.Literals.TABLE__SCROLLABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Scroll Height feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScrollHeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_scrollHeight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_scrollHeight_feature", "_UI_Table_type"),
+				 FormPackage.Literals.TABLE__SCROLL_HEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -219,6 +265,8 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 			case FormPackage.TABLE__LABEL:
 			case FormPackage.TABLE__ROW_NUMBER:
 			case FormPackage.TABLE__SELECTION_MODE:
+			case FormPackage.TABLE__SCROLLABLE:
+			case FormPackage.TABLE__SCROLL_HEIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.TABLE__MULTI_LANG_LABEL:

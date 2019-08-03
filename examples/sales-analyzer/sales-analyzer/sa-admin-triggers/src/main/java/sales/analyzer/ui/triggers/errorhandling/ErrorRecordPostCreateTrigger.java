@@ -54,11 +54,8 @@ public class ErrorRecordPostCreateTrigger implements PostCreateTrigger {
 		
 	}
 	
-	
-	
 	public String getStatusCode(){
-		String val = String.valueOf((Integer)FacesContext.getCurrentInstance().getExternalContext().
-				getRequestMap().get("javax.servlet.error.status_code"));
+		String val = String.valueOf((Integer)FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("javax.servlet.error.status_code"));
 		return val;
 	}
 
@@ -69,15 +66,23 @@ public class ErrorRecordPostCreateTrigger implements PostCreateTrigger {
 	}
 
 	public String getExceptionType(){
-		String val = FacesContext.getCurrentInstance().getExternalContext().
-			getRequestMap().get("javax.servlet.error.exception_type").toString();
-		return val;
+		Object obj = FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("javax.servlet.error.exception_type");
+		if ( obj != null ) {
+			String val = obj.toString();
+			return val;
+		}else {
+			return "";
+		}
 	}
 
 	public String getException(){
-		String val =  (String)((Exception)FacesContext.getCurrentInstance().getExternalContext().
-			getRequestMap().get("javax.servlet.error.exception")).toString();
-		return val;
+		Object obj =  FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("javax.servlet.error.exception");
+		if ( obj != null ) {
+			String val = obj.toString();
+			return val;
+		}else {
+			return "";
+		}
 	}
 
 	public String getRequestURI(){

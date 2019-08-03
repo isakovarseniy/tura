@@ -46,6 +46,7 @@ operation form::Window generateComponentBody(hash){
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:tura="http://primefaces.platform.tura.org/functions"
 [%
         for (namespace in self.findAllClassifiers(util.getHint(model_mapper,"additional.namespace"))){%]
              [%=namespace.details%]        
@@ -84,7 +85,7 @@ operation form::Window generateComponentBody(hash){
                   [%
                   }
                   %]
-                  <h:form>
+                  <h:form id="tura_[%=util.generateUUID()%]">
                     [%=element.draw(hash)%]
                  </h:form>
 [%

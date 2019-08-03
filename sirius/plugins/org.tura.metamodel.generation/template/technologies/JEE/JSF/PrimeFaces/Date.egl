@@ -43,7 +43,7 @@ operation form::Date rw(hash,value) {
 operation form::Date ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
-   [%=self.readOnlyConverter(hash)%]
+    <f:convertDateTime type="date" pattern="[%=self.format%]"/>
 </h:outputText>
 [%
 }

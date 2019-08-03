@@ -385,12 +385,15 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 
 		pager.flush();
 
-		for (IDataControl dc : commandStack.getPoolFlushAware()) {
+        //Awoid java.util.ConcurrentModificationException 
+		List<IDataControl> pool = new ArrayList<>();
+		pool.addAll(commandStack.getPoolFlushAware());
+		for (IDataControl dc : pool) {
 			if (dc.getParent() == null && !(dc instanceof ChangeRecordListener) && dc.getTreeContext() == null)
 				dc.onPoolUpdate();
 		}
 	}
-
+	
 	public void saveState()  throws TuraException {
 		stateObject = getCurrentObject();
 	}

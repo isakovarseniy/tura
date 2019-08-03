@@ -8,6 +8,8 @@ import artifact.Classifier;
 
 import form.Context;
 import form.DefaultCavas;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.MultiLangLabel;
 import form.Orientation;
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.TabCanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  *   <li>{@link form.impl.TabCanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.TabCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link form.impl.TabCanvasImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.TabCanvasImpl#getOrientation <em>Orientation</em>}</li>
  * </ul>
  *
@@ -84,6 +87,16 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getOrientation() <em>Orientation</em>}' attribute.
@@ -205,6 +218,18 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.TAB_CANVAS__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Orientation getOrientation() {
 		return orientation;
 	}
@@ -233,6 +258,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				return basicSetMultiLangLabel(null, msgs);
 			case FormPackage.TAB_CANVAS__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case FormPackage.TAB_CANVAS__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -251,6 +278,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				return getMultiLangLabel();
 			case FormPackage.TAB_CANVAS__CLASSIFIERS:
 				return getClassifiers();
+			case FormPackage.TAB_CANVAS__FIELDS:
+				return getFields();
 			case FormPackage.TAB_CANVAS__ORIENTATION:
 				return getOrientation();
 		}
@@ -276,6 +305,10 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
 				return;
+			case FormPackage.TAB_CANVAS__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
 			case FormPackage.TAB_CANVAS__ORIENTATION:
 				setOrientation((Orientation)newValue);
 				return;
@@ -300,6 +333,9 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 			case FormPackage.TAB_CANVAS__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
+			case FormPackage.TAB_CANVAS__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.TAB_CANVAS__ORIENTATION:
 				setOrientation(ORIENTATION_EDEFAULT);
 				return;
@@ -321,6 +357,8 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				return multiLangLabel != null;
 			case FormPackage.TAB_CANVAS__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
+			case FormPackage.TAB_CANVAS__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.TAB_CANVAS__ORIENTATION:
 				return orientation != ORIENTATION_EDEFAULT;
 		}
@@ -352,6 +390,12 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.TAB_CANVAS__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -377,6 +421,12 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
 				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.TAB_CANVAS__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.TAB_CANVAS__FIELDS;
 				default: return -1;
 			}
 		}

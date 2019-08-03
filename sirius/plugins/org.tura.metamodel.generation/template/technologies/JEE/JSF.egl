@@ -192,6 +192,45 @@ operation form::Uielement  rendered(hash){
 
 
 @template
+operation form::TabCanvas  rendered(hash){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %]rendered="[%=value%]"[%
+     }
+}
+
+@template
+operation form::Canvas  rendered(hash){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %]rendered="[%=value%]"[%
+     }
+}
+
+
+@template
+operation form::ViewPort  rendered(hash){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %]rendered="[%=value%]"[%
+     }
+}
+
+
+@template
+operation form::TabPage  rendered(hash){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %]rendered="[%=value%]"[%
+     }
+}
+
+
+@template
 operation form::Uielement  required(hash){
       var hints = new Native('java.util.HashMap');
      if (self.required <> null  and self.required.value <> null){

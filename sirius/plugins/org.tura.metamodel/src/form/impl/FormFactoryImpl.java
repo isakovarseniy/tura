@@ -66,6 +66,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.DEFAULT_CAVAS: return createDefaultCavas();
 			case FormPackage.VIEW_ELEMENT: return createViewElement();
 			case FormPackage.POPUP_CANVAS: return createPopupCanvas();
+			case FormPackage.OVERLAY_CANVAS: return createOverlayCanvas();
 			case FormPackage.CANVAS: return createCanvas();
 			case FormPackage.WINDOW: return createWindow();
 			case FormPackage.MENU_DEFINITION: return createMenuDefinition();
@@ -105,7 +106,9 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.MESSAGE_ELEMENT: return createMessageElement();
 			case FormPackage.OUTPUT_TEXT: return createOutputText();
 			case FormPackage.CHECK_BOX: return createCheckBox();
+			case FormPackage.SELECT_ONE_FROM_LIST_OF_OPTIONS: return createSelectOneFromListOfOptions();
 			case FormPackage.DROP_DOWN_SELECTION: return createDropDownSelection();
+			case FormPackage.RADIO_SELECTION: return createRadioSelection();
 			case FormPackage.IMAGE: return createImage();
 			case FormPackage.DATE: return createDate();
 			case FormPackage.BUTTON: return createButton();
@@ -171,6 +174,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return createOrderFromString(eDataType, initialValue);
 			case FormPackage.ORIENTATION:
 				return createOrientationFromString(eDataType, initialValue);
+			case FormPackage.RADIO_LAYOUT:
+				return createRadioLayoutFromString(eDataType, initialValue);
 			case FormPackage.SORTABLE:
 				return createSortableFromString(eDataType, initialValue);
 			case FormPackage.SELECTION_MODE:
@@ -194,6 +199,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return convertOrderToString(eDataType, instanceValue);
 			case FormPackage.ORIENTATION:
 				return convertOrientationToString(eDataType, instanceValue);
+			case FormPackage.RADIO_LAYOUT:
+				return convertRadioLayoutToString(eDataType, instanceValue);
 			case FormPackage.SORTABLE:
 				return convertSortableToString(eDataType, instanceValue);
 			case FormPackage.SELECTION_MODE:
@@ -291,6 +298,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public PopupCanvas createPopupCanvas() {
 		PopupCanvasImpl popupCanvas = new PopupCanvasImpl();
 		return popupCanvas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OverlayCanvas createOverlayCanvas() {
+		OverlayCanvasImpl overlayCanvas = new OverlayCanvasImpl();
+		return overlayCanvas;
 	}
 
 	/**
@@ -688,9 +705,29 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SelectOneFromListOfOptions createSelectOneFromListOfOptions() {
+		SelectOneFromListOfOptionsImpl selectOneFromListOfOptions = new SelectOneFromListOfOptionsImpl();
+		return selectOneFromListOfOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DropDownSelection createDropDownSelection() {
 		DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
 		return dropDownSelection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RadioSelection createRadioSelection() {
+		RadioSelectionImpl radioSelection = new RadioSelectionImpl();
+		return radioSelection;
 	}
 
 	/**
@@ -1210,6 +1247,26 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * @generated
 	 */
 	public String convertOrientationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RadioLayout createRadioLayoutFromString(EDataType eDataType, String initialValue) {
+		RadioLayout result = RadioLayout.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRadioLayoutToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

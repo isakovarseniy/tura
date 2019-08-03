@@ -115,6 +115,7 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 		}
 		return childrenFeatures;
 	}
@@ -176,6 +177,7 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 				return;
 			case FormPackage.TAB_CANVAS__MULTI_LANG_LABEL:
 			case FormPackage.TAB_CANVAS__CLASSIFIERS:
+			case FormPackage.TAB_CANVAS__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -207,6 +209,11 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 			(createChildParameter
 				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 ArtifactFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**
@@ -222,7 +229,8 @@ public class TabCanvasItemProvider extends CanvasFrameItemProvider {
 
 		boolean qualify =
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

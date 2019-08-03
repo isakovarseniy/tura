@@ -138,7 +138,7 @@ public class ActionExecutor  implements java.io.Serializable {
             for (Object exp : (Object[]) array[1]) {
                 Object obj = null;
                 String expression = (String) exp;
-                if ("#{".equals(expression.substring(0, 2))) {
+                if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
                 }else{
                 	Class<?> clazz = ((Class[]) array[0])[i];
@@ -173,7 +173,7 @@ public class ActionExecutor  implements java.io.Serializable {
             for (Object exp : (Object[]) array[1]) {
                 Object obj = null;
                 String expression = (String) exp;
-                if ("#{".equals(expression.substring(0, 2))) {
+                if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
                 } else {
                     Class<?> clazz = ((Class[]) array[0])[i];
@@ -208,7 +208,7 @@ public class ActionExecutor  implements java.io.Serializable {
             for (Object exp : (Object[]) array[1]) {
                 Object obj = exp;
                 String expression = (String) exp;
-                if ("#{".equals(expression.substring(0, 2))) {
+                if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
                 }
                 objects.add(obj);
@@ -234,7 +234,7 @@ public class ActionExecutor  implements java.io.Serializable {
             for (Object exp : (Object[]) array[1]) {
                 Object obj = exp;
                 String expression = (String) exp;
-                if ("#{".equals(expression.substring(0, 2))) {
+                if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
                 }
                 objects.add(obj);

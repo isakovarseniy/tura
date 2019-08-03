@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
-import org.tura.metamodel.commons.Helper;
 import org.tura.metamodel.commons.Helper1;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.sirius.properties.actions.ConfigHashVarDialog;
@@ -64,6 +63,7 @@ import form.PREFormTrigger;
 import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
+import form.RadioSelection;
 import form.Relation;
 import form.RelationMapper;
 import form.SearchTrigger;
@@ -508,6 +508,15 @@ public class DiagramService {
 			return true;
 	}
 
+	public boolean validateOptionSelectionSelection(RadioSelection pointer) {
+		if (pointer.getSelection() == null)
+			return false;
+		else
+			return true;
+	}
+	
+	
+	
 	public boolean validateSelectionValuePointer(Selection pointer) {
 		if (pointer.getDisplayOptionPointer() == null)
 			return false;

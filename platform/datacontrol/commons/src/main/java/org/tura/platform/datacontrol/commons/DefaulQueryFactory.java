@@ -24,6 +24,7 @@ package org.tura.platform.datacontrol.commons;
 import static com.octo.java.sql.query.Query.c;
 import static com.octo.java.sql.query.Query.select;
 
+import java.lang.reflect.Constructor;
 import java.util.List;
 
 import com.octo.java.sql.exp.Operator;
@@ -42,7 +43,7 @@ public class DefaulQueryFactory {
 			for (SearchCriteria criteria : searchCriteria) {
 	
 				ConditionConverter.valueOf(condition).getRestriction(query, c(criteria.getName()));
-				query.op(Operator.valueOf(criteria.getComparator()), criteria.getValue());
+				query.op(Operator.valueOf(criteria.getComparator()), converParameter(criteria));
 	
 				condition = "AND";
 			}
@@ -62,4 +63,24 @@ public class DefaulQueryFactory {
 		}
 	}
 
+	
+	public static Object converParameter( SearchCriteria criteria) throws Exception {
+		if (criteria.getValue( ) == null) {
+			return null;
+		}
+		
+		if ( criteria.getClassName() == null || criteria.getClassName().equals(String.class.getName())) {
+			return criteria.getValue();
+		}
+		if ( criteria.getClassName().equals(criteria.getValue().getClass().getName()) ) {
+			return criteria.getValue();
+		}
+		
+		Class<?> clazz  = Class.forName(criteria.getClassName());
+		Constructor<?>  contructor = clazz.getConstructor(criteria.getValue().getClass());
+		return contructor.newInstance(criteria.getValue()); 
+		
+	}
+	
+	
 }

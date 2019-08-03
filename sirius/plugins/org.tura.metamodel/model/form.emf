@@ -73,6 +73,12 @@ class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabe
    attr boolean modal;
 }
 
+class OverlayCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized, FlexFields,NickNamed {
+   attr boolean modal;
+   val AreaRef[*]  sourceTarget;	 
+}
+
+
 class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized,FlexFields {
 }
 
@@ -93,21 +99,21 @@ enum Orientation{
 	Right;
 }
 
-class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,artifact.Categorized {
+class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,artifact.Categorized,FlexFields {
   attr Orientation orientation ;
 }
 
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized,common.Orderable {
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized,common.Orderable,FlexFields {
  attr EInt tabSequence;
 }
 
-class ViewPort extends ViewElement,common.Orderable{
+class ViewPort extends ViewElement,common.Orderable,FlexFields{
     id attr EString uid;
    attr EString name;
     val ViewPortTrigger  viewPortTrigger;
 }
 
-class ViewArea extends ViewElement,common.Orderable{
+class ViewArea extends ViewElement,common.Orderable,FlexFields{
     id attr EString uid;
    attr EString name;
    val LayerHolder  baseCanvas; 
@@ -291,11 +297,33 @@ class CheckBox extends InputElement {
    
 }
 
-class DropDownSelection extends OptionSelection {
+
+class SelectOneFromListOfOptions extends OptionSelection {
    val Selection selection;
    val Context initialOptionMessage;
    attr EString  initialOptionValue;
 }
+
+
+class DropDownSelection extends SelectOneFromListOfOptions {
+}
+
+
+enum RadioLayout{
+    lineDirection;
+    pageDirection;
+	custom;
+	responsive;
+	grid;
+}
+
+
+class RadioSelection extends SelectOneFromListOfOptions {
+   attr RadioLayout layout;
+   attr EInt columns;
+}
+
+
 
 class Image extends InputElement {
    
@@ -322,7 +350,8 @@ class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HT
     id attr EString uid;
    attr EString label;
    attr Sortable sortable;
-   val Uielement element;   
+   val Uielement element; 
+   attr EInt priority;  
 }
 
 enum SelectionMode {
@@ -335,6 +364,8 @@ class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
    attr EInt rowNumber;
    attr SelectionMode selectionMode;
    val Column[*] cols;
+   attr EBoolean scrollable;
+   attr EInt scrollHeight;
 }
 
 class Menu extends Uielement,MultiLangLabel{
@@ -579,6 +610,3 @@ class ArtificialField extends type.TypePointer{
     id attr EString uid;
    attr EString name;
 }
-
-
-

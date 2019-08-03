@@ -8,6 +8,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Canvas.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/PopupCanvas.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/OverlayCanvas.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/TabCanvas.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/TabPage.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/ViewArea.egl";
@@ -18,6 +19,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/CheckBox.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Column.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DropDownSelection.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/RadioSelection.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/LayerHolder.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/InputText.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/Password.egl";

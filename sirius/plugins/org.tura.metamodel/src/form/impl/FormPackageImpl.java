@@ -82,6 +82,7 @@ import form.OrderBy;
 import form.Orders;
 import form.Orientation;
 import form.OutputText;
+import form.OverlayCanvas;
 import form.POSTCreateTrigger;
 import form.POSTQueryTrigger;
 import form.PREDeleteTrigger;
@@ -92,10 +93,13 @@ import form.PREUpdateTrigger;
 import form.Password;
 import form.Poll;
 import form.PopupCanvas;
+import form.RadioLayout;
+import form.RadioSelection;
 import form.Relation;
 import form.RelationMapper;
 import form.Root;
 import form.SearchTrigger;
+import form.SelectOneFromListOfOptions;
 import form.Selection;
 import form.SelectionMode;
 import form.Sortable;
@@ -226,6 +230,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass popupCanvasEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass overlayCanvasEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,7 +516,21 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass selectOneFromListOfOptionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass dropDownSelectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass radioSelectionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -849,6 +874,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EEnum orientationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum radioLayoutEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1201,6 +1233,33 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EAttribute getPopupCanvas_Modal() {
 		return (EAttribute)popupCanvasEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOverlayCanvas() {
+		return overlayCanvasEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOverlayCanvas_Modal() {
+		return (EAttribute)overlayCanvasEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOverlayCanvas_SourceTarget() {
+		return (EReference)overlayCanvasEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2153,6 +2212,42 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSelectOneFromListOfOptions() {
+		return selectOneFromListOfOptionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSelectOneFromListOfOptions_Selection() {
+		return (EReference)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSelectOneFromListOfOptions_InitialOptionMessage() {
+		return (EReference)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSelectOneFromListOfOptions_InitialOptionValue() {
+		return (EAttribute)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDropDownSelection() {
 		return dropDownSelectionEClass;
 	}
@@ -2162,8 +2257,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDropDownSelection_Selection() {
-		return (EReference)dropDownSelectionEClass.getEStructuralFeatures().get(0);
+	public EClass getRadioSelection() {
+		return radioSelectionEClass;
 	}
 
 	/**
@@ -2171,8 +2266,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDropDownSelection_InitialOptionMessage() {
-		return (EReference)dropDownSelectionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRadioSelection_Layout() {
+		return (EAttribute)radioSelectionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2180,8 +2275,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDropDownSelection_InitialOptionValue() {
-		return (EAttribute)dropDownSelectionEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRadioSelection_Columns() {
+		return (EAttribute)radioSelectionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2270,6 +2365,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getColumn_Priority() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -2308,6 +2412,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getTable_Cols() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_Scrollable() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_ScrollHeight() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3449,6 +3571,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRadioLayout() {
+		return radioLayoutEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSortable() {
 		return sortableEEnum;
 	}
@@ -3525,6 +3656,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		popupCanvasEClass = createEClass(POPUP_CANVAS);
 		createEAttribute(popupCanvasEClass, POPUP_CANVAS__MODAL);
+
+		overlayCanvasEClass = createEClass(OVERLAY_CANVAS);
+		createEAttribute(overlayCanvasEClass, OVERLAY_CANVAS__MODAL);
+		createEReference(overlayCanvasEClass, OVERLAY_CANVAS__SOURCE_TARGET);
 
 		canvasEClass = createEClass(CANVAS);
 
@@ -3670,10 +3805,16 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		checkBoxEClass = createEClass(CHECK_BOX);
 
+		selectOneFromListOfOptionsEClass = createEClass(SELECT_ONE_FROM_LIST_OF_OPTIONS);
+		createEReference(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION);
+		createEReference(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE);
+		createEAttribute(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE);
+
 		dropDownSelectionEClass = createEClass(DROP_DOWN_SELECTION);
-		createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__SELECTION);
-		createEReference(dropDownSelectionEClass, DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE);
-		createEAttribute(dropDownSelectionEClass, DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE);
+
+		radioSelectionEClass = createEClass(RADIO_SELECTION);
+		createEAttribute(radioSelectionEClass, RADIO_SELECTION__LAYOUT);
+		createEAttribute(radioSelectionEClass, RADIO_SELECTION__COLUMNS);
 
 		imageEClass = createEClass(IMAGE);
 
@@ -3687,12 +3828,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(columnEClass, COLUMN__LABEL);
 		createEAttribute(columnEClass, COLUMN__SORTABLE);
 		createEReference(columnEClass, COLUMN__ELEMENT);
+		createEAttribute(columnEClass, COLUMN__PRIORITY);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__LABEL);
 		createEAttribute(tableEClass, TABLE__ROW_NUMBER);
 		createEAttribute(tableEClass, TABLE__SELECTION_MODE);
 		createEReference(tableEClass, TABLE__COLS);
+		createEAttribute(tableEClass, TABLE__SCROLLABLE);
+		createEAttribute(tableEClass, TABLE__SCROLL_HEIGHT);
 
 		menuEClass = createEClass(MENU);
 
@@ -3862,6 +4006,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		comparatorEEnum = createEEnum(COMPARATOR);
 		orderEEnum = createEEnum(ORDER);
 		orientationEEnum = createEEnum(ORIENTATION);
+		radioLayoutEEnum = createEEnum(RADIO_LAYOUT);
 		sortableEEnum = createEEnum(SORTABLE);
 		selectionModeEEnum = createEEnum(SELECTION_MODE);
 	}
@@ -3912,6 +4057,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		popupCanvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		popupCanvasEClass.getESuperTypes().add(this.getFlexFields());
+		overlayCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
+		overlayCanvasEClass.getESuperTypes().add(this.getViewPortHolder());
+		overlayCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
+		overlayCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
+		overlayCanvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
+		overlayCanvasEClass.getESuperTypes().add(this.getFlexFields());
+		overlayCanvasEClass.getESuperTypes().add(this.getNickNamed());
 		canvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		canvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		canvasEClass.getESuperTypes().add(this.getDefaultCavas());
@@ -3930,15 +4082,19 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		tabCanvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
+		tabCanvasEClass.getESuperTypes().add(this.getFlexFields());
 		tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
 		tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
 		tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
 		tabPageEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabPageEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		tabPageEClass.getESuperTypes().add(this.getFlexFields());
 		viewPortEClass.getESuperTypes().add(this.getViewElement());
 		viewPortEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		viewPortEClass.getESuperTypes().add(this.getFlexFields());
 		viewAreaEClass.getESuperTypes().add(this.getViewElement());
 		viewAreaEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		viewAreaEClass.getESuperTypes().add(this.getFlexFields());
 		viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());
@@ -3970,7 +4126,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		outputTextEClass.getESuperTypes().add(this.getInputElement());
 		outputTextEClass.getESuperTypes().add(this.getFormatable());
 		checkBoxEClass.getESuperTypes().add(this.getInputElement());
-		dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
+		selectOneFromListOfOptionsEClass.getESuperTypes().add(this.getOptionSelection());
+		dropDownSelectionEClass.getESuperTypes().add(this.getSelectOneFromListOfOptions());
+		radioSelectionEClass.getESuperTypes().add(this.getSelectOneFromListOfOptions());
 		imageEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getFormatable());
@@ -4077,6 +4235,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(popupCanvasEClass, PopupCanvas.class, "PopupCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPopupCanvas_Modal(), ecorePackage.getEBoolean(), "modal", null, 0, 1, PopupCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(overlayCanvasEClass, OverlayCanvas.class, "OverlayCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOverlayCanvas_Modal(), ecorePackage.getEBoolean(), "modal", null, 0, 1, OverlayCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOverlayCanvas_SourceTarget(), this.getAreaRef(), null, "sourceTarget", null, 0, -1, OverlayCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(canvasEClass, Canvas.class, "Canvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4222,10 +4384,16 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(selectOneFromListOfOptionsEClass, SelectOneFromListOfOptions.class, "SelectOneFromListOfOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSelectOneFromListOfOptions_Selection(), this.getSelection(), null, "selection", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSelectOneFromListOfOptions_InitialOptionMessage(), this.getContext(), null, "initialOptionMessage", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSelectOneFromListOfOptions_InitialOptionValue(), ecorePackage.getEString(), "initialOptionValue", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(dropDownSelectionEClass, DropDownSelection.class, "DropDownSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDropDownSelection_Selection(), this.getSelection(), null, "selection", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDropDownSelection_InitialOptionMessage(), this.getContext(), null, "initialOptionMessage", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDropDownSelection_InitialOptionValue(), ecorePackage.getEString(), "initialOptionValue", null, 0, 1, DropDownSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(radioSelectionEClass, RadioSelection.class, "RadioSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRadioSelection_Layout(), this.getRadioLayout(), "layout", null, 0, 1, RadioSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRadioSelection_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, RadioSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4239,12 +4407,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Sortable(), this.getSortable(), "sortable", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Element(), this.getUielement(), null, "element", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Label(), ecorePackage.getEString(), "label", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_RowNumber(), ecorePackage.getEInt(), "rowNumber", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_SelectionMode(), this.getSelectionMode(), "selectionMode", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Cols(), this.getColumn(), null, "cols", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Scrollable(), ecorePackage.getEBoolean(), "scrollable", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_ScrollHeight(), ecorePackage.getEInt(), "scrollHeight", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4428,6 +4599,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		addEEnumLiteral(orientationEEnum, Orientation.BOTTOM);
 		addEEnumLiteral(orientationEEnum, Orientation.LEFT);
 		addEEnumLiteral(orientationEEnum, Orientation.RIGHT);
+
+		initEEnum(radioLayoutEEnum, RadioLayout.class, "RadioLayout");
+		addEEnumLiteral(radioLayoutEEnum, RadioLayout.LINE_DIRECTION);
+		addEEnumLiteral(radioLayoutEEnum, RadioLayout.PAGE_DIRECTION);
+		addEEnumLiteral(radioLayoutEEnum, RadioLayout.CUSTOM);
+		addEEnumLiteral(radioLayoutEEnum, RadioLayout.RESPONSIVE);
+		addEEnumLiteral(radioLayoutEEnum, RadioLayout.GRID);
 
 		initEEnum(sortableEEnum, Sortable.class, "Sortable");
 		addEEnumLiteral(sortableEEnum, Sortable.NOT);

@@ -144,6 +144,21 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.OVERLAY_CANVAS: {
+				OverlayCanvas overlayCanvas = (OverlayCanvas)theEObject;
+				T result = caseOverlayCanvas(overlayCanvas);
+				if (result == null) result = caseCanvasFrame(overlayCanvas);
+				if (result == null) result = caseViewPortHolder(overlayCanvas);
+				if (result == null) result = caseDefaultCavas(overlayCanvas);
+				if (result == null) result = caseMultiLangLabel(overlayCanvas);
+				if (result == null) result = caseCategorized(overlayCanvas);
+				if (result == null) result = caseFlexFields(overlayCanvas);
+				if (result == null) result = caseNickNamed(overlayCanvas);
+				if (result == null) result = caseStyleElement(overlayCanvas);
+				if (result == null) result = caseHTMLLayerHolder(overlayCanvas);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.CANVAS: {
 				Canvas canvas = (Canvas)theEObject;
 				T result = caseCanvas(canvas);
@@ -187,6 +202,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDefaultCavas(tabCanvas);
 				if (result == null) result = caseMultiLangLabel(tabCanvas);
 				if (result == null) result = caseCategorized(tabCanvas);
+				if (result == null) result = caseFlexFields(tabCanvas);
 				if (result == null) result = caseStyleElement(tabCanvas);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -199,6 +215,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMultiLangLabel(tabPage);
 				if (result == null) result = caseCategorized(tabPage);
 				if (result == null) result = caseOrderable(tabPage);
+				if (result == null) result = caseFlexFields(tabPage);
 				if (result == null) result = caseStyleElement(tabPage);
 				if (result == null) result = caseHTMLLayerHolder(tabPage);
 				if (result == null) result = defaultCase(theEObject);
@@ -209,6 +226,7 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseViewPort(viewPort);
 				if (result == null) result = caseViewElement(viewPort);
 				if (result == null) result = caseOrderable(viewPort);
+				if (result == null) result = caseFlexFields(viewPort);
 				if (result == null) result = caseStyleElement(viewPort);
 				if (result == null) result = caseCategorized(viewPort);
 				if (result == null) result = caseNickNamed(viewPort);
@@ -220,6 +238,7 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseViewArea(viewArea);
 				if (result == null) result = caseViewElement(viewArea);
 				if (result == null) result = caseOrderable(viewArea);
+				if (result == null) result = caseFlexFields(viewArea);
 				if (result == null) result = caseStyleElement(viewArea);
 				if (result == null) result = caseCategorized(viewArea);
 				if (result == null) result = caseNickNamed(viewArea);
@@ -540,9 +559,28 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.SELECT_ONE_FROM_LIST_OF_OPTIONS: {
+				SelectOneFromListOfOptions selectOneFromListOfOptions = (SelectOneFromListOfOptions)theEObject;
+				T result = caseSelectOneFromListOfOptions(selectOneFromListOfOptions);
+				if (result == null) result = caseOptionSelection(selectOneFromListOfOptions);
+				if (result == null) result = caseInputElement(selectOneFromListOfOptions);
+				if (result == null) result = caseSourcesPointer(selectOneFromListOfOptions);
+				if (result == null) result = caseUielement(selectOneFromListOfOptions);
+				if (result == null) result = caseControlPointer(selectOneFromListOfOptions);
+				if (result == null) result = caseStyleElement(selectOneFromListOfOptions);
+				if (result == null) result = caseNickNamed(selectOneFromListOfOptions);
+				if (result == null) result = caseCategorized(selectOneFromListOfOptions);
+				if (result == null) result = caseOrderable(selectOneFromListOfOptions);
+				if (result == null) result = caseEnabledUIItem(selectOneFromListOfOptions);
+				if (result == null) result = caseFlexFields(selectOneFromListOfOptions);
+				if (result == null) result = caseMenuHolder(selectOneFromListOfOptions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.DROP_DOWN_SELECTION: {
 				DropDownSelection dropDownSelection = (DropDownSelection)theEObject;
 				T result = caseDropDownSelection(dropDownSelection);
+				if (result == null) result = caseSelectOneFromListOfOptions(dropDownSelection);
 				if (result == null) result = caseOptionSelection(dropDownSelection);
 				if (result == null) result = caseInputElement(dropDownSelection);
 				if (result == null) result = caseSourcesPointer(dropDownSelection);
@@ -555,6 +593,25 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEnabledUIItem(dropDownSelection);
 				if (result == null) result = caseFlexFields(dropDownSelection);
 				if (result == null) result = caseMenuHolder(dropDownSelection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.RADIO_SELECTION: {
+				RadioSelection radioSelection = (RadioSelection)theEObject;
+				T result = caseRadioSelection(radioSelection);
+				if (result == null) result = caseSelectOneFromListOfOptions(radioSelection);
+				if (result == null) result = caseOptionSelection(radioSelection);
+				if (result == null) result = caseInputElement(radioSelection);
+				if (result == null) result = caseSourcesPointer(radioSelection);
+				if (result == null) result = caseUielement(radioSelection);
+				if (result == null) result = caseControlPointer(radioSelection);
+				if (result == null) result = caseStyleElement(radioSelection);
+				if (result == null) result = caseNickNamed(radioSelection);
+				if (result == null) result = caseCategorized(radioSelection);
+				if (result == null) result = caseOrderable(radioSelection);
+				if (result == null) result = caseEnabledUIItem(radioSelection);
+				if (result == null) result = caseFlexFields(radioSelection);
+				if (result == null) result = caseMenuHolder(radioSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1185,6 +1242,21 @@ public class FormSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Overlay Canvas</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Overlay Canvas</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOverlayCanvas(OverlayCanvas object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Canvas</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1770,6 +1842,21 @@ public class FormSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Select One From List Of Options</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Select One From List Of Options</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSelectOneFromListOfOptions(SelectOneFromListOfOptions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Drop Down Selection</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1781,6 +1868,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDropDownSelection(DropDownSelection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Radio Selection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Radio Selection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRadioSelection(RadioSelection object) {
 		return null;
 	}
 

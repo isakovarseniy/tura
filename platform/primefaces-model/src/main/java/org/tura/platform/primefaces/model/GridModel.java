@@ -114,11 +114,13 @@ public class GridModel {
                         index = max - 1;
                     }
                 }
-                dc.setCurrentPosition(index);
-                selected = event.getSource().getCurrentObject();
-                if ( selected != null) {
-                  obj = (ObjectControl) selected;
-                  obj.setViewModelId1(index);
+                if (((DataControl) event.getSource()).getScroller().size() != 0) {
+	                dc.setCurrentPosition(index);
+	                selected = event.getSource().getCurrentObject();
+	                if ( selected != null) {
+	                  obj = (ObjectControl) selected;
+	                  obj.setViewModelId1(index);
+	                }
                 }
 
             }

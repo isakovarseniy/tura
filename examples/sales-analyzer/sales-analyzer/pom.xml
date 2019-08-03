@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -45,7 +44,7 @@
 			<id>redhat</id>
 			<url>https://maven.repository.redhat.com/ga/</url>
 		</repository>
-		
+
 		<repository>
 			<id> redhat 2</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
@@ -429,6 +428,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
@@ -756,6 +756,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+			    <module>sa-resources-local-admin</module>
+				<module>sa-resources-local-case-manager</module>
 				<module>api-extension</module>
 				<module>services</module>
 				<module>server-extension</module>
@@ -788,6 +790,9 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+			    <module>sa-resources-local-admin</module>
+				<module>sa-resources-local-case-manager</module>
+				<module>sa-resources-local-etl-controller</module>
 				<module>services</module>
 				<module>web-app-commons</module>
 				<module>sa-admin-triggers</module>
@@ -795,7 +800,7 @@
 				<module>sa-etl-controller-triggers</module>
 				<module>sa-resources</module>
 				<module>post-deployer</module>
-                <module>dependency-loader</module>				
+				<module>dependency-loader</module>
 			</modules>
 		</profile>
 

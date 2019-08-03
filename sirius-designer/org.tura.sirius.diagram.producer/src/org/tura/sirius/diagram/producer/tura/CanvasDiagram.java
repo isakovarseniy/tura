@@ -28,6 +28,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.MessageElementCon
 import org.tura.sirius.diagram.producer.tura.config.items.form.OutputTextConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.PasswordConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.PollConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.RadioSelectionConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableColumnsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeColumnsConfigurator;
@@ -57,6 +58,8 @@ public class CanvasDiagram {
                 .addChild(FileUploadConfigurator.create("0"))
                 .addChild(FileDownloadConfigurator.create("0"))
                 .addChild(WindowRefConfigurator.create("0"))
+                .addChild(RadioSelectionConfigurator.create("0"))
+                
                 .addChild(
                         TableConfigurator.create()
                                 .addChild(
@@ -77,6 +80,8 @@ public class CanvasDiagram {
                                                                         .addChild(FileUploadConfigurator.create("1"))
                                                                         .addChild(FileDownloadConfigurator.create("1"))
                                                                         .addChild(WindowRefConfigurator.create("1"))
+                                                                        .addChild(RadioSelectionConfigurator.create("1"))
+                                                                        
                                                                         )
 
                                                                 .addChild(ButtonConfigurator.create("2","feature:element"))
@@ -91,6 +96,8 @@ public class CanvasDiagram {
                                                                 .addChild(FileUploadConfigurator.create("2","feature:element"))
                                                                 .addChild(FileDownloadConfigurator.create("2","feature:element"))
                                                                 .addChild(WindowRefConfigurator.create("2","feature:element"))
+                                                                .addChild(RadioSelectionConfigurator.create("2","feature:element"))
+                                                                
 
                                                                 ))))
 
@@ -113,6 +120,8 @@ public class CanvasDiagram {
                                                                         .addChild(FileUploadConfigurator.create("3"))
                                                                         .addChild(FileDownloadConfigurator.create("3"))
                                                                         .addChild(WindowRefConfigurator.create("3"))
+                                                                        .addChild(RadioSelectionConfigurator.create("3"))
+                                                                        
                                                                         )
 
                                                                 .addChild(ButtonConfigurator.create("4","feature:element"))
@@ -127,6 +136,7 @@ public class CanvasDiagram {
                                                                 .addChild(FileUploadConfigurator.create("4","feature:element"))
                                                                 .addChild(FileDownloadConfigurator.create("4","feature:element"))
                                                                 .addChild(WindowRefConfigurator.create("4","feature:element"))
+                                                                .addChild(RadioSelectionConfigurator.create("4","feature:element"))
                                                                 
                                                                 ))))
 
@@ -145,6 +155,8 @@ public class CanvasDiagram {
                         .addChild(FileUploadConfigurator.create("5"))
                         .addChild(FileDownloadConfigurator.create("5"))
                         .addChild(WindowRefConfigurator.create("5"))
+                        .addChild(RadioSelectionConfigurator.create("5"))
+                        
                         .addChild(LayerHolderinDataScroller.create()
                             .addChild(ButtonConfigurator.create("6"))
                             .addChild(CheckBoxConfigurator.create("6"))
@@ -158,6 +170,7 @@ public class CanvasDiagram {
                             .addChild(FileUploadConfigurator.create("6"))
                             .addChild(FileDownloadConfigurator.create("6"))
                             .addChild(WindowRefConfigurator.create("6"))
+                            .addChild(RadioSelectionConfigurator.create("6"))
                           )
                         )
                 .addChild(BlockUIConfiguration.create()
@@ -192,6 +205,7 @@ public class CanvasDiagram {
         nodeToolSection.addChildrens(FileDownloadConfigurator.getTools());
         nodeToolSection.addChildrens(WindowRefConfigurator.getTools());
         nodeToolSection.addChildrens(DataScrollerConfiguration.getTools());
+        nodeToolSection.addChildrens(RadioSelectionConfigurator.getTools());
         
         tToolSection edgeToolSection = new tToolSection("Connections");
         list.add(edgeToolSection);

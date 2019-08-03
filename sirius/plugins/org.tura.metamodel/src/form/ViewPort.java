@@ -22,7 +22,7 @@ import common.Orderable;
  * @model
  * @generated
  */
-public interface ViewPort extends ViewElement, Orderable {
+public interface ViewPort extends ViewElement, Orderable, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -11,6 +11,8 @@ import common.HTMLLayerHolder;
 import common.Orderable;
 
 import form.Context;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.MultiLangLabel;
 import form.TabPage;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.TabPageImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.TabPageImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.TabPageImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.TabPageImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.TabPageImpl#getTabSequence <em>Tab Sequence</em>}</li>
  * </ul>
  *
@@ -120,6 +123,16 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getTabSequence() <em>Tab Sequence</em>}' attribute.
@@ -274,6 +287,18 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.TAB_PAGE__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getTabSequence() {
 		return tabSequence;
 	}
@@ -304,6 +329,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				return basicSetMultiLangLabel(null, msgs);
 			case FormPackage.TAB_PAGE__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case FormPackage.TAB_PAGE__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -326,6 +353,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				return getClassifiers();
 			case FormPackage.TAB_PAGE__ORDER:
 				return getOrder();
+			case FormPackage.TAB_PAGE__FIELDS:
+				return getFields();
 			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
 				return getTabSequence();
 		}
@@ -358,6 +387,10 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 			case FormPackage.TAB_PAGE__ORDER:
 				setOrder((Integer)newValue);
 				return;
+			case FormPackage.TAB_PAGE__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
 			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
 				setTabSequence((Integer)newValue);
 				return;
@@ -388,6 +421,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 			case FormPackage.TAB_PAGE__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.TAB_PAGE__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
 				setTabSequence(TAB_SEQUENCE_EDEFAULT);
 				return;
@@ -413,6 +449,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				return classifiers != null && !classifiers.isEmpty();
 			case FormPackage.TAB_PAGE__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.TAB_PAGE__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
 				return tabSequence != TAB_SEQUENCE_EDEFAULT;
 		}
@@ -456,6 +494,12 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.TAB_PAGE__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -493,6 +537,12 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return FormPackage.TAB_PAGE__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.TAB_PAGE__FIELDS;
 				default: return -1;
 			}
 		}

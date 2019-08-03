@@ -31,6 +31,7 @@ import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.ExecCreateCmdResponse;
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.Frame;
+import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.command.ExecStartResultCallback;
@@ -62,6 +63,23 @@ public class DockerCommand implements Executable {
         return null;
     }
 
+    protected Image findImage(String cn) {
+        List<Image> images = dockerClient.listImagesCmd().withShowAll(true).exec();
+        for (Image c : images) {
+        	if ( c.getRepoTags() == null) {
+        		continue;
+        	}
+        	List <String> tags = Arrays.asList(c.getRepoTags());
+        	if ( tags.contains(cn)) {
+        		return c;
+        	}
+        }
+        return null;
+    }
+
+    
+    
+    
     public void copyFilesToDocker(String containerId, String source, String targetDir, String targetArtifact) {
         _init();
 

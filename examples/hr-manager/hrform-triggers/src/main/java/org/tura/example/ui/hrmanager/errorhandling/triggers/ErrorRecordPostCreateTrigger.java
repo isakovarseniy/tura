@@ -69,15 +69,21 @@ public class ErrorRecordPostCreateTrigger implements PostCreateTrigger {
 	}
 
 	public String getExceptionType(){
-		String val = FacesContext.getCurrentInstance().getExternalContext().
-			getRequestMap().get("javax.servlet.error.exception_type").toString();
-		return val;
+		Object obj = FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("javax.servlet.error.exception_type");
+		if ( obj != null ) {
+			return obj.toString();
+		}else {
+			return "";
+		}
 	}
 
 	public String getException(){
-		String val =  (String)((Exception)FacesContext.getCurrentInstance().getExternalContext().
-			getRequestMap().get("javax.servlet.error.exception")).toString();
-		return val;
+		Object obj = FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("javax.servlet.error.exception");
+		if ( obj != null ) {
+			return obj.toString();
+		}else {
+			return "";
+		}
 	}
 
 	public String getRequestURI(){

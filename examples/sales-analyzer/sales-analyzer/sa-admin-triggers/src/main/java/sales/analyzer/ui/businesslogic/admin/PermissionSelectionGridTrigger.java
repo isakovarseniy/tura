@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.josql.Query;
+import org.josql.QueryResults;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -23,6 +26,9 @@ import org.tura.salesanalyzer.serialized.keycloak.Role;
 
 public class PermissionSelectionGridTrigger implements GridModelTriggers {
 
+	public static String QUERY_PERMISSION = "SELECT * FROM org.tura.salesanalyzer.serialized.db.PermissionReferences WHERE permission.objId = :objId";
+
+	
     private ELResolver elResolver;
     private transient Logger logger = Logger.getLogger(PermissionSelectionGridTrigger.class.getName());
 
@@ -31,26 +37,34 @@ public class PermissionSelectionGridTrigger implements GridModelTriggers {
     }
 
     @Override
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void onSelect(Object obj) {
         try {
 
             Permission p = (Permission) obj;
 
-            DataControl dcRef = (DataControl) elResolver
-                    .getValue("#{beanFactoryAdminAdministration.permissionReferences}");
+            DataControl dcRef = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
 
-            PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
-            pf.notifyListner();
+            List<Object> list = new ArrayList<>();
+			list.addAll(dcRef.getScroller());
+			Query query = new Query();
+			query.parse(QUERY_PERMISSION);
+			query.setVariable("objId", p.getObjId());
+			QueryResults result = query.execute(list);
 
-            pf.setPermission(p);
-            pf.notifyListner();
+			if ( result.getResults() != null && result.getResults().size() == 0) {
+	            PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
+	            pf.notifyListner();
+	
+	            pf.setPermission(p);
+	            pf.notifyListner();
+	
+	            PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
+	                    (ObjectControl) pf);
+	            ad.setPermissionDescription(p.getDescription());
+	            ad.setPermissionName(p.getName());
 
-            PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
-                    (ObjectControl) pf);
-            ad.setPermissionDescription(p.getDescription());
-            ad.setPermissionName(p.getName());
-
+			}
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }

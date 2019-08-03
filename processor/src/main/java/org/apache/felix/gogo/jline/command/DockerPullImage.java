@@ -39,11 +39,13 @@ public class DockerPullImage extends DockerCommand{
     @Override
     public Object execute() {
         _init();
-        PullImageCmd req = dockerClient.pullImageCmd(registry).withAuthConfig(dockerClient.authConfig());
-        req.withTag(tag);
-        PullImageResultCallback res = new PullImageResultCallback();
-        res = req.exec(res);
-        res.awaitSuccess();
+        if ( findImage(registry+":"+tag) == null) {
+	        PullImageCmd req = dockerClient.pullImageCmd(registry).withAuthConfig(dockerClient.authConfig());
+	        req.withTag(tag);
+	        PullImageResultCallback res = new PullImageResultCallback();
+	        res = req.exec(res);
+	        res.awaitSuccess();
+        }
         return null;
     }
     

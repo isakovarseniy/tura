@@ -6,9 +6,9 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
-import form.DropDownSelection;
 import form.FormFactory;
 import form.FormPackage;
+import form.SelectOneFromListOfOptions;
 
 public class InitialOptionMessagePropertySelection extends MultiLangLabelPropertySelection{
 
@@ -17,14 +17,14 @@ public class InitialOptionMessagePropertySelection extends MultiLangLabelPropert
 	public EObject getModel() {
 
 		DRepresentationElement element = (DRepresentationElement) getEObject();
-		DropDownSelection el = (DropDownSelection) element.getTarget();
+		SelectOneFromListOfOptions el = (SelectOneFromListOfOptions) element.getTarget();
 		
 		if (el.getInitialOptionMessage() == null) {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							FormPackage.eINSTANCE.getDropDownSelection_InitialOptionMessage(),
+							FormPackage.eINSTANCE.getSelectOneFromListOfOptions_InitialOptionMessage(),
 							FormFactory.eINSTANCE.createContext()));
 
 		}

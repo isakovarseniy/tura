@@ -81,7 +81,7 @@ public class ViewPortConfigurator implements ContainerConfigurator {
 		CreateInstance c1 = ToolHelper.createInstance("form.ViewPort", "instance", "viewElement");
 		v.setFirstModelOperations(c1);
 		c1.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewPort" + i + tContainer.class.getName());
 
 			ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();
@@ -100,7 +100,7 @@ public class ViewPortConfigurator implements ContainerConfigurator {
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
 		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewPort" + i + tContainer.class.getName());
 
 			ContainerMapping mapper = (ContainerMapping) wrapper.getWrapedObject();

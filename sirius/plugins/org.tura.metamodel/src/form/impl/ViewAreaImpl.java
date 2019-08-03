@@ -5,6 +5,8 @@ package form.impl;
 import common.CommonPackage;
 import common.Orderable;
 
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.LayerHolder;
 import form.LinkToLabel;
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.ViewAreaImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.ViewAreaImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.ViewAreaImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.ViewAreaImpl#getName <em>Name</em>}</li>
  *   <li>{@link form.impl.ViewAreaImpl#getBaseCanvas <em>Base Canvas</em>}</li>
@@ -64,6 +67,16 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -173,6 +186,18 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 		order = newOrder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.VIEW_AREA__ORDER, oldOrder, order));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.VIEW_AREA__FIELDS);
+		}
+		return fields;
 	}
 
 	/**
@@ -292,6 +317,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FormPackage.VIEW_AREA__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case FormPackage.VIEW_AREA__BASE_CANVAS:
 				return basicSetBaseCanvas(null, msgs);
 			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
@@ -312,6 +339,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 		switch (featureID) {
 			case FormPackage.VIEW_AREA__ORDER:
 				return getOrder();
+			case FormPackage.VIEW_AREA__FIELDS:
+				return getFields();
 			case FormPackage.VIEW_AREA__UID:
 				return getUid();
 			case FormPackage.VIEW_AREA__NAME:
@@ -337,6 +366,10 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 		switch (featureID) {
 			case FormPackage.VIEW_AREA__ORDER:
 				setOrder((Integer)newValue);
+				return;
+			case FormPackage.VIEW_AREA__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.VIEW_AREA__UID:
 				setUid((String)newValue);
@@ -370,6 +403,9 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 			case FormPackage.VIEW_AREA__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.VIEW_AREA__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.VIEW_AREA__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -399,6 +435,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 		switch (featureID) {
 			case FormPackage.VIEW_AREA__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.VIEW_AREA__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.VIEW_AREA__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.VIEW_AREA__NAME:
@@ -426,6 +464,12 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.VIEW_AREA__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -439,6 +483,12 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return FormPackage.VIEW_AREA__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.VIEW_AREA__FIELDS;
 				default: return -1;
 			}
 		}

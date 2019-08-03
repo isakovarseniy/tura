@@ -20,6 +20,10 @@ operation form::Column generateBody(hash){
                sortBy = "sortBy = \""+ self.element.expFunction(hash) +"\"";
          }
      }
+     var priority = "";
+     if ( self.priority <> 0  ){
+         priority = "priority = \""+ self.priority +"\"";
+     }
 
      var title = buildExpression(self.multiLangLabel,hints,hash);
      if (title <> "" )
@@ -28,7 +32,7 @@ operation form::Column generateBody(hash){
         title="";   
         
 %]
-           <p:column [%=title%]   [%=sortBy%]  [%=self.styleAttributes(hash)%]>
+           <p:column [%=title%]   [%=sortBy%]   [%=priority%]  [%=self.styleAttributes(hash)%]>
 [%      if ( self.element <> null and "tree".equals(hash.get("context") ))  {%]
                    [%=self.treecontext(hash)%]
                    

@@ -33,7 +33,7 @@ public class AdminTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String app_url = "http://wf:8081/sa-admin/admin/administration/AdminWindow.xhtml";
+	static private String app_url = "http://wf:8081/sa-admin/admin/administration/adminWindow.xhtml";
 	static private String driver_location = ConfigConstants.RESOURCE_HOME+"/chromedriver";
 	
 	

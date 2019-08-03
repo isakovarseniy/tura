@@ -30,6 +30,9 @@ operation form::ViewArea mkuid_(){
  return "tura"+ self.uid.replaceAll("\\-","_");
 }
 
+operation form::OverlayCanvas mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
 
 @template
 operation form::CanvasFrame mkuid(){

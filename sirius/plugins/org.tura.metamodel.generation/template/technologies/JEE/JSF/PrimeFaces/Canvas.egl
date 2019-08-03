@@ -16,7 +16,7 @@ operation  form::Canvas draw(hash) {
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:tura="http://primefaces.platform.tura.org/functions"
-        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%]  columns="[%=self.columns%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
+        xmlns:p="http://primefaces.org/ui"  [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.rendered(hash)%] columns="[%=self.columns%]"  styleClass="[%=self.styleClassByClassifier(util.getHint(model_mapper,"styleClass")).replace(","," ")%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

@@ -126,7 +126,13 @@ public class JbpmSearchService extends AbstaractSearchService {
         if (sc != null) {
             parameters.put(Constants.PARAMETER_CASE_ID, sc.getValue());
         }
-
+        
+/* fix problem with generation of default search criteria */
+        sc = helper.checkSearchParam(Constants.VAR_CASE_ID_, searchCriteria);
+        if (sc != null) {
+            parameters.put(Constants.PARAMETER_CASE_ID, sc.getValue());
+        }
+        
         sc = helper.checkSearchParam(Constants.VAR_ACTUAL_OWNER, searchCriteria);
         if (sc != null && SalesAnalyzerTaskInstance.class.getName().equals(objectClass)) {
             parameters.put(Constants.PARAMETER_ACTUAL_OWNER, sc.getValue());

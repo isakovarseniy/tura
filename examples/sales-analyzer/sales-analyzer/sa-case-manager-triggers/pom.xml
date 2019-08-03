@@ -51,6 +51,33 @@
 
 	</dependencies>
 
-
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-templates</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>sales-analyzer</groupId>
+									<artifactId>sa-resources-local-case-manager</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${user.home}/generation-code/uiLayer/sa/sa-case-manager/src/main/webapp</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

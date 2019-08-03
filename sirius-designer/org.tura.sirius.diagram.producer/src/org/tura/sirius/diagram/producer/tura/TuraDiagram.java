@@ -98,7 +98,7 @@ public class TuraDiagram {
         tDiagram tdiagram = viewPoint.addDiagram("Views diagram", "form.Views");
         tdiagram.addDefaultLayer().addChildren(new ViewsDiagram().getChildrens());
         viewPoint.addDiagram("Canvas diagram", "form.ViewArea").addDefaultLayer().addChildren(new CanvasDiagram().getChildrens());
-        tdiagram.addCreationDiagramNavigation("Canvas diagram", new String[]{"ViewArea0" + tNode.class.getName(), "ViewArea1" + tNode.class.getName(), "ViewArea2" + tNode.class.getName(), "ViewArea3" + tNode.class.getName()}, "Default");
+        tdiagram.addCreationDiagramNavigation("Canvas diagram", new String[]{"ViewArea0" + tNode.class.getName(), "ViewArea1" + tNode.class.getName(), "ViewArea2" + tNode.class.getName(), "ViewArea3" + tNode.class.getName(),"ViewArea4" + tNode.class.getName()}, "Default");
         tdiagram.addCreationDiagramNavigation("Menu Definition", new String[]{"MenuDefinition" + tNode.class.getName()}, "Default");
         recipeDiag.addCreationDiagramNavigation("Deployment sequence", new String[]{"Recipe" + tContainer.class.getName()}, "Default");
         treeNavigatorDiagram = viewPoint.addJavaExtension("org.tura.metamodel.sirius.diagram.designer.service.DiagramService").addTreeDiagram("Domain tree", "domain.Domain");

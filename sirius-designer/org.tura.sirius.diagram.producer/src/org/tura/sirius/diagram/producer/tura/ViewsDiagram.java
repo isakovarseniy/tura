@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.tura.sirius.diagram.producer.tura.config.items.form.CanvasConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.MenuDefinitionConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.OverlayCanvasConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.PopupCanvasConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TabCanvasConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TabPageConfigurator;
@@ -66,6 +67,17 @@ public class ViewsDiagram
     
     list.add(cnt);
     ID += 1;
+
+    cnt = OverlayCanvasConfigurator.create()
+    	      .addChild(ViewElementsConfigurator.create()
+    	      .addChild(ViewAreaConfigurator.create())
+    	      .addChild(ViewPortConfigurator.create()
+    	      .addChild(ViewPortTriggersConfigurator.create()
+    	      .addChild(ViewPortTriggerConfigurator.create()))));
+    	    
+   list.add(cnt);
+   ID += 1;
+
     
     list.add(TabCanvasConfigurator.create());
     list.add(TabPagesInheritanceConfigurator.create());
@@ -83,6 +95,7 @@ public class ViewsDiagram
     nodeToolSection.addChildrens(PopupCanvasConfigurator.getTools());
     nodeToolSection.addChildrens(TabCanvasConfigurator.getTools());
     nodeToolSection.addChildrens(MenuDefinitionConfigurator.getTools());
+    nodeToolSection.addChildrens(OverlayCanvasConfigurator.getTools());
     
     tToolSection edgeToolSection = new tToolSection("Connections");
     list.add(edgeToolSection);

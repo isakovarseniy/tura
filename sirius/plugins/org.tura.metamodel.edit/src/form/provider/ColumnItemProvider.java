@@ -58,6 +58,7 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 			addUidPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addSortablePropertyDescriptor(object);
+			addPriorityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -173,6 +174,28 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Priority feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPriorityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_priority_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_priority_feature", "_UI_Column_type"),
+				 FormPackage.Literals.COLUMN__PRIORITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -245,6 +268,7 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 			case FormPackage.COLUMN__UID:
 			case FormPackage.COLUMN__LABEL:
 			case FormPackage.COLUMN__SORTABLE:
+			case FormPackage.COLUMN__PRIORITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.COLUMN__MULTI_LANG_LABEL:
@@ -340,7 +364,17 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
+				 FormFactory.eINSTANCE.createSelectOneFromListOfOptions()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.COLUMN__ELEMENT,
 				 FormFactory.eINSTANCE.createDropDownSelection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.COLUMN__ELEMENT,
+				 FormFactory.eINSTANCE.createRadioSelection()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -115,6 +115,8 @@ hrUrlList = {
     echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm1.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm2.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm3.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm4.xhtml'
+    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm5.xhtml'
     echo 'http://localhost:8080/hrform/hrmanager/testform2/testFormWindow.xhtml'
 
 }
@@ -153,7 +155,8 @@ addClosure "stopSAApplication";
 
 
 startSAIntegrationTest = {
-     tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml;    
+     tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml --P TestSute;    
+     tura:mvn build --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/integration-testing/pom.xml --P CaseMgmSuite;
 }
 addClosure "startSAIntegrationTest";
 

@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getSortable <em>Sortable</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link form.impl.ColumnImpl#getPriority <em>Priority</em>}</li>
  * </ul>
  *
  * @generated
@@ -182,6 +183,26 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * @ordered
 	 */
 	protected Uielement element;
+
+	/**
+	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PRIORITY_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected int priority = PRIORITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,6 +431,27 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(int newPriority) {
+		int oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.COLUMN__PRIORITY, oldPriority, priority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -447,6 +489,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return getSortable();
 			case FormPackage.COLUMN__ELEMENT:
 				return getElement();
+			case FormPackage.COLUMN__PRIORITY:
+				return getPriority();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,6 +529,9 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 			case FormPackage.COLUMN__ELEMENT:
 				setElement((Uielement)newValue);
 				return;
+			case FormPackage.COLUMN__PRIORITY:
+				setPriority((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -521,6 +568,9 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 			case FormPackage.COLUMN__ELEMENT:
 				setElement((Uielement)null);
 				return;
+			case FormPackage.COLUMN__PRIORITY:
+				setPriority(PRIORITY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -549,6 +599,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return sortable != SORTABLE_EDEFAULT;
 			case FormPackage.COLUMN__ELEMENT:
 				return element != null;
+			case FormPackage.COLUMN__PRIORITY:
+				return priority != PRIORITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -641,6 +693,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		result.append(label);
 		result.append(", sortable: ");
 		result.append(sortable);
+		result.append(", priority: ");
+		result.append(priority);
 		result.append(')');
 		return result.toString();
 	}

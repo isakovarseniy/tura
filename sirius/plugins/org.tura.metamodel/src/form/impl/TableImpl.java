@@ -41,6 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.TableImpl#getRowNumber <em>Row Number</em>}</li>
  *   <li>{@link form.impl.TableImpl#getSelectionMode <em>Selection Mode</em>}</li>
  *   <li>{@link form.impl.TableImpl#getCols <em>Cols</em>}</li>
+ *   <li>{@link form.impl.TableImpl#isScrollable <em>Scrollable</em>}</li>
+ *   <li>{@link form.impl.TableImpl#getScrollHeight <em>Scroll Height</em>}</li>
  * </ul>
  *
  * @generated
@@ -145,6 +147,46 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * @ordered
 	 */
 	protected EList<Column> cols;
+
+	/**
+	 * The default value of the '{@link #isScrollable() <em>Scrollable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isScrollable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SCROLLABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isScrollable() <em>Scrollable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isScrollable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean scrollable = SCROLLABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getScrollHeight() <em>Scroll Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScrollHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SCROLL_HEIGHT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getScrollHeight() <em>Scroll Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScrollHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected int scrollHeight = SCROLL_HEIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,6 +351,48 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isScrollable() {
+		return scrollable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScrollable(boolean newScrollable) {
+		boolean oldScrollable = scrollable;
+		scrollable = newScrollable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TABLE__SCROLLABLE, oldScrollable, scrollable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getScrollHeight() {
+		return scrollHeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScrollHeight(int newScrollHeight) {
+		int oldScrollHeight = scrollHeight;
+		scrollHeight = newScrollHeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TABLE__SCROLL_HEIGHT, oldScrollHeight, scrollHeight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -340,6 +424,10 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				return getSelectionMode();
 			case FormPackage.TABLE__COLS:
 				return getCols();
+			case FormPackage.TABLE__SCROLLABLE:
+				return isScrollable();
+			case FormPackage.TABLE__SCROLL_HEIGHT:
+				return getScrollHeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -372,6 +460,12 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				getCols().clear();
 				getCols().addAll((Collection<? extends Column>)newValue);
 				return;
+			case FormPackage.TABLE__SCROLLABLE:
+				setScrollable((Boolean)newValue);
+				return;
+			case FormPackage.TABLE__SCROLL_HEIGHT:
+				setScrollHeight((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +496,12 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 			case FormPackage.TABLE__COLS:
 				getCols().clear();
 				return;
+			case FormPackage.TABLE__SCROLLABLE:
+				setScrollable(SCROLLABLE_EDEFAULT);
+				return;
+			case FormPackage.TABLE__SCROLL_HEIGHT:
+				setScrollHeight(SCROLL_HEIGHT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -426,6 +526,10 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 				return selectionMode != SELECTION_MODE_EDEFAULT;
 			case FormPackage.TABLE__COLS:
 				return cols != null && !cols.isEmpty();
+			case FormPackage.TABLE__SCROLLABLE:
+				return scrollable != SCROLLABLE_EDEFAULT;
+			case FormPackage.TABLE__SCROLL_HEIGHT:
+				return scrollHeight != SCROLL_HEIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -492,6 +596,10 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 		result.append(rowNumber);
 		result.append(", selectionMode: ");
 		result.append(selectionMode);
+		result.append(", scrollable: ");
+		result.append(scrollable);
+		result.append(", scrollHeight: ");
+		result.append(scrollHeight);
 		result.append(')');
 		return result.toString();
 	}

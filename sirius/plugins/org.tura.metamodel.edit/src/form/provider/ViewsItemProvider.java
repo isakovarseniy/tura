@@ -200,6 +200,11 @@ public class ViewsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.VIEWS__CANVASES,
+				 FormFactory.eINSTANCE.createOverlayCanvas()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.VIEWS__CANVASES,
 				 FormFactory.eINSTANCE.createCanvas()));
 
 		newChildDescriptors.add

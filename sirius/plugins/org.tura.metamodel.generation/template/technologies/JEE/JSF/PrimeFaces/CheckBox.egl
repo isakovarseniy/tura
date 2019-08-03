@@ -58,10 +58,10 @@ operation form::CheckBox ro(hash,value) {
 
 %]
        <ui:fragment rendered="[%=value%]">
-            <span>&#10003;</span>
+            <i class="fa fa-fw fa-check"/>
        </ui:fragment>
        <ui:fragment rendered="#{! [%=util.bracketRemover(value)%] }">
-            <span>&#9885;</span>
+            <i class="fa fa-fw fa-square-o"/>
        </ui:fragment>
 [%
 }

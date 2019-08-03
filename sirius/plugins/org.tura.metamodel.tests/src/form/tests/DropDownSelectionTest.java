@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DropDownSelectionTest extends OptionSelectionTest {
+public class DropDownSelectionTest extends SelectOneFromListOfOptionsTest {
 
 	/**
 	 * <!-- begin-user-doc -->

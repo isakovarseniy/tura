@@ -20,6 +20,7 @@ import common.Orderable;
  *   <li>{@link form.Column#getLabel <em>Label</em>}</li>
  *   <li>{@link form.Column#getSortable <em>Sortable</em>}</li>
  *   <li>{@link form.Column#getElement <em>Element</em>}</li>
+ *   <li>{@link form.Column#getPriority <em>Priority</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getColumn()
@@ -133,5 +134,31 @@ public interface Column extends StyleElement, MultiLangLabel, Categorized, HTMLL
 	 * @generated
 	 */
 	void setElement(Uielement value);
+
+	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Priority</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Priority</em>' attribute.
+	 * @see #setPriority(int)
+	 * @see form.FormPackage#getColumn_Priority()
+	 * @model
+	 * @generated
+	 */
+	int getPriority();
+
+	/**
+	 * Sets the value of the '{@link form.Column#getPriority <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' attribute.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(int value);
 
 } // Column

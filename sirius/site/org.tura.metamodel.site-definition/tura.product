@@ -1478,6 +1478,7 @@
       <plugin id="org.tura.metamodel.edit"/>
       <plugin id="org.tura.metamodel.editor"/>
       <plugin id="org.tura.metamodel.epsilon"/>
+      <plugin id="org.tura.metamodel.extender"/>
       <plugin id="org.tura.metamodel.generation"/>
       <plugin id="org.tura.metamodel.sirius.diagram"/>
       <plugin id="org.tura.metamodel.sirius.diagram.designer"/>

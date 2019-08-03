@@ -18,6 +18,8 @@ operation form::Table generateBody(hash){
      var hints = new Native('java.util.HashMap');
      var model_mapper = hash.get('model_mapper');
      var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     
      
      var selector = "\"5,10,15\"";
      if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){
@@ -35,22 +37,34 @@ operation form::Table generateBody(hash){
      }
      
      
-     
      hints.put("noCurlyBracket",true);
 %]
     <p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
         value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
-        paginator="true" rows="[%=self.rowNumber%]" lazy="true"
+        lazy="true"
+        [% if (self.scrollable){  %]
+		scrollRows="[%=self.rowNumber%]"
+		virtualScroll = "true"
+		scrollHeight="[%=self.scrollHeight%]"
+		scrollable = "true"
+        paginator="false" 
+        [%}else { %]
+        rows="[%=self.rowNumber%]"         
+        paginator="true" 
         paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
-        rowsPerPageTemplate=[%=selector%] [%=selectionMode%]   rowKey="#{row.viewModelId1}" editable="true" 
-        selection="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
         paginatorPosition="bottom"
+        rowsPerPageTemplate=[%=selector%]
+        [%}%]
+         [%=selectionMode%] 
+        rowKey="#{row.viewModelId1}" editable="true" 
+        selection="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
         >
         
 [%
      if ("Single".equals(self.selectionMode.toString())){
 %]                    
         <p:ajax event="rowSelect" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
+        <p:ajax event="contextMenu" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
        [%
       }else{
 %]                    
@@ -58,6 +72,7 @@ operation form::Table generateBody(hash){
       <p:ajax event="rowSelectCheckbox" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
       <p:ajax event="rowUnselectCheckbox" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxUnSelected}" [%=self.refreshArias()%]/>
       <p:ajax event="toggleSelect" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxToggleSelect}" [%=self.refreshArias()%]/>
+      <p:ajax event="contextMenu" listener="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
 [%
       }
       
@@ -79,5 +94,14 @@ operation form::Table generateBody(hash){
         
         </p:dataTable>    
 [%
+ if(self.menu <> null ){
+     hash.get("menuReferences").add(self);
+ %]
+    <p:contextMenu  for="#{viewIdentificator.getClientId([%=self.mkuid()%])}" model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]/>    
+ [%
+ 
+ }
+
+
 }
 %]

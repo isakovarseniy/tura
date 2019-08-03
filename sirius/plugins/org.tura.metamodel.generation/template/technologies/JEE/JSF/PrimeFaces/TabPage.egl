@@ -19,7 +19,7 @@ operation form::TabPage generateBody(hash){
         title="";   
         
 %]
-<p:tab [%=title%] [%=self.mkUIDBinding()%]  [%=self.styleAttributes(hash)%]>
+<p:tab [%=title%] [%=self.mkUIDBinding()%]  [%=self.styleAttributes(hash)%] [%=self.rendered(hash)%]>
 [%
                 for (element in self.viewElement.sortBy(q|q.order)){
 %]                

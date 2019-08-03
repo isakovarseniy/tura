@@ -224,7 +224,17 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createSelectOneFromListOfOptions()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createDropDownSelection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createRadioSelection()));
 
 		newChildDescriptors.add
 			(createChildParameter

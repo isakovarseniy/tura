@@ -79,7 +79,7 @@ public class ViewPortTriggerConfigurator implements NodeConfigurator {
 		CreateInstance c2 = ToolHelper.createInstance("form.ViewPortTrigger", "instance", "viewPortTrigger");
 		c1.getSubModelOperations().add(c2);
 		c2.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewPortTrigger" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
@@ -98,7 +98,7 @@ public class ViewPortTriggerConfigurator implements NodeConfigurator {
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
 		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("ViewPortTrigger" + i + tNode.class.getName());
 
 			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();

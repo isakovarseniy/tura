@@ -25,6 +25,7 @@ public class Constants {
 	public static final String ASSIGN_ACTOR = "Assign actor";
 
 	public static final String VAR_CASE_ID = "case_id";
+	public static final String VAR_CASE_ID_ = "caseId";
 	public static final String VAR_CITY = "city";
 	public static final String VAR_STATE = "state";
 	public static final String VAR_PRODUCT = "product";

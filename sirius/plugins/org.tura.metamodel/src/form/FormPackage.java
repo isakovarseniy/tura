@@ -271,7 +271,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getStyleElement()
 	 * @generated
 	 */
-	int STYLE_ELEMENT = 27;
+	int STYLE_ELEMENT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -558,6 +558,133 @@ public interface FormPackage extends EPackage {
 	int POPUP_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 7;
 
 	/**
+	 * The meta object id for the '{@link form.impl.OverlayCanvasImpl <em>Overlay Canvas</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.OverlayCanvasImpl
+	 * @see form.impl.FormPackageImpl#getOverlayCanvas()
+	 * @generated
+	 */
+	int OVERLAY_CANVAS = 9;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__STYLE = CANVAS_FRAME__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__UID = CANVAS_FRAME__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__NAME = CANVAS_FRAME__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__COLUMNS = CANVAS_FRAME_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>View Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__VIEW_ELEMENT = CANVAS_FRAME_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Default Canvas</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__DEFAULT_CANVAS = CANVAS_FRAME_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__MULTI_LANG_LABEL = CANVAS_FRAME_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__CLASSIFIERS = CANVAS_FRAME_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__FIELDS = CANVAS_FRAME_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__NICKNAME = CANVAS_FRAME_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Modal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__MODAL = CANVAS_FRAME_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Source Target</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS__SOURCE_TARGET = CANVAS_FRAME_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Overlay Canvas</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OVERLAY_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 9;
+
+	/**
 	 * The meta object id for the '{@link form.impl.CanvasImpl <em>Canvas</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,7 +692,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCanvas()
 	 * @generated
 	 */
-	int CANVAS = 9;
+	int CANVAS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -665,7 +792,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getWindow()
 	 * @generated
 	 */
-	int WINDOW = 10;
+	int WINDOW = 11;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -765,7 +892,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuDefinition()
 	 * @generated
 	 */
-	int MENU_DEFINITION = 11;
+	int MENU_DEFINITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -838,7 +965,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTabCanvas()
 	 * @generated
 	 */
-	int TAB_CANVAS = 12;
+	int TAB_CANVAS = 13;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -895,13 +1022,22 @@ public interface FormPackage extends EPackage {
 	int TAB_CANVAS__CLASSIFIERS = CANVAS_FRAME_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAB_CANVAS__FIELDS = CANVAS_FRAME_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_CANVAS__ORIENTATION = CANVAS_FRAME_FEATURE_COUNT + 3;
+	int TAB_CANVAS__ORIENTATION = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Tab Canvas</em>' class.
@@ -910,7 +1046,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 4;
+	int TAB_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link form.impl.TabPageImpl <em>Tab Page</em>}' class.
@@ -920,7 +1056,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTabPage()
 	 * @generated
 	 */
-	int TAB_PAGE = 13;
+	int TAB_PAGE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -995,13 +1131,22 @@ public interface FormPackage extends EPackage {
 	int TAB_PAGE__ORDER = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAB_PAGE__FIELDS = CANVAS_FRAME_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Tab Sequence</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_PAGE__TAB_SEQUENCE = CANVAS_FRAME_FEATURE_COUNT + 5;
+	int TAB_PAGE__TAB_SEQUENCE = CANVAS_FRAME_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Tab Page</em>' class.
@@ -1010,7 +1155,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_PAGE_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 6;
+	int TAB_PAGE_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ViewPortImpl <em>View Port</em>}' class.
@@ -1020,7 +1165,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getViewPort()
 	 * @generated
 	 */
-	int VIEW_PORT = 14;
+	int VIEW_PORT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -1059,13 +1204,22 @@ public interface FormPackage extends EPackage {
 	int VIEW_PORT__ORDER = VIEW_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PORT__FIELDS = VIEW_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT__UID = VIEW_ELEMENT_FEATURE_COUNT + 1;
+	int VIEW_PORT__UID = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1074,7 +1228,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT__NAME = VIEW_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_PORT__NAME = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>View Port Trigger</b></em>' containment reference.
@@ -1083,7 +1237,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT__VIEW_PORT_TRIGGER = VIEW_ELEMENT_FEATURE_COUNT + 3;
+	int VIEW_PORT__VIEW_PORT_TRIGGER = VIEW_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>View Port</em>' class.
@@ -1092,7 +1246,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 4;
+	int VIEW_PORT_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ViewAreaImpl <em>View Area</em>}' class.
@@ -1102,7 +1256,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getViewArea()
 	 * @generated
 	 */
-	int VIEW_AREA = 15;
+	int VIEW_AREA = 16;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -1141,13 +1295,22 @@ public interface FormPackage extends EPackage {
 	int VIEW_AREA__ORDER = VIEW_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_AREA__FIELDS = VIEW_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__UID = VIEW_ELEMENT_FEATURE_COUNT + 1;
+	int VIEW_AREA__UID = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1156,7 +1319,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__NAME = VIEW_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_AREA__NAME = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Base Canvas</b></em>' containment reference.
@@ -1165,7 +1328,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__BASE_CANVAS = VIEW_ELEMENT_FEATURE_COUNT + 3;
+	int VIEW_AREA__BASE_CANVAS = VIEW_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Link To Labels</b></em>' containment reference list.
@@ -1174,7 +1337,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__LINK_TO_LABELS = VIEW_ELEMENT_FEATURE_COUNT + 4;
+	int VIEW_AREA__LINK_TO_LABELS = VIEW_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Link To Messages</b></em>' containment reference list.
@@ -1183,7 +1346,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__LINK_TO_MESSAGES = VIEW_ELEMENT_FEATURE_COUNT + 5;
+	int VIEW_AREA__LINK_TO_MESSAGES = VIEW_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>View Area</em>' class.
@@ -1192,7 +1355,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 6;
+	int VIEW_AREA_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link form.impl.TriggerImpl <em>Trigger</em>}' class.
@@ -1202,7 +1365,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 72;
+	int TRIGGER = 75;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1239,7 +1402,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getViewPortTrigger()
 	 * @generated
 	 */
-	int VIEW_PORT_TRIGGER = 16;
+	int VIEW_PORT_TRIGGER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1285,7 +1448,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getViewInheritance()
 	 * @generated
 	 */
-	int VIEW_INHERITANCE = 17;
+	int VIEW_INHERITANCE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1331,7 +1494,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTabPagesInheritance()
 	 * @generated
 	 */
-	int TAB_PAGES_INHERITANCE = 18;
+	int TAB_PAGES_INHERITANCE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1377,7 +1540,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLinkToMessage()
 	 * @generated
 	 */
-	int LINK_TO_MESSAGE = 19;
+	int LINK_TO_MESSAGE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1423,7 +1586,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLinkToLabel()
 	 * @generated
 	 */
-	int LINK_TO_LABEL = 20;
+	int LINK_TO_LABEL = 21;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1469,7 +1632,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getChildrenHolder()
 	 * @generated
 	 */
-	int CHILDREN_HOLDER = 21;
+	int CHILDREN_HOLDER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -1497,7 +1660,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getContextParameter()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETER = 22;
+	int CONTEXT_PARAMETER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1552,7 +1715,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getContextValue()
 	 * @generated
 	 */
-	int CONTEXT_VALUE = 23;
+	int CONTEXT_VALUE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1607,7 +1770,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getExpressionPart()
 	 * @generated
 	 */
-	int EXPRESSION_PART = 24;
+	int EXPRESSION_PART = 25;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1662,7 +1825,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getContextParameters()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETERS = 25;
+	int CONTEXT_PARAMETERS = 26;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1690,7 +1853,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 26;
+	int CONTEXT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1754,7 +1917,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getNickNamed()
 	 * @generated
 	 */
-	int NICK_NAMED = 28;
+	int NICK_NAMED = 29;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -1782,7 +1945,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFlexFields()
 	 * @generated
 	 */
-	int FLEX_FIELDS = 29;
+	int FLEX_FIELDS = 30;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -1810,7 +1973,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFlexField()
 	 * @generated
 	 */
-	int FLEX_FIELD = 30;
+	int FLEX_FIELD = 31;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1883,7 +2046,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getEnabledUIItem()
 	 * @generated
 	 */
-	int ENABLED_UI_ITEM = 31;
+	int ENABLED_UI_ITEM = 32;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -1911,7 +2074,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUielement()
 	 * @generated
 	 */
-	int UIELEMENT = 32;
+	int UIELEMENT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2029,7 +2192,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getItemIcon()
 	 * @generated
 	 */
-	int ITEM_ICON = 33;
+	int ITEM_ICON = 34;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
@@ -2057,7 +2220,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getAreaRef()
 	 * @generated
 	 */
-	int AREA_REF = 34;
+	int AREA_REF = 35;
 
 	/**
 	 * The feature id for the '<em><b>Area</b></em>' reference.
@@ -2094,7 +2257,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormatable()
 	 * @generated
 	 */
-	int FORMATABLE = 35;
+	int FORMATABLE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -2122,7 +2285,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControlPointer()
 	 * @generated
 	 */
-	int CONTROL_POINTER = 36;
+	int CONTROL_POINTER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
@@ -2177,7 +2340,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSourcesPointer()
 	 * @generated
 	 */
-	int SOURCES_POINTER = 37;
+	int SOURCES_POINTER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2331,7 +2494,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputElement()
 	 * @generated
 	 */
-	int INPUT_ELEMENT = 38;
+	int INPUT_ELEMENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2485,7 +2648,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelection()
 	 * @generated
 	 */
-	int SELECTION = 39;
+	int SELECTION = 40;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2531,7 +2694,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int OPTION_SELECTION = 40;
+	int OPTION_SELECTION = 41;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2712,7 +2875,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 41;
+	int LAYER_HOLDER = 42;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2848,7 +3011,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 42;
+	int INPUT_TEXT = 43;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3029,7 +3192,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 43;
+	int PASSWORD = 44;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3192,7 +3355,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 44;
+	int LABEL = 45;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3328,7 +3491,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 45;
+	int MESSAGE_ELEMENT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3464,7 +3627,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 46;
+	int OUTPUT_TEXT = 47;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3627,7 +3790,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 47;
+	int CHECK_BOX = 48;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3774,14 +3937,14 @@ public interface FormPackage extends EPackage {
 	int CHECK_BOX_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link form.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
+	 * The meta object id for the '{@link form.impl.SelectOneFromListOfOptionsImpl <em>Select One From List Of Options</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see form.impl.DropDownSelectionImpl
-	 * @see form.impl.FormPackageImpl#getDropDownSelection()
+	 * @see form.impl.SelectOneFromListOfOptionsImpl
+	 * @see form.impl.FormPackageImpl#getSelectOneFromListOfOptions()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 48;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS = 49;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3790,7 +3953,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__STYLE = OPTION_SELECTION__STYLE;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE = OPTION_SELECTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3799,7 +3962,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__NICKNAME = OPTION_SELECTION__NICKNAME;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME = OPTION_SELECTION__NICKNAME;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -3808,7 +3971,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__CLASSIFIERS = OPTION_SELECTION__CLASSIFIERS;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS = OPTION_SELECTION__CLASSIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -3817,7 +3980,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__ORDER = OPTION_SELECTION__ORDER;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER = OPTION_SELECTION__ORDER;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -3826,7 +3989,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__ENABLED = OPTION_SELECTION__ENABLED;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED = OPTION_SELECTION__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -3835,7 +3998,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__FIELDS = OPTION_SELECTION__FIELDS;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS = OPTION_SELECTION__FIELDS;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -3844,7 +4007,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__MENU = OPTION_SELECTION__MENU;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU = OPTION_SELECTION__MENU;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -3853,7 +4016,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__UID = OPTION_SELECTION__UID;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__UID = OPTION_SELECTION__UID;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' containment reference.
@@ -3862,7 +4025,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__REQUIRED = OPTION_SELECTION__REQUIRED;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED = OPTION_SELECTION__REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
@@ -3871,7 +4034,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION__READ_ONLY;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY = OPTION_SELECTION__READ_ONLY;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -3880,7 +4043,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__REFRESH_AREAS = OPTION_SELECTION__REFRESH_AREAS;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS = OPTION_SELECTION__REFRESH_AREAS;
 
 	/**
 	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
@@ -3889,7 +4052,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__SOURCE_POINTER = OPTION_SELECTION__SOURCE_POINTER;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER = OPTION_SELECTION__SOURCE_POINTER;
 
 	/**
 	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
@@ -3898,7 +4061,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__VALUE_POINTER = OPTION_SELECTION__VALUE_POINTER;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER = OPTION_SELECTION__VALUE_POINTER;
 
 	/**
 	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
@@ -3907,7 +4070,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__SOURCE_CAST = OPTION_SELECTION__SOURCE_CAST;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST = OPTION_SELECTION__SOURCE_CAST;
 
 	/**
 	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
@@ -3916,7 +4079,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL;
 
 	/**
 	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
@@ -3925,7 +4088,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
@@ -3934,7 +4097,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
@@ -3943,7 +4106,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -3952,7 +4115,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__SELECTION = OPTION_SELECTION_FEATURE_COUNT + 0;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION = OPTION_SELECTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
@@ -3961,7 +4124,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = OPTION_SELECTION_FEATURE_COUNT + 1;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE = OPTION_SELECTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
@@ -3970,7 +4133,215 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = OPTION_SELECTION_FEATURE_COUNT + 2;
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE = OPTION_SELECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Select One From List Of Options</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link form.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.DropDownSelectionImpl
+	 * @see form.impl.FormPackageImpl#getDropDownSelection()
+	 * @generated
+	 */
+	int DROP_DOWN_SELECTION = 50;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__STYLE = SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__NICKNAME = SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__CLASSIFIERS = SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__ORDER = SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__ENABLED = SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__FIELDS = SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__MENU = SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__UID = SELECT_ONE_FROM_LIST_OF_OPTIONS__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__REQUIRED = SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__READ_ONLY = SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__REFRESH_AREAS = SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__VALUE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__OPTION_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__OPTION_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__OPTION_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SELECTION = SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE;
 
 	/**
 	 * The number of structural features of the '<em>Drop Down Selection</em>' class.
@@ -3979,7 +4350,233 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 3;
+	int DROP_DOWN_SELECTION_FEATURE_COUNT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link form.impl.RadioSelectionImpl <em>Radio Selection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.RadioSelectionImpl
+	 * @see form.impl.FormPackageImpl#getRadioSelection()
+	 * @generated
+	 */
+	int RADIO_SELECTION = 51;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__STYLE = SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__NICKNAME = SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__CLASSIFIERS = SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__ORDER = SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__ENABLED = SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__FIELDS = SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__MENU = SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__UID = SELECT_ONE_FROM_LIST_OF_OPTIONS__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__REQUIRED = SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__READ_ONLY = SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__REFRESH_AREAS = SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__VALUE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__OPTION_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__OPTION_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__OPTION_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SELECTION = SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__INITIAL_OPTION_MESSAGE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__INITIAL_OPTION_VALUE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Layout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__LAYOUT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__COLUMNS = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Radio Selection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION_FEATURE_COUNT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ImageImpl <em>Image</em>}' class.
@@ -3989,7 +4586,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 49;
+	int IMAGE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4143,7 +4740,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 50;
+	int DATE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4306,7 +4903,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 51;
+	int BUTTON = 54;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4451,7 +5048,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 52;
+	int COLUMN = 55;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4535,13 +5132,22 @@ public interface FormPackage extends EPackage {
 	int COLUMN__ELEMENT = STYLE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__PRIORITY = STYLE_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 8;
+	int COLUMN_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link form.impl.TableImpl <em>Table</em>}' class.
@@ -4551,7 +5157,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 53;
+	int TABLE = 56;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4743,13 +5349,31 @@ public interface FormPackage extends EPackage {
 	int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Scrollable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SCROLLABLE = SOURCES_POINTER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Scroll Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SCROLL_HEIGHT = SOURCES_POINTER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 6;
+	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuImpl <em>Menu</em>}' class.
@@ -4759,7 +5383,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenu()
 	 * @generated
 	 */
-	int MENU = 54;
+	int MENU = 57;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4886,7 +5510,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getBlockUI()
 	 * @generated
 	 */
-	int BLOCK_UI = 55;
+	int BLOCK_UI = 58;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5031,7 +5655,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFileUpload()
 	 * @generated
 	 */
-	int FILE_UPLOAD = 56;
+	int FILE_UPLOAD = 59;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5149,7 +5773,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFileDownload()
 	 * @generated
 	 */
-	int FILE_DOWNLOAD = 57;
+	int FILE_DOWNLOAD = 60;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5267,7 +5891,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataScroller()
 	 * @generated
 	 */
-	int DATA_SCROLLER = 58;
+	int DATA_SCROLLER = 61;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5466,7 +6090,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPoll()
 	 * @generated
 	 */
-	int POLL = 59;
+	int POLL = 62;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5584,7 +6208,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getWindowRef()
 	 * @generated
 	 */
-	int WINDOW_REF = 60;
+	int WINDOW_REF = 63;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5711,7 +6335,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 61;
+	int MENU_HOLDER = 64;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -5739,7 +6363,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 62;
+	int MENU_EXTENSION_REF = 65;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -5767,7 +6391,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 63;
+	int MENU_ELEMENT = 66;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5858,7 +6482,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 64;
+	int MENU_FOLDER = 67;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5976,7 +6600,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 65;
+	int MENU_ITEM = 68;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6094,7 +6718,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 66;
+	int MENU_EXTENSION_POINT = 69;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6194,7 +6818,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 67;
+	int SUB_MENU = 70;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6294,7 +6918,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getToSubmenu()
 	 * @generated
 	 */
-	int TO_SUBMENU = 68;
+	int TO_SUBMENU = 71;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6340,7 +6964,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 69;
+	int MENU_SEPARATOR = 72;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6431,7 +7055,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 70;
+	int TREE = 73;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6630,7 +7254,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 71;
+	int CONTROLS = 74;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6694,7 +7318,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 73;
+	int PRE_FORM_TRIGGER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6740,7 +7364,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 74;
+	int PRE_QUERY_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6786,7 +7410,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 75;
+	int POST_QUERY_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6832,7 +7456,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 76;
+	int PRE_INSERT_TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6878,7 +7502,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 77;
+	int PRE_DELETE_TRIGGER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6924,7 +7548,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 78;
+	int POST_CREATE_TRIGGER = 81;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6970,7 +7594,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 79;
+	int PRE_UPDATE_TRIGGER = 82;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7016,7 +7640,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 80;
+	int CREATE_TRIGGER = 83;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7062,7 +7686,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 81;
+	int INSERT_TRIGGER = 84;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7108,7 +7732,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 82;
+	int UPDATE_TRIGGER = 85;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7154,7 +7778,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 83;
+	int DELETE_TRIGGER = 86;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7200,7 +7824,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 84;
+	int SEARCH_TRIGGER = 87;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7246,7 +7870,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 85;
+	int ROOT = 88;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7301,7 +7925,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 86;
+	int FORM_VARIABLE = 89;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7356,7 +7980,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 87;
+	int DATA_CONTROL = 90;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -7519,7 +8143,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelationMapper()
 	 * @generated
 	 */
-	int RELATION_MAPPER = 88;
+	int RELATION_MAPPER = 91;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7574,7 +8198,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 89;
+	int ORDERS = 92;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7611,7 +8235,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 90;
+	int ORDER_BY = 93;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7657,7 +8281,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 91;
+	int RELATION = 94;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7730,7 +8354,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInternalRelation()
 	 * @generated
 	 */
-	int INTERNAL_RELATION = 92;
+	int INTERNAL_RELATION = 95;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7812,7 +8436,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 93;
+	int DEPENDENCY = 96;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7867,7 +8491,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 94;
+	int ARTIFICIAL_FIELD = 97;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7913,7 +8537,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 95;
+	int COMPARATOR = 98;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7923,7 +8547,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 96;
+	int ORDER = 99;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7933,8 +8557,18 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 97;
+	int ORIENTATION = 100;
 
+
+	/**
+	 * The meta object id for the '{@link form.RadioLayout <em>Radio Layout</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.RadioLayout
+	 * @see form.impl.FormPackageImpl#getRadioLayout()
+	 * @generated
+	 */
+	int RADIO_LAYOUT = 101;
 
 	/**
 	 * The meta object id for the '{@link form.Sortable <em>Sortable</em>}' enum.
@@ -7944,7 +8578,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSortable()
 	 * @generated
 	 */
-	int SORTABLE = 98;
+	int SORTABLE = 102;
 
 	/**
 	 * The meta object id for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
@@ -7954,7 +8588,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelectionMode()
 	 * @generated
 	 */
-	int SELECTION_MODE = 99;
+	int SELECTION_MODE = 103;
 
 
 	/**
@@ -8244,6 +8878,38 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPopupCanvas_Modal();
+
+	/**
+	 * Returns the meta object for class '{@link form.OverlayCanvas <em>Overlay Canvas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Overlay Canvas</em>'.
+	 * @see form.OverlayCanvas
+	 * @generated
+	 */
+	EClass getOverlayCanvas();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.OverlayCanvas#isModal <em>Modal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modal</em>'.
+	 * @see form.OverlayCanvas#isModal()
+	 * @see #getOverlayCanvas()
+	 * @generated
+	 */
+	EAttribute getOverlayCanvas_Modal();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link form.OverlayCanvas#getSourceTarget <em>Source Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Source Target</em>'.
+	 * @see form.OverlayCanvas#getSourceTarget()
+	 * @see #getOverlayCanvas()
+	 * @generated
+	 */
+	EReference getOverlayCanvas_SourceTarget();
 
 	/**
 	 * Returns the meta object for class '{@link form.Canvas <em>Canvas</em>}'.
@@ -9362,6 +10028,49 @@ public interface FormPackage extends EPackage {
 	EClass getCheckBox();
 
 	/**
+	 * Returns the meta object for class '{@link form.SelectOneFromListOfOptions <em>Select One From List Of Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Select One From List Of Options</em>'.
+	 * @see form.SelectOneFromListOfOptions
+	 * @generated
+	 */
+	EClass getSelectOneFromListOfOptions();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link form.SelectOneFromListOfOptions#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Selection</em>'.
+	 * @see form.SelectOneFromListOfOptions#getSelection()
+	 * @see #getSelectOneFromListOfOptions()
+	 * @generated
+	 */
+	EReference getSelectOneFromListOfOptions_Selection();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link form.SelectOneFromListOfOptions#getInitialOptionMessage <em>Initial Option Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Initial Option Message</em>'.
+	 * @see form.SelectOneFromListOfOptions#getInitialOptionMessage()
+	 * @see #getSelectOneFromListOfOptions()
+	 * @generated
+	 */
+	EReference getSelectOneFromListOfOptions_InitialOptionMessage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.SelectOneFromListOfOptions#getInitialOptionValue <em>Initial Option Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Option Value</em>'.
+	 * @see form.SelectOneFromListOfOptions#getInitialOptionValue()
+	 * @see #getSelectOneFromListOfOptions()
+	 * @generated
+	 */
+	EAttribute getSelectOneFromListOfOptions_InitialOptionValue();
+
+	/**
 	 * Returns the meta object for class '{@link form.DropDownSelection <em>Drop Down Selection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9372,37 +10081,36 @@ public interface FormPackage extends EPackage {
 	EClass getDropDownSelection();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link form.DropDownSelection#getSelection <em>Selection</em>}'.
+	 * Returns the meta object for class '{@link form.RadioSelection <em>Radio Selection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Selection</em>'.
-	 * @see form.DropDownSelection#getSelection()
-	 * @see #getDropDownSelection()
+	 * @return the meta object for class '<em>Radio Selection</em>'.
+	 * @see form.RadioSelection
 	 * @generated
 	 */
-	EReference getDropDownSelection_Selection();
+	EClass getRadioSelection();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link form.DropDownSelection#getInitialOptionMessage <em>Initial Option Message</em>}'.
+	 * Returns the meta object for the attribute '{@link form.RadioSelection#getLayout <em>Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Initial Option Message</em>'.
-	 * @see form.DropDownSelection#getInitialOptionMessage()
-	 * @see #getDropDownSelection()
+	 * @return the meta object for the attribute '<em>Layout</em>'.
+	 * @see form.RadioSelection#getLayout()
+	 * @see #getRadioSelection()
 	 * @generated
 	 */
-	EReference getDropDownSelection_InitialOptionMessage();
+	EAttribute getRadioSelection_Layout();
 
 	/**
-	 * Returns the meta object for the attribute '{@link form.DropDownSelection#getInitialOptionValue <em>Initial Option Value</em>}'.
+	 * Returns the meta object for the attribute '{@link form.RadioSelection#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Initial Option Value</em>'.
-	 * @see form.DropDownSelection#getInitialOptionValue()
-	 * @see #getDropDownSelection()
+	 * @return the meta object for the attribute '<em>Columns</em>'.
+	 * @see form.RadioSelection#getColumns()
+	 * @see #getRadioSelection()
 	 * @generated
 	 */
-	EAttribute getDropDownSelection_InitialOptionValue();
+	EAttribute getRadioSelection_Columns();
 
 	/**
 	 * Returns the meta object for class '{@link form.Image <em>Image</em>}'.
@@ -9500,6 +10208,17 @@ public interface FormPackage extends EPackage {
 	EReference getColumn_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.Column#getPriority <em>Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Priority</em>'.
+	 * @see form.Column#getPriority()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Priority();
+
+	/**
 	 * Returns the meta object for class '{@link form.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9552,6 +10271,28 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_Cols();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.Table#isScrollable <em>Scrollable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scrollable</em>'.
+	 * @see form.Table#isScrollable()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Scrollable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.Table#getScrollHeight <em>Scroll Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scroll Height</em>'.
+	 * @see form.Table#getScrollHeight()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_ScrollHeight();
 
 	/**
 	 * Returns the meta object for class '{@link form.Menu <em>Menu</em>}'.
@@ -10896,6 +11637,16 @@ public interface FormPackage extends EPackage {
 	EEnum getOrientation();
 
 	/**
+	 * Returns the meta object for enum '{@link form.RadioLayout <em>Radio Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Radio Layout</em>'.
+	 * @see form.RadioLayout
+	 * @generated
+	 */
+	EEnum getRadioLayout();
+
+	/**
 	 * Returns the meta object for enum '{@link form.Sortable <em>Sortable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11170,6 +11921,32 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POPUP_CANVAS__MODAL = eINSTANCE.getPopupCanvas_Modal();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.OverlayCanvasImpl <em>Overlay Canvas</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.OverlayCanvasImpl
+		 * @see form.impl.FormPackageImpl#getOverlayCanvas()
+		 * @generated
+		 */
+		EClass OVERLAY_CANVAS = eINSTANCE.getOverlayCanvas();
+
+		/**
+		 * The meta object literal for the '<em><b>Modal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OVERLAY_CANVAS__MODAL = eINSTANCE.getOverlayCanvas_Modal();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Target</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OVERLAY_CANVAS__SOURCE_TARGET = eINSTANCE.getOverlayCanvas_SourceTarget();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.CanvasImpl <em>Canvas</em>}' class.
@@ -12090,6 +12867,40 @@ public interface FormPackage extends EPackage {
 		EClass CHECK_BOX = eINSTANCE.getCheckBox();
 
 		/**
+		 * The meta object literal for the '{@link form.impl.SelectOneFromListOfOptionsImpl <em>Select One From List Of Options</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.SelectOneFromListOfOptionsImpl
+		 * @see form.impl.FormPackageImpl#getSelectOneFromListOfOptions()
+		 * @generated
+		 */
+		EClass SELECT_ONE_FROM_LIST_OF_OPTIONS = eINSTANCE.getSelectOneFromListOfOptions();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION = eINSTANCE.getSelectOneFromListOfOptions_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Option Message</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE = eINSTANCE.getSelectOneFromListOfOptions_InitialOptionMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Option Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE = eINSTANCE.getSelectOneFromListOfOptions_InitialOptionValue();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12100,28 +12911,30 @@ public interface FormPackage extends EPackage {
 		EClass DROP_DOWN_SELECTION = eINSTANCE.getDropDownSelection();
 
 		/**
-		 * The meta object literal for the '<em><b>Selection</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link form.impl.RadioSelectionImpl <em>Radio Selection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see form.impl.RadioSelectionImpl
+		 * @see form.impl.FormPackageImpl#getRadioSelection()
 		 * @generated
 		 */
-		EReference DROP_DOWN_SELECTION__SELECTION = eINSTANCE.getDropDownSelection_Selection();
+		EClass RADIO_SELECTION = eINSTANCE.getRadioSelection();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Option Message</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Layout</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = eINSTANCE.getDropDownSelection_InitialOptionMessage();
+		EAttribute RADIO_SELECTION__LAYOUT = eINSTANCE.getRadioSelection_Layout();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Option Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = eINSTANCE.getDropDownSelection_InitialOptionValue();
+		EAttribute RADIO_SELECTION__COLUMNS = eINSTANCE.getRadioSelection_Columns();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.ImageImpl <em>Image</em>}' class.
@@ -12204,6 +13017,14 @@ public interface FormPackage extends EPackage {
 		EReference COLUMN__ELEMENT = eINSTANCE.getColumn_Element();
 
 		/**
+		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__PRIORITY = eINSTANCE.getColumn_Priority();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12244,6 +13065,22 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__COLS = eINSTANCE.getTable_Cols();
+
+		/**
+		 * The meta object literal for the '<em><b>Scrollable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__SCROLLABLE = eINSTANCE.getTable_Scrollable();
+
+		/**
+		 * The meta object literal for the '<em><b>Scroll Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__SCROLL_HEIGHT = eINSTANCE.getTable_ScrollHeight();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.MenuImpl <em>Menu</em>}' class.
@@ -13340,6 +14177,16 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ORIENTATION = eINSTANCE.getOrientation();
+
+		/**
+		 * The meta object literal for the '{@link form.RadioLayout <em>Radio Layout</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.RadioLayout
+		 * @see form.impl.FormPackageImpl#getRadioLayout()
+		 * @generated
+		 */
+		EEnum RADIO_LAYOUT = eINSTANCE.getRadioLayout();
 
 		/**
 		 * The meta object literal for the '{@link form.Sortable <em>Sortable</em>}' enum.

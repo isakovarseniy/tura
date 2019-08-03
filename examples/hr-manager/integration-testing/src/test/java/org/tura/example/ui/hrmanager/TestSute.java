@@ -16,7 +16,7 @@ public class TestSute {
 		@Override
 		protected void before() throws Throwable {
 			try {
-				RunExternalJob.execute("../../../processor/tura-gogo.sh", "-c startHRApplication");
+				RunExternalJob.execute("../../../processor/tura-gogo.sh", "-c removeAll;startHRApplication");
 				AbstractTest.healthCheckt();
 			} catch (Exception e) {
 				fail();
