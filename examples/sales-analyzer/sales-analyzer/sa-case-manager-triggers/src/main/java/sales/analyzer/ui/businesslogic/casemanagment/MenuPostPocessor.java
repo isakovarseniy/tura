@@ -35,18 +35,6 @@ public class MenuPostPocessor implements MenuPostPocessingCommand,Serializable{
 			}
 			return;
 		}
-		
-		if ( menuId.equals("tura9a63b5cf_8508_4afb_bdb2_71e5a1be0a75") && ( model.getElements().size() != 0)  ) {
-			DefaultMenuItem item = (DefaultMenuItem) model.getElements().get(1);
-			String styleClass = "";
-			if ( item.getStyleClass() != null ) {
-				styleClass = item.getStyleClass()+" ";
-			}
-			item.setContainerStyleClass(styleClass+ "active-menuitem" );
-			return;
-		
-		}
-		
 	}
 
 }

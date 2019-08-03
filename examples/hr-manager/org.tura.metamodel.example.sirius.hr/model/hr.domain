@@ -329,10 +329,6 @@
             <hints uid="d68df7cd-5779-47bd-ba42-3d4937d536d9" name="additional.namespace" hint="574b0a96-0741-42f2-8e15-b9f97e351cf1"/>
             <hints uid="6b8c84ee-3fef-41c4-9bd1-513f569bc317" name="avalonMenu" hint="fe3d3632-526f-486c-844b-4d4c5dfab0f7"/>
             <hints uid="d15e3b89-fb6b-4e9f-a326-da6144294d75" name="accordionPanel" hint="e8cbe894-9800-45f2-a6fc-21da4b8b7909"/>
-            <hints uid="22d6597d-3cd3-437e-b303-749e5f86ee7f" name="megaMenu" hint="07afee07-b0ee-411b-8aab-30b2327cb147"/>
-            <hints uid="80ff882d-0b67-45e6-9d1d-13439e5ae32e" name="megaMenu.currentItem" hint="10d40be1-77c3-4a0e-a8a7-96c02b545d36"/>
-            <hints uid="19855620-79ac-4cc0-a47c-fb38e0682c65" name="megaMenu.orientation" hint="d6c8bff1-962e-449a-9c47-a09750bff0b1"/>
-            <hints uid="7d57ef38-8f93-4b91-b7b3-19be4f2a8fe9" name="slideMenu" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -549,10 +545,6 @@
             <hints uid="fe3d3632-526f-486c-844b-4d4c5dfab0f7" name="avalonMenu"/>
             <hints uid="e8cbe894-9800-45f2-a6fc-21da4b8b7909" name="accordionPanel"/>
             <hints uid="4f19a55e-2ce9-4c7a-8f9a-e92a2a06f9ad" name="primefaces.THEME"/>
-            <hints uid="07afee07-b0ee-411b-8aab-30b2327cb147" name="megaMenu"/>
-            <hints uid="10d40be1-77c3-4a0e-a8a7-96c02b545d36" name="megaMenu.currentItem"/>
-            <hints uid="d6c8bff1-962e-449a-9c47-a09750bff0b1" name="megaMenu.orientation"/>
-            <hints uid="5792ff76-6a06-4253-af7f-6958559bb172" name="slideMenu"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -11357,8 +11349,17 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="3681b736-c5a7-43e8-956a-4d012e26df36" name="Navigation">
                         <baseCanvas uid="9e7fa8dd-66a1-4493-9ed0-8c90fdb01cfe">
                           <children xsi:type="tura.form:Menu" menu="a42f767a-106f-41fc-81e5-aa68b12acb0b" uid="9a63b5cf-8508-4afb-bdb2-71e5a1be0a75">
-                            <style uid="f348d7ba-d7af-49f7-8357-a723d0dd6dc5" constant="true" value="width:280px"/>
-                            <classifiers uid="d3e4c146-016b-4d46-8f7f-966c49543e06" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
+                            <style uid="f348d7ba-d7af-49f7-8357-a723d0dd6dc5"/>
+                            <classifiers uid="d3e4c146-016b-4d46-8f7f-966c49543e06" hint="5374adbe-ecee-46a4-be35-0e2f846b8b96"/>
+                            <enabled uid="8ee71ca0-8b88-4089-859c-3c5925048289"/>
+                            <fields uid="99d138f8-9a40-4b4b-b53e-2e938243554b" constant="true" value="ui-tabs-vertical">
+                              <classifiers uid="a666d9e1-d365-43bd-b070-58d1ab5b2181" hint="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb"/>
+                            </fields>
+                            <fields uid="90dd510d-ab02-4dee-b85b-835f4bdf9364" value="Form variables.activeIndex">
+                              <expression objRef="22d39abc-54ce-425a-912e-72dc224328bc" expressionType="RootImpl"/>
+                              <expression objRef="941756a8-f744-4538-af91-fd7979878ceb" order="1" expressionType="FormVariableImpl"/>
+                              <classifiers uid="fe0a7125-3a71-439e-95a9-6f2342de1247" hint="ff76c993-15a7-40e3-b43b-51c383cd0b9e"/>
+                            </fields>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -11701,6 +11702,7 @@
                       <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="5a630ca6-5d07-420e-b1a1-5d6458951bcd" name="currentOpenedCase"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="a4c7afc7-9e91-428f-8860-b544d5a31986" name="currentOpenedCaseId"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8124d32c-c476-4884-bd47-e4ef33b00986" name="canvasType"/>
+                      <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="941756a8-f744-4538-af91-fd7979878ceb" name="activeIndex"/>
                     </root>
                     <controls uid="9694e8d3-2a79-4857-9eec-12f98d920ac6" name="Task">
                       <baseType typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c"/>
@@ -14026,10 +14028,15 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="3a5d8658-4a65-48bd-aaaf-bd6eec9665fa" name="Navigation">
                         <baseCanvas uid="15da3338-c81e-4001-ab02-dc1239decc07">
                           <children xsi:type="tura.form:Menu" menu="785f300e-514b-4284-b095-880cbcf84ef2" uid="465f974f-81f9-4149-84f1-bd605a6e8287">
-                            <style uid="bbcd6b3c-f29f-438b-be40-58cbdaeaa7a7" constant="true" value="width:280px"/>
-                            <classifiers uid="1bcbf761-2f4e-4b78-aa30-ea238d706df4" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
-                            <fields uid="abc13ec8-dc44-4306-9513-a31ed18ed9c4" constant="true" value="vertical">
-                              <classifiers uid="6fc45d69-d4c6-46db-890b-59b2f67f8df5" hint="d6c8bff1-962e-449a-9c47-a09750bff0b1"/>
+                            <style uid="bbcd6b3c-f29f-438b-be40-58cbdaeaa7a7"/>
+                            <classifiers uid="1bcbf761-2f4e-4b78-aa30-ea238d706df4" hint="5374adbe-ecee-46a4-be35-0e2f846b8b96"/>
+                            <fields uid="08cbd7f7-e1dd-472b-a003-5920bd305264" constant="true" value="ui-tabs-vertical">
+                              <classifiers uid="cea6c5d9-3a60-40fa-bc28-65f9fabac91c" hint="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb"/>
+                            </fields>
+                            <fields uid="c5ae62c9-2ca4-4f1c-96a7-4147f4222cad" value="Form variables.activeIndex">
+                              <expression objRef="79ef1380-8823-416a-bd37-3ee64d24657e" expressionType="RootImpl"/>
+                              <expression objRef="ba3fa89f-38d4-4248-b2fa-a778363ffa8b" order="1" expressionType="FormVariableImpl"/>
+                              <classifiers uid="b8dddb75-abfd-43a5-89b9-8466f27061f2" hint="ff76c993-15a7-40e3-b43b-51c383cd0b9e"/>
                             </fields>
                           </children>
                         </baseCanvas>
@@ -14126,6 +14133,7 @@
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="0c9b087d-3a41-4939-992e-c78cfcb84ada" name="roleId"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c35e2280-2a29-437c-bc6b-3adb2c37141d" name="userId"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="2643bb5e-c3ef-4991-afad-5a24f9588e68" name="userSwitch"/>
+                      <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="ba3fa89f-38d4-4248-b2fa-a778363ffa8b" name="activeIndex"/>
                     </root>
                     <controls uid="fe2666f4-9da0-4bf2-bcb1-3123ce980ae4" name="Role">
                       <baseType typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802"/>
@@ -15763,8 +15771,15 @@
                       <viewElement xsi:type="tura.form:ViewArea" uid="ed2ed377-a52f-4f10-a737-3112447fd204" name="Navigation">
                         <baseCanvas uid="05cb2c9e-01fa-4e09-b55a-40279bbe52aa">
                           <children xsi:type="tura.form:Menu" menu="5d675661-9e33-4f0a-a610-ac22ef89356a" uid="1b140930-174d-4901-aa3b-feb9ad8d18b0">
-                            <style uid="8019ca2c-29c3-4f5d-9035-3d4ebfa16696" constant="true" value="width:280px"/>
-                            <classifiers uid="94563bf7-73a3-4533-bbc7-4bc17e889ffa" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
+                            <style uid="8019ca2c-29c3-4f5d-9035-3d4ebfa16696"/>
+                            <classifiers uid="94563bf7-73a3-4533-bbc7-4bc17e889ffa" hint="5374adbe-ecee-46a4-be35-0e2f846b8b96"/>
+                            <fields uid="fb3e1edb-ddfc-43e5-a155-3657a09fe749" constant="true" value="ui-tabs-vertical">
+                              <classifiers uid="8bf91878-22ad-4dbe-98fa-4ee28d28de85" hint="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb"/>
+                            </fields>
+                            <fields uid="a393d32b-1c4a-4862-92e1-ed8e7c5ac918" value="Form variables.activeIndex">
+                              <expression objRef="d3239e54-cce8-456f-b44f-8589fac6fe60" expressionType="RootImpl"/>
+                              <expression objRef="1250f0e4-e7a3-4641-b46e-1e466321967a" order="1" expressionType="FormVariableImpl"/>
+                            </fields>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -15863,6 +15878,7 @@
                       <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="8e074e97-f62e-4902-bf31-93a7ed60af0d" name="pollStop"/>
                       <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="cf3db52d-0abb-4083-89d8-f0af9d96f065" name="refreshControl"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5527192d-48d6-44c0-a506-31ff5a2e86d9" name="processingDate"/>
+                      <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="1250f0e4-e7a3-4641-b46e-1e466321967a" name="activeIndex"/>
                     </root>
                     <controls uid="34f23350-3da7-48f7-91b9-a38b6df4e3b1" name="EtlProcess">
                       <baseType typeRef="a23c68c0-0a57-49e1-96f2-79fbef23206c"/>

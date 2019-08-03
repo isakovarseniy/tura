@@ -42,31 +42,11 @@ operation form::Menu draw(hash) {
        menuType = "pu:menu";
      }
 
-     if (self.findClassifier(util.getHint(model_mapper,"megaMenu"))){
-       menuType = "p:megaMenu";
-       var expression = constructExpression(self,'megaMenu.currentItem',hints, hash);
-       if (expression <> ""){
-         currentMenueItem ="activeIndex=\""+expression+"\"";
-       }
-       
-       var expression = constructExpression(self,'megaMenu.orientation',hints, hash);
-       if (expression <> ""){
-         var orientation ="orientation=\""+expression+"\"";
-         extrainfo = extrainfo+ " "+ orientation;
-       }
-     }
-
-     if (self.findClassifier(util.getHint(model_mapper,"slideMenu"))){
-       menuType = "p:slideMenu";
-     }
-
-
-
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      
 %]
-    <[%=menuType%] [%=extrainfo%] [%=currentMenueItem%]  model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]/>    
+    <[%=menuType%] [%=extrainfo%] [%=currentMenueItem%]  model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}"  [%=self.uiElementAttributes(hash)%]   styleClass="[%=self.styleClassByClassifier(util.getHint(model_mapper,"styleClass")).replace(","," ")%]"/>    
 [%
      util.traceIfDebug("UI element","Menu end: "+self.uid);     
 }
