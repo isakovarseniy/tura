@@ -42,6 +42,25 @@ operation form::Menu draw(hash) {
        menuType = "pu:menu";
      }
 
+     if (self.findClassifier(util.getHint(model_mapper,"megaMenu"))){
+       menuType = "p:megaMenu";
+       var expression = constructExpression(self,'megaMenu.currentItem',hints, hash);
+       if (expression <> ""){
+         currentMenueItem ="activeIndex=\""+expression+"\"";
+       }
+       
+       var expression = constructExpression(self,'megaMenu.orientation',hints, hash);
+       if (expression <> ""){
+         var orientation ="orientation=\""+expression+"\"";
+         extrainfo = extrainfo+ " "+ orientation;
+       }
+     }
+
+     if (self.findClassifier(util.getHint(model_mapper,"slideMenu"))){
+       menuType = "p:slideMenu";
+     }
+
+
 
  
      util.traceIfDebug("UI element","Menu start: "+self.uid);     

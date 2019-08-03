@@ -329,6 +329,10 @@
             <hints uid="d68df7cd-5779-47bd-ba42-3d4937d536d9" name="additional.namespace" hint="574b0a96-0741-42f2-8e15-b9f97e351cf1"/>
             <hints uid="6b8c84ee-3fef-41c4-9bd1-513f569bc317" name="avalonMenu" hint="fe3d3632-526f-486c-844b-4d4c5dfab0f7"/>
             <hints uid="d15e3b89-fb6b-4e9f-a326-da6144294d75" name="accordionPanel" hint="e8cbe894-9800-45f2-a6fc-21da4b8b7909"/>
+            <hints uid="22d6597d-3cd3-437e-b303-749e5f86ee7f" name="megaMenu" hint="07afee07-b0ee-411b-8aab-30b2327cb147"/>
+            <hints uid="80ff882d-0b67-45e6-9d1d-13439e5ae32e" name="megaMenu.currentItem" hint="10d40be1-77c3-4a0e-a8a7-96c02b545d36"/>
+            <hints uid="19855620-79ac-4cc0-a47c-fb38e0682c65" name="megaMenu.orientation" hint="d6c8bff1-962e-449a-9c47-a09750bff0b1"/>
+            <hints uid="7d57ef38-8f93-4b91-b7b3-19be4f2a8fe9" name="slideMenu" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -545,6 +549,10 @@
             <hints uid="fe3d3632-526f-486c-844b-4d4c5dfab0f7" name="avalonMenu"/>
             <hints uid="e8cbe894-9800-45f2-a6fc-21da4b8b7909" name="accordionPanel"/>
             <hints uid="4f19a55e-2ce9-4c7a-8f9a-e92a2a06f9ad" name="primefaces.THEME"/>
+            <hints uid="07afee07-b0ee-411b-8aab-30b2327cb147" name="megaMenu"/>
+            <hints uid="10d40be1-77c3-4a0e-a8a7-96c02b545d36" name="megaMenu.currentItem"/>
+            <hints uid="d6c8bff1-962e-449a-9c47-a09750bff0b1" name="megaMenu.orientation"/>
+            <hints uid="5792ff76-6a06-4253-af7f-6958559bb172" name="slideMenu"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
@@ -11348,7 +11356,10 @@
                     <canvases xsi:type="tura.form:Window" uid="1004ddcb-4e0a-4b2f-a49b-d40eadee4573" name="Menu">
                       <viewElement xsi:type="tura.form:ViewArea" uid="3681b736-c5a7-43e8-956a-4d012e26df36" name="Navigation">
                         <baseCanvas uid="9e7fa8dd-66a1-4493-9ed0-8c90fdb01cfe">
-                          <children xsi:type="tura.form:Menu" menu="a42f767a-106f-41fc-81e5-aa68b12acb0b" uid="9a63b5cf-8508-4afb-bdb2-71e5a1be0a75"/>
+                          <children xsi:type="tura.form:Menu" menu="a42f767a-106f-41fc-81e5-aa68b12acb0b" uid="9a63b5cf-8508-4afb-bdb2-71e5a1be0a75">
+                            <style uid="f348d7ba-d7af-49f7-8357-a723d0dd6dc5" constant="true" value="width:280px"/>
+                            <classifiers uid="d3e4c146-016b-4d46-8f7f-966c49543e06" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <viewElement xsi:type="tura.form:ViewPort" order="1" uid="f1e6acca-6c9b-44bd-a252-a28ad89d77e8" name="SearchPort"/>
@@ -14014,7 +14025,13 @@
                     <canvases xsi:type="tura.form:Window" uid="1eacdd4b-550e-4304-88a3-619e9cb840ea" name="Menu">
                       <viewElement xsi:type="tura.form:ViewArea" uid="3a5d8658-4a65-48bd-aaaf-bd6eec9665fa" name="Navigation">
                         <baseCanvas uid="15da3338-c81e-4001-ab02-dc1239decc07">
-                          <children xsi:type="tura.form:Menu" menu="785f300e-514b-4284-b095-880cbcf84ef2" uid="465f974f-81f9-4149-84f1-bd605a6e8287"/>
+                          <children xsi:type="tura.form:Menu" menu="785f300e-514b-4284-b095-880cbcf84ef2" uid="465f974f-81f9-4149-84f1-bd605a6e8287">
+                            <style uid="bbcd6b3c-f29f-438b-be40-58cbdaeaa7a7" constant="true" value="width:280px"/>
+                            <classifiers uid="1bcbf761-2f4e-4b78-aa30-ea238d706df4" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
+                            <fields uid="abc13ec8-dc44-4306-9513-a31ed18ed9c4" constant="true" value="vertical">
+                              <classifiers uid="6fc45d69-d4c6-46db-890b-59b2f67f8df5" hint="d6c8bff1-962e-449a-9c47-a09750bff0b1"/>
+                            </fields>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <classifiers uid="e730d7f3-a2dd-4b54-9c8f-09b7e59be14b" hint="5aa9a51d-a297-48d9-b81b-c3810493ff61" details=""/>
@@ -15745,7 +15762,10 @@
                     <canvases xsi:type="tura.form:Window" uid="0568f9ed-5671-4386-b08d-c931c2584b79" name="Menu">
                       <viewElement xsi:type="tura.form:ViewArea" uid="ed2ed377-a52f-4f10-a737-3112447fd204" name="Navigation">
                         <baseCanvas uid="05cb2c9e-01fa-4e09-b55a-40279bbe52aa">
-                          <children xsi:type="tura.form:Menu" menu="5d675661-9e33-4f0a-a610-ac22ef89356a" uid="1b140930-174d-4901-aa3b-feb9ad8d18b0"/>
+                          <children xsi:type="tura.form:Menu" menu="5d675661-9e33-4f0a-a610-ac22ef89356a" uid="1b140930-174d-4901-aa3b-feb9ad8d18b0">
+                            <style uid="8019ca2c-29c3-4f5d-9035-3d4ebfa16696" constant="true" value="width:280px"/>
+                            <classifiers uid="94563bf7-73a3-4533-bbc7-4bc17e889ffa" hint="5792ff76-6a06-4253-af7f-6958559bb172"/>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <classifiers uid="c5c99beb-d2d1-4b29-9aea-c0927f93c5c8" hint="5aa9a51d-a297-48d9-b81b-c3810493ff61"/>
