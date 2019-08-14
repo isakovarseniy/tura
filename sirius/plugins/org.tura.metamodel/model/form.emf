@@ -338,6 +338,20 @@ class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
 }
 
+
+class DataExporter extends InputElement{
+     val AreaRef[*]  sourceTarget;
+     attr DataExporterType type;
+}
+
+
+enum DataExporterType{
+	xls;
+	pdf;
+	csv;
+	xml;
+}
+
 enum Sortable {
    Not;
    Default;
@@ -346,7 +360,7 @@ enum Sortable {
 }
 
 
-class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HTMLLayerHolder,common.Orderable{
+class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HTMLLayerHolder,common.Orderable,FlexFields{
     id attr EString uid;
    attr EString label;
    attr Sortable sortable;

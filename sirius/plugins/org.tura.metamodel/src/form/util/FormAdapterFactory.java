@@ -298,6 +298,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createButtonAdapter();
 			}
 			@Override
+			public Adapter caseDataExporter(DataExporter object) {
+				return createDataExporterAdapter();
+			}
+			@Override
 			public Adapter caseColumn(Column object) {
 				return createColumnAdapter();
 			}
@@ -1280,6 +1284,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.DataExporter <em>Data Exporter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.DataExporter
+	 * @generated
+	 */
+	public Adapter createDataExporterAdapter() {
 		return null;
 	}
 

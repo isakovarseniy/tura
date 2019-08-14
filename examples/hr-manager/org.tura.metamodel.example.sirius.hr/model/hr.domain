@@ -329,6 +329,7 @@
             <hints uid="d68df7cd-5779-47bd-ba42-3d4937d536d9" name="additional.namespace" hint="574b0a96-0741-42f2-8e15-b9f97e351cf1"/>
             <hints uid="6b8c84ee-3fef-41c4-9bd1-513f569bc317" name="avalonMenu" hint="fe3d3632-526f-486c-844b-4d4c5dfab0f7"/>
             <hints uid="d15e3b89-fb6b-4e9f-a326-da6144294d75" name="accordionPanel" hint="e8cbe894-9800-45f2-a6fc-21da4b8b7909"/>
+            <hints uid="f976552f-a7d4-4e83-ba0a-c5057c393669" name="column.dataExport.function" hint="3007310d-a3ea-448d-ab65-3c4e0c418b1e"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -545,6 +546,7 @@
             <hints uid="fe3d3632-526f-486c-844b-4d4c5dfab0f7" name="avalonMenu"/>
             <hints uid="e8cbe894-9800-45f2-a6fc-21da4b8b7909" name="accordionPanel"/>
             <hints uid="4f19a55e-2ce9-4c7a-8f9a-e92a2a06f9ad" name="primefaces.THEME"/>
+            <hints uid="3007310d-a3ea-448d-ab65-3c4e0c418b1e" name="column.dataExport.function"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>

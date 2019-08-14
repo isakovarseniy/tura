@@ -112,6 +112,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.IMAGE: return createImage();
 			case FormPackage.DATE: return createDate();
 			case FormPackage.BUTTON: return createButton();
+			case FormPackage.DATA_EXPORTER: return createDataExporter();
 			case FormPackage.COLUMN: return createColumn();
 			case FormPackage.TABLE: return createTable();
 			case FormPackage.MENU: return createMenu();
@@ -176,6 +177,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return createOrientationFromString(eDataType, initialValue);
 			case FormPackage.RADIO_LAYOUT:
 				return createRadioLayoutFromString(eDataType, initialValue);
+			case FormPackage.DATA_EXPORTER_TYPE:
+				return createDataExporterTypeFromString(eDataType, initialValue);
 			case FormPackage.SORTABLE:
 				return createSortableFromString(eDataType, initialValue);
 			case FormPackage.SELECTION_MODE:
@@ -201,6 +204,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return convertOrientationToString(eDataType, instanceValue);
 			case FormPackage.RADIO_LAYOUT:
 				return convertRadioLayoutToString(eDataType, instanceValue);
+			case FormPackage.DATA_EXPORTER_TYPE:
+				return convertDataExporterTypeToString(eDataType, instanceValue);
 			case FormPackage.SORTABLE:
 				return convertSortableToString(eDataType, instanceValue);
 			case FormPackage.SELECTION_MODE:
@@ -765,6 +770,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataExporter createDataExporter() {
+		DataExporterImpl dataExporter = new DataExporterImpl();
+		return dataExporter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Column createColumn() {
 		ColumnImpl column = new ColumnImpl();
 		return column;
@@ -1267,6 +1282,26 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * @generated
 	 */
 	public String convertRadioLayoutToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataExporterType createDataExporterTypeFromString(EDataType eDataType, String initialValue) {
+		DataExporterType result = DataExporterType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDataExporterTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

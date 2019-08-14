@@ -419,6 +419,10 @@
              id="tab.form.BlockUI.SourceTarget"
              label="Events source/targets"/>
 
+    <propertyTab
+             category="domain"
+             id="tab.form.DataExporter.Target"
+             label="Dataexporter targets"/>
 
     <propertyTab
              category="domain"
@@ -1129,6 +1133,19 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+	
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.DataExporterTargetPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataExporterSectionFilter"
+	            id="form.DataExporter.Target"
+	            tab="tab.form.DataExporter.Target">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
+	
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">

@@ -209,6 +209,7 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.COLUMN__ELEMENT);
 		}
 		return childrenFeatures;
@@ -273,6 +274,7 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 				return;
 			case FormPackage.COLUMN__MULTI_LANG_LABEL:
 			case FormPackage.COLUMN__CLASSIFIERS:
+			case FormPackage.COLUMN__FIELDS:
 			case FormPackage.COLUMN__ELEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -305,6 +307,11 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 			(createChildParameter
 				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 ArtifactFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -394,6 +401,11 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
+				 FormFactory.eINSTANCE.createDataExporter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.COLUMN__ELEMENT,
 				 FormFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
@@ -450,7 +462,8 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 
 		boolean qualify =
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

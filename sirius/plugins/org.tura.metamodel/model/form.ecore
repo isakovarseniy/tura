@@ -263,13 +263,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel #//ItemIcon">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataExporter" eSuperTypes="#//InputElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceTarget" upperBound="-1"
+        eType="#//AreaRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataExporterType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataExporterType">
+    <eLiterals name="xls"/>
+    <eLiterals name="pdf" value="1"/>
+    <eLiterals name="csv" value="2"/>
+    <eLiterals name="xml" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Sortable">
     <eLiterals name="Not"/>
     <eLiterals name="Default" value="1"/>
     <eLiterals name="Asc" value="2"/>
     <eLiterals name="Desc" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//HTMLLayerHolder common.ecore#//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//HTMLLayerHolder common.ecore#//Orderable #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

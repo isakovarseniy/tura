@@ -260,6 +260,11 @@ public class BlockUIItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 FormFactory.eINSTANCE.createDataExporter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add

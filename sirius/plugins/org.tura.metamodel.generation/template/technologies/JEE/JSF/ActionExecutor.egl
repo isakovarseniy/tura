@@ -192,6 +192,44 @@ public class ActionExecutor  implements java.io.Serializable {
     }
 
 
+    @SuppressWarnings("unchecked")
+    public Object action(org.primefaces.component.api.UIColumn event) {
+        try {
+            Object[] array = (Object[]) hash.get(src);
+
+            Method method =
+                array[2].getClass()
+                        .getMethod((String) (array[3]), (Class[]) array[0]);
+            @SuppressWarnings("rawtypes")
+            ArrayList objects = new ArrayList();
+            int i = 0;
+            for (Object exp : (Object[]) array[1]) {
+                Object obj = null;
+                String expression = (String) exp;
+                if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    obj = elResolver.getValue(expression);
+                } else {
+                    Class<?> clazz = ((Class[]) array[0])[i];
+                    Constructor<?> cnt =
+                        clazz.getDeclaredConstructor(String.class);
+                    obj = cnt.newInstance(expression);
+                }
+                i++;
+                objects.add(obj);
+            }
+            if (array[2] instanceof org.tura.platform.primefaces.lib.DataExporterConverter) {
+                ((org.tura.platform.primefaces.lib.DataExporterConverter) array[2]).setColumn(event);
+            }
+            
+            
+            return method.invoke(array[2], objects.toArray());
+        } catch (Exception e) {
+            logger.log(Level.INFO, e.getMessage(), e);
+        }
+        return null;
+    }
+
+
    
    
     @SuppressWarnings("unchecked")

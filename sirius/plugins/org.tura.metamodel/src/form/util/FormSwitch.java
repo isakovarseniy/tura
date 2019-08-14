@@ -666,6 +666,23 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.DATA_EXPORTER: {
+				DataExporter dataExporter = (DataExporter)theEObject;
+				T result = caseDataExporter(dataExporter);
+				if (result == null) result = caseInputElement(dataExporter);
+				if (result == null) result = caseSourcesPointer(dataExporter);
+				if (result == null) result = caseUielement(dataExporter);
+				if (result == null) result = caseControlPointer(dataExporter);
+				if (result == null) result = caseStyleElement(dataExporter);
+				if (result == null) result = caseNickNamed(dataExporter);
+				if (result == null) result = caseCategorized(dataExporter);
+				if (result == null) result = caseOrderable(dataExporter);
+				if (result == null) result = caseEnabledUIItem(dataExporter);
+				if (result == null) result = caseFlexFields(dataExporter);
+				if (result == null) result = caseMenuHolder(dataExporter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T result = caseColumn(column);
@@ -674,6 +691,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(column);
 				if (result == null) result = caseHTMLLayerHolder(column);
 				if (result == null) result = caseOrderable(column);
+				if (result == null) result = caseFlexFields(column);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1928,6 +1946,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseButton(Button object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Exporter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Exporter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataExporter(DataExporter object) {
 		return null;
 	}
 

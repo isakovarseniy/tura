@@ -12,6 +12,8 @@ import common.Orderable;
 
 import form.Column;
 import form.Context;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.MultiLangLabel;
 import form.Sortable;
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.ColumnImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.ColumnImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link form.impl.ColumnImpl#getSortable <em>Sortable</em>}</li>
@@ -113,6 +116,16 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -325,6 +338,18 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.COLUMN__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -459,6 +484,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return basicSetMultiLangLabel(null, msgs);
 			case FormPackage.COLUMN__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case FormPackage.COLUMN__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case FormPackage.COLUMN__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -481,6 +508,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return getColumns();
 			case FormPackage.COLUMN__ORDER:
 				return getOrder();
+			case FormPackage.COLUMN__FIELDS:
+				return getFields();
 			case FormPackage.COLUMN__UID:
 				return getUid();
 			case FormPackage.COLUMN__LABEL:
@@ -516,6 +545,10 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return;
 			case FormPackage.COLUMN__ORDER:
 				setOrder((Integer)newValue);
+				return;
+			case FormPackage.COLUMN__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.COLUMN__UID:
 				setUid((String)newValue);
@@ -556,6 +589,9 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 			case FormPackage.COLUMN__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.COLUMN__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.COLUMN__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -591,6 +627,8 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				return columns != COLUMNS_EDEFAULT;
 			case FormPackage.COLUMN__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.COLUMN__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.COLUMN__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.COLUMN__LABEL:
@@ -636,6 +674,12 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.COLUMN__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -667,6 +711,12 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return FormPackage.COLUMN__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.COLUMN__FIELDS;
 				default: return -1;
 			}
 		}

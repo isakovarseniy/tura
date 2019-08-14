@@ -517,6 +517,15 @@ public interface FormFactory extends EFactory {
 	Button createButton();
 
 	/**
+	 * Returns a new object of class '<em>Data Exporter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Exporter</em>'.
+	 * @generated
+	 */
+	DataExporter createDataExporter();
+
+	/**
 	 * Returns a new object of class '<em>Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

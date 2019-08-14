@@ -36,6 +36,8 @@ import form.ControlPointer;
 import form.Controls;
 import form.CreateTrigger;
 import form.DataControl;
+import form.DataExporter;
+import form.DataExporterType;
 import form.DataScroller;
 import form.Date;
 import form.DefaultCavas;
@@ -558,6 +560,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dataExporterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass columnEClass = null;
 
 	/**
@@ -881,6 +890,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EEnum radioLayoutEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dataExporterTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2320,6 +2336,33 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDataExporter() {
+		return dataExporterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataExporter_SourceTarget() {
+		return (EReference)dataExporterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataExporter_Type() {
+		return (EAttribute)dataExporterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -3580,6 +3623,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getDataExporterType() {
+		return dataExporterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSortable() {
 		return sortableEEnum;
 	}
@@ -3823,6 +3875,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__LABEL);
 
+		dataExporterEClass = createEClass(DATA_EXPORTER);
+		createEReference(dataExporterEClass, DATA_EXPORTER__SOURCE_TARGET);
+		createEAttribute(dataExporterEClass, DATA_EXPORTER__TYPE);
+
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__UID);
 		createEAttribute(columnEClass, COLUMN__LABEL);
@@ -4007,6 +4063,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		orderEEnum = createEEnum(ORDER);
 		orientationEEnum = createEEnum(ORIENTATION);
 		radioLayoutEEnum = createEEnum(RADIO_LAYOUT);
+		dataExporterTypeEEnum = createEEnum(DATA_EXPORTER_TYPE);
 		sortableEEnum = createEEnum(SORTABLE);
 		selectionModeEEnum = createEEnum(SELECTION_MODE);
 	}
@@ -4135,11 +4192,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		buttonEClass.getESuperTypes().add(this.getUielement());
 		buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
 		buttonEClass.getESuperTypes().add(this.getItemIcon());
+		dataExporterEClass.getESuperTypes().add(this.getInputElement());
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		columnEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		columnEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		columnEClass.getESuperTypes().add(this.getFlexFields());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
 		tableEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
@@ -4402,6 +4461,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(dataExporterEClass, DataExporter.class, "DataExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataExporter_SourceTarget(), this.getAreaRef(), null, "sourceTarget", null, 0, -1, DataExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataExporter_Type(), this.getDataExporterType(), "type", null, 0, 1, DataExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Label(), ecorePackage.getEString(), "label", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4606,6 +4669,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		addEEnumLiteral(radioLayoutEEnum, RadioLayout.CUSTOM);
 		addEEnumLiteral(radioLayoutEEnum, RadioLayout.RESPONSIVE);
 		addEEnumLiteral(radioLayoutEEnum, RadioLayout.GRID);
+
+		initEEnum(dataExporterTypeEEnum, DataExporterType.class, "DataExporterType");
+		addEEnumLiteral(dataExporterTypeEEnum, DataExporterType.XLS);
+		addEEnumLiteral(dataExporterTypeEEnum, DataExporterType.PDF);
+		addEEnumLiteral(dataExporterTypeEEnum, DataExporterType.CSV);
+		addEEnumLiteral(dataExporterTypeEEnum, DataExporterType.XML);
 
 		initEEnum(sortableEEnum, Sortable.class, "Sortable");
 		addEEnumLiteral(sortableEEnum, Sortable.NOT);

@@ -32,7 +32,15 @@ operation form::Column generateBody(hash){
         title="";   
         
 %]
-           <p:column [%=title%]   [%=sortBy%]   [%=priority%]  [%=self.styleAttributes(hash)%]>
+           <p:column [%=title%]   [%=sortBy%]   [%=priority%]  [%=self.styleAttributes(hash)%]
+[%
+       var expression = constructExpression(self,'column.dataExport.function',hints, hash);
+       if (expression <> ""){
+       %] exportFunction="[%=expression%]"[%
+       }
+           
+ %]          
+           >
 [%      if ( self.element <> null and "tree".equals(hash.get("context") ))  {%]
                    [%=self.treecontext(hash)%]
                    

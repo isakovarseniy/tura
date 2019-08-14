@@ -27,7 +27,7 @@ import common.Orderable;
  * @model
  * @generated
  */
-public interface Column extends StyleElement, MultiLangLabel, Categorized, HTMLLayerHolder, Orderable {
+public interface Column extends StyleElement, MultiLangLabel, Categorized, HTMLLayerHolder, Orderable, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

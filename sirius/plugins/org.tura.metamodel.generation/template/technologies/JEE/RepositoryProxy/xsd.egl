@@ -20,7 +20,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
        [%
             for ( field in type.values){
             %]
-            <xs:enumeration value="[%=field.name%]" />
+            <xs:enumeration value="[%=field.name%]" >
+             <xs:annotation>
+               <xs:appinfo>
+                <jaxb:typesafeEnumMember name="[%=field.name%]"/>
+               </xs:appinfo>
+             </xs:annotation>
+            </xs:enumeration>
             [%
             }
        %] 

@@ -1336,6 +1336,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.DataExporter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataExporterItemProvider dataExporterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.DataExporter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataExporterAdapter() {
+		if (dataExporterItemProvider == null) {
+			dataExporterItemProvider = new DataExporterItemProvider(this);
+		}
+
+		return dataExporterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.Column} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
