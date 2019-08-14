@@ -66,6 +66,12 @@ buildPlatform = {
 addClosure "buildPlatform";
 
 
+minimalInit = {
+     source $tura_home/processor/etc/minimalInit;    
+}
+addClosure "minimalInit";
+
+
 startHRApplication = {
      stopSAApplication;
      source $tura_home/processor/etc/hr-manager-deployment.recipe;    
