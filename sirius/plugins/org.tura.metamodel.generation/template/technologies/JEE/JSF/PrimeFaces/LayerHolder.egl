@@ -5,17 +5,23 @@ operation  form::LayerHolder  draw(hash) {
         
      var model_mapper = hash.get('model_mapper');
 
-     var responsive = "tabular";       
+     var responsive = "tabular";  
+     var ignore = false;     
      if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
         responsive="grid";
      }
-       
-       
+     
+     if (self.findClassifier(util.getHint(model_mapper,"ignore"))){
+     %]
+       [%=self.generateBody(hash)%]     
+       [%
+     }else{
 %]
      <p:panelGrid  layout="[%=responsive%]" [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]   [%=self.rendered(hash)%]   styleClass="[%=self.styleClassByClassifier(util.getHint(model_mapper,"styleClass")).replace(","," ")%]"  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%
+}
     util.traceIfDebug("UI element","LayerHolder end: "+self.uid);     
 }
 

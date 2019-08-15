@@ -683,7 +683,8 @@ public class Util {
                 return hintRef.getHint().getUid();
             }
         }
-        throw new Exception("Hint "+hintNickName+" is undifined in "+mapper.getArtifactRef().getName());
+        return "na";
+//        throw new Exception("Hint "+hintNickName+" is undifined in "+mapper.getArtifactRef().getName());
     }
     
     public static String splitByCapitalLatter(String s){
