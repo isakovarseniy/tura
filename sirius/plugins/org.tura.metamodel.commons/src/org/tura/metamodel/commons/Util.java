@@ -683,7 +683,7 @@ public class Util {
                 return hintRef.getHint().getUid();
             }
         }
-        return "na";
+        return null;
 //        throw new Exception("Hint "+hintNickName+" is undifined in "+mapper.getArtifactRef().getName());
     }
     

@@ -3,12 +3,10 @@ try {
 tura:install maven
 tura:dsl createLink --targetDirectory $tura_home --sourceDirectory $user_home/.tura --linkName tura
 
-tura:mvn build --pom.xml  $tura_home/platform/pom.xml --D skipTests=true
+tura:mvn build --pom.xml  $tura_home/platform/pom.xml --D skipTests=true --P firstPass
 
 
 } catch {
     $exception printStackTrace
 }
-
-
 
