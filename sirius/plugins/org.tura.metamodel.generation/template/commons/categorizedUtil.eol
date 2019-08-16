@@ -8,10 +8,12 @@ operation type::TypeReference findClassifier( hintUUID : String) {
 
 operation artifact::Categorized findClassifier( hintUUID : String) { 
 
+      if (hintUUID = null){
+        return false;
+      }  
       for (hint in self.getClassifiers()){
            if (hint.getHint()= null )
                  return false;
-           
            if (hintUUID.equals(hint.getHint.getUid())){
                  self.~hintDetails=hint.details;
                  return true;
