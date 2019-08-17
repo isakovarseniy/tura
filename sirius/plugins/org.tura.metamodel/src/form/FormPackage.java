@@ -3,6 +3,7 @@
 package form;
 
 import artifact.ArtifactPackage;
+
 import common.CommonPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -2687,187 +2688,6 @@ public interface FormPackage extends EPackage {
 	int SELECTION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link form.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see form.impl.OptionSelectionImpl
-	 * @see form.impl.FormPackageImpl#getOptionSelection()
-	 * @generated
-	 */
-	int OPTION_SELECTION = 41;
-
-	/**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__NICKNAME = INPUT_ELEMENT__NICKNAME;
-
-	/**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__CLASSIFIERS = INPUT_ELEMENT__CLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__ORDER = INPUT_ELEMENT__ORDER;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__ENABLED = INPUT_ELEMENT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__FIELDS = INPUT_ELEMENT__FIELDS;
-
-	/**
-	 * The feature id for the '<em><b>Menu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__MENU = INPUT_ELEMENT__MENU;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__UID = INPUT_ELEMENT__UID;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__REQUIRED = INPUT_ELEMENT__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__REFRESH_AREAS = INPUT_ELEMENT__REFRESH_AREAS;
-
-	/**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__SOURCE_POINTER = INPUT_ELEMENT__SOURCE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__VALUE_POINTER = INPUT_ELEMENT__VALUE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__SOURCE_CAST = INPUT_ELEMENT__SOURCE_CAST;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL = INPUT_ELEMENT__SOURCE_CAST_DATA_CONTROL;
-
-	/**
-	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__OPTION_POINTER = INPUT_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__OPTION_CAST = INPUT_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = INPUT_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Option Selection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link form.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2875,7 +2695,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 42;
+	int LAYER_HOLDER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3011,7 +2831,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 43;
+	int INPUT_TEXT = 42;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3192,7 +3012,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 44;
+	int PASSWORD = 43;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3355,7 +3175,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 45;
+	int LABEL = 44;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3491,7 +3311,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 46;
+	int MESSAGE_ELEMENT = 45;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3627,7 +3447,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 47;
+	int OUTPUT_TEXT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3790,7 +3610,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 48;
+	int CHECK_BOX = 47;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3937,149 +3757,14 @@ public interface FormPackage extends EPackage {
 	int CHECK_BOX_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link form.impl.SelectOneFromListOfOptionsImpl <em>Select One From List Of Options</em>}' class.
+	 * The meta object id for the '{@link form.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see form.impl.SelectOneFromListOfOptionsImpl
-	 * @see form.impl.FormPackageImpl#getSelectOneFromListOfOptions()
+	 * @see form.impl.OptionSelectionImpl
+	 * @see form.impl.FormPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS = 49;
-
-	/**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE = OPTION_SELECTION__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME = OPTION_SELECTION__NICKNAME;
-
-	/**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS = OPTION_SELECTION__CLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER = OPTION_SELECTION__ORDER;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED = OPTION_SELECTION__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS = OPTION_SELECTION__FIELDS;
-
-	/**
-	 * The feature id for the '<em><b>Menu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU = OPTION_SELECTION__MENU;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__UID = OPTION_SELECTION__UID;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED = OPTION_SELECTION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY = OPTION_SELECTION__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS = OPTION_SELECTION__REFRESH_AREAS;
-
-	/**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER = OPTION_SELECTION__SOURCE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER = OPTION_SELECTION__VALUE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST = OPTION_SELECTION__SOURCE_CAST;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION__SOURCE_CAST_DATA_CONTROL;
+	int OPTION_SELECTION = 48;
 
 	/**
 	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
@@ -4088,7 +3773,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
+	int OPTION_SELECTION__OPTION_POINTER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
@@ -4097,7 +3782,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
+	int OPTION_SELECTION__OPTION_CAST = 1;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
@@ -4106,7 +3791,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
+	int OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -4115,7 +3800,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION = OPTION_SELECTION_FEATURE_COUNT + 0;
+	int OPTION_SELECTION__SELECTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
@@ -4124,7 +3809,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE = OPTION_SELECTION_FEATURE_COUNT + 1;
+	int OPTION_SELECTION__INITIAL_OPTION_MESSAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
@@ -4133,16 +3818,16 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE = OPTION_SELECTION_FEATURE_COUNT + 2;
+	int OPTION_SELECTION__INITIAL_OPTION_VALUE = 5;
 
 	/**
-	 * The number of structural features of the '<em>Select One From List Of Options</em>' class.
+	 * The number of structural features of the '<em>Option Selection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 3;
+	int OPTION_SELECTION_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
@@ -4152,142 +3837,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 50;
-
-	/**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__STYLE = SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__NICKNAME = SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME;
-
-	/**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__CLASSIFIERS = SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__ORDER = SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__ENABLED = SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__FIELDS = SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS;
-
-	/**
-	 * The feature id for the '<em><b>Menu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__MENU = SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__UID = SELECT_ONE_FROM_LIST_OF_OPTIONS__UID;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__REQUIRED = SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__READ_ONLY = SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__REFRESH_AREAS = SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS;
-
-	/**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__SOURCE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__VALUE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__SOURCE_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__SOURCE_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL;
+	int DROP_DOWN_SELECTION = 49;
 
 	/**
 	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
@@ -4296,7 +3846,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER;
+	int DROP_DOWN_SELECTION__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
@@ -4305,7 +3855,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST;
+	int DROP_DOWN_SELECTION__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
@@ -4314,7 +3864,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__OPTION_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL;
+	int DROP_DOWN_SELECTION__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -4323,7 +3873,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__SELECTION = SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION;
+	int DROP_DOWN_SELECTION__SELECTION = OPTION_SELECTION__SELECTION;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
@@ -4332,7 +3882,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE;
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE = OPTION_SELECTION__INITIAL_OPTION_MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
@@ -4341,7 +3891,142 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE;
+	int DROP_DOWN_SELECTION__INITIAL_OPTION_VALUE = OPTION_SELECTION__INITIAL_OPTION_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__STYLE = OPTION_SELECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__NICKNAME = OPTION_SELECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__CLASSIFIERS = OPTION_SELECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__ORDER = OPTION_SELECTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__ENABLED = OPTION_SELECTION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__FIELDS = OPTION_SELECTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__MENU = OPTION_SELECTION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__UID = OPTION_SELECTION_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__REQUIRED = OPTION_SELECTION_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__REFRESH_AREAS = OPTION_SELECTION_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_POINTER = OPTION_SELECTION_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__VALUE_POINTER = OPTION_SELECTION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_CAST = OPTION_SELECTION_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_DOWN_SELECTION__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Drop Down Selection</em>' class.
@@ -4350,7 +4035,179 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_DOWN_SELECTION_FEATURE_COUNT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 0;
+	int DROP_DOWN_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 15;
+
+	/**
+	 * The meta object id for the '{@link form.impl.SelectManyMenuImpl <em>Select Many Menu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.SelectManyMenuImpl
+	 * @see form.impl.FormPackageImpl#getSelectManyMenu()
+	 * @generated
+	 */
+	int SELECT_MANY_MENU = 50;
+
+	/**
+	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__SELECTION = OPTION_SELECTION__SELECTION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__INITIAL_OPTION_MESSAGE = OPTION_SELECTION__INITIAL_OPTION_MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__INITIAL_OPTION_VALUE = OPTION_SELECTION__INITIAL_OPTION_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__STYLE = OPTION_SELECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__NICKNAME = OPTION_SELECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__CLASSIFIERS = OPTION_SELECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__ORDER = OPTION_SELECTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__ENABLED = OPTION_SELECTION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__FIELDS = OPTION_SELECTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__MENU = OPTION_SELECTION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__UID = OPTION_SELECTION_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__REQUIRED = OPTION_SELECTION_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__READ_ONLY = OPTION_SELECTION_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU__REFRESH_AREAS = OPTION_SELECTION_FEATURE_COUNT + 10;
+
+	/**
+	 * The number of structural features of the '<em>Select Many Menu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_MANY_MENU_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link form.impl.RadioSelectionImpl <em>Radio Selection</em>}' class.
@@ -4363,148 +4220,13 @@ public interface FormPackage extends EPackage {
 	int RADIO_SELECTION = 51;
 
 	/**
-	 * The feature id for the '<em><b>Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__STYLE = SELECT_ONE_FROM_LIST_OF_OPTIONS__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__NICKNAME = SELECT_ONE_FROM_LIST_OF_OPTIONS__NICKNAME;
-
-	/**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__CLASSIFIERS = SELECT_ONE_FROM_LIST_OF_OPTIONS__CLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>Order</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__ORDER = SELECT_ONE_FROM_LIST_OF_OPTIONS__ORDER;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__ENABLED = SELECT_ONE_FROM_LIST_OF_OPTIONS__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__FIELDS = SELECT_ONE_FROM_LIST_OF_OPTIONS__FIELDS;
-
-	/**
-	 * The feature id for the '<em><b>Menu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__MENU = SELECT_ONE_FROM_LIST_OF_OPTIONS__MENU;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__UID = SELECT_ONE_FROM_LIST_OF_OPTIONS__UID;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__REQUIRED = SELECT_ONE_FROM_LIST_OF_OPTIONS__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__READ_ONLY = SELECT_ONE_FROM_LIST_OF_OPTIONS__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__REFRESH_AREAS = SELECT_ONE_FROM_LIST_OF_OPTIONS__REFRESH_AREAS;
-
-	/**
-	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__SOURCE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__VALUE_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__VALUE_POINTER;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__SOURCE_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST;
-
-	/**
-	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_SELECTION__SOURCE_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__SOURCE_CAST_DATA_CONTROL;
-
-	/**
 	 * The feature id for the '<em><b>Option Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__OPTION_POINTER = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_POINTER;
+	int RADIO_SELECTION__OPTION_POINTER = OPTION_SELECTION__OPTION_POINTER;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast</b></em>' reference.
@@ -4513,7 +4235,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__OPTION_CAST = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST;
+	int RADIO_SELECTION__OPTION_CAST = OPTION_SELECTION__OPTION_CAST;
 
 	/**
 	 * The feature id for the '<em><b>Option Cast Data Control</b></em>' reference.
@@ -4522,7 +4244,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__OPTION_CAST_DATA_CONTROL = SELECT_ONE_FROM_LIST_OF_OPTIONS__OPTION_CAST_DATA_CONTROL;
+	int RADIO_SELECTION__OPTION_CAST_DATA_CONTROL = OPTION_SELECTION__OPTION_CAST_DATA_CONTROL;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -4531,7 +4253,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__SELECTION = SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION;
+	int RADIO_SELECTION__SELECTION = OPTION_SELECTION__SELECTION;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Message</b></em>' containment reference.
@@ -4540,7 +4262,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__INITIAL_OPTION_MESSAGE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE;
+	int RADIO_SELECTION__INITIAL_OPTION_MESSAGE = OPTION_SELECTION__INITIAL_OPTION_MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Initial Option Value</b></em>' attribute.
@@ -4549,7 +4271,142 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__INITIAL_OPTION_VALUE = SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE;
+	int RADIO_SELECTION__INITIAL_OPTION_VALUE = OPTION_SELECTION__INITIAL_OPTION_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__STYLE = OPTION_SELECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__NICKNAME = OPTION_SELECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__CLASSIFIERS = OPTION_SELECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__ORDER = OPTION_SELECTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__ENABLED = OPTION_SELECTION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__FIELDS = OPTION_SELECTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__MENU = OPTION_SELECTION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__UID = OPTION_SELECTION_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__REQUIRED = OPTION_SELECTION_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__READ_ONLY = OPTION_SELECTION_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__REFRESH_AREAS = OPTION_SELECTION_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_POINTER = OPTION_SELECTION_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__VALUE_POINTER = OPTION_SELECTION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_CAST = OPTION_SELECTION_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_SELECTION__SOURCE_CAST_DATA_CONTROL = OPTION_SELECTION_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Layout</b></em>' attribute.
@@ -4558,7 +4415,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__LAYOUT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 0;
+	int RADIO_SELECTION__LAYOUT = OPTION_SELECTION_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -4567,7 +4424,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION__COLUMNS = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 1;
+	int RADIO_SELECTION__COLUMNS = OPTION_SELECTION_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Radio Selection</em>' class.
@@ -4576,7 +4433,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_SELECTION_FEATURE_COUNT = SELECT_ONE_FROM_LIST_OF_OPTIONS_FEATURE_COUNT + 2;
+	int RADIO_SELECTION_FEATURE_COUNT = OPTION_SELECTION_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ImageImpl <em>Image</em>}' class.
@@ -8740,7 +8597,6 @@ public interface FormPackage extends EPackage {
 	 */
 	int ORIENTATION = 101;
 
-
 	/**
 	 * The meta object id for the '{@link form.RadioLayout <em>Radio Layout</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -10062,49 +9918,6 @@ public interface FormPackage extends EPackage {
 	EReference getSelection_ValueOptionPointer();
 
 	/**
-	 * Returns the meta object for class '{@link form.OptionSelection <em>Option Selection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option Selection</em>'.
-	 * @see form.OptionSelection
-	 * @generated
-	 */
-	EClass getOptionSelection();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionPointer <em>Option Pointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Pointer</em>'.
-	 * @see form.OptionSelection#getOptionPointer()
-	 * @see #getOptionSelection()
-	 * @generated
-	 */
-	EReference getOptionSelection_OptionPointer();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionCast <em>Option Cast</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Cast</em>'.
-	 * @see form.OptionSelection#getOptionCast()
-	 * @see #getOptionSelection()
-	 * @generated
-	 */
-	EReference getOptionSelection_OptionCast();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionCastDataControl <em>Option Cast Data Control</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Cast Data Control</em>'.
-	 * @see form.OptionSelection#getOptionCastDataControl()
-	 * @see #getOptionSelection()
-	 * @generated
-	 */
-	EReference getOptionSelection_OptionCastDataControl();
-
-	/**
 	 * Returns the meta object for class '{@link form.LayerHolder <em>Layer Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10219,47 +10032,80 @@ public interface FormPackage extends EPackage {
 	EClass getCheckBox();
 
 	/**
-	 * Returns the meta object for class '{@link form.SelectOneFromListOfOptions <em>Select One From List Of Options</em>}'.
+	 * Returns the meta object for class '{@link form.OptionSelection <em>Option Selection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Select One From List Of Options</em>'.
-	 * @see form.SelectOneFromListOfOptions
+	 * @return the meta object for class '<em>Option Selection</em>'.
+	 * @see form.OptionSelection
 	 * @generated
 	 */
-	EClass getSelectOneFromListOfOptions();
+	EClass getOptionSelection();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link form.SelectOneFromListOfOptions#getSelection <em>Selection</em>}'.
+	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionPointer <em>Option Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Pointer</em>'.
+	 * @see form.OptionSelection#getOptionPointer()
+	 * @see #getOptionSelection()
+	 * @generated
+	 */
+	EReference getOptionSelection_OptionPointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionCast <em>Option Cast</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Cast</em>'.
+	 * @see form.OptionSelection#getOptionCast()
+	 * @see #getOptionSelection()
+	 * @generated
+	 */
+	EReference getOptionSelection_OptionCast();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.OptionSelection#getOptionCastDataControl <em>Option Cast Data Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Cast Data Control</em>'.
+	 * @see form.OptionSelection#getOptionCastDataControl()
+	 * @see #getOptionSelection()
+	 * @generated
+	 */
+	EReference getOptionSelection_OptionCastDataControl();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link form.OptionSelection#getSelection <em>Selection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Selection</em>'.
-	 * @see form.SelectOneFromListOfOptions#getSelection()
-	 * @see #getSelectOneFromListOfOptions()
+	 * @see form.OptionSelection#getSelection()
+	 * @see #getOptionSelection()
 	 * @generated
 	 */
-	EReference getSelectOneFromListOfOptions_Selection();
+	EReference getOptionSelection_Selection();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link form.SelectOneFromListOfOptions#getInitialOptionMessage <em>Initial Option Message</em>}'.
+	 * Returns the meta object for the containment reference '{@link form.OptionSelection#getInitialOptionMessage <em>Initial Option Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Initial Option Message</em>'.
-	 * @see form.SelectOneFromListOfOptions#getInitialOptionMessage()
-	 * @see #getSelectOneFromListOfOptions()
+	 * @see form.OptionSelection#getInitialOptionMessage()
+	 * @see #getOptionSelection()
 	 * @generated
 	 */
-	EReference getSelectOneFromListOfOptions_InitialOptionMessage();
+	EReference getOptionSelection_InitialOptionMessage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link form.SelectOneFromListOfOptions#getInitialOptionValue <em>Initial Option Value</em>}'.
+	 * Returns the meta object for the attribute '{@link form.OptionSelection#getInitialOptionValue <em>Initial Option Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Initial Option Value</em>'.
-	 * @see form.SelectOneFromListOfOptions#getInitialOptionValue()
-	 * @see #getSelectOneFromListOfOptions()
+	 * @see form.OptionSelection#getInitialOptionValue()
+	 * @see #getOptionSelection()
 	 * @generated
 	 */
-	EAttribute getSelectOneFromListOfOptions_InitialOptionValue();
+	EAttribute getOptionSelection_InitialOptionValue();
 
 	/**
 	 * Returns the meta object for class '{@link form.DropDownSelection <em>Drop Down Selection</em>}'.
@@ -10270,6 +10116,16 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDropDownSelection();
+
+	/**
+	 * Returns the meta object for class '{@link form.SelectManyMenu <em>Select Many Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Select Many Menu</em>'.
+	 * @see form.SelectManyMenu
+	 * @generated
+	 */
+	EClass getSelectManyMenu();
 
 	/**
 	 * Returns the meta object for class '{@link form.RadioSelection <em>Radio Selection</em>}'.
@@ -12964,40 +12820,6 @@ public interface FormPackage extends EPackage {
 		EReference SELECTION__VALUE_OPTION_POINTER = eINSTANCE.getSelection_ValueOptionPointer();
 
 		/**
-		 * The meta object literal for the '{@link form.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see form.impl.OptionSelectionImpl
-		 * @see form.impl.FormPackageImpl#getOptionSelection()
-		 * @generated
-		 */
-		EClass OPTION_SELECTION = eINSTANCE.getOptionSelection();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Pointer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_SELECTION__OPTION_POINTER = eINSTANCE.getOptionSelection_OptionPointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Cast</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_SELECTION__OPTION_CAST = eINSTANCE.getOptionSelection_OptionCast();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Cast Data Control</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = eINSTANCE.getOptionSelection_OptionCastDataControl();
-
-		/**
 		 * The meta object literal for the '{@link form.impl.LayerHolderImpl <em>Layer Holder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -13100,14 +12922,38 @@ public interface FormPackage extends EPackage {
 		EClass CHECK_BOX = eINSTANCE.getCheckBox();
 
 		/**
-		 * The meta object literal for the '{@link form.impl.SelectOneFromListOfOptionsImpl <em>Select One From List Of Options</em>}' class.
+		 * The meta object literal for the '{@link form.impl.OptionSelectionImpl <em>Option Selection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see form.impl.SelectOneFromListOfOptionsImpl
-		 * @see form.impl.FormPackageImpl#getSelectOneFromListOfOptions()
+		 * @see form.impl.OptionSelectionImpl
+		 * @see form.impl.FormPackageImpl#getOptionSelection()
 		 * @generated
 		 */
-		EClass SELECT_ONE_FROM_LIST_OF_OPTIONS = eINSTANCE.getSelectOneFromListOfOptions();
+		EClass OPTION_SELECTION = eINSTANCE.getOptionSelection();
+
+		/**
+		 * The meta object literal for the '<em><b>Option Pointer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPTION_SELECTION__OPTION_POINTER = eINSTANCE.getOptionSelection_OptionPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Option Cast</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPTION_SELECTION__OPTION_CAST = eINSTANCE.getOptionSelection_OptionCast();
+
+		/**
+		 * The meta object literal for the '<em><b>Option Cast Data Control</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPTION_SELECTION__OPTION_CAST_DATA_CONTROL = eINSTANCE.getOptionSelection_OptionCastDataControl();
 
 		/**
 		 * The meta object literal for the '<em><b>Selection</b></em>' containment reference feature.
@@ -13115,7 +12961,7 @@ public interface FormPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION = eINSTANCE.getSelectOneFromListOfOptions_Selection();
+		EReference OPTION_SELECTION__SELECTION = eINSTANCE.getOptionSelection_Selection();
 
 		/**
 		 * The meta object literal for the '<em><b>Initial Option Message</b></em>' containment reference feature.
@@ -13123,7 +12969,7 @@ public interface FormPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE = eINSTANCE.getSelectOneFromListOfOptions_InitialOptionMessage();
+		EReference OPTION_SELECTION__INITIAL_OPTION_MESSAGE = eINSTANCE.getOptionSelection_InitialOptionMessage();
 
 		/**
 		 * The meta object literal for the '<em><b>Initial Option Value</b></em>' attribute feature.
@@ -13131,7 +12977,7 @@ public interface FormPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE = eINSTANCE.getSelectOneFromListOfOptions_InitialOptionValue();
+		EAttribute OPTION_SELECTION__INITIAL_OPTION_VALUE = eINSTANCE.getOptionSelection_InitialOptionValue();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.DropDownSelectionImpl <em>Drop Down Selection</em>}' class.
@@ -13142,6 +12988,16 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DROP_DOWN_SELECTION = eINSTANCE.getDropDownSelection();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.SelectManyMenuImpl <em>Select Many Menu</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.SelectManyMenuImpl
+		 * @see form.impl.FormPackageImpl#getSelectManyMenu()
+		 * @generated
+		 */
+		EClass SELECT_MANY_MENU = eINSTANCE.getSelectManyMenu();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.RadioSelectionImpl <em>Radio Selection</em>}' class.

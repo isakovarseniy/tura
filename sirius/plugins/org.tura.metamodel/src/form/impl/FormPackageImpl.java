@@ -101,7 +101,7 @@ import form.Relation;
 import form.RelationMapper;
 import form.Root;
 import form.SearchTrigger;
-import form.SelectOneFromListOfOptions;
+import form.SelectManyMenu;
 import form.Selection;
 import form.SelectionMode;
 import form.Sortable;
@@ -125,8 +125,8 @@ import form.ViewPortHolder;
 import form.ViewPortTrigger;
 import form.Views;
 import form.Window;
-
 import form.WindowRef;
+
 import infrastructure.InfrastructurePackage;
 
 import infrastructure.impl.InfrastructurePackageImpl;
@@ -462,13 +462,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass optionSelectionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass layerHolderEClass = null;
 
 	/**
@@ -518,7 +511,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass selectOneFromListOfOptionsEClass = null;
+	private EClass optionSelectionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -526,6 +519,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass dropDownSelectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass selectManyMenuEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2093,42 +2093,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOptionSelection() {
-		return optionSelectionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOptionSelection_OptionPointer() {
-		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOptionSelection_OptionCast() {
-		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOptionSelection_OptionCastDataControl() {
-		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLayerHolder() {
 		return layerHolderEClass;
 	}
@@ -2228,8 +2192,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSelectOneFromListOfOptions() {
-		return selectOneFromListOfOptionsEClass;
+	public EClass getOptionSelection() {
+		return optionSelectionEClass;
 	}
 
 	/**
@@ -2237,8 +2201,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSelectOneFromListOfOptions_Selection() {
-		return (EReference)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(0);
+	public EReference getOptionSelection_OptionPointer() {
+		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2246,8 +2210,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSelectOneFromListOfOptions_InitialOptionMessage() {
-		return (EReference)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(1);
+	public EReference getOptionSelection_OptionCast() {
+		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2255,8 +2219,35 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSelectOneFromListOfOptions_InitialOptionValue() {
-		return (EAttribute)selectOneFromListOfOptionsEClass.getEStructuralFeatures().get(2);
+	public EReference getOptionSelection_OptionCastDataControl() {
+		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOptionSelection_Selection() {
+		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOptionSelection_InitialOptionMessage() {
+		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOptionSelection_InitialOptionValue() {
+		return (EAttribute)optionSelectionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2266,6 +2257,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EClass getDropDownSelection() {
 		return dropDownSelectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSelectManyMenu() {
+		return selectManyMenuEClass;
 	}
 
 	/**
@@ -3834,11 +3834,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(selectionEClass, SELECTION__DISPLAY_OPTION_POINTER);
 		createEReference(selectionEClass, SELECTION__VALUE_OPTION_POINTER);
 
-		optionSelectionEClass = createEClass(OPTION_SELECTION);
-		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_POINTER);
-		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST);
-		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST_DATA_CONTROL);
-
 		layerHolderEClass = createEClass(LAYER_HOLDER);
 
 		inputTextEClass = createEClass(INPUT_TEXT);
@@ -3857,12 +3852,17 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		checkBoxEClass = createEClass(CHECK_BOX);
 
-		selectOneFromListOfOptionsEClass = createEClass(SELECT_ONE_FROM_LIST_OF_OPTIONS);
-		createEReference(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__SELECTION);
-		createEReference(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE);
-		createEAttribute(selectOneFromListOfOptionsEClass, SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_VALUE);
+		optionSelectionEClass = createEClass(OPTION_SELECTION);
+		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_POINTER);
+		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST);
+		createEReference(optionSelectionEClass, OPTION_SELECTION__OPTION_CAST_DATA_CONTROL);
+		createEReference(optionSelectionEClass, OPTION_SELECTION__SELECTION);
+		createEReference(optionSelectionEClass, OPTION_SELECTION__INITIAL_OPTION_MESSAGE);
+		createEAttribute(optionSelectionEClass, OPTION_SELECTION__INITIAL_OPTION_VALUE);
 
 		dropDownSelectionEClass = createEClass(DROP_DOWN_SELECTION);
+
+		selectManyMenuEClass = createEClass(SELECT_MANY_MENU);
 
 		radioSelectionEClass = createEClass(RADIO_SELECTION);
 		createEAttribute(radioSelectionEClass, RADIO_SELECTION__LAYOUT);
@@ -4168,7 +4168,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		sourcesPointerEClass.getESuperTypes().add(this.getControlPointer());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
 		selectionEClass.getESuperTypes().add(this.getStyleElement());
-		optionSelectionEClass.getESuperTypes().add(this.getInputElement());
 		layerHolderEClass.getESuperTypes().add(this.getUielement());
 		layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
 		layerHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
@@ -4183,9 +4182,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		outputTextEClass.getESuperTypes().add(this.getInputElement());
 		outputTextEClass.getESuperTypes().add(this.getFormatable());
 		checkBoxEClass.getESuperTypes().add(this.getInputElement());
-		selectOneFromListOfOptionsEClass.getESuperTypes().add(this.getOptionSelection());
-		dropDownSelectionEClass.getESuperTypes().add(this.getSelectOneFromListOfOptions());
-		radioSelectionEClass.getESuperTypes().add(this.getSelectOneFromListOfOptions());
+		dropDownSelectionEClass.getESuperTypes().add(this.getOptionSelection());
+		dropDownSelectionEClass.getESuperTypes().add(this.getInputElement());
+		selectManyMenuEClass.getESuperTypes().add(this.getOptionSelection());
+		selectManyMenuEClass.getESuperTypes().add(this.getUielement());
+		radioSelectionEClass.getESuperTypes().add(this.getOptionSelection());
+		radioSelectionEClass.getESuperTypes().add(this.getInputElement());
 		imageEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getInputElement());
 		dateEClass.getESuperTypes().add(this.getFormatable());
@@ -4420,11 +4422,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getSelection_DisplayOptionPointer(), ecorePackage.getEObject(), null, "displayOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSelection_ValueOptionPointer(), ecorePackage.getEObject(), null, "valueOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(optionSelectionEClass, OptionSelection.class, "OptionSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOptionSelection_OptionPointer(), this.getDataControl(), null, "optionPointer", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOptionSelection_OptionCast(), theTypePackage.getType(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOptionSelection_OptionCastDataControl(), this.getDataControl(), null, "optionCastDataControl", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(layerHolderEClass, LayerHolder.class, "LayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4443,12 +4440,17 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(selectOneFromListOfOptionsEClass, SelectOneFromListOfOptions.class, "SelectOneFromListOfOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSelectOneFromListOfOptions_Selection(), this.getSelection(), null, "selection", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSelectOneFromListOfOptions_InitialOptionMessage(), this.getContext(), null, "initialOptionMessage", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSelectOneFromListOfOptions_InitialOptionValue(), ecorePackage.getEString(), "initialOptionValue", null, 0, 1, SelectOneFromListOfOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(optionSelectionEClass, OptionSelection.class, "OptionSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOptionSelection_OptionPointer(), this.getDataControl(), null, "optionPointer", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionSelection_OptionCast(), theTypePackage.getType(), null, "optionCast", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionSelection_OptionCastDataControl(), this.getDataControl(), null, "optionCastDataControl", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionSelection_Selection(), this.getSelection(), null, "selection", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionSelection_InitialOptionMessage(), this.getContext(), null, "initialOptionMessage", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOptionSelection_InitialOptionValue(), ecorePackage.getEString(), "initialOptionValue", null, 0, 1, OptionSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dropDownSelectionEClass, DropDownSelection.class, "DropDownSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(selectManyMenuEClass, SelectManyMenu.class, "SelectManyMenu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(radioSelectionEClass, RadioSelection.class, "RadioSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRadioSelection_Layout(), this.getRadioLayout(), "layout", null, 0, 1, RadioSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

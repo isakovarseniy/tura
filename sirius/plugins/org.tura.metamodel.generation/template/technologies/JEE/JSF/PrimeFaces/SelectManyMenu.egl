@@ -1,0 +1,50 @@
+[%@template
+operation form::SelectManyMenu draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var value;
+
+     util.traceIfDebug("SelectManyMenu",  self.eClass().name +" start: " +self.uid);     
+
+     %][%=self.rw(hash,value)%] [%
+
+
+     util.traceIfDebug("SelectManyMenu",  self.eClass().name +" end: " +self.uid);     
+  
+}
+
+@template
+operation form::SelectManyMenu rw(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var emptyhints = new Native('java.util.HashMap');
+     var form = hash.get("form");   
+     
+     hints.put("noCurlyBracket",true);
+     
+%]
+<p:selectCheckboxMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]   
+    [%if (self.initialOptionMessage <> null and self.initialOptionMessage.value <> null ){%]
+    label="[%=buildExpression(self.initialOptionMessage,emptyhints,hash)%]" itemValue="[%=self.initialOptionValue%]"
+    [%}
+    %]
+
+value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','multiSelectOptions', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').selected}"
+multiple="true" filter="true" filterMatchMode="startsWith" >
+    <f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','multiSelectOptions', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+    [%if (self.isRefreshArias()){
+        var action = null;
+        for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 ){
+            continue;
+          }
+           action = buildExpression(field,hints,hash);
+           break; 
+      }
+    %]
+    [%}%]
+</p:selectCheckboxMenu>
+[%
+}
+
+%]

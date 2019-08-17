@@ -463,15 +463,6 @@ public interface FormFactory extends EFactory {
 	CheckBox createCheckBox();
 
 	/**
-	 * Returns a new object of class '<em>Select One From List Of Options</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Select One From List Of Options</em>'.
-	 * @generated
-	 */
-	SelectOneFromListOfOptions createSelectOneFromListOfOptions();
-
-	/**
 	 * Returns a new object of class '<em>Drop Down Selection</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,6 +470,15 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	DropDownSelection createDropDownSelection();
+
+	/**
+	 * Returns a new object of class '<em>Select Many Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Select Many Menu</em>'.
+	 * @generated
+	 */
+	SelectManyMenu createSelectManyMenu();
 
 	/**
 	 * Returns a new object of class '<em>Radio Selection</em>'.

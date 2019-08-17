@@ -102,11 +102,18 @@ public class ViewModel implements Serializable {
             model = getDataScrollerModel((DataControl) obj,callback);
         }
         
+        if ("multiSelectOptions".equals(modelType)) {
+            model = getMultiSelectOptionsModel((DataControl) obj,callback);
+        }
         
         modelHolder.put(modelId, model);
         return model;
 
     }
+
+	private Object getMultiSelectOptionsModel(DataControl dc, Object callback) {
+        return new MultiSelectOptionsModel(dc, logger,callback);
+	}
 
 	@SuppressWarnings("rawtypes")
     private Object getDataScrollerModel(DataControl dc, Object callback) {

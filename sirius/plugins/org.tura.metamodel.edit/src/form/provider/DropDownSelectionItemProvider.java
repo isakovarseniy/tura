@@ -3,6 +3,9 @@
 package form.provider;
 
 
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
+import common.CommonPackage;
 import form.DropDownSelection;
 import form.FormFactory;
 import form.FormPackage;
@@ -26,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DropDownSelectionItemProvider extends SelectOneFromListOfOptionsItemProvider {
+public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,8 +51,228 @@ public class DropDownSelectionItemProvider extends SelectOneFromListOfOptionsIte
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNicknamePropertyDescriptor(object);
+			addOrderPropertyDescriptor(object);
+			addMenuPropertyDescriptor(object);
+			addUidPropertyDescriptor(object);
+			addSourcePointerPropertyDescriptor(object);
+			addValuePointerPropertyDescriptor(object);
+			addSourceCastPropertyDescriptor(object);
+			addSourceCastDataControlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Nickname feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNicknamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NickNamed_nickname_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NickNamed_nickname_feature", "_UI_NickNamed_type"),
+				 FormPackage.Literals.NICK_NAMED__NICKNAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Order feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Orderable_order_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+				 CommonPackage.Literals.ORDERABLE__ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Menu feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMenuPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuHolder_menu_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuHolder_menu_feature", "_UI_MenuHolder_type"),
+				 FormPackage.Literals.MENU_HOLDER__MENU,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Uielement_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Uielement_uid_feature", "_UI_Uielement_type"),
+				 FormPackage.Literals.UIELEMENT__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Pointer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourcePointerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControlPointer_sourcePointer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControlPointer_sourcePointer_feature", "_UI_ControlPointer_type"),
+				 FormPackage.Literals.CONTROL_POINTER__SOURCE_POINTER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value Pointer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePointerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControlPointer_valuePointer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControlPointer_valuePointer_feature", "_UI_ControlPointer_type"),
+				 FormPackage.Literals.CONTROL_POINTER__VALUE_POINTER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Cast feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceCastPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControlPointer_sourceCast_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControlPointer_sourceCast_feature", "_UI_ControlPointer_type"),
+				 FormPackage.Literals.CONTROL_POINTER__SOURCE_CAST,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Cast Data Control feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceCastDataControlPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControlPointer_sourceCastDataControl_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControlPointer_sourceCastDataControl_feature", "_UI_ControlPointer_type"),
+				 FormPackage.Literals.CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
+			childrenFeatures.add(FormPackage.Literals.UIELEMENT__REQUIRED);
+			childrenFeatures.add(FormPackage.Literals.UIELEMENT__READ_ONLY);
+			childrenFeatures.add(FormPackage.Literals.UIELEMENT__REFRESH_AREAS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -88,6 +311,23 @@ public class DropDownSelectionItemProvider extends SelectOneFromListOfOptionsIte
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DropDownSelection.class)) {
+			case FormPackage.DROP_DOWN_SELECTION__NICKNAME:
+			case FormPackage.DROP_DOWN_SELECTION__ORDER:
+			case FormPackage.DROP_DOWN_SELECTION__UID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case FormPackage.DROP_DOWN_SELECTION__STYLE:
+			case FormPackage.DROP_DOWN_SELECTION__CLASSIFIERS:
+			case FormPackage.DROP_DOWN_SELECTION__ENABLED:
+			case FormPackage.DROP_DOWN_SELECTION__FIELDS:
+			case FormPackage.DROP_DOWN_SELECTION__REQUIRED:
+			case FormPackage.DROP_DOWN_SELECTION__READ_ONLY:
+			case FormPackage.DROP_DOWN_SELECTION__REFRESH_AREAS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -101,6 +341,61 @@ public class DropDownSelectionItemProvider extends SelectOneFromListOfOptionsIte
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.STYLE_ELEMENT__STYLE,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.STYLE_ELEMENT__STYLE,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.UIELEMENT__REQUIRED,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.UIELEMENT__REQUIRED,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.UIELEMENT__READ_ONLY,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.UIELEMENT__READ_ONLY,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.UIELEMENT__REFRESH_AREAS,
+				 FormFactory.eINSTANCE.createAreaRef()));
 	}
 
 	/**
@@ -115,11 +410,11 @@ public class DropDownSelectionItemProvider extends SelectOneFromListOfOptionsIte
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == FormPackage.Literals.OPTION_SELECTION__INITIAL_OPTION_MESSAGE ||
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == FormPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == FormPackage.Literals.UIELEMENT__READ_ONLY ||
-			childFeature == FormPackage.Literals.SELECT_ONE_FROM_LIST_OF_OPTIONS__INITIAL_OPTION_MESSAGE ||
 			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {

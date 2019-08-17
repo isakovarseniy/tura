@@ -219,12 +219,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="ecore:EClass type.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
-        eType="#//DataControl"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rows" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -239,14 +233,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement #//Formatable"/>
   <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectOneFromListOfOptions" eSuperTypes="#//OptionSelection">
+  <eClassifiers xsi:type="ecore:EClass" name="OptionSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="ecore:EClass type.ecore#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
+        eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialOptionMessage" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialOptionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//SelectOneFromListOfOptions"/>
   <eClassifiers xsi:type="ecore:EEnum" name="RadioLayout">
     <eLiterals name="lineDirection"/>
     <eLiterals name="pageDirection" value="1"/>
@@ -254,7 +251,9 @@
     <eLiterals name="responsive" value="3"/>
     <eLiterals name="grid" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RadioSelection" eSuperTypes="#//SelectOneFromListOfOptions">
+  <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//OptionSelection #//InputElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectManyMenu" eSuperTypes="#//OptionSelection #//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RadioSelection" eSuperTypes="#//OptionSelection #//InputElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="layout" eType="#//RadioLayout"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>

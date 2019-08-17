@@ -319,5 +319,10 @@ operation  form::FileUpload accessor(id,methodName) {
 operation  form::WindowRef accessor(id,methodName) {
 }
 
+@template
+operation  form::SelectManyMenu accessor(id,methodName) {
+}
+
+
 %]
 

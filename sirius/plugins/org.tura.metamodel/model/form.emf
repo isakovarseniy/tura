@@ -258,12 +258,6 @@ class Selection extends StyleElement{
    ref EObject valueOptionPointer;
 }
 
-class OptionSelection extends InputElement {
-   ref DataControl optionPointer;
-   ref type.Type optionCast;
-   // to support tree structure
-   ref DataControl optionCastDataControl;
-}
 
 class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
    
@@ -297,15 +291,17 @@ class CheckBox extends InputElement {
    
 }
 
-
-class SelectOneFromListOfOptions extends OptionSelection {
+class OptionSelection  {
+   ref DataControl optionPointer;
+   ref type.Type optionCast;
+   // to support tree structure
+   ref DataControl optionCastDataControl;
+   
    val Selection selection;
    val Context initialOptionMessage;
    attr EString  initialOptionValue;
-}
-
-
-class DropDownSelection extends SelectOneFromListOfOptions {
+   
+   
 }
 
 
@@ -317,12 +313,18 @@ enum RadioLayout{
 	grid;
 }
 
+class DropDownSelection extends OptionSelection,InputElement {
+}
 
-class RadioSelection extends SelectOneFromListOfOptions {
+
+class SelectManyMenu extends OptionSelection, Uielement {
+}
+
+
+class RadioSelection extends OptionSelection ,InputElement {
    attr RadioLayout layout;
    attr EInt columns;
 }
-
 
 
 class Image extends InputElement {

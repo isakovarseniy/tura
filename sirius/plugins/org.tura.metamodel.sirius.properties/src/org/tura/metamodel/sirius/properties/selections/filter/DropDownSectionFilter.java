@@ -6,7 +6,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
-import form.SelectOneFromListOfOptions;
+import form.OptionSelection;
 
 public class DropDownSectionFilter  implements IFilter {
 
@@ -18,7 +18,7 @@ public class DropDownSectionFilter  implements IFilter {
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof SelectOneFromListOfOptions) {
+			if (element instanceof OptionSelection) {
 				return true;
 			}
 		}

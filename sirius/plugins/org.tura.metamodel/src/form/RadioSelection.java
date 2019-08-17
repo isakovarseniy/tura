@@ -20,7 +20,7 @@ package form;
  * @model
  * @generated
  */
-public interface RadioSelection extends SelectOneFromListOfOptions {
+public interface RadioSelection extends OptionSelection, InputElement {
 
 	/**
 	 * Returns the value of the '<em><b>Layout</b></em>' attribute.

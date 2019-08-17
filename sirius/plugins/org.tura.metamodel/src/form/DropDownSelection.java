@@ -13,6 +13,6 @@ package form;
  * @model
  * @generated
  */
-public interface DropDownSelection extends SelectOneFromListOfOptions {
+public interface DropDownSelection extends OptionSelection, InputElement {
 
 } // DropDownSelection

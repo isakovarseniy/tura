@@ -24,7 +24,7 @@ import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
 import form.FormFactory;
 import form.FormPackage;
-import form.SelectOneFromListOfOptions;
+import form.OptionSelection;
 import form.Selection;
 
 public class ValueOptionPointerAttributePropertySelection extends DependentAbstractAttributePropertySelection {
@@ -51,7 +51,7 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 
 	@Override
 	public EObject getModel() {
-		SelectOneFromListOfOptions dd = (SelectOneFromListOfOptions) super.getModel();
+		OptionSelection dd = (OptionSelection) super.getModel();
 		Selection selection = dd.getSelection();
 		if (selection == null) {
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -61,7 +61,7 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, dd,
-							FormPackage.eINSTANCE.getSelectOneFromListOfOptions_Selection(),selection));
+							FormPackage.eINSTANCE.getOptionSelection_Selection(),selection));
 		}
 
 		return dd;
@@ -69,7 +69,7 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
-		return ((SelectOneFromListOfOptions) getModel()).getSelection();
+		return ((OptionSelection) getModel()).getSelection();
 	}
 
 	@Override

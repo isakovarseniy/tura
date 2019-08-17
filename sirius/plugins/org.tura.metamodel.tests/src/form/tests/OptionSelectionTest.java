@@ -5,6 +5,8 @@ package form.tests;
 import form.FormFactory;
 import form.OptionSelection;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OptionSelectionTest extends InputElementTest {
+public class OptionSelectionTest extends TestCase {
+
+	/**
+	 * The fixture for this Option Selection test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OptionSelection fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class OptionSelectionTest extends InputElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Option Selection test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(OptionSelection fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Option Selection test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected OptionSelection getFixture() {
-		return (OptionSelection)fixture;
+		return fixture;
 	}
 
 	/**

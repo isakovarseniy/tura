@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RadioSelectionTest extends SelectOneFromListOfOptionsTest {
+public class RadioSelectionTest extends OptionSelectionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -22,9 +22,9 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.SelectionDisplayOptionPointer;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
-import form.SelectOneFromListOfOptions;
 import form.FormFactory;
 import form.FormPackage;
+import form.OptionSelection;
 import form.Selection;
 
 public class DisplayOptionPointerAttributePropertySelection extends DependentAbstractAttributePropertySelection {
@@ -51,7 +51,7 @@ public class DisplayOptionPointerAttributePropertySelection extends DependentAbs
 
 	@Override
 	public EObject getModel() {
-		SelectOneFromListOfOptions dd = (SelectOneFromListOfOptions) super.getModel();
+		OptionSelection dd = (OptionSelection) super.getModel();
 		Selection selection = dd.getSelection();
 		if (selection == null) {
 			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
@@ -60,7 +60,7 @@ public class DisplayOptionPointerAttributePropertySelection extends DependentAbs
 
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, dd,
-							FormPackage.eINSTANCE.getSelectOneFromListOfOptions_Selection(),
+							FormPackage.eINSTANCE.getOptionSelection_Selection(),
 							selection));
 		}
 
@@ -69,7 +69,7 @@ public class DisplayOptionPointerAttributePropertySelection extends DependentAbs
 
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
-		return ((SelectOneFromListOfOptions)super.getModel()).getSelection();
+		return ((OptionSelection)super.getModel()).getSelection();
 	}
 
 	@Override

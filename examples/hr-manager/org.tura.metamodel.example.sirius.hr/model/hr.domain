@@ -6173,24 +6173,24 @@
                         <baseCanvas uid="275e758b-4f71-4471-ab0b-a6c419597a8d">
                           <children xsi:type="tura.form:LayerHolder" uid="4c7b0bd1-9cdd-460f-a516-0aa09672a741" columns="2">
                             <style uid="f2c3a0ec-4fd3-4a59-9baf-a319366af782" constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
-                            <children xsi:type="tura.form:DropDownSelection" nickname="department drop down" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="b13b09e6-20a4-4046-9d81-63642f0679e8" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
-                              <style uid="455a2c9c-3251-441e-975a-9bda185c7575" constant="true" value="width:150px"/>
-                              <refreshAreas area="ff1d0d8e-83d6-4440-8144-80dfb4637109" group="2"/>
+                            <children xsi:type="tura.form:DropDownSelection" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1" nickname="department drop down" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="b13b09e6-20a4-4046-9d81-63642f0679e8">
                               <selection displayOptionPointer="71580147-10ff-4069-bf87-c7b7347a19f3" valueOptionPointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="6f548975-9ef8-4ccf-8619-8d8b2b25b34f" order="2" expressionType="MessageImpl"/>
                               </initialOptionMessage>
+                              <style uid="455a2c9c-3251-441e-975a-9bda185c7575" constant="true" value="width:150px"/>
+                              <refreshAreas area="ff1d0d8e-83d6-4440-8144-80dfb4637109" group="2"/>
                             </children>
-                            <children xsi:type="tura.form:DropDownSelection" nickname="employees drop down" order="3" uid="ff1d0d8e-83d6-4440-8144-80dfb4637109" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e52abb52-559c-4762-857c-89c74eb439ee" optionPointer="9a305f5e-0e34-4c48-bb07-ce89361bdd1e" initialOptionValue="-1">
-                              <style uid="93d32ce4-0472-4a28-9a7c-7017e5540323" constant="true" value="width:150px"/>
+                            <children xsi:type="tura.form:DropDownSelection" optionPointer="9a305f5e-0e34-4c48-bb07-ce89361bdd1e" initialOptionValue="-1" nickname="employees drop down" order="3" uid="ff1d0d8e-83d6-4440-8144-80dfb4637109" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e52abb52-559c-4762-857c-89c74eb439ee">
                               <selection displayOptionPointer="b0b7031f-8f86-4a22-8fad-44d326c634fb" valueOptionPointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="6f548975-9ef8-4ccf-8619-8d8b2b25b34f" order="2" expressionType="MessageImpl"/>
                               </initialOptionMessage>
+                              <style uid="93d32ce4-0472-4a28-9a7c-7017e5540323" constant="true" value="width:150px"/>
                             </children>
                             <children xsi:type="tura.form:Label" uid="21a5aead-f94c-46e0-a37b-9f6e4ad4f626" label="Departments">
                               <multiLangLabel uid="36bfe884-5af2-47e4-9a57-7cb26f4687fb" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
@@ -6209,6 +6209,18 @@
                           </children>
                           <children xsi:type="tura.form:CheckBox" nickname="chkBox" order="1" uid="0394a059-1ede-4713-8bcc-32e60bb5cdd4" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="beabeced-64d7-4b08-a6fd-b91927411884"/>
                           <children xsi:type="tura.form:Image" order="2" uid="3a05b077-aa9c-4d03-898f-310d9580353a" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e0cf9921-012f-4b38-b9cc-7ab6afcd551b"/>
+                          <children xsi:type="tura.form:SelectManyMenu" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" order="3" uid="cee952a3-b56d-400b-8c66-a4cb0056512c">
+                            <selection displayOptionPointer="71580147-10ff-4069-bf87-c7b7347a19f3" valueOptionPointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
+                            <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
+                              <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                              <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
+                              <expression objRef="6f548975-9ef8-4ccf-8619-8d8b2b25b34f" order="2" expressionType="MessageImpl"/>
+                            </initialOptionMessage>
+                            <style uid="6d341ac3-ef78-41e1-8e60-0bf34034e8f2"/>
+                            <enabled uid="a52d6434-44a7-40e0-9426-08a530925b1b"/>
+                            <required uid="5f9bb7d6-dd8c-4053-ac7c-96d0007f9ac9"/>
+                            <readOnly uid="59858e06-f23f-42b3-b458-7899cfac2d8b"/>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <fields uid="e61f7ff4-3c61-4acc-b42e-c84199b45a7e" value="Applications.ERP.HR domain.HR application.Hr manager.Login.genericTemplate">
@@ -11265,7 +11277,13 @@
                                 <style uid="ee1cf310-bf86-44d7-ace3-ee4dce2c2d8d" constant="true" value="margin-top:10px;margin-left:10px"/>
                                 <classifiers uid="e0bcfb77-3dc4-4d8f-abcb-d14c5e5aa6c7" hint="63bb3ae6-de08-4705-addc-6e22559eb9b0"/>
                               </children>
-                              <children xsi:type="tura.form:DropDownSelection" order="5" uid="719fa92e-5130-4367-893f-34bb5369ae06" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="3a3620e1-6764-4e9a-863e-3fa0d8e698c2" optionPointer="0a008f7a-3051-4a75-bd3d-91c2bad46e8e" initialOptionValue="#{null}">
+                              <children xsi:type="tura.form:DropDownSelection" optionPointer="0a008f7a-3051-4a75-bd3d-91c2bad46e8e" initialOptionValue="#{null}" order="5" uid="719fa92e-5130-4367-893f-34bb5369ae06" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="3a3620e1-6764-4e9a-863e-3fa0d8e698c2">
+                                <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
+                                <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
+                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                  <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                                  <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
+                                </initialOptionMessage>
                                 <style uid="a5708ef3-7dfa-4291-9a87-2f718f76977f" constant="true" value="margin-top:10px;margin-left:10px"/>
                                 <classifiers uid="a4dca349-eef7-4893-a3df-a795227aa921" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="resolution"/>
                                 <fields uid="75a23088-cc75-423e-b785-0311b77e58e0" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowSubmitForReview()">
@@ -11277,14 +11295,14 @@
                                   <classifiers uid="a1981ea4-566b-4d33-922c-02b73be586ac" hint="41114f86-3709-482c-937b-5ddce650956d"/>
                                 </fields>
                                 <required uid="a4610175-ef3e-4961-a46e-6db4c66af245"/>
+                              </children>
+                              <children xsi:type="tura.form:DropDownSelection" optionPointer="19cf942b-540a-47fd-8687-de0c152b1109" initialOptionValue="#{null}" order="7" uid="57d0b542-fb3f-439a-80d7-516bf4b449f2" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="6e05019d-16c3-4262-923b-c93d4d75398d">
                                 <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
                                 <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
                                   <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
                                   <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
                                 </initialOptionMessage>
-                              </children>
-                              <children xsi:type="tura.form:DropDownSelection" order="7" uid="57d0b542-fb3f-439a-80d7-516bf4b449f2" sourcePointer="f234be4e-408f-4453-97fa-02bdd576867d" valuePointer="6e05019d-16c3-4262-923b-c93d4d75398d" optionPointer="19cf942b-540a-47fd-8687-de0c152b1109" initialOptionValue="#{null}">
                                 <style uid="ece85ffe-c030-4ae6-a053-b94079944a2b" constant="true" value="margin-top:10px;margin-left:10px"/>
                                 <classifiers uid="697125f2-483e-48f8-a48a-fa6fd24bde24" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="approveStatus"/>
                                 <fields uid="60ba3bb5-f34c-46c6-a3b9-8d26f03f9810" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.allowApproveCase()">
@@ -11296,12 +11314,6 @@
                                   <classifiers uid="9e1be7c2-d31e-41a3-83f9-e81c4e6ba25c" hint="41114f86-3709-482c-937b-5ddce650956d"/>
                                 </fields>
                                 <required uid="d2ac9a6e-49b6-4567-9b0a-6e23146c5c63"/>
-                                <selection displayOptionPointer="5f9bdf3a-0256-4c1e-8b44-106b0d187b73" valueOptionPointer="16668c51-fa79-41bc-951b-e8b35178f855"/>
-                                <initialOptionMessage value="Application Message Libraries.Case management.OPTION_SELECT_VALUE">
-                                  <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                  <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
-                                  <expression objRef="02012855-bc2a-4dfe-a64e-c456481bef04" order="2" expressionType="MessageImpl"/>
-                                </initialOptionMessage>
                               </children>
                             </children>
                           </children>
@@ -11435,7 +11447,13 @@
                                 <expression objRef="d48611c6-000c-41a0-895f-d066e1b7732f" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:DropDownSelection" order="1" uid="2172bad4-49e9-4ca1-a4ff-921ce91c329a" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="248fb7b2-b723-48ec-98be-ea5b39c16852" optionPointer="8c499a37-e62b-4103-bfc7-60502b344e2e" initialOptionValue="-1">
+                            <children xsi:type="tura.form:DropDownSelection" optionPointer="8c499a37-e62b-4103-bfc7-60502b344e2e" initialOptionValue="-1" order="1" uid="2172bad4-49e9-4ca1-a4ff-921ce91c329a" sourcePointer="1846dacd-3e1a-4164-81f7-95ae77111301" valuePointer="248fb7b2-b723-48ec-98be-ea5b39c16852">
+                              <selection displayOptionPointer="f610fc2a-9859-480f-b555-9c1c414a82a4" valueOptionPointer="1e381513-8390-44c3-ba4a-f63cfe51da4d"/>
+                              <initialOptionMessage value="Application Message Libraries.Case management.SELECT_VALUE">
+                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="b71fb283-4943-45b6-bdc6-57ebf35689f5" order="2" expressionType="MessageImpl"/>
+                              </initialOptionMessage>
                               <style uid="36b0e809-1332-4361-a6d8-f03ac182fef2" constant="true" value="width:100%"/>
                               <enabled uid="dbf8efcb-42e6-48a1-a9d0-93b3661494da"/>
                               <fields uid="2eb57a75-1d8f-4e43-876e-f49b3fcf1fa3" value="Types repository.Sales Analyzer.Business logic.Business logic::SA Case management.cleanOnChange()">
@@ -11447,12 +11465,6 @@
                               </fields>
                               <refreshAreas area="1240b8b1-9ecc-440c-9b86-e4cbe270aa7e" group="2"/>
                               <refreshAreas area="2172bad4-49e9-4ca1-a4ff-921ce91c329a" group="1"/>
-                              <selection displayOptionPointer="f610fc2a-9859-480f-b555-9c1c414a82a4" valueOptionPointer="1e381513-8390-44c3-ba4a-f63cfe51da4d"/>
-                              <initialOptionMessage value="Application Message Libraries.Case management.SELECT_VALUE">
-                                <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
-                                <expression objRef="0b44714f-e806-4c1f-8f34-b61495350cba" order="1" expressionType="MessageLibraryImpl"/>
-                                <expression objRef="b71fb283-4943-45b6-bdc6-57ebf35689f5" order="2" expressionType="MessageImpl"/>
-                              </initialOptionMessage>
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="16ccc68f-16ec-416d-ac30-1f0054926e58">

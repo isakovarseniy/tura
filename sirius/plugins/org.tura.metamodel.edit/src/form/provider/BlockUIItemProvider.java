@@ -190,11 +190,6 @@ public class BlockUIItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
-				 FormFactory.eINSTANCE.createOptionSelection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createLayerHolder()));
 
 		newChildDescriptors.add
@@ -230,12 +225,12 @@ public class BlockUIItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
-				 FormFactory.eINSTANCE.createSelectOneFromListOfOptions()));
+				 FormFactory.eINSTANCE.createDropDownSelection()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
-				 FormFactory.eINSTANCE.createDropDownSelection()));
+				 FormFactory.eINSTANCE.createSelectManyMenu()));
 
 		newChildDescriptors.add
 			(createChildParameter

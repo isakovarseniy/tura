@@ -8,7 +8,7 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 import form.FormFactory;
 import form.FormPackage;
-import form.SelectOneFromListOfOptions;
+import form.OptionSelection;
 
 public class InitialOptionMessagePropertySelection extends MultiLangLabelPropertySelection{
 
@@ -17,14 +17,14 @@ public class InitialOptionMessagePropertySelection extends MultiLangLabelPropert
 	public EObject getModel() {
 
 		DRepresentationElement element = (DRepresentationElement) getEObject();
-		SelectOneFromListOfOptions el = (SelectOneFromListOfOptions) element.getTarget();
+		OptionSelection el = (OptionSelection) element.getTarget();
 		
 		if (el.getInitialOptionMessage() == null) {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							FormPackage.eINSTANCE.getSelectOneFromListOfOptions_InitialOptionMessage(),
+							FormPackage.eINSTANCE.getOptionSelection_InitialOptionMessage(),
 							FormFactory.eINSTANCE.createContext()));
 
 		}

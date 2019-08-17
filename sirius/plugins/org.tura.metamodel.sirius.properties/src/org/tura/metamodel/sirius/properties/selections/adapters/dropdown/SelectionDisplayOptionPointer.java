@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
 import form.ArtificialField;
-import form.SelectOneFromListOfOptions;
 import form.FormPackage;
 import form.OptionSelection;
 import type.Attribute;
@@ -33,12 +32,12 @@ public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
 
     public String getFeatureAsText(Object eObject) {
         String name = null;
-        if (((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
-            name = ((Attribute) ((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer())
+        if (((OptionSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
+            name = ((Attribute) ((OptionSelection) eObject).getSelection().getDisplayOptionPointer())
                     .getName();
 
-        if (((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
-            name = ((ArtificialField) ((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer()).getName();
+        if (((OptionSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
+            name = ((ArtificialField) ((OptionSelection) eObject).getSelection().getDisplayOptionPointer()).getName();
 
         return name;
     }
@@ -52,16 +51,16 @@ public class SelectionDisplayOptionPointer implements DropDownDataAdapter {
     }
 
     public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
-        if (((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer() == null)
+        if (((OptionSelection) eObject).getSelection().getDisplayOptionPointer() == null)
             return false;
 
         String name = null;
-        if (((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
-            name = ((Attribute) ((SelectOneFromListOfOptions) eObject).getSelection()
+        if (((OptionSelection) eObject).getSelection().getDisplayOptionPointer() instanceof Attribute)
+            name = ((Attribute) ((OptionSelection) eObject).getSelection()
                  .getDisplayOptionPointer()).getName();
 
-        if (((SelectOneFromListOfOptions) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
-            name = ((ArtificialField) ((SelectOneFromListOfOptions) eObject).getSelection()
+        if (((OptionSelection) eObject).getSelection().getDisplayOptionPointer() instanceof ArtificialField)
+            name = ((ArtificialField) ((OptionSelection) eObject).getSelection()
                     .getDisplayOptionPointer()).getName();
 
         if (name == null)

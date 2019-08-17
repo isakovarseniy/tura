@@ -98,7 +98,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.SOURCES_POINTER: return createSourcesPointer();
 			case FormPackage.INPUT_ELEMENT: return createInputElement();
 			case FormPackage.SELECTION: return createSelection();
-			case FormPackage.OPTION_SELECTION: return createOptionSelection();
 			case FormPackage.LAYER_HOLDER: return createLayerHolder();
 			case FormPackage.INPUT_TEXT: return createInputText();
 			case FormPackage.PASSWORD: return createPassword();
@@ -106,8 +105,9 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.MESSAGE_ELEMENT: return createMessageElement();
 			case FormPackage.OUTPUT_TEXT: return createOutputText();
 			case FormPackage.CHECK_BOX: return createCheckBox();
-			case FormPackage.SELECT_ONE_FROM_LIST_OF_OPTIONS: return createSelectOneFromListOfOptions();
+			case FormPackage.OPTION_SELECTION: return createOptionSelection();
 			case FormPackage.DROP_DOWN_SELECTION: return createDropDownSelection();
+			case FormPackage.SELECT_MANY_MENU: return createSelectManyMenu();
 			case FormPackage.RADIO_SELECTION: return createRadioSelection();
 			case FormPackage.IMAGE: return createImage();
 			case FormPackage.DATE: return createDate();
@@ -710,9 +710,9 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SelectOneFromListOfOptions createSelectOneFromListOfOptions() {
-		SelectOneFromListOfOptionsImpl selectOneFromListOfOptions = new SelectOneFromListOfOptionsImpl();
-		return selectOneFromListOfOptions;
+	public DropDownSelection createDropDownSelection() {
+		DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
+		return dropDownSelection;
 	}
 
 	/**
@@ -720,9 +720,9 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DropDownSelection createDropDownSelection() {
-		DropDownSelectionImpl dropDownSelection = new DropDownSelectionImpl();
-		return dropDownSelection;
+	public SelectManyMenu createSelectManyMenu() {
+		SelectManyMenuImpl selectManyMenu = new SelectManyMenuImpl();
+		return selectManyMenu;
 	}
 
 	/**

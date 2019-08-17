@@ -36,6 +36,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DataScroller.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/FileUpload.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DataExporter.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/DataExporter.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/SelectManyMenu.egl";
 
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/PrimeFaces/WindowRef.egl";
 

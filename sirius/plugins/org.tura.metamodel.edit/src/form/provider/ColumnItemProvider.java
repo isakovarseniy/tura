@@ -331,11 +331,6 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
-				 FormFactory.eINSTANCE.createOptionSelection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.COLUMN__ELEMENT,
 				 FormFactory.eINSTANCE.createLayerHolder()));
 
 		newChildDescriptors.add
@@ -371,12 +366,12 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
-				 FormFactory.eINSTANCE.createSelectOneFromListOfOptions()));
+				 FormFactory.eINSTANCE.createDropDownSelection()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.COLUMN__ELEMENT,
-				 FormFactory.eINSTANCE.createDropDownSelection()));
+				 FormFactory.eINSTANCE.createSelectManyMenu()));
 
 		newChildDescriptors.add
 			(createChildParameter

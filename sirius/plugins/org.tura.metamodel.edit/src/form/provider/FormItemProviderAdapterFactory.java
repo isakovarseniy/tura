@@ -1198,29 +1198,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.SelectOneFromListOfOptions} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SelectOneFromListOfOptionsItemProvider selectOneFromListOfOptionsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.SelectOneFromListOfOptions}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSelectOneFromListOfOptionsAdapter() {
-		if (selectOneFromListOfOptionsItemProvider == null) {
-			selectOneFromListOfOptionsItemProvider = new SelectOneFromListOfOptionsItemProvider(this);
-		}
-
-		return selectOneFromListOfOptionsItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.DropDownSelection} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1241,6 +1218,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return dropDownSelectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.SelectManyMenu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SelectManyMenuItemProvider selectManyMenuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.SelectManyMenu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSelectManyMenuAdapter() {
+		if (selectManyMenuItemProvider == null) {
+			selectManyMenuItemProvider = new SelectManyMenuItemProvider(this);
+		}
+
+		return selectManyMenuItemProvider;
 	}
 
 	/**

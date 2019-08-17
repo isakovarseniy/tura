@@ -21,48 +21,23 @@
  */
 package org.tura.platform.primefaces.model;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
-import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
-import org.tura.platform.repository.core.ObjectControl;
 
-public class OptionsModel {
+public class OptionsModel  extends Options<OptionsModel> {
 
-	private DataControl<?> datacontrol;
-	private String label;
-	private String value;
-	private List<Object[]> options;
-	private Logger logger;
-	@SuppressWarnings("unused")
-	private Object callback;
 
 	public OptionsModel(DataControl<?> datacontrol, Logger logger, Object callback) {
-		this.datacontrol = datacontrol;
-		this.logger = logger;
-		this.callback = callback;
+		super(datacontrol,logger,callback);
 		datacontrol.addEventLiteners(new RecordListener());
-
-	}
-
-	public OptionsModel setLabel(String label) {
-		this.label = label;
-		return this;
-	}
-
-	public OptionsModel setValue(String value) {
-		this.value = value;
-		return this;
 	}
 
 	public OptionsModel setSelectOption(String expression) {
@@ -87,46 +62,6 @@ public class OptionsModel {
 	}
 
 	public void changeValueListener() {
-	}
-
-	public List<Object[]> getOptions() {
-		if (options != null)
-			return options;
-
-		options = new ArrayList<>();
-
-		try {
-			datacontrol.getCurrentObject();
-			List<?> scroler = datacontrol.getScroller();
-
-			Iterator<?> itr = scroler.iterator();
-			while (itr.hasNext()) {
-				Object obj = itr.next();
-				Object objLabel = null;
-				try {
-					objLabel = Reflection.call(obj, label);
-				} catch (NoSuchMethodException m) {
-					ObjectControl oc = (ObjectControl) obj;
-					String attr = "ATTRIBUTE_" + label.toUpperCase().substring(3);
-					objLabel = oc.getAttributes().get(attr);
-				}
-				Object objValue = null;
-				try {
-					objValue = Reflection.call(obj, value);
-				} catch (NoSuchMethodException m) {
-					ObjectControl oc = (ObjectControl) obj;
-					String attr = "ATTRIBUTE_" + value.toUpperCase().substring(3);
-					objValue = oc.getAttributes().get(attr);
-				}
-				options.add(new Object[] { objLabel, objValue });
-			}
-
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
-		}
-
-		return options;
-
 	}
 
 	class RecordListener implements EventListener {
