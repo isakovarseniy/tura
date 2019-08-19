@@ -37,7 +37,7 @@ import org.tura.platform.repository.core.ObjectControl;
 
 public class MultiSelectOptionsModel extends Options<MultiSelectOptionsModel>{
 
-    private List<String> selected = null;
+    private List<Object> selected = null;
 
 	public MultiSelectOptionsModel(DataControl<?> datacontrol, Logger logger, Object callback) {
 		super (datacontrol,logger,callback);
@@ -45,7 +45,7 @@ public class MultiSelectOptionsModel extends Options<MultiSelectOptionsModel>{
 	}
 
 
-    public List<String> getSelected() {
+    public List<Object> getSelected() {
     	if ( selected == null) {
             if (callback != null) {
             	OptionsModelTrigger triggres = (OptionsModelTrigger) callback;
@@ -55,7 +55,7 @@ public class MultiSelectOptionsModel extends Options<MultiSelectOptionsModel>{
         return selected;
     }
 
-    public void setSelected(List<String> selected) {
+    public void setSelected(List<Object> selected) {
         this.selected =  selected;
     }
 	
