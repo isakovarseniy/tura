@@ -16,6 +16,9 @@
 		<class>org.tura.platform.hr.objects.jpa.City</class>
 		<class>org.tura.platform.hr.objects.jpa.Department</class>
 		
+		<class>org.tura.platform.hr.objects.jpa.Prospect</class>
+		<class>org.tura.platform.hr.objects.jpa.Regions</class>
+		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
       
 		<properties>

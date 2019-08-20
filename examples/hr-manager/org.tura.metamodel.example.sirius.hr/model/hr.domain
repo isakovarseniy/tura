@@ -1747,6 +1747,19 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="d745bc9b-9575-46d1-9383-9bbbe6a44052" name="employeeId"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="d8ee2266-c902-4ee5-a906-88fdb8a7207f" name="parentId"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="9d73f989-7aac-4260-ad1d-29ae6289b9d3" name="Prospect">
+            <classifiers uid="bfd066ac-b93f-49d8-90a3-59da83c8e26e" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="251f96f6-4baa-4668-96b0-eb9a3406452c" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="8b6e77e1-4fdd-445e-80bf-44e07cdc9da6" name="objId" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c30dfe45-1025-426c-84c1-446c44855884" name="name"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58" name="Regions">
+            <classifiers uid="bb9f3d48-c695-4f2c-a49e-f183a9a1fc06" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="c2b8bdd1-9ee1-4ea4-9b3a-b583f75a2d53" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="d9d0f945-6bac-41ac-9ad4-ae3ca46513b3" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="7dac0da5-d9b7-486d-bd72-7e3e0e364f70" name="country id"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="db0f3966-4237-43ad-a021-4ea3670a06b7" name="prospect id"/>
+          </types>
           <relationships xsi:type="tura.type:Generalization" uid="0c70e330-69a8-458a-a219-63bcb4ed5739" source="0696d5ac-4215-4722-8e3a-739e95989c1f" target="43c4d3c2-1fab-43a9-ac92-cdda6d6560d3"/>
           <relationships xsi:type="tura.type:Generalization" uid="6e0e221c-5309-49a4-b4f7-1844a1d51d7c" source="d7312493-1c02-4b91-8f67-de8ce1d09384" target="43c4d3c2-1fab-43a9-ac92-cdda6d6560d3"/>
           <relationships xsi:type="tura.type:Generalization" uid="66864d8a-cde3-472d-86eb-d3d6253a4455" source="84c52b42-6905-4297-b1bc-6389f8a43d34" target="43c4d3c2-1fab-43a9-ac92-cdda6d6560d3"/>
@@ -1779,6 +1792,9 @@
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="c1294d7f-80fd-41d3-8edc-18fb5eed3a29" source="4a2c2052-d595-471b-90a5-44b6412f7cd7" target="4c78d946-5297-4b4c-9189-69eacd34da65" containment="Target" targetOperation="">
             <links uid="2b70baca-bd31-437a-884f-567a66415658" masterField="d601838d-38ef-4f6a-bc2e-a4e2beed9a74" detailField="a8231505-f2fb-46b7-ab5b-b86635f248d7"/>
+          </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="fbe7fa76-cfdf-4331-9e1b-0e55dd65f23e" source="9d73f989-7aac-4260-ad1d-29ae6289b9d3" target="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58" type="One2Many">
+            <links uid="ec68d9ac-45ac-4290-b220-ed6beb7821e5" masterField="8b6e77e1-4fdd-445e-80bf-44e07cdc9da6" detailField="db0f3966-4237-43ad-a021-4ea3670a06b7"/>
           </relationships>
         </repositoryPackages>
       </typesRepository>
@@ -8751,6 +8767,109 @@
                       </defaultSearch>
                       <relationMappers uid="a25cab21-5bc9-4c07-87b1-3e088afdeb47" typeRef="d7312493-1c02-4b91-8f67-de8ce1d09384"/>
                     </controls>
+                    <controls uid="d2588cca-9d0f-45d1-8ebd-e842475c64d0" name="Prospect">
+                      <baseType typeRef="9d73f989-7aac-4260-ad1d-29ae6289b9d3"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="a56d5454-e05f-4388-9fbb-d9665ba92ea8">
+                        <parameters uid="617aebd7-ddd7-4e34-84a7-82aa07cdc553" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="f688ea86-68ac-4b2d-a3ef-2b1c4e2959da" value="Types repository.HR domain.Complex model.Complex model::Prospect">
+                            <expression uid="7027c01d-5bac-458d-8aee-be06b78d8067" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="6838cc21-9054-4332-a265-39eac0e0004d" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="ac0b2a3d-5d93-42ac-9f57-63949efef049" objRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c8981810-26c6-4739-9e57-a3b491bfddec" objRef="9d73f989-7aac-4260-ad1d-29ae6289b9d3" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="e9cde221-89b9-4e56-b903-1963bcb910e4">
+                        <parameters uid="e4d1dc45-70d0-49af-b659-3de8e4523ad2" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="9c21fdd9-922b-4fec-8bcf-251711af8165" value="Data controls.Prospect.searchCriteria">
+                            <expression uid="92a04390-3b9a-46cd-a688-82297294b3f7" expressionType="DataControlHolder"/>
+                            <expression uid="086838c7-8c88-4b92-bae5-b225f3d28f4f" objRef="d2588cca-9d0f-45d1-8ebd-e842475c64d0" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="f982a588-fc17-4c36-86c3-a2db15d76998" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="42548e96-6e1d-4a6d-bb2d-289eb5f7cac7" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="17622b3a-8918-4a7d-956a-adff4d0c4ab5" value="Data controls.Prospect.orderCriteria">
+                            <expression uid="ebd57976-608c-40cf-a5b9-d30a28e06782" expressionType="DataControlHolder"/>
+                            <expression uid="0481c26a-a818-4a69-bc48-8bd26bf9eaf6" objRef="d2588cca-9d0f-45d1-8ebd-e842475c64d0" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="01bd35a8-afd6-4ce7-8eda-8bbe3d7252e1" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5de02dc6-ac27-4236-b079-94993e3482b5" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="6c636e08-22d5-4ad1-a4db-04c84c320dcc" value="Data controls.Prospect.start Index">
+                            <expression uid="5b775596-bd44-453b-b632-98c1efaeaece" expressionType="DataControlHolder"/>
+                            <expression uid="bba7afc1-cc82-4d47-b036-e1f61ac44aed" objRef="d2588cca-9d0f-45d1-8ebd-e842475c64d0" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="1d93be78-e3e7-41df-8452-fa0c98c90db6" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="84c5cc64-2796-4af0-9f6b-b4ca4841f55e" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="11ab02fa-cd2d-4174-ad87-22b3c5d9c95f" value="Data controls.Prospect.end Index">
+                            <expression uid="1c45d0fe-ed6b-427e-a25c-c80ef2bb285c" expressionType="DataControlHolder"/>
+                            <expression uid="54ee0a2b-5abf-4cd6-8f07-9b0ac7a5dec0" objRef="d2588cca-9d0f-45d1-8ebd-e842475c64d0" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="5f6ac69b-c2b3-4c49-9a49-1ec1cbf0ea5b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e918627c-1f84-4ef3-a810-77cead9666d7" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="a2143e96-395a-4508-b3c1-9abf5da85a69" value="Types repository.HR domain.Complex model.Complex model::Prospect">
+                            <expression uid="92da5db0-4f83-4682-bc94-60a1d8b49ffd" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="00ddb712-2341-4699-8576-6b70efb25b49" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="f965fe1d-6e4e-4559-92ca-3803a9814d73" objRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="d883ced4-e1e5-488e-b3d7-c3d11f99277c" objRef="9d73f989-7aac-4260-ad1d-29ae6289b9d3" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <relationMappers uid="a13dd104-16db-4ff3-9faa-e347ef3c978f" dataControlRef="23965d18-9dea-409c-bf4f-f1d3123548e7" typeRef="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58" assosiationRef="fbe7fa76-cfdf-4331-9e1b-0e55dd65f23e"/>
+                    </controls>
+                    <controls uid="23965d18-9dea-409c-bf4f-f1d3123548e7" name="Regions">
+                      <baseType typeRef="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="7d52723d-0d44-459d-ad14-c4bbfed56836">
+                        <parameters uid="e766697e-b267-449c-be41-12e155e85fdc" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="23180d8e-3e81-4795-807f-54c70511b699" value="Types repository.HR domain.Complex model.Complex model::Regions">
+                            <expression uid="ee6b7d18-d833-4d4b-9f38-745bc1fbc169" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="a28b68f1-af80-456a-b1b5-b00b0cd0ade9" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="17a391a2-dadf-490c-9773-cfd6c34472f7" objRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="30d8d228-0970-4afc-9fcf-51e89d263adc" objRef="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="a513d58d-9286-4c74-a7ab-513253613c5a">
+                        <parameters uid="a75cd4cf-ef4b-4c22-9449-37b56c918f78" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="c3cc0936-2b78-43dd-ab98-23f66208ef3d" value="Data controls.Regions.searchCriteria">
+                            <expression uid="dc8b41d8-4c1e-4197-aac1-e7d45591c03b" expressionType="DataControlHolder"/>
+                            <expression uid="0f3342bb-ed39-445f-87dd-301c3a01ca9f" objRef="23965d18-9dea-409c-bf4f-f1d3123548e7" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="5ff78eee-e93b-4bb0-b1ea-4d5768686cab" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="bf744468-0331-49ae-b8c0-b6a109323a79" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="a00c06bc-098a-4826-9917-706986292ba2" value="Data controls.Regions.orderCriteria">
+                            <expression uid="3c9aebdc-aa62-422e-8755-6d5844c2c925" expressionType="DataControlHolder"/>
+                            <expression uid="4ad1df5f-3577-4529-81f7-d0aaf8e731de" objRef="23965d18-9dea-409c-bf4f-f1d3123548e7" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="4e652241-a1df-493a-9f76-25634cf0925c" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9231872b-6be3-4f7c-a3b4-33588b045dc1" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="1743d2bc-2d72-4c4c-b1ec-c404796d70b8" value="Data controls.Regions.start Index">
+                            <expression uid="2b997ac9-5b70-47ea-8038-2aa49b503fa8" expressionType="DataControlHolder"/>
+                            <expression uid="7653177c-d4f5-4557-90bb-38f7aa537c5d" objRef="23965d18-9dea-409c-bf4f-f1d3123548e7" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="f5bc85c8-10f8-4bfa-9254-e1c883937dfb" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="8995ca09-e89b-46d6-afd1-c1553da77afb" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="7925b5db-0b98-49b5-ad9f-e984499cdfef" value="Data controls.Regions.end Index">
+                            <expression uid="5227371a-339b-4a03-9bce-9a45978af547" expressionType="DataControlHolder"/>
+                            <expression uid="8a3d14bb-6baf-4736-812b-97e05f11e1cb" objRef="23965d18-9dea-409c-bf4f-f1d3123548e7" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="09346cbc-6fbe-439d-9fc2-aac02183eab6" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="2ac7050e-a5a2-4148-9b69-6d7c0d2bd369" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="51e6cd1f-18b8-4982-85d2-81199dcbed25" value="Types repository.HR domain.Complex model.Complex model::Regions">
+                            <expression uid="231f7efc-349b-4993-bbc5-395feb14cae3" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="d8186dab-f9d0-4ed0-88f4-3e99ba2b15a3" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="86aa642e-c25a-4e8f-9f74-bcf55e81ae8d" objRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="8f00e45c-495b-4380-b6fd-4acd8d4e509c" objRef="3ff79d0b-ef6a-43aa-96cb-d4b1b5d46d58" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                    </controls>
                     <relations xsi:type="tura.form:InternalRelation" uid="6e9d199f-6d8c-4e70-86d0-40d9aafe9b97" master="dde88885-aa16-4614-98d3-6a7722185411" detail="132d5d5c-dfe4-457e-a181-7b57a5197ae7"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="3c4a10f8-148d-4edf-a0be-e61029763ee4" master="132d5d5c-dfe4-457e-a181-7b57a5197ae7" detail="beae9146-f406-41db-864e-0fce70a1680b" isTree="true"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="ecc5f2fa-3554-427e-899a-943c9f2dd2d2" master="beae9146-f406-41db-864e-0fce70a1680b" detail="4670692a-c219-4de5-9c7b-312a2e9be13a" isTree="true"/>
@@ -8762,6 +8881,7 @@
                     <relations uid="f98148ce-dcd0-48b7-9f47-0e2a7d6b3726" master="724c6ac1-b017-4566-93b6-b0e872d77353" detail="9e0f99b8-4330-4ccc-b806-11970296960b">
                       <links uid="97ac7ef7-5be0-4465-b94a-66e02eabb23e" masterField="d601838d-38ef-4f6a-bc2e-a4e2beed9a74" detailField="150385fe-c92d-494c-abe1-bd6573925f1a"/>
                     </relations>
+                    <relations xsi:type="tura.form:InternalRelation" uid="7baa152b-7cde-4b09-9df7-a9c1e736ba2a" master="d2588cca-9d0f-45d1-8ebd-e842475c64d0" detail="23965d18-9dea-409c-bf4f-f1d3123548e7" assosiationRef="fbe7fa76-cfdf-4331-9e1b-0e55dd65f23e"/>
                   </datacontrols>
                 </forms>
                 <forms uid="d5758c79-f5b0-42e7-a056-854d3b28334c" name="Tree2Tree">

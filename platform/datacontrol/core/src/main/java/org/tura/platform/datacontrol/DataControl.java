@@ -220,7 +220,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		RowRemovedEvent event = new RowRemovedEvent(this,
 				pager.getObject(currentPosition));
 		this.pager.remove(currentPosition);
-		if (currentPosition == pager.actualListSize())
+		if (currentPosition == pager.actualListSize() && currentPosition != 0)
 			currentPosition--;
 
 		notifyLiteners(event);
