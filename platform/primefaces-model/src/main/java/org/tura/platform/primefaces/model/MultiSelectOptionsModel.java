@@ -45,11 +45,11 @@ public class MultiSelectOptionsModel extends Options<MultiSelectOptionsModel>{
 	}
 
 
-    public List<Object> getSelected() {
+	public List<Object> getSelected() {
     	if ( selected == null) {
             if (callback != null) {
             	OptionsModelTrigger triggres = (OptionsModelTrigger) callback;
-            	triggres.initSelected(getOptions());
+            	selected = triggres.initSelected(getOptions());
             }
     	}
         return selected;

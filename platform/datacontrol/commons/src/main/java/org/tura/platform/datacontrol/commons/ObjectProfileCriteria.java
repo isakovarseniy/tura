@@ -28,6 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ObjectProfileCriteria extends SearchCriteria{
 	
 	private String profile;
+
+	public ObjectProfileCriteria() {
+	}
+	
 	
 	public ObjectProfileCriteria(String profile) {
 		this.profile = profile;

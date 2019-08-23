@@ -139,4 +139,10 @@ public class ViewModel implements Serializable {
         return new OptionsModel( dc, logger,callback );
     }
 
+    
+    
+    public boolean checkIfModelExists(String modelId) {
+        return modelHolder.containsKey(modelId);
+    }
+    
 }
