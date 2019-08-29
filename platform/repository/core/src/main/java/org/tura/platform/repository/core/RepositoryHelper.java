@@ -256,6 +256,18 @@ public class RepositoryHelper {
         return result;
     }
 
+	public SearchCriteria checkRelationSearchParam(String parentClass, String property, List<SearchCriteria> search) {
+		SearchCriteria result = null;
+		for (SearchCriteria sc : search) {
+			if (sc.getParentClass()!= null && sc.getProperty()!= null && sc.getParentClass().equals(parentClass) && sc.getProperty().equals(property)) {
+				result = sc;
+				break;
+			}
+		}
+		return result;
+	}
+    
+    
     public List<?> findChildren(Object persistenceObject, String relationType, String property) throws Exception {
 
         if ("One2Many".equals(relationType)) {

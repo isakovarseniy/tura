@@ -26,6 +26,11 @@ public class FieldValue {
 	private String type;
 	private String value;
 	
+	
+	public FieldValue() {
+		
+	}
+	
 	public FieldValue( String name, String type,String value){
 		this.name = name;
 		this.type = type;
