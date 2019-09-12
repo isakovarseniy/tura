@@ -32,7 +32,9 @@ import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
 import org.apache.felix.gogo.jline.command.DockerKeyCloak;
 import org.apache.felix.gogo.jline.command.DockerKeyCloakAdapter;
+import org.apache.felix.gogo.jline.command.DockerLdap;
 import org.apache.felix.gogo.jline.command.DockerLogWatcher;
+import org.apache.felix.gogo.jline.command.DockerMongo;
 import org.apache.felix.gogo.jline.command.DockerMySql;
 import org.apache.felix.gogo.jline.command.DockerNetwork;
 import org.apache.felix.gogo.jline.command.DockerPostgresSQL;
@@ -41,6 +43,8 @@ import org.apache.felix.gogo.jline.command.DockerRemoveContainerCommand;
 import org.apache.felix.gogo.jline.command.DockerRemoveImage;
 import org.apache.felix.gogo.jline.command.DockerStartContainer;
 import org.apache.felix.gogo.jline.command.DockerStopContainer;
+import org.apache.felix.gogo.jline.command.LdapOnDockerHealtCheck;
+import org.apache.felix.gogo.jline.command.MongoOnDockerHealthCheck;
 import org.apache.felix.gogo.jline.command.MySqlDBDump;
 import org.apache.felix.gogo.jline.command.MySqlOnDockerHealthCheck;
 import org.apache.felix.gogo.jline.command.MySqlUploadDump;
@@ -133,6 +137,14 @@ public class DockerOperation  {
                         .addSubcommand("mysqlUploadDump", new MySqlUploadDump())
                         .addSubcommand("mysqlDBDump", new MySqlDBDump())
                         )
+                .addSubcommand("mongo", new CommandLine(new DockerMongo())
+                        .addSubcommand("mongoHealthCheck", new MongoOnDockerHealthCheck())
+                        )
+                .addSubcommand("ldap", new CommandLine(new DockerLdap())
+                        .addSubcommand("ldapHealthCheck", new LdapOnDockerHealtCheck())
+                        )
+
+                
                 .addSubcommand("keycloak", new CommandLine(new DockerKeyCloak())   
 	                                        .addSubcommand("doDeployAdapter", new DockerKeyCloakAdapter())
                 		) ;
