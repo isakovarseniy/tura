@@ -26,6 +26,7 @@ import org.apache.felix.gogo.jline.command.DSLCreateLink;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
 import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
 import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
+import org.apache.felix.gogo.jline.command.DSLLdapPropertyFileForTesitng;
 import org.apache.felix.gogo.jline.command.DSLModule;
 import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
 import org.apache.felix.gogo.jline.command.DSLWildFlyConfiguration;
@@ -106,8 +107,8 @@ public class DSLOperation  {
                 .addSubcommand("copyMonthlyFiles", new DSLCopyMonthlyFile())
                 .addSubcommand("wfStartupConfig", new DSLWildFlyConfiguration())
                 .addSubcommand("createLink", new DSLCreateLink())
+                .addSubcommand("ldapPropForTesting", new DSLLdapPropertyFileForTesitng())
         ;
     }
 
 }
-

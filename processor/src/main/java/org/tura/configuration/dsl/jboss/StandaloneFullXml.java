@@ -14,7 +14,6 @@
 package org.tura.configuration.dsl.jboss;
 
 import org.tura.configuration.dsl.commons.Artifact;
-import org.tura.configuration.dsl.commons.ConfigConstants;
 
 public class StandaloneFullXml extends Artifact<StandaloneFullXml>{
 

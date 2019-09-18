@@ -17,24 +17,28 @@ import com.github.dockerjava.api.model.Container;
 
 import picocli.CommandLine.Option;
 
-public class DockerFindContainer extends DockerCommand{
+public class DockerFindContainer extends DockerCommand {
 
-    @Option(names = "--name")
-    private String name;
+	@Option(names = "--name")
+	private String name;
 
-    
-    
-    @Override
-    public Object execute() {
-        _init();
-        Container c = findContainer(name);
-        if (c != null) {
-            return true;
-        }else {
-            return false;
-        }
-    }
-    
-    
+	@Option(names = "--returnId")
+	private boolean returnId;
+
+	@Override
+	public Object execute() {
+		_init();
+		Container c = findContainer(name);
+		if (!returnId) {
+
+			if (c != null) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return c.getId();
+		}
+
+	}
 }
-
