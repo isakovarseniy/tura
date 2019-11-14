@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.tura.platform</groupId>
@@ -11,21 +12,31 @@
 
 	<groupId>org.tura.platform.datacontrol</groupId>
 	<artifactId>commons</artifactId>
-	
+
 	<name>Tura :: Platform :: DataControl :: Commons</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.octo.java.sql</groupId>
-			<artifactId>java-sql-dsl</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.octo.java.sql</groupId>
 			<artifactId>java-sql-dsl</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 
