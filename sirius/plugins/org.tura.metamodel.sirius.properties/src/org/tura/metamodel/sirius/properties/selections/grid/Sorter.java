@@ -13,9 +13,9 @@
 package org.tura.metamodel.sirius.properties.selections.grid;
 
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.viewers.ViewerComparator;
 
-public class Sorter extends ViewerSorter {
+public class Sorter extends ViewerComparator {
 	private GridColumn column;
 
 	public Sorter(GridColumn column) {

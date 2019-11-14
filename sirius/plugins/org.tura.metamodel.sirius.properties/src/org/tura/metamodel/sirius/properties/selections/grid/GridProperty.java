@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.AbstractTuraPropertySection;
 
@@ -43,11 +42,9 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		return tableViewer;
 	}
 
-	public void createControls(Composite parent,
-			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-		Composite composite = aTabbedPropertySheetPage.getWidgetFactory()
-				.createFlatFormComposite(parent);
+		Composite composite = aTabbedPropertySheetPage.getWidgetFactory().createFlatFormComposite(parent);
 
 		GridLayout layout = new GridLayout(1, false);
 		layout.marginWidth = 4;
@@ -69,8 +66,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	}
 
 	private void createTable(Composite parent) {
-		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
-				| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
+		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
 		table = new Table(parent, style);
 
@@ -112,7 +108,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		tableViewer.setCellModifier(new CellModifier(getColumns(), ds));
 		// Set the default sorter for the viewer
 		if (getSorterID() != -1)
-			tableViewer.setSorter(new Sorter(getColumns().get(getSorterID())));
+			tableViewer.setComparator(new Sorter(getColumns().get(getSorterID())));
 
 	}
 
@@ -125,36 +121,33 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		ds.addRow();
 		int selection = ds.getRows().size();
 		if (selection != 0)
-		    tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection-1)),true);
+			tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection - 1)), true);
 		tableViewer.refresh();
 
-		((TabbedPropertyComposite)(getPropertySheetPage().getControl())).getTabComposite().layout(true, true);
+		((Composite) (getPropertySheetPage().getControl())).layout(true, true);
 	}
 
 	public void removeRow(Object row) {
 		ds.removeRow(row);
-		
+
 		int selection = ds.getRows().size();
 		if (selection != 0)
-		    tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection-1)),true);
-		
-		((TabbedPropertyComposite) (getPropertySheetPage().getControl())).getTabComposite().layout(true, true);
+			tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection - 1)), true);
+
+		((Composite) (getPropertySheetPage().getControl())).layout(true, true);
 	}
 
-	
 	public void upRow(Object row) {
 		ds.upRow(row);
 		tableViewer.refresh();
-		
+
 	}
-	
+
 	public void downRow(Object row) {
 		ds.downRow(row);
 		tableViewer.refresh();
 	}
-	
-	
-	
+
 	public int getSorterID() {
 		return ds.getSorterID();
 	}
@@ -162,16 +155,15 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	public void refresh() {
 		try {
 			super.refresh();
-			Control control = tableViewer.getControl(); 
+			Control control = tableViewer.getControl();
 			if (control != null && !control.isDisposed()) {
 				tableViewer.setInput(ds);
-				if (ds.isRenewed()){
+				if (ds.isRenewed()) {
 					ds.reset();
-					if (ds.getRows() !=null && ds.getRows().size() != 0)
-				        tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)),true);
+					if (ds.getRows() != null && ds.getRows().size() != 0)
+						tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)), true);
 				}
-				((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
-						.getTabComposite().layout(true, true);
+				((Composite) (getPropertySheetPage().getControl())).layout(true, true);
 			}
 		} catch (org.eclipse.swt.SWTException e) {
 		}
@@ -182,10 +174,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		DRepresentationElement element = (DRepresentationElement) getEObject();
 		return element.getTarget();
 	}
-	
-	
+
 	public abstract List<GridColumn> getColumns();
 
-	
-	
 }
