@@ -574,8 +574,25 @@ public class Util {
             template.populate(tech.getTechRef().getName()
                     .replace(' ', '_'), tech.getValueRef().getValue());
         }
+        
+        template.populate("OS", getOS());
+        
     }
 
+    
+	private static String getOS() {
+		if (OSHelper.isWindows()) {
+			return "OS/Win";
+		} else if (OSHelper.isMac()) {
+			return "OS/Unix";
+		} else if (OSHelper.isUnix()) {
+			return "OS/Unix";
+		}
+		return "";
+	}
+	    
+    
+    
     public static void populateTechnologies(Map<String, Object> hash,ModelMapper mapper) {
         if (mapper == null || mapper.getTechnologies() == null)
             return;
@@ -584,6 +601,7 @@ public class Util {
             String path = buildTechnologiesString(tech.getValueRef().getValue());
             hash.put(tech.getTechRef().getName().replace(' ', '_'), path);
         }
+        hash.put("OS", getOS());
     }
 
     

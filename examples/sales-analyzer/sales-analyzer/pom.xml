@@ -33,6 +33,7 @@
 		<postgres.jdbc.version>42.1.1</postgres.jdbc.version>
 		<version.postgresql>2.9</version.postgresql>
 		<version.deltaspike>1.6.1</version.deltaspike>
+		<version.jaxb>2.3.0</version.jaxb>
 	</properties>
 
 	<repositories>
@@ -56,6 +57,23 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>${version.jaxb}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-core</artifactId>
+				<version>${version.jaxb}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${version.jaxb}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.tura</groupId>
