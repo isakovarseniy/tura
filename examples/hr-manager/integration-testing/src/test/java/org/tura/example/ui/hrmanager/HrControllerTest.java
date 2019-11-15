@@ -172,9 +172,16 @@ public class HrControllerTest extends AbstractTest {
 
 			t.getRow(1).getCell(1).click();
 
-			tree = hrControllerPage.getLocationTree();
-			tr = (TreeRow) tree.getRow("0");
-			tr.open();
+			new Repeater() {
+				public void action() {
+					Tree tree = hrControllerPage.getLocationTree();
+					tree = hrControllerPage.getLocationTree();
+					TreeRow tr = (TreeRow) tree.getRow("0");
+					tr.open();
+				}
+			}.repeat(10);
+
+			
 
 			tree = hrControllerPage.getLocationTree();
 			tr = (TreeRow) tree.getRow("0");
@@ -695,12 +702,19 @@ public class HrControllerTest extends AbstractTest {
 		}.run();
 
 		Tree tree = (Tree) hrControllerPage.getLocationTree();
-		TreeRow tr = (TreeRow) tree.getRow("0");
-		tr.doubleClick();
+		final TreeRow tr1 = (TreeRow) tree.getRow("0");
+		tr1.doubleClick();
 
-		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("Country 3");
-		inputText.setValue(Keys.RETURN);
+		new Repeater() {
+			public void action() {
+				InputText inputText = new InputTextPrimeFaces(tr1.getCell(1).findElement(By.cssSelector("input")), driver);
+				inputText.setValue("Country 3");
+				inputText.setValue(Keys.RETURN);
+			}
+		}.repeat(10);
+
+		
+		
 
 		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -710,12 +724,18 @@ public class HrControllerTest extends AbstractTest {
 		}.run();
 
 		tree = (Tree) hrControllerPage.getLocationTree();
-		tr = (TreeRow) tree.getRow("0_0");
-		tr.doubleClick();
+		final TreeRow tr2 = (TreeRow) tree.getRow("0_0");
+		tr2.doubleClick();
 
-		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("State 3");
-		inputText.setValue(Keys.RETURN);
+		new Repeater() {
+			public void action() {
+				InputText inputText = new InputTextPrimeFaces(tr2.getCell(1).findElement(By.cssSelector("input")), driver);
+				inputText.setValue("State 3");
+				inputText.setValue(Keys.RETURN);
+			}
+		}.repeat(10);
+		
+		
 
 		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -725,12 +745,18 @@ public class HrControllerTest extends AbstractTest {
 		}.run();
 
 		tree = (Tree) hrControllerPage.getLocationTree();
-		tr = (TreeRow) tree.getRow("0_0_0");
-		tr.doubleClick();
-
-		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("City 3");
-		inputText.setValue(Keys.RETURN);
+		TreeRow tr3 = (TreeRow) tree.getRow("0_0_0");
+		tr3.doubleClick();
+		
+		new Repeater() {
+			public void action() {
+				InputText inputText = new InputTextPrimeFaces(tr3.getCell(1).findElement(By.cssSelector("input")), driver);
+				inputText.setValue("City 3");
+				inputText.setValue(Keys.RETURN);
+			}
+		}.repeat(10);
+		
+		
 
 		new SeleniumActionExecutor(driver, HrControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -740,12 +766,18 @@ public class HrControllerTest extends AbstractTest {
 		}.run();
 
 		tree = (Tree) hrControllerPage.getLocationTree();
-		tr = (TreeRow) tree.getRow("0_0_0_0");
-		tr.doubleClick();
+		TreeRow tr4 = (TreeRow) tree.getRow("0_0_0_0");
+		tr4.doubleClick();
+		
+		new Repeater() {
+			public void action() {
+				InputText inputText = new InputTextPrimeFaces(tr4.getCell(1).findElement(By.cssSelector("input")), driver);
+				inputText.setValue("Street 3");
+				inputText.setValue(Keys.RETURN);
+			}
+		}.repeat(10);
 
-		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("Street 3");
-		inputText.setValue(Keys.RETURN);
+
 
 		new SeleniumActionExecutor(driver, DepartmentsDetailsPageObject.getDepartmentTableSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -852,12 +884,18 @@ public class HrControllerTest extends AbstractTest {
 		filesPageObject.getAddContent().click();
 
 		tree = (Tree) filesPageObject.getContentTable();
-		tr = (TreeRow) tree.getRow("0");
-		tr.doubleClick();
+		TreeRow tr5 = (TreeRow) tree.getRow("0");
+		tr5.doubleClick();
 
-		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("Dir5");
-		inputText.setValue(Keys.RETURN);
+		
+		new Repeater() {
+			public void action() {
+				InputText inputText = new InputTextPrimeFaces(tr5.getCell(1).findElement(By.cssSelector("input")), driver);
+				inputText.setValue("Dir5");
+				inputText.setValue(Keys.RETURN);
+			}
+		}.repeat(10);
+
 
 		hrControllerPage.getSaveButton().click();
 
@@ -876,7 +914,7 @@ public class HrControllerTest extends AbstractTest {
 		assertEquals("Company 3", el.getText());
 
 		tree = hrControllerPage.getLocationTree();
-		tr = (TreeRow) tree.getRow("0");
+		TreeRow tr = (TreeRow) tree.getRow("0");
 		tr.open();
 
 		el = tr.getCell(1);
