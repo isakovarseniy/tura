@@ -2517,7 +2517,7 @@
                         <mappers uid="db1a26bd-431b-4c76-a933-dd3481ac1d0f" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Simple model repository builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="f9acb5da-4729-4339-ae8a-8355a3035459"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
-                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="baa80b07-795a-43e6-b507-f894446377a4"/>
                           <queries uid="bfe2bf91-fdaf-4c3a-b1a4-cdf21a7a005e" name="Query model interface" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple model"/>
@@ -2525,7 +2525,7 @@
                         </mappers>
                         <mappers uid="b422bd67-53ef-486b-b99c-9cca982d0077" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model repository build run">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
-                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
@@ -2663,7 +2663,7 @@
                         </mappers>
                         <mappers uid="5017ad40-0aba-4132-ab71-28bd7c453523" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="XJC complex model serialization builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
-                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="baa80b07-795a-43e6-b507-f894446377a4"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a402227e-405e-4074-ae16-33b2f8a07b39"/>
                         </mappers>
                         <mappers uid="72cab31a-07e4-4e8b-9e3a-7e3b5f2eaff0" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model serialization build runner">
@@ -2683,7 +2683,7 @@
                           </queries>
                         </mappers>
                         <mappers uid="6d5029b6-5870-4d75-9222-918a2563ac66" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Simple model repository proxy builder">
-                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="baa80b07-795a-43e6-b507-f894446377a4"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="d9e3a392-75f8-4c7f-a64d-b783675fcd26"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <queries uid="01f92511-770d-4ec5-a456-71b26ed83ab2" name="Query classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
@@ -2695,7 +2695,7 @@
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
-                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                         </mappers>
                       </components>
                     </ingredients>
@@ -2711,14 +2711,14 @@
                         <mappers uid="a0b73bf5-3126-4a67-a8c3-bd5c7a118f08" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Complex model repository builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="f9acb5da-4729-4339-ae8a-8355a3035459"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
-                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="baa80b07-795a-43e6-b507-f894446377a4"/>
                           <queries uid="b3df9407-db71-4fc0-9548-6c8fa9e305a4" name="Query simple domain model" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Complex model"/>
                           </queries>
                         </mappers>
                         <mappers uid="8cd51074-c67b-43d6-b47d-2ee8848ec2e2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model repository build run">
-                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
