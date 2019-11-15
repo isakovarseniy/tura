@@ -70,7 +70,7 @@ public class HrControllerTest extends AbstractTest {
 	static ChromeDriverService service;
 	static private String USERNAME = "qwerty";
 	static private String PASSWORD = "qwerty";
-	static private String app_url = "http://localhost:8080/hrform/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2";
+	static private String app_url = "https://localhost:8443/hrform/hrmanager/hrcontroller/hrController.xhtml?param1=qwerty2";
 	static private String driver_location = ConfigConstants.RESOURCE_HOME + "/chromedriver";
 
 

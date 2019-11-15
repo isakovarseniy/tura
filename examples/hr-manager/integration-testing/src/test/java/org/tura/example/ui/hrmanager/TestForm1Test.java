@@ -26,7 +26,7 @@ public class TestForm1Test extends AbstractTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String app_url = "http://localhost:8080/hrform/hrmanager/testform1/TestForm1.xhtml";
+	static private String app_url = "http://localhost:8080/hrform/hrmanager/testform1/testForm1.xhtml";
 	static private String driver_location = ConfigConstants.RESOURCE_HOME + "/chromedriver";
 
 	@BeforeClass
