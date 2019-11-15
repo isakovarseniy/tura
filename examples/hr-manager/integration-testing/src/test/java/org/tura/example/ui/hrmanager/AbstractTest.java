@@ -6,7 +6,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.HttpResponse;
 
 public class AbstractTest {
-	static private String health_test = "http://localhost:8080/hrform/hrmanager/tree2tree/Tree2TreeRelations.xhtml";
+	static private String health_test = "http://localhost:8080/hrform/hrmanager/tree2tree/tree2TreeRelations.xhtml";
 
 	public static void healthCheckt() throws Exception {
 		for (int i = 0; i < 100; i++) {
