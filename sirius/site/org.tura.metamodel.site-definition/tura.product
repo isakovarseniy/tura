@@ -203,12 +203,11 @@
       <plugin id="org.eclipse.core.filebuffers"/>
       <plugin id="org.eclipse.core.filebuffers.source"/>
       <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.macosx" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.source"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.jobs.source"/>
       <plugin id="org.eclipse.core.net"/>
-      <plugin id="org.eclipse.core.net.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.net.source"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.source"/>
@@ -259,14 +258,14 @@
       <plugin id="org.eclipse.e4.ui.model.workbench.source"/>
       <plugin id="org.eclipse.e4.ui.services"/>
       <plugin id="org.eclipse.e4.ui.services.source"/>
-      <plugin id="org.eclipse.e4.ui.swt.gtk" fragment="true"/>
-      <plugin id="org.eclipse.e4.ui.swt.gtk.source"/>
       <plugin id="org.eclipse.e4.ui.widgets"/>
       <plugin id="org.eclipse.e4.ui.widgets.source"/>
       <plugin id="org.eclipse.e4.ui.workbench"/>
       <plugin id="org.eclipse.e4.ui.workbench.addons.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench.addons.swt.source"/>
       <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench.renderers.swt.cocoa" fragment="true"/>
+      <plugin id="org.eclipse.e4.ui.workbench.renderers.swt.cocoa.source"/>
       <plugin id="org.eclipse.e4.ui.workbench.renderers.swt.source"/>
       <plugin id="org.eclipse.e4.ui.workbench.source"/>
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
@@ -346,7 +345,6 @@
       <plugin id="org.eclipse.emf"/>
       <plugin id="org.eclipse.emf.codegen"/>
       <plugin id="org.eclipse.emf.codegen.ecore"/>
-      <plugin id="org.eclipse.emf.codegen.ecore.ui"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.common.ui"/>
       <plugin id="org.eclipse.emf.compare"/>
@@ -370,7 +368,6 @@
       <plugin id="org.eclipse.emf.emfatic.doc.user"/>
       <plugin id="org.eclipse.emf.emfatic.ui"/>
       <plugin id="org.eclipse.emf.mapping"/>
-      <plugin id="org.eclipse.emf.mapping.ecore2xml"/>
       <plugin id="org.eclipse.emf.mapping.xsd2ecore"/>
       <plugin id="org.eclipse.emf.mwe.core"/>
       <plugin id="org.eclipse.emf.mwe.utils"/>
@@ -391,14 +388,9 @@
       <plugin id="org.eclipse.epp.mpc.ui.css"/>
       <plugin id="org.eclipse.epp.package.common"/>
       <plugin id="org.eclipse.epp.package.rcp"/>
-      <plugin id="org.eclipse.epsilon.antlr.postprocessor"/>
-      <plugin id="org.eclipse.epsilon.antlr.postprocessor.model"/>
       <plugin id="org.eclipse.epsilon.common"/>
       <plugin id="org.eclipse.epsilon.common.dt"/>
       <plugin id="org.eclipse.epsilon.common.dt.examples"/>
-      <plugin id="org.eclipse.epsilon.concordance.clients"/>
-      <plugin id="org.eclipse.epsilon.concordance.core"/>
-      <plugin id="org.eclipse.epsilon.concordance.core.hashing"/>
       <plugin id="org.eclipse.epsilon.dependencies"/>
       <plugin id="org.eclipse.epsilon.dt.epackageregistryexplorer"/>
       <plugin id="org.eclipse.epsilon.dt.exeed"/>
@@ -422,13 +414,9 @@
       <plugin id="org.eclipse.epsilon.emc.emf.virtual"/>
       <plugin id="org.eclipse.epsilon.emc.graphml"/>
       <plugin id="org.eclipse.epsilon.emc.graphml.dt"/>
-      <plugin id="org.eclipse.epsilon.emc.hutn"/>
-      <plugin id="org.eclipse.epsilon.emc.hutn.dt"/>
       <plugin id="org.eclipse.epsilon.emc.muddle"/>
       <plugin id="org.eclipse.epsilon.emc.plainxml"/>
       <plugin id="org.eclipse.epsilon.emc.plainxml.dt"/>
-      <plugin id="org.eclipse.epsilon.emc.uml"/>
-      <plugin id="org.eclipse.epsilon.emc.uml.dt"/>
       <plugin id="org.eclipse.epsilon.emf.dt"/>
       <plugin id="org.eclipse.epsilon.eml.dt"/>
       <plugin id="org.eclipse.epsilon.eml.engine"/>
@@ -455,20 +443,10 @@
       <plugin id="org.eclipse.epsilon.ewl.dt"/>
       <plugin id="org.eclipse.epsilon.ewl.emf"/>
       <plugin id="org.eclipse.epsilon.ewl.engine"/>
-      <plugin id="org.eclipse.epsilon.ewl.gmf"/>
       <plugin id="org.eclipse.epsilon.flock.dt"/>
-      <plugin id="org.eclipse.epsilon.flock.dt.concordance"/>
       <plugin id="org.eclipse.epsilon.flock.dt.emf"/>
       <plugin id="org.eclipse.epsilon.flock.engine"/>
       <plugin id="org.eclipse.epsilon.help"/>
-      <plugin id="org.eclipse.epsilon.hutn.dt"/>
-      <plugin id="org.eclipse.epsilon.hutn.engine"/>
-      <plugin id="org.eclipse.epsilon.hutn.model"/>
-      <plugin id="org.eclipse.epsilon.hutn.model.antlrAst"/>
-      <plugin id="org.eclipse.epsilon.hutn.model.config"/>
-      <plugin id="org.eclipse.epsilon.hutn.unparser"/>
-      <plugin id="org.eclipse.epsilon.hutn.xmi"/>
-      <plugin id="org.eclipse.epsilon.hutn.xmi.dt"/>
       <plugin id="org.eclipse.epsilon.perspective"/>
       <plugin id="org.eclipse.epsilon.profiling"/>
       <plugin id="org.eclipse.epsilon.profiling.dt"/>
@@ -502,7 +480,7 @@
       <plugin id="org.eclipse.equinox.jsp.jasper.registry.source"/>
       <plugin id="org.eclipse.equinox.jsp.jasper.source"/>
       <plugin id="org.eclipse.equinox.launcher"/>
-      <plugin id="org.eclipse.equinox.launcher.gtk.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64" fragment="true"/>
       <plugin id="org.eclipse.equinox.launcher.source"/>
       <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
       <plugin id="org.eclipse.equinox.p2.artifact.repository.source"/>
@@ -566,8 +544,8 @@
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.registry.source"/>
       <plugin id="org.eclipse.equinox.security"/>
-      <plugin id="org.eclipse.equinox.security.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.equinox.security.linux.x86_64.source"/>
+      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.macosx.source"/>
       <plugin id="org.eclipse.equinox.security.source"/>
       <plugin id="org.eclipse.equinox.security.ui"/>
       <plugin id="org.eclipse.equinox.security.ui.source"/>
@@ -645,6 +623,8 @@
       <plugin id="org.eclipse.jdt.junit4.runtime"/>
       <plugin id="org.eclipse.jdt.junit5.runtime"/>
       <plugin id="org.eclipse.jdt.launching"/>
+      <plugin id="org.eclipse.jdt.launching.macosx"/>
+      <plugin id="org.eclipse.jdt.launching.ui.macosx"/>
       <plugin id="org.eclipse.jdt.ui"/>
       <plugin id="org.eclipse.jem.util"/>
       <plugin id="org.eclipse.jetty.continuation"/>
@@ -883,158 +863,94 @@
       <plugin id="org.eclipse.recommenders.types.rcp"/>
       <plugin id="org.eclipse.recommenders.utils"/>
       <plugin id="org.eclipse.recommenders.utils.rcp"/>
-      <plugin id="org.eclipse.sdk"/>
       <plugin id="org.eclipse.search"/>
       <plugin id="org.eclipse.search.source"/>
       <plugin id="org.eclipse.sirius"/>
       <plugin id="org.eclipse.sirius.common"/>
       <plugin id="org.eclipse.sirius.common.acceleo.aql"/>
       <plugin id="org.eclipse.sirius.common.acceleo.aql.ide"/>
-      <plugin id="org.eclipse.sirius.common.acceleo.aql.ide.source"/>
-      <plugin id="org.eclipse.sirius.common.acceleo.aql.source"/>
       <plugin id="org.eclipse.sirius.common.acceleo.mtl"/>
       <plugin id="org.eclipse.sirius.common.acceleo.mtl.ide"/>
-      <plugin id="org.eclipse.sirius.common.acceleo.mtl.ide.source"/>
-      <plugin id="org.eclipse.sirius.common.acceleo.mtl.source"/>
       <plugin id="org.eclipse.sirius.common.interpreter"/>
       <plugin id="org.eclipse.sirius.common.interpreter.aql"/>
-      <plugin id="org.eclipse.sirius.common.interpreter.aql.source"/>
-      <plugin id="org.eclipse.sirius.common.interpreter.source"/>
       <plugin id="org.eclipse.sirius.common.ocl"/>
-      <plugin id="org.eclipse.sirius.common.ocl.source"/>
-      <plugin id="org.eclipse.sirius.common.source"/>
       <plugin id="org.eclipse.sirius.common.ui"/>
       <plugin id="org.eclipse.sirius.common.ui.ext"/>
-      <plugin id="org.eclipse.sirius.common.ui.ext.source"/>
-      <plugin id="org.eclipse.sirius.common.ui.source"/>
       <plugin id="org.eclipse.sirius.common.xtext"/>
-      <plugin id="org.eclipse.sirius.common.xtext.source"/>
       <plugin id="org.eclipse.sirius.diagram"/>
       <plugin id="org.eclipse.sirius.diagram.elk"/>
-      <plugin id="org.eclipse.sirius.diagram.elk.source"/>
       <plugin id="org.eclipse.sirius.diagram.formatdata"/>
-      <plugin id="org.eclipse.sirius.diagram.formatdata.source"/>
       <plugin id="org.eclipse.sirius.diagram.sequence"/>
       <plugin id="org.eclipse.sirius.diagram.sequence.edit"/>
-      <plugin id="org.eclipse.sirius.diagram.sequence.edit.source"/>
-      <plugin id="org.eclipse.sirius.diagram.sequence.source"/>
       <plugin id="org.eclipse.sirius.diagram.sequence.ui"/>
-      <plugin id="org.eclipse.sirius.diagram.sequence.ui.source"/>
-      <plugin id="org.eclipse.sirius.diagram.source"/>
       <plugin id="org.eclipse.sirius.diagram.ui"/>
       <plugin id="org.eclipse.sirius.diagram.ui.ext"/>
-      <plugin id="org.eclipse.sirius.diagram.ui.ext.source"/>
-      <plugin id="org.eclipse.sirius.diagram.ui.source"/>
       <plugin id="org.eclipse.sirius.doc"/>
-      <plugin id="org.eclipse.sirius.doc.source"/>
       <plugin id="org.eclipse.sirius.ecore.extender"/>
-      <plugin id="org.eclipse.sirius.ecore.extender.source"/>
       <plugin id="org.eclipse.sirius.editor"/>
       <plugin id="org.eclipse.sirius.editor.diagram"/>
-      <plugin id="org.eclipse.sirius.editor.diagram.source"/>
       <plugin id="org.eclipse.sirius.editor.properties"/>
       <plugin id="org.eclipse.sirius.editor.properties.ext.widgets.reference"/>
-      <plugin id="org.eclipse.sirius.editor.properties.ext.widgets.reference.source"/>
-      <plugin id="org.eclipse.sirius.editor.properties.source"/>
       <plugin id="org.eclipse.sirius.editor.sequence"/>
-      <plugin id="org.eclipse.sirius.editor.sequence.source"/>
-      <plugin id="org.eclipse.sirius.editor.source"/>
       <plugin id="org.eclipse.sirius.editor.table"/>
-      <plugin id="org.eclipse.sirius.editor.table.source"/>
       <plugin id="org.eclipse.sirius.editor.tree"/>
-      <plugin id="org.eclipse.sirius.editor.tree.source"/>
       <plugin id="org.eclipse.sirius.eef.adapters"/>
-      <plugin id="org.eclipse.sirius.eef.adapters.source"/>
       <plugin id="org.eclipse.sirius.ext.base"/>
-      <plugin id="org.eclipse.sirius.ext.base.source"/>
       <plugin id="org.eclipse.sirius.ext.draw2d"/>
-      <plugin id="org.eclipse.sirius.ext.draw2d.source"/>
       <plugin id="org.eclipse.sirius.ext.e3"/>
-      <plugin id="org.eclipse.sirius.ext.e3.source"/>
       <plugin id="org.eclipse.sirius.ext.e3.ui"/>
-      <plugin id="org.eclipse.sirius.ext.e3.ui.source"/>
       <plugin id="org.eclipse.sirius.ext.emf"/>
       <plugin id="org.eclipse.sirius.ext.emf.edit"/>
-      <plugin id="org.eclipse.sirius.ext.emf.edit.source"/>
-      <plugin id="org.eclipse.sirius.ext.emf.source"/>
       <plugin id="org.eclipse.sirius.ext.emf.tx"/>
-      <plugin id="org.eclipse.sirius.ext.emf.tx.source"/>
       <plugin id="org.eclipse.sirius.ext.emf.ui"/>
-      <plugin id="org.eclipse.sirius.ext.emf.ui.source"/>
       <plugin id="org.eclipse.sirius.ext.gef"/>
-      <plugin id="org.eclipse.sirius.ext.gef.source"/>
       <plugin id="org.eclipse.sirius.ext.gmf.notation"/>
-      <plugin id="org.eclipse.sirius.ext.gmf.notation.source"/>
       <plugin id="org.eclipse.sirius.ext.gmf.runtime"/>
-      <plugin id="org.eclipse.sirius.ext.gmf.runtime.source"/>
       <plugin id="org.eclipse.sirius.ext.ide"/>
-      <plugin id="org.eclipse.sirius.ext.ide.source"/>
       <plugin id="org.eclipse.sirius.ext.jface"/>
-      <plugin id="org.eclipse.sirius.ext.jface.source"/>
       <plugin id="org.eclipse.sirius.ext.swt"/>
-      <plugin id="org.eclipse.sirius.ext.swt.source"/>
       <plugin id="org.eclipse.sirius.interpreter"/>
-      <plugin id="org.eclipse.sirius.interpreter.source"/>
       <plugin id="org.eclipse.sirius.properties"/>
       <plugin id="org.eclipse.sirius.properties.core"/>
-      <plugin id="org.eclipse.sirius.properties.core.source"/>
       <plugin id="org.eclipse.sirius.properties.defaultrules"/>
-      <plugin id="org.eclipse.sirius.properties.defaultrules.source"/>
       <plugin id="org.eclipse.sirius.properties.edit"/>
-      <plugin id="org.eclipse.sirius.properties.edit.source"/>
       <plugin id="org.eclipse.sirius.properties.ext.widgets.reference"/>
       <plugin id="org.eclipse.sirius.properties.ext.widgets.reference.edit"/>
-      <plugin id="org.eclipse.sirius.properties.ext.widgets.reference.edit.source"/>
-      <plugin id="org.eclipse.sirius.properties.ext.widgets.reference.source"/>
-      <plugin id="org.eclipse.sirius.properties.source"/>
-      <plugin id="org.eclipse.sirius.sample.ecore.design"/>
-      <plugin id="org.eclipse.sirius.sample.ecore.design.source"/>
-      <plugin id="org.eclipse.sirius.sample.interactions"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.design"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.design.source"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.edit"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.edit.source"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.editor"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.editor.source"/>
-      <plugin id="org.eclipse.sirius.sample.interactions.source"/>
       <plugin id="org.eclipse.sirius.sample.properties"/>
       <plugin id="org.eclipse.sirius.sample.properties.checkbox"/>
-      <plugin id="org.eclipse.sirius.sample.properties.checkbox.source"/>
       <plugin id="org.eclipse.sirius.sample.properties.radio"/>
-      <plugin id="org.eclipse.sirius.sample.properties.radio.source"/>
-      <plugin id="org.eclipse.sirius.sample.properties.source"/>
       <plugin id="org.eclipse.sirius.sample.properties.textarea"/>
-      <plugin id="org.eclipse.sirius.sample.properties.textarea.source"/>
       <plugin id="org.eclipse.sirius.samples.family"/>
-      <plugin id="org.eclipse.sirius.samples.family.source"/>
-      <plugin id="org.eclipse.sirius.source"/>
       <plugin id="org.eclipse.sirius.synchronizer"/>
-      <plugin id="org.eclipse.sirius.synchronizer.source"/>
       <plugin id="org.eclipse.sirius.table"/>
-      <plugin id="org.eclipse.sirius.table.source"/>
       <plugin id="org.eclipse.sirius.table.ui"/>
       <plugin id="org.eclipse.sirius.table.ui.ext"/>
-      <plugin id="org.eclipse.sirius.table.ui.ext.source"/>
-      <plugin id="org.eclipse.sirius.table.ui.source"/>
       <plugin id="org.eclipse.sirius.tree"/>
-      <plugin id="org.eclipse.sirius.tree.source"/>
       <plugin id="org.eclipse.sirius.tree.ui"/>
       <plugin id="org.eclipse.sirius.tree.ui.ext"/>
-      <plugin id="org.eclipse.sirius.tree.ui.ext.source"/>
-      <plugin id="org.eclipse.sirius.tree.ui.source"/>
       <plugin id="org.eclipse.sirius.ui"/>
       <plugin id="org.eclipse.sirius.ui.editor"/>
-      <plugin id="org.eclipse.sirius.ui.editor.source"/>
       <plugin id="org.eclipse.sirius.ui.ext"/>
-      <plugin id="org.eclipse.sirius.ui.ext.source"/>
       <plugin id="org.eclipse.sirius.ui.properties"/>
       <plugin id="org.eclipse.sirius.ui.properties.ext.widgets.reference"/>
-      <plugin id="org.eclipse.sirius.ui.properties.ext.widgets.reference.source"/>
-      <plugin id="org.eclipse.sirius.ui.properties.source"/>
-      <plugin id="org.eclipse.sirius.ui.source"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64.source"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64.source"/>
+      <plugin id="org.eclipse.swtbot.e4.finder"/>
+      <plugin id="org.eclipse.swtbot.eclipse.core"/>
+      <plugin id="org.eclipse.swtbot.eclipse.finder"/>
+      <plugin id="org.eclipse.swtbot.eclipse.gef.finder"/>
+      <plugin id="org.eclipse.swtbot.eclipse.spy"/>
+      <plugin id="org.eclipse.swtbot.eclipse.ui"/>
+      <plugin id="org.eclipse.swtbot.forms.finder"/>
+      <plugin id="org.eclipse.swtbot.generator"/>
+      <plugin id="org.eclipse.swtbot.generator.client"/>
+      <plugin id="org.eclipse.swtbot.generator.jdt"/>
+      <plugin id="org.eclipse.swtbot.generator.rules.workbench"/>
+      <plugin id="org.eclipse.swtbot.generator.ui"/>
+      <plugin id="org.eclipse.swtbot.go"/>
+      <plugin id="org.eclipse.swtbot.junit4_x"/>
+      <plugin id="org.eclipse.swtbot.swt.finder"/>
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.team.core.source"/>
       <plugin id="org.eclipse.team.genericeditor.diff.extension"/>
@@ -1049,6 +965,8 @@
       <plugin id="org.eclipse.ui.browser.source"/>
       <plugin id="org.eclipse.ui.cheatsheets"/>
       <plugin id="org.eclipse.ui.cheatsheets.source"/>
+      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
+      <plugin id="org.eclipse.ui.cocoa.source"/>
       <plugin id="org.eclipse.ui.console"/>
       <plugin id="org.eclipse.ui.console.source"/>
       <plugin id="org.eclipse.ui.editors"/>
@@ -1090,11 +1008,6 @@
       <plugin id="org.eclipse.ui.workbench.source"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.eclipse.ui.workbench.texteditor.source"/>
-      <plugin id="org.eclipse.uml2.common"/>
-      <plugin id="org.eclipse.uml2.common.edit"/>
-      <plugin id="org.eclipse.uml2.types"/>
-      <plugin id="org.eclipse.uml2.uml"/>
-      <plugin id="org.eclipse.uml2.uml.edit"/>
       <plugin id="org.eclipse.update.configurator"/>
       <plugin id="org.eclipse.update.configurator.source"/>
       <plugin id="org.eclipse.userstorage"/>
@@ -1144,7 +1057,6 @@
       <plugin id="org.eclipse.xtext.util"/>
       <plugin id="org.eclipse.xtext.xbase.lib"/>
       <plugin id="org.gradle.toolingapi"/>
-      <plugin id="org.h2_1.1.117"/>
       <plugin id="org.hamcrest.core"/>
       <plugin id="org.hamcrest.library"/>
       <plugin id="org.jacoco.agent"/>
@@ -1194,6 +1106,7 @@
       <plugin id="org.w3c.dom.svg.source"/>
    </plugins>
 
+
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
@@ -1201,6 +1114,7 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
+
 
    <preferencesInfo>
       <targetfile overwrite="false"/>
