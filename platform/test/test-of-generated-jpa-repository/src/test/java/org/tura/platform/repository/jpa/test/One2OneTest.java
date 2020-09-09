@@ -1,27 +1,25 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.jpa.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -52,6 +50,8 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 
+import objects.test.serialazable.jpa.JPAObject5;
+import objects.test.serialazable.jpa.JPAObject6;
 import objects.test.serialazable.jpa.One2One4A;
 import objects.test.serialazable.jpa.One2One4B;
 import objects.test.serialazable.jpa.ProxyRepository;
@@ -63,10 +63,12 @@ public class One2OneTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
-	private Registry registry = new Registry();
-	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
+	private Registry registry ;
+	private SpaObjectRegistry spaRegistry ;
 
 	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		private static final long serialVersionUID = -4017069984190473832L;
 
 		@SuppressWarnings("unchecked")
 		@Override
@@ -131,13 +133,17 @@ public class One2OneTest {
 	}	
 	
 	private ProxyRepository getRepository() throws Exception {
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		registry = new Registry();
+		spaRegistry = new SpaObjectRegistry();
+		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry,spaRegistry);
+		InitJPARepository init = new InitJPARepository(registry,spaRegistry);
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
@@ -197,5 +203,39 @@ public class One2OneTest {
 			fail();
 		}
 	}	
+	
+	@Test
+	public void t0001_One2One1() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject5 o1 = (JPAObject5) repository.create(JPAObject5.class.getName());
+			Long o1pk = o1.getJpaObj5();
+			JPAObject6 o2 = (JPAObject6) repository.create(JPAObject6.class.getName());
+			Long o2pk = o2.getJpaObj6();
+			
+			o1.setUkObj5(100L);
+			o1.setJPAObject6(o2);
+
+			repository.insert(o1, JPAObject5.class.getName());
+
+			repository.applyChanges(null);
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, JPAObject5.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (JPAObject5) result.getSearchResult().get(0);
+			o2 = o1.getJPAObject6() ;
+           assertNotNull(o2);
+
+           assertEquals(o1pk, o1.getJpaObj5());
+           assertEquals(o2pk, o2.getJpaObj6());
+           
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}	
+
 	
 }

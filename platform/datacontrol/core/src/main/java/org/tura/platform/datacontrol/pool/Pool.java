@@ -1,27 +1,24 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.datacontrol.pool;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -42,19 +39,22 @@ import org.tura.platform.repository.core.ObjectControl;
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 
-public abstract class Pool {
+public abstract class Pool implements Serializable {
+
+	private static final long serialVersionUID = 141301803977678979L;
 
 	protected abstract ShiftControl getShifter() throws TuraException;
 
 	protected abstract boolean prepareQuery() throws TuraException;
 
 	protected abstract PoolData getPoolData();
-	
+
 	protected abstract PagerData getPagerData();
 
 	protected abstract void registerForCleaning() throws TuraException;
 
 	protected abstract SelectQuery getSelectQuery() throws TuraException;
+
 	protected abstract Object connectObject(Object obj) throws TuraException;
 
 	public void addCommand(PoolElement element) throws TuraException {
@@ -62,8 +62,7 @@ public abstract class Pool {
 		getPoolData().getPoolElement().add(element);
 	}
 
-	protected void cleanPool(String id) throws QueryParseException,
-			TuraException, QueryExecutionException {
+	protected void cleanPool(String id) throws QueryParseException, TuraException, QueryExecutionException {
 
 		Query query = new Query();
 		query.parse(PoolConstants.SELECT_OBJECTS_BY_SHIFTER_ID);
@@ -77,18 +76,18 @@ public abstract class Pool {
 
 	}
 
-	protected int beforeShifterGetCreatedObjects(Class<?> clazz,  long endTimeStamp, int index) throws TuraException, InstantiationException {
+	protected int beforeShifterGetCreatedObjects(Class<?> clazz, long endTimeStamp, int index)
+			throws TuraException, InstantiationException {
 
 		try {
 			long beginTimeStamp = getPagerData().getNewObjectsUpdate();
-			
-			Collection<PoolElement> poolObjects = getNewObjects(clazz,
-					beginTimeStamp, endTimeStamp);
+
+			Collection<PoolElement> poolObjects = getNewObjects(clazz, beginTimeStamp, endTimeStamp);
 
 			if (poolObjects.size() == 0 || !prepareQuery())
 				return 0;
 
-			List<?> objects = filterByDataControlCondition(poolObjects,getSelectQuery());
+			List<?> objects = filterByDataControlCondition(poolObjects, getSelectQuery());
 
 			Collections.reverse(objects);
 
@@ -96,7 +95,7 @@ public abstract class Pool {
 			for (Object obj : objects) {
 				ObjectControl oc = (ObjectControl) obj;
 				long l = (long) oc.getAttributes().get(Constants.POOL_CREATE_DATE);
-				if (l  > maxDate ){
+				if (l > maxDate) {
 					maxDate = l;
 				}
 				getShifter().add(index, connectObject(oc.clone()));
@@ -106,7 +105,7 @@ public abstract class Pool {
 				getPagerData().setNewObjectsUpdate(maxDate);
 				this.registerForCleaning();
 			}
-			
+
 			return objects.size();
 
 		} catch (Exception e) {
@@ -115,16 +114,15 @@ public abstract class Pool {
 
 	}
 
-	private Collection<PoolElement> getNewObjects(Class<?> clazz,
-			long beginTimeStamp, long endTimeStamp) throws QueryParseException,
-			QueryExecutionException, TuraException {
+	private Collection<PoolElement> getNewObjects(Class<?> clazz, long beginTimeStamp, long endTimeStamp)
+			throws QueryParseException, QueryExecutionException, TuraException {
 
 		ArrayList<PoolElement> array = new ArrayList<>();
 
 		Query query = new Query();
-		
+
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_ASC);
-		
+
 		query.setVariable("shifterId", getShifter().getId());
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
@@ -137,7 +135,7 @@ public abstract class Pool {
 		}
 
 		HashMap<Object, PoolElement> hash = new HashMap<>();
-		
+
 		for (PoolElement element : array) {
 			if (PoolCommand.C.name().equals(element.getOperation()))
 				hash.put(element.getKey(), element);
@@ -145,8 +143,7 @@ public abstract class Pool {
 			if (PoolCommand.R.name().equals(element.getOperation()))
 				hash.remove(element.getKey());
 
-			if (PoolCommand.U.name().equals(element.getOperation())
-					&& hash.containsKey(element.getKey()))
+			if (PoolCommand.U.name().equals(element.getOperation()) && hash.containsKey(element.getKey()))
 				hash.put(element.getKey(), element);
 
 		}
@@ -154,13 +151,12 @@ public abstract class Pool {
 
 	}
 
-	private List<?> filterByDataControlCondition(Collection<PoolElement> list,
-			SelectQuery select) throws QueryException, QueryParseException,
-			QueryExecutionException {
+	private List<?> filterByDataControlCondition(Collection<PoolElement> list, SelectQuery select)
+			throws QueryException, QueryParseException, QueryExecutionException {
 
 		ArrayList<Object> array = new ArrayList<>();
 
-		for (PoolElement element : list){
+		for (PoolElement element : list) {
 			ObjectControl o = (ObjectControl) element.getObj();
 			o.getAttributes().put(Constants.POOL_CREATE_DATE, element.getCreateDate());
 			array.add(o);
@@ -171,11 +167,11 @@ public abstract class Pool {
 		String strQuery = select.toSql(new JOSQLExpressionBuilder());
 		query.parse(strQuery);
 
-		for (String param : select.getParams().keySet()){
-        	if ( "null".equals( select.getParams().get(param) ) )  {
-                query.setVariable(param, null);
-                continue;
-        	}
+		for (String param : select.getParams().keySet()) {
+			if ("null".equals(select.getParams().get(param))) {
+				query.setVariable(param, null);
+				continue;
+			}
 			query.setVariable(param, select.getParams().get(param));
 		}
 
@@ -185,13 +181,15 @@ public abstract class Pool {
 
 	}
 
-	protected boolean isRemoved(Class<?> clazz, long endTimeStamp, Object key, int index)
-			throws QueryParseException, QueryExecutionException,
-			InstantiationException, IllegalAccessException, TuraException {
-
-		
+	protected boolean isRemoved(Class<?> clazz, long endTimeStamp, Object key, int index) throws Exception {
 		long beginTimeStamp = getPagerData().getLastRemoveUpdate(key);
-		
+		String shifterId = getShifter().getId();
+		return isRemoved(clazz, beginTimeStamp, endTimeStamp, key, index, shifterId, true);
+	}
+
+	protected boolean isRemoved(Class<?> clazz, long beginTimeStamp, long endTimeStamp, Object key, int index,
+			String shifterId, boolean modify) throws Exception {
+
 		boolean isRemoved = false;
 
 		ArrayList<PoolElement> array = new ArrayList<>();
@@ -199,7 +197,7 @@ public abstract class Pool {
 		Query query = new Query();
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC_FOR_KEY);
 		query.setVariable("key", key);
-		query.setVariable("shifterId", getShifter().getId());
+		query.setVariable("shifterId", shifterId);
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
 
@@ -217,30 +215,38 @@ public abstract class Pool {
 		PoolElement lastElement = array.get(0);
 
 		if ("R".equals(lastElement.getOperation())) {
-			getPagerData().setLastRemoveUpdate(key,lastElement.getCreateDate());
-			getShifter().remove(index);
+			if (modify) {
+				getPagerData().setLastRemoveUpdate(key, lastElement.getCreateDate());
+				getShifter().remove(index);
+				registerForCleaning();
+			}
+
 			isRemoved = true;
-			registerForCleaning();
+
 		}
 
 		return isRemoved;
 	}
 
-	protected Object checkForUpdate(Class<?> clazz,  long endTimeStamp, Object obj, Object key, int index)
-			throws QueryParseException, QueryExecutionException,
-			InstantiationException, IllegalAccessException, TuraException,
-			NoSuchMethodException, SecurityException, IllegalArgumentException,
-			InvocationTargetException {
+	protected Object checkForUpdate(Class<?> clazz, long endTimeStamp, Object obj, Object key, int index)
+			throws Exception {
+
+		long beginTimeStamp = getPagerData().getLastUpdateUpdate(key);
+		String shifterId = getShifter().getId();
+		return checkForUpdate(clazz, beginTimeStamp, endTimeStamp, obj, key, index, shifterId, true);
+
+	}
+
+	protected Object checkForUpdate(Class<?> clazz, long beginTimeStamp, long endTimeStamp, Object obj, Object key,
+			int index, String shifterId, boolean modify) throws Exception {
 
 		Object object = obj;
-		
-		long beginTimeStamp = getPagerData().getLastUpdateUpdate(key);
 
 		ArrayList<PoolElement> array = new ArrayList<>();
 
 		Query query = new Query();
 		query.parse(PoolConstants.SELECT_OBJECTS_SORTED_DESC_FOR_KEY);
-		query.setVariable("shifterId", getShifter().getId());
+		query.setVariable("shifterId", shifterId);
 		query.setVariable("key", key);
 		query.setVariable("beginTimeStamp", beginTimeStamp);
 		query.setVariable("endTimeStamp", endTimeStamp);
@@ -253,18 +259,22 @@ public abstract class Pool {
 				array.add(element);
 		}
 
-		if (array.size() == 0){
+		if (array.size() == 0) {
 			return object;
 		}
 
 		PoolElement firstElement = array.get(0);
 
 		if ("U".equals(firstElement.getOperation())) {
-			getPagerData().setLastUpdateUpdate(key,firstElement.getCreateDate());
 			Object objw = firstElement.getObj();
-			object = connectObject(objw);
-			getShifter().update(index, object);
-			registerForCleaning();
+			Object cloned = ((ObjectControl) objw).clone();
+			object = connectObject(cloned);
+
+			if (modify) {
+				getPagerData().setLastUpdateUpdate(key, firstElement.getCreateDate());
+				getShifter().update(index, object);
+				registerForCleaning();
+			}
 
 		}
 		return object;

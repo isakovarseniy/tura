@@ -1,8 +1,23 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.impl;
 
 import artifact.impl.CategorizedImpl;
+
 import form.ArtificialField;
 import form.ContextParameters;
 import form.CreateTrigger;
@@ -29,7 +44,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -1040,7 +1054,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
 		result.append(", name: ");

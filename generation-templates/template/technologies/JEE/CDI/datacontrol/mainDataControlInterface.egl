@@ -1,0 +1,97 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.eol";
+import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var forms = new Native('java.util.ArrayList');
+     
+     var frm1 = util.runQuery(model_mapper,"Query form",model_mapper);
+     if ( frm1 <> null  and    frm1.size <> 0  ){
+          forms.addAll(frm1);
+     }
+
+     var frm2 = util.runQuery(model_mapper,"Query one form",model_mapper);
+     if (frm2 <> null  and   frm2.size <> 0 ){
+          forms.addAll(frm2);
+     }
+ 
+    if (forms.size() <> 0 ){
+
+       for (form in forms){
+       var i = 0;
+
+         var hash = new Native("java.util.HashMap"); 
+   
+         var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
+         var uipackage = form.eContainer();
+
+         hash.put("recipe",recipe);
+         hash.put("ingredient",ingredient);
+         hash.put("component",component);
+         hash.put("model_mapper",model_mapper);
+         hash.put("javaPath",javaPath);
+         hash.put("resourcePath",resourcePath);
+         hash.put("form",form);
+         hash.put("uipackage",uipackage);
+         hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
+         
+         if (form.datacontrols == null  or form.datacontrols.controls == null){
+            continue;
+         }
+         form.datacontrols.processRootElement(recipe,ingredient);
+         var controls =  form.datacontrols.controls;
+         
+         for (control in controls){
+
+           control.processKeys(recipe,ingredient);
+           control.processArtificialFields(recipe,ingredient);
+
+           control.processTriggers(recipe,ingredient,hash);
+           
+           //Process relations only ones for all datacontrols;
+           if (i = 0 )
+              control.processRelations(recipe,ingredient,hash);
+           
+           i=i+1;   
+
+           control.processDefaultQuery(recipe,ingredient,hash);
+           
+         }
+
+         var beanFactory : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactoryInterface.egl",hash,TemplateFactory);
+         beanFactory.setFormatter(f);
+         var buffer = beanFactory.process();
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "IBeanFactory.java",buffer);   
+
+
+         for (control in controls){
+            if (control.artificialFields <> null and control.artificialFields.size()<> 0 ){
+               hash.put("control",control);
+               var artifitial : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/artificialFieldInterface.egl",hash,TemplateFactory);
+               artifitial.setFormatter(f);
+               buffer = artifitial.process();
+               util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name)+"ArtifitialFieldsAdapter.java",buffer);   
+            }         
+         }
+      }   
+      
+   }  
+
+%]

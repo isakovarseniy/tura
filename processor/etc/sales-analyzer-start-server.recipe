@@ -8,7 +8,7 @@ echo Stop sa-pg
 tura:docker stopContainer --name sa-pg
 
 echo 'Building Postgres container'
-source $repo_home/sales-analyzer-postgres.recipe
+source pre:///$repo_home/sales-analyzer-postgres.recipe
 
 c2 = tura:docker findContainer --name sa-kc
 echo 'Keycloak container located? '$c2
@@ -21,7 +21,7 @@ if { %(c2) } {
 } {
 
    echo 'Building Keycloak container'
-   source $repo_home/sales-analyzer-keycloak.recipe
+   source pre:///$repo_home/sales-analyzer-keycloak.recipe
 
 }
 
@@ -32,12 +32,12 @@ echo 'WildFly container located? '$c2
 if { %(c2) } { } {
 
    echo 'Building WildFly container'
-   source $repo_home/sales-analyzer-wildfly.recipe
+   source pre:///$repo_home/sales-analyzer-wildfly.recipe
 
 }
 
 echo 'Deploying WildFly container'
-source $repo_home/sales-analyzer-deployment.recipe
+source pre:///$repo_home/sales-analyzer-deployment.recipe
 
 
 

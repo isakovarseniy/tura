@@ -88,11 +88,15 @@
         eType="#//ModelMapper" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaComponent" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="JavaComponent" eSuperTypes="#//Component mapper.ecore#//VersionRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapperRef" eType="ecore:EClass mapper.ecore#//Mapper"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScriptComponent" eSuperTypes="#//Component mapper.ecore#//VersionRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapperRef" eType="ecore:EClass mapper.ecore#//Mapper"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

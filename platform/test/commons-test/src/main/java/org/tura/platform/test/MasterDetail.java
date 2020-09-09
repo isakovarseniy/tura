@@ -1,27 +1,27 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.InputStream;
@@ -38,10 +38,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
@@ -138,8 +140,8 @@ public abstract class MasterDetail {
 			dcd.nextObject();
 			EmployeeType rowe = dce.getCurrentObject();
 			
-			assertEquals(rowd.getObjId(), new Long(10));
-			assertEquals(rowe.getObjId(), new Long(201));
+			assertEquals(rowd.getObjId(),  Long.valueOf(10));
+			assertEquals(rowe.getObjId(),  Long.valueOf(201));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -163,7 +165,7 @@ public abstract class MasterDetail {
 			SearchCriteria s = new SearchCriteria();
 			s .setName("objId");
 			s.setComparator(Operator.GT.name());
-			s.setValue(new Long(30));
+			s.setValue( Long.valueOf(30));
 			sc.add(s);
 			
 			dce.setDefaultSearchCriteria(sc);
@@ -192,8 +194,8 @@ public abstract class MasterDetail {
 			dcd.nextObject();
 			EmployeeType rowe = dce.getCurrentObject();
 			
-			assertEquals(rowd.getObjId(), new Long(10));
-			assertEquals(rowe.getObjId(), new Long(201));
+			assertEquals(rowd.getObjId(),  Long.valueOf(10));
+			assertEquals(rowe.getObjId(),  Long.valueOf(201));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -230,7 +232,7 @@ public abstract class MasterDetail {
 
 			repo.applyChanges(null);
 
-			assertEquals(getParent(rowe), new Long(10));
+			assertEquals(getParent(rowe),  Long.valueOf(10));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -301,8 +303,8 @@ public abstract class MasterDetail {
 			dce.getShifter().setLogger(logger);
 			dce.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
-		    assertEquals(rowd.getObjId(), new Long(20));
-		    assertEquals(getParent(rowe), new Long(20));
+		    assertEquals(rowd.getObjId(),  Long.valueOf(20));
+		    assertEquals(getParent(rowe),  Long.valueOf(20));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -310,6 +312,129 @@ public abstract class MasterDetail {
 		}
 		
 	}
+	
+	
+	@Test
+	public void t12_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			dce.setPageSize(5);
+			
+
+			factory.setRelatioin(dcd, dce);
+
+			
+			EmployeeType obj = dce.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			ObjectControl oc1 = (ObjectControl) dce.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+            assertTrue( dce.setCurrentPosition(10));
+			obj = dce.getCurrentObject();
+			oc = (ObjectControl) obj;
+			key = oc.getKey();
+            
+			assertTrue(dce.setCurrentPosition(0));
+			dce.getCurrentObject();
+			
+			ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
+			SearchCriteria sc = new SearchCriteria("objId", Operator.EQ.name(), obj.getObjId(), Long.class.getName() );
+			search.add(sc);
+			
+			oc1 = (ObjectControl) dce.findObject(search, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@Test
+	public void t13_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			dce.setPageSize(5);
+			CommandStack cs = dce.getCommandStack();
+
+			factory.setRelatioin(dcd, dce);
+
+			EmployeeType obj = dce.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			cs.savePoint();
+			dce.removeObject();
+			ObjectControl oc1 = (ObjectControl) dce.findObject(null, key);
+			assertNull(oc1);
+			
+			cs.rallbackSavePoint();
+			
+			oc1 = (ObjectControl) dce.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}	
+	
+	
+	@Test
+	public void t14_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			dce.setPageSize(5);
+
+			factory.setRelatioin(dcd, dce);
+			
+			EmployeeType obj = dce.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			assertTrue( dce.setCurrentPosition(10));
+			obj = dce.getCurrentObject();
+			obj.setEmail("qwerty");
+			
+			oc = (ObjectControl) obj;
+			key = oc.getKey();
+            
+			assertTrue(dce.setCurrentPosition(0));
+			dce.getCurrentObject();
+			
+			
+			ObjectControl oc1 = (ObjectControl) dce.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}	
+	
+	
 	
 	public abstract Long getParent(EmployeeType emp);
 

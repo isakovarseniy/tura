@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.tura.configuration.dsl.commons;
 
 import java.io.File;
@@ -21,6 +22,7 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 
 import org.apache.felix.gogo.jline.command.DockerCommand;
+import org.apache.felix.service.command.CommandSession;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -37,7 +39,12 @@ public class Artifact<T>  {
     protected String artifactTargerLocation;
     protected String artifactName;
     protected String containerId;
+	protected CommandSession session;
 
+    
+    public Artifact(CommandSession session) {
+    	this.session = session;
+    }
     
     public void setTemplateFile(String templateFile) {
         this.templateFile = templateFile;
@@ -98,8 +105,10 @@ public class Artifact<T>  {
         }
         generate();
         if (containerId != null){
-            new DockerCommand().mkdir(containerId, saveArtifactTargerLocation);
-            new DockerCommand().copyFilesToDocker( containerId , artifactTargerLocation+artifactName, saveArtifactTargerLocation,  artifactName);
+        	DockerCommand cmd = new DockerCommand();
+        	cmd.setSession(session);
+        	cmd.mkdir(containerId, saveArtifactTargerLocation);
+        	cmd.copyFilesToDocker( containerId , artifactTargerLocation+artifactName, saveArtifactTargerLocation,  artifactName);
         }
     }
     
@@ -139,6 +148,9 @@ public class Artifact<T>  {
         
         String path = ConfigConstants.TURA_CONFIG_REPOSITORY +"/" +  application + "/" + serverType + "/properties";
         File resource  = new File(path+"/default.properties");
+        if ( ! resource.exists() ) {
+        	return;
+        }
         properties.load(new FileInputStream(resource));
 
         for (String configPath : cfgPath) {

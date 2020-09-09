@@ -1,33 +1,28 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.datacontrol;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
@@ -52,36 +47,43 @@ import com.octo.java.sql.query.SelectQuery;
 
 public abstract class Pager<T> extends Pool {
 
+	private static final long serialVersionUID = 4489502651569184639L;
 	private int startIndex;
 	private int endIndex;
 	private int loadStep = PlatformConfig.LOADSTEP;
-	
-	
+
 	private LazyList<T> entities = new LazyList<>();
-	private boolean direction;
 	private CommandStack commandStack;
-	
+
 	private String id = UUID.randomUUID().toString();
 
 	public abstract T create() throws TuraException;
+
 	public abstract LazyList<T> search() throws TuraException;
+
 	public abstract void delete(Object obj) throws TuraException;
+
 	protected abstract boolean prepareQuery() throws TuraException;
+
 	protected abstract SelectQuery getSelectQuery() throws TuraException;
+
 	protected abstract Object getParent() throws TuraException;
+
 	protected abstract Class<?> getBaseClass();
+
 	protected abstract PostQueryTrigger getPostQueryTrigger();
+
 	protected abstract PreDeleteTrigger getPreDeleteTrigger();
+
 	protected abstract List<SearchCriteria> getSearchCriteria();
+
 	protected abstract DataControl<T> getDataControl();
 	
-	
-	public PagerData getPagerData(){
+	public PagerData getPagerData() {
 		if (commandStack.getData(id) == null)
 			commandStack.addData(id, new PagerData());
 		return (PagerData) commandStack.getData(id);
 	}
-	
 
 	public void cleanShifter() throws TuraException {
 		try {
@@ -89,7 +91,7 @@ public abstract class Pager<T> extends Pool {
 				cleanPool(sh.getId());
 				commandStack.removeData(sh.getId());
 			}
-			getPagerData().setShifterHash(new HashMap<String, ShiftControl>());
+			getPagerData().setShifterHash(new LRUCache(PlatformConfig.LRU_SIZE));
 			getPagerData().setShifter(null);
 		} catch (QueryParseException | QueryExecutionException e) {
 			throw new TuraException(e);
@@ -97,8 +99,9 @@ public abstract class Pager<T> extends Pool {
 	}
 
 	public void cleanPager() throws TuraException {
-        //createShifter should be before cleanind entity  
+		// createShifter should be before cleanind entity
 		createShifter();
+		getPagerData().resetUpdateTracker();
 		entities = new LazyList<>();
 		startIndex = 0;
 	}
@@ -133,32 +136,69 @@ public abstract class Pager<T> extends Pool {
 	public T getObject(int index) throws TuraException {
 		ObjectControl obj = null;
 
-		long endTimeStamp = getPoolData().getCurrentId()+1;
-		boolean removed= false;
+		long endTimeStamp = getPoolData().getCurrentId() + 1;
+		boolean removed = false;
 		int created;
 		try {
 			created = beforeShifterGetCreatedObjects(getBaseClass(), endTimeStamp, index);
 			do {
 				obj = (ObjectControl) get(index);
-				if ( obj != null ) {
+				if (obj != null) {
 					removed = isRemoved(getBaseClass(), endTimeStamp, obj.getKey(), index);
-				}else {
+				} else {
 					removed = false;
 				}
-				if (obj != null && removed ) {
-					created -- ;
+				if (obj != null && removed) {
+					created--;
 				}
 			} while (obj != null && removed);
 			if (obj != null) {
-				obj = (ObjectControl) checkForUpdate(getBaseClass(), endTimeStamp, obj, obj.getKey(), index);
+				obj = (ObjectControl) checkForUpdate(getBaseClass(), endTimeStamp, obj, obj.getKey(), index );
 			}
-			
-			notifyOptional(created,obj);
+
+			notifyOptional(created, obj);
 			return (T) obj;
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
 	}
+
+	public Object findObject(List<SearchCriteria> search, Object key, Integer index) throws TuraException {
+		long endTimeStamp =1000000L;
+		long beginTimeStamp = 0L;
+		String shifterId = UUID.randomUUID().toString();
+		try {
+			if (index  != null ) {
+				ObjectControl obj = (ObjectControl) this.get(index);
+				if (obj != null && key.equals(obj.getKey())) {
+					return obj;
+				}
+			}
+			boolean removed = isRemoved(getBaseClass(), beginTimeStamp, endTimeStamp, key, -1, shifterId,false);
+			if (removed) {
+				return null;
+			}
+			ObjectControl obj = (ObjectControl) checkForUpdate(getBaseClass(),beginTimeStamp,  endTimeStamp, null, key, -1, shifterId, false);
+			if (obj != null) {
+				return obj;
+			}
+			for (Integer i : entities.getKeys()) {
+				ObjectControl oc = (ObjectControl) entities.get(i);
+				if (key.equals(oc.getKey())) {
+					return getEntity(i);
+				}
+			}
+			return externalObjectSearch(search);
+
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+	}
+	
+	 protected Object externalObjectSearch(List<SearchCriteria> search) throws Exception{
+			return null;
+		  }
+
 
 	private void notifyOptional(int i, Object obj) throws TuraException {
 		if (i == 0) {
@@ -166,16 +206,16 @@ public abstract class Pager<T> extends Pool {
 		}
 		if (i < 0) {
 			getDataControl().notifyLiteners(new RowRemovedEvent(getDataControl(), null));
-			getDataControl().notifyChageRecordAll((T)getDataControl().getCurrentObject());
+			getDataControl().notifyChageRecordAll((T) getDataControl().getCurrentObject());
 		}
-		
+
 		if (i > 0) {
 			getDataControl().notifyLiteners(new RowCreatedEvent(getDataControl(), null));
-			getDataControl().notifyChageRecordAll((T)getDataControl().getCurrentObject());
+			getDataControl().notifyChageRecordAll((T) getDataControl().getCurrentObject());
 		}
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private T get(int index) throws TuraException {
 
@@ -195,8 +235,7 @@ public abstract class Pager<T> extends Pool {
 			if (obj == int.class || obj instanceof Integer) {
 				try {
 					return getEntity(index);
-				} catch (NoSuchMethodException | SecurityException
-						| InstantiationException | IllegalAccessException
+				} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
 						| IllegalArgumentException | InvocationTargetException e) {
 					throw new TuraException(e);
 				}
@@ -229,33 +268,27 @@ public abstract class Pager<T> extends Pool {
 
 	public T queryDS(int sindex, int index) throws TuraException {
 
-		if (index < 0){
+		if (index < 0) {
 			return null;
 		}
-		
-		if (entities.getActualRowNumber() != -1 && index >= entities.getActualRowNumber() ){
+
+		if (entities.getActualRowNumber() != -1 && index >= entities.getActualRowNumber()) {
 			return null;
 		}
-		
-		sindex = indexCorrection(sindex,index,entities.getActualRowNumber());
-		
-		if (!isFrameShiftPossible(sindex, entities.getActualRowNumber())){
-			return null;
-		}
-		calculateShift(sindex);
+
+		calculateShift(index);
 
 		try {
 
-			if (!prepareQuery()){
+			if (!prepareQuery()) {
 				return null;
 			}
 
-			   entities = (LazyList<T>) search();
+			entities = (LazyList<T>) search();
 
-				getShifter().setActualRowNumber(entities.getActualRowNumber());
+			getShifter().setActualRowNumber(entities.getActualRowNumber());
 
-			if (entities.getFragmentSize() != 0
-					&& index < entities.getActualRowNumber()) {
+			if (entities.getFragmentSize() != 0 && index < entities.getActualRowNumber()) {
 				return getEntity(index);
 			} else {
 				return null;
@@ -265,47 +298,6 @@ public abstract class Pager<T> extends Pool {
 		}
 	}
 
-	private boolean isFrameShiftPossible(int sindex, long maxrow) {
-		if (maxrow == -1)
-			return true;
-
-		if (direction && sindex + getLoadStep() < maxrow)
-			return true;
-
-		if (!direction && sindex - getLoadStep() >= 0)
-			return true;
-
-		return false;
-	}
-
-	public int indexCorrection(int sindex, int index, long  maxrow){
-	
-		if (direction &&  sindex  <=  index &&  sindex + getLoadStep()> index ) {
-			return sindex;
-		}
-
-		
-		if (!direction &&  sindex  >=  index &&  sindex - getLoadStep() < index ) {
-			return sindex;
-		}
-		
-		if (direction){
-			int s = index-getLoadStep();
-			if (s+getLoadStep() >= maxrow)
-			   return (int) (s - (maxrow - s - getLoadStep()) -1);
-			return s;
-		}
-		
-		if (!direction){
-			int s = index+1;
-			if (s - getLoadStep() < 0)
-			  return s + (s - getLoadStep());
-			return index+1;
-		}
-		
-		return -1;
-	}
-	
 	private void calculateShift(int sindex) {
 		if (entities.size() == -1) {
 			startIndex = 0;
@@ -313,31 +305,25 @@ public abstract class Pager<T> extends Pool {
 			return;
 		}
 
-		if (direction) {
-			startIndex = sindex + getLoadStep();
-			endIndex = startIndex + getLoadStep();
-		} else {
-			endIndex = sindex;
-			startIndex = sindex - getLoadStep();
-		}
+		startIndex = (sindex / getLoadStep()) * getLoadStep();
+		endIndex = startIndex + getLoadStep();
 
 	}
 
 	@SuppressWarnings("unchecked")
-	private T getEntity(int index) throws NoSuchMethodException,
-			SecurityException, InstantiationException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException, TuraException {
-		
+	private T getEntity(int index) throws NoSuchMethodException, SecurityException, InstantiationException,
+			IllegalAccessException, IllegalArgumentException, InvocationTargetException, TuraException {
+
 		ObjectControl t = (ObjectControl) entities.get(index);
 		Boolean isProcessed = (Boolean) t.getAttributes().get(Constants.POST_QUERY_TRIGGER_COMPLETED);
-		if (isProcessed != null && isProcessed){
+		if (isProcessed != null && isProcessed) {
 			return (T) t;
-		}else{
+		} else {
 			PostQueryTrigger trigger = getPostQueryTrigger();
-			if ( trigger != null){
+			if (trigger != null) {
 				trigger.execute(getDataControl(), t);
 			}
-			t.getAttributes().put(Constants.POST_QUERY_TRIGGER_COMPLETED,true);
+			t.getAttributes().put(Constants.POST_QUERY_TRIGGER_COMPLETED, true);
 			return (T) t;
 		}
 	}
@@ -345,7 +331,7 @@ public abstract class Pager<T> extends Pool {
 	public T remove(int i) throws TuraException {
 		try {
 			T obj = getObject(i);
-			
+
 			delete(obj);
 
 			return obj;
@@ -370,10 +356,6 @@ public abstract class Pager<T> extends Pool {
 		return endIndex;
 	}
 
-	public void setScrollDirection(boolean direction) {
-		this.direction = direction;
-	}
-
 	@Override
 	public ShiftControl getShifter() throws TuraException {
 		if (getPagerData().getShifter() == null) {
@@ -390,21 +372,23 @@ public abstract class Pager<T> extends Pool {
 				if (obj != null) {
 					key = obj.getKey();
 				}
-			}else{
-				if (prepareQuery()){
-					List<SearchCriteria> params =getSearchCriteria();
-					if (params != null  && !params.isEmpty()){
-						HashCodeBuilder builder = new HashCodeBuilder();
-						for (SearchCriteria k: params){
+			} else {
+				if (prepareQuery()) {
+					List<SearchCriteria> params = getSearchCriteria();
+					if (params != null && !params.isEmpty()) {
+						StringBuilder builder = new StringBuilder();
+						for (SearchCriteria k : params) {
 							builder.append(k);
 						}
-						key = ( new Integer(builder.toHashCode())).toString();
+						key = builder.toString();
 					}
 				}
 			}
 			ShiftControl shifter = getPagerData().getShifterHash().get(key);
 			if (shifter == null) {
-				shifter = new ShiftControl(getPagerData().getShifterHash(), key){
+				shifter = new ShiftControl(getPagerData().getShifterHash(), key) {
+
+					private static final long serialVersionUID = 1130124536333006156L;
 
 					@Override
 					public ShiftControlData getShiftControlData() {
@@ -412,7 +396,14 @@ public abstract class Pager<T> extends Pool {
 							commandStack.addData(getId(), new ShiftControlData());
 						return (ShiftControlData) commandStack.getData(getId());
 					}
-					
+
+					@Override
+					public void removeShiftControlData() {
+						if (commandStack.getData(getId()) != null)
+							commandStack.removeData(getId());
+
+					}
+
 				};
 				shifter.setActualRowNumber(entities.getActualRowNumber());
 			}
@@ -430,47 +421,52 @@ public abstract class Pager<T> extends Pool {
 	}
 
 	@Override
-	protected void registerForCleaning() throws TuraException  {
+	protected void registerForCleaning() throws TuraException {
 		commandStack.registerForCleaningDataControl(getDataControl());
 	}
 
-
-	protected void isolate(){
+	protected void isolate() {
 		getPagerData().setIsolated(true);
 	}
 
-	protected boolean isIsolateed(){
+	protected boolean isIsolateed() {
 		return getPagerData().isIsolated();
 	}
-	
+
 	protected void flush() throws TuraException {
-		
-		for (PoolElement element : getPagerData().getIsolatedCommandList()){
+
+		for (PoolElement element : getPagerData().getIsolatedCommandList()) {
 			super.addCommand(element);
 		}
 		getPagerData().setIsolated(false);
 		getPagerData().setIsolatedCommandList(new Stack<PoolElement>());
 	}
-	
+
 	public void addCommand(PoolElement element) throws TuraException {
-		if (isIsolateed()){
+		if (isIsolateed()) {
 			getPagerData().getIsolatedCommandList().push(element);
-		}else
+		} else
 			super.addCommand(element);
 	}
 
-	
 	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException {
 		ObjectControl pooledObj = (ObjectControl) obj;
 		Object o = pooledObj.clone();
-		addCommand(c.createdCommand(o, pooledObj.getKey(), getBaseClass(),getShifter().getId()));
+		addCommand(c.createdCommand(o, pooledObj.getKey(), getBaseClass(), getShifter().getId()));
+	}
+
+	public void updateObjectThroughtPool(Object obj, PoolCommand c) throws TuraException {
+		ObjectControl pooledObj = (ObjectControl) obj;
+		Object o = pooledObj.clone();
+		addCommand(c.createdCommand(o, pooledObj.getKey(), getBaseClass(), UUID.randomUUID().toString()));
 	}
 
 	public CommandStack getCommandStack() {
 		return commandStack;
 	}
+
 	public void setCommandStack(CommandStack commandStack) {
 		this.commandStack = commandStack;
-	}	
-	
+	}
+
 }

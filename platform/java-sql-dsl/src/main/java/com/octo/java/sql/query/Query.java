@@ -16,12 +16,12 @@
 
 package com.octo.java.sql.query;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 
 import com.octo.java.sql.exp.Column;
 import com.octo.java.sql.exp.Exp;
@@ -35,11 +35,7 @@ import com.octo.java.sql.query.visitor.QueryVisitor;
 import com.octo.java.sql.query.visitor.Visitable;
 
 public abstract class Query<T extends Query<T>> implements Visitable {
-  /**
-   * Logger for this class
-   */
-  private static final Logger logger = Logger.getLogger(Query.class);
-
+  
   /**
    * Set it to false when using HSQLDB
    */
@@ -155,21 +151,32 @@ public abstract class Query<T extends Query<T>> implements Visitable {
     builder = queryBuilder;
     accept(builder);
     final String sqlQuery = builder.getResult().toString();
-    if (logger.isDebugEnabled())
-      logger.debug("buildSQLQuery() - String sqlQuery=" + sqlQuery);
+
     return sqlQuery;
   }
 
   public DefaultQueryBuilder getQueryBuilder() throws QueryException {
     try {
-      return querybuilderClass.newInstance();
+      return querybuilderClass.getDeclaredConstructor().newInstance();
     } catch (final InstantiationException e) {
       throw new QueryException("Cannot instanciate query builder "
           + querybuilderClass);
     } catch (final IllegalAccessException e) {
       throw new QueryException("Cannot instanciate query builder "
           + querybuilderClass);
-    }
+    } catch (IllegalArgumentException e) {
+        throw new QueryException("Cannot instanciate query builder "
+                + querybuilderClass);
+	} catch (InvocationTargetException e) {
+	      throw new QueryException("Cannot instanciate query builder "
+	              + querybuilderClass);
+	} catch (NoSuchMethodException e) {
+	      throw new QueryException("Cannot instanciate query builder "
+	              + querybuilderClass);
+	} catch (SecurityException e) {
+	      throw new QueryException("Cannot instanciate query builder "
+	              + querybuilderClass);
+	}
   }
 
   private void runVisitors() throws QueryException {

@@ -1,0 +1,471 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var application = uipackage.eContainer();
+     
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+
+public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable, org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+
+    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+	
+	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(control.name)%]DC.class.getName());;
+	
+
+	private @javax.inject.Inject org.tura.platform.repository.core.Repository repository;
+
+    [%
+    if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%]
+    @Override
+	public void handleChangeRecord(org.tura.platform.datacontrol.IDataControl dc , Object newCurrentObject) throws org.tura.platform.datacontrol.commons.TuraException{
+    [%
+      for (depend in control.~dependObject){%]
+		if (newCurrentObject instanceof [%=depend%]){
+            this.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+            return;
+        }
+    [%
+      }
+    %] 
+         this.handleChangeMusterCurrentRecordNotification(null);
+	}     
+   [%
+    }
+    %] 
+
+
+	@javax.inject.Inject
+	javax.enterprise.inject.spi.BeanManager bm;
+    [%
+     var relations = form::Relation.allInstances()->select(r|r.master= control);   
+    for (relation in relations){
+      if (not relation.detail.~dependObject.isDefined()){
+    %]
+	private [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC  [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
+    [%
+     }
+    }
+    %] 
+    
+
+	public  [%=util.mergeAndCapitalize(control.name)%]DC() throws Exception {
+		super();
+    [%
+    if (control.~dependObject.isDefined()){%]
+    blocked=true;
+      [%}%]		
+	}
+	
+	@javax.annotation.PostConstruct
+	public void init() {
+     try{
+     
+    		org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
+    		sp.setDataControl(this);
+    		sp.setCommandStack(getCommandStack());
+     
+     
+     [%
+       if (control.~pagerType == "topPager"){
+     %]
+		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]> pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]>(this);
+		[%
+     
+       }else{
+     %]
+		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]> pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]>(this);
+		[%
+       }     
+     %]
+     setPager(pager);
+	 pager.setCommandStack(getCommandStack());
+	 
+     [%=control.~basepackage%].ProxyRepository proxyRepository =   new [%=control.~basepackage%].ProxyRepository(repository,sp);
+     proxyRepository.setProfile("[%=util.mergeAndUnCapitalize(application.name)%].[%=util.mergeAndUnCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%]");
+     pager.setRepository(proxyRepository);
+
+     setBaseClass([%=control.~basefullName%].class); 
+     setProxyClass([%=control.~basefullName%]Proxy.class); 
+    [%
+    
+     var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
+     if (control.~treeRoot.isDefined() or isTree > 0){%]
+     getCreateObjectParameters().fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
+     [%}%]
+
+     [%if (control.~treeRoot.isDefined() or isTree > 0){%]
+     getSearchObjectParameters().fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
+     [%}%]
+
+      getCommandStack().getPoolFlushAware().add(this);
+	  org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
+      }catch(Exception e){
+         	logger.info(e.getMessage());
+      }
+	}	
+
+	@javax.inject.Inject
+	public void setKeys(
+			@org.tura.platform.datacontrol.annotations.Keys(fields = { 
+    [%
+    var i = 0;
+    for (key in control.~keys){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Key(field = "[%=key.name%]") 
+    [%
+     i = i+1;
+    }
+    %] 
+			}) java.util.List<String> keys) {
+		this.keys = keys;
+	}
+
+
+	@javax.inject.Inject
+	public void setArtificialProperties(
+			@org.tura.platform.datacontrol.annotations.ArtificialFields(fields = {
+   [%
+   
+    var i = 0;
+    for (artificialField in control.artificialFields){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.ArtificialField(field = "[%=artificialField.name%]" , type = [%=artificialField.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    
+    %] 
+	 }) java.util.List<org.tura.platform.datacontrol.metainfo.ArtificialProperty> properties) {
+		this.artificialProperties = properties;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setElResolver(org.tura.platform.datacontrol.ELResolver elResolver) {
+		this.elResolver = elResolver;
+	}
+
+
+	@javax.inject.Inject
+	public void setCommandStack(
+	      
+[%
+if ( not "".equals(controlSuffix)  ){
+%]@javax.inject.Named("[%=controlSuffix%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
+}else{
+%]@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
+}
+%]
+	      org.tura.platform.datacontrol.CommandStack commandStack) {
+		this.commandStack = commandStack;
+	}
+
+
+	@Override
+	@javax.inject.Inject
+	public void setCreateObjectParameters(
+			@org.tura.platform.datacontrol.annotations.Create( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = { 
+   [%
+   
+    var i = 0;
+    for (param in control.create.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.refObj.name%]", [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]", type = [%=param.refObj.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    %] 
+			})) 
+			
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CreateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+			
+			org.tura.platform.datacontrol.command.base.CreateObjectParameters createObjectParameters) {
+		this.createObjectParameters = createObjectParameters;
+	}
+
+
+
+
+	@Override
+	@javax.inject.Inject
+	public void setSearchObjectParameters(
+			@org.tura.platform.datacontrol.annotations.Search( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
+   [%
+    var i = 0;
+    for (param in control.search.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.refObj.name%]", [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]", type = [%=param.refObj.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+    
+    %] 
+					})) 
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.SearchTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+					
+					org.tura.platform.datacontrol.command.base.SearchObjectParameters searchObjectParameters) {
+		this.searchObjectParameters = searchObjectParameters;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreQueryTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreQueryTrigger preQueryTrigger) {
+		this.preQueryTrigger = preQueryTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPostQueryTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostQueryTrigger postQueryTrigger) {
+		this.postQueryTrigger = postQueryTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPostCreateTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostCreateTrigger postCreateTrigger) {
+		this.postCreateTrigger = postCreateTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreDeleteTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreDeleteTrigger preDeleteTrigger) {
+		this.preDeleteTrigger = preDeleteTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreInsertTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreInsertTrigger preInsertTrigger) {
+		this.preInsertTrigger = preInsertTrigger;
+	}
+
+	@Override
+	@javax.inject.Inject
+	public void setPreUpdateTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreUpdateTrigger preUpdateTrigger) {
+		this.preUpdateTrigger = preUpdateTrigger;
+	}
+
+
+	@Override
+	@javax.inject.Inject
+	public void setArtificialFieldInterceptor(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.ArtificialFieldInterceptor("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger) {
+		this.onChangeArtificialFieldTrigger = onChangeArtificialFieldTrigger;
+	}
+
+
+
+    [%
+    
+    for (relation in relations){
+      if (not relation.detail.~dependObject.isDefined()){
+    %]
+	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]", links = { 
+    [%
+     var i = 0;
+     for (link in relation.links){
+       if (i <> 0 ){ %],[%}  %]
+	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
+    [%
+     i = i+1;
+      }%]    
+  	})    
+	public org.tura.platform.datacontrol.IDataControl get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]()  throws org.tura.platform.datacontrol.commons.TuraException{
+		createChild("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]");
+		org.tura.platform.datacontrol.metainfo.Relation relation = this.getChild("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]");
+		return relation.getChild();
+	}
+    [%
+     }
+    }
+    
+    %] 
+    
+ 	@Override
+    @SuppressWarnings("unchecked")
+	public void createChild( String relName) throws org.tura.platform.datacontrol.commons.TuraException{
+
+    [%
+    var i = 0;
+    for (relation in relations){
+      if (not relation.detail.~dependObject.isDefined()){
+    %]
+       [%if (i = 0 ){%]
+		org.tura.platform.datacontrol.metainfo.Relation relation = this.getChild(relName);
+		if (relation.getChild() == null) {
+			org.tura.platform.datacontrol.IDataControl dc = null;       
+       [% i = 1;
+       }%]
+       if ("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]".equals(relName)){
+       	javax.enterprise.inject.spi.Bean< [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> bean = (javax.enterprise.inject.spi.Bean< [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC>) bm.getBeans( [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC.class).iterator().next();
+    	javax.enterprise.context.spi.CreationalContext<?> ctx = bm.createCreationalContext(bean);
+        [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer = ([%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC)bm.getReference(bean, [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC.class, ctx);
+		dc = [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
+		}
+    [%
+      }
+    }
+    
+    %] 
+       [%if (i = 1 ){%]
+
+            relation.setChild(dc);
+            dc.setParent(relation);
+            [%if (control.~treeRoot.isDefined() or isTree > 0){%]
+            dc.setTreeContext(this.getTreeContext());
+           [%}%]
+            relation.setMasterCurrentObject(getCurrentObject());
+            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
+ 		}
+   [%}%]			
+	}
+    
+	@Override
+	@javax.inject.Inject
+	public void setDefaultSearchCriteria(
+			@org.tura.platform.datacontrol.annotations.DefaultSearchCriterias(criterias = {
+ 
+ [%
+ 
+    var i = 0;
+    if (control.~relation.isDefined()){
+      for (link in control.~relation.links){
+       if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.DefaultSearchCriteria(field = "[%=link.detailField.name%]",  comparator=com.octo.java.sql.exp.Operator.EQ ,  expression = "[%=link.~result%]"  , type =[%=link.masterField.typeRef.~fullName%].class) 
+ [%
+       i = i+1;
+      } 
+    }
+ %]
+ 
+  [%
+  
+    if (control.defaultSearch <> null) {
+    for (param in control.defaultSearch.parameters){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.DefaultSearchCriteria(field = "[%=util.mergeAndUnCapitalize(param.refObj.name)%]",  comparator=com.octo.java.sql.exp.Operator.[%=param.getOperation()%] ,  [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]"  , type = [%=param.refObj.typeRef.~fullName%].class) 
+    [%
+     i = i+1;
+    }
+   } 
+   
+    %] 
+			} ) java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> defaultSearchCriteria) {
+		this.defaultSearchCriteria = defaultSearchCriteria;
+	}
+	
+	@Override
+	@javax.inject.Inject
+	public void setDefaultOrderCriteria(
+			@org.tura.platform.datacontrol.annotations.DefaultOrderBys(orders={
+  [%
+    var i = 0;
+    if (control.defaultOrderBy <> null  and control.defaultOrderBy.size() <> 0 and control.defaultOrderBy.orderRules <> null and control.defaultOrderBy.orderRules.size() <> 0) {
+    for (param in control.defaultOrderBy.orderRules  ){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=util.mergeAndUnCapitalize(param.refObj.name)%]", order =  com.octo.java.sql.query.SelectQuery.Order.[%=param.order%] ) 
+    [%
+     i = i+1;
+    }
+   }else{
+      for (key in control.~keys){
+      if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=util.mergeAndUnCapitalize(key.name)%]", order =  com.octo.java.sql.query.SelectQuery.Order.ASC ) 
+    [%
+     i = i+1;
+     }
+   } 
+   
+    %] 
+			}) java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> defaultOrderCriteria) {
+		this.defaultOrderCriteria = defaultOrderCriteria;
+	}
+	
+	
+	
+   [% if ( control.~dependArray.isDefined() and not control.~treeRoot.isDefined()){%]
+	@Override
+	@javax.inject.Inject
+	public void setDependency(
+			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
+    [%
+    var i = 0;
+      for (depend in control.~dependArray){
+        if (i <> 0 ){ %],[%}%]
+			@org.tura.platform.datacontrol.annotations.Dependency(expression = "[%=depend%]") 
+    [%
+       i = i+1;
+      }
+    %] 
+			
+			}) java.util.List<org.tura.platform.datacontrol.metainfo.DependecyProperty> dependency) {
+		this.dependency = dependency;
+	}
+[%}%]	
+	
+	@Override
+	@javax.inject.Inject
+	public void setAutoCreateObjectRule(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.AutoCreateObject("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.DCRule autoCreateObjectRule) {
+		this.autoCreateObjectRule = autoCreateObjectRule;
+	}
+	
+	@Override
+	public  Object wrap(Object obj){
+	[%
+	if (control.artificialFields.size() <> 0){
+	%]
+          return new [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter((org.tura.platform.repository.core.ObjectControl)obj, this.onChangeArtificialFieldTrigger);
+     [%     
+	}else{
+	%]
+          return obj;
+     [%     
+	}
+	%]
+	
+    }
+	
+	public java.util.ArrayList<org.tura.platform.repository.core.FieldValue> getPrimaryKeyFields() throws Exception{
+	   return [%=control.~basefullName%]Proxy.getPrimaryKeyFields();
+	}
+	
+	
+}

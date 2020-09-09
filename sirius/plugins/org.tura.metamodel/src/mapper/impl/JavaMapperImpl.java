@@ -1,14 +1,32 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.impl;
 
+import mapper.ArtifactType;
 import mapper.JavaMapper;
 import mapper.MapperPackage;
 
+import mapper.Version;
+import mapper.VersionRef;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,12 +37,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link mapper.impl.JavaMapperImpl#getVersionRef <em>Version Ref</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getMappedToPackageName <em>Mapped To Package Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getMappedToClassName <em>Mapped To Class Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link mapper.impl.JavaMapperImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
@@ -32,6 +50,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
+	/**
+	 * The cached value of the '{@link #getVersionRef() <em>Version Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersionRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected Version versionRef;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -133,26 +161,6 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	protected String groupId = GROUP_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VERSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected String version = VERSION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getLibraryName() <em>Library Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,7 +188,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ARTIFACT_TYPE_EDEFAULT = "jar";
+	protected static final ArtifactType ARTIFACT_TYPE_EDEFAULT = ArtifactType.JAR;
 
 	/**
 	 * The cached value of the '{@link #getArtifactType() <em>Artifact Type</em>}' attribute.
@@ -190,7 +198,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * @generated
 	 * @ordered
 	 */
-	protected String artifactType = ARTIFACT_TYPE_EDEFAULT;
+	protected ArtifactType artifactType = ARTIFACT_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,6 +217,44 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	@Override
 	protected EClass eStaticClass() {
 		return MapperPackage.Literals.JAVA_MAPPER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version getVersionRef() {
+		if (versionRef != null && versionRef.eIsProxy()) {
+			InternalEObject oldVersionRef = (InternalEObject)versionRef;
+			versionRef = (Version)eResolveProxy(oldVersionRef);
+			if (versionRef != oldVersionRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MapperPackage.JAVA_MAPPER__VERSION_REF, oldVersionRef, versionRef));
+			}
+		}
+		return versionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version basicGetVersionRef() {
+		return versionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersionRef(Version newVersionRef) {
+		Version oldVersionRef = versionRef;
+		versionRef = newVersionRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_MAPPER__VERSION_REF, oldVersionRef, versionRef));
 	}
 
 	/**
@@ -321,27 +367,6 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVersion() {
-		return version;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(String newVersion) {
-		String oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_MAPPER__VERSION, oldVersion, version));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getLibraryName() {
 		return libraryName;
 	}
@@ -363,7 +388,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getArtifactType() {
+	public ArtifactType getArtifactType() {
 		return artifactType;
 	}
 
@@ -372,9 +397,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setArtifactType(String newArtifactType) {
-		String oldArtifactType = artifactType;
-		artifactType = newArtifactType;
+	public void setArtifactType(ArtifactType newArtifactType) {
+		ArtifactType oldArtifactType = artifactType;
+		artifactType = newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT : newArtifactType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE, oldArtifactType, artifactType));
 	}
@@ -387,6 +412,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MapperPackage.JAVA_MAPPER__VERSION_REF:
+				if (resolve) return getVersionRef();
+				return basicGetVersionRef();
 			case MapperPackage.JAVA_MAPPER__UID:
 				return getUid();
 			case MapperPackage.JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME:
@@ -397,8 +425,6 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return getArtifactId();
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				return getGroupId();
-			case MapperPackage.JAVA_MAPPER__VERSION:
-				return getVersion();
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				return getLibraryName();
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
@@ -415,6 +441,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MapperPackage.JAVA_MAPPER__VERSION_REF:
+				setVersionRef((Version)newValue);
+				return;
 			case MapperPackage.JAVA_MAPPER__UID:
 				setUid((String)newValue);
 				return;
@@ -430,14 +459,11 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				setGroupId((String)newValue);
 				return;
-			case MapperPackage.JAVA_MAPPER__VERSION:
-				setVersion((String)newValue);
-				return;
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				setLibraryName((String)newValue);
 				return;
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
-				setArtifactType((String)newValue);
+				setArtifactType((ArtifactType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -451,6 +477,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_MAPPER__VERSION_REF:
+				setVersionRef((Version)null);
+				return;
 			case MapperPackage.JAVA_MAPPER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -465,9 +494,6 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return;
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
-				return;
-			case MapperPackage.JAVA_MAPPER__VERSION:
-				setVersion(VERSION_EDEFAULT);
 				return;
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				setLibraryName(LIBRARY_NAME_EDEFAULT);
@@ -487,6 +513,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_MAPPER__VERSION_REF:
+				return versionRef != null;
 			case MapperPackage.JAVA_MAPPER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME:
@@ -497,14 +525,44 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
-			case MapperPackage.JAVA_MAPPER__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				return LIBRARY_NAME_EDEFAULT == null ? libraryName != null : !LIBRARY_NAME_EDEFAULT.equals(libraryName);
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
-				return ARTIFACT_TYPE_EDEFAULT == null ? artifactType != null : !ARTIFACT_TYPE_EDEFAULT.equals(artifactType);
+				return artifactType != ARTIFACT_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == VersionRef.class) {
+			switch (derivedFeatureID) {
+				case MapperPackage.JAVA_MAPPER__VERSION_REF: return MapperPackage.VERSION_REF__VERSION_REF;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == VersionRef.class) {
+			switch (baseFeatureID) {
+				case MapperPackage.VERSION_REF__VERSION_REF: return MapperPackage.JAVA_MAPPER__VERSION_REF;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -516,7 +574,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
 		result.append(", mappedToPackageName: ");
@@ -527,8 +585,6 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 		result.append(artifactId);
 		result.append(", groupId: ");
 		result.append(groupId);
-		result.append(", version: ");
-		result.append(version);
 		result.append(", libraryName: ");
 		result.append(libraryName);
 		result.append(", artifactType: ");

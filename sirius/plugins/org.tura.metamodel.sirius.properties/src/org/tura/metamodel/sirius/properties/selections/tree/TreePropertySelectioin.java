@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.sirius.properties.selections.tree;
 
 import org.eclipse.core.runtime.Platform;
@@ -106,6 +120,24 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 			}
 		});
 
+		Button btn = new Button(composite, SWT.PUSH | SWT.CENTER);
+		btn.setText("Clear");
+		data = new FormData();
+		data.left = new FormAttachment(btnDialog, 0);
+		data.top = new FormAttachment(btnDialog, 0, SWT.CENTER);
+		btn.setLayoutData(data);
+
+		btn.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				handleClearContext();
+				refresh();
+				
+			}
+		});
+		
+		
+		
 	}
 
 	public void setInput(IWorkbenchPart part, ISelection selection) {
@@ -119,6 +151,16 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 		text1.setText((String) getDataAdapter().getFeatureValue(getModel(), feature));
 		
 	}
+	
+	protected void handleClearContext() {
+		Session session = SessionManager.INSTANCE.getSession(getModel());
+		EditingDomain editingDomain = session.getTransactionalEditingDomain();
+		EStructuralFeature feature = getDataAdapter().getFeature();
+		Command setCommand = SetCommand.create(editingDomain, getModel(), feature, null);
+		editingDomain.getCommandStack().execute(setCommand);
+		
+	}
+	
 	
 	protected void handleCallContext() {
 

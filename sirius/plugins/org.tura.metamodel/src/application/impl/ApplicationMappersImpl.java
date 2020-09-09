@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package application.impl;
@@ -10,6 +24,7 @@ import java.util.Collection;
 
 import mapper.MappingLayer;
 
+import mapper.Version;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link application.impl.ApplicationMappersImpl#getName <em>Name</em>}</li>
  *   <li>{@link application.impl.ApplicationMappersImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link application.impl.ApplicationMappersImpl#getAppLayers <em>App Layers</em>}</li>
+ *   <li>{@link application.impl.ApplicationMappersImpl#getVersions <em>Versions</em>}</li>
  * </ul>
  *
  * @generated
@@ -100,6 +116,16 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * @ordered
 	 */
 	protected EList<MappingLayer> appLayers;
+
+	/**
+	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Version> versions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +217,18 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Version> getVersions() {
+		if (versions == null) {
+			versions = new EObjectContainmentEList<Version>(Version.class, this, ApplicationPackage.APPLICATION_MAPPERS__VERSIONS);
+		}
+		return versions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -198,6 +236,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				return ((InternalEList<?>)getMappers()).basicRemove(otherEnd, msgs);
 			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
 				return ((InternalEList<?>)getAppLayers()).basicRemove(otherEnd, msgs);
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
+				return ((InternalEList<?>)getVersions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,6 +258,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				return getMappers();
 			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
 				return getAppLayers();
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
+				return getVersions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +287,10 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				getAppLayers().clear();
 				getAppLayers().addAll((Collection<? extends MappingLayer>)newValue);
 				return;
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
+				getVersions().clear();
+				getVersions().addAll((Collection<? extends Version>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +315,9 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
 				getAppLayers().clear();
 				return;
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
+				getVersions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +338,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				return mappers != null && !mappers.isEmpty();
 			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
 				return appLayers != null && !appLayers.isEmpty();
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
+				return versions != null && !versions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -302,7 +353,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
 		result.append(", name: ");

@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package type.impl;
@@ -36,6 +50,7 @@ import type.TypePackage;
  *   <li>{@link type.impl.AttributeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#isPk <em>Pk</em>}</li>
+ *   <li>{@link type.impl.AttributeImpl#isUk <em>Uk</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,6 +125,26 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * @ordered
 	 */
 	protected boolean pk = PK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUk() <em>Uk</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUk()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UK_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUk() <em>Uk</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUk()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean uk = UK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,6 +245,27 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUk() {
+		return uk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUk(boolean newUk) {
+		boolean oldUk = uk;
+		uk = newUk;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ATTRIBUTE__UK, oldUk, uk));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -235,6 +291,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 				return getName();
 			case TypePackage.ATTRIBUTE__PK:
 				return isPk();
+			case TypePackage.ATTRIBUTE__UK:
+				return isUk();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +319,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 			case TypePackage.ATTRIBUTE__PK:
 				setPk((Boolean)newValue);
 				return;
+			case TypePackage.ATTRIBUTE__UK:
+				setUk((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,6 +346,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 			case TypePackage.ATTRIBUTE__PK:
 				setPk(PK_EDEFAULT);
 				return;
+			case TypePackage.ATTRIBUTE__UK:
+				setUk(UK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,6 +369,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.ATTRIBUTE__PK:
 				return pk != PK_EDEFAULT;
+			case TypePackage.ATTRIBUTE__UK:
+				return uk != UK_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,13 +416,15 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", pk: ");
 		result.append(pk);
+		result.append(", uk: ");
+		result.append(uk);
 		result.append(')');
 		return result.toString();
 	}

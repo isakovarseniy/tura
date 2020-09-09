@@ -1,9 +1,24 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -121,6 +136,80 @@ public interface MapperPackage extends EPackage {
 	int MAPPER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link mapper.impl.VersionImpl <em>Version</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.VersionImpl
+	 * @see mapper.impl.MapperPackageImpl#getVersion()
+	 * @generated
+	 */
+	int VERSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION__VERSION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link mapper.impl.VersionRefImpl <em>Version Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.VersionRefImpl
+	 * @see mapper.impl.MapperPackageImpl#getVersionRef()
+	 * @generated
+	 */
+	int VERSION_REF = 3;
+
+	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION_REF__VERSION_REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Version Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION_REF_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link mapper.impl.MappingLayerImpl <em>Mapping Layer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,7 +217,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getMappingLayer()
 	 * @generated
 	 */
-	int MAPPING_LAYER = 2;
+	int MAPPING_LAYER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -174,7 +263,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getTypeMapper()
 	 * @generated
 	 */
-	int TYPE_MAPPER = 3;
+	int TYPE_MAPPER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -211,7 +300,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getPackageMapper()
 	 * @generated
 	 */
-	int PACKAGE_MAPPER = 4;
+	int PACKAGE_MAPPER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -248,7 +337,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getJavaMapper()
 	 * @generated
 	 */
-	int JAVA_MAPPER = 5;
+	int JAVA_MAPPER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -269,13 +358,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_MAPPER__TYPE_REF = TYPE_MAPPER__TYPE_REF;
 
 	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_MAPPER__VERSION_REF = TYPE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__UID = TYPE_MAPPER_FEATURE_COUNT + 0;
+	int JAVA_MAPPER__UID = TYPE_MAPPER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
@@ -284,7 +382,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME = TYPE_MAPPER_FEATURE_COUNT + 1;
+	int JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME = TYPE_MAPPER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Mapped To Class Name</b></em>' attribute.
@@ -293,7 +391,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__MAPPED_TO_CLASS_NAME = TYPE_MAPPER_FEATURE_COUNT + 2;
+	int JAVA_MAPPER__MAPPED_TO_CLASS_NAME = TYPE_MAPPER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -302,7 +400,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__ARTIFACT_ID = TYPE_MAPPER_FEATURE_COUNT + 3;
+	int JAVA_MAPPER__ARTIFACT_ID = TYPE_MAPPER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
@@ -311,16 +409,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__GROUP_ID = TYPE_MAPPER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_MAPPER__VERSION = TYPE_MAPPER_FEATURE_COUNT + 5;
+	int JAVA_MAPPER__GROUP_ID = TYPE_MAPPER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Library Name</b></em>' attribute.
@@ -357,7 +446,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getJavaPackageMapper()
 	 * @generated
 	 */
-	int JAVA_PACKAGE_MAPPER = 6;
+	int JAVA_PACKAGE_MAPPER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -378,13 +467,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_PACKAGE_MAPPER__PACKAGE_REF = PACKAGE_MAPPER__PACKAGE_REF;
 
 	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_PACKAGE_MAPPER__VERSION_REF = PACKAGE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__UID = PACKAGE_MAPPER_FEATURE_COUNT + 0;
+	int JAVA_PACKAGE_MAPPER__UID = PACKAGE_MAPPER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
@@ -393,7 +491,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 1;
+	int JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -402,7 +500,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__ARTIFACT_ID = PACKAGE_MAPPER_FEATURE_COUNT + 2;
+	int JAVA_PACKAGE_MAPPER__ARTIFACT_ID = PACKAGE_MAPPER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
@@ -411,16 +509,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__GROUP_ID = PACKAGE_MAPPER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PACKAGE_MAPPER__VERSION = PACKAGE_MAPPER_FEATURE_COUNT + 4;
+	int JAVA_PACKAGE_MAPPER__GROUP_ID = PACKAGE_MAPPER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Library Name</b></em>' attribute.
@@ -457,7 +546,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getJavaScriptMapper()
 	 * @generated
 	 */
-	int JAVA_SCRIPT_MAPPER = 7;
+	int JAVA_SCRIPT_MAPPER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -478,13 +567,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_SCRIPT_MAPPER__TYPE_REF = TYPE_MAPPER__TYPE_REF;
 
 	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_MAPPER__VERSION_REF = TYPE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__UID = TYPE_MAPPER_FEATURE_COUNT + 0;
+	int JAVA_SCRIPT_MAPPER__UID = TYPE_MAPPER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Library Url</b></em>' attribute.
@@ -493,7 +591,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__LIBRARY_URL = TYPE_MAPPER_FEATURE_COUNT + 1;
+	int JAVA_SCRIPT_MAPPER__LIBRARY_URL = TYPE_MAPPER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -502,7 +600,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__ARTIFACT_ID = TYPE_MAPPER_FEATURE_COUNT + 2;
+	int JAVA_SCRIPT_MAPPER__ARTIFACT_ID = TYPE_MAPPER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
@@ -511,16 +609,43 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__GROUP_ID = TYPE_MAPPER_FEATURE_COUNT + 3;
+	int JAVA_SCRIPT_MAPPER__GROUP_ID = TYPE_MAPPER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * The feature id for the '<em><b>Mapped To Internal Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__VERSION = TYPE_MAPPER_FEATURE_COUNT + 4;
+	int JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION = TYPE_MAPPER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Mapped To Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME = TYPE_MAPPER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Js Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME = TYPE_MAPPER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Local</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_MAPPER__LOCAL = TYPE_MAPPER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Type</b></em>' attribute.
@@ -529,7 +654,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 5;
+	int JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Java Script Mapper</em>' class.
@@ -538,7 +663,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_SCRIPT_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 6;
+	int JAVA_SCRIPT_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.CSSMapperImpl <em>CSS Mapper</em>}' class.
@@ -548,7 +673,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getCSSMapper()
 	 * @generated
 	 */
-	int CSS_MAPPER = 8;
+	int CSS_MAPPER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -603,7 +728,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getRoleMapper()
 	 * @generated
 	 */
-	int ROLE_MAPPER = 9;
+	int ROLE_MAPPER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -667,7 +792,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getXMLPackageMapper()
 	 * @generated
 	 */
-	int XML_PACKAGE_MAPPER = 10;
+	int XML_PACKAGE_MAPPER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -722,7 +847,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getXMLTypeMapper()
 	 * @generated
 	 */
-	int XML_TYPE_MAPPER = 11;
+	int XML_TYPE_MAPPER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -780,6 +905,17 @@ public interface MapperPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link mapper.ArtifactType <em>Artifact Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.ArtifactType
+	 * @see mapper.impl.MapperPackageImpl#getArtifactType()
+	 * @generated
+	 */
+	int ARTIFACT_TYPE = 14;
+
+
+	/**
 	 * Returns the meta object for class '{@link mapper.Mappers <em>Mappers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -831,6 +967,70 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMapper_Layers();
+
+	/**
+	 * Returns the meta object for class '{@link mapper.Version <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Version</em>'.
+	 * @see mapper.Version
+	 * @generated
+	 */
+	EClass getVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.Version#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see mapper.Version#getUid()
+	 * @see #getVersion()
+	 * @generated
+	 */
+	EAttribute getVersion_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.Version#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see mapper.Version#getName()
+	 * @see #getVersion()
+	 * @generated
+	 */
+	EAttribute getVersion_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.Version#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see mapper.Version#getVersion()
+	 * @see #getVersion()
+	 * @generated
+	 */
+	EAttribute getVersion_Version();
+
+	/**
+	 * Returns the meta object for class '{@link mapper.VersionRef <em>Version Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Version Ref</em>'.
+	 * @see mapper.VersionRef
+	 * @generated
+	 */
+	EClass getVersionRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link mapper.VersionRef#getVersionRef <em>Version Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Version Ref</em>'.
+	 * @see mapper.VersionRef#getVersionRef()
+	 * @see #getVersionRef()
+	 * @generated
+	 */
+	EReference getVersionRef_VersionRef();
 
 	/**
 	 * Returns the meta object for class '{@link mapper.MappingLayer <em>Mapping Layer</em>}'.
@@ -961,17 +1161,6 @@ public interface MapperPackage extends EPackage {
 	EAttribute getJavaMapper_GroupId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link mapper.JavaMapper#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see mapper.JavaMapper#getVersion()
-	 * @see #getJavaMapper()
-	 * @generated
-	 */
-	EAttribute getJavaMapper_Version();
-
-	/**
 	 * Returns the meta object for the attribute '{@link mapper.JavaMapper#getLibraryName <em>Library Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1046,17 +1235,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaPackageMapper_GroupId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see mapper.JavaPackageMapper#getVersion()
-	 * @see #getJavaPackageMapper()
-	 * @generated
-	 */
-	EAttribute getJavaPackageMapper_Version();
 
 	/**
 	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#getLibraryName <em>Library Name</em>}'.
@@ -1135,15 +1313,48 @@ public interface MapperPackage extends EPackage {
 	EAttribute getJavaScriptMapper_GroupId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#getVersion <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#getMappedToInternalLocation <em>Mapped To Internal Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see mapper.JavaScriptMapper#getVersion()
+	 * @return the meta object for the attribute '<em>Mapped To Internal Location</em>'.
+	 * @see mapper.JavaScriptMapper#getMappedToInternalLocation()
 	 * @see #getJavaScriptMapper()
 	 * @generated
 	 */
-	EAttribute getJavaScriptMapper_Version();
+	EAttribute getJavaScriptMapper_MappedToInternalLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#getMappedToClassName <em>Mapped To Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped To Class Name</em>'.
+	 * @see mapper.JavaScriptMapper#getMappedToClassName()
+	 * @see #getJavaScriptMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptMapper_MappedToClassName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#getJsPackageName <em>Js Package Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Js Package Name</em>'.
+	 * @see mapper.JavaScriptMapper#getJsPackageName()
+	 * @see #getJavaScriptMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptMapper_JsPackageName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#isLocal <em>Local</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Local</em>'.
+	 * @see mapper.JavaScriptMapper#isLocal()
+	 * @see #getJavaScriptMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptMapper_Local();
 
 	/**
 	 * Returns the meta object for the attribute '{@link mapper.JavaScriptMapper#getArtifactType <em>Artifact Type</em>}'.
@@ -1307,6 +1518,16 @@ public interface MapperPackage extends EPackage {
 	EAttribute getXMLTypeMapper_Typename();
 
 	/**
+	 * Returns the meta object for enum '{@link mapper.ArtifactType <em>Artifact Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Artifact Type</em>'.
+	 * @see mapper.ArtifactType
+	 * @generated
+	 */
+	EEnum getArtifactType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1371,6 +1592,58 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MAPPER__LAYERS = eINSTANCE.getMapper_Layers();
+
+		/**
+		 * The meta object literal for the '{@link mapper.impl.VersionImpl <em>Version</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.VersionImpl
+		 * @see mapper.impl.MapperPackageImpl#getVersion()
+		 * @generated
+		 */
+		EClass VERSION = eINSTANCE.getVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VERSION__UID = eINSTANCE.getVersion_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VERSION__NAME = eINSTANCE.getVersion_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VERSION__VERSION = eINSTANCE.getVersion_Version();
+
+		/**
+		 * The meta object literal for the '{@link mapper.impl.VersionRefImpl <em>Version Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.VersionRefImpl
+		 * @see mapper.impl.MapperPackageImpl#getVersionRef()
+		 * @generated
+		 */
+		EClass VERSION_REF = eINSTANCE.getVersionRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VERSION_REF__VERSION_REF = eINSTANCE.getVersionRef_VersionRef();
 
 		/**
 		 * The meta object literal for the '{@link mapper.impl.MappingLayerImpl <em>Mapping Layer</em>}' class.
@@ -1477,14 +1750,6 @@ public interface MapperPackage extends EPackage {
 		EAttribute JAVA_MAPPER__GROUP_ID = eINSTANCE.getJavaMapper_GroupId();
 
 		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_MAPPER__VERSION = eINSTANCE.getJavaMapper_Version();
-
-		/**
 		 * The meta object literal for the '<em><b>Library Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1541,14 +1806,6 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_PACKAGE_MAPPER__GROUP_ID = eINSTANCE.getJavaPackageMapper_GroupId();
-
-		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_PACKAGE_MAPPER__VERSION = eINSTANCE.getJavaPackageMapper_Version();
 
 		/**
 		 * The meta object literal for the '<em><b>Library Name</b></em>' attribute feature.
@@ -1609,12 +1866,36 @@ public interface MapperPackage extends EPackage {
 		EAttribute JAVA_SCRIPT_MAPPER__GROUP_ID = eINSTANCE.getJavaScriptMapper_GroupId();
 
 		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Mapped To Internal Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JAVA_SCRIPT_MAPPER__VERSION = eINSTANCE.getJavaScriptMapper_Version();
+		EAttribute JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION = eINSTANCE.getJavaScriptMapper_MappedToInternalLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped To Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME = eINSTANCE.getJavaScriptMapper_MappedToClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Js Package Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME = eINSTANCE.getJavaScriptMapper_JsPackageName();
+
+		/**
+		 * The meta object literal for the '<em><b>Local</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_MAPPER__LOCAL = eINSTANCE.getJavaScriptMapper_Local();
 
 		/**
 		 * The meta object literal for the '<em><b>Artifact Type</b></em>' attribute feature.
@@ -1743,6 +2024,16 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_TYPE_MAPPER__TYPENAME = eINSTANCE.getXMLTypeMapper_Typename();
+
+		/**
+		 * The meta object literal for the '{@link mapper.ArtifactType <em>Artifact Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.ArtifactType
+		 * @see mapper.impl.MapperPackageImpl#getArtifactType()
+		 * @generated
+		 */
+		EEnum ARTIFACT_TYPE = eINSTANCE.getArtifactType();
 
 	}
 

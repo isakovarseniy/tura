@@ -1,0 +1,51 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+ 
+ package [%=t2view.get(type).get("package")%].converter;
+ 
+ 
+ public class [%=t2view.get(type).get("class")%]Converter {
+ 
+     public static
+        [%=t2view.get(type).get("package")%].[%=t2view.get(type).get("class")%] convert( [%=t2model.get(type).get("package")%].[%=t2model.get(type).get("class")%] obj ){
+           if (obj == null){
+             return null;
+           }
+           return [%=t2view.get(type).get("package")%].[%=t2view.get(type).get("class")%].valueOf(obj.name());
+        
+        }
+ 
+
+     public static
+        [%=t2model.get(type).get("package")%].[%=t2model.get(type).get("class")%] convert( [%=t2view.get(type).get("package")%].[%=t2view.get(type).get("class")%] obj ){
+           if (obj == null){
+             return null;
+           }
+           return [%=t2model.get(type).get("package")%].[%=t2model.get(type).get("class")%].valueOf(obj.name());
+        
+        }
+ }
+

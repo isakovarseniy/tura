@@ -1,3 +1,21 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.commons.service.impl;
 
 import java.util.Arrays;
@@ -11,7 +29,6 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
-import sales.analyzer.api.model.impl.FileEntity;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.UserPreferencesProvider;
 import sales.analyzer.service.file.FileSearchService;
@@ -30,12 +47,14 @@ public class JbpmServiceInstantiator implements Instantiator{
     private Registry registry;
     private SpaObjectRegistry spaRegistry;
     private KieServicesClient client;
+    private String registryName;
     
     
-    public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef,Registry registry,SpaObjectRegistry spaRegistry) {
+    public JbpmServiceInstantiator(String kieserverUrl, CredentialsProvider credentialsProvider  ,UserPreferencesProvider prefRef,Registry registry,SpaObjectRegistry spaRegistry,String registryName ) {
         this.prefRef = prefRef;
         this.registry=registry;
         this.spaRegistry=spaRegistry;
+        this.registryName = registryName;
         
         KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(kieserverUrl, null,null);
         config.setCredentialsProvider(credentialsProvider);
@@ -59,6 +78,18 @@ public class JbpmServiceInstantiator implements Instantiator{
     
     
     
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T newInstance(String className) {
+		try {
+			return (T) newInstance(Class.forName(className));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+    
+    
     @SuppressWarnings("unchecked")
     @Override
     public <T> T newInstance(Class<T> clazz) {
@@ -67,11 +98,11 @@ public class JbpmServiceInstantiator implements Instantiator{
             return (T) new JbpmCRUDService(client);
         }
         if (JbpmSearchService.class.equals(clazz)) {
-            return (T) new JbpmSearchService(client,prefRef);
+            return (T) new JbpmSearchService(client,prefRef, spaRegistry, registryName, registry);
         }
         
         if (FileSearchService.class.equals(clazz)) {
-            return (T) new FileSearchService(System.getProperty(Constants.FILE_IMPORT_DIRECTORY));
+            return (T) new FileSearchService(System.getProperty(Constants.FILE_IMPORT_DIRECTORY), spaRegistry, registryName, registry);
         }
         
         

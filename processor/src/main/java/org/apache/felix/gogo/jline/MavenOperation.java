@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import org.apache.felix.gogo.jline.Posix.HelpException;
 import org.apache.felix.gogo.jline.command.MavenBuildProject;
 import org.apache.felix.gogo.jline.command.MavenCommand;
 import org.apache.felix.gogo.jline.command.MavenInstallFile;
+import org.apache.felix.gogo.jline.command.MavenSetVersion;
 import org.apache.felix.service.command.CommandSession;
 import org.apache.felix.service.command.Process;
 import org.jline.reader.Candidate;
@@ -58,8 +60,19 @@ public class MavenOperation {
 
 		CommandLine line = getCommandLine();
 
-		List<CommandLine> commands = line.parseArgs((String[]) argv).asCommandLineList();
-		for (CommandLine cl : commands) {
+        List<String> array = new ArrayList<String>();
+        for ( Object arg : argv) {
+        	String str = (String) arg;
+        	 if (str != null && str.length() > 0 && str.charAt(str.length() - 1) == '\n') {
+        	        str = str.substring(0, str.length() - 1);
+        	    }
+        	 array.add(str);
+        }
+        String[] arguments = array.toArray(new String[array.size()]);
+
+        List<CommandLine> commands = line.parseArgs(arguments).asCommandLineList();
+
+        for (CommandLine cl : commands) {
 			Runnable cmd = cl.getCommand();
 			cmd.run();
 		}
@@ -69,8 +82,11 @@ public class MavenOperation {
 	}
 
 	protected CommandLine getCommandLine() {
-		return new CommandLine(new MavenCommand()).addSubcommand("install", new MavenInstallFile())
-				.addSubcommand("build", new MavenBuildProject());
+		return new CommandLine(new MavenCommand())
+				.addSubcommand("install", new MavenInstallFile())
+				.addSubcommand("build", new MavenBuildProject())
+				.addSubcommand("setversion", new MavenSetVersion())
+				;
 	}
 
 	public List<Candidate> __mvn_picocliCompleter(CommandSession session) {

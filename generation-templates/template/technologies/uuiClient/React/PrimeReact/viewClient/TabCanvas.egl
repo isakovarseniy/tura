@@ -1,0 +1,134 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  form::TabCanvas createComponent(hash) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var jsPath = hash.get("jsPath");
+     var ports = new Native("java.util.ArrayList");
+     var clientLibraryPackage = hash.get('clientLibraryPackage');
+     
+     
+     populateInclude(hash,"{TabView}",  "primereact/tabview");
+     populateInclude(hash,"{TabPanel}",  "primereact/tabview");
+     populateInclude(hash,"{TuraComponent}",  clientLibraryPackage+"/core/TuraComponent");
+     
+     
+     util.traceIfDebug("React UI element","TabCanvas start: "+self.name);     
+
+
+%]
+export class [%=util.mergeAndCapitalize(self.name)%] extends TuraComponent {
+    constructor(props) {
+        super(props);
+        this.onTabChange=this.onTabChange.bind(this);
+
+    }
+
+    onTabChange(e){
+        this.setState({activeIndex: e.index})
+    }
+
+
+    render() {
+        if ( !this.state.rendered ) {
+            return (
+                <></>
+            );
+        }
+        return (
+            <TabView id={this.id}  activeIndex={this.state.activeIndex} style={this.state.style} className={this.state.className}>
+[%
+                var index=0;
+                for (element in TabPagesInheritance->allInstances()->select(r|r.source.uid = self.uid)->collect(q|q.target).sortBy(q|q.tabSequence)){
+%]
+                <TabPanel   style={this.state.tabs[[%=index%]].style} className={this.state.tabs[[%=index%]].className} header={this.state.tabs[[%=index%]].title}>
+                 [%
+                for ( tag in element.viewElement.sortBy(q|q.order)){
+		             if ( tag.isKindOf(form::ViewPort) ){
+		                  ports.add(tag);
+		             }                
+                 %]
+                   [%=tag.createTag(hash)%]
+                 [%
+                }
+                 %]
+                </TabPanel>                   
+[%
+                index= index+1;
+                }  
+%]					
+
+           </TabView>
+        );
+    }
+    
+    componentPostProcessState( obj){
+        let transformation = new Transformation();
+        obj = transformation.stylePostProcessor(obj);
+[%
+                var index=0;
+                for (element in TabPagesInheritance->allInstances()->select(r|r.source.uid = self.uid)->collect(q|q.target).sortBy(q|q.tabSequence)){
+%]
+        transformation.stylePostProcessor(obj.tabs[[%=index%]]);
+[%
+                index= index+1;
+                }  
+%]		
+        return obj;
+    }
+
+    componentPreProcessSate( obj){
+        let transformation = new Transformation();
+        obj = transformation.stylePreProcessor(obj);
+[%
+                var index=0;
+                for (element in TabPagesInheritance->allInstances()->select(r|r.source.uid = self.uid)->collect(q|q.target).sortBy(q|q.tabSequence)){
+%]
+        transformation.stylePreProcessor(obj.tabs[[%=index%]]);
+[%
+                index= index+1;
+                }  
+%]		
+        return obj;
+    }
+    
+}
+[%
+          for (element in ports){
+             %]
+             [%=element.createComponent(hash)%]
+             [%
+          }
+          
+          for (element in ports){
+             var canvasesRef = ViewInheritance->allInstances()->select(vi|vi.source=element);
+		     if (canvasesRef <> null and canvasesRef.size <> 0){
+		       for ( canvasRef in canvasesRef){
+               %]
+               [%=canvasRef.target.createComponent(hash)%]
+               [%
+		       }
+		      }
+          }
+     util.traceIfDebug("React UI element","TabCanvas end: "+self.name);     
+}
+
+
+
+%]

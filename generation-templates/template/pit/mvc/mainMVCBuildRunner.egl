@@ -1,0 +1,42 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${MVC_application_implementation}/builder.egl";
+import "tura:/generation-templates/template/technologies/${Builder_implementation}.egl";
+import "tura:/generation-templates/template/technologies/${OS}.egl";
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ ${percent}${end}
+
+ 
+[%
+ 
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var hash = new Native('java.util.HashMap');
+ 
+      hash.put("recipe",recipe);
+      hash.put("ingredient",ingredient);
+      hash.put("component",component);
+      hash.put("model_mapper",model_mapper);
+      hash.put("configuration",configuration);
+ 
+      util.populateTechnologies(hash,model_mapper);
+
+      mvc_build_runner(hash);  
+ 
+%]

@@ -89,11 +89,17 @@ class Component extends common.HTMLLayerHolder,common.Orderable{
    attr EString componentRoot;
 }
 
-class JavaComponent extends Component{
+class JavaComponent extends Component  , mapper.VersionRef{
    attr EString artifactId;
    attr EString groupId;
-   attr EString version;
    attr EString basePackage;   
+   ref  mapper.Mapper mapperRef;
+}
+
+
+class JavaScriptComponent extends Component  , mapper.VersionRef{
+   attr EString packageName;   
+   ref  mapper.Mapper mapperRef;
 }
 
 

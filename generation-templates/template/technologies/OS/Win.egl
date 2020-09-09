@@ -1,0 +1,77 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[% 
+
+@template
+operation  npmBuilder_publish(configuration,path,hash) {
+     var model_mapper = hash.get('model_mapper');
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+
+cd /d "[%=path%]"
+  call npm install
+  call npm run publish
+  cd dist
+  call npm install
+[%
+}
+
+
+
+@template
+operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
+     var model_mapper = hash.get('model_mapper');
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var profile = "";
+     var first = true;
+     for (param in model_mapper.findAllClassifiers(util.getHint(model_mapper,"Profile"))){
+             if ( not first){
+             profile = profile + ",";
+             }        
+             profile = profile+param.details;
+             first = false;
+     }
+     if (profile <> ""){
+        profile = "-P "+profile;
+     }
+
+%]
+
+[%
+  var i =  hash.get("Java").lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
+
+cd /d "[%=path%]"
+"[%=configuration.get('Builder location')%]"\bin\mvn.cmd -B clean install [%=profile%]
+[%
+}
+
+operation  os_batch_extension():String{
+             return "bat";
+}
+
+operation  os_shell_executor():String{
+             return "cmd /C ";
+}
+
+
+%]

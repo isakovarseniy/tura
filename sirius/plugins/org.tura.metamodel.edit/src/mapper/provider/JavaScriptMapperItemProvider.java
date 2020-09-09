@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.provider;
@@ -45,14 +59,40 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addVersionRefPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addLibraryUrlPropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
 			addGroupIdPropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
+			addMappedToInternalLocationPropertyDescriptor(object);
+			addMappedToClassNamePropertyDescriptor(object);
+			addJsPackageNamePropertyDescriptor(object);
+			addLocalPropertyDescriptor(object);
 			addArtifactTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Version Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VersionRef_versionRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VersionRef_versionRef_feature", "_UI_VersionRef_type"),
+				 MapperPackage.Literals.VERSION_REF__VERSION_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -144,23 +184,89 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Version feature.
+	 * This adds a property descriptor for the Mapped To Internal Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVersionPropertyDescriptor(Object object) {
+	protected void addMappedToInternalLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JavaScriptMapper_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_version_feature", "_UI_JavaScriptMapper_type"),
-				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__VERSION,
+				 getString("_UI_JavaScriptMapper_mappedToInternalLocation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_mappedToInternalLocation_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mapped To Class Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMappedToClassNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_mappedToClassName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_mappedToClassName_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Js Package Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJsPackageNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_jsPackageName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_jsPackageName_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Local feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_local_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_local_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__LOCAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -206,7 +312,7 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JavaScriptMapper)object).getUid();
+		String label = ((JavaScriptMapper)object).getMappedToClassName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JavaScriptMapper_type") :
 			getString("_UI_JavaScriptMapper_type") + " " + label;
@@ -229,7 +335,10 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_ID:
 			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
-			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL:
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

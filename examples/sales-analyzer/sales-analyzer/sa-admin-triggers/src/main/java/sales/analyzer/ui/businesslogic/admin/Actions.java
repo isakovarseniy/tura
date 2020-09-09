@@ -1,38 +1,56 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.admin;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.application.FacesMessage;
-import javax.faces.application.FacesMessage.Severity;
-import javax.faces.component.EditableValueHolder;
-import javax.faces.component.UIComponent;
-import javax.faces.component.visit.VisitContext;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
+
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
+
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
-import org.tura.platform.primefaces.lib.EventAccessor;
-import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.uuiclient.rest.EventDescription;
+import org.tura.platform.uuiclient.rest.EventParameter;
+import org.tura.platform.uuiclient.rest.client.commands.ClearForm;
+import org.tura.platform.uuiclient.rest.client.commands.HidePopup;
+import org.tura.platform.uuiclient.rest.client.commands.OpenPopup;
+import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
+import org.tura.platform.uuiclient.rest.client.commands.SwitchWindow;
+import org.tura.platform.uuiclient.rest.client.commands.UpdateMessage;
+import org.tura.platform.uuiclient.rest.events.EventAware;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
+
 import sales.analyzer.commons.CachedUserPreferences;
 
-public class Actions implements EventAccessor {
+public class Actions implements EventAware {
+
+	EventDescription event;
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
-	private ActionEvent event;
 
 	@Inject
 	ELResolver elResolver;
@@ -43,29 +61,43 @@ public class Actions implements EventAccessor {
 
 	@Inject
 	Repository repository;
-	
-	@Inject
-	CachedUserPreferences  userPref;
 
-	
-	
+	@Inject
+	CachedUserPreferences userPref;
+
+	@Inject
+	ResponseState responseState;
+
 	public void clearAllUserPreferences() {
 		userPref.clearAll();
+
+		addInfomessage("CACHE_UPDATE");
+
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public void openRolePopup() {
 		try {
-			Role role = (Role) event.getComponent().getAttributes().get("param1");
+			EventParameter param = event.findParameter("rowkey");
+			String key = (String) param.getValue();
+			String roleId = key.substring(0, key.indexOf("org.tura.salesanalyzer.serialized.keycloak.Role"));
 
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setRoleId(role.getId());
+			bf.setRoleId(roleId);
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();
 			dc.islolate();
+
+			ClearForm cmd = new ClearForm();
+			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd);
+
+			OpenPopup cmd1 = new OpenPopup();
+			cmd1.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd1);
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -89,80 +121,21 @@ public class Actions implements EventAccessor {
 
 			dc.getCommandStack().savePoint();
 
+			OpenPopup cmd = new OpenPopup();
+			cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
+			responseState.addCommand(cmd);
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
-//	@SuppressWarnings({ "rawtypes" })
-//	public void modifyPermissions() {
-//		try {
-//			DataControl dcPermission = (DataControl) elResolver
-//					.getValue("#{beanFactoryAdminAdministration.permission}");
-//			Permission p = (Permission) dcPermission.getCurrentObject();
-//
-//			Boolean isSelected = new PermissionArtifitialFieldsAdapter((ObjectControl) p).getSelected();
-//			if (isSelected != null && isSelected) {
-//				DataControl dcRef = (DataControl) elResolver
-//						.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
-//
-//				PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
-//				pf.notifyListner();
-//
-//				pf.setPermission(p);
-//				pf.notifyListner();
-//
-//				PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
-//						(ObjectControl) pf);
-//				ad.setPermissionDescription(p.getDescription());
-//				ad.setPermissionName(p.getName());
-//
-//			}
-//			if (isSelected != null && !isSelected) {
-//				IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-//				DataControl dcHelper = (DataControl) bf.getRoleHelper();
-//				DataControl dc = (DataControl) bf.getRole();
-//				Role role = (Role) dc.getCurrentObject();
-//
-//				dcHelper.getDefaultSearchCriteria().clear();
-//
-//				SearchCriteria sc = new SearchCriteria();
-//				sc.setName("id");
-//				sc.setComparator(Operator.EQ.name());
-//				sc.setValue(role.getId());
-//				dcHelper.getDefaultSearchCriteria().add(sc);
-//
-//				dcHelper.forceRefresh();
-//
-//				dcHelper.getCurrentObject();
-//				DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
-//				peermRefHelper.getCurrentObject();
-//				int i = 0;
-//				boolean found = false;
-//				for ( Object o : peermRefHelper.getScroller()) {
-//					PermissionReferences permRef = (PermissionReferences) o;
-//					if (permRef.getPermission().equals(p)) {
-//						found = true;
-//						break;
-//					}
-//					i++;
-//				}
-//				if (found) {
-//					peermRefHelper.setCurrentPosition(i);
-//					peermRefHelper.removeObject();
-//				}
-//
-//			}
-//
-//		} catch (Exception e) {
-//			logger.log(Level.INFO, e.getMessage(), e);
-//		}
-//
-//	}
 
 	public void applyPermissionsModification() {
-		UIComponent target = ViewModel.findComponent(IBeanFactory.PERMITIONSTABLE);
-		cleanup(target);
+		HidePopup cmd = new HidePopup();
+		cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
+
+		responseState.addCommand(cmd);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -171,20 +144,13 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
 			dc.getCommandStack().rallbackSavePoint();
 
+			HidePopup cmd = new HidePopup();
+			cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
+
+			responseState.addCommand(cmd);
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
-		}
-
-	}
-
-	private void cleanup(UIComponent target) {
-		EditableValueHoldersVisitCallback visitCallback = new EditableValueHoldersVisitCallback();
-		target.visitTree(VisitContext.createVisitContext(FacesContext.getCurrentInstance()), visitCallback);
-
-		// iterate over found sub-components and reset their values
-		List<EditableValueHolder> editableValueHolders = visitCallback.getEditableValueHolders();
-		for (EditableValueHolder editableValueHolder : editableValueHolders) {
-			editableValueHolder.resetValue();
 		}
 
 	}
@@ -192,12 +158,14 @@ public class Actions implements EventAccessor {
 	@SuppressWarnings("rawtypes")
 	public void deleteRole() {
 		try {
-			Role role = (Role) event.getComponent().getAttributes().get("param1");
+			EventParameter param = event.findParameter("rowkey");
+			String key = (String) param.getValue();
+			String roleId = key.substring(0, key.indexOf("org.tura.salesanalyzer.serialized.keycloak.Role"));
 
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setRoleId(role.getId());
+			bf.setRoleId(roleId);
 			dc.forceRefresh();
 			dc.removeObject();
 
@@ -221,6 +189,13 @@ public class Actions implements EventAccessor {
 			@SuppressWarnings("unused")
 			Role cmp = (Role) dc.createObject();
 
+			ClearForm cmd = new ClearForm();
+			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd);
+
+			OpenPopup cmd1 = new OpenPopup();
+			cmd1.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd1);
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -233,6 +208,11 @@ public class Actions implements EventAccessor {
 		DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 		try {
 			dc.flush();
+
+			HidePopup cmd = new HidePopup();
+			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd);
+
 		} catch (TuraException e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -245,8 +225,9 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 			dc.getCommandStack().rallbackSavePoint();
 
-			UIComponent target = ViewModel.findComponent(IBeanFactory.POPUPROLE);
-			cleanup(target);
+			HidePopup cmd = new HidePopup();
+			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
+			responseState.addCommand(cmd);
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -257,29 +238,29 @@ public class Actions implements EventAccessor {
 	public void saveApplication() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			
+
 			CommandStackProvider sp = new CommandStackProvider();
 			sp.setCommandStack(commandStack);
-			
+
 			@SuppressWarnings("unchecked")
-			HashMap<String, DataControl<?>> h  = (HashMap<String, DataControl<?>>) commandStack.getListOfCommand()[1];
+			HashMap<String, DataControl<?>> h = (HashMap<String, DataControl<?>>) commandStack.getListOfCommand()[1];
 
 			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 
 			proxyRepository.applyChanges(null);
 			commandStack.commitSavePoint();
-			
+
 			DataControl<?> dc = (DataControl<?>) bf.getRoleHelper();
-			
+
 			if (h.containsKey(dc.getId())) {
-				dc =  (DataControl<?>) bf.getRole();
+				dc = (DataControl<?>) bf.getRole();
 				dc.forceRefresh();
 			}
-			
-			addmessage(FacesMessage.SEVERITY_INFO,"SAVE_DATA_MESSAGE" );
-			
+
+			addInfomessage("SAVE_DATA_MESSAGE");
+
 		} catch (Exception e) {
-			addmessage(FacesMessage.SEVERITY_ERROR,"ERROR_MESSAGE" );
+			addErrormessage("ERROR_MESSAGE");
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
@@ -287,39 +268,42 @@ public class Actions implements EventAccessor {
 	public void rallbackApplication() {
 		try {
 			commandStack.rallbackCommand();
-			addmessage(FacesMessage.SEVERITY_INFO,"ROLLBACK_MESSAGE" );
+			addInfomessage("ROLLBACK_MESSAGE");
 		} catch (Exception e) {
-			addmessage(FacesMessage.SEVERITY_ERROR,"ERROR_MESSAGE" );
+			addErrormessage("ERROR_MESSAGE");
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
-	
-	
-	private void addmessage( Severity severity , String key ) {
-		String message = getMessage(key);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "Info", message));
+	private void addInfomessage(String key) {
+		UpdateMessage cmd = new UpdateMessage();
+		cmd.setTarget(IBeanFactory.MESSAGE.replaceAll("tura", "").replaceAll("_", "\\-"));
+		cmd.setSeverity("info");
+		cmd.setMessage("Info");
+		cmd.setDetails((String) elResolver.getValue("#{Admin['" + key + "']}"));
+		responseState.addCommand(cmd);
 	}
-	
-	private String getMessage( String key) {
-        return (String) elResolver.getValue("#{Admin['" +key + "']}");
-	}
-	
-	@Override
-	public void setEvent(ActionEvent event) {
-		this.event = event;
 
+	private void addErrormessage(String key) {
+		UpdateMessage cmd = new UpdateMessage();
+		cmd.setTarget(IBeanFactory.MESSAGE.replaceAll("tura", "").replaceAll("_", "\\-"));
+		cmd.setSeverity("error");
+		cmd.setMessage("Erroe");
+		cmd.setDetails((String) elResolver.getValue("#{Admin['" + key + "']}"));
+		responseState.addCommand(cmd);
 	}
 
 	public void logout() {
-		try {
-			ExternalContext externalContext  = FacesContext.getCurrentInstance().getExternalContext();
-			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
-			request.logout();
-			externalContext.redirect("/sa-admin/admin/administration/adminWindow.xhtml");
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
+		SwitchWindow cmd = new SwitchWindow();
+		cmd.setTarget("http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-admin-react-client/admin/administration/adminWindow");
+		responseState.addCommand(cmd);
+
+	}
+
+	@Override
+	public void setEvent(EventDescription event) {
+		this.event = event;
+
 	}
 
 }

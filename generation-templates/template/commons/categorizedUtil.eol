@@ -1,0 +1,62 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+operation type::TypeReference findClassifier( hintUUID : String) { 
+      if (self.typeRef = null){
+         return null;
+      }  
+      return self.typeRef.findClassifier(hintUUID);
+}
+
+
+operation artifact::Categorized findClassifier( hintUUID : String) { 
+
+      for (hint in self.getClassifiers()){
+           if (hint.getHint()= null )
+                 return false;
+           
+           if (hintUUID.equals(hint.getHint.getUid())){
+                 self.~hintDetails=hint.details;
+                 return true;
+           }
+      }
+      return false;
+}
+
+operation artifact::Categorized findAllClassifiers( hintUUID : String) { 
+
+      var list = new Native('java.util.ArrayList');
+ 
+      for (hint in self.getClassifiers()){
+           if (hint.getHint() == null )
+                 continue;
+           
+           if (hintUUID.equals(hint.getHint.getUid())){
+               list.add(hint);
+           }
+      }
+      return list;
+}
+
+
+operation artifact::Classifier findHint( hintUUID : String):Boolean {
+     if (self.getHint()= null )
+          return false;
+           
+     if (hintUUID.equals(self.getHint.getUid())){
+          return true;
+     }else{
+         return false;
+     }
+}

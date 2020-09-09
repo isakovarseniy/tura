@@ -1,0 +1,90 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/idGenerator.egl";
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var query =  new Native('org.tura.metamodel.commons.QueryHelper');
+     var nicnamed = new Native('java.util.ArrayList');
+     if (form.getView() <> null){  
+         nicnamed = query.collectRefreshedAeas(form.getView());
+     }
+     
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+
+public interface IBeanFactory   {
+	
+   [%
+       for (nic in nicnamed){%]
+       
+      public String  [%=util.mergeAndUnCapitalize( nic.getNickname()).toUpperCase()%] = "[%=nic.mkuid()%]";
+    [%
+       }
+   %]
+	
+	[%
+	var root = form.datacontrols.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%]();
+	   
+	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]);
+	   [%
+	   }
+	}
+	%]	
+
+    [%
+     var controls =  form.datacontrols.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+          public   org.tura.platform.datacontrol.IDataControl  [%=methodName(control)%]() throws org.tura.platform.datacontrol.commons.TuraException;
+       [%}
+     }    
+    %]
+    
+[%
+     for (control in controls){
+         var relations = form::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+         if (relation.isTree = false){%]
+          public   org.tura.platform.datacontrol.IDataControl  [%=methodName(relation.detail)%]() throws org.tura.platform.datacontrol.commons.TuraException;;
+          [%}
+         }
+     }    
+%]
+
+}
+
+
+[% @template
+operation methodName(dc:form::DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
+ [%} 
+
+ @template
+operation typeName(dc:form::DataControl, component: recipe::Component, form:Form) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var uipackage = form.eContainer();
+     
+%]
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+ [%} %]

@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline;
 
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ import java.util.List;
 
 import org.apache.felix.gogo.jline.Posix.HelpException;
 import org.apache.felix.gogo.jline.command.DSLCommand;
+import org.apache.felix.gogo.jline.command.DSLConfiguration;
+import org.apache.felix.gogo.jline.command.DSLCopyDir;
 import org.apache.felix.gogo.jline.command.DSLCopyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyMonthlyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyRoles;
@@ -25,9 +28,14 @@ import org.apache.felix.gogo.jline.command.DSLCopyUsers;
 import org.apache.felix.gogo.jline.command.DSLCreateLink;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
 import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
+import org.apache.felix.gogo.jline.command.DSLGenerateArtifact;
+import org.apache.felix.gogo.jline.command.DSLGitArchive;
 import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
-import org.apache.felix.gogo.jline.command.DSLLdapPropertyFileForTesitng;
+import org.apache.felix.gogo.jline.command.DSLLicenseSet;
+import org.apache.felix.gogo.jline.command.DSLLicenseShow;
+import org.apache.felix.gogo.jline.command.DSLMkDir;
 import org.apache.felix.gogo.jline.command.DSLModule;
+import org.apache.felix.gogo.jline.command.DSLRemoveFile;
 import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
 import org.apache.felix.gogo.jline.command.DSLWildFlyConfiguration;
 import org.apache.felix.service.command.CommandSession;
@@ -80,8 +88,18 @@ public class DSLOperation  {
 
         CommandLine line = getCommandLine();
         Object result=null;
+        
+        List<String> array = new ArrayList<String>();
+        for ( Object arg : argv) {
+        	String str = (String) arg;
+        	 if (str != null && str.length() > 0 && str.charAt(str.length() - 1) == '\n') {
+        	        str = str.substring(0, str.length() - 1);
+        	    }
+        	 array.add(str);
+        }
+        String[] arguments = array.toArray(new String[array.size()]);
 
-        List<CommandLine> commands = line.parseArgs((String[]) argv).asCommandLineList();
+        List<CommandLine> commands = line.parseArgs(arguments).asCommandLineList();
         for (CommandLine command : commands) {
             Executable cmd = command.getCommand();
             if (cmd instanceof SessionAware) {
@@ -107,8 +125,17 @@ public class DSLOperation  {
                 .addSubcommand("copyMonthlyFiles", new DSLCopyMonthlyFile())
                 .addSubcommand("wfStartupConfig", new DSLWildFlyConfiguration())
                 .addSubcommand("createLink", new DSLCreateLink())
-                .addSubcommand("ldapPropForTesting", new DSLLdapPropertyFileForTesitng())
+                .addSubcommand("mkDir", new DSLMkDir())
+                .addSubcommand("removeFile", new DSLRemoveFile())
+                .addSubcommand("gitArchive", new DSLGitArchive())
+                .addSubcommand("copyDir", new DSLCopyDir())
+                .addSubcommand("licenseSet", new DSLLicenseSet())
+                .addSubcommand("licenseShow", new DSLLicenseShow())
+                .addSubcommand("generateArtifact", new DSLGenerateArtifact())
+                .addSubcommand("config", new DSLConfiguration())
+                
         ;
     }
 
 }
+

@@ -1,18 +1,20 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.tura.configuration.dsl.jboss;
 
+import org.apache.felix.service.command.CommandSession;
 import org.tura.configuration.dsl.commons.ConfigConstants;
 import org.tura.configuration.dsl.commons.CopyArtifact;
 
@@ -23,7 +25,8 @@ public class CopyUsers extends CopyArtifact<CopyUsers>{
     private static String sourceName = ConfigConstants.TURA_CONFIG_REPOSITORY+"/${application}/${JBOSS_VERSION}/assets/application-users.properties";
     
 	
-	public CopyUsers(String  jboss_home) {
+	public CopyUsers(String  jboss_home, CommandSession session) {
+		super(session);
 	    this.setTargetLocation(targetPath.replace("${JBOSS_HOME}", jboss_home));
 		this.setTargetName(targetName);
         this.setSourceResource(sourceName);

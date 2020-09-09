@@ -1,0 +1,51 @@
+{
+  "name": "sa-admin-react-client-triggers",
+  "version": "5.0.2",
+  "private": true,
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "dependencies": {
+    "tura-lib": "file:${USER_HOME}/generation-code/uiLayer/React/sa/tura-lib/dist",
+    "commons-react-client-triggers": "file:${TURA_HOME}/examples/sales-analyzer/commons-react-client-triggers/dist"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "publish": "babel ./src -d dist --copy-files && cpx ./package.json dist/",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "main": "index.js",
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "cpx": "^1.5.0"
+    
+  }
+}

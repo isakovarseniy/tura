@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.provider;
@@ -114,6 +128,52 @@ public class MapperItemProviderAdapterFactory extends MapperAdapterFactory imple
 		}
 
 		return mapperItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mapper.Version} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VersionItemProvider versionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.Version}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVersionAdapter() {
+		if (versionItemProvider == null) {
+			versionItemProvider = new VersionItemProvider(this);
+		}
+
+		return versionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mapper.VersionRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VersionRefItemProvider versionRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.VersionRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVersionRefAdapter() {
+		if (versionRefItemProvider == null) {
+			versionRefItemProvider = new VersionRefItemProvider(this);
+		}
+
+		return versionRefItemProvider;
 	}
 
 	/**

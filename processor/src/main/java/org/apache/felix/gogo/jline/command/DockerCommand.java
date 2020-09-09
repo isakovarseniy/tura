@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.felix.gogo.jline.Executable;
+import org.apache.felix.gogo.jline.SessionAware;
+import org.apache.felix.service.command.CommandSession;
+import org.tura.metamodel.commons.OSHelper;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.ExecCreateCmdResponse;
@@ -31,8 +35,9 @@ import com.github.dockerjava.core.command.ExecStartResultCallback;
 import picocli.CommandLine.Command;
 
 @Command(name = "docker")
-public class DockerCommand implements Executable {
+public class DockerCommand implements Executable, SessionAware {
     protected DockerClient dockerClient;
+	protected CommandSession session;
 
     @Override
     public Object execute() {
@@ -41,6 +46,11 @@ public class DockerCommand implements Executable {
 
     protected void _init() {
         DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
+        if (OSHelper.isWindows()) {
+        	String dockerHost = (String) this.session.get("docker_host");
+        	config.withDockerHost(dockerHost);
+        	config.withDockerTlsVerify(false);
+        }
         dockerClient = DockerClientBuilder.getInstance(config).build();
     }
 
@@ -69,8 +79,10 @@ public class DockerCommand implements Executable {
         return null;
     }
 
-    
-    
+	@Override
+	public void setSession(CommandSession session) {
+		this.session = session;
+	}
     
     public void copyFilesToDocker(String containerId, String source, String targetDir, String targetArtifact) {
         _init();

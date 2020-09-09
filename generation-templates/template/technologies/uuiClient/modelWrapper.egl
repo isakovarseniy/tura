@@ -1,0 +1,47 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;  
+
+import javax.inject.Named;
+import org.tura.platform.uuiclient.model.ViewModel;
+
+@Named("viewmodel[%=util.mergeAndCapitalize(form.name)%]")
+[%=viewmodel_scope()%]
+public class ViewModelWrapper extends ViewModel{
+
+	private static final long serialVersionUID = -479640380646854571L;
+
+
+   @Override
+   @javax.inject.Inject
+    public void setCallBackProducer( 
+   @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+    org.tura.platform.uuiclient.model.CallbackProducer  callbackProducer ) {
+    	super.setCallBackProducer( callbackProducer);
+    }
+
+
+}
+

@@ -1,26 +1,25 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.tura.configuration.dsl.commons;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.felix.gogo.jline.command.ExecuteExternalOperation;
 import org.zeroturnaround.zip.ZipUtil;
 
 public class DownloadMaven {
@@ -36,17 +35,13 @@ public class DownloadMaven {
             dir.mkdirs();
         }
 
-		
-		
-		if (!new File(this.targetDirectory + "/" + filename).exists()) {
+        if (!new File(this.targetDirectory + "/" + filename).exists()) {
 
 			WgetStatus status = Wget.wGet(targetDirectory + "/" + filename, url);
 			if (!status.equals(WgetStatus.Success)) {
 				throw new RuntimeException("Error during downloadin maven");
 			}
 			ZipUtil.unpack(new File(this.targetDirectory + "/" + filename), new File(this.targetDirectory));
-
-			Path link = Paths.get(this.targetDirectory + "/apache-maven");
 
 			File[] matchingFiles = new File(this.targetDirectory).listFiles(new FilenameFilter() {
 				public boolean accept(File dir, String name) {
@@ -55,19 +50,17 @@ public class DownloadMaven {
 			});
 
 			for (File f : matchingFiles) {
-				if (!f.isDirectory()){
-					continue;
+				if (f.isDirectory()){
+					f.renameTo(new File(this.targetDirectory + "/apache-maven"));
+					new File(this.targetDirectory + "/apache-maven/bin/mvn").setExecutable(true);
+					new File(this.targetDirectory + "/apache-maven/bin/mvnDebug").setExecutable(true);
+					break;
 				}
-				Path trg = f.toPath();
-				if (Files.exists(link)) {
-					Files.delete(link);
-				}
-				Files.createSymbolicLink(link, trg);
-
-				new File(this.targetDirectory + "/apache-maven/bin/mvn").setExecutable(true);
-				new File(this.targetDirectory + "/apache-maven/bin/mvnDebug").setExecutable(true);
 
 			}
+			
+			new ExecuteExternalOperation( this.targetDirectory + "/apache-maven/bin/mvn"+" help:evaluate -Dexpression=settings.localRepository  -q -DforceStdout> "+this.targetDirectory+"/../"+ConfigConstants.MAVEN_REPO_LINK )
+			.execute();
 
 		}
 

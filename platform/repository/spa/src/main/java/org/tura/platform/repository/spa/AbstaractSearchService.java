@@ -1,45 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-/**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2017, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
 package org.tura.platform.repository.spa;
 
 import java.util.ArrayList;
@@ -54,6 +30,7 @@ import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.spa.SpaObjectRegistry.SpaRegistry;
 
 public abstract class AbstaractSearchService implements SearchProvider {
 
@@ -72,21 +49,20 @@ public abstract class AbstaractSearchService implements SearchProvider {
 	public void setAdapterLoader(AdapterLoader loader) {
 		this.loader = loader;
 	}
-	
-	
-	private boolean isAdapterNeeded(String objectClass){
-		try{
+
+	private boolean isAdapterNeeded(String objectClass) {
+		try {
 			Class<?> clazz = Class.forName(objectClass);
-			if (Adapter.class.isAssignableFrom(clazz)){
+			if (Adapter.class.isAssignableFrom(clazz)) {
 				return true;
 			}
 			return false;
-		}catch(Exception e){
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	public Object find(Object pk, String objectClass) throws RepositoryException{
+	public Object find(Object pk, String objectClass) throws RepositoryException {
 		if (cache != null) {
 			SpaControl control = cache.get(pk);
 			if (control != null) {
@@ -112,13 +88,17 @@ public abstract class AbstaractSearchService implements SearchProvider {
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
 		boolean needAdpter = isAdapterNeeded(objectClass);
+
+		searchCriteria = adoptSearchCriterias(searchCriteria, objectClass);
+		orderCriteria = adoptOrderCriterias(orderCriteria, objectClass);
+
 		SearchResult result = serviceCall(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 		List<Object> list = new ArrayList<>();
 		for (Object obj : result.getSearchResult()) {
 			Object pk = null;
-			if (needAdpter){
-				pk = mapper.getPrimaryKey( loader.wrapObject(obj));
-			}else{
+			if (needAdpter) {
+				pk = mapper.getPrimaryKey(loader.wrapObject(obj));
+			} else {
 				pk = mapper.getPrimaryKey(obj);
 			}
 			if (cache != null) {
@@ -145,9 +125,63 @@ public abstract class AbstaractSearchService implements SearchProvider {
 		return new SearchResult(list, result.getNumberOfRows());
 	}
 
+	private List<SearchCriteria> adoptSearchCriterias(List<SearchCriteria> searchCriteria, String objectClass)
+			throws RepositoryException {
+		try {
+			SpaRegistry spaRegistry = this.getSpaRegistry();
+			if (searchCriteria != null) {
+				List<SearchCriteria> newSearchCriterias = new ArrayList<SearchCriteria>();
+				for (SearchCriteria sc : searchCriteria) {
+					String mappedField = spaRegistry.findFieldMapping(objectClass, sc.getName());
+					if (mappedField != null) {
+						SearchCriteria nsc = new SearchCriteria(mappedField, sc.getComparator(), sc.getValue(),
+								sc.getClassName());
+						nsc.setProperty(sc.getProperty());
+						nsc.setParentClass(sc.getParentClass());
+
+						newSearchCriterias.add(nsc);
+					} else {
+						newSearchCriterias.add(sc);
+					}
+				}
+				return newSearchCriterias;
+			}
+			return null;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+	}
+
+	private List<OrderCriteria> adoptOrderCriterias(List<OrderCriteria> orderCriteria, String objectClass)
+			throws RepositoryException {
+		try {
+			SpaRegistry spaRegistry = this.getSpaRegistry();
+			if (orderCriteria != null) {
+				List<OrderCriteria> newOrderCriterias = new ArrayList<OrderCriteria>();
+				for (OrderCriteria orc : orderCriteria) {
+					String mappedField = spaRegistry.findFieldMapping(objectClass, orc.getName());
+					if (mappedField != null) {
+						OrderCriteria norc = new OrderCriteria(mappedField, orc.getOrder());
+
+						newOrderCriterias.add(norc);
+					} else {
+						newOrderCriterias.add(orc);
+					}
+				}
+				return newOrderCriterias;
+			}
+			return null;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+
+	}
+
 	protected abstract SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException;
 
 	protected abstract Object serviceCall(Object pk, String objectClass) throws RepositoryException;
+
+	protected abstract SpaRegistry getSpaRegistry();
 
 }

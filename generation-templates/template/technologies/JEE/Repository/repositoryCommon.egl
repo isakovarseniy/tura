@@ -1,0 +1,143 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+@template
+ operation serializer (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+		    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+		        continue; 
+		    }
+            var startConverter="";
+            var endConverter="";
+            if (field.typeRef.isKindOf(type::Enumerator )){
+                var enum = field.typeRef; 
+                enum.mappingType2Java(recipe,ingredient,'VIEW');
+                startConverter = enum.~package+".converter."+enum.~class+"Converter" +".convert(";   
+                endConverter = ")";
+            }
+            
+            %][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%]( [%=startConverter%] [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]() [%=endConverter%] );
+ 			[%}
+ }
+ 
+ @template
+ operation saveLink (type,skipAttributes, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+        	%][%=outObj%].setTransient[%=util.mergeAndUnCapitalize(field.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]()  );[%
+		     }else{
+		        continue; 
+		     }   
+        }
+ }
+ 
+ 
+@template
+ operation serializerDetails (rel, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( lnk in rel.links){
+        	%]
+        	if ([%=inObj%] != null){
+        	   [%=outObj%].set[%=util.mergeAndCapitalize( lnk.detailField.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(lnk.masterField.name)%]()  );
+        	}
+ 			[%}
+ } 
+
+
+@template
+ operation stringPK (type,name,obj,objFullName){
+        var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+ 		  StringBuffer [%=name%] = new StringBuffer();
+		  [%for ( field in type.~primaryKey){%]
+		   [%=name%].append([%=obj%].get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		   [%=name%].append("[%=objFullName%]");
+ [%
+}
+
+@template
+ operation PK (type,name,obj,objFullName,recipe,ingredient){
+    %][%=PK (type,name,obj,objFullName,recipe,ingredient,"")%][%
+}
+
+@template
+ operation PK (type,name,obj,objFullName,recipe,ingredient,suffix){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if(not type.~primaryKey.isDefined() or type.~primaryKey.size()==0){
+         util.traceIfDebug("Error","Object "+type.name+" doesn't have primary key");
+       }
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%for ( field in type.~primaryKey){%]
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%]( [%=obj%].get[%=suffix%][%=util.mergeAndCapitalize(field.name)%]());
+		   [%}
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=suffix%][%=util.mergeAndCapitalize(field.name)%]();
+       [%}
+}
+
+@template
+ operation PKRepoObjectKey(type,name,obj,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if(not type.~primaryKey.isDefined() or type.~primaryKey.size()==0){
+         util.traceIfDebug("Error","Object "+type.name+" doesn't have primary key");
+       }
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%for ( field in type.~primaryKey){
+		            field.typeRef.mappingType2Java(recipe,ingredient);
+		  %]
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%]( ([%=field.typeRef.~fullName%] ) find( "[%=util.mergeAndCapitalize(field.name)%]",[%=obj%]));
+		   [%}
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] = ([%=field.typeRef.~fullName%] ) find( "[%=util.mergeAndCapitalize(field.name)%]",[%=obj%]);
+       [%}
+}
+
+
+
+@template
+ operation PKDetails (type,name,obj,objFullName,recipe,ingredient,rel){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%  		for ( lnk in rel.links) {%]
+		   [%=name%].set[%=util.mergeAndCapitalize(lnk.masterField.name)%](obj.get[%=util.mergeAndCapitalize(lnk.detailField.name)%]());
+		   [%}
+       }else{
+          var lnk = rel.links.Iterator().next();
+          if (lnk == null){
+            return;
+          }
+          var field = lnk.detailField;
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=util.mergeAndCapitalize(field.name)%]();
+       [%}
+}
+%]

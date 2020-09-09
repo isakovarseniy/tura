@@ -291,6 +291,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SelectionMode">
     <eLiterals name="Single"/>
     <eLiterals name="Multiple" value="1"/>
+    <eLiterals name="CheckBox" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//MultiLangLabel common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -307,12 +308,13 @@
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileUpload" eSuperTypes="#//Uielement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FileDownload" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileDownload" eSuperTypes="#//Uielement #//MultiLangLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="colNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Poll" eSuperTypes="#//Uielement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTemplate" eSuperTypes="#//InputElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="WindowRef" eSuperTypes="#//Uielement #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

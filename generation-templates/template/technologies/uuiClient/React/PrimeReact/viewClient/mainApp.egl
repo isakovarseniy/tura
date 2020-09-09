@@ -1,0 +1,85 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+import React from 'react';
+
+import 'primeflex/primeflex.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import uuid from "uuid/v1";
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+	for ( form in forms){
+      for (canvas in form.view.canvases){
+         if (canvas.isKindOf(form::Window) ){
+          var uipackage = form.eContainer();
+         var application = uipackage.eContainer();
+         
+%]import {[%=util.mergeAndCapitalize(canvas.name)%]} from   "./[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(canvas.name)%]";
+[%         
+         
+         }
+      }	
+	}
+%]
+
+
+
+export class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.sessionId =uuid();
+    }
+
+    componentDidMount() {
+    }
+
+    render() {
+        return (
+            <Router basename={process.env.REACT_APP_ROUTER_BASE || ''}>
+                <div>
+[%
+	for ( form in forms){
+      for (canvas in form.view.canvases){
+         if (canvas.isKindOf(form::Window) ){
+          var uipackage = form.eContainer();
+         var application = uipackage.eContainer();
+         
+%]           <Route exact path= "/[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndUnCapitalize(canvas.name)%]"    render={(props) => <[%=util.mergeAndCapitalize(canvas.name)%] {...props} sessionId={this.sessionId} />}  /> 
+[%         
+         
+         }
+      }	
+	}
+
+%]                
+                </div>
+            </Router>      
+              );
+    }
+}
+
+
+
+export default App;
+
+[%
+
+     util.saveFile( jsPath,  "App.js",out.toString());   
+
+%]

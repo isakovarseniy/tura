@@ -1,104 +1,117 @@
 tura:install chromedriver
 
+mr2 = tura:dsl config --mavenRepositoryLocation
+
 tura:docker stopContainer --name sa-wf
 
-tura:dsl exec --cmd "rm -rf $user_home/.tura/resources/sa/deployments/standalone/deployments"
+tura:dsl removeFile --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments
 
 
-tura:dsl jbossDoDeploy                                                \
-         --jboss_home $user_home/.tura/resources/sa/deployments       \
-         --targetName kie-server.war                                  \
-         --srcResource $user_home/.m2/repository/org/kie/server/kie-server/6.5.0.Final/kie-server-6.5.0.Final-ee7.war
+tura:dsl jbossDoDeploy\
+         --jboss_home $tura_working_directory/resources/sa/deployments\
+         --targetName kie-server.war\
+         --srcResource $mr2/org/kie/server/kie-server/6.5.0.Final/kie-server-6.5.0.Final-ee7.war
 
 
-tura:dsl copyFile                                        \
-         --targetLocation $user_home/.tura/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/   \
-         --targetName server-extension-1.0.0-SNAPSHOT.jar       \
-         --sourceResource $user_home/.m2/repository/sales-analyzer/server-extension/1.0.0-SNAPSHOT/server-extension-1.0.0-SNAPSHOT.jar 
+tura:dsl copyFile\
+         --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/\
+         --targetName server-extension-${tura_version}.jar\
+         --sourceResource "$mr2/sales-analyzer/server-extension/${tura_version}/server-extension-${tura_version}.jar" 
 
 
-tura:dsl copyFile                                       \
-         --targetLocation $user_home/.tura/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/   \
-         --targetName api-extension-1.0.0-SNAPSHOT.jar                         \
-         --sourceResource $user_home/.m2/repository/sales-analyzer/api-extension/1.0.0-SNAPSHOT/api-extension-1.0.0-SNAPSHOT.jar
+tura:dsl copyFile\
+         --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/\
+         --targetName api-extension-${tura_version}.jar\
+         --sourceResource $mr2/sales-analyzer/api-extension/${tura_version}/api-extension-${tura_version}.jar
 
 
-tura:dsl copyFile                                       \
-         --unzip                                        \
-         --sourceResource $tura_home/examples/sales-analyzer/talend-jobs/monthly_file_processing.zip  \
-         --targetLocation $user_home/.tura/resources/sa/jobs   \
+tura:dsl copyFile\
+         --unzip\
+         --sourceResource $tura_home/examples/sales-analyzer/talend-jobs/monthly_file_processing.zip\
+         --targetLocation $tura_working_directory/resources/sa/jobs\
          --targetName monthly_file_processing.zip
 
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
          --property USER_HOME:/opt/jboss/jobs/  
 
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Development.properties        \
-         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts \
-         --property USER_HOME:/opt/jboss/jobs/  
-
-
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1 \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
          --property USER_HOME:/opt/jboss/jobs/  
 
 
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1\
          --property USER_HOME:/opt/jboss/jobs/  
 
 
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts\
+         --property USER_HOME:/opt/jboss/jobs/  
+
+
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts\
          --property USER_HOME:/opt/jboss/jobs/  
 
                   
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts\
          --property USER_HOME:/opt/jboss/jobs/  
                   
 
-tura:dsl jobPropertyFile                          \
-         --application sales-analyzer             \
-         --artifact Default.properties            \
-         --relativeLocation /sa/jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts \
+tura:dsl jobPropertyFile\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --relativeLocation /sa/jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts\
          --property USER_HOME:/opt/jboss/jobs/  
                   
 
-tura:dsl jbossDoDeploy                                                     \
-         --jboss_home $user_home/.tura/resources/sa/deployments            \
-         --targetName sa-case-manager.war                                  \
-         --srcResource $user_home/.m2/repository/org/tura/sales-analyzer/sa-case-manager/1.0/sa-case-manager-1.0.war
+tura:dsl jbossDoDeploy\
+         --jboss_home $tura_working_directory/resources/sa/deployments\
+        --targetName sa-case-manager.war\
+        --srcResource $mr2/org/tura/sales-analyzer/sa-case-manager/${tura_version}/sa-case-manager-${tura_version}.war
 
-tura:dsl jbossDoDeploy                                                     \
-         --jboss_home $user_home/.tura/resources/sa/deployments            \
-         --targetName sa-etl-controller.war                                \
-         --srcResource $user_home/.m2/repository/org/tura/sales-analyzer/sa-etl-controller/1.0/sa-etl-controller-1.0.war
+tura:dsl jbossDoDeploy\
+         --jboss_home $tura_working_directory/resources/sa/deployments\
+        --targetName sa-case-manager-react-client.war\
+        --srcResource $mr2/org/tura/sales-analyzer/sa-case-manager-react-client/${tura_version}/sa-case-manager-react-client-${tura_version}.war
 
 
-tura:dsl jbossDoDeploy                                                     \
-         --jboss_home $user_home/.tura/resources/sa/deployments            \
-         --targetName sa-admin.war                                         \
-         --srcResource $user_home/.m2/repository/org/tura/sales-analyzer/sa-admin/1.0/sa-admin-1.0.war
+
+tura:dsl jbossDoDeploy\
+        --jboss_home $tura_working_directory/resources/sa/deployments\
+        --targetName sa-etl-controller.war\
+        --srcResource $mr2/org/tura/sales-analyzer/sa-etl-controller/${tura_version}/sa-etl-controller-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy\
+        --jboss_home $tura_working_directory/resources/sa/deployments\
+        --targetName sa-etl-controller-react-client.war\
+        --srcResource $mr2/org/tura/sales-analyzer/sa-etl-controller-react-client/${tura_version}/sa-etl-controller-react-client-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy\
+         --jboss_home $tura_working_directory/resources/sa/deployments\
+         --targetName sa-admin.war\
+         --srcResource $mr2/org/tura/sales-analyzer/sa-admin/${tura_version}/sa-admin-${tura_version}.war
                    
-
-tura:dsl jbossDoDeploy                                                     \
-         --jboss_home $user_home/.tura/resources/sa/deployments            \
-         --targetName sa-resources.war                                     \
-         --srcResource $user_home/.m2/repository/sales-analyzer/sa-resources/1.0.0-SNAPSHOT/sa-resources-1.0.0-SNAPSHOT.war
-                   
+tura:dsl jbossDoDeploy\
+         --jboss_home $tura_working_directory/resources/sa/deployments\
+         --targetName sa-admin-react-client.war\
+         --srcResource $mr2/org/tura/sales-analyzer/sa-admin-react-client/${tura_version}/sa-admin-react-client-${tura_version}.war
 
 
 tura:docker startContainer --name sa-wf
@@ -114,6 +127,6 @@ tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chown -R jboss:jbos
 
 
 #Deploying jbpm artifacts on kieserver
-tura:dsl exec --cmd "java -jar  $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/target/post-deployer-1.0.0-SNAPSHOT-jar-with-dependencies.jar"
+tura:dsl exec --cmd "java -jar  $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/target/post-deployer-${tura_version}-jar-with-dependencies.jar"
 
 

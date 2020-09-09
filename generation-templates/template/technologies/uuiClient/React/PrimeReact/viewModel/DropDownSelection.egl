@@ -1,0 +1,239 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::DropDownSelection createModel(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     var hints = new Native('java.util.HashMap');
+     var emptyhints = new Native('java.util.HashMap');
+     
+     util.traceIfDebug("UI element","DropDownSelection model start: "+self.uid);     
+     
+    %]
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+            
+		import org.tura.platform.uuiclient.rest.EventDescription;
+		import org.tura.platform.uuiclient.rest.UuiElement;
+		import java.util.List;
+		import java.util.Map;
+     
+       public class DropDownSelection_[%=self.mkuid_()%]  extends UuiElement{
+            private String id = "[%=self.uid%]";
+            private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.DropDownSelection_[%=self.mkuid_()%]";
+
+			private Object value;
+		    private String style;
+		    private String className;
+		    private boolean required;
+			private Object tooltip;
+		    private boolean rendered = true;
+		    private String initialMessage;
+	        private java.util.List<java.util.Map<String,Object>> options;
+		    private boolean disabled;
+		
+		    public boolean isDisabled() {
+		        return disabled;
+		    }
+		
+		    public void setDisabled(boolean disabled) {
+		        this.disabled = disabled;
+		    }
+		    
+       
+       
+		    public String getClazz() {
+				return clazz;
+			}
+		
+			public void setClazz(String clazz) {
+				this.clazz = clazz;
+			}
+	       
+	          public boolean isRendered() {
+			      return rendered;
+		      }
+	
+			  public void setRendered(boolean rendered) {
+					this.rendered = rendered;
+			  }
+			
+          
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
+			}
+			public Object getValue() {
+				return value;
+			}
+			public void setValue(Object value) {
+				this.value = value;
+			}
+			public String getStyle() {
+				return style;
+			}
+			public void setStyle(String style) {
+				this.style = style;
+			}
+			public String getClassName() {
+				return className;
+			}
+			public void setClassName(String className) {
+				this.className = className;
+			}
+			public boolean isRequired() {
+				return required;
+			}
+			public void setRequired(boolean required) {
+				this.required = required;
+			}
+			public Object getTooltip() {
+				return tooltip;
+			}
+			public void setTooltip(Object tooltip) {
+				this.tooltip = tooltip;
+			}
+          
+			public List<Map<String, Object>> getOptions() {
+				return options;
+			}
+		
+			public void setOptions(List<Map<String, Object>> options) {
+				this.options = options;
+			}
+          
+		    public String getInitialMessage() {
+				return initialMessage;
+			}
+		
+			public void setInitialMessage(String initialMessage) {
+				this.initialMessage = initialMessage;
+			}
+          
+          
+          [%
+               hints.put("noCurlyBracket",true);
+          %]
+           @SuppressWarnings("unchecked")
+			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
+			    [%=self.style(hash)%]
+			    [%=self.styleClass(hash)%]
+			    [%=self.rendered(hash)%]
+			    [%=self.disabled(hash)%]
+			    [%=self.required(hash)%]
+			    
+			    [%if ( hash.get("context") = null ){%]
+			    this.value = resolve("[%=self.createValue(hash)%]",elResolver);
+			    [%}else{
+			       if ( hash.get("context") = 'dataScroller' ){ 
+			          var childrenCollection = hash.get("childrenCollection");
+			          childrenCollection.add(self);
+			        }
+			    }%]
+
+			    [%
+				     var t = buildExpression(self.initialOptionMessage,emptyhints,hash);
+				     var title = "";
+				     if (not "".equals(t) ){
+				 %]
+			    this.initialMessage = (String)resolve( "[%=t%]",elResolver);
+				 [%    
+				     }
+			    %]			    
+			    
+			    String modelExpression="#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}";
+                options = new java.util.ArrayList<java.util.Map<String,Object>>(); 
+                java.util.List<Object[]> list = (java.util.List<Object[]>) elResolver.getValue(modelExpression);
+                for( Object[] item : list ){
+                    java.util.Map<String,Object> map = new java.util.HashMap<String,Object>();
+                    map.put("label", item[0]);
+                    map.put("value", item[1]);
+                    options.add(map);
+                }
+          [%
+               hints.clear();
+		       var expression = constructExpression(self,'onChange',hints, hash);
+		       if (expression <> ""){
+		            var parameters = new Native('java.util.ArrayList');
+		            parameters.add("newValue");
+		       %][%=self.initContextTriggers(hash,"onChange",parameters)%][%
+		       }
+               
+          %]
+			    
+			    
+			}
+
+           @SuppressWarnings("unchecked")
+			public UuiElement restoreContext( java.util.Map<String, Object> map,org.tura.platform.uuiclient.rest.DataUpdateRequest request,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState, java.util.List<org.tura.platform.uuiclient.rest.EventDescription> eventsToFire) throws Exception {
+			       this.value =  map.get("value");
+			       
+			       List<Object> events = (List<Object>) map.get("events");
+			       for ( Object child : events) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   EventDescription event = new EventDescription();
+			    	   getEvents().add((EventDescription)event.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       
+			       return this;
+			   }
+			
+			public void applyContext( org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception {
+	             [%if ( hash.get("context") =  null ){%]
+				   apply( this.value ,  "[%=self.createValue(hash)%]" ,elResolver);
+			    [%}%]
+
+            } 			
+
+
+
+			private  Object resolve(String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    return  elResolver.getValue(expression);
+                } else {
+                   return expression;
+                }
+			} 
+          
+  			private  void apply( Object obj , String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                     elResolver.setValue(expression, obj);
+                } 
+			}
+           
+          
+        }    
+
+     [%
+     
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "DropDownSelection_"+self.mkuid_() +".java",out.toString());   
+
+     util.traceIfDebug("UI element","DropDownSelection model end: "+self.uid);     
+
+}
+
+operation form::DropDownSelection className(hash) { 
+   return self.eClass().getName();
+}
+
+%]

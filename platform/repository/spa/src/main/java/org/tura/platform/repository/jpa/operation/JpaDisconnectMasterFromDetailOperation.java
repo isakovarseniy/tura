@@ -1,27 +1,25 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.jpa.operation;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.tura.platform.repository.core.Registry;
@@ -31,12 +29,14 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
+import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class JpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand {
 
+	private static final long serialVersionUID = 865156751889453775L;
 	Object masterPk;
 	String masterClassName;
 	String masterProperty;
@@ -113,8 +113,16 @@ public class JpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand
 
 			RelOperation operation = PersistanceRelationBuilder.build( getRelation());
 			
-			operation.disconnect(master, detail, getMasterProperty());
-			return null;
+	        JpaControl masterControl = new JpaControl(master, getMasterPk(), OperationLevel.DISCONNECT,registryName);
+	        masterControl.setDetailPk(getDetailPk());
+	        masterControl.setMasterProperty(getMasterProperty());
+	        masterControl.setOperation(operation);
+			masterControl.setDetailType(getDetailClassName());
+
+	        List<SpaControl> list= new ArrayList<>();
+	        list.add(masterControl);
+	        return list;
+
 		}catch(Exception e){
 			throw new RepositoryException(e);
 		}

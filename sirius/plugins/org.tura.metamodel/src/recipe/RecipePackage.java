@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package recipe;
@@ -771,13 +785,22 @@ public interface RecipePackage extends EPackage {
 	int JAVA_COMPONENT__COMPONENT_ROOT = COMPONENT__COMPONENT_ROOT;
 
 	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_COMPONENT__VERSION_REF = COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_COMPONENT__ARTIFACT_ID = COMPONENT_FEATURE_COUNT + 0;
+	int JAVA_COMPONENT__ARTIFACT_ID = COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
@@ -786,16 +809,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_COMPONENT__GROUP_ID = COMPONENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_COMPONENT__VERSION = COMPONENT_FEATURE_COUNT + 2;
+	int JAVA_COMPONENT__GROUP_ID = COMPONENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
@@ -807,13 +821,131 @@ public interface RecipePackage extends EPackage {
 	int JAVA_COMPONENT__BASE_PACKAGE = COMPONENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Mapper Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_COMPONENT__MAPPER_REF = COMPONENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Java Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
+	int JAVA_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link recipe.impl.JavaScriptComponentImpl <em>Java Script Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see recipe.impl.JavaScriptComponentImpl
+	 * @see recipe.impl.RecipePackageImpl#getJavaScriptComponent()
+	 * @generated
+	 */
+	int JAVA_SCRIPT_COMPONENT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__COLUMNS = COMPONENT__COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__ORDER = COMPONENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__UID = COMPONENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__NAME = COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__SKIP = COMPONENT__SKIP;
+
+	/**
+	 * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__MAPPERS = COMPONENT__MAPPERS;
+
+	/**
+	 * The feature id for the '<em><b>Component Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__COMPONENT_ROOT = COMPONENT__COMPONENT_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Version Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__VERSION_REF = COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__PACKAGE_NAME = COMPONENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Mapper Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT__MAPPER_REF = COMPONENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Java Script Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.InfrastructureImpl <em>Infrastructure</em>}' class.
@@ -823,7 +955,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getInfrastructure()
 	 * @generated
 	 */
-	int INFRASTRUCTURE = 11;
+	int INFRASTRUCTURE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -860,7 +992,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 12;
+	int CONFIGURATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -915,7 +1047,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getArtifactRef()
 	 * @generated
 	 */
-	int ARTIFACT_REF = 20;
+	int ARTIFACT_REF = 21;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -952,7 +1084,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getModelMapper()
 	 * @generated
 	 */
-	int MODEL_MAPPER = 13;
+	int MODEL_MAPPER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1061,7 +1193,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 14;
+	int PROPERTY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1107,7 +1239,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getHashProperty()
 	 * @generated
 	 */
-	int HASH_PROPERTY = 15;
+	int HASH_PROPERTY = 16;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1153,7 +1285,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getKeyValuePair()
 	 * @generated
 	 */
-	int KEY_VALUE_PAIR = 16;
+	int KEY_VALUE_PAIR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1199,7 +1331,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getMappingTecnologiy()
 	 * @generated
 	 */
-	int MAPPING_TECNOLOGIY = 17;
+	int MAPPING_TECNOLOGIY = 18;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1245,7 +1377,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getQuery()
 	 * @generated
 	 */
-	int QUERY = 18;
+	int QUERY = 19;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1300,7 +1432,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getQueryVariable()
 	 * @generated
 	 */
-	int QUERY_VARIABLE = 19;
+	int QUERY_VARIABLE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1945,17 +2077,6 @@ public interface RecipePackage extends EPackage {
 	EAttribute getJavaComponent_GroupId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link recipe.JavaComponent#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see recipe.JavaComponent#getVersion()
-	 * @see #getJavaComponent()
-	 * @generated
-	 */
-	EAttribute getJavaComponent_Version();
-
-	/**
 	 * Returns the meta object for the attribute '{@link recipe.JavaComponent#getBasePackage <em>Base Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1965,6 +2086,49 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaComponent_BasePackage();
+
+	/**
+	 * Returns the meta object for the reference '{@link recipe.JavaComponent#getMapperRef <em>Mapper Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mapper Ref</em>'.
+	 * @see recipe.JavaComponent#getMapperRef()
+	 * @see #getJavaComponent()
+	 * @generated
+	 */
+	EReference getJavaComponent_MapperRef();
+
+	/**
+	 * Returns the meta object for class '{@link recipe.JavaScriptComponent <em>Java Script Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Java Script Component</em>'.
+	 * @see recipe.JavaScriptComponent
+	 * @generated
+	 */
+	EClass getJavaScriptComponent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link recipe.JavaScriptComponent#getPackageName <em>Package Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Package Name</em>'.
+	 * @see recipe.JavaScriptComponent#getPackageName()
+	 * @see #getJavaScriptComponent()
+	 * @generated
+	 */
+	EAttribute getJavaScriptComponent_PackageName();
+
+	/**
+	 * Returns the meta object for the reference '{@link recipe.JavaScriptComponent#getMapperRef <em>Mapper Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mapper Ref</em>'.
+	 * @see recipe.JavaScriptComponent#getMapperRef()
+	 * @see #getJavaScriptComponent()
+	 * @generated
+	 */
+	EReference getJavaScriptComponent_MapperRef();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.Infrastructure <em>Infrastructure</em>}'.
@@ -2922,20 +3086,46 @@ public interface RecipePackage extends EPackage {
 		EAttribute JAVA_COMPONENT__GROUP_ID = eINSTANCE.getJavaComponent_GroupId();
 
 		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_COMPONENT__VERSION = eINSTANCE.getJavaComponent_Version();
-
-		/**
 		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JAVA_COMPONENT__BASE_PACKAGE = eINSTANCE.getJavaComponent_BasePackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapper Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JAVA_COMPONENT__MAPPER_REF = eINSTANCE.getJavaComponent_MapperRef();
+
+		/**
+		 * The meta object literal for the '{@link recipe.impl.JavaScriptComponentImpl <em>Java Script Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see recipe.impl.JavaScriptComponentImpl
+		 * @see recipe.impl.RecipePackageImpl#getJavaScriptComponent()
+		 * @generated
+		 */
+		EClass JAVA_SCRIPT_COMPONENT = eINSTANCE.getJavaScriptComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_COMPONENT__PACKAGE_NAME = eINSTANCE.getJavaScriptComponent_PackageName();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapper Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JAVA_SCRIPT_COMPONENT__MAPPER_REF = eINSTANCE.getJavaScriptComponent_MapperRef();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.InfrastructureImpl <em>Infrastructure</em>}' class.

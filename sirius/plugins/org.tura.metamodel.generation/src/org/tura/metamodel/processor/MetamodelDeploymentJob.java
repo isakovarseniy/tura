@@ -1,30 +1,36 @@
-/*******************************************************************************
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.processor;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.StringTokenizer;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
@@ -34,7 +40,6 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 
-import recipe.DeploymentComponent;
 import recipe.Infrastructure;
 import recipe.Recipe;
 
@@ -43,6 +48,9 @@ public class MetamodelDeploymentJob extends Job {
 	public static String CONSOLE_NAME = "Metamodel output";
 	private IEditorPart editorPart;
 	private Infrastructure infrastructure;
+	private String job1 = Util.turaLocation()+"processor/tura-gogo.sh";
+	private String job2 = "-c tura:build --recipeId ${recipeId} --infraId ${infraId} --modelFile ${file}";
+	
 
 	public IEditorPart getEditorPart() {
 		return editorPart;
@@ -72,72 +80,58 @@ public class MetamodelDeploymentJob extends Job {
 		try {
 			Recipe recipe = new QueryHelper().getRecipe(infrastructure);
 
-			if (recipe.getDeplymentStep() == null || recipe.getDeplymentStep().size() == 0) {
-				notifyError("Deployment Sequence is not defined properly");
-				return Status.OK_STATUS;
-			}
-
-			if (recipe.getStartSeq() == null) {
-				notifyError("Start step  is not defined");
-				return Status.OK_STATUS;
-			}
-
 			MessageConsole myConsole = findConsole(CONSOLE_NAME);
 			MessageConsoleStream out = myConsole.newMessageStream();
 
 			System.setOut(new PrintStream(out));
 			System.setErr(new PrintStream(out));
 
-			DeploymentComponent component = recipe.getStartSeq().getFirstStep();
+			boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+			Process process;
 
-			int i = 0;
-			for (; component != null; component = component.getDeploymentComponentLink(), i++) {
+			XMIResource res  =  (XMIResource) infrastructure.eResource();
+			String s = res.getURI().toPlatformString(false);
+			StringTokenizer token = new StringTokenizer(s,"//");
+			String projectName = token.nextToken() ;
+			String resourcePath = s.substring(projectName.length()+1);
+			
+			IWorkspace workspace = ResourcesPlugin.getWorkspace(); 
+			IProject p  = workspace.getRoot().getProject(projectName);
+			String  path = new File(  p.getLocation().toFile(), resourcePath).getPath();
+			
+			
+			job1 = job1.replace("${user_home}" , System.getProperty("user.home"));
+			job2 = job2.replace("${recipeId}" , recipe.getUid());
+			job2 = job2.replace("${infraId}" , infrastructure.getUid());
+			job2 = job2.replace("${file}" , path);
+			
+			
+			if (isWindows) {
+				process = Runtime.getRuntime().exec( new String[] {job1,job2} );
+			} else {
+				process = Runtime.getRuntime().exec(new String[] {job1,job2});
 			}
 
-			component = recipe.getStartSeq().getFirstStep();
 
-			monitor.beginTask("Component deployment", i);
+			StreamPumper inputPumper = new StreamPumper(process.getInputStream());
+			StreamPumper errorPumper = new StreamPumper(process.getErrorStream());
 
-			while (component != null) {
+			// starts pumping away the generated output/error
+			inputPumper.start();
+			errorPumper.start();
 
-				monitor.subTask(component.getMapper().getName());
-				String artifactExecutionString = null;
-				try {
-					artifactExecutionString = new Util().getArtifactExecution(component.getMapper());
-				} catch (IOException e) {
-				}
+			// Wait for everything to finish
+			process.waitFor();
+			inputPumper.join();
+			errorPumper.join();
+			process.destroy();
 
-				if (!component.isSkip() && artifactExecutionString != null) {
-					System.out.println("Execution: " + artifactExecutionString);
-					Process proc = Runtime.getRuntime().exec(artifactExecutionString);
-
-					StreamPumper inputPumper = new StreamPumper(proc.getInputStream());
-					StreamPumper errorPumper = new StreamPumper(proc.getErrorStream());
-
-					// starts pumping away the generated output/error
-					inputPumper.start();
-					errorPumper.start();
-
-					// Wait for everything to finish
-					proc.waitFor();
-					inputPumper.join();
-					errorPumper.join();
-					proc.destroy();
-
-					System.out.println("Execution result : " + proc.exitValue());
-					if (proc.exitValue() != 0) {
-						System.err.println("Exception during deployment " + component.getName());
-						throw new Exception("Exception during deployment " + component.getName());
-					}
-
-				} else {
-					if (!component.isSkip()) {
-						System.err.println(component.getMapper().getName() + " has empty execution string");
-					}
-				}
-				component = component.getDeploymentComponentLink();
-				monitor.worked(1);
+			System.out.println("Execution result : " + process.exitValue());
+			if (process.exitValue() != 0) {
+				System.err.println("Exception during generation ");
+				throw new Exception("Exception during generation ");
 			}
+
 		} catch (Exception e) {
 			LogUtil.log(e);
 		} finally {
@@ -147,16 +141,6 @@ public class MetamodelDeploymentJob extends Job {
 		return Status.OK_STATUS;
 	}
 
-	private void notifyError(final String message) {
-		Display.getDefault().asyncExec(new Runnable() {
-			public void run() {
-				MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), "Tura", null, message,
-						MessageDialog.ERROR, new String[] { "Ok" }, 0);
-				dialog.open();
-			}
-		});
-
-	}
 
 	public MessageConsole findConsole(String name) {
 		ConsolePlugin plugin = ConsolePlugin.getDefault();

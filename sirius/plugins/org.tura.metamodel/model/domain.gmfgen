@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gmfgen:GenEditorGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" copyrightText="">
-  <diagram visualID="79" editPartClassName="DomainEditPart" itemSemanticEditPolicyClassName="DomainItemSemanticEditPolicy" canonicalEditPolicyClassName="DomainCanonicalEditPolicy" iconProviderPriority="Low" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" liveValidationUIFeedback="true">
+  <diagram visualID="1000" editPartClassName="DomainEditPart" itemSemanticEditPolicyClassName="DomainItemSemanticEditPolicy" canonicalEditPolicyClassName="DomainCanonicalEditPolicy" iconProviderPriority="Low" validationProviderPriority="Low" validationEnabled="true" validationDecorators="true" liveValidationUIFeedback="true">
     <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="DomainEditHelper"/>
     <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
     <containsShortcutsTo>domain</containsShortcutsTo>
     <shortcutsProvidedFor>domain</shortcutsProvidedFor>
     <domainDiagramElement href="domain.genmodel#//domain/Domain"/>
-    <topLevelNodes visualID="1001" editPartClassName="DomainArtifactsEditPart" itemSemanticEditPolicyClassName="DomainArtifactsItemSemanticEditPolicy" canonicalEditPolicyClassName="DomainArtifactsCanonicalEditPolicy" graphicalNodeEditPolicyClassName="DomainArtifactsGraphicalNodeEditPolicy" createCommandClassName="DomainArtifactsCreateCommand">
+    <topLevelNodes visualID="2001" editPartClassName="DomainArtifactsEditPart" itemSemanticEditPolicyClassName="DomainArtifactsItemSemanticEditPolicy" canonicalEditPolicyClassName="DomainArtifactsCanonicalEditPolicy" graphicalNodeEditPolicyClassName="DomainArtifactsGraphicalNodeEditPolicy" createCommandClassName="DomainArtifactsCreateCommand">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="DomainArtifactsEditHelper"/>
       <viewmap xsi:type="gmfgen:InnerClassViewmap" className="DomainArtifactsFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DomainArtifactsFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDomainArtifactsLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DomainArtifactsFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDomainArtifactsLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDomainArtifactsLabelFigure.setText(&quot;DomainArtifacts&quot;);&#xA;&#xA;this.add(fFigureDomainArtifactsLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDomainArtifactsLabelFigure() {&#xA;&#x9;&#x9;return fFigureDomainArtifactsLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
@@ -16,7 +16,7 @@
         <containmentMetaFeature href="domain.genmodel#//domain/Domain/domainArtifacts"/>
         <childMetaFeature href="domain.genmodel#//domain/Domain/domainArtifacts"/>
       </modelFacet>
-      <labels visualID="4001" editPartClassName="DomainArtifactsNameEditPart" itemSemanticEditPolicyClassName="DomainArtifactsNameItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5001" editPartClassName="DomainArtifactsNameEditPart" itemSemanticEditPolicyClassName="DomainArtifactsNameItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureDomainArtifactsLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">

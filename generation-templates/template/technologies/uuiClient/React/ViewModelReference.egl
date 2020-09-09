@@ -1,0 +1,82 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  buildContextRefClass(hash,form) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     
+      var queryHelper = new Native('org.tura.metamodel.commons.QueryHelper');
+      var nickNamed = queryHelper.collectRefreshedAeas(form.view);
+      
+      var modelRegistration = hash.get("modelRegistration");
+      
+      
+    %]
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+   
+       import org.tura.platform.uuiclient.rest.client.commands.ContextRef;
+       import org.tura.platform.uuiclient.rest.UuiElement;
+   
+      @org.tura.platform.uuiclient.annotations.FormContextRef(form="[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  
+       public class ContextRefClass implements ContextRef {
+         
+         private java.util.HashMap<String,UuiElement>  contextRef = new  java.util.HashMap<String,UuiElement>();
+         
+         public ContextRefClass(){
+         
+         [%
+             for (canvas in form.view.canvases){
+           %]  
+                     contextRef.put("[%=canvas.uid%]", new [%=canvas.eClass().getName()%]_[%=canvas.mkuid_()%]());
+             [%
+             }
+
+             for (nn in modelRegistration){
+           %]  
+                     contextRef.put("[%=nn.uid%]", new [%=nn.eClass().getName()%]_[%=nn.mkuid_()%]());
+             [%
+             }
+
+             for (nn in nickNamed){
+           %]  
+                     contextRef.put("[%=nn.uid%]", new [%=nn.className(hash)%]_[%=nn.mkuid_()%]());
+             [%
+             }
+
+         %]
+
+
+         
+         }
+
+		@Override
+		public UuiElement getModel(String id) {
+			return contextRef.get(id);
+		}
+         
+       
+    }
+[%
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "ContextRefClass.java",out.toString());   
+     
+}
+%]

@@ -1,22 +1,25 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.lang.StringUtils;
 import org.tura.configuration.dsl.commons.StreamReader;
+import org.tura.metamodel.commons.OSHelper;
 
 public class ExecuteExternalOperation {
 
@@ -31,7 +34,15 @@ public class ExecuteExternalOperation {
 		ExecutorService exInfoService = Executors.newSingleThreadExecutor();
 		try {
 
-			String[] args = new String[] { "/bin/sh", "-c", job };
+			String[] args = null;
+
+			if ( OSHelper.isWindows()) {
+		    	job = StringUtils.replace(job, "\\\n", " ");
+				args = new String[] { "cmd", "/c", job };
+		    }else {
+				args = new String[] { "/bin/sh", "-c", job };
+		    }
+			
 			Process process = new ProcessBuilder(args).start();
 
 			StreamReader infoStreamGobbler = new StreamReader(process.getInputStream(),  false);
@@ -40,7 +51,10 @@ public class ExecuteExternalOperation {
 			exInfoService.submit(infoStreamGobbler);
 
 			int exitCode = process.waitFor();
-			assert exitCode == 0;
+			if ( exitCode != 0 ) {
+				System.out.println("Error during execution "+job);
+				return;
+			}
 		} catch (Throwable e) {
 			throw new RuntimeException(e);
 		} finally {

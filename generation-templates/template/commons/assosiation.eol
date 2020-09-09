@@ -1,0 +1,323 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+ operation type::Assosiation findTypeOfAssosiation(model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var masterType;
+     var detailType;
+     var property;
+     var containment=false; 
+     
+     
+     if( self.type.toString() =="One2Many"  ){
+        masterType = self.source;
+	    if (masterType.isKindOf(type::TypeReference )){
+	         masterType = masterType.typeRef;
+	    }
+        detailType = self.target;
+	    if (detailType.isKindOf(type::TypeReference )){
+	         detailType = detailType.typeRef;
+	    }
+
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Source"){
+           containment=true;
+         }
+     }
+     if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
+         masterType = self.source;
+	    if (masterType.isKindOf(type::TypeReference )){
+	         masterType = masterType.typeRef;
+	    }
+         
+        detailType = self.target;
+	    if (detailType.isKindOf(type::TypeReference )){
+	         detailType = detailType.typeRef;
+	    }
+         
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Source"){
+           containment=true;
+         }
+     }
+     if( self.type.toString() == "One2One" and self.containment.toString()=="Target"  ){
+         masterType = self.target;
+         detailType = self.source;
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Target"){
+           containment=true;
+         }
+         
+     }
+
+     if( self.type.toString() == "Many2Many"  ){
+         masterType = self.source;
+         detailType = self.target;
+         property = util.mergeAndCapitalize(detailType.name);
+     }
+	     
+     var hash = new Native('java.util.HashMap');
+     hash.put("masterType",masterType);
+     hash.put("detailType",detailType);
+     hash.put("property",property);
+     hash.put("containment",containment);
+     hash.put("masterContainment",containment);
+
+      return hash;
+ }
+
+
+ operation type::TypeElement collectType(typeCollection,model_mapper,skattr,pk,bndattr){
+    var tp = self;
+    var util = new Native('org.tura.metamodel.commons.Util');
+
+    if (self.isTypeOf(type::TypeReference)){
+        tp = self.typeRef;
+    }
+    
+    if (not typeCollection.contains(tp)){
+        typeCollection.add(tp);
+    }
+    
+    
+    var skipAttributes=skattr;
+    if (skattr == null){
+        skipAttributes=new Native('java.util.ArrayList');
+    }
+    
+    var primaryKey=pk;
+    if (pk == null){
+        primaryKey=new Native('java.util.ArrayList');
+        self.~primaryKey = primaryKey;
+    }
+
+    var bindedAttribute=bndattr;
+    if (bindedAttribute == null){
+        bindedAttribute=new Native('java.util.ArrayList');
+        self.~bindedAttribute = bindedAttribute;
+    }
+
+
+     for(field in tp.attributes){
+        if (field.pk){
+            primaryKey.add(field);
+        }
+     }
+
+     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
+     for (rel in assosiations){
+        rel.check(); 
+  	    var tp1 =  rel.target;
+	    if (tp1.isKindOf(type::TypeReference )){
+	        tp1 = tp1.typeRef;
+	    }
+	    if (not typeCollection.contains(tp1)){
+	        tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+     }
+
+
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
+     for (rel in assosiations){
+        rel.check(); 
+  	    var tp1 =  rel.source;
+	    if (tp1.isKindOf(type::TypeReference )){
+	        tp1 = tp1.typeRef;
+	    }
+	    if (not typeCollection.contains(tp1)){
+	    	tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+     }
+
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
+     for (rel in assosiations){
+
+         for (lnk in rel.links){
+             skipAttributes.add(lnk.detailField);
+         }
+         
+
+     }           
+    self.~skipAttributes=skipAttributes;
+    self.~bindedAttribute=bindedAttribute;
+    
+    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
+    if (extension <> null){
+	   var ex =  extension.target;
+	   if (ex.isKindOf(type::TypeReference )){
+	       ex = extension.target.typeRef;
+	   }
+	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey,bindedAttribute);
+	   tp.~extension = ex;
+    }
+ }
+ 
+
+operation type::Assosiation  check(){
+        if (self.type.toString() == "Many2Many" ){
+	        for (link in self.links){
+	             if (not link.masterField.pk and not link.masterField.uk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Master field has to be primary key ";
+	             }
+	             if (not link.detailField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Detail field  has to be primary key   ";
+	             }
+	        }  
+        }else{
+	        for (link in self.links){
+	             if (not link.masterField.pk  and not link.masterField.uk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Master field has to be primary key ";
+	             }
+	             if (link.detailField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Detail field should not be primary key  ";
+	             }
+	        }  
+        }
+}
+
+operation type::Assosiation  sourceSideNamesCalculation(){
+   var util = new Native('org.tura.metamodel.commons.Util');
+
+    var target = self.target;
+    if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+    }
+    
+   var suffix ="";
+   if (self.source.uid = self.target.uid){
+      suffix = "Master";
+   }
+    var containment = false;
+    if (self.containment.toString() == "Source"){
+           containment=true;
+    }
+    if (self.internal){
+           containment=true;
+    }
+    
+    
+     var sourceMethodName = util.mergeAndCapitalize(target.name);
+
+     if (self.sourceOperation.isDefined()){
+         sourceMethodName = util.mergeAndCapitalize(self.sourceOperation);
+      }
+     var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+  
+    var source = self.source;
+    if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+    }
+    var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
+
+     if (self.targetOperation.isDefined()){
+         targetMethodName = util.mergeAndCapitalize(self.targetOperation);
+     }
+     var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+
+     var hash = new Native('java.util.HashMap');
+     hash.put("sourceMethodName",sourceMethodName);
+     hash.put("sourceProperty",sourceProperty);
+     hash.put("targetMethodName",targetMethodName);
+     hash.put("targetProperty",targetProperty);
+     hash.put("target",target);
+     hash.put("source",source);
+     hash.put("containment",containment);
+
+      return hash;
+}
+
+operation type::Assosiation  targetSideNamesCalculation(){
+   var util = new Native('org.tura.metamodel.commons.Util');
+
+    var source = self.source;
+    if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+    }
+  
+   var suffix ="";
+   if (self.source.uid = self.target.uid){
+      suffix = "Master";
+   }
+  
+    var containment = false;
+    if (self.containment.toString() == "Target"){
+           containment=true;
+    }
+    if (self.internal){
+           containment=false;
+    }
+  
+  
+     var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
+     if (self.targetOperation.isDefined()){
+         targetMethodName = util.mergeAndCapitalize(self.targetOperation);
+      }
+     var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+  
+     var target = self.target;
+     if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+     }
+  
+     var sourceMethodName = util.mergeAndCapitalize(target.name);
+     if (self.sourceOperation.isDefined()){
+         sourceMethodName = util.mergeAndCapitalize(self.sourceOperation);
+      }
+     var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+
+     var hash = new Native('java.util.HashMap');
+     hash.put("sourceMethodName",sourceMethodName);
+     hash.put("sourceProperty",sourceProperty);
+     hash.put("targetMethodName",targetMethodName);
+     hash.put("targetProperty",targetProperty);
+     hash.put("source",source);
+     hash.put("target",target);
+     hash.put("containment",containment);
+
+      return hash;
+
+}
+
+operation type::Assosiation merge(hash){
+    var source = self.source;
+    var isRef = false;
+    
+    if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+         isRef = true;
+    }
+    var target = self.target;
+     if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+         isRef = true;
+     }
+     if (isRef){
+	     var obj = hash.get(source.uid+"  +  "+target.uid );
+	     if ( obj == null){
+	        obj = hash.get(target.uid+"  +  "+source.uid );
+	     }
+	     if ( obj == null){
+	        hash.put(source.uid+"  +  "+target.uid , self.uid);
+	        hash.put(target.uid+"  +  "+source.uid , self.uid );
+	     }
+	     return obj;
+     }else{
+        return null;
+     }
+     
+    
+    
+
+}
+

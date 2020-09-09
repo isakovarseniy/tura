@@ -1,10 +1,18 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
 tura:docker stopContainer --name hr-wf
 
+tura:dsl removeFile --targetLocation $tura_working_directory/resources/hrmanager/deployments
+tura:dsl mkDir --targetLocation $tura_working_directory/resources/hrmanager/deployments
 
-tura:dsl exec --cmd "rm -rf   $user_home/.tura/resources/hrmanager/deployments"
-tura:dsl exec --cmd "mkdir -p $user_home/.tura/resources/hrmanager/deployments"
+tura:dsl jbossDoDeploy --jboss_home $tura_working_directory/resources/hrmanager/deployments\
+                                      --targetName hrform-react-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/example/ui/hrform-react/${tura_version}/hrform-react-${tura_version}.war
 
-tura:dsl jbossDoDeploy --jboss_home $user_home/.tura/resources/hrmanager/deployments --targetName hrform-1.0.war --srcResource $user_home/.m2/repository/org/tura/example/ui/hrform/1.0/hrform-1.0.war
+
+tura:dsl jbossDoDeploy --jboss_home $tura_working_directory/resources/hrmanager/deployments\
+                                      --targetName hr-form-react-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/example/ui/hr-form-react-client/${tura_version}/hr-form-react-client-${tura_version}.war
+
 
 tura:docker startContainer --name hr-wf
-

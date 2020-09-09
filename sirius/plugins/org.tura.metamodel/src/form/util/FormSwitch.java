@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.util;
@@ -746,6 +760,7 @@ public class FormSwitch<T> extends Switch<T> {
 				FileDownload fileDownload = (FileDownload)theEObject;
 				T result = caseFileDownload(fileDownload);
 				if (result == null) result = caseUielement(fileDownload);
+				if (result == null) result = caseMultiLangLabel(fileDownload);
 				if (result == null) result = caseStyleElement(fileDownload);
 				if (result == null) result = caseNickNamed(fileDownload);
 				if (result == null) result = caseCategorized(fileDownload);
@@ -786,6 +801,23 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEnabledUIItem(poll);
 				if (result == null) result = caseFlexFields(poll);
 				if (result == null) result = caseMenuHolder(poll);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.DATA_TEMPLATE: {
+				DataTemplate dataTemplate = (DataTemplate)theEObject;
+				T result = caseDataTemplate(dataTemplate);
+				if (result == null) result = caseInputElement(dataTemplate);
+				if (result == null) result = caseSourcesPointer(dataTemplate);
+				if (result == null) result = caseUielement(dataTemplate);
+				if (result == null) result = caseControlPointer(dataTemplate);
+				if (result == null) result = caseStyleElement(dataTemplate);
+				if (result == null) result = caseNickNamed(dataTemplate);
+				if (result == null) result = caseCategorized(dataTemplate);
+				if (result == null) result = caseOrderable(dataTemplate);
+				if (result == null) result = caseEnabledUIItem(dataTemplate);
+				if (result == null) result = caseFlexFields(dataTemplate);
+				if (result == null) result = caseMenuHolder(dataTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1724,21 +1756,6 @@ public class FormSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Option Selection</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Option Selection</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOptionSelection(OptionSelection object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Layer Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1840,6 +1857,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCheckBox(CheckBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Option Selection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Option Selection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOptionSelection(OptionSelection object) {
 		return null;
 	}
 
@@ -2065,6 +2097,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoll(Poll object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Template</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataTemplate(DataTemplate object) {
 		return null;
 	}
 

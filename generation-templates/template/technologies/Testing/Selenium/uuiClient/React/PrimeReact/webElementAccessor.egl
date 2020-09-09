@@ -1,0 +1,630 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+@template
+operation  form::Button accessor(id,methodName,model_mapper) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("button[id$=\''+id+'\']")';
+   %]
+     public org.tura.platform.selenium.Button get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+      
+       return new org.tura.platform.selenium.primereact.ButtonPrimeReact (element[0],webDriver);
+      }
+      
+     public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+    [%
+}
+
+@template
+operation  form::CheckBox accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';
+
+   %]
+     public org.tura.platform.selenium.CheckBox get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+        return new org.tura.platform.selenium.primereact.CheckBoxPrimeReact(  element[0],webDriver);
+      }
+
+     public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+      
+      [%   
+}
+
+
+@template
+operation  form::Date accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("span[id$=\''+id+'\']")';
+   %]
+     public org.tura.platform.selenium.Date get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+       return new org.tura.platform.selenium.primereact.DatePrimeReact( element[0],webDriver);
+      }
+
+     public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }         
+      [%   
+}
+
+
+@template
+operation  form::DropDownSelection accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';
+     
+   %]
+     public org.tura.platform.selenium.DropDownSelection get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.DropDownSelectionPrimeReact(  element[0],"[%=id%]",webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }       
+     [%   
+}
+
+
+@template
+operation  form::Image accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("img[id$=\''+id+'\']")';     
+   %]
+     public org.tura.platform.selenium.Image get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.ImagePrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+      [%   
+}
+
+
+@template
+operation  form::InputText accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.InputTextPrimeReact( element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+     
+     [%   
+}
+
+@template
+operation  form::Password accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.InputTextPrimeReact( element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+     
+     [%   
+}
+
+
+
+
+@template
+operation  form::Label accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("label[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.Label get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+         return new org.tura.platform.selenium.primereact.LabelPrimeReact(element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+     [%   
+}
+
+
+@template
+operation  form::MessageElement accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     
+     if (self.findClassifier(util.getHint(model_mapper,"UIMessages"))){
+   %]
+     public org.tura.platform.selenium.Messages get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+     
+         return new org.tura.platform.selenium.primereact.MessagesPrimeReact(element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+     [%   
+     }else{
+   %]
+     public org.tura.platform.selenium.Message get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+     
+         return new org.tura.platform.selenium.primereact.MessagePrimeReact(element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+     [%   
+     }
+     
+     
+     
+     
+}
+
+
+@template
+operation  form::OutputText accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+    var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.OutputText get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+        return new org.tura.platform.selenium.primereact.OutputTextPrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+  
+      [%   
+}
+
+@template
+operation  form::LayerHolder accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+    var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.LayerHolder get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.LayerHolderPrimeReact( element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }       
+     [%   
+}
+
+
+@template
+operation  form::Table accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.Table get[%=util.mergeAndCapitalize(methodName)%](){
+            org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.TablePrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }       
+      
+      [%   
+}
+
+@template
+operation  form::Tree accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.Tree get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.TreePrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+      
+      
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'_contextMenu\']")';     
+
+   %]
+     public org.tura.platform.selenium.Menu get[%=util.mergeAndCapitalize(methodName)%]ContextMenu(){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.MenuPrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]ContextMenuSearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+      
+      
+      
+      
+      
+}
+
+
+@template
+operation  form::Window accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.Tree get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.TreePrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+@template
+operation  form::Canvas accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return  element[0];
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+@template
+operation  form::PopupCanvas accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return  element[0];
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+@template
+operation  form::TabPage accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     var list = TabPagesInheritance->allInstances()->select(r|r.target.uid = self.uid)->collect(q|q.source);
+     var tabCanvasUid = list.get(0).uid;
+     
+     var s = 'org.openqa.selenium.By.cssSelector("a[href$=\'#'+tabCanvasUid+"_content_"+self.tabSequence+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return element[0];
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+
+@template
+operation  form::ViewArea accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return  element[0];
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+
+@template
+operation  form::ViewPort accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return element[0];
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+
+@template
+operation  form::Menu accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::DataScroller accessor(id,methodName,model_mapper) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.DataScroller get[%=util.mergeAndCapitalize(methodName)%](){
+            org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.DataScrollerPrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }       
+      
+      [%   
+}
+
+@template
+operation  form::FileUpload accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::WindowRef accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::SelectManyMenu accessor(id,methodName,model_mapper) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.SelectMany get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return new org.tura.platform.selenium.primereact.SelectManyPrimeReact( element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+     
+     [%   
+
+
+}
+
+@template
+operation  form::RadioSelection accessor(id,methodName,model_mapper) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.RadioGroup get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+     
+         return new org.tura.platform.selenium.primereact.RadioGroupPrimeReact(element[0],webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+     [%   
+
+}
+@template
+operation  form::DataExporter accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::FileDownload accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::Poll accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::OverlayCanvas accessor(id,methodName,model_mapper) {
+}
+
+
+
+
+%]

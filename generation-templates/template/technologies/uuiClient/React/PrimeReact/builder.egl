@@ -1,0 +1,120 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+%]
+
+[%
+
+
+ @template
+operation  maven_build_runner(hash) {
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var configuration = hash.get("configuration");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+
+    var artifactShift = "";
+    if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+      artifactShift =  model_mapper.artifactRoot+"/";
+    }
+    var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+artifactShift+component.getArtifactId;  
+
+ %]
+[%=mavenBuilder_mavenCleanInstall(configuration, path ,hash)%]
+[%    
+
+    util.saveArtifactExecution( model_mapper,  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension());
+    util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+}
+
+ @template
+operation  maven_builder(hash) {
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var alltypes = hash.get("alltypes");
+    var configuration = hash.get("configuration");
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var lib = new Native('java.util.HashMap');
+
+     
+     var versions = recipe.eContainer().eContainer().eContainer().eContainer().applicationMappers.versions;
+     var turaversion = versions->select(t|t.name = "platform.version" ).first.version;
+     
+     var currentLib = component.getArtifactId()+component.getVersion()+".jar";
+     for (type in alltypes){
+        type.mappingType2Java(recipe,ingredient,'MODEL');
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         lib.put(type.~library,h);
+	         
+         }
+         
+        type.mappingType2Java(recipe,ingredient,'VIEW');
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         lib.put(type.~library,h);
+         }
+         
+        type.mappingType2JavaScript(recipe,ingredient,'VIEW');
+        if (type.~mapper <> null and  type.~mapper.equals("Type2JavaScript") and   type.~library.equals(currentLib)<>true ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         lib.put(type.~library,h);
+         }
+      }
+
+    hash.put("lib",lib);
+    hash.put("turaVersion", turaversion);
+
+  
+     var builder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/MavenWARBuilder.egl",hash,TemplateFactory);
+     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     builder.setFormatter(f);
+    
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
+     var buffer = builder.process();
+     
+     util.saveFile( path, "pom.xml",buffer); 
+
+}    
+
+ @template
+operation deployment(hash){
+         war_deployment(hash);     
+}
+
+
+ @template
+operation  ant_builder(hash) {
+    
+ 
+}
+%]

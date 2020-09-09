@@ -55,12 +55,19 @@ import java.util.Comparator;
 /**
  * Job: Load_Monthly_Data Purpose: <br>
  * Description:  <br>
- * @author 
- * @version 6.4.1.20170623_1246
+ * @author user@talend.com
+ * @version 7.3.1.20200117_1600-M6
  * @status 
  */
 public class Load_Monthly_Data implements TalendJob {
 
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
+
+}
 
 
 	public final Object obj = new Object();
@@ -168,7 +175,7 @@ public String getSession(){
 	return this.session;
 }
 	}
-	private ContextProperties context = new ContextProperties();
+	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
 	public ContextProperties getContext() {
 		return this.context;
 	}
@@ -191,6 +198,8 @@ private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
+	
+	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
@@ -198,6 +207,7 @@ private RunStat runStat = new RunStat();
 			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
+		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
 
@@ -513,7 +523,7 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
 			}
-		
+	
 
 
 
@@ -531,10 +541,13 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -560,43 +573,101 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	
 		int tos_count_tJDBCConnection_1 = 0;
 		
-    	class BytesLimit65535_tJDBCConnection_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCConnection_1().limitLog4jByte();
-	
 
-	
-		String url_tJDBCConnection_1 = "jdbc:postgresql://db:5432/postgres";
 
-	String dbUser_tJDBCConnection_1 = "postgres";
-	
-	
-		 
-	final String decryptedPassword_tJDBCConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword("610243e4ca33e325f4f7aba1746784ea");
-		String dbPwd_tJDBCConnection_1 = decryptedPassword_tJDBCConnection_1;
-	
+org.talend.components.api.component.ComponentDefinition def_tJDBCConnection_1 =
+        new org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionDefinition();
 
-	java.sql.Connection conn_tJDBCConnection_1 = null;
-	
-		
-		String driverClass_tJDBCConnection_1 = "org.postgresql.Driver";
-		java.lang.Class.forName(driverClass_tJDBCConnection_1);
-		
-		conn_tJDBCConnection_1 = java.sql.DriverManager.getConnection(url_tJDBCConnection_1,dbUser_tJDBCConnection_1,dbPwd_tJDBCConnection_1);
+org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionProperties props_tJDBCConnection_1 =
+        (org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionProperties) def_tJDBCConnection_1.createRuntimeProperties();
+ 		                    props_tJDBCConnection_1.setValue("shareConnection",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("useDataSource",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("useAutoCommit",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("autocommit",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.setValue("jdbcUrl",
+ 		                    "jdbc:postgresql://db:5432/postgres");
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.setValue("driverClass",
+ 		                    "org.postgresql.Driver");
+ 		                    
+ 		                    java.util.List<Object> tJDBCConnection_1_connection_driverTable_drivers = new java.util.ArrayList<Object>();
+ 		                    
+ 		                                tJDBCConnection_1_connection_driverTable_drivers.add("mvn:org.talend.libraries/postgresql-9.4-1201.jdbc41/6.0.0/jar");
+ 		                                
+ 		                            tJDBCConnection_1_connection_driverTable_drivers.add("");
+ 		                            
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCConnection_1.connection.driverTable).setValue("drivers",tJDBCConnection_1_connection_driverTable_drivers);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.userPassword.setValue("userId",
+ 		                    "postgres");
+ 		                    
+ 		                        props_tJDBCConnection_1.connection.userPassword.setValue("password",
+ 		                        routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:AEQbKnjGmP6vM42CF5l9w0AhusYySQmIz3NQFduMkRpmz2iI"));
+ 		                        
+globalMap.put("tJDBCConnection_1_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCConnection_1);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCConnection_1= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCConnection_1_MAPPINGS_URL", mappings_url_tJDBCConnection_1);
 
-		globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	if (null != conn_tJDBCConnection_1) {
-		
-			conn_tJDBCConnection_1.setAutoCommit(true);
+org.talend.components.api.container.RuntimeContainer container_tJDBCConnection_1 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCConnection_1";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
+
+int nb_line_tJDBCConnection_1 = 0;
+
+org.talend.components.api.component.ConnectorTopology topology_tJDBCConnection_1 = null;
+topology_tJDBCConnection_1 = org.talend.components.api.component.ConnectorTopology.NONE;
+
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCConnection_1 = def_tJDBCConnection_1.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCConnection_1, topology_tJDBCConnection_1);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCConnection_1 = def_tJDBCConnection_1.getSupportedConnectorTopologies();
+
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCConnection_1 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCConnection_1.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCConnection_1 = componentRuntime_tJDBCConnection_1.initialize(container_tJDBCConnection_1, props_tJDBCConnection_1);
+
+if (initVr_tJDBCConnection_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCConnection_1.getMessage());
+}
+
+if(componentRuntime_tJDBCConnection_1 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCConnection_1 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCConnection_1;
+	compDriverInitialization_tJDBCConnection_1.runAtDriver(container_tJDBCConnection_1);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCConnection_1 = null;
+if(componentRuntime_tJDBCConnection_1 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCConnection_1 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCConnection_1;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCConnection_1 = sourceOrSink_tJDBCConnection_1.validate(container_tJDBCConnection_1);
+	if (vr_tJDBCConnection_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCConnection_1.getMessage());
 	}
-	
-	globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	globalMap.put("url_tJDBCConnection_1", url_tJDBCConnection_1);
-	globalMap.put("username_tJDBCConnection_1", dbUser_tJDBCConnection_1);
+}
 
  
 
@@ -618,6 +689,7 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 
 	
 
+
  
 
 
@@ -625,6 +697,48 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 
 /**
  * [tJDBCConnection_1 main ] stop
+ */
+	
+	/**
+	 * [tJDBCConnection_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCConnection_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCConnection_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCConnection_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCConnection_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCConnection_1 process_data_end ] stop
  */
 	
 	/**
@@ -638,6 +752,7 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	currentComponent="tJDBCConnection_1";
 
 	
+// end of generic
 
  
 
@@ -687,6 +802,7 @@ end_Hash.put("tJDBCConnection_1", System.currentTimeMillis());
 	currentComponent="tJDBCConnection_1";
 
 	
+// finally of generic
 
  
 
@@ -6277,10 +6393,13 @@ public void tFileInputDelimited_1Process(final java.util.Map<String, Object> glo
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -6325,54 +6444,271 @@ out4Struct out4 = new out4Struct();
 	currentComponent="tJDBCOutput_5";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out1");
+					}
+				
 		int tos_count_tJDBCOutput_5 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_5{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_5().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_5 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
-        int updateKeyCount_tJDBCOutput_5 = 1;
-        if(updateKeyCount_tJDBCOutput_5 < 1) {
-            throw new RuntimeException("For update, Schema must have a key");
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_5 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_5.createRuntimeProperties();
+ 		                    props_tJDBCOutput_5.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.UPDATE_OR_INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_5.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_5.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_5.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_5.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_5.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_5.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_5.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_5.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_5.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.country");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_5_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_5\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_5\",\"di.table.label\":\"tJDBCOutput_5\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_5_1_fisrt sst_tJDBCOutput_5_1_fisrt = new SchemaSettingTool_tJDBCOutput_5_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_5.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_5_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_5_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_5\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_5\",\"di.table.label\":\"tJDBCOutput_5\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_5_2_fisrt sst_tJDBCOutput_5_2_fisrt = new SchemaSettingTool_tJDBCOutput_5_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_5.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_5_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_5_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_5\",\"di.table.label\":\"tJDBCOutput_5\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_5_3_fisrt sst_tJDBCOutput_5_3_fisrt = new SchemaSettingTool_tJDBCOutput_5_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_5.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_5_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_5.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_5.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_5.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_5 = props_tJDBCOutput_5.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_5 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_5 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_5 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_5.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_5);
         }
+    }
+globalMap.put("tJDBCOutput_5_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_5);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_5= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_5_MAPPINGS_URL", mappings_url_tJDBCOutput_5);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_5 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_5";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_5 = 0;
-int nb_line_update_tJDBCOutput_5 = 0;
-int nb_line_inserted_tJDBCOutput_5 = 0;
-int nb_line_deleted_tJDBCOutput_5 = 0;
-int nb_line_rejected_tJDBCOutput_5 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_5 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_5 = null;
+topology_tJDBCOutput_5 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_5 = 0;
-int updatedCount_tJDBCOutput_5 = 0;
-int insertedCount_tJDBCOutput_5 = 0;
-int rejectedCount_tJDBCOutput_5 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_5 = def_tJDBCOutput_5.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_5, topology_tJDBCOutput_5);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_5 = def_tJDBCOutput_5.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_5 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_5 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_5.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_5 = componentRuntime_tJDBCOutput_5.initialize(container_tJDBCOutput_5, props_tJDBCOutput_5);
 
-	java.sql.Connection connection_tJDBCOutput_5 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_5.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_5.getMessage());
+}
 
-		String update_tJDBCOutput_5 = "UPDATE " + "sales_analyzer.country" + " SET active_date = ?,create_date = ?,exp_date = ?,obj_status = ?,obj_type = ?,update_date = ?,optlock = ?,name = ? WHERE obj_id = ?";
-		java.sql.PreparedStatement pstmtUpdate_tJDBCOutput_5 = connection_tJDBCOutput_5.prepareStatement(update_tJDBCOutput_5);
-		String insert_tJDBCOutput_5 = "INSERT INTO " + "sales_analyzer.country" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,name) VALUES (?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmtInsert_tJDBCOutput_5 = connection_tJDBCOutput_5.prepareStatement(insert_tJDBCOutput_5);
-		
+if(componentRuntime_tJDBCOutput_5 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_5 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_5;
+	compDriverInitialization_tJDBCOutput_5.runAtDriver(container_tJDBCOutput_5);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_5 = null;
+if(componentRuntime_tJDBCOutput_5 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_5 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_5;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_5 = sourceOrSink_tJDBCOutput_5.validate(container_tJDBCOutput_5);
+	if (vr_tJDBCOutput_5.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_5.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_5 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_5;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_5 = sink_tJDBCOutput_5.createWriteOperation();
+    writeOperation_tJDBCOutput_5.initialize(container_tJDBCOutput_5);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_5 = writeOperation_tJDBCOutput_5.createWriter(container_tJDBCOutput_5);
+    writer_tJDBCOutput_5.open("tJDBCOutput_5");
+
+    resourceMap.put("writer_tJDBCOutput_5", writer_tJDBCOutput_5);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_5 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_5.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_5 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_5 = props_tJDBCOutput_5.getSchema(c_tJDBCOutput_5, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_5
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_5);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_5 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_5 = null;
 
 
  
@@ -6401,24 +6737,12 @@ boolean whetherReject_tJDBCOutput_5 = false;
 	currentComponent="tMap_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row13" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row13");
+					}
+				
 		int tos_count_tMap_2 = 0;
 		
-    	class BytesLimit65535_tMap_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_2().limitLog4jByte();
 
 
 
@@ -6480,24 +6804,12 @@ out1Struct out1_tmp = new out1Struct();
 	currentComponent="tJavaFlex_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row2" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row2");
+					}
+				
 		int tos_count_tJavaFlex_1 = 0;
 		
-    	class BytesLimit65535_tJavaFlex_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJavaFlex_1().limitLog4jByte();
 
 
 // start part of your Java code
@@ -6530,24 +6842,12 @@ out1Struct out1_tmp = new out1Struct();
 	currentComponent="tUniqRow_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row3" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
+					}
+				
 		int tos_count_tUniqRow_1 = 0;
 		
-    	class BytesLimit65535_tUniqRow_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tUniqRow_1().limitLog4jByte();
 
 	
 		class KeyStruct_tUniqRow_1 {
@@ -6631,54 +6931,277 @@ java.util.Set<KeyStruct_tUniqRow_1> keystUniqRow_1 = new java.util.HashSet<KeySt
 	currentComponent="tJDBCOutput_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out2" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out2");
+					}
+				
 		int tos_count_tJDBCOutput_1 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_1().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_1 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
-        int updateKeyCount_tJDBCOutput_1 = 1;
-        if(updateKeyCount_tJDBCOutput_1 < 1) {
-            throw new RuntimeException("For update, Schema must have a key");
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_1 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_1.createRuntimeProperties();
+ 		                    props_tJDBCOutput_1.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.UPDATE_OR_INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_1.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_1.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_1.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_1.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_1.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_1.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_1.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_1.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_1.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.state");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_1_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_1\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_1\",\"di.table.label\":\"tJDBCOutput_1\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_1_1_fisrt sst_tJDBCOutput_1_1_fisrt = new SchemaSettingTool_tJDBCOutput_1_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_1.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_1_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_1_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_1\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_1\",\"di.table.label\":\"tJDBCOutput_1\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_1_2_fisrt sst_tJDBCOutput_1_2_fisrt = new SchemaSettingTool_tJDBCOutput_1_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_1.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_1_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_1_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_1\",\"di.table.label\":\"tJDBCOutput_1\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_1_3_fisrt sst_tJDBCOutput_1_3_fisrt = new SchemaSettingTool_tJDBCOutput_1_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_1.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_1_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_1.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_1.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_1.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_1 = props_tJDBCOutput_1.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_1 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_1 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_1 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_1.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_1);
         }
+    }
+globalMap.put("tJDBCOutput_1_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_1);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_1= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_1_MAPPINGS_URL", mappings_url_tJDBCOutput_1);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_1 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_1";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_1 = 0;
-int nb_line_update_tJDBCOutput_1 = 0;
-int nb_line_inserted_tJDBCOutput_1 = 0;
-int nb_line_deleted_tJDBCOutput_1 = 0;
-int nb_line_rejected_tJDBCOutput_1 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_1 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_1 = null;
+topology_tJDBCOutput_1 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_1 = 0;
-int updatedCount_tJDBCOutput_1 = 0;
-int insertedCount_tJDBCOutput_1 = 0;
-int rejectedCount_tJDBCOutput_1 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_1 = def_tJDBCOutput_1.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_1, topology_tJDBCOutput_1);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_1 = def_tJDBCOutput_1.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_1 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_1 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_1.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_1 = componentRuntime_tJDBCOutput_1.initialize(container_tJDBCOutput_1, props_tJDBCOutput_1);
 
-	java.sql.Connection connection_tJDBCOutput_1 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_1.getMessage());
+}
 
-		String update_tJDBCOutput_1 = "UPDATE " + "sales_analyzer.state" + " SET active_date = ?,create_date = ?,exp_date = ?,obj_status = ?,obj_type = ?,update_date = ?,optlock = ?,name = ?,parent_id = ? WHERE obj_id = ?";
-		java.sql.PreparedStatement pstmtUpdate_tJDBCOutput_1 = connection_tJDBCOutput_1.prepareStatement(update_tJDBCOutput_1);
-		String insert_tJDBCOutput_1 = "INSERT INTO " + "sales_analyzer.state" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,name,parent_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmtInsert_tJDBCOutput_1 = connection_tJDBCOutput_1.prepareStatement(insert_tJDBCOutput_1);
-		
+if(componentRuntime_tJDBCOutput_1 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_1 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_1;
+	compDriverInitialization_tJDBCOutput_1.runAtDriver(container_tJDBCOutput_1);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_1 = null;
+if(componentRuntime_tJDBCOutput_1 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_1 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_1;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_1 = sourceOrSink_tJDBCOutput_1.validate(container_tJDBCOutput_1);
+	if (vr_tJDBCOutput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_1.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_1 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_1;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_1 = sink_tJDBCOutput_1.createWriteOperation();
+    writeOperation_tJDBCOutput_1.initialize(container_tJDBCOutput_1);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_1 = writeOperation_tJDBCOutput_1.createWriter(container_tJDBCOutput_1);
+    writer_tJDBCOutput_1.open("tJDBCOutput_1");
+
+    resourceMap.put("writer_tJDBCOutput_1", writer_tJDBCOutput_1);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_1 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_1.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_1 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_1 = props_tJDBCOutput_1.getSchema(c_tJDBCOutput_1, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_1
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_1);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_1 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_1 = null;
 
 
  
@@ -6707,24 +7230,12 @@ boolean whetherReject_tJDBCOutput_1 = false;
 	currentComponent="tMap_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row5" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row5");
+					}
+				
 		int tos_count_tMap_1 = 0;
 		
-    	class BytesLimit65535_tMap_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_1().limitLog4jByte();
 
 
 
@@ -6786,24 +7297,12 @@ out2Struct out2_tmp = new out2Struct();
 	currentComponent="tUniqRow_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row4" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4");
+					}
+				
 		int tos_count_tUniqRow_2 = 0;
 		
-    	class BytesLimit65535_tUniqRow_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tUniqRow_2().limitLog4jByte();
 
 	
 		class KeyStruct_tUniqRow_2 {
@@ -6887,54 +7386,277 @@ java.util.Set<KeyStruct_tUniqRow_2> keystUniqRow_2 = new java.util.HashSet<KeySt
 	currentComponent="tJDBCOutput_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out3" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out3");
+					}
+				
 		int tos_count_tJDBCOutput_2 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_2().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_2 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
-        int updateKeyCount_tJDBCOutput_2 = 1;
-        if(updateKeyCount_tJDBCOutput_2 < 1) {
-            throw new RuntimeException("For update, Schema must have a key");
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_2 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_2.createRuntimeProperties();
+ 		                    props_tJDBCOutput_2.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.UPDATE_OR_INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_2.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_2.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_2.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_2.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_2.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_2.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_2.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_2.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_2.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.city");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_2_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_2\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_2\",\"di.table.label\":\"tJDBCOutput_2\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_2_1_fisrt sst_tJDBCOutput_2_1_fisrt = new SchemaSettingTool_tJDBCOutput_2_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_2.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_2_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_2_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_2\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_2\",\"di.table.label\":\"tJDBCOutput_2\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_2_2_fisrt sst_tJDBCOutput_2_2_fisrt = new SchemaSettingTool_tJDBCOutput_2_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_2.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_2_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_2_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"parent_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"parent_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"parent_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_2\",\"di.table.label\":\"tJDBCOutput_2\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_2_3_fisrt sst_tJDBCOutput_2_3_fisrt = new SchemaSettingTool_tJDBCOutput_2_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_2.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_2_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_2.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_2.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_2.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_2 = props_tJDBCOutput_2.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_2 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_2 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_2 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_2.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_2);
         }
+    }
+globalMap.put("tJDBCOutput_2_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_2);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_2= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_2_MAPPINGS_URL", mappings_url_tJDBCOutput_2);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_2 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_2";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_2 = 0;
-int nb_line_update_tJDBCOutput_2 = 0;
-int nb_line_inserted_tJDBCOutput_2 = 0;
-int nb_line_deleted_tJDBCOutput_2 = 0;
-int nb_line_rejected_tJDBCOutput_2 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_2 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_2 = null;
+topology_tJDBCOutput_2 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_2 = 0;
-int updatedCount_tJDBCOutput_2 = 0;
-int insertedCount_tJDBCOutput_2 = 0;
-int rejectedCount_tJDBCOutput_2 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_2 = def_tJDBCOutput_2.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_2, topology_tJDBCOutput_2);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_2 = def_tJDBCOutput_2.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_2 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_2 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_2.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_2 = componentRuntime_tJDBCOutput_2.initialize(container_tJDBCOutput_2, props_tJDBCOutput_2);
 
-	java.sql.Connection connection_tJDBCOutput_2 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_2.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_2.getMessage());
+}
 
-		String update_tJDBCOutput_2 = "UPDATE " + "sales_analyzer.city" + " SET active_date = ?,create_date = ?,exp_date = ?,obj_status = ?,obj_type = ?,update_date = ?,optlock = ?,name = ?,parent_id = ? WHERE obj_id = ?";
-		java.sql.PreparedStatement pstmtUpdate_tJDBCOutput_2 = connection_tJDBCOutput_2.prepareStatement(update_tJDBCOutput_2);
-		String insert_tJDBCOutput_2 = "INSERT INTO " + "sales_analyzer.city" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,name,parent_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmtInsert_tJDBCOutput_2 = connection_tJDBCOutput_2.prepareStatement(insert_tJDBCOutput_2);
-		
+if(componentRuntime_tJDBCOutput_2 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_2 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_2;
+	compDriverInitialization_tJDBCOutput_2.runAtDriver(container_tJDBCOutput_2);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_2 = null;
+if(componentRuntime_tJDBCOutput_2 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_2 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_2;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_2 = sourceOrSink_tJDBCOutput_2.validate(container_tJDBCOutput_2);
+	if (vr_tJDBCOutput_2.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_2.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_2 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_2;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_2 = sink_tJDBCOutput_2.createWriteOperation();
+    writeOperation_tJDBCOutput_2.initialize(container_tJDBCOutput_2);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_2 = writeOperation_tJDBCOutput_2.createWriter(container_tJDBCOutput_2);
+    writer_tJDBCOutput_2.open("tJDBCOutput_2");
+
+    resourceMap.put("writer_tJDBCOutput_2", writer_tJDBCOutput_2);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_2 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_2.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_2 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_2 = props_tJDBCOutput_2.getSchema(c_tJDBCOutput_2, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_2
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_2);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_2 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_2 = null;
 
 
  
@@ -6963,24 +7685,12 @@ boolean whetherReject_tJDBCOutput_2 = false;
 	currentComponent="tMap_3";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row7" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row7");
+					}
+				
 		int tos_count_tMap_3 = 0;
 		
-    	class BytesLimit65535_tMap_3{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_3().limitLog4jByte();
 
 
 
@@ -7042,24 +7752,12 @@ out3Struct out3_tmp = new out3Struct();
 	currentComponent="tUniqRow_3";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row6" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row6");
+					}
+				
 		int tos_count_tUniqRow_3 = 0;
 		
-    	class BytesLimit65535_tUniqRow_3{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tUniqRow_3().limitLog4jByte();
 
 	
 		class KeyStruct_tUniqRow_3 {
@@ -7142,48 +7840,325 @@ java.util.Set<KeyStruct_tUniqRow_3> keystUniqRow_3 = new java.util.HashSet<KeySt
 	currentComponent="tJDBCOutput_4";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out5" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out5");
+					}
+				
 		int tos_count_tJDBCOutput_4 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_4{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_4().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_4 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_4 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_4.createRuntimeProperties();
+ 		                    props_tJDBCOutput_4.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("useBatch",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_4.setValue("batchSize",
+ 		                    10000);
+ 		                    
+ 		                    props_tJDBCOutput_4.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_4.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_4.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_4.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_4.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.product_history");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_4_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_4\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.talendType\":\"id_BigDecimal\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_4\",\"di.table.label\":\"tJDBCOutput_4\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_4_1_fisrt sst_tJDBCOutput_4_1_fisrt = new SchemaSettingTool_tJDBCOutput_4_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_4.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_4_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_4_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_4\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.talendType\":\"id_BigDecimal\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_4\",\"di.table.label\":\"tJDBCOutput_4\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_4_2_fisrt sst_tJDBCOutput_4_2_fisrt = new SchemaSettingTool_tJDBCOutput_4_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_4.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_4_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_4_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.talendType\":\"id_BigDecimal\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_4\",\"di.table.label\":\"tJDBCOutput_4\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_4_3_fisrt sst_tJDBCOutput_4_3_fisrt = new SchemaSettingTool_tJDBCOutput_4_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_4.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_4_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_4.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_4.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_4.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_4 = props_tJDBCOutput_4.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_4 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_4 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_4 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_4.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_4);
+        }
+    }
+globalMap.put("tJDBCOutput_4_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_4);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_4= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_4_MAPPINGS_URL", mappings_url_tJDBCOutput_4);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_4 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_4";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_4 = 0;
-int nb_line_update_tJDBCOutput_4 = 0;
-int nb_line_inserted_tJDBCOutput_4 = 0;
-int nb_line_deleted_tJDBCOutput_4 = 0;
-int nb_line_rejected_tJDBCOutput_4 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_4 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_4 = null;
+topology_tJDBCOutput_4 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_4 = 0;
-int updatedCount_tJDBCOutput_4 = 0;
-int insertedCount_tJDBCOutput_4 = 0;
-int rejectedCount_tJDBCOutput_4 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_4 = def_tJDBCOutput_4.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_4, topology_tJDBCOutput_4);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_4 = def_tJDBCOutput_4.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_4 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_4 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_4.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_4 = componentRuntime_tJDBCOutput_4.initialize(container_tJDBCOutput_4, props_tJDBCOutput_4);
 
-	java.sql.Connection connection_tJDBCOutput_4 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_4.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_4.getMessage());
+}
 
-		String insert_tJDBCOutput_4 = "INSERT INTO " + "sales_analyzer.product_history" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmt_tJDBCOutput_4 = connection_tJDBCOutput_4.prepareStatement(insert_tJDBCOutput_4);
-		
+if(componentRuntime_tJDBCOutput_4 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_4 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_4;
+	compDriverInitialization_tJDBCOutput_4.runAtDriver(container_tJDBCOutput_4);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_4 = null;
+if(componentRuntime_tJDBCOutput_4 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_4 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_4;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_4 = sourceOrSink_tJDBCOutput_4.validate(container_tJDBCOutput_4);
+	if (vr_tJDBCOutput_4.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_4.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_4 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_4;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_4 = sink_tJDBCOutput_4.createWriteOperation();
+    writeOperation_tJDBCOutput_4.initialize(container_tJDBCOutput_4);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_4 = writeOperation_tJDBCOutput_4.createWriter(container_tJDBCOutput_4);
+    writer_tJDBCOutput_4.open("tJDBCOutput_4");
+
+    resourceMap.put("writer_tJDBCOutput_4", writer_tJDBCOutput_4);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_4 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_4.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_4 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_4 = props_tJDBCOutput_4.getSchema(c_tJDBCOutput_4, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_4
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_4);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_4 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_4 = null;
 
 
  
@@ -7212,24 +8187,12 @@ boolean whetherReject_tJDBCOutput_4 = false;
 	currentComponent="tMap_5";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row10" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row10");
+					}
+				
 		int tos_count_tMap_5 = 0;
 		
-    	class BytesLimit65535_tMap_5{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_5().limitLog4jByte();
 
 
 
@@ -7294,24 +8257,12 @@ out5Struct out5_tmp = new out5Struct();
 	currentComponent="tAggregateRow_1_AGGOUT";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row8" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row8");
+					}
+				
 		int tos_count_tAggregateRow_1_AGGOUT = 0;
 		
-    	class BytesLimit65535_tAggregateRow_1_AGGOUT{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tAggregateRow_1_AGGOUT().limitLog4jByte();
 
 // ------------ Seems it is not used
 
@@ -7550,24 +8501,12 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 	currentComponent="tReplicate_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
+					}
+				
 		int tos_count_tReplicate_1 = 0;
 		
-    	class BytesLimit65535_tReplicate_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tReplicate_1().limitLog4jByte();
 
  
 
@@ -7597,13 +8536,6 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 	
 		int tos_count_tFileInputDelimited_1 = 0;
 		
-    	class BytesLimit65535_tFileInputDelimited_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileInputDelimited_1().limitLog4jByte();
 	
 	
 	
@@ -7615,6 +8547,7 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 	
 				int nb_line_tFileInputDelimited_1 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try{
 					
 						Object filename_tFileInputDelimited_1 = context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session+"_validated.csv";
@@ -7627,7 +8560,9 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 		
 						}
 						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session+"_validated.csv", "UTF-8",";","\n",true,0,0,-1,-1, false);
+							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session+"_validated.csv", "UTF-8",";","\n",true,0,0,
+									limit_tFileInputDelimited_1
+								,-1, false);
 						} catch(java.lang.Exception e) {
 							
 								
@@ -7659,12 +8594,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.id_city = ParserUtils.parseTo_Integer(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_city", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_city = null;
+								
+									row1.id_city = null;
+								
 							
 						}
 					
@@ -7684,12 +8622,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.state_id = ParserUtils.parseTo_Integer(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"state_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.state_id = null;
+								
+									row1.state_id = null;
+								
 							
 						}
 					
@@ -7704,12 +8645,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.id_state = ParserUtils.parseTo_Integer(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_state", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_state = null;
+								
+									row1.id_state = null;
+								
 							
 						}
 					
@@ -7729,12 +8673,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.country_id = ParserUtils.parseTo_Integer(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"country_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.country_id = null;
+								
+									row1.country_id = null;
+								
 							
 						}
 					
@@ -7769,12 +8716,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.amount = null;
+								
+									row1.amount = null;
+								
 							
 						}
 					
@@ -7789,12 +8739,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     									row1.date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
     								
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"date", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.date = null;
+								
+									row1.date = null;
+								
 							
 						}
 					
@@ -7844,6 +8797,26 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 /**
  * [tFileInputDelimited_1 main ] stop
  */
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_begin ] stop
+ */
 // Start of branch "row1"
 if(row1 != null) { 
 
@@ -7861,18 +8834,10 @@ if(row1 != null) {
 	currentComponent="tReplicate_1";
 
 	
-
-			//row1
-			//row1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row1");
+					}
+					
 
 
 	row3 = new row3Struct();
@@ -7955,6 +8920,26 @@ if(row1 != null) {
 /**
  * [tReplicate_1 main ] stop
  */
+	
+	/**
+	 * [tReplicate_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tReplicate_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tReplicate_1 process_data_begin ] stop
+ */
 
 	
 	/**
@@ -7968,18 +8953,10 @@ if(row1 != null) {
 	currentComponent="tUniqRow_1";
 
 	
-
-			//row3
-			//row3
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row3"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row3");
+					}
+					
 row2 = null;			
 finder_tUniqRow_1.country_id = row3.country_id;	
 finder_tUniqRow_1.hashCodeDirty = true;
@@ -8006,6 +8983,26 @@ new_tUniqRow_1.country_id = row3.country_id;
 /**
  * [tUniqRow_1 main ] stop
  */
+	
+	/**
+	 * [tUniqRow_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_1 process_data_begin ] stop
+ */
 // Start of branch "row2"
 if(row2 != null) { 
 
@@ -8023,18 +9020,10 @@ if(row2 != null) {
 	currentComponent="tJavaFlex_1";
 
 	
-
-			//row2
-			//row2
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row2"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row2");
+					}
+					
 
 
 
@@ -8050,6 +9039,26 @@ globalMap.putIfAbsent(((String)globalMap.get("tFileList_1_CURRENT_FILEPATH")), r
 /**
  * [tJavaFlex_1 main ] stop
  */
+	
+	/**
+	 * [tJavaFlex_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_1 process_data_begin ] stop
+ */
 
 	
 	/**
@@ -8063,18 +9072,10 @@ globalMap.putIfAbsent(((String)globalMap.get("tFileList_1_CURRENT_FILEPATH")), r
 	currentComponent="tMap_2";
 
 	
-
-			//row13
-			//row13
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row13"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row13");
+					}
+					
 
 		
 		
@@ -8132,6 +9133,26 @@ rejectedInnerJoin_tMap_2 = false;
 /**
  * [tMap_2 main ] stop
  */
+	
+	/**
+	 * [tMap_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_2 process_data_begin ] stop
+ */
 // Start of branch "out1"
 if(out1 != null) { 
 
@@ -8149,129 +9170,54 @@ if(out1 != null) {
 	currentComponent="tJDBCOutput_5";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out1");
+					}
+					
 
-			//out1
-			//out1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out1"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_5 = false;
-            int updateFlag_tJDBCOutput_5=0;
-                    if(out1.active_date != null) {
-pstmtUpdate_tJDBCOutput_5.setTimestamp(1, new java.sql.Timestamp(out1.active_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_5.setNull(1, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out1.create_date != null) {
-pstmtUpdate_tJDBCOutput_5.setTimestamp(2, new java.sql.Timestamp(out1.create_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_5.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out1.exp_date != null) {
-pstmtUpdate_tJDBCOutput_5.setTimestamp(3, new java.sql.Timestamp(out1.exp_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_5.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out1.obj_status == null) {
-pstmtUpdate_tJDBCOutput_5.setNull(4, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_5.setString(4, out1.obj_status);
-}
-
-                    if(out1.obj_type == null) {
-pstmtUpdate_tJDBCOutput_5.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_5.setString(5, out1.obj_type);
-}
-
-                    if(out1.update_date != null) {
-pstmtUpdate_tJDBCOutput_5.setTimestamp(6, new java.sql.Timestamp(out1.update_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_5.setNull(6, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out1.optlock == null) {
-pstmtUpdate_tJDBCOutput_5.setNull(7, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_5.setInt(7, out1.optlock);
-}
-
-                    if(out1.name == null) {
-pstmtUpdate_tJDBCOutput_5.setNull(8, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_5.setString(8, out1.name);
-}
-
-                    pstmtUpdate_tJDBCOutput_5.setLong(9, out1.obj_id);
-
-
-            try {
-                updateFlag_tJDBCOutput_5 = pstmtUpdate_tJDBCOutput_5.executeUpdate();
-                updatedCount_tJDBCOutput_5 = updatedCount_tJDBCOutput_5 + updateFlag_tJDBCOutput_5;
-            if(updateFlag_tJDBCOutput_5 == 0) {
-                        pstmtInsert_tJDBCOutput_5.setLong(1, out1.obj_id);
-
-                        if(out1.active_date != null) {
-pstmtInsert_tJDBCOutput_5.setTimestamp(2, new java.sql.Timestamp(out1.active_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_5.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out1.create_date != null) {
-pstmtInsert_tJDBCOutput_5.setTimestamp(3, new java.sql.Timestamp(out1.create_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_5.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out1.exp_date != null) {
-pstmtInsert_tJDBCOutput_5.setTimestamp(4, new java.sql.Timestamp(out1.exp_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_5.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out1.obj_status == null) {
-pstmtInsert_tJDBCOutput_5.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_5.setString(5, out1.obj_status);
-}
-
-                        if(out1.obj_type == null) {
-pstmtInsert_tJDBCOutput_5.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_5.setString(6, out1.obj_type);
-}
-
-                        if(out1.update_date != null) {
-pstmtInsert_tJDBCOutput_5.setTimestamp(7, new java.sql.Timestamp(out1.update_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_5.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out1.optlock == null) {
-pstmtInsert_tJDBCOutput_5.setNull(8, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_5.setInt(8, out1.optlock);
-}
-
-                        if(out1.name == null) {
-pstmtInsert_tJDBCOutput_5.setNull(9, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_5.setString(9, out1.name);
-}
-
-                    insertedCount_tJDBCOutput_5 = insertedCount_tJDBCOutput_5 + pstmtInsert_tJDBCOutput_5.executeUpdate();
-                    nb_line_tJDBCOutput_5++;
-                }else{
-                    nb_line_tJDBCOutput_5++;
-             }
-                } catch(java.lang.Exception e) {
-                    whetherReject_tJDBCOutput_5 = true;
-                        throw(e);
+        incomingEnforcer_tJDBCOutput_5.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("obj_id", out1.obj_id);
                 }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("active_date", out1.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("create_date", out1.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("exp_date", out1.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("obj_status", out1.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("obj_type", out1.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("update_date", out1.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("optlock", out1.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_5.getRuntimeSchema().getField("name") != null){
+                    incomingEnforcer_tJDBCOutput_5.put("name", out1.name);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_5 = incomingEnforcer_tJDBCOutput_5.getCurrentRecord();
+        
+
+        writer_tJDBCOutput_5.write(data_tJDBCOutput_5);
+        
+        nb_line_tJDBCOutput_5++;
 
  
 
@@ -8281,21 +9227,123 @@ pstmtInsert_tJDBCOutput_5.setNull(9, java.sql.Types.VARCHAR);
 /**
  * [tJDBCOutput_5 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_5 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_5";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_5 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_5 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_5";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_5 process_data_end ] stop
+ */
 
 } // End of branch "out1"
 
 
 
 
+	
+	/**
+	 * [tMap_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_2";
+
+	
+
+ 
 
 
 
+/**
+ * [tMap_2 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tJavaFlex_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_1 process_data_end ] stop
+ */
 
 } // End of branch "row2"
 
 
 
 
+	
+	/**
+	 * [tUniqRow_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_1 process_data_end ] stop
+ */
 
 
 
@@ -8312,18 +9360,10 @@ pstmtInsert_tJDBCOutput_5.setNull(9, java.sql.Types.VARCHAR);
 	currentComponent="tUniqRow_2";
 
 	
-
-			//row4
-			//row4
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row4"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row4");
+					}
+					
 row5 = null;			
 finder_tUniqRow_2.id_state = row4.id_state;	
 finder_tUniqRow_2.hashCodeDirty = true;
@@ -8350,6 +9390,26 @@ new_tUniqRow_2.id_state = row4.id_state;
 /**
  * [tUniqRow_2 main ] stop
  */
+	
+	/**
+	 * [tUniqRow_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_2 process_data_begin ] stop
+ */
 // Start of branch "row5"
 if(row5 != null) { 
 
@@ -8367,18 +9427,10 @@ if(row5 != null) {
 	currentComponent="tMap_1";
 
 	
-
-			//row5
-			//row5
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row5"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row5");
+					}
+					
 
 		
 		
@@ -8437,6 +9489,26 @@ rejectedInnerJoin_tMap_1 = false;
 /**
  * [tMap_1 main ] stop
  */
+	
+	/**
+	 * [tMap_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 process_data_begin ] stop
+ */
 // Start of branch "out2"
 if(out2 != null) { 
 
@@ -8454,139 +9526,58 @@ if(out2 != null) {
 	currentComponent="tJDBCOutput_1";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out2");
+					}
+					
 
-			//out2
-			//out2
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out2"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_1 = false;
-            int updateFlag_tJDBCOutput_1=0;
-                    if(out2.active_date != null) {
-pstmtUpdate_tJDBCOutput_1.setTimestamp(1, new java.sql.Timestamp(out2.active_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_1.setNull(1, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out2.create_date != null) {
-pstmtUpdate_tJDBCOutput_1.setTimestamp(2, new java.sql.Timestamp(out2.create_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_1.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out2.exp_date != null) {
-pstmtUpdate_tJDBCOutput_1.setTimestamp(3, new java.sql.Timestamp(out2.exp_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_1.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out2.obj_status == null) {
-pstmtUpdate_tJDBCOutput_1.setNull(4, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_1.setString(4, out2.obj_status);
-}
-
-                    if(out2.obj_type == null) {
-pstmtUpdate_tJDBCOutput_1.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_1.setString(5, out2.obj_type);
-}
-
-                    if(out2.update_date != null) {
-pstmtUpdate_tJDBCOutput_1.setTimestamp(6, new java.sql.Timestamp(out2.update_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_1.setNull(6, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out2.optlock == null) {
-pstmtUpdate_tJDBCOutput_1.setNull(7, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_1.setInt(7, out2.optlock);
-}
-
-                    if(out2.name == null) {
-pstmtUpdate_tJDBCOutput_1.setNull(8, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_1.setString(8, out2.name);
-}
-
-                    if(out2.parent_id == null) {
-pstmtUpdate_tJDBCOutput_1.setNull(9, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_1.setLong(9, out2.parent_id);
-}
-
-                    pstmtUpdate_tJDBCOutput_1.setLong(10, out2.obj_id);
-
-
-            try {
-                updateFlag_tJDBCOutput_1 = pstmtUpdate_tJDBCOutput_1.executeUpdate();
-                updatedCount_tJDBCOutput_1 = updatedCount_tJDBCOutput_1 + updateFlag_tJDBCOutput_1;
-            if(updateFlag_tJDBCOutput_1 == 0) {
-                        pstmtInsert_tJDBCOutput_1.setLong(1, out2.obj_id);
-
-                        if(out2.active_date != null) {
-pstmtInsert_tJDBCOutput_1.setTimestamp(2, new java.sql.Timestamp(out2.active_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_1.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out2.create_date != null) {
-pstmtInsert_tJDBCOutput_1.setTimestamp(3, new java.sql.Timestamp(out2.create_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_1.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out2.exp_date != null) {
-pstmtInsert_tJDBCOutput_1.setTimestamp(4, new java.sql.Timestamp(out2.exp_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_1.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out2.obj_status == null) {
-pstmtInsert_tJDBCOutput_1.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_1.setString(5, out2.obj_status);
-}
-
-                        if(out2.obj_type == null) {
-pstmtInsert_tJDBCOutput_1.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_1.setString(6, out2.obj_type);
-}
-
-                        if(out2.update_date != null) {
-pstmtInsert_tJDBCOutput_1.setTimestamp(7, new java.sql.Timestamp(out2.update_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_1.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out2.optlock == null) {
-pstmtInsert_tJDBCOutput_1.setNull(8, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_1.setInt(8, out2.optlock);
-}
-
-                        if(out2.name == null) {
-pstmtInsert_tJDBCOutput_1.setNull(9, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_1.setString(9, out2.name);
-}
-
-                        if(out2.parent_id == null) {
-pstmtInsert_tJDBCOutput_1.setNull(10, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_1.setLong(10, out2.parent_id);
-}
-
-                    insertedCount_tJDBCOutput_1 = insertedCount_tJDBCOutput_1 + pstmtInsert_tJDBCOutput_1.executeUpdate();
-                    nb_line_tJDBCOutput_1++;
-                }else{
-                    nb_line_tJDBCOutput_1++;
-             }
-                } catch(java.lang.Exception e) {
-                    whetherReject_tJDBCOutput_1 = true;
-                        throw(e);
+        incomingEnforcer_tJDBCOutput_1.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("obj_id", out2.obj_id);
                 }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("active_date", out2.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("create_date", out2.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("exp_date", out2.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("obj_status", out2.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("obj_type", out2.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("update_date", out2.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("optlock", out2.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("name") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("name", out2.name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_1.getRuntimeSchema().getField("parent_id") != null){
+                    incomingEnforcer_tJDBCOutput_1.put("parent_id", out2.parent_id);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_1 = incomingEnforcer_tJDBCOutput_1.getCurrentRecord();
+        
+
+        writer_tJDBCOutput_1.write(data_tJDBCOutput_1);
+        
+        nb_line_tJDBCOutput_1++;
 
  
 
@@ -8596,18 +9587,100 @@ pstmtInsert_tJDBCOutput_1.setNull(10, java.sql.Types.INTEGER);
 /**
  * [tJDBCOutput_1 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_1 process_data_end ] stop
+ */
 
 } // End of branch "out2"
 
 
 
 
+	
+	/**
+	 * [tMap_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 process_data_end ] stop
+ */
 
 } // End of branch "row5"
 
 
 
 
+	
+	/**
+	 * [tUniqRow_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_2 process_data_end ] stop
+ */
 
 
 
@@ -8624,18 +9697,10 @@ pstmtInsert_tJDBCOutput_1.setNull(10, java.sql.Types.INTEGER);
 	currentComponent="tUniqRow_3";
 
 	
-
-			//row6
-			//row6
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row6"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row6");
+					}
+					
 row7 = null;			
 finder_tUniqRow_3.id_city = row6.id_city;	
 finder_tUniqRow_3.hashCodeDirty = true;
@@ -8662,6 +9727,26 @@ new_tUniqRow_3.id_city = row6.id_city;
 /**
  * [tUniqRow_3 main ] stop
  */
+	
+	/**
+	 * [tUniqRow_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_3 process_data_begin ] stop
+ */
 // Start of branch "row7"
 if(row7 != null) { 
 
@@ -8679,18 +9764,10 @@ if(row7 != null) {
 	currentComponent="tMap_3";
 
 	
-
-			//row7
-			//row7
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row7"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row7");
+					}
+					
 
 		
 		
@@ -8749,6 +9826,26 @@ rejectedInnerJoin_tMap_3 = false;
 /**
  * [tMap_3 main ] stop
  */
+	
+	/**
+	 * [tMap_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_3 process_data_begin ] stop
+ */
 // Start of branch "out3"
 if(out3 != null) { 
 
@@ -8766,139 +9863,58 @@ if(out3 != null) {
 	currentComponent="tJDBCOutput_2";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out3");
+					}
+					
 
-			//out3
-			//out3
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out3"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_2 = false;
-            int updateFlag_tJDBCOutput_2=0;
-                    if(out3.active_date != null) {
-pstmtUpdate_tJDBCOutput_2.setTimestamp(1, new java.sql.Timestamp(out3.active_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_2.setNull(1, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out3.create_date != null) {
-pstmtUpdate_tJDBCOutput_2.setTimestamp(2, new java.sql.Timestamp(out3.create_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_2.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out3.exp_date != null) {
-pstmtUpdate_tJDBCOutput_2.setTimestamp(3, new java.sql.Timestamp(out3.exp_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_2.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out3.obj_status == null) {
-pstmtUpdate_tJDBCOutput_2.setNull(4, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_2.setString(4, out3.obj_status);
-}
-
-                    if(out3.obj_type == null) {
-pstmtUpdate_tJDBCOutput_2.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_2.setString(5, out3.obj_type);
-}
-
-                    if(out3.update_date != null) {
-pstmtUpdate_tJDBCOutput_2.setTimestamp(6, new java.sql.Timestamp(out3.update_date.getTime()));
-} else {
-pstmtUpdate_tJDBCOutput_2.setNull(6, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out3.optlock == null) {
-pstmtUpdate_tJDBCOutput_2.setNull(7, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_2.setInt(7, out3.optlock);
-}
-
-                    if(out3.name == null) {
-pstmtUpdate_tJDBCOutput_2.setNull(8, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_2.setString(8, out3.name);
-}
-
-                    if(out3.parent_id == null) {
-pstmtUpdate_tJDBCOutput_2.setNull(9, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_2.setLong(9, out3.parent_id);
-}
-
-                    pstmtUpdate_tJDBCOutput_2.setLong(10, out3.obj_id);
-
-
-            try {
-                updateFlag_tJDBCOutput_2 = pstmtUpdate_tJDBCOutput_2.executeUpdate();
-                updatedCount_tJDBCOutput_2 = updatedCount_tJDBCOutput_2 + updateFlag_tJDBCOutput_2;
-            if(updateFlag_tJDBCOutput_2 == 0) {
-                        pstmtInsert_tJDBCOutput_2.setLong(1, out3.obj_id);
-
-                        if(out3.active_date != null) {
-pstmtInsert_tJDBCOutput_2.setTimestamp(2, new java.sql.Timestamp(out3.active_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_2.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out3.create_date != null) {
-pstmtInsert_tJDBCOutput_2.setTimestamp(3, new java.sql.Timestamp(out3.create_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_2.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out3.exp_date != null) {
-pstmtInsert_tJDBCOutput_2.setTimestamp(4, new java.sql.Timestamp(out3.exp_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_2.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out3.obj_status == null) {
-pstmtInsert_tJDBCOutput_2.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_2.setString(5, out3.obj_status);
-}
-
-                        if(out3.obj_type == null) {
-pstmtInsert_tJDBCOutput_2.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_2.setString(6, out3.obj_type);
-}
-
-                        if(out3.update_date != null) {
-pstmtInsert_tJDBCOutput_2.setTimestamp(7, new java.sql.Timestamp(out3.update_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_2.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out3.optlock == null) {
-pstmtInsert_tJDBCOutput_2.setNull(8, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_2.setInt(8, out3.optlock);
-}
-
-                        if(out3.name == null) {
-pstmtInsert_tJDBCOutput_2.setNull(9, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_2.setString(9, out3.name);
-}
-
-                        if(out3.parent_id == null) {
-pstmtInsert_tJDBCOutput_2.setNull(10, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_2.setLong(10, out3.parent_id);
-}
-
-                    insertedCount_tJDBCOutput_2 = insertedCount_tJDBCOutput_2 + pstmtInsert_tJDBCOutput_2.executeUpdate();
-                    nb_line_tJDBCOutput_2++;
-                }else{
-                    nb_line_tJDBCOutput_2++;
-             }
-                } catch(java.lang.Exception e) {
-                    whetherReject_tJDBCOutput_2 = true;
-                        throw(e);
+        incomingEnforcer_tJDBCOutput_2.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("obj_id", out3.obj_id);
                 }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("active_date", out3.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("create_date", out3.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("exp_date", out3.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("obj_status", out3.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("obj_type", out3.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("update_date", out3.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("optlock", out3.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("name") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("name", out3.name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_2.getRuntimeSchema().getField("parent_id") != null){
+                    incomingEnforcer_tJDBCOutput_2.put("parent_id", out3.parent_id);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_2 = incomingEnforcer_tJDBCOutput_2.getCurrentRecord();
+        
+
+        writer_tJDBCOutput_2.write(data_tJDBCOutput_2);
+        
+        nb_line_tJDBCOutput_2++;
 
  
 
@@ -8908,18 +9924,100 @@ pstmtInsert_tJDBCOutput_2.setNull(10, java.sql.Types.INTEGER);
 /**
  * [tJDBCOutput_2 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_2";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_2 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_2";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_2 process_data_end ] stop
+ */
 
 } // End of branch "out3"
 
 
 
 
+	
+	/**
+	 * [tMap_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_3 process_data_end ] stop
+ */
 
 } // End of branch "row7"
 
 
 
 
+	
+	/**
+	 * [tUniqRow_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUniqRow_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tUniqRow_3 process_data_end ] stop
+ */
 
 
 
@@ -8936,18 +10034,10 @@ pstmtInsert_tJDBCOutput_2.setNull(10, java.sql.Types.INTEGER);
 	currentComponent="tMap_5";
 
 	
-
-			//row10
-			//row10
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row10"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row10");
+					}
+					
 
 		
 		
@@ -9013,6 +10103,26 @@ rejectedInnerJoin_tMap_5 = false;
 /**
  * [tMap_5 main ] stop
  */
+	
+	/**
+	 * [tMap_5 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_5";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_5 process_data_begin ] stop
+ */
 // Start of branch "out5"
 if(out5 != null) { 
 
@@ -9030,107 +10140,86 @@ if(out5 != null) {
 	currentComponent="tJDBCOutput_4";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out5");
+					}
+					
 
-			//out5
-			//out5
+        incomingEnforcer_tJDBCOutput_4.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("obj_id", out5.obj_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("active_date", out5.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("create_date", out5.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("exp_date", out5.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("obj_status", out5.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("obj_type", out5.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("update_date", out5.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("optlock", out5.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("country_id") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("country_id", out5.country_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("country_name") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("country_name", out5.country_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("state_id") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("state_id", out5.state_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("state_name") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("state_name", out5.state_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("city_id") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("city_id", out5.city_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("city_name") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("city_name", out5.city_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("product") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("product", out5.product);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("amount") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("amount", out5.amount);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_4.getRuntimeSchema().getField("history_date") != null){
+                    incomingEnforcer_tJDBCOutput_4.put("history_date", out5.history_date);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_4 = incomingEnforcer_tJDBCOutput_4.getCurrentRecord();
+        
 
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out5"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_4 = false;
-                    if(out5.obj_id == null) {
-pstmt_tJDBCOutput_4.setNull(1, java.sql.Types.OTHER);
-} else {pstmt_tJDBCOutput_4.setObject(1, out5.obj_id);
-}
-
-                    if(out5.active_date != null) {
-pstmt_tJDBCOutput_4.setTimestamp(2, new java.sql.Timestamp(out5.active_date.getTime()));
-} else {
-pstmt_tJDBCOutput_4.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out5.create_date != null) {
-pstmt_tJDBCOutput_4.setTimestamp(3, new java.sql.Timestamp(out5.create_date.getTime()));
-} else {
-pstmt_tJDBCOutput_4.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out5.exp_date != null) {
-pstmt_tJDBCOutput_4.setTimestamp(4, new java.sql.Timestamp(out5.exp_date.getTime()));
-} else {
-pstmt_tJDBCOutput_4.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out5.obj_status == null) {
-pstmt_tJDBCOutput_4.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(5, out5.obj_status);
-}
-
-                    if(out5.obj_type == null) {
-pstmt_tJDBCOutput_4.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(6, out5.obj_type);
-}
-
-                    if(out5.update_date != null) {
-pstmt_tJDBCOutput_4.setTimestamp(7, new java.sql.Timestamp(out5.update_date.getTime()));
-} else {
-pstmt_tJDBCOutput_4.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out5.optlock == null) {
-pstmt_tJDBCOutput_4.setNull(8, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_4.setInt(8, out5.optlock);
-}
-
-                    pstmt_tJDBCOutput_4.setLong(9, out5.country_id);
-
-                    if(out5.country_name == null) {
-pstmt_tJDBCOutput_4.setNull(10, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(10, out5.country_name);
-}
-
-                    pstmt_tJDBCOutput_4.setLong(11, out5.state_id);
-
-                    if(out5.state_name == null) {
-pstmt_tJDBCOutput_4.setNull(12, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(12, out5.state_name);
-}
-
-                    pstmt_tJDBCOutput_4.setLong(13, out5.city_id);
-
-                    if(out5.city_name == null) {
-pstmt_tJDBCOutput_4.setNull(14, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(14, out5.city_name);
-}
-
-                    if(out5.product == null) {
-pstmt_tJDBCOutput_4.setNull(15, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_4.setString(15, out5.product);
-}
-
-                    pstmt_tJDBCOutput_4.setBigDecimal(16, out5.amount);
-
-                    if(out5.history_date != null) {
-pstmt_tJDBCOutput_4.setTimestamp(17, new java.sql.Timestamp(out5.history_date.getTime()));
-} else {
-pstmt_tJDBCOutput_4.setNull(17, java.sql.Types.TIMESTAMP);
-}
-
-            try {
-                insertedCount_tJDBCOutput_4 = insertedCount_tJDBCOutput_4 + pstmt_tJDBCOutput_4.executeUpdate();
-                nb_line_tJDBCOutput_4++;
-            } catch(java.lang.Exception e) {
-                whetherReject_tJDBCOutput_4 = true;
-                    throw(e);
-            }
+        writer_tJDBCOutput_4.write(data_tJDBCOutput_4);
+        
+        nb_line_tJDBCOutput_4++;
 
  
 
@@ -9140,12 +10229,74 @@ pstmt_tJDBCOutput_4.setNull(17, java.sql.Types.TIMESTAMP);
 /**
  * [tJDBCOutput_4 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_4 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_4";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_4 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_4 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_4";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_4 process_data_end ] stop
+ */
 
 } // End of branch "out5"
 
 
 
 
+	
+	/**
+	 * [tMap_5 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_5";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_5 process_data_end ] stop
+ */
 
 
 
@@ -9164,18 +10315,10 @@ pstmt_tJDBCOutput_4.setNull(17, java.sql.Types.TIMESTAMP);
 	currentComponent="tAggregateRow_1_AGGOUT";
 
 	
-
-			//row8
-			//row8
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row8"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row8");
+					}
+					
 	
 operation_finder_tAggregateRow_1.id_city = row8.id_city;
 			operation_finder_tAggregateRow_1.id_state = row8.id_state;
@@ -9248,15 +10391,99 @@ operation_finder_tAggregateRow_1.id_city = row8.id_city;
 /**
  * [tAggregateRow_1_AGGOUT main ] stop
  */
+	
+	/**
+	 * [tAggregateRow_1_AGGOUT process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGOUT";
+
+	
+
+ 
 
 
 
+/**
+ * [tAggregateRow_1_AGGOUT process_data_begin ] stop
+ */
+	
+	/**
+	 * [tAggregateRow_1_AGGOUT process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGOUT";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGOUT process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tReplicate_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tReplicate_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tReplicate_1 process_data_end ] stop
+ */
 
 } // End of branch "row1"
 
 
 
 
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tFileInputDelimited_1 end ] start
@@ -9311,12 +10538,10 @@ end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
  
 
 ok_Hash.put("tReplicate_1", true);
@@ -9345,12 +10570,10 @@ end_Hash.put("tReplicate_1", System.currentTimeMillis());
 globalMap.put("tUniqRow_1_NB_UNIQUES",nb_uniques_tUniqRow_1);
 globalMap.put("tUniqRow_1_NB_DUPLICATES",nb_duplicates_tUniqRow_1);
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row3"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
+			  	}
+			  	
  
 
 ok_Hash.put("tUniqRow_1", true);
@@ -9380,12 +10603,10 @@ end_Hash.put("tUniqRow_1", System.currentTimeMillis());
 // end of the component, outside/closing the loop
       
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row2"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row2");
+			  	}
+			  	
  
 
 ok_Hash.put("tJavaFlex_1", true);
@@ -9420,12 +10641,10 @@ end_Hash.put("tJavaFlex_1", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row13"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row13");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_2", true);
@@ -9450,40 +10669,47 @@ end_Hash.put("tMap_2", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_5";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_5", Boolean.TRUE);
 
-    if(pstmtUpdate_tJDBCOutput_5 != null){
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_5 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_5.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_5 = writer_tJDBCOutput_5.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_5), container_tJDBCOutput_5);
+if(resultMap_tJDBCOutput_5!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_5 : resultMap_tJDBCOutput_5.entrySet()) {
+		switch(entry_tJDBCOutput_5.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_5.setComponentData("tJDBCOutput_5", "ERROR_MESSAGE", entry_tJDBCOutput_5.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_5.setComponentData("tJDBCOutput_5", "NB_LINE", entry_tJDBCOutput_5.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_5.setComponentData("tJDBCOutput_5", "NB_SUCCESS", entry_tJDBCOutput_5.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_5.setComponentData("tJDBCOutput_5", "NB_REJECT", entry_tJDBCOutput_5.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_5 = new StringBuilder();
+            for (int i_tJDBCOutput_5 = 0; i_tJDBCOutput_5 < entry_tJDBCOutput_5.getKey().length(); i_tJDBCOutput_5++) {
+                char ch_tJDBCOutput_5 = entry_tJDBCOutput_5.getKey().charAt(i_tJDBCOutput_5);
+                if(Character.isUpperCase(ch_tJDBCOutput_5) && i_tJDBCOutput_5> 0) {
+                	studio_key_tJDBCOutput_5.append('_');
+                }
+                studio_key_tJDBCOutput_5.append(ch_tJDBCOutput_5);
+            }
+			container_tJDBCOutput_5.setComponentData("tJDBCOutput_5", studio_key_tJDBCOutput_5.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_5.getValue());
+			break;
+		}
+	}
+}
 
-        pstmtUpdate_tJDBCOutput_5.close();
-
-    }
-    if(pstmtInsert_tJDBCOutput_5 != null){
-
-        pstmtInsert_tJDBCOutput_5.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_5=nb_line_deleted_tJDBCOutput_5+ deletedCount_tJDBCOutput_5;
-	nb_line_update_tJDBCOutput_5=nb_line_update_tJDBCOutput_5 + updatedCount_tJDBCOutput_5;
-	nb_line_inserted_tJDBCOutput_5=nb_line_inserted_tJDBCOutput_5 + insertedCount_tJDBCOutput_5;
-	nb_line_rejected_tJDBCOutput_5=nb_line_rejected_tJDBCOutput_5 + rejectedCount_tJDBCOutput_5;
-	
-        globalMap.put("tJDBCOutput_5_NB_LINE",nb_line_tJDBCOutput_5);
-        globalMap.put("tJDBCOutput_5_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_5);
-        globalMap.put("tJDBCOutput_5_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_5);
-        globalMap.put("tJDBCOutput_5_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_5);
-        globalMap.put("tJDBCOutput_5_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_5);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out1");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_5", true);
@@ -9524,12 +10750,10 @@ end_Hash.put("tJDBCOutput_5", System.currentTimeMillis());
 globalMap.put("tUniqRow_2_NB_UNIQUES",nb_uniques_tUniqRow_2);
 globalMap.put("tUniqRow_2_NB_DUPLICATES",nb_duplicates_tUniqRow_2);
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row4"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4");
+			  	}
+			  	
  
 
 ok_Hash.put("tUniqRow_2", true);
@@ -9564,12 +10788,10 @@ end_Hash.put("tUniqRow_2", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row5"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row5");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_1", true);
@@ -9594,40 +10816,47 @@ end_Hash.put("tMap_1", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_1";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_1", Boolean.TRUE);
 
-    if(pstmtUpdate_tJDBCOutput_1 != null){
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_1 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_1.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_1 = writer_tJDBCOutput_1.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_1), container_tJDBCOutput_1);
+if(resultMap_tJDBCOutput_1!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_1 : resultMap_tJDBCOutput_1.entrySet()) {
+		switch(entry_tJDBCOutput_1.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_1.setComponentData("tJDBCOutput_1", "ERROR_MESSAGE", entry_tJDBCOutput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_1.setComponentData("tJDBCOutput_1", "NB_LINE", entry_tJDBCOutput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_1.setComponentData("tJDBCOutput_1", "NB_SUCCESS", entry_tJDBCOutput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_1.setComponentData("tJDBCOutput_1", "NB_REJECT", entry_tJDBCOutput_1.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_1 = new StringBuilder();
+            for (int i_tJDBCOutput_1 = 0; i_tJDBCOutput_1 < entry_tJDBCOutput_1.getKey().length(); i_tJDBCOutput_1++) {
+                char ch_tJDBCOutput_1 = entry_tJDBCOutput_1.getKey().charAt(i_tJDBCOutput_1);
+                if(Character.isUpperCase(ch_tJDBCOutput_1) && i_tJDBCOutput_1> 0) {
+                	studio_key_tJDBCOutput_1.append('_');
+                }
+                studio_key_tJDBCOutput_1.append(ch_tJDBCOutput_1);
+            }
+			container_tJDBCOutput_1.setComponentData("tJDBCOutput_1", studio_key_tJDBCOutput_1.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_1.getValue());
+			break;
+		}
+	}
+}
 
-        pstmtUpdate_tJDBCOutput_1.close();
-
-    }
-    if(pstmtInsert_tJDBCOutput_1 != null){
-
-        pstmtInsert_tJDBCOutput_1.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_1=nb_line_deleted_tJDBCOutput_1+ deletedCount_tJDBCOutput_1;
-	nb_line_update_tJDBCOutput_1=nb_line_update_tJDBCOutput_1 + updatedCount_tJDBCOutput_1;
-	nb_line_inserted_tJDBCOutput_1=nb_line_inserted_tJDBCOutput_1 + insertedCount_tJDBCOutput_1;
-	nb_line_rejected_tJDBCOutput_1=nb_line_rejected_tJDBCOutput_1 + rejectedCount_tJDBCOutput_1;
-	
-        globalMap.put("tJDBCOutput_1_NB_LINE",nb_line_tJDBCOutput_1);
-        globalMap.put("tJDBCOutput_1_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_1);
-        globalMap.put("tJDBCOutput_1_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_1);
-        globalMap.put("tJDBCOutput_1_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_1);
-        globalMap.put("tJDBCOutput_1_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_1);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out2"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out2");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_1", true);
@@ -9665,12 +10894,10 @@ end_Hash.put("tJDBCOutput_1", System.currentTimeMillis());
 globalMap.put("tUniqRow_3_NB_UNIQUES",nb_uniques_tUniqRow_3);
 globalMap.put("tUniqRow_3_NB_DUPLICATES",nb_duplicates_tUniqRow_3);
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row6"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row6");
+			  	}
+			  	
  
 
 ok_Hash.put("tUniqRow_3", true);
@@ -9705,12 +10932,10 @@ end_Hash.put("tUniqRow_3", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row7"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row7");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_3", true);
@@ -9735,40 +10960,47 @@ end_Hash.put("tMap_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_2";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_2", Boolean.TRUE);
 
-    if(pstmtUpdate_tJDBCOutput_2 != null){
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_2 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_2.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_2 = writer_tJDBCOutput_2.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_2), container_tJDBCOutput_2);
+if(resultMap_tJDBCOutput_2!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_2 : resultMap_tJDBCOutput_2.entrySet()) {
+		switch(entry_tJDBCOutput_2.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_2.setComponentData("tJDBCOutput_2", "ERROR_MESSAGE", entry_tJDBCOutput_2.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_2.setComponentData("tJDBCOutput_2", "NB_LINE", entry_tJDBCOutput_2.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_2.setComponentData("tJDBCOutput_2", "NB_SUCCESS", entry_tJDBCOutput_2.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_2.setComponentData("tJDBCOutput_2", "NB_REJECT", entry_tJDBCOutput_2.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_2 = new StringBuilder();
+            for (int i_tJDBCOutput_2 = 0; i_tJDBCOutput_2 < entry_tJDBCOutput_2.getKey().length(); i_tJDBCOutput_2++) {
+                char ch_tJDBCOutput_2 = entry_tJDBCOutput_2.getKey().charAt(i_tJDBCOutput_2);
+                if(Character.isUpperCase(ch_tJDBCOutput_2) && i_tJDBCOutput_2> 0) {
+                	studio_key_tJDBCOutput_2.append('_');
+                }
+                studio_key_tJDBCOutput_2.append(ch_tJDBCOutput_2);
+            }
+			container_tJDBCOutput_2.setComponentData("tJDBCOutput_2", studio_key_tJDBCOutput_2.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_2.getValue());
+			break;
+		}
+	}
+}
 
-        pstmtUpdate_tJDBCOutput_2.close();
-
-    }
-    if(pstmtInsert_tJDBCOutput_2 != null){
-
-        pstmtInsert_tJDBCOutput_2.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_2=nb_line_deleted_tJDBCOutput_2+ deletedCount_tJDBCOutput_2;
-	nb_line_update_tJDBCOutput_2=nb_line_update_tJDBCOutput_2 + updatedCount_tJDBCOutput_2;
-	nb_line_inserted_tJDBCOutput_2=nb_line_inserted_tJDBCOutput_2 + insertedCount_tJDBCOutput_2;
-	nb_line_rejected_tJDBCOutput_2=nb_line_rejected_tJDBCOutput_2 + rejectedCount_tJDBCOutput_2;
-	
-        globalMap.put("tJDBCOutput_2_NB_LINE",nb_line_tJDBCOutput_2);
-        globalMap.put("tJDBCOutput_2_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_2);
-        globalMap.put("tJDBCOutput_2_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_2);
-        globalMap.put("tJDBCOutput_2_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_2);
-        globalMap.put("tJDBCOutput_2_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_2);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out3"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out3");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_2", true);
@@ -9812,12 +11044,10 @@ end_Hash.put("tJDBCOutput_2", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row10"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row10");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_5", true);
@@ -9842,35 +11072,47 @@ end_Hash.put("tMap_5", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_4";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_4", Boolean.TRUE);
 
-    if(pstmt_tJDBCOutput_4 != null) {
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_4 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_4.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_4 = writer_tJDBCOutput_4.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_4), container_tJDBCOutput_4);
+if(resultMap_tJDBCOutput_4!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_4 : resultMap_tJDBCOutput_4.entrySet()) {
+		switch(entry_tJDBCOutput_4.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_4.setComponentData("tJDBCOutput_4", "ERROR_MESSAGE", entry_tJDBCOutput_4.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_4.setComponentData("tJDBCOutput_4", "NB_LINE", entry_tJDBCOutput_4.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_4.setComponentData("tJDBCOutput_4", "NB_SUCCESS", entry_tJDBCOutput_4.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_4.setComponentData("tJDBCOutput_4", "NB_REJECT", entry_tJDBCOutput_4.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_4 = new StringBuilder();
+            for (int i_tJDBCOutput_4 = 0; i_tJDBCOutput_4 < entry_tJDBCOutput_4.getKey().length(); i_tJDBCOutput_4++) {
+                char ch_tJDBCOutput_4 = entry_tJDBCOutput_4.getKey().charAt(i_tJDBCOutput_4);
+                if(Character.isUpperCase(ch_tJDBCOutput_4) && i_tJDBCOutput_4> 0) {
+                	studio_key_tJDBCOutput_4.append('_');
+                }
+                studio_key_tJDBCOutput_4.append(ch_tJDBCOutput_4);
+            }
+			container_tJDBCOutput_4.setComponentData("tJDBCOutput_4", studio_key_tJDBCOutput_4.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_4.getValue());
+			break;
+		}
+	}
+}
 
-        pstmt_tJDBCOutput_4.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_4=nb_line_deleted_tJDBCOutput_4+ deletedCount_tJDBCOutput_4;
-	nb_line_update_tJDBCOutput_4=nb_line_update_tJDBCOutput_4 + updatedCount_tJDBCOutput_4;
-	nb_line_inserted_tJDBCOutput_4=nb_line_inserted_tJDBCOutput_4 + insertedCount_tJDBCOutput_4;
-	nb_line_rejected_tJDBCOutput_4=nb_line_rejected_tJDBCOutput_4 + rejectedCount_tJDBCOutput_4;
-	
-        globalMap.put("tJDBCOutput_4_NB_LINE",nb_line_tJDBCOutput_4);
-        globalMap.put("tJDBCOutput_4_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_4);
-        globalMap.put("tJDBCOutput_4_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_4);
-        globalMap.put("tJDBCOutput_4_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_4);
-        globalMap.put("tJDBCOutput_4_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_4);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out5"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out5");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_4", true);
@@ -9904,12 +11146,10 @@ end_Hash.put("tJDBCOutput_4", System.currentTimeMillis());
 
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row8"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row8");
+			  	}
+			  	
  
 
 ok_Hash.put("tAggregateRow_1_AGGOUT", true);
@@ -9940,48 +11180,325 @@ end_Hash.put("tAggregateRow_1_AGGOUT", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_3";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out4" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out4");
+					}
+				
 		int tos_count_tJDBCOutput_3 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_3{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_3().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_3 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_3 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_3.createRuntimeProperties();
+ 		                    props_tJDBCOutput_3.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("useBatch",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_3.setValue("batchSize",
+ 		                    10000);
+ 		                    
+ 		                    props_tJDBCOutput_3.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_3.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_3.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_3.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_3.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.product_group_history");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_3_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_3\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_3\",\"di.table.label\":\"tJDBCOutput_3\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_3_1_fisrt sst_tJDBCOutput_3_1_fisrt = new SchemaSettingTool_tJDBCOutput_3_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_3.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_3_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_3_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_3\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_3\",\"di.table.label\":\"tJDBCOutput_3\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_3_2_fisrt sst_tJDBCOutput_3_2_fisrt = new SchemaSettingTool_tJDBCOutput_3_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_3.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_3_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_3_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_3\",\"di.table.label\":\"tJDBCOutput_3\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_3_3_fisrt sst_tJDBCOutput_3_3_fisrt = new SchemaSettingTool_tJDBCOutput_3_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_3.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_3_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_3.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_3.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_3.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_3 = props_tJDBCOutput_3.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_3 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_3 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_3 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_3.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_3);
+        }
+    }
+globalMap.put("tJDBCOutput_3_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_3);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_3= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_3_MAPPINGS_URL", mappings_url_tJDBCOutput_3);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_3 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_3";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_3 = 0;
-int nb_line_update_tJDBCOutput_3 = 0;
-int nb_line_inserted_tJDBCOutput_3 = 0;
-int nb_line_deleted_tJDBCOutput_3 = 0;
-int nb_line_rejected_tJDBCOutput_3 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_3 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_3 = null;
+topology_tJDBCOutput_3 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_3 = 0;
-int updatedCount_tJDBCOutput_3 = 0;
-int insertedCount_tJDBCOutput_3 = 0;
-int rejectedCount_tJDBCOutput_3 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_3 = def_tJDBCOutput_3.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_3, topology_tJDBCOutput_3);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_3 = def_tJDBCOutput_3.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_3 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_3 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_3.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_3 = componentRuntime_tJDBCOutput_3.initialize(container_tJDBCOutput_3, props_tJDBCOutput_3);
 
-	java.sql.Connection connection_tJDBCOutput_3 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_3.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_3.getMessage());
+}
 
-		String insert_tJDBCOutput_3 = "INSERT INTO " + "sales_analyzer.product_group_history" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmt_tJDBCOutput_3 = connection_tJDBCOutput_3.prepareStatement(insert_tJDBCOutput_3);
-		
+if(componentRuntime_tJDBCOutput_3 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_3 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_3;
+	compDriverInitialization_tJDBCOutput_3.runAtDriver(container_tJDBCOutput_3);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_3 = null;
+if(componentRuntime_tJDBCOutput_3 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_3 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_3;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_3 = sourceOrSink_tJDBCOutput_3.validate(container_tJDBCOutput_3);
+	if (vr_tJDBCOutput_3.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_3.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_3 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_3;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_3 = sink_tJDBCOutput_3.createWriteOperation();
+    writeOperation_tJDBCOutput_3.initialize(container_tJDBCOutput_3);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_3 = writeOperation_tJDBCOutput_3.createWriter(container_tJDBCOutput_3);
+    writer_tJDBCOutput_3.open("tJDBCOutput_3");
+
+    resourceMap.put("writer_tJDBCOutput_3", writer_tJDBCOutput_3);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_3 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_3.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_3 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_3 = props_tJDBCOutput_3.getSchema(c_tJDBCOutput_3, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_3
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_3);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_3 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_3 = null;
 
 
  
@@ -10010,24 +11527,12 @@ boolean whetherReject_tJDBCOutput_3 = false;
 	currentComponent="tMap_4";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row9" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row9");
+					}
+				
 		int tos_count_tMap_4 = 0;
 		
-    	class BytesLimit65535_tMap_4{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_4().limitLog4jByte();
 
 
 
@@ -10093,13 +11598,6 @@ out4Struct out4_tmp = new out4Struct();
 	
 		int tos_count_tAggregateRow_1_AGGIN = 0;
 		
-    	class BytesLimit65535_tAggregateRow_1_AGGIN{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tAggregateRow_1_AGGIN().limitLog4jByte();
 
 java.util.Collection<AggOperationStruct_tAggregateRow_1> values_tAggregateRow_1 = hash_tAggregateRow_1.values();
 
@@ -10161,6 +11659,28 @@ for(AggOperationStruct_tAggregateRow_1 aggregated_row_tAggregateRow_1 : values_t
 /**
  * [tAggregateRow_1_AGGIN main ] stop
  */
+	
+	/**
+	 * [tAggregateRow_1_AGGIN process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGIN";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGIN process_data_begin ] stop
+ */
 
 	
 	/**
@@ -10174,18 +11694,10 @@ for(AggOperationStruct_tAggregateRow_1 aggregated_row_tAggregateRow_1 : values_t
 	currentComponent="tMap_4";
 
 	
-
-			//row9
-			//row9
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row9"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row9");
+					}
+					
 
 		
 		
@@ -10251,6 +11763,26 @@ rejectedInnerJoin_tMap_4 = false;
 /**
  * [tMap_4 main ] stop
  */
+	
+	/**
+	 * [tMap_4 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_4";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_4 process_data_begin ] stop
+ */
 // Start of branch "out4"
 if(out4 != null) { 
 
@@ -10268,109 +11800,86 @@ if(out4 != null) {
 	currentComponent="tJDBCOutput_3";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out4");
+					}
+					
 
-			//out4
-			//out4
+        incomingEnforcer_tJDBCOutput_3.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("obj_id", out4.obj_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("active_date", out4.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("create_date", out4.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("exp_date", out4.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("obj_status", out4.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("obj_type", out4.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("update_date", out4.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("optlock", out4.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("country_id") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("country_id", out4.country_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("country_name") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("country_name", out4.country_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("state_id") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("state_id", out4.state_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("state_name") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("state_name", out4.state_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("city_id") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("city_id", out4.city_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("city_name") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("city_name", out4.city_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("product") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("product", out4.product);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("amount") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("amount", out4.amount);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_3.getRuntimeSchema().getField("history_date") != null){
+                    incomingEnforcer_tJDBCOutput_3.put("history_date", out4.history_date);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_3 = incomingEnforcer_tJDBCOutput_3.getCurrentRecord();
+        
 
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out4"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_3 = false;
-                    if(out4.obj_id == null) {
-pstmt_tJDBCOutput_3.setNull(1, java.sql.Types.OTHER);
-} else {pstmt_tJDBCOutput_3.setObject(1, out4.obj_id);
-}
-
-                    if(out4.active_date != null) {
-pstmt_tJDBCOutput_3.setTimestamp(2, new java.sql.Timestamp(out4.active_date.getTime()));
-} else {
-pstmt_tJDBCOutput_3.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out4.create_date != null) {
-pstmt_tJDBCOutput_3.setTimestamp(3, new java.sql.Timestamp(out4.create_date.getTime()));
-} else {
-pstmt_tJDBCOutput_3.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out4.exp_date != null) {
-pstmt_tJDBCOutput_3.setTimestamp(4, new java.sql.Timestamp(out4.exp_date.getTime()));
-} else {
-pstmt_tJDBCOutput_3.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out4.obj_status == null) {
-pstmt_tJDBCOutput_3.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(5, out4.obj_status);
-}
-
-                    if(out4.obj_type == null) {
-pstmt_tJDBCOutput_3.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(6, out4.obj_type);
-}
-
-                    if(out4.update_date != null) {
-pstmt_tJDBCOutput_3.setTimestamp(7, new java.sql.Timestamp(out4.update_date.getTime()));
-} else {
-pstmt_tJDBCOutput_3.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out4.optlock == null) {
-pstmt_tJDBCOutput_3.setNull(8, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_3.setInt(8, out4.optlock);
-}
-
-                    pstmt_tJDBCOutput_3.setLong(9, out4.country_id);
-
-                    if(out4.country_name == null) {
-pstmt_tJDBCOutput_3.setNull(10, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(10, out4.country_name);
-}
-
-                    pstmt_tJDBCOutput_3.setLong(11, out4.state_id);
-
-                    if(out4.state_name == null) {
-pstmt_tJDBCOutput_3.setNull(12, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(12, out4.state_name);
-}
-
-                    pstmt_tJDBCOutput_3.setLong(13, out4.city_id);
-
-                    if(out4.city_name == null) {
-pstmt_tJDBCOutput_3.setNull(14, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(14, out4.city_name);
-}
-
-                    if(out4.product == null) {
-pstmt_tJDBCOutput_3.setNull(15, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_3.setString(15, out4.product);
-}
-
-                    pstmt_tJDBCOutput_3.setBigDecimal(16, out4.amount);
-
-                    if(out4.history_date != null) {
-pstmt_tJDBCOutput_3.setTimestamp(17, new java.sql.Timestamp(out4.history_date.getTime()));
-} else {
-pstmt_tJDBCOutput_3.setNull(17, java.sql.Types.TIMESTAMP);
-}
-
-            try {
-                insertedCount_tJDBCOutput_3 = insertedCount_tJDBCOutput_3 + pstmt_tJDBCOutput_3.executeUpdate();
-                nb_line_tJDBCOutput_3++;
-            } catch(java.lang.Exception e) {
-                whetherReject_tJDBCOutput_3 = true;
-                    throw(e);
-            }
-            if(!whetherReject_tJDBCOutput_3) {
-            }
+        writer_tJDBCOutput_3.write(data_tJDBCOutput_3);
+        
+        nb_line_tJDBCOutput_3++;
 
  
 
@@ -10380,15 +11889,99 @@ pstmt_tJDBCOutput_3.setNull(17, java.sql.Types.TIMESTAMP);
 /**
  * [tJDBCOutput_3 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_3";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_3 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_3";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_3 process_data_end ] stop
+ */
 
 } // End of branch "out4"
 
 
 
 
+	
+	/**
+	 * [tMap_4 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_4";
+
+	
+
+ 
 
 
 
+/**
+ * [tMap_4 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tAggregateRow_1_AGGIN process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGIN";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGIN process_data_end ] stop
+ */
 	
 	/**
 	 * [tAggregateRow_1_AGGIN end ] start
@@ -10440,12 +12033,10 @@ end_Hash.put("tAggregateRow_1_AGGIN", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row9"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row9");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_4", true);
@@ -10470,35 +12061,47 @@ end_Hash.put("tMap_4", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_3";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_3", Boolean.TRUE);
 
-    if(pstmt_tJDBCOutput_3 != null) {
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_3 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_3.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_3 = writer_tJDBCOutput_3.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_3), container_tJDBCOutput_3);
+if(resultMap_tJDBCOutput_3!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_3 : resultMap_tJDBCOutput_3.entrySet()) {
+		switch(entry_tJDBCOutput_3.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_3.setComponentData("tJDBCOutput_3", "ERROR_MESSAGE", entry_tJDBCOutput_3.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_3.setComponentData("tJDBCOutput_3", "NB_LINE", entry_tJDBCOutput_3.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_3.setComponentData("tJDBCOutput_3", "NB_SUCCESS", entry_tJDBCOutput_3.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_3.setComponentData("tJDBCOutput_3", "NB_REJECT", entry_tJDBCOutput_3.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_3 = new StringBuilder();
+            for (int i_tJDBCOutput_3 = 0; i_tJDBCOutput_3 < entry_tJDBCOutput_3.getKey().length(); i_tJDBCOutput_3++) {
+                char ch_tJDBCOutput_3 = entry_tJDBCOutput_3.getKey().charAt(i_tJDBCOutput_3);
+                if(Character.isUpperCase(ch_tJDBCOutput_3) && i_tJDBCOutput_3> 0) {
+                	studio_key_tJDBCOutput_3.append('_');
+                }
+                studio_key_tJDBCOutput_3.append(ch_tJDBCOutput_3);
+            }
+			container_tJDBCOutput_3.setComponentData("tJDBCOutput_3", studio_key_tJDBCOutput_3.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_3.getValue());
+			break;
+		}
+	}
+}
 
-        pstmt_tJDBCOutput_3.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_3=nb_line_deleted_tJDBCOutput_3+ deletedCount_tJDBCOutput_3;
-	nb_line_update_tJDBCOutput_3=nb_line_update_tJDBCOutput_3 + updatedCount_tJDBCOutput_3;
-	nb_line_inserted_tJDBCOutput_3=nb_line_inserted_tJDBCOutput_3 + insertedCount_tJDBCOutput_3;
-	nb_line_rejected_tJDBCOutput_3=nb_line_rejected_tJDBCOutput_3 + rejectedCount_tJDBCOutput_3;
-	
-        globalMap.put("tJDBCOutput_3_NB_LINE",nb_line_tJDBCOutput_3);
-        globalMap.put("tJDBCOutput_3_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_3);
-        globalMap.put("tJDBCOutput_3_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_3);
-        globalMap.put("tJDBCOutput_3_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_3);
-        globalMap.put("tJDBCOutput_3_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_3);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out4"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out4");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_3", true);
@@ -10672,11 +12275,19 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_5";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_5")==null){
+    if(resourceMap.get("writer_tJDBCOutput_5")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_5")).close();
+		} catch (java.io.IOException e_tJDBCOutput_5) {
+			String errorMessage_tJDBCOutput_5 = "failed to release the resource in tJDBCOutput_5 :" + e_tJDBCOutput_5.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_5);
+		}
+	}
+}
  
 
 
@@ -10751,11 +12362,19 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_1";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_1")==null){
+    if(resourceMap.get("writer_tJDBCOutput_1")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_1")).close();
+		} catch (java.io.IOException e_tJDBCOutput_1) {
+			String errorMessage_tJDBCOutput_1 = "failed to release the resource in tJDBCOutput_1 :" + e_tJDBCOutput_1.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_1);
+		}
+	}
+}
  
 
 
@@ -10827,11 +12446,19 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_2";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_2")==null){
+    if(resourceMap.get("writer_tJDBCOutput_2")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_2")).close();
+		} catch (java.io.IOException e_tJDBCOutput_2) {
+			String errorMessage_tJDBCOutput_2 = "failed to release the resource in tJDBCOutput_2 :" + e_tJDBCOutput_2.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_2);
+		}
+	}
+}
  
 
 
@@ -10882,11 +12509,19 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_4";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_4")==null){
+    if(resourceMap.get("writer_tJDBCOutput_4")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_4")).close();
+		} catch (java.io.IOException e_tJDBCOutput_4) {
+			String errorMessage_tJDBCOutput_4 = "failed to release the resource in tJDBCOutput_4 :" + e_tJDBCOutput_4.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_4);
+		}
+	}
+}
  
 
 
@@ -10980,11 +12615,19 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_3";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_3")==null){
+    if(resourceMap.get("writer_tJDBCOutput_3")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_3")).close();
+		} catch (java.io.IOException e_tJDBCOutput_3) {
+			String errorMessage_tJDBCOutput_3 = "failed to release the resource in tJDBCOutput_3 :" + e_tJDBCOutput_3.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_3);
+		}
+	}
+}
  
 
 
@@ -11729,10 +13372,13 @@ public void tJDBCInput_1Process(final java.util.Map<String, Object> globalMap) t
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -11760,48 +13406,325 @@ out6Struct out6 = new out6Struct();
 	currentComponent="tJDBCOutput_6";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out6" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out6");
+					}
+				
 		int tos_count_tJDBCOutput_6 = 0;
 		
-    	class BytesLimit65535_tJDBCOutput_6{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCOutput_6().limitLog4jByte();
 
 
+org.talend.components.api.component.ComponentDefinition def_tJDBCOutput_6 =
+        new org.talend.components.jdbc.tjdbcoutput.TJDBCOutputDefinition();
 
+org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties props_tJDBCOutput_6 =
+        (org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties) def_tJDBCOutput_6.createRuntimeProperties();
+ 		                    props_tJDBCOutput_6.setValue("dataAction",
+ 		                        org.talend.components.jdbc.tjdbcoutput.TJDBCOutputProperties.DataAction.INSERT);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("clearDataInTable",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("dieOnError",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("enableFieldOptions",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("debug",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("useBatch",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCOutput_6.setValue("batchSize",
+ 		                    10000);
+ 		                    
+ 		                    props_tJDBCOutput_6.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCOutput_6.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCOutput_6.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCOutput_6.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCOutput_6.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.product_group_history");
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_6_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_6\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_6\",\"di.table.label\":\"tJDBCOutput_6\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_6_1_fisrt sst_tJDBCOutput_6_1_fisrt = new SchemaSettingTool_tJDBCOutput_6_1_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_6.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_6_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_6_2_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCOutput_6\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCOutput_6\",\"di.table.label\":\"tJDBCOutput_6\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_6_2_fisrt sst_tJDBCOutput_6_2_fisrt = new SchemaSettingTool_tJDBCOutput_6_2_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_6.schemaFlow.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_6_2_fisrt.getSchemaValue()));
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCOutput_6_3_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"rejectOutput\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"di.column.talendType\":\"id_BigDecimal\",\"talend.field.pattern\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.table.comment\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.isNullable\":\"true\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.column.originalLength\":\"10\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorCode\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"errorMessage\",\"type\":\"string\",\"talend.isLocked\":\"false\",\"talend.field.generated\":\"true\",\"talend.field.length\":\"255\"}],\"di.table.name\":\"tJDBCOutput_6\",\"di.table.label\":\"tJDBCOutput_6\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCOutput_6_3_fisrt sst_tJDBCOutput_6_3_fisrt = new SchemaSettingTool_tJDBCOutput_6_3_fisrt();
+ 		                    
+ 		                    props_tJDBCOutput_6.schemaReject.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCOutput_6_3_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCOutput_6.additionalColumns.setValue("positions",
+ 		                    "BEFORE");
+ 		                    
+ 		                    props_tJDBCOutput_6.additionalColumns.setValue("referenceColumns",
+ 		                    "obj_id");
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCOutput_6.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCOutput_6 = props_tJDBCOutput_6.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCOutput_6 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCOutput_6 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCOutput_6 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCOutput_6.referencedComponent.setReference(referencedComponentProperties_tJDBCOutput_6);
+        }
+    }
+globalMap.put("tJDBCOutput_6_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCOutput_6);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCOutput_6= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCOutput_6_MAPPINGS_URL", mappings_url_tJDBCOutput_6);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCOutput_6 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCOutput_6";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
 
 int nb_line_tJDBCOutput_6 = 0;
-int nb_line_update_tJDBCOutput_6 = 0;
-int nb_line_inserted_tJDBCOutput_6 = 0;
-int nb_line_deleted_tJDBCOutput_6 = 0;
-int nb_line_rejected_tJDBCOutput_6 = 0;
 
-int tmp_batchUpdateCount_tJDBCOutput_6 = 0;
+org.talend.components.api.component.ConnectorTopology topology_tJDBCOutput_6 = null;
+topology_tJDBCOutput_6 = org.talend.components.api.component.ConnectorTopology.INCOMING;
 
-int deletedCount_tJDBCOutput_6 = 0;
-int updatedCount_tJDBCOutput_6 = 0;
-int insertedCount_tJDBCOutput_6 = 0;
-int rejectedCount_tJDBCOutput_6 = 0;
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCOutput_6 = def_tJDBCOutput_6.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCOutput_6, topology_tJDBCOutput_6);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCOutput_6 = def_tJDBCOutput_6.getSupportedConnectorTopologies();
 
-boolean whetherReject_tJDBCOutput_6 = false;
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCOutput_6 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCOutput_6.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCOutput_6 = componentRuntime_tJDBCOutput_6.initialize(container_tJDBCOutput_6, props_tJDBCOutput_6);
 
-	java.sql.Connection connection_tJDBCOutput_6 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
+if (initVr_tJDBCOutput_6.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCOutput_6.getMessage());
+}
 
-		String insert_tJDBCOutput_6 = "INSERT INTO " + "sales_analyzer.product_group_history" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmt_tJDBCOutput_6 = connection_tJDBCOutput_6.prepareStatement(insert_tJDBCOutput_6);
-		
+if(componentRuntime_tJDBCOutput_6 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCOutput_6 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCOutput_6;
+	compDriverInitialization_tJDBCOutput_6.runAtDriver(container_tJDBCOutput_6);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCOutput_6 = null;
+if(componentRuntime_tJDBCOutput_6 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCOutput_6 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCOutput_6;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCOutput_6 = sourceOrSink_tJDBCOutput_6.validate(container_tJDBCOutput_6);
+	if (vr_tJDBCOutput_6.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCOutput_6.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Sink sink_tJDBCOutput_6 =
+            (org.talend.components.api.component.runtime.Sink)sourceOrSink_tJDBCOutput_6;
+    org.talend.components.api.component.runtime.WriteOperation writeOperation_tJDBCOutput_6 = sink_tJDBCOutput_6.createWriteOperation();
+    writeOperation_tJDBCOutput_6.initialize(container_tJDBCOutput_6);
+    org.talend.components.api.component.runtime.Writer writer_tJDBCOutput_6 = writeOperation_tJDBCOutput_6.createWriter(container_tJDBCOutput_6);
+    writer_tJDBCOutput_6.open("tJDBCOutput_6");
+
+    resourceMap.put("writer_tJDBCOutput_6", writer_tJDBCOutput_6);
+
+    org.talend.components.api.component.Connector c_tJDBCOutput_6 = null;
+    for (org.talend.components.api.component.Connector currentConnector : props_tJDBCOutput_6.getAvailableConnectors(null, false)) {
+        if (currentConnector.getName().equals("MAIN")) {
+            c_tJDBCOutput_6 = currentConnector;
+            break;
+        }
+    }
+    org.apache.avro.Schema designSchema_tJDBCOutput_6 = props_tJDBCOutput_6.getSchema(c_tJDBCOutput_6, false);
+    org.talend.codegen.enforcer.IncomingSchemaEnforcer incomingEnforcer_tJDBCOutput_6
+            = new org.talend.codegen.enforcer.IncomingSchemaEnforcer(designSchema_tJDBCOutput_6);
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCOutput_6 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCOutput_6 = null;
 
 
  
@@ -11830,24 +13753,12 @@ boolean whetherReject_tJDBCOutput_6 = false;
 	currentComponent="tMap_6";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row12" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row12");
+					}
+				
 		int tos_count_tMap_6 = 0;
 		
-    	class BytesLimit65535_tMap_6{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_6().limitLog4jByte();
 
 
 
@@ -11911,96 +13822,268 @@ out6Struct out6_tmp = new out6Struct();
 	
 		int tos_count_tJDBCInput_1 = 0;
 		
-    	class BytesLimit65535_tJDBCInput_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
+
+
+org.talend.components.api.component.ComponentDefinition def_tJDBCInput_1 =
+        new org.talend.components.jdbc.tjdbcinput.TJDBCInputDefinition();
+
+org.talend.components.jdbc.tjdbcinput.TJDBCInputProperties props_tJDBCInput_1 =
+        (org.talend.components.jdbc.tjdbcinput.TJDBCInputProperties) def_tJDBCInput_1.createRuntimeProperties();
+ 		                    props_tJDBCInput_1.setValue("sql",
+ 		                    "\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_histor"
++"y where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY", TalendDate.addDate(  TalendDate.getFirstDayOfMonth(context.date),-1,"MM"))+"'\nexcept\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_grou"
++"p_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY",  TalendDate.getFirstDayOfMonth(context.date)) +"'\n");
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("useCursor",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("trimStringOrCharColumns",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("enableDBMapping",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("usePreparedStatement",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCInput_1.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCInput_1_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCInput_1\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":[\"long\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCInput_1\",\"di.table.label\":\"tJDBCInput_1\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCInput_1_1_fisrt sst_tJDBCInput_1_1_fisrt = new SchemaSettingTool_tJDBCInput_1_1_fisrt();
+ 		                    
+ 		                    props_tJDBCInput_1.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCInput_1_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCInput_1.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.product_group_history");
+ 		                    
+ 		                    java.util.List<Object> tJDBCInput_1_trimTable_trim = new java.util.ArrayList<Object>();
+ 		                    
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCInput_1.trimTable).setValue("trim",tJDBCInput_1_trimTable_trim);
+ 		                    
+ 		                    java.util.List<Object> tJDBCInput_1_trimTable_columnName = new java.util.ArrayList<Object>();
+ 		                    
+ 		                            tJDBCInput_1_trimTable_columnName.add("country_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("country_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("state_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("state_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("city_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("city_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("product");
+ 		                            
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCInput_1.trimTable).setValue("columnName",tJDBCInput_1_trimTable_columnName);
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCInput_1.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCInput_1 = props_tJDBCInput_1.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCInput_1 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCInput_1 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCInput_1 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCInput_1.referencedComponent.setReference(referencedComponentProperties_tJDBCInput_1);
+        }
+    }
+globalMap.put("tJDBCInput_1_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCInput_1);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCInput_1= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCInput_1_MAPPINGS_URL", mappings_url_tJDBCInput_1);
+
+org.talend.components.api.container.RuntimeContainer container_tJDBCInput_1 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCInput_1";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
+
+int nb_line_tJDBCInput_1 = 0;
+
+org.talend.components.api.component.ConnectorTopology topology_tJDBCInput_1 = null;
+topology_tJDBCInput_1 = org.talend.components.api.component.ConnectorTopology.OUTGOING;
+
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCInput_1 = def_tJDBCInput_1.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCInput_1, topology_tJDBCInput_1);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCInput_1 = def_tJDBCInput_1.getSupportedConnectorTopologies();
+
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCInput_1 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCInput_1.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCInput_1 = componentRuntime_tJDBCInput_1.initialize(container_tJDBCInput_1, props_tJDBCInput_1);
+
+if (initVr_tJDBCInput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCInput_1.getMessage());
+}
+
+if(componentRuntime_tJDBCInput_1 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCInput_1 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCInput_1;
+	compDriverInitialization_tJDBCInput_1.runAtDriver(container_tJDBCInput_1);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCInput_1 = null;
+if(componentRuntime_tJDBCInput_1 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCInput_1 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCInput_1;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCInput_1 = sourceOrSink_tJDBCInput_1.validate(container_tJDBCInput_1);
+	if (vr_tJDBCInput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCInput_1.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Source source_tJDBCInput_1 =
+            (org.talend.components.api.component.runtime.Source)sourceOrSink_tJDBCInput_1;
+    org.talend.components.api.component.runtime.Reader reader_tJDBCInput_1 =
+            source_tJDBCInput_1.createReader(container_tJDBCInput_1);
+	reader_tJDBCInput_1 = new org.talend.codegen.flowvariables.runtime.FlowVariablesReader(reader_tJDBCInput_1, container_tJDBCInput_1);
+
+        boolean multi_output_is_allowed_tJDBCInput_1 = false;
+        org.talend.components.api.component.Connector c_tJDBCInput_1 = null;
+        for (org.talend.components.api.component.Connector currentConnector : props_tJDBCInput_1.getAvailableConnectors(null, true)) {
+            if (currentConnector.getName().equals("MAIN")) {
+                c_tJDBCInput_1 = currentConnector;
+            }
+
+            if (currentConnector.getName().equals("REJECT")) {//it's better to move the code to javajet
+                multi_output_is_allowed_tJDBCInput_1 = true;
+            }
+        }
+        org.apache.avro.Schema schema_tJDBCInput_1 = props_tJDBCInput_1.getSchema(c_tJDBCInput_1, true);
+
+        org.talend.codegen.enforcer.OutgoingSchemaEnforcer outgoingEnforcer_tJDBCInput_1 = org.talend.codegen.enforcer.EnforcerCreator.createOutgoingEnforcer(schema_tJDBCInput_1, false);
+
+        // Create a reusable factory that converts the output of the reader to an IndexedRecord.
+        org.talend.daikon.avro.converter.IndexedRecordConverter<Object, ? extends org.apache.avro.generic.IndexedRecord> factory_tJDBCInput_1 = null;
+
+    // Iterate through the incoming data.
+    boolean available_tJDBCInput_1 = reader_tJDBCInput_1.start();
+
+    resourceMap.put("reader_tJDBCInput_1", reader_tJDBCInput_1);
+
+    for (; available_tJDBCInput_1; available_tJDBCInput_1 = reader_tJDBCInput_1.advance()) {
+    	nb_line_tJDBCInput_1++;
+
     	
-        new BytesLimit65535_tJDBCInput_1().limitLog4jByte();
-	
-    
-	
-		    int nb_line_tJDBCInput_1 = 0;
-		    java.sql.Connection conn_tJDBCInput_1 = null;
-		        conn_tJDBCInput_1 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
-				
-		    
-			java.sql.Statement stmt_tJDBCInput_1 = conn_tJDBCInput_1.createStatement();
+        if (multi_output_is_allowed_tJDBCInput_1) {
+                row12 = null;
 
-		    String dbquery_tJDBCInput_1 = "\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY", TalendDate.addDate(  TalendDate.getFirstDayOfMonth(context.date),-1,"MM"))+"'\nexcept\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY",  TalendDate.getFirstDayOfMonth(context.date)) +"'\n";
-			
+        }
 
-                       globalMap.put("tJDBCInput_1_QUERY",dbquery_tJDBCInput_1);
+        try {
+            Object data_tJDBCInput_1 = reader_tJDBCInput_1.getCurrent();
 
-		    java.sql.ResultSet rs_tJDBCInput_1 = null;
-		try{
-		    rs_tJDBCInput_1 = stmt_tJDBCInput_1.executeQuery(dbquery_tJDBCInput_1);
-		    java.sql.ResultSetMetaData rsmd_tJDBCInput_1 = rs_tJDBCInput_1.getMetaData();
-		    int colQtyInRs_tJDBCInput_1 = rsmd_tJDBCInput_1.getColumnCount();
+                if(multi_output_is_allowed_tJDBCInput_1) {
+                    row12 = new row12Struct();
+                }
 
-		    String tmpContent_tJDBCInput_1 = null;
-		    
-		    
-		    while (rs_tJDBCInput_1.next()) {
-		        nb_line_tJDBCInput_1++;
-		        
-							if(colQtyInRs_tJDBCInput_1 < 1) {
-								row12.country_id = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(1) != null) {
-                row12.country_id = rs_tJDBCInput_1.getLong(1);
-            } else {
-                    row12.country_id = null;
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 2) {
-								row12.country_name = null;
-							} else {
-	                         		
-        	row12.country_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 2, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 3) {
-								row12.state_id = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(3) != null) {
-                row12.state_id = rs_tJDBCInput_1.getLong(3);
-            } else {
-                    row12.state_id = null;
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 4) {
-								row12.state_name = null;
-							} else {
-	                         		
-        	row12.state_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 4, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 5) {
-								row12.city_id = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(5) != null) {
-                row12.city_id = rs_tJDBCInput_1.getLong(5);
-            } else {
-                    row12.city_id = null;
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 6) {
-								row12.city_name = null;
-							} else {
-	                         		
-        	row12.city_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 6, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 7) {
-								row12.product = null;
-							} else {
-	                         		
-        	row12.product = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 7, false);
-		                    }
-					
+        // Construct the factory once when the first data arrives.
+        if (factory_tJDBCInput_1 == null) {
+            factory_tJDBCInput_1 = (org.talend.daikon.avro.converter.IndexedRecordConverter<Object, ? extends org.apache.avro.generic.IndexedRecord>)
+                    new org.talend.daikon.avro.AvroRegistry()
+                            .createIndexedRecordConverter(data_tJDBCInput_1.getClass());
+        }
 
+        // Enforce the outgoing schema on the input.
+        outgoingEnforcer_tJDBCInput_1.setWrapped(factory_tJDBCInput_1.convertToAvro(data_tJDBCInput_1));
+                Object columnValue_0_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(0);
+                        row12.country_id = (Long) (columnValue_0_tJDBCInput_1);
+                Object columnValue_1_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(1);
+                        row12.country_name = (String) (columnValue_1_tJDBCInput_1);
+                Object columnValue_2_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(2);
+                        row12.state_id = (Long) (columnValue_2_tJDBCInput_1);
+                Object columnValue_3_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(3);
+                        row12.state_name = (String) (columnValue_3_tJDBCInput_1);
+                Object columnValue_4_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(4);
+                        row12.city_id = (Long) (columnValue_4_tJDBCInput_1);
+                Object columnValue_5_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(5);
+                        row12.city_name = (String) (columnValue_5_tJDBCInput_1);
+                Object columnValue_6_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(6);
+                        row12.product = (String) (columnValue_6_tJDBCInput_1);
+        } catch (org.talend.components.api.exception.DataRejectException e_tJDBCInput_1) {
+        	java.util.Map<String,Object> info_tJDBCInput_1 = e_tJDBCInput_1.getRejectInfo();
+            	//TODO use a method instead of getting method by the special key "error/errorMessage"
+            	Object errorMessage_tJDBCInput_1 = null;
+            	if(info_tJDBCInput_1.containsKey("error")){
+            		errorMessage_tJDBCInput_1 = info_tJDBCInput_1.get("error");
+        		}else if(info_tJDBCInput_1.containsKey("errorMessage")){
+            		errorMessage_tJDBCInput_1 = info_tJDBCInput_1.get("errorMessage");
+        		}else{
+        			errorMessage_tJDBCInput_1 = "Rejected but error message missing";
+        		}
+        		errorMessage_tJDBCInput_1 = "Row "+ nb_line_tJDBCInput_1 + ": "+errorMessage_tJDBCInput_1;
+    			System.err.println(errorMessage_tJDBCInput_1);
+            	// If the record is reject, the main line record should put NULL
+            	row12 = null;
+    }
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCInput_1 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCInput_1 = null;
 
 
  
@@ -12023,6 +14106,7 @@ out6Struct out6_tmp = new out6Struct();
 
 	
 
+
  
 
 
@@ -12030,6 +14114,27 @@ out6Struct out6_tmp = new out6Struct();
 
 /**
  * [tJDBCInput_1 main ] stop
+ */
+	
+	/**
+	 * [tJDBCInput_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCInput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCInput_1 process_data_begin ] stop
  */
 
 	
@@ -12044,18 +14149,10 @@ out6Struct out6_tmp = new out6Struct();
 	currentComponent="tMap_6";
 
 	
-
-			//row12
-			//row12
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row12"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row12");
+					}
+					
 
 		
 		
@@ -12121,6 +14218,26 @@ rejectedInnerJoin_tMap_6 = false;
 /**
  * [tMap_6 main ] stop
  */
+	
+	/**
+	 * [tMap_6 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_6";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_6 process_data_begin ] stop
+ */
 // Start of branch "out6"
 if(out6 != null) { 
 
@@ -12138,107 +14255,86 @@ if(out6 != null) {
 	currentComponent="tJDBCOutput_6";
 
 	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out6");
+					}
+					
 
-			//out6
-			//out6
+        incomingEnforcer_tJDBCOutput_6.createNewRecord();
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("obj_id") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("obj_id", out6.obj_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("active_date") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("active_date", out6.active_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("create_date") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("create_date", out6.create_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("exp_date") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("exp_date", out6.exp_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("obj_status") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("obj_status", out6.obj_status);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("obj_type") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("obj_type", out6.obj_type);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("update_date") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("update_date", out6.update_date);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("optlock") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("optlock", out6.optlock);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("country_id") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("country_id", out6.country_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("country_name") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("country_name", out6.country_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("state_id") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("state_id", out6.state_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("state_name") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("state_name", out6.state_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("city_id") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("city_id", out6.city_id);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("city_name") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("city_name", out6.city_name);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("product") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("product", out6.product);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("amount") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("amount", out6.amount);
+                }
+                //skip the put action if the input column doesn't appear in component runtime schema
+                if (incomingEnforcer_tJDBCOutput_6.getRuntimeSchema().getField("history_date") != null){
+                    incomingEnforcer_tJDBCOutput_6.put("history_date", out6.history_date);
+                }
+        org.apache.avro.generic.IndexedRecord data_tJDBCOutput_6 = incomingEnforcer_tJDBCOutput_6.getCurrentRecord();
+        
 
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out6"+iterateId,1, 1);
-				} 
-			
-
-		
-
-
-
-        whetherReject_tJDBCOutput_6 = false;
-                    if(out6.obj_id == null) {
-pstmt_tJDBCOutput_6.setNull(1, java.sql.Types.OTHER);
-} else {pstmt_tJDBCOutput_6.setObject(1, out6.obj_id);
-}
-
-                    if(out6.active_date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(2, new java.sql.Timestamp(out6.active_date.getTime()));
-} else {
-pstmt_tJDBCOutput_6.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out6.create_date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(3, new java.sql.Timestamp(out6.create_date.getTime()));
-} else {
-pstmt_tJDBCOutput_6.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out6.exp_date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(4, new java.sql.Timestamp(out6.exp_date.getTime()));
-} else {
-pstmt_tJDBCOutput_6.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out6.obj_status == null) {
-pstmt_tJDBCOutput_6.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(5, out6.obj_status);
-}
-
-                    if(out6.obj_type == null) {
-pstmt_tJDBCOutput_6.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(6, out6.obj_type);
-}
-
-                    if(out6.update_date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(7, new java.sql.Timestamp(out6.update_date.getTime()));
-} else {
-pstmt_tJDBCOutput_6.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                    if(out6.optlock == null) {
-pstmt_tJDBCOutput_6.setNull(8, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_6.setInt(8, out6.optlock);
-}
-
-                    pstmt_tJDBCOutput_6.setLong(9, out6.country_id);
-
-                    if(out6.country_name == null) {
-pstmt_tJDBCOutput_6.setNull(10, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(10, out6.country_name);
-}
-
-                    pstmt_tJDBCOutput_6.setLong(11, out6.state_id);
-
-                    if(out6.state_name == null) {
-pstmt_tJDBCOutput_6.setNull(12, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(12, out6.state_name);
-}
-
-                    pstmt_tJDBCOutput_6.setLong(13, out6.city_id);
-
-                    if(out6.city_name == null) {
-pstmt_tJDBCOutput_6.setNull(14, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(14, out6.city_name);
-}
-
-                    if(out6.product == null) {
-pstmt_tJDBCOutput_6.setNull(15, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(15, out6.product);
-}
-
-                    pstmt_tJDBCOutput_6.setBigDecimal(16, out6.amount);
-
-                    if(out6.history_date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(17, new java.sql.Timestamp(out6.history_date.getTime()));
-} else {
-pstmt_tJDBCOutput_6.setNull(17, java.sql.Types.TIMESTAMP);
-}
-
-            try {
-                insertedCount_tJDBCOutput_6 = insertedCount_tJDBCOutput_6 + pstmt_tJDBCOutput_6.executeUpdate();
-                nb_line_tJDBCOutput_6++;
-            } catch(java.lang.Exception e) {
-                whetherReject_tJDBCOutput_6 = true;
-                    throw(e);
-            }
+        writer_tJDBCOutput_6.write(data_tJDBCOutput_6);
+        
+        nb_line_tJDBCOutput_6++;
 
  
 
@@ -12248,15 +14344,98 @@ pstmt_tJDBCOutput_6.setNull(17, java.sql.Types.TIMESTAMP);
 /**
  * [tJDBCOutput_6 main ] stop
  */
+	
+	/**
+	 * [tJDBCOutput_6 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_6";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_6 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCOutput_6 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCOutput_6";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCOutput_6 process_data_end ] stop
+ */
 
 } // End of branch "out6"
 
 
 
 
+	
+	/**
+	 * [tMap_6 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_6";
+
+	
+
+ 
 
 
 
+/**
+ * [tMap_6 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tJDBCInput_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCInput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCInput_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tJDBCInput_1 end ] start
@@ -12269,18 +14448,43 @@ pstmt_tJDBCOutput_6.setNull(17, java.sql.Types.TIMESTAMP);
 	currentComponent="tJDBCInput_1";
 
 	
+// end of generic
 
-	}
-}finally{
-	if(rs_tJDBCInput_1 !=null){
-		rs_tJDBCInput_1.close();
-	}
-	stmt_tJDBCInput_1.close();
 
+resourceMap.put("finish_tJDBCInput_1", Boolean.TRUE);
+
+    } // while
+    reader_tJDBCInput_1.close();
+    final java.util.Map<String, Object> resultMap_tJDBCInput_1 = reader_tJDBCInput_1.getReturnValues();
+if(resultMap_tJDBCInput_1!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCInput_1 : resultMap_tJDBCInput_1.entrySet()) {
+		switch(entry_tJDBCInput_1.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "ERROR_MESSAGE", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_LINE", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_SUCCESS", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_REJECT", entry_tJDBCInput_1.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCInput_1 = new StringBuilder();
+            for (int i_tJDBCInput_1 = 0; i_tJDBCInput_1 < entry_tJDBCInput_1.getKey().length(); i_tJDBCInput_1++) {
+                char ch_tJDBCInput_1 = entry_tJDBCInput_1.getKey().charAt(i_tJDBCInput_1);
+                if(Character.isUpperCase(ch_tJDBCInput_1) && i_tJDBCInput_1> 0) {
+                	studio_key_tJDBCInput_1.append('_');
+                }
+                studio_key_tJDBCInput_1.append(ch_tJDBCInput_1);
+            }
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", studio_key_tJDBCInput_1.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCInput_1.getValue());
+			break;
+		}
+	}
 }
-globalMap.put("tJDBCInput_1_NB_LINE", nb_line_tJDBCInput_1);
-
-
 
  
 
@@ -12316,12 +14520,10 @@ end_Hash.put("tJDBCInput_1", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row12"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row12");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_6", true);
@@ -12346,35 +14548,47 @@ end_Hash.put("tMap_6", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_6";
 
 	
+// end of generic
 
 
+resourceMap.put("finish_tJDBCOutput_6", Boolean.TRUE);
 
-    if(pstmt_tJDBCOutput_6 != null) {
+    org.talend.components.api.component.runtime.Result resultObject_tJDBCOutput_6 = (org.talend.components.api.component.runtime.Result)writer_tJDBCOutput_6.close();
+    final java.util.Map<String, Object> resultMap_tJDBCOutput_6 = writer_tJDBCOutput_6.getWriteOperation().finalize(java.util.Arrays.<org.talend.components.api.component.runtime.Result>asList(resultObject_tJDBCOutput_6), container_tJDBCOutput_6);
+if(resultMap_tJDBCOutput_6!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCOutput_6 : resultMap_tJDBCOutput_6.entrySet()) {
+		switch(entry_tJDBCOutput_6.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCOutput_6.setComponentData("tJDBCOutput_6", "ERROR_MESSAGE", entry_tJDBCOutput_6.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCOutput_6.setComponentData("tJDBCOutput_6", "NB_LINE", entry_tJDBCOutput_6.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCOutput_6.setComponentData("tJDBCOutput_6", "NB_SUCCESS", entry_tJDBCOutput_6.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCOutput_6.setComponentData("tJDBCOutput_6", "NB_REJECT", entry_tJDBCOutput_6.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCOutput_6 = new StringBuilder();
+            for (int i_tJDBCOutput_6 = 0; i_tJDBCOutput_6 < entry_tJDBCOutput_6.getKey().length(); i_tJDBCOutput_6++) {
+                char ch_tJDBCOutput_6 = entry_tJDBCOutput_6.getKey().charAt(i_tJDBCOutput_6);
+                if(Character.isUpperCase(ch_tJDBCOutput_6) && i_tJDBCOutput_6> 0) {
+                	studio_key_tJDBCOutput_6.append('_');
+                }
+                studio_key_tJDBCOutput_6.append(ch_tJDBCOutput_6);
+            }
+			container_tJDBCOutput_6.setComponentData("tJDBCOutput_6", studio_key_tJDBCOutput_6.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCOutput_6.getValue());
+			break;
+		}
+	}
+}
 
-        pstmt_tJDBCOutput_6.close();
-
-    }
-
-
-	nb_line_deleted_tJDBCOutput_6=nb_line_deleted_tJDBCOutput_6+ deletedCount_tJDBCOutput_6;
-	nb_line_update_tJDBCOutput_6=nb_line_update_tJDBCOutput_6 + updatedCount_tJDBCOutput_6;
-	nb_line_inserted_tJDBCOutput_6=nb_line_inserted_tJDBCOutput_6 + insertedCount_tJDBCOutput_6;
-	nb_line_rejected_tJDBCOutput_6=nb_line_rejected_tJDBCOutput_6 + rejectedCount_tJDBCOutput_6;
-	
-        globalMap.put("tJDBCOutput_6_NB_LINE",nb_line_tJDBCOutput_6);
-        globalMap.put("tJDBCOutput_6_NB_LINE_UPDATED",nb_line_update_tJDBCOutput_6);
-        globalMap.put("tJDBCOutput_6_NB_LINE_INSERTED",nb_line_inserted_tJDBCOutput_6);
-        globalMap.put("tJDBCOutput_6_NB_LINE_DELETED",nb_line_deleted_tJDBCOutput_6);
-        globalMap.put("tJDBCOutput_6_NB_LINE_REJECTED", nb_line_rejected_tJDBCOutput_6);
-    
-	
-
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out6"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out6");
+			  	}
+			  	
  
 
 ok_Hash.put("tJDBCOutput_6", true);
@@ -12425,7 +14639,19 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
 	currentComponent="tJDBCInput_1";
 
 	
+// finally of generic
 
+
+if(resourceMap.get("finish_tJDBCInput_1")==null){
+    if(resourceMap.get("reader_tJDBCInput_1")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Reader)resourceMap.get("reader_tJDBCInput_1")).close();
+		} catch (java.io.IOException e_tJDBCInput_1) {
+			String errorMessage_tJDBCInput_1 = "failed to release the resource in tJDBCInput_1 :" + e_tJDBCInput_1.getMessage();
+			System.err.println(errorMessage_tJDBCInput_1);
+		}
+	}
+}
  
 
 
@@ -12467,11 +14693,19 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
 	currentComponent="tJDBCOutput_6";
 
 	
+// finally of generic
 
 
-
-	
-
+if(resourceMap.get("finish_tJDBCOutput_6")==null){
+    if(resourceMap.get("writer_tJDBCOutput_6")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Writer)resourceMap.get("writer_tJDBCOutput_6")).close();
+		} catch (java.io.IOException e_tJDBCOutput_6) {
+			String errorMessage_tJDBCOutput_6 = "failed to release the resource in tJDBCOutput_6 :" + e_tJDBCOutput_6.getMessage();
+			System.err.println(errorMessage_tJDBCOutput_6);
+		}
+	}
+}
  
 
 
@@ -12518,6 +14752,8 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
     public long startTime = 0;
     public boolean isChildJob = false;
     public String log4jLevel = "";
+    
+    private boolean enableLogStash;
 
     private boolean execStat = true;
 
@@ -12531,11 +14767,28 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
     };
 
 
-
     private PropertiesWithType context_param = new PropertiesWithType();
     public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
 
     public String status= "";
+    
+    private final org.talend.components.common.runtime.SharedConnectionsPool connectionPool = new org.talend.components.common.runtime.SharedConnectionsPool() {
+    	public java.sql.Connection getDBConnection(String dbDriver, String url, String userName, String password, String dbConnectionName)
+            throws ClassNotFoundException, java.sql.SQLException {
+            return SharedDBConnection.getDBConnection(dbDriver, url, userName, password, dbConnectionName);
+        }
+
+    	public java.sql.Connection getDBConnection(String dbDriver, String url, String dbConnectionName)
+            throws ClassNotFoundException, java.sql.SQLException {
+            return SharedDBConnection.getDBConnection(dbDriver, url, dbConnectionName);
+        }
+    };
+    
+    private static final String GLOBAL_CONNECTION_POOL_KEY = "GLOBAL_CONNECTION_POOL";
+    
+    {
+    	globalMap.put(GLOBAL_CONNECTION_POOL_KEY, connectionPool);
+    }
 
     public static void main(String[] args){
         final Load_Monthly_Data Load_Monthly_DataClass = new Load_Monthly_Data();
@@ -12563,7 +14816,7 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
     public int runJobInTOS(String[] args) {
 	   	// reset status
 	   	status = "";
-
+	   	
         String lastStr = "";
         for (String arg : args) {
             if (arg.equalsIgnoreCase("--context_param")) {
@@ -12575,7 +14828,10 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
                 lastStr = "";
             }
         }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
 
+    	
+    	
 
         if(clientHost == null) {
             clientHost = defaultClientHost;
@@ -12607,19 +14863,21 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
 
         try {
             //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
-            java.io.InputStream inContext = Load_Monthly_Data.class.getClassLoader().getResourceAsStream("etl/load_monthly_data_0_1/contexts/"+contextStr+".properties");
-            if(isDefaultContext && inContext ==null) {
-
-            } else {
-                if (inContext!=null) {
-                    //defaultProps is in order to keep the original context value
-                    defaultProps.load(inContext);
-                    inContext.close();
-                    context = new ContextProperties(defaultProps);
-                }else{
-                    //print info and job continue to run, for case: context_param is not empty.
-                    System.err.println("Could not find the context " + contextStr);
+            java.io.InputStream inContext = Load_Monthly_Data.class.getClassLoader().getResourceAsStream("etl/load_monthly_data_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = Load_Monthly_Data.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                //defaultProps is in order to keep the original context value
+                if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
                 }
+                
+                inContext.close();
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
             }
 
             if(!context_param.isEmpty()) {
@@ -12632,40 +14890,44 @@ end_Hash.put("tJDBCOutput_6", System.currentTimeMillis());
 
 				}
             }
-				    context.setContextType("date", "id_Date");
-				
-            try{
-                String context_date_value = context.getProperty("date");
-                if (context_date_value == null){
-                    context_date_value = "";
-                }
-                int context_date_pos = context_date_value.indexOf(";");
-                String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
-                if(context_date_pos > -1){
-                    context_date_pattern = context_date_value.substring(0, context_date_pos);
-                    context_date_value = context_date_value.substring(context_date_pos + 1);
-                }
+            class ContextProcessing {
+                private void processContext_0() {
+                        context.setContextType("date", "id_Date");
+                        try{
+                            String context_date_value = context.getProperty("date");
+                            if (context_date_value == null){
+                                context_date_value = "";
+                            }
+                            int context_date_pos = context_date_value.indexOf(";");
+                            String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
+                            if(context_date_pos > -1){
+                                context_date_pattern = context_date_value.substring(0, context_date_pos);
+                                context_date_value = context_date_value.substring(context_date_pos + 1);
+                            }
 
-                context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
+                            context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
 
-            }catch(ParseException e)
-            {
-                context.date=null;
+                        } catch(ParseException e) {
+                                System.err.println(String.format("Null value will be used for context parameter %s: %s", "date", e.getMessage()));
+                            context.date=null;
+                        }
+                        context.setContextType("inputDirectory", "id_String");
+                            context.inputDirectory=(String) context.getProperty("inputDirectory");
+                        context.setContextType("outputDirectory", "id_String");
+                            context.outputDirectory=(String) context.getProperty("outputDirectory");
+                        context.setContextType("session", "id_String");
+                            context.session=(String) context.getProperty("session");
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
             }
-				    context.setContextType("inputDirectory", "id_String");
-				
-                context.inputDirectory=(String) context.getProperty("inputDirectory");
-				    context.setContextType("outputDirectory", "id_String");
-				
-                context.outputDirectory=(String) context.getProperty("outputDirectory");
-				    context.setContextType("session", "id_String");
-				
-                context.session=(String) context.getProperty("session");
+
+            new ContextProcessing().processAllContext();
         } catch (java.io.IOException ie) {
             System.err.println("Could not load context "+contextStr);
             ie.printStackTrace();
         }
-
 
         // get context value from parent directly
         if (parentContextMap != null && !parentContextMap.isEmpty()) {if (parentContextMap.containsKey("date")) {
@@ -12747,8 +15009,6 @@ this.globalResumeTicket = true;//to run tPostJob
         if (false) {
             System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : Load_Monthly_Data");
         }
-
-
 
 
 
@@ -12862,10 +15122,13 @@ if (execStat) {
                     context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
                 }
             }
-        }else if (arg.startsWith("--log4jLevel=")) {
+        } else if (arg.startsWith("--log4jLevel=")) {
             log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
+			final String key = arg.substring("--".length(), equal);
+			System.setProperty(key, arg.substring(equal + 1));
 		}
-
     }
     
     private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
@@ -12916,6 +15179,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     288432 characters generated by Talend Open Studio for Data Integration 
- *     on the February 16, 2019 10:57:18 EST AM
+ *     520616 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 8, 2020 at 3:21:34 p.m. EST
  ************************************************************************************************/

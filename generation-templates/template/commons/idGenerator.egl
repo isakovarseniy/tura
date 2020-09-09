@@ -1,0 +1,114 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+
+@template
+operation form::Uielement  mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+operation form::Uielement  mkuid_(){ 
+   return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+
+operation form::Column  mkuid_(){ 
+   return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+@template
+operation form::ViewPort  mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+operation form::ViewPort mkuid_(){
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+
+operation form::MenuItem mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::Menu mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::ViewArea mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::Window mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::TabCanvas mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::TabPage mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+
+operation form::OverlayCanvas mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::Canvas mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::PopupCanvas mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::ContextParameter mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+operation form::FlexField mkuid_(){ 
+ return "tura"+ self.uid.replaceAll("\\-","_");
+}
+
+@template
+operation form::CanvasFrame mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation form::ViewArea mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+@template
+operation form::FlexField mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation form::Context mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+
+
+
+%]

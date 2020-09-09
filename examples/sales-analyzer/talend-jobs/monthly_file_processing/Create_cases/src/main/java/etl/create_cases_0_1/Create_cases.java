@@ -58,12 +58,19 @@ import java.util.Comparator;
 /**
  * Job: Create_cases Purpose: <br>
  * Description:  <br>
- * @author 
- * @version 6.4.1.20170623_1246
+ * @author user@talend.com
+ * @version 7.3.1.20200117_1600-M6
  * @status 
  */
 public class Create_cases implements TalendJob {
 
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
+
+}
 
 
 	public final Object obj = new Object();
@@ -171,7 +178,7 @@ public String getSession(){
 	return this.session;
 }
 	}
-	private ContextProperties context = new ContextProperties();
+	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
 	public ContextProperties getContext() {
 		return this.context;
 	}
@@ -194,6 +201,8 @@ private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
+	
+	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
@@ -201,6 +210,7 @@ private RunStat runStat = new RunStat();
 			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
+		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
 
@@ -379,7 +389,7 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
 			}
-		
+	
 
 
 
@@ -397,10 +407,13 @@ public void tLibraryLoad_1Process(final java.util.Map<String, Object> globalMap)
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -426,13 +439,7 @@ public void tLibraryLoad_1Process(final java.util.Map<String, Object> globalMap)
 	
 		int tos_count_tLibraryLoad_1 = 0;
 		
-    	class BytesLimit65535_tLibraryLoad_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tLibraryLoad_1().limitLog4jByte();
+
 
 
 
@@ -463,6 +470,46 @@ public void tLibraryLoad_1Process(final java.util.Map<String, Object> globalMap)
 
 /**
  * [tLibraryLoad_1 main ] stop
+ */
+	
+	/**
+	 * [tLibraryLoad_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLibraryLoad_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tLibraryLoad_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLibraryLoad_1 process_data_end ] stop
  */
 	
 	/**
@@ -2575,10 +2622,13 @@ public void tFileInputDelimited_1Process(final java.util.Map<String, Object> glo
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -2611,24 +2661,12 @@ row5Struct row5 = new row5Struct();
 	currentComponent="tFileOutputDelimited_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row4" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4");
+					}
+				
 		int tos_count_tFileOutputDelimited_2 = 0;
 		
-    	class BytesLimit65535_tFileOutputDelimited_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileOutputDelimited_2().limitLog4jByte();
 
 String fileName_tFileOutputDelimited_2 = "";
     fileName_tFileOutputDelimited_2 = (new java.io.File(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_processed.csv")).getAbsolutePath().replace("\\","/");
@@ -2719,24 +2757,12 @@ resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2
 	currentComponent="tFileOutputDelimited_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row5" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row5");
+					}
+				
 		int tos_count_tFileOutputDelimited_1 = 0;
 		
-    	class BytesLimit65535_tFileOutputDelimited_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileOutputDelimited_1().limitLog4jByte();
 
 String fileName_tFileOutputDelimited_1 = "";
     fileName_tFileOutputDelimited_1 = (new java.io.File(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_process_run_errors.csv")).getAbsolutePath().replace("\\","/");
@@ -2826,24 +2852,12 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 	currentComponent="tFilterRow_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row3" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
+					}
+				
 		int tos_count_tFilterRow_2 = 0;
 		
-    	class BytesLimit65535_tFilterRow_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFilterRow_2().limitLog4jByte();
     int nb_line_tFilterRow_2 = 0;
     int nb_line_ok_tFilterRow_2 = 0;
     int nb_line_reject_tFilterRow_2 = 0;
@@ -2912,27 +2926,15 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 	currentComponent="tJavaFlex_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row2" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row2");
+					}
+				
 		int tos_count_tJavaFlex_1 = 0;
 		
-    	class BytesLimit65535_tJavaFlex_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJavaFlex_1().limitLog4jByte();
 
 
-// start part of your Java code
+//start part of your Java code
 sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.process.commons.ProcessLauncher();    
 
 
@@ -2962,24 +2964,12 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
 	currentComponent="tFilterRow_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
+					}
+				
 		int tos_count_tFilterRow_1 = 0;
 		
-    	class BytesLimit65535_tFilterRow_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFilterRow_1().limitLog4jByte();
     int nb_line_tFilterRow_1 = 0;
     int nb_line_ok_tFilterRow_1 = 0;
     int nb_line_reject_tFilterRow_1 = 0;
@@ -3050,13 +3040,6 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
 	
 		int tos_count_tFileInputDelimited_1 = 0;
 		
-    	class BytesLimit65535_tFileInputDelimited_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileInputDelimited_1().limitLog4jByte();
 	
 	
 	
@@ -3068,6 +3051,7 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
 	
 				int nb_line_tFileInputDelimited_1 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try{
 					
 						Object filename_tFileInputDelimited_1 = context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_after_rules.csv";
@@ -3080,7 +3064,9 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
 		
 						}
 						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_after_rules.csv", "UTF-8",";","\n",true,0,0,-1,-1, false);
+							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_after_rules.csv", "UTF-8",";","\n",true,0,0,
+									limit_tFileInputDelimited_1
+								,-1, false);
 						} catch(java.lang.Exception e) {
 							
 								throw e;
@@ -3111,12 +3097,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.country_id = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"country_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.country_id = null;
+								
+									row1.country_id = null;
+								
 							
 						}
 					
@@ -3131,12 +3120,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.id_state = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_state", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_state = null;
+								
+									row1.id_state = null;
+								
 							
 						}
 					
@@ -3151,12 +3143,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.id_city = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_city", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_city = null;
+								
+									row1.id_city = null;
+								
 							
 						}
 					
@@ -3191,12 +3186,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.amount = null;
+								
+									row1.amount = null;
+								
 							
 						}
 					
@@ -3211,12 +3209,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     									row1.date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
     								
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"date", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.date = null;
+								
+									row1.date = null;
+								
 							
 						}
 					
@@ -3231,12 +3232,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.month_1_amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"month_1_amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.month_1_amount = null;
+								
+									row1.month_1_amount = null;
+								
 							
 						}
 					
@@ -3251,12 +3255,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.month_2_amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"month_2_amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.month_2_amount = null;
+								
+									row1.month_2_amount = null;
+								
 							
 						}
 					
@@ -3271,12 +3278,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.month_3_amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"month_3_amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.month_3_amount = null;
+								
+									row1.month_3_amount = null;
+								
 							
 						}
 					
@@ -3291,12 +3301,15 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
     								row1.isCaseGenerated = ParserUtils.parseTo_Boolean(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"isCaseGenerated", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.isCaseGenerated = null;
+								
+									row1.isCaseGenerated = null;
+								
 							
 						}
 					
@@ -3345,6 +3358,26 @@ sales.analyzer.process.commons.ProcessLauncher service = new sales.analyzer.proc
 /**
  * [tFileInputDelimited_1 main ] stop
  */
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_begin ] stop
+ */
 // Start of branch "row1"
 if(row1 != null) { 
 			row5 = null;
@@ -3363,18 +3396,10 @@ if(row1 != null) {
 	currentComponent="tFilterRow_1";
 
 	
-
-			//row1
-			//row1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row1");
+					}
+					
 
           row2 = null;
     Operator_tFilterRow_1 ope_tFilterRow_1 = new Operator_tFilterRow_1("&&");
@@ -3413,6 +3438,26 @@ nb_line_tFilterRow_1++;
 /**
  * [tFilterRow_1 main ] stop
  */
+	
+	/**
+	 * [tFilterRow_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFilterRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFilterRow_1 process_data_begin ] stop
+ */
 // Start of branch "row2"
 if(row2 != null) { 
 			row5 = null;
@@ -3431,33 +3476,12 @@ if(row2 != null) {
 	currentComponent="tJavaFlex_1";
 
 	
-
-			//row2
-			//row2
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row2"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row2");
+					}
+					
 
 
-	        				row3.country_id = row2.country_id;
-	        				row3.id_state = row2.id_state;
-	        				row3.id_city = row2.id_city;
-	        				row3.product = row2.product;
-	        				row3.name_country = row2.name_country;
-	        				row3.name_state = row2.name_state;
-	        				row3.name_city = row2.name_city;
-	        				row3.amount = row2.amount;
-	        				row3.date = row2.date;
-	        				row3.month_1_amount = row2.month_1_amount;
-	        				row3.month_2_amount = row2.month_2_amount;
-	        				row3.month_3_amount = row2.month_3_amount;
-	        				row3.isCaseGenerated = row2.isCaseGenerated;
 
     
 sales.analyzer.process.commons.model.MonthlyFileRuleModel model = new sales.analyzer.process.commons.model.MonthlyFileRuleModel ();
@@ -3478,6 +3502,17 @@ model = service.startProcess(model);
 
 row3.exception = model.isException();
 
+row3.country_id = row2.country_id;
+row3.id_state = row2.id_state;
+row3.id_city = row2.id_city;
+row3.product = row2.product;
+row3.name_country = row2.name_country;
+row3.name_state = row2.name_state;
+row3.name_city = row2.name_city;
+row3.amount = row2.amount;
+row3.date = row2.date;
+row3.month_1_amount = row2.month_1_amount;
+row3.month_2_amount = row2.month_2_amount;
 
  
 
@@ -3486,6 +3521,26 @@ row3.exception = model.isException();
 
 /**
  * [tJavaFlex_1 main ] stop
+ */
+	
+	/**
+	 * [tJavaFlex_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_1 process_data_begin ] stop
  */
 
 	
@@ -3500,18 +3555,10 @@ row3.exception = model.isException();
 	currentComponent="tFilterRow_2";
 
 	
-
-			//row3
-			//row3
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row3"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row3");
+					}
+					
 
           row5 = null;
           row4 = null;
@@ -3570,6 +3617,26 @@ nb_line_tFilterRow_2++;
 /**
  * [tFilterRow_2 main ] stop
  */
+	
+	/**
+	 * [tFilterRow_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFilterRow_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFilterRow_2 process_data_begin ] stop
+ */
 // Start of branch "row4"
 if(row4 != null) { 
 
@@ -3587,18 +3654,10 @@ if(row4 != null) {
 	currentComponent="tFileOutputDelimited_2";
 
 	
-
-			//row4
-			//row4
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row4"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row4");
+					}
+					
 
 
                     StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
@@ -3704,6 +3763,46 @@ if(row4 != null) {
 /**
  * [tFileOutputDelimited_2 main ] stop
  */
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_end ] stop
+ */
 
 } // End of branch "row4"
 
@@ -3727,18 +3826,10 @@ if(row5 != null) {
 	currentComponent="tFileOutputDelimited_1";
 
 	
-
-			//row5
-			//row5
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row5"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row5");
+					}
+					
 
 
                     StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
@@ -3850,27 +3941,147 @@ if(row5 != null) {
 /**
  * [tFileOutputDelimited_1 main ] stop
  */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_end ] stop
+ */
 
 } // End of branch "row5"
 
 
 
 
+	
+	/**
+	 * [tFilterRow_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFilterRow_2";
+
+	
+
+ 
 
 
 
+/**
+ * [tFilterRow_2 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tJavaFlex_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_1 process_data_end ] stop
+ */
 
 } // End of branch "row2"
 
 
 
 
+	
+	/**
+	 * [tFilterRow_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFilterRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFilterRow_1 process_data_end ] stop
+ */
 
 } // End of branch "row1"
 
 
 
 
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tFileInputDelimited_1 end ] start
@@ -3929,12 +4140,10 @@ end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
     globalMap.put("tFilterRow_1_NB_LINE_REJECT", nb_line_reject_tFilterRow_1);
     
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
  
 
 ok_Hash.put("tFilterRow_1", true);
@@ -3964,12 +4173,10 @@ end_Hash.put("tFilterRow_1", System.currentTimeMillis());
 // end of the component, outside/closing the loop
       
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row2"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row2");
+			  	}
+			  	
  
 
 ok_Hash.put("tJavaFlex_1", true);
@@ -3999,12 +4206,10 @@ end_Hash.put("tJavaFlex_1", System.currentTimeMillis());
     globalMap.put("tFilterRow_2_NB_LINE_REJECT", nb_line_reject_tFilterRow_2);
     
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row3"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
+			  	}
+			  	
  
 
 ok_Hash.put("tFilterRow_2", true);
@@ -4047,12 +4252,10 @@ end_Hash.put("tFilterRow_2", System.currentTimeMillis());
 		resourceMap.put("finish_tFileOutputDelimited_2", true);
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row4"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4");
+			  	}
+			  	
  
 
 ok_Hash.put("tFileOutputDelimited_2", true);
@@ -4098,12 +4301,10 @@ end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 		resourceMap.put("finish_tFileOutputDelimited_1", true);
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row5"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row5");
+			  	}
+			  	
  
 
 ok_Hash.put("tFileOutputDelimited_1", true);
@@ -4351,6 +4552,8 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
     public long startTime = 0;
     public boolean isChildJob = false;
     public String log4jLevel = "";
+    
+    private boolean enableLogStash;
 
     private boolean execStat = true;
 
@@ -4364,11 +4567,11 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
     };
 
 
-
     private PropertiesWithType context_param = new PropertiesWithType();
     public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
 
     public String status= "";
+    
 
     public static void main(String[] args){
         final Create_cases Create_casesClass = new Create_cases();
@@ -4396,7 +4599,7 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
     public int runJobInTOS(String[] args) {
 	   	// reset status
 	   	status = "";
-
+	   	
         String lastStr = "";
         for (String arg : args) {
             if (arg.equalsIgnoreCase("--context_param")) {
@@ -4408,7 +4611,10 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
                 lastStr = "";
             }
         }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
 
+    	
+    	
 
         if(clientHost == null) {
             clientHost = defaultClientHost;
@@ -4440,19 +4646,21 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
         try {
             //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
-            java.io.InputStream inContext = Create_cases.class.getClassLoader().getResourceAsStream("etl/create_cases_0_1/contexts/"+contextStr+".properties");
-            if(isDefaultContext && inContext ==null) {
-
-            } else {
-                if (inContext!=null) {
-                    //defaultProps is in order to keep the original context value
-                    defaultProps.load(inContext);
-                    inContext.close();
-                    context = new ContextProperties(defaultProps);
-                }else{
-                    //print info and job continue to run, for case: context_param is not empty.
-                    System.err.println("Could not find the context " + contextStr);
+            java.io.InputStream inContext = Create_cases.class.getClassLoader().getResourceAsStream("etl/create_cases_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = Create_cases.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                //defaultProps is in order to keep the original context value
+                if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
                 }
+                
+                inContext.close();
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
             }
 
             if(!context_param.isEmpty()) {
@@ -4465,40 +4673,44 @@ end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
 				}
             }
-				    context.setContextType("date", "id_Date");
-				
-            try{
-                String context_date_value = context.getProperty("date");
-                if (context_date_value == null){
-                    context_date_value = "";
-                }
-                int context_date_pos = context_date_value.indexOf(";");
-                String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
-                if(context_date_pos > -1){
-                    context_date_pattern = context_date_value.substring(0, context_date_pos);
-                    context_date_value = context_date_value.substring(context_date_pos + 1);
-                }
+            class ContextProcessing {
+                private void processContext_0() {
+                        context.setContextType("date", "id_Date");
+                        try{
+                            String context_date_value = context.getProperty("date");
+                            if (context_date_value == null){
+                                context_date_value = "";
+                            }
+                            int context_date_pos = context_date_value.indexOf(";");
+                            String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
+                            if(context_date_pos > -1){
+                                context_date_pattern = context_date_value.substring(0, context_date_pos);
+                                context_date_value = context_date_value.substring(context_date_pos + 1);
+                            }
 
-                context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
+                            context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
 
-            }catch(ParseException e)
-            {
-                context.date=null;
+                        } catch(ParseException e) {
+                                System.err.println(String.format("Null value will be used for context parameter %s: %s", "date", e.getMessage()));
+                            context.date=null;
+                        }
+                        context.setContextType("inputDirectory", "id_String");
+                            context.inputDirectory=(String) context.getProperty("inputDirectory");
+                        context.setContextType("outputDirectory", "id_String");
+                            context.outputDirectory=(String) context.getProperty("outputDirectory");
+                        context.setContextType("session", "id_String");
+                            context.session=(String) context.getProperty("session");
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
             }
-				    context.setContextType("inputDirectory", "id_String");
-				
-                context.inputDirectory=(String) context.getProperty("inputDirectory");
-				    context.setContextType("outputDirectory", "id_String");
-				
-                context.outputDirectory=(String) context.getProperty("outputDirectory");
-				    context.setContextType("session", "id_String");
-				
-                context.session=(String) context.getProperty("session");
+
+            new ContextProcessing().processAllContext();
         } catch (java.io.IOException ie) {
             System.err.println("Could not load context "+contextStr);
             ie.printStackTrace();
         }
-
 
         // get context value from parent directly
         if (parentContextMap != null && !parentContextMap.isEmpty()) {if (parentContextMap.containsKey("date")) {
@@ -4580,8 +4792,6 @@ this.globalResumeTicket = true;//to run tPostJob
         if (false) {
             System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : Create_cases");
         }
-
-
 
 
 
@@ -4683,10 +4893,13 @@ if (execStat) {
                     context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
                 }
             }
-        }else if (arg.startsWith("--log4jLevel=")) {
+        } else if (arg.startsWith("--log4jLevel=")) {
             log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
+			final String key = arg.substring("--".length(), equal);
+			System.setProperty(key, arg.substring(equal + 1));
 		}
-
     }
     
     private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
@@ -4737,6 +4950,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     123104 characters generated by Talend Open Studio for Data Integration 
- *     on the February 16, 2019 10:57:07 EST AM
+ *     126719 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 8, 2020 at 3:21:13 p.m. EST
  ************************************************************************************************/

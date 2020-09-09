@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.util;
@@ -85,6 +99,18 @@ public class MapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MapperPackage.VERSION: {
+				Version version = (Version)theEObject;
+				T result = caseVersion(version);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MapperPackage.VERSION_REF: {
+				VersionRef versionRef = (VersionRef)theEObject;
+				T result = caseVersionRef(versionRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MapperPackage.MAPPING_LAYER: {
 				MappingLayer mappingLayer = (MappingLayer)theEObject;
 				T result = caseMappingLayer(mappingLayer);
@@ -111,6 +137,7 @@ public class MapperSwitch<T> extends Switch<T> {
 				JavaMapper javaMapper = (JavaMapper)theEObject;
 				T result = caseJavaMapper(javaMapper);
 				if (result == null) result = caseTypeMapper(javaMapper);
+				if (result == null) result = caseVersionRef(javaMapper);
 				if (result == null) result = caseMapper(javaMapper);
 				if (result == null) result = caseTypePointer(javaMapper);
 				if (result == null) result = defaultCase(theEObject);
@@ -120,6 +147,7 @@ public class MapperSwitch<T> extends Switch<T> {
 				JavaPackageMapper javaPackageMapper = (JavaPackageMapper)theEObject;
 				T result = caseJavaPackageMapper(javaPackageMapper);
 				if (result == null) result = casePackageMapper(javaPackageMapper);
+				if (result == null) result = caseVersionRef(javaPackageMapper);
 				if (result == null) result = caseMapper(javaPackageMapper);
 				if (result == null) result = casePackagePointer(javaPackageMapper);
 				if (result == null) result = defaultCase(theEObject);
@@ -129,6 +157,7 @@ public class MapperSwitch<T> extends Switch<T> {
 				JavaScriptMapper javaScriptMapper = (JavaScriptMapper)theEObject;
 				T result = caseJavaScriptMapper(javaScriptMapper);
 				if (result == null) result = caseTypeMapper(javaScriptMapper);
+				if (result == null) result = caseVersionRef(javaScriptMapper);
 				if (result == null) result = caseMapper(javaScriptMapper);
 				if (result == null) result = caseTypePointer(javaScriptMapper);
 				if (result == null) result = defaultCase(theEObject);
@@ -199,6 +228,36 @@ public class MapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMapper(Mapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVersion(Version object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Version Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Version Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVersionRef(VersionRef object) {
 		return null;
 	}
 

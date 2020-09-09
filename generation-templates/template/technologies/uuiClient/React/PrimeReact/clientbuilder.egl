@@ -1,0 +1,113 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+ [%
+operation  client_builder(hash) {
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var alltypes = hash.get("alltypes");
+    var configuration = hash.get("configuration");
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var lib = new Native('java.util.HashMap');
+
+     
+     var versions = recipe.eContainer().eContainer().eContainer().eContainer().applicationMappers.versions;
+     var turaversion = versions->select(t|t.name = "platform.version" ).first.version;
+     
+     var currentLib = component.packageName+"-"+component.getVersion();
+     if ( alltypes .size() <> 0){
+	     for (type in alltypes){
+	        type.mappingType2JavaScript(recipe,ingredient);
+	        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
+		         var h = new Native("java.util.HashMap"); 
+		         h.put("packageName",type.~jsPackageName);
+		         h.put("dependency",  util.getComponentRoot(type.~dependency,configuration));
+                 lib.put(type.~library,h);		         
+	         }
+	
+	      }
+    }
+    hash.put("lib",lib);
+    hash.put("turaVersion", turaversion);
+
+     var builder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/NpmBuilder.egl",hash,TemplateFactory);
+    
+     var artifactShift = "";
+     if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+        artifactShift =  model_mapper.artifactRoot+"/";
+     }
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+artifactShift+component.getPackageName();  
+     
+     var buffer = builder.process();
+     
+     util.saveFile( path, "package.json",buffer); 
+
+}    
+
+
+operation  client_builder_library(hash) {
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var alltypes = hash.get("alltypes");
+    var configuration = hash.get("configuration");
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var lib = new Native('java.util.HashMap');
+
+     
+     var versions = recipe.eContainer().eContainer().eContainer().eContainer().applicationMappers.versions;
+     var turaversion = versions->select(t|t.name = "platform.version" ).first.version;
+     
+     var currentLib = component.packageName+"-"+component.getVersion();
+     if ( alltypes .size() <> 0){
+	     for (type in alltypes){
+
+	        type.mappingType2JavaScript(recipe,ingredient);
+	        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
+		         var h = new Native("java.util.HashMap"); 
+		         h.put("packageName",type.~jsPackageName);
+		         h.put("version",type.~version);
+	         }
+	
+	      }
+    }
+    hash.put("lib",lib);
+    hash.put("turaVersion", turaversion);
+  
+     var builder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/NpmLibBuilder.egl",hash,TemplateFactory);
+    
+     var artifactShift = "";
+     if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+        artifactShift =  model_mapper.artifactRoot+"/";
+     }
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+artifactShift+component.getPackageName();  
+       
+     
+     var buffer = builder.process();
+     
+     util.saveFile( path, "package.json",buffer); 
+
+}    
+
+
+
+%]

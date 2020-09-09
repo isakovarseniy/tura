@@ -1,3 +1,21 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.sales.analyzer.services;
 
 import static org.junit.Assert.assertEquals;
@@ -12,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
@@ -22,8 +41,12 @@ import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.query.SelectQuery.Order;
 
@@ -45,7 +68,24 @@ public class JbpmSearchServiceTest {
 
     private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
     private static final String ETL_PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
+	private static SpaObjectRegistry spaRegistry;
+	private static Registry registry;
 
+	
+	@BeforeClass
+	public static void initRepository() throws Exception {
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		registry = new Registry();
+		spaRegistry = new SpaObjectRegistry();
+		
+		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
+		initSpa.initClassMapping();
+		initSpa.initCommandProducer();
+		initSpa.initProvider();
+	}
+
+    
+    
     private static UserPreferences pref;
 
     @Test
@@ -85,7 +125,7 @@ public class JbpmSearchServiceTest {
             SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
             pk.setCaseId(caseId);
             pk.setId(procesInsatnceId);
-            JbpmSearchService service = new JbpmSearchService(client, provider);
+            JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             SalesAnalyzerProcessInstance instance = (SalesAnalyzerProcessInstance) service.find(pk,
                     SalesAnalyzerProcessInstance.class.getName());
             assertEquals(procesInsatnceId, instance.getId());
@@ -96,14 +136,14 @@ public class JbpmSearchServiceTest {
             pk = new SalesAnalyzerProcessInstancePK();
             pk.setCaseId("NA");
             pk.setId(procesInsatnceId);
-            service = new JbpmSearchService(client, provider);
+            service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             instance = (SalesAnalyzerProcessInstance) service.find(pk, SalesAnalyzerProcessInstance.class.getName());
             assertNull(instance);
 
             pk = new SalesAnalyzerProcessInstancePK();
             pk.setCaseId(caseId1);
             pk.setId(procesInsatnceId1);
-            service = new JbpmSearchService(client, provider);
+            service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             instance = (SalesAnalyzerProcessInstance) service.find(pk, SalesAnalyzerProcessInstance.class.getName());
             assertEquals(procesInsatnceId1, instance.getId());
             assertEquals(1, instance.getActiveUserTasks().size());
@@ -111,13 +151,13 @@ public class JbpmSearchServiceTest {
             assertNotNull(ti.getId());
 
             pref.setSuperAdmin(false);
-            service = new JbpmSearchService(client, provider);
+            service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             instance = (SalesAnalyzerProcessInstance) service.find(pk, SalesAnalyzerProcessInstance.class.getName());
             assertNull(instance);
 
             pref.setSuperAdmin(true);
 
-            service = new JbpmSearchService(client, provider);
+            service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             SalesAnalyzerTaskInstance taskInstance = (SalesAnalyzerTaskInstance) service.find(ti.getId(),
                     SalesAnalyzerTaskInstance.class.getName());
             assertEquals(taskInstance.getId(), ti.getId());
@@ -161,7 +201,7 @@ public class JbpmSearchServiceTest {
             UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
             JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
-            JbpmSearchService service = new JbpmSearchService(client, provider);
+            JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
             pk.setCaseId(caseId);
             pk.setId(procesInsatnceId);
@@ -213,7 +253,6 @@ public class JbpmSearchServiceTest {
             params.put("city", 1500);
             params.put("state", 2502);
             params.put("product", "Product05");
-            @SuppressWarnings("unused")
             Long procesInsatnceId2 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
             params = new HashMap<>();
@@ -241,7 +280,7 @@ public class JbpmSearchServiceTest {
             orc.setName("PROC_" + "PROCESSINSTANCEID");
             orc.setOrder(Order.DESC.name());
 
-            JbpmSearchService service = new JbpmSearchService(client, provider);
+            JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             service.setMapper(new ProcessMapper());
             SearchResult result = service.find(searchCriteria, orderCriteria, 0, 100,
                     SalesAnalyzerProcessInstance.class.getName());
@@ -249,8 +288,8 @@ public class JbpmSearchServiceTest {
 
             for (Object o : result.getSearchResult()) {
                 SalesAnalyzerProcessInstance pi = (SalesAnalyzerProcessInstance) o;
-                assertEquals(pi.getCity(), new Integer(1500));
-                assertEquals(pi.getStates(), new Integer(2502));
+                assertEquals(pi.getCity(),  Integer.valueOf(1500));
+                assertEquals(pi.getStates(), Integer.valueOf (2502));
             }
 
             service.setMapper(new TaskMapper());
@@ -259,8 +298,8 @@ public class JbpmSearchServiceTest {
             for (Object o : result.getSearchResult()) {
                 SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
                 SalesAnalyzerProcessInstance pi = ti.getProcess();
-                assertEquals(pi.getCity(), new Integer(1500));
-                assertEquals(pi.getStates(), new Integer(2502));
+                assertEquals(pi.getCity(),  Integer.valueOf(1500));
+                assertEquals(pi.getStates(),  Integer.valueOf(2502));
             }
 
             searchCriteria = new ArrayList<>();
@@ -303,8 +342,8 @@ public class JbpmSearchServiceTest {
                 SalesAnalyzerTaskInstance ti = (SalesAnalyzerTaskInstance) o;
                 SalesAnalyzerProcessInstance pi = ti.getProcess();
                 assertEquals(pi.getProduct(), "Product05");
-                assertEquals(pi.getCity(), new Integer(1500));
-                assertEquals(pi.getStates(), new Integer(2502));
+                assertEquals(pi.getCity(),  Integer.valueOf(1500));
+                assertEquals(pi.getStates(), Integer.valueOf(2502));
             }
 
         } catch (Exception e) {
@@ -333,7 +372,7 @@ public class JbpmSearchServiceTest {
             param.put(Constants.PARAM_FILE_PROCESSING_DATE, format.parse("2017-11-01"));
             processClient.startProcess(Constants.CONTAINER_ID, ETL_PROCESS_ID, param);
 
-            JbpmSearchService service = new JbpmSearchService(client, provider);
+            JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             service.setMapper(new ETLProcessMapper());
             SearchResult result = service.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
                     ETLProcessInstance.class.getName());
@@ -369,7 +408,7 @@ public class JbpmSearchServiceTest {
             sc.setValue(processInstance);
             searchCriteria.add(sc);
 
-            JbpmSearchService service = new JbpmSearchService(client, provider);
+            JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,"spa-persistence-repository", registry);
             service.setMapper(new EtlNodeLogMapper());
             SearchResult result = service.find(searchCriteria, new ArrayList<OrderCriteria>(), 0, 100,
                     ETLNodeInstanceLog.class.getName());
@@ -388,7 +427,10 @@ public class JbpmSearchServiceTest {
     }
 
     class EtlNodeLogMapper implements Mapper {
-        @Override
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
         public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
             return ((ETLNodeInstanceLog) persistenceObject).getId();
         }
@@ -406,14 +448,16 @@ public class JbpmSearchServiceTest {
         @Override
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
                 Map<Object, Object> context) throws RepositoryException {
-            // TODO Auto-generated method stub
             return null;
         }
 
     }
 
     class ProcessMapper implements Mapper {
-        @Override
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
         public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
             return ((SalesAnalyzerProcessInstance) persistenceObject).getId();
         }
@@ -431,14 +475,16 @@ public class JbpmSearchServiceTest {
         @Override
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
                 Map<Object, Object> context) throws RepositoryException {
-            // TODO Auto-generated method stub
             return null;
         }
 
     }
 
     class ETLProcessMapper implements Mapper {
-        @Override
+
+    	private static final long serialVersionUID = 1L;
+
+		@Override
         public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
             return ((ETLProcessInstance) persistenceObject).getId();
         }
@@ -463,7 +509,10 @@ public class JbpmSearchServiceTest {
 
     class TaskMapper implements Mapper {
 
-        @Override
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
         public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
             return ((SalesAnalyzerTaskInstance) persistenceObject).getId();
         }
@@ -488,7 +537,9 @@ public class JbpmSearchServiceTest {
 
     class ETLTaskMapper implements Mapper {
 
-        @Override
+		private static final long serialVersionUID = 3082834789745427761L;
+
+		@Override
         public Object getPrimaryKey(Object persistenceObject) throws RepositoryException {
             return ((ETLTaskInstance) persistenceObject).getId();
         }

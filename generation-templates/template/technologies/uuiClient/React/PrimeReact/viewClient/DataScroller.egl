@@ -1,0 +1,166 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::DataScroller createTag(hash) {
+
+     var generateComponents = hash.get("generateComponents");
+     generateComponents.add(self);
+     
+%]
+     <DataScroller_[%=self.mkuid()%]  id="[%=self.uid%]" contextManager={this.contextManager}/>
+[%
+}
+
+@template
+operation  form::DataScroller createComponent(hash) {
+
+  var listLayout = null;
+  var gridLayout =null;
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+  var clientLibraryPackage = hash.get('clientLibraryPackage');
+    
+  for ( element in self.children){
+      if ( element.isKindOf( form::LayerHolder) ){
+         if (element.findClassifier(util.getHint(model_mapper,"dataScroller.listLayout"))) {
+             listLayout = element;
+         }
+         if (element.findClassifier(util.getHint(model_mapper,"dataScroller.gridLayout"))) {
+             gridLayout = element;
+         }
+      }
+  }   
+  
+       populateInclude(hash,"{TDataScroller}",  clientLibraryPackage+"/component/TDataScroller");
+       populateInclude(hash,"{registry}",  clientLibraryPackage+"/plugin/Registry");
+       
+       
+       
+  
+%]
+export class DataScroller_[%=self.mkuid()%] extends TDataScroller {
+
+    constructor(props) {
+        super(props);
+        this.populateData=this.populateData.bind(this);
+        this.listLayout=this.listLayout.bind(this);
+        this.gridLayout=this.gridLayout.bind(this);
+    }
+
+    listLayout(row) {
+        this.populateData(row);
+        let record = new Array();
+[%
+
+			var childrenCollection = new Native("java.util.ArrayList");
+
+           hash.put("childrenCollection", childrenCollection); 
+           hash.put("context", 'dataScroller'); 
+           hash.put("key","key = {row.index}");
+           hash.put("dependId","dependId={row.index}");
+%]
+        record.push(
+             <div className="p-grid">
+        [%  if ( listLayout <> null ){ %]
+        [%=listLayout.createTag(hash)%]
+        [%}%]
+            </div>
+        
+        )
+        return record;
+    }
+
+    gridLayout(row) {
+        this.populateData(row);
+        let record = new Array();
+
+        record.push(
+        [%  if ( gridLayout <> null ){ %]
+        [%=gridLayout.createTag(hash)%]
+        [%}%]
+        
+        )
+        return record;
+    }
+
+    
+    
+    populateData(row ){
+       let  state = null;
+    [% 
+		  childrenCollection  =   hash.get("childrenCollection"); 
+		  for (element in  childrenCollection){
+		  %]
+       state = this.contextManager.getState("[%=element.uid%]",null);
+       state.value = row.[%=element.valuePointer.name%];
+       this.contextManager.addDependentState("[%=element.uid%]",row.index,state);
+		  
+		  [%
+		  }
+    %]
+    }
+    
+
+}
+
+
+    [% 
+		  for (element in  childrenCollection){
+		  %]
+class [%=util.mergeAndCapitalize(element.valuePointer.name)%]Updater {
+
+    performChange(contextManager,component,e){
+        let dependId = component.props.dependId;
+        let dataScoller = contextManager.getComponent("[%=self.uid%]");
+        let state = dataScoller.getState();
+        let values = state.values;
+        let first = state.first;
+        let i = dependId-first;
+        let obj = values[i];
+
+        if ( state.modifiedRecords === null){
+            state.modifiedRecords = new Array();
+        }
+        if ( !state.modifiedRecords.includes(dependId)  ){
+            state.modifiedRecords.push(dependId);
+        }
+
+        obj.[%=element.valuePointer.name%] = e.target.value;
+        dataScoller.initializeMainState(state);
+    }
+}
+		  [%
+		  }
+    %]
+
+    [% 
+		  for (element in  childrenCollection){
+		  %]
+
+registry.addComponentUpdaterByComponentId("[%=element.uid%]",new [%=util.mergeAndCapitalize(element.valuePointer.name)%]Updater());
+		  [%
+		  }
+    %]
+
+[%
+           hash.remove("context"); 
+           hash.remove("key");
+           hash.remove("dependId");
+           hash.remove("childrenCollection"); 
+}
+
+
+%]

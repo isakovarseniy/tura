@@ -76,6 +76,7 @@ class Attribute extends  TypePointer, artifact.Categorized{
     id attr EString uid;
    attr EString name;
    attr EBoolean pk;
+   attr EBoolean uk;
 }
 
 class Operation extends permission.Secured, artifact.Categorized{

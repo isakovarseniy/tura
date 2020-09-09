@@ -1,0 +1,374 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+
+
+
+operation constructExpression( fields : form::FlexFields, classifier : String , hints, hash) {
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+   var classifierUUID = util.getHint(model_mapper,classifier);
+
+   var field = fields.findClassifiedField(classifierUUID);
+   if (field <> null and field.value <> null)
+         return  buildExpression(field,hints,hash);
+   else
+        return "";      
+}
+
+operation getField( fields : form::FlexFields, classifier : String , hints, hash) {
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+   var classifierUUID = util.getHint(model_mapper,classifier);
+
+   var field = fields.findClassifiedField(classifierUUID);
+   return field;
+}
+
+
+
+
+operation getExpressionId( fields : form::FlexFields, classifier : String , hints, hash) {
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+   var classifierUUID = util.getHint(model_mapper,classifier);
+
+   var field = fields.findClassifiedField(classifierUUID);
+   if (field <> null and field.value <> null)
+         return field.uid;
+   else
+        return "";      
+}
+
+
+operation form::FlexFields findClassifiedField( classifierUUID: String) {
+       for (field in self.fields){
+          if (field.findClassifier(classifierUUID)){
+             return field;
+          }
+       }
+       return null;
+}
+
+
+@template
+operation form::StyleElement  style(hash) {
+     if (self.style <> null  and  self.style.value <> null  ){
+     %]this.style= [%=self.styleResolver(hash)%];[%
+     }
+}
+
+@template
+operation form::StyleElement  styleResolver(hash) {
+      var hints = new Native('java.util.HashMap');
+     %](String ) resolve( "[%=buildExpression(self.style,hints,hash)%]", elResolver)[%
+}
+
+
+@template
+operation form::Button  icon(hash) {
+      var hints = new Native('java.util.HashMap');
+     if (self.icon <> null  and  self.icon.value <> null  ){
+     %]this.icon=(String ) resolve( "[%=buildExpression(self.icon,hints,hash)%]", elResolver);[%
+     }
+}
+
+
+
+@template
+operation form::FlexFields  styleClass(hash) {
+     %]this.className=(String ) resolve( "[%=self.styleClassExpression(hash)%]", elResolver);[%
+}
+
+operation form::FlexFields  styleClassExpression(hash) {
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var model_mapper = hash.get('model_mapper');
+    var classifierUUID = util.getHint(model_mapper,"styleClass");
+    var styleClass = self.styleClassByClassifier(classifierUUID,hash);
+    if ( styleClass <> null  and not "".equals(styleClass)  ){
+        return   styleClass .replace(","," ");
+    }
+   return "";
+
+}
+
+
+@template
+operation form::Uielement  rendered(hash){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %]this.rendered=(boolean ) resolve( "[%=value%]", elResolver);[%
+     }else{
+     %]this.rendered=true;[%
+     }
+}
+
+@template
+operation form::Uielement  labelExpr(hash,field){
+      var hints = new Native('java.util.HashMap');
+     if (self.multiLangLabel <> null  and  self.multiLangLabel.value <> null  ){
+     %]this.[%=field%]=(String ) resolve( "[%=buildExpression(self.multiLangLabel,hints,hash)%]", elResolver);[%
+     }
+}
+
+@template
+operation form::Uielement  required(hash){
+      var hints = new Native('java.util.HashMap');
+     if (self.required <> null  and self.required.value <> null){
+         var value = buildExpression(self.required,hints,hash);
+     %]this.required=(boolean ) resolve( "[%=value%]", elResolver);[%
+     }else{
+     %]this.required=false;[%
+     }
+}
+
+
+@template
+operation form::Uielement  disabled(hash){
+      var hints = new Native('java.util.HashMap');
+     if (self.enabled <> null  and  self.enabled.value <> null  ){
+     %]this.disabled=(boolean ) resolve( "[%=buildExpression(self.enabled,hints,hash)%]", elResolver);[%
+     }else{
+     %]this.disabled=false;[%
+     }
+}
+
+
+
+@template
+operation form::FlexFields  columnStyleClass(hash) {
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var model_mapper = hash.get('model_mapper');
+    var classifierUUID = util.getHint(model_mapper,"grid.columnStyleClass");
+    var styleClass = self.styleClassByClassifier(classifierUUID,hash);
+    if ( styleClass <> null  and not "".equals(styleClass)  ){
+       var tokenizer = new Native("java.util.StringTokenizer")(styleClass,","); 
+       var first =  true;
+    %]
+		     [% while (tokenizer.hasMoreTokens()) { 
+		     if ( not first){  %],[%  } %]
+		       (String)resolve( "[%=tokenizer.nextToken()%]",elResolver)
+           [%
+           first =  false;
+              }
+               %]
+    [%
+    }
+}
+
+
+
+operation form::FlexFields  styleClassByClassifier( classifierUUID : String,hash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var hints = new Native('java.util.HashMap');
+      
+      var value = "";
+     if (self.fields <> null  and self.fields.size() <> 0 ){
+      var first = 0;
+      for (field in self.fields ){ 
+         if (field.classifiers <> null and field.findClassifier(classifierUUID)){
+             if ( first <> 0){value = value+",";}
+             value = value + buildExpression(field,hints,hash);
+             first=1;
+           }
+         } 
+     }
+     return value;
+}
+
+operation form::Uielement  createValue(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var value;
+
+     if (hash.get("context") == null ){
+         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
+      }
+     else{
+          var pointer = util.findSourcePointer(self);
+          hints.put("noCurlyBracket","true");
+          value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
+
+          if (hash.get("context").equals("table") ){
+               value =  "#{row."+value+"}";
+           }  
+          if (hash.get("context").equals("tree") ){
+               value =  "#{row[1]."+value+"}";
+          }     
+     }
+return value;
+     
+}
+
+@template
+operation form::Uielement  initContextTriggers( hash, eventType , parameters){
+            %][%=initContextTriggers(hash, eventType , parameters,self,"getEvents()")%][%
+}
+
+@template
+operation form::MenuItem  initContextTriggers( hash, eventType , parameters,aggregator){
+            %][%=initContextTriggers(hash, eventType , parameters,self,aggregator)%][%
+}
+
+
+
+@template
+operation initContextTriggers( hash, eventType , parameters,elslf,aggregator){
+      var hints = new Native('java.util.HashMap');
+       var expression = constructExpression(elslf,eventType,hints, hash);
+       
+       if (expression <> ""  and expression.indexOf("#{actionExecutor") ==  0){
+           var exId =  getExpressionId(elslf,eventType,hints, hash);
+           var mkid = exId.replaceAll("-","_");
+       %]
+           org.tura.platform.uuiclient.rest.EventDescription event_[%=mkid%] = new org.tura.platform.uuiclient.rest.EventDescription("[%=exId%]", "server","[%=expression%]","[%=eventType%]",[%=elslf.refreshProcessArias()%],[%=elslf.refreshUpdateArias()%]);
+           [%=aggregator%].add(event_[%=mkid%] );
+         [%    
+         if ( parameters <> null){
+            for ( param in parameters ){
+            %]
+				event_[%=mkid%].addParameters(id + "_[%=eventType%]Event", "[%=param%]", null, 0);
+            [%
+            }
+         }
+         
+       }
+       if (expression <> ""  and expression.indexOf("#{scriptGenerator") ==  0){
+           var exId =  getExpressionId(elslf,eventType,hints, hash);
+           var mkid = exId.replaceAll("-","_");
+           var trigger = getField(elslf,eventType,hints, hash);
+	       var action = trigger.expression.get( trigger.expression.size()-1);
+	       var method = action.objRef;
+           
+           
+       %]
+           org.tura.platform.uuiclient.rest.EventDescription event_[%=mkid%] = new org.tura.platform.uuiclient.rest.EventDescription("[%=exId%]", "client", null,"[%=eventType%]",null,null);
+           [%=aggregator%].add(event_[%=mkid%] );
+         [%    
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
+              var i = 0;
+               for (parameter  in trigger.parameters){
+              
+                  if ( i <> 0)
+                     %],[%
+                  %]event_[%=mkid%].addParameters("[%=parameter.mkuid_()%]","[%=parameter.refObj.name%]","[%=buildExpression(parameter.value,hints,hash)%]",[%=parameter.refObj.order%]);[%
+                  i = 1;
+               }
+           }
+       }
+}
+
+
+@template
+operation   form::Uielement  refreshProcessArias() {
+   %][%=refreshProcessArias(false,self)%][%
+}
+
+@template
+operation   form::Uielement  refreshUpdateArias() {
+   %][%=refreshUpdateArias(false,self)%][%
+}
+
+
+@template
+operation   form::Uielement  refreshProcessArias(isProcessYourelslf) {
+   %][%=refreshProcessArias(isProcessYourelslf,self)%][%
+}
+
+@template
+operation   form::Uielement  refreshUpdateArias(isProcessYourelslf) {
+   %][%=refreshUpdateArias(isProcessYourelslf,self)%][%
+}
+
+
+
+@template
+operation   form::MenuItem  refreshProcessArias() {
+   %][%=refreshProcessArias(false,self)%][%
+}
+
+@template
+operation   form::MenuItem  refreshUpdateArias() {
+   %][%=refreshUpdateArias(false,self)%][%
+}
+
+
+
+@template
+operation refreshProcessArias(isProcessYourelslf,elslf) {
+   var array = new Native('java.util.ArrayList');
+   var process = elslf.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+   if (process.size() <> 0 ){
+      array.addAll(process);
+   }
+   if (isProcessYourelslf ){
+        array.add(elslf);
+   }
+
+   if (array.size() == 0 ){
+      %]null[%
+   }else{
+   %]"[%=refreshAriasGroup(array)%]" [%
+   }
+}
+
+
+@template
+operation refreshUpdateArias(isProcessYourelslf,elslf) {
+   var array = new Native('java.util.ArrayList');
+   var update = elslf.refreshAreas->select(r|r.group > 1);
+   if (update.size() <> 0 ){
+      array.addAll(update);
+   }
+   if (isProcessYourelslf ){
+        array.add(elslf);
+   }
+   
+   if (array.size() == 0 ){
+      %]null[%
+   }else{
+   %]"[%=refreshAriasGroup(array)%]"[%
+   }
+}
+
+
+
+operation refreshAriasGroup(list){
+     var result ="";
+     
+    if (list.size() ==  0 ) return result;
+    else{
+      var first = 0;
+      for ( ref in list ){
+         if ( first = 1){
+           result = result +",";
+         }
+         var refaria = "";
+         if (ref.isKindOf(form::AreaRef )){
+            refaria = ref.area.uid;
+         }else{
+            refaria = ref.uid;
+         }
+         result = result+refaria;
+         first=1;
+      }
+    }
+    return result;
+}
+
+
+%]

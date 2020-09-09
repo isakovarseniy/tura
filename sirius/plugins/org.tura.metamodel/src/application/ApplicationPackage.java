@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package application;
@@ -855,13 +869,22 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MAPPERS__APP_LAYERS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_MAPPERS__VERSIONS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Mappers</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_MAPPERS_FEATURE_COUNT = 4;
+	int APPLICATION_MAPPERS_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link application.impl.ApplicationMapperImpl <em>Mapper</em>}' class.
@@ -1687,6 +1710,17 @@ public interface ApplicationPackage extends EPackage {
 	EReference getApplicationMappers_AppLayers();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationMappers#getVersions <em>Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Versions</em>'.
+	 * @see application.ApplicationMappers#getVersions()
+	 * @see #getApplicationMappers()
+	 * @generated
+	 */
+	EReference getApplicationMappers_Versions();
+
+	/**
 	 * Returns the meta object for class '{@link application.ApplicationMapper <em>Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2358,6 +2392,14 @@ public interface ApplicationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION_MAPPERS__APP_LAYERS = eINSTANCE.getApplicationMappers_AppLayers();
+
+		/**
+		 * The meta object literal for the '<em><b>Versions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_MAPPERS__VERSIONS = eINSTANCE.getApplicationMappers_Versions();
 
 		/**
 		 * The meta object literal for the '{@link application.impl.ApplicationMapperImpl <em>Mapper</em>}' class.

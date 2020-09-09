@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form;
@@ -36,7 +50,15 @@ public enum SelectionMode implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MULTIPLE(1, "Multiple", "Multiple");
+	MULTIPLE(1, "Multiple", "Multiple"), /**
+	 * The '<em><b>Check Box</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CHECK_BOX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CHECK_BOX(2, "CheckBox", "CheckBox");
 
 	/**
 	 * The '<em><b>Single</b></em>' literal value.
@@ -69,6 +91,21 @@ public enum SelectionMode implements Enumerator {
 	public static final int MULTIPLE_VALUE = 1;
 
 	/**
+	 * The '<em><b>Check Box</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Check Box</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CHECK_BOX
+	 * @model name="CheckBox"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CHECK_BOX_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Selection Mode</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +115,7 @@ public enum SelectionMode implements Enumerator {
 		new SelectionMode[] {
 			SINGLE,
 			MULTIPLE,
+			CHECK_BOX,
 		};
 
 	/**
@@ -136,6 +174,7 @@ public enum SelectionMode implements Enumerator {
 		switch (value) {
 			case SINGLE_VALUE: return SINGLE;
 			case MULTIPLE_VALUE: return MULTIPLE;
+			case CHECK_BOX_VALUE: return CHECK_BOX;
 		}
 		return null;
 	}

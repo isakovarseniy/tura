@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package type.provider;
@@ -53,6 +67,7 @@ public class AttributeItemProvider extends TypePointerItemProvider {
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addPkPropertyDescriptor(object);
+			addUkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +130,28 @@ public class AttributeItemProvider extends TypePointerItemProvider {
 				 getString("_UI_Attribute_pk_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_pk_feature", "_UI_Attribute_type"),
 				 TypePackage.Literals.ATTRIBUTE__PK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Uk feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Attribute_uk_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_uk_feature", "_UI_Attribute_type"),
+				 TypePackage.Literals.ATTRIBUTE__UK,
 				 true,
 				 false,
 				 false,
@@ -194,6 +231,7 @@ public class AttributeItemProvider extends TypePointerItemProvider {
 			case TypePackage.ATTRIBUTE__UID:
 			case TypePackage.ATTRIBUTE__NAME:
 			case TypePackage.ATTRIBUTE__PK:
+			case TypePackage.ATTRIBUTE__UK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TypePackage.ATTRIBUTE__CLASSIFIERS:

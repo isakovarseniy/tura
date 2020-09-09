@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
@@ -45,8 +42,7 @@ import org.tura.platform.repository.core.ObjectControl;
 
 public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {
 
-	private static boolean SCROLL_DOWN = true;
-	private static boolean SCROLL_UP = false;
+	private static final long serialVersionUID = 5969220022228857404L;
 	private String id = UUID.randomUUID().toString();
 	private Object stateObject;
 
@@ -75,7 +71,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	public void forceRefresh() throws TuraException {
 		currentPosition = 0;
 		pager.cleanPager();
-		pager.setScrollDirection(SCROLL_DOWN);
 		notifyLiteners(new ControlRefreshedEvent(this));
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
@@ -93,7 +88,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		blocked = false;
 		pager.cleanPager();
 		currentPosition = 0;
-		pager.setScrollDirection(SCROLL_DOWN);
 		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
@@ -138,7 +132,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		if (blocked)
 			return null;
 
-		pager.setScrollDirection(SCROLL_DOWN);
 		T t =  pager.getObject(currentPosition);
 		if ( t == null && autoCreateObjectRule != null) {
 			if (autoCreateObjectRule.execute(this)) {
@@ -171,7 +164,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 
 		if (currentPosition + 1 < pager.actualListSize()) {
 			currentPosition++;
-			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
 			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(newRecord);
@@ -195,7 +187,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 
 		if (currentPosition > 0) {
 			currentPosition--;
-			pager.setScrollDirection(SCROLL_UP);
 			T newRecord = pager.getObject(currentPosition);
 			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(newRecord);
@@ -227,17 +218,12 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		notifyChageRecordAll(getCurrentObject());
 	}
 
-//	public String getObjectKey(Object object) throws TuraException {
-//		ObjectControl obj = (ObjectControl) object;
-//		return obj.getKey();
-//	}
 
 	public void removeAll() throws Exception {
 		if (blocked)
 			return;
 
 		T obj = null;
-		pager.setScrollDirection(SCROLL_DOWN);
 		do {
 			obj = getCurrentObject();
 			if (obj != null)
@@ -250,7 +236,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 			return null;
 
 		// Refresh tree
-		pager.setScrollDirection(SCROLL_DOWN);
 		pager.getObject(currentPosition);
 
 		// Create a new object
@@ -451,5 +436,17 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	public void setPager(Pager<T> pager) {
 		this.pager = pager;
 	}
+	
+	
+    @Override
+	public Object findObject(List<SearchCriteria> search, Object key ) throws TuraException {
+		return pager.findObject(search, key,null);
+	}
 
+    @Override
+	public Object findObject(List<SearchCriteria> search, Object key, Integer index ) throws TuraException {
+		return pager.findObject(search, key,index);
+	}
+
+	
 }

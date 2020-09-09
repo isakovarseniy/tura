@@ -1,3 +1,21 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.sales.analyzer.services;
 
 import static org.junit.Assert.assertEquals;
@@ -72,8 +90,8 @@ public class KeycloakServiceTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
-	private Registry registry = new Registry();
-	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
+	private Registry registry;
+	private SpaObjectRegistry spaRegistry;
 
 	private static EntityManagerProvider emProvider = new EntityManagerProvider() {
 
@@ -89,6 +107,9 @@ public class KeycloakServiceTest {
 	};
 
 	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider() {
+
+
+		private static final long serialVersionUID = -5210875124561974007L;
 
 		@SuppressWarnings("unchecked")
 		@Override
@@ -135,18 +156,21 @@ public class KeycloakServiceTest {
 	}
 
 	private ProxyRepository getRepository() throws Exception {
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		registry = new Registry();
+		spaRegistry = new SpaObjectRegistry();
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository initJpa = new InitJPARepository(new SpaRepository(), registry, spaRegistry);
+		InitJPARepository initJpa = new InitJPARepository(registry, spaRegistry);
 		initJpa.initClassMapping();
 		initJpa.initCommandProducer();
 		initJpa.initProvider();
 		initJpa.initEntityManagerProvider(emProvider);
 
-		InitSPARepository initSpa = new InitSPARepository(new SpaRepository(), registry, spaRegistry);
+		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
@@ -169,7 +193,8 @@ public class KeycloakServiceTest {
 				                                                 PostDeployer.CLIENT_SECRET,
 				                                                 PostDeployer.ADMIN_USER,
 				                                                 PostDeployer.ADMIN_PASSWORD,
-				                                                 PostDeployer.KEYCLOAK_MANAGED_REALM
+				                                                 PostDeployer.KEYCLOAK_MANAGED_REALM,
+				                                                 registry, spaRegistry, "spa-persistence-repository"
 																);
 		
 		

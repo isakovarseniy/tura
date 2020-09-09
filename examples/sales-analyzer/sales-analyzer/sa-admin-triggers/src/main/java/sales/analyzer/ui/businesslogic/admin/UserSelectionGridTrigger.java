@@ -1,18 +1,38 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.admin;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.primefaces.model.GridModelMultiSelect;
-import org.tura.platform.primefaces.model.GridModelTriggers;
-import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.uuiclient.model.GridModel;
+import org.tura.platform.uuiclient.model.GridModelTriggers;
+import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.CityRefeenceArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.StateReferenceArtifitialFieldsAdapter;
@@ -24,9 +44,10 @@ import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.db.StateReferenceProxy;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 
-public class UserSelectionGridTrigger  implements GridModelTriggers{
+public class UserSelectionGridTrigger  implements GridModelTriggers, Serializable{
 
-    private ELResolver elResolver;
+	private static final long serialVersionUID = -3786120605039295723L;
+	private ELResolver elResolver;
     private transient Logger logger = Logger.getLogger(UserSelectionGridTrigger.class.getName());
 
     
@@ -59,14 +80,14 @@ public class UserSelectionGridTrigger  implements GridModelTriggers{
     @Override
     public void toggleSelect(boolean selected) {
         ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelAdministration}");
-        GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(AdminCallBackProducer.USER_SELECTION_TABLE, null, null);
+        GridModel model = (GridModel) viewmodel.getModel(AdminCallBackProducer.USER_SELECTION_TABLE, null, null);
         if (selected) {
-            List<Object> list = model.getSelected();
+            List<Object> list = (List<Object>) model.getSelected();
             for (Object obj : list) {
                 onSelect(obj);
             }
         } else {
-            List<Object> list = (List<Object>) model.getLazyModel().getWrappedData();
+            List<Object> list = (List<Object>) model.load();
             for (Object obj : list) {
                 onUnselect(obj);
             }
@@ -233,6 +254,11 @@ public class UserSelectionGridTrigger  implements GridModelTriggers{
         }
         
     }
+
+	@Override
+	public void customizeObject(Object source, Object target) {
+		
+	}
     
     
     

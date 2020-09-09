@@ -1,0 +1,799 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::Table createModel(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     var hints = new Native('java.util.HashMap');
+     var hints1 = new Native('java.util.HashMap');
+     var recipe =  hash.get('recipe');
+     var ingredient =  hash.get('ingredient');
+
+     var modelRegistration = hash.get("modelRegistration");
+     modelRegistration.add(self);
+     
+     hash.put("context","table");
+     
+     util.traceIfDebug("UI element","Table model start: "+self.uid);     
+     
+    %]
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+            
+       import org.tura.platform.uuiclient.rest.UuiElement;
+       import java.util.List;
+       import java.util.ArrayList;
+       import java.util.HashMap;
+       import java.util.Map;       
+       import org.tura.platform.uuiclient.rest.EventDescription;
+       
+     
+       public class Table_[%=self.mkuid_()%]  extends UuiElement{
+            private String id = "[%=self.uid%]";
+			private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.Table_[%=self.mkuid_()%]";
+	        private List<Map<String,Object> > values;
+	        private List<Map<String,Object> > columns;
+	        private Object selected;
+			private Integer rows;
+			private boolean paginator = true;
+			private Integer scrollRows;
+			private boolean virtualScroll = false;
+			private boolean scrollable = false;
+			private String scrollHeight;
+			private String scrollWidth;
+			private String style;
+			private String className;
+		    private  boolean disabled;
+		  	private boolean rendered = true;
+		  	private List<Integer> rowsPerPageOptions;
+		  	private String selectionMode;
+		  	private String paginatorTemplate;
+		  	private Long totalRows;
+		  	private Integer first;
+		  	private List <Integer> modifiedRecords;
+		  	private Object menu;
+		    
+		    
+		    public Object getMenu() {
+				return menu;
+			}
+		
+			public void setMenu(Object menu) {
+				this.menu = menu;
+			}
+
+		    public List<Integer> getModifiedRecords() {
+				return modifiedRecords;
+			}
+		
+			public void setModifiedRecords(List<Integer> modifiedRecords) {
+				this.modifiedRecords = modifiedRecords;
+			}
+		    
+			public Integer getScrollRows() {
+				return scrollRows;
+			}
+
+			public void setScrollRows(Integer scrollRows) {
+				this.scrollRows = scrollRows;
+			}
+
+			public boolean isVirtualScroll() {
+				return virtualScroll;
+			}
+
+			public void setVirtualScroll(boolean virtualScroll) {
+				this.virtualScroll = virtualScroll;
+			}
+		    
+		    
+		    public Object getSelected() {
+				return selected;
+			}
+		
+			public void setSelected(Object selected) {
+				this.selected = selected;
+			}
+		
+		    public Integer getFirst() {
+				return first;
+			}
+		
+			public void setFirst(Integer first) {
+				this.first = first;
+			}
+		
+			public void setTotalRows(Long totalRows) {
+				this.totalRows = totalRows;
+			}
+		
+			public Long getTotalRows() {
+		        return totalRows;
+		    }
+		  	
+		    public String getPaginatorTemplate() {
+				return paginatorTemplate;
+			}
+		
+			public void setPaginatorTemplate(String paginatorTemplate) {
+				this.paginatorTemplate = paginatorTemplate;
+			}
+		  	
+		    public List<Integer> getRowsPerPageOptions() {
+				return rowsPerPageOptions;
+			}
+
+			public void setRowsPerPageOptions(List<Integer> rowsPerPageOptions) {
+				this.rowsPerPageOptions = rowsPerPageOptions;
+			}
+
+			public String getSelectionMode() {
+				return selectionMode;
+			}
+
+			public void setSelectionMode(String selectionMode) {
+				this.selectionMode = selectionMode;
+			}
+
+		    public String getClazz() {
+				return clazz;
+			}
+		
+			public void setClazz(String clazz) {
+				this.clazz = clazz;
+			}
+		    
+	        public boolean isRendered() {
+			    return rendered;
+		    }
+	
+			public void setRendered(boolean rendered) {
+				this.rendered = rendered;
+			}
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
+			}
+			public boolean isDisabled() {
+				return disabled;
+			}
+			public void setDisabled(boolean disabled) {
+				this.disabled = disabled;
+			}
+
+		    public List<Map<String, Object>> getValues() {
+				return values;
+			}
+		
+			public void setValues(List<Map<String, Object>> values) {
+				this.values = values;
+			}
+
+		    public List<Map<String, Object>> getColumns() {
+				return columns;
+			}
+		
+			public void setColumns(List<Map<String, Object>> columns) {
+				this.columns = columns;
+			}
+
+				
+			public Integer getRows() {
+				return rows;
+			}
+		
+			public void setRows(Integer rows) {
+				this.rows = rows;
+			}
+		
+			public boolean isPaginator() {
+				return paginator;
+			}
+		
+			public void setPaginator(boolean paginator) {
+				this.paginator = paginator;
+			}
+		
+			public boolean isScrollable() {
+				return scrollable;
+			}
+		
+			public void setScrollable(boolean scrollable) {
+				this.scrollable = scrollable;
+			}
+		
+			public String getScrollHeight() {
+				return scrollHeight;
+			}
+		
+			public void setScrollHeight(String scrollHeight) {
+				this.scrollHeight = scrollHeight;
+			}
+		
+			public String getScrollWidth() {
+				return scrollWidth;
+			}
+		
+			public void setScrollWidth(String scrollWidth) {
+				this.scrollWidth = scrollWidth;
+			}
+		
+			public String getStyle() {
+				return style;
+			}
+		
+			public void setStyle(String style) {
+				this.style = style;
+			}
+		
+			public String getClassName() {
+				return className;
+			}
+		
+			public void setClassName(String className) {
+				this.className = className;
+			}
+		
+
+			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
+			    [%=self.style(hash)%]
+			    [%=self.styleClass(hash)%]
+			    [%=self.rendered(hash)%]
+			    [%=self.disabled(hash)%]
+			    
+			    [%=self.initContextTriggers(hash,"react.onMenuShow",null)%]
+			    
+			    
+			    [%
+				     var selector = "5,10,15";
+				     if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){
+				        selector = self.~hintDetails;
+				     }
+				     var selectionMode = 'selectionMode="single"';
+				     if ( "Multiple".equals( self.selectionMode.toString())){
+				        selectionMode = "";
+				     } 
+				     var sortableCol =  self.cols->select(r|r.sortable.toString()<> "Not" );
+				     
+				     var gridType = "gridSingleSelect";
+				     if ("Multiple".equals(self.selectionMode.toString())){
+				        gridType = "gridMultiSelect";
+				     }
+                    hints.put("noCurlyBracket",true);
+				     
+			    %]
+			    
+		        [% if (self.scrollable){  %]
+				scrollRows=[%=self.rowNumber%];
+				virtualScroll = true;
+				scrollHeight="[%=self.scrollHeight%]px";
+				scrollable = true;
+		        paginator=false; 
+		        [%}else { %]
+		        paginator=true;
+		        rowsPerPageOptions= java.util.Arrays.asList(  new Integer[] {[%=selector%]});
+		        [%}%]
+		        
+		        [%=selectionMode%] ;
+			    
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%])}";
+			    
+			    org.tura.platform.uuiclient.model.AbstractGridModel model =  (org.tura.platform.uuiclient.model.AbstractGridModel) elResolver.getValue(modelExpression);
+			    this.paginatorTemplate = "FirstPageLink PrevPageLink RowsPerPageDropdown  NextPageLink LastPageLink";
+                [%if (self.rowNumber <> 0){%]  
+		        this.rows=[%=self.rowNumber%]  ; 
+		        [%}else{%]
+		        this.rows=10; 
+		        [%}%]
+			    if ( model.getPageSize() != 0){
+			       this.rows =  model.getPageSize();
+			    }else{
+			       model.setPageSize(this.rows );
+			    }
+
+			    
+			    java.util.List<Object> list = model.load();
+			    totalRows = model.getTotalRows();
+			    first = model.getFirst();
+			    
+			    this.values = new ArrayList<Map<String,Object>>();
+			    this.columns = new ArrayList<Map<String,Object>>();
+			    
+			    for ( Object obj: list ){
+                  Map<String,Object> map = new HashMap<String,Object>();
+                  elResolver.setValue("#{row}", obj);
+
+[%
+
+                for (col in self.cols.sortBy(q|q.order)){
+
+                    if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	                    continue; 
+                    }
+			         if ( not col.element.isKindOf(form::InputElement)   )  {
+				        continue; 
+			         }
+                    
+			          var pointer = util.findSourcePointer(col.element);
+			          var  value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),col.element.valuePointer),hints,hash);
+			          
+					  var type = col.element.valuePointer.typeRef;
+					  type.mappingType2Java(recipe,ingredient,'VIEW');
+			          
+%]
+                      Object value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = elResolver.getValue("#{row.[%=value%]}");
+					     if ( value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] != null){
+						   org.tura.platform.uuiclient.rest.client.commands.Converter converter = responseState.findConverterByIdElement("[%=col.uid%]");
+					        if (converter != null) {
+					            value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.encode(value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+					        } else {
+					            converter = responseState.findConverterByType([%=type.~fullName%].class);
+					            if (converter != null) {
+					                value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.encode( value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+					            } 
+					        }
+					       }
+           		       map.put("[%=util.mergeAndUnCapitalize(col.element.valuePointer.name)%]",value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+           		       [%
+                }
+                  
+                
+%]                
+				    org.tura.platform.uuiclient.rest.client.commands.KeyConverter keyConverter = responseState.findKeyConverterById("[%=self.uid%]");
+				    if ( keyConverter != null){
+                    map.put("eventData", keyConverter.getKey(obj));
+				    }else{
+                    map.put("eventData", org.tura.platform.datacontrol.commons.Reflection.call(obj,"getKey"));
+				    }
+
+
+                    map.put("key", org.tura.platform.datacontrol.commons.Reflection.call(obj,"getKey"));
+                    map.put("index", org.tura.platform.datacontrol.commons.Reflection.call(obj,"getViewModelId1"));
+		            this.values.add(map);    
+			    }
+			    
+			     Map<String,Object> map = null;
+[%
+				 if ( "Multiple".equals( self.selectionMode.toString())){
+                %]map = new HashMap<String,Object>();
+                  map.put("type","multipleSelection");
+                  this.columns.add(map);    
+                [%
+				 }
+
+                for (col in self.cols.sortBy(q|q.order)){
+                %]map = new HashMap<String,Object>();
+                  map.put("style",[%=col.styleResolver(hash)%]);   
+                [%
+                
+                    if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+                    %]
+                       map.put("type","editColumn");
+                       this.columns.add(map); 
+                      [%
+	                    continue; 
+                    }
+                    
+                    
+			        var t = buildExpression(col.multiLangLabel,hints1,hash);
+				    if (not "".equals(t) ){
+				 %]
+                    map.put("header",resolve( "[%=t%]",elResolver));
+				 [%    
+				    }
+                    if (col.element.isKindOf(form::InputElement)){
+				        var pointer = util.findSourcePointer(col.element);
+				        var value = util.mergeAndUnCapitalize(col.element.valuePointer.name);
+				        
+	              if (col.element.isKindOf(form::DataTemplate)){
+	                    %]
+	                    map.put("template","template[%=col.mkuid_()%]");
+	                    map.put("type","template");
+	                    [%
+	                    }else{
+	                    %]map.put("field","[%=value%]");[%
+	                    } 
+	                	
+	                 if ( not col.sortable.toString().equals("Not") ){
+	                    %]map.put("sortable",true);[%
+	                    }else{
+	                    %]map.put("sortable",false);[%
+	                    } 
+                 }else{
+	%]                    
+	                    map.put("template","template[%=col.mkuid_()%]");
+	                    map.put("type","template");
+		                map.put("sortable",false);
+	[%
+                 }
+	%]                    
+	                    this.columns.add(map);    
+	[%
+                 
+                }
+                %][%
+                  
+			    if ( "Multiple".equals( self.selectionMode.toString())){
+			    %]
+			    java.util.List<Object> selectedList = (java.util.List<Object>)model.getSelected();
+			    if ( selectedList != null){
+			       java.util.ArrayList<Object> selectedObjects = new java.util.ArrayList<Object>(); 
+			       for( Object selectedObject : selectedList){
+                     elResolver.setValue("#{row}", selectedObject);
+                     Map<String,Object> selectedMap = new HashMap<String,Object>();
+			         [%=self.populateSelected(model_mapper,recipe,ingredient,hints,hash)%]
+			         selectedObjects.add(selectedMap);
+			       }
+			       this.selected = selectedObjects;
+			    }
+			    [%
+			    }else{
+%]
+                Map<String,Object> selectedMap = new HashMap<String,Object>();
+                Object selectedObject = model.getSelected();
+                if ( selectedObject != null){
+                     elResolver.setValue("#{row}", selectedObject);
+                
+[%
+                 %][%=self.populateSelected(model_mapper,recipe,ingredient,hints,hash)%]  [%
+%]		        
+	              this.selected = selectedMap;
+                }
+		       this.createOnRowSelectionChangeEvent(responseState.getResponse());
+[%  		 } 
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onSelect"))   )  {
+               %]
+		       this.createOnRowSelectionEvent(responseState.getResponse());
+		       [%
+               }
+
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onUnSelect"))   )  {
+               %]
+		       this.createOnRowUnSelectionEvent(responseState.getResponse());
+		       [%
+               }
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onToggle"))   )  {
+               %]
+		       this.createOnToggleEvent(responseState.getResponse());
+		       [%
+               }
+
+
+           if ( sortableCol.size() <> 0 ){%]
+		        this.createOnSortEvent(responseState.getResponse());
+
+[%
+           }
+%]           this.createNewPageEvent(responseState.getResponse());
+             this.createOnEditAcceptEvent(responseState.getResponse());
+
+
+[%
+                for (col in self.cols.sortBy(q|q.order) ){
+                    if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	                    continue; 
+                    }
+               var element = col.element ;
+               var className = element.className(hash);
+%]            
+               [%=className%]_[%=element.mkuid_()%] [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] = new [%=className%]_[%=element.mkuid_()%] ();
+               [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] .initContext(elResolver,responseState);
+               getChildrens().add([%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%]);
+           
+[%
+                }  
+
+ if(self.menu <> null ){
+     hash.get("menuReferences").add(self);
+%]
+			    modelExpression =  "#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]}";
+			    [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu.MenuProvider menuProvider = ([%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu.MenuProvider) elResolver.getValue(modelExpression); 
+			    this.menu = menuProvider.getModel("[%=self.mkuid_()%]");
+[%
+
+}
+%]    
+			}
+
+		   @SuppressWarnings("unchecked")
+			public UuiElement restoreContext( java.util.Map<String, Object> map,org.tura.platform.uuiclient.rest.DataUpdateRequest request, org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState, java.util.List<org.tura.platform.uuiclient.rest.EventDescription> eventsToFire) throws Exception {
+			       List<Object> childrens = (List<Object>) map.get("childrens");
+			       for ( Object child : childrens) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   String clazz = (String) chMap.get("clazz");
+			    	   Class<UuiElement> chClass =  (Class<UuiElement>) Class.forName(clazz);
+			    	   UuiElement uie = chClass.newInstance();
+			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       List<Object> events = (List<Object>) map.get("events");
+			       for ( Object child : events) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   EventDescription event = new EventDescription();
+			    	   getEvents().add((EventDescription)event.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       
+		           this.selected = map.get("selected");
+		           this.modifiedRecords = (java.util.List <Integer>)map.get("modifiedRecords");
+                   this.values = (java.util.List<java.util.Map<String, Object>>) map.get("values");
+                   
+                   if ( map.get("menu") != null){
+                      org.tura.platform.uuiclient.menu.DefaultMenuModel menu = new org.tura.platform.uuiclient.menu.DefaultMenuModel();
+                      this.menu = menu.restoreContext((Map<String, Object>) map.get("menu"),request,responseState,eventsToFire);
+                      
+                   
+                   }
+                   
+			       
+			       return this;
+			   }
+
+
+			public void applyContext( org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception {
+		       for ( Object child : getChildrens()) {
+		        	UuiElement el = (UuiElement) child;
+		        	el.applyContext(elResolver,responseState);
+		       }
+			   String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%])}";
+		       org.tura.platform.uuiclient.model.GridModel model =  (org.tura.platform.uuiclient.model.GridModel) elResolver.getValue(modelExpression);
+		       model.decodeAndSetSelected(selected);
+		       
+				if ( this.modifiedRecords != null) {
+                   int f = model.getFirst();
+				   for ( Integer j : this.modifiedRecords  ) {
+				        int i = j-f;
+				        
+			        java.util.Map<String, Object> record = (java.util.Map<String, Object>) this.values.get(i);
+			        org.tura.platform.repository.core.ObjectControl obj =
+			        		(org.tura.platform.repository.core.ObjectControl ) model.decodeSingleSelection(record);
+			        if ( obj == null){
+			           continue;
+			        }		
+                        elResolver.setValue("#{row}", obj);
+					[%
+					
+					     for (col in self.cols.sortBy(q|q.order)){
+					
+					         if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+						        continue; 
+					         }
+					         if ( not col.element.isKindOf(form::InputElement)   )  {
+						        continue; 
+					         }
+					         
+							var pointer = util.findSourcePointer(col.element);
+			                var  value = col.element.valuePointer.name;
+			                var  valueExp = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),col.element.valuePointer),hints,hash);
+							var ispk = false;
+							if( col.element.valuePointer.isKindOf(type::Attribute) ){
+							   ispk = col.element.valuePointer.pk;
+							}
+							var type = col.element.valuePointer.typeRef;
+							type.mappingType2Java(recipe,ingredient,'VIEW');
+							
+							if ( ispk){
+                              %] if (obj.getAttached() == null ||!obj.getAttached() ) { [%
+							}
+					%]   Object value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = record.get("[%=util.mergeAndUnCapitalize(value)%]");
+					     if ( value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] != null){
+						   org.tura.platform.uuiclient.rest.client.commands.Converter converter = responseState.findConverterByIdElement("[%=col.uid%]");
+					        if (converter != null) {
+					            value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.decode(value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+					        } else {
+					            converter = responseState.findConverterByType([%=type.~fullName%].class);
+					            if (converter != null) {
+					                value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.decode( value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+					            } else {
+					               value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = new [%=type.~fullName%](value[%=util.fixArtifField(util.mergeAndCapitalize(value))%].toString());
+					            }
+					        }
+					       elResolver.setValue("#{row.[%=valueExp%]}",value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+					     }else{
+					       elResolver.setValue("#{row.[%=valueExp%]}", null);
+					     }
+					         
+					     [%
+							if ( ispk){
+                              %] } [%
+							}
+					
+					   }  
+					   
+					%]		        
+						
+					}
+					this.modifiedRecords = null;
+				}
+		       
+		       
+            } 			
+            
+			private  Object resolve(String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    return  elResolver.getValue(expression);
+                } else {
+                   return expression;
+                }
+			} 
+          
+			private  void apply( Object obj , String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                     elResolver.setValue(expression, obj);
+                } 
+			}
+          
+			private void createNewPageEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).onPage}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onPageEvent", "server", modelExpression, "react.onPageEvent", id,id );
+				event.addParameters(id + "_onPageEvent", "startIndex", null, 0);
+				event.addParameters(id + "_onPageEvent", "pageSize", null, 1);
+		        this.getEvents().add(event);
+			}
+          
+
+			private void createOnRowSelectionChangeEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).onRowSelectionChange}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onRowSelectionChangeEvent", "server", modelExpression, "react.onRowSelectionChange", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onRowSelectionChangeEvent", "selected", null, 0);
+		        this.getEvents().add(event);
+			}
+
+[%
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onSelect"))   )  {
+               %]
+			private void createOnRowSelectionEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onRowSelectionEvent", "server", modelExpression, "react.onRowSelection", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onRowSelectionEvent", "selected", null, 0);
+		        this.getEvents().add(event);
+			}
+		       [%
+               }
+
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onUnSelect"))   )  {
+               %]
+			private void createOnRowUnSelectionEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxUnSelected}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onRowUnSelectionEvent", "server", modelExpression, "react.onRowUnSelection", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onRowUnSelectionEvent", "selected", null, 0);
+		        this.getEvents().add(event);
+			}
+		       [%
+               }
+               
+               if ( self.findClassifier(util.getHint(model_mapper,"react.grid.onToggle"))   )  {
+               %]
+			private void createOnToggleEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxToggleSelect}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onToggleEvent", "server", modelExpression, "react.onToggle", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onToggleEvent_Selected", "selected", null, 0);
+                event.addParameters(id + "_onToggleEvent_toggled", "toggeled", null, 0);
+		        this.getEvents().add(event);
+			}
+		       [%
+               }
+%]	
+
+			private void createOnEditAcceptEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxOnEditAccept}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onEditAcceptEvent", "server", modelExpression, "react.onEditAccept", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+		        this.getEvents().add(event);
+			}
+			
+[%    if ( sortableCol.size() <> 0 ){%]
+		    private void createOnSortEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','[%=gridType%]', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).onSort}";
+		
+		        EventDescription event =
+		            new EventDescription(id + "_onSortEvent", "server",modelExpression, "react.onSort", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias(true)%]);
+		        event.addParameters(id + "_onSort", "sortMeta", null, 0);
+		        this.getEvents().add(event);
+		    }
+[%}%]
+
+
+          
+        }    
+
+     [%
+     
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "Table_"+self.mkuid_() +".java",out.toString());   
+
+     
+%]
+     [%=self.generateComponentBody(hash,model_mapper)%]     
+[%
+          
+	 hash.remove("context");
+          
+     util.traceIfDebug("UI element","Table model end: "+self.uid);     
+
+}
+
+@template
+operation form::Table populateSelected(model_mapper,recipe,ingredient,hints,hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+     for (col in self.cols.sortBy(q|q.order)){
+
+         if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	        continue; 
+         }
+         if ( not col.element.isKindOf(form::InputElement)   )  {
+	        continue; 
+         }
+         
+		var pointer = util.findSourcePointer(col.element);
+		var  value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),col.element.valuePointer),hints,hash);
+		var type = col.element.valuePointer.typeRef;
+		type.mappingType2Java(recipe,ingredient,'VIEW');
+		
+%]     
+
+      Object selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = elResolver.getValue("#{row.[%=value%]}");
+	     if ( selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%] != null){
+		   org.tura.platform.uuiclient.rest.client.commands.Converter converter = responseState.findConverterByIdElement("[%=col.uid%]");
+	        if (converter != null) {
+	            selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.encode(selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+	        } else {
+	            converter = responseState.findConverterByType([%=type.~fullName%].class);
+	            if (converter != null) {
+	                selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.encode( selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+	            } 
+	        }
+	       }
+         selectedMap.put("[%=util.mergeAndUnCapitalize(col.element.valuePointer.name)%]",selected[%=util.fixArtifField(util.mergeAndCapitalize(value))%] );[%
+
+   }  
+%]		        
+     selectedMap.put("key", org.tura.platform.datacontrol.commons.Reflection.call(selectedObject,"getKey"));
+     selectedMap.put("index", org.tura.platform.datacontrol.commons.Reflection.call(selectedObject,"getViewModelId1"));
+[%
+}
+
+
+operation form::Table generateComponentBody(hash,model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+     hash.put("context","table");
+
+     for (col in self.cols.sortBy(q|q.order) ){
+	       if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	           continue; 
+	      }
+	      var element = col.element ;
+          element.createModel(hash);
+    }  
+    hash.remove("context");
+    
+}
+operation form::Table className(hash) { 
+   return self.eClass().getName();
+}
+
+%]

@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.spa;
 
 import org.tura.platform.repository.core.Adapter;
@@ -29,17 +26,25 @@ public class SpaControl implements Comparable<SpaControl>{
 	private String type;
 	private Object key;
 	private Object object;
-	private int priority = 100;
+	private int priority;
 	private int sequence;
+	private String registryName;
 	
-	public SpaControl(Object object,Object key, OperationLevel level){
+
+	public SpaControl(Object object,Object key, OperationLevel level,String registryName){
 		this.object = object;
 		this.key = key;
 		this.level = level;
+		this.priority = level.getPriority();
 		this.type = object.getClass().getName();
+		this.registryName = registryName;
 		if (object instanceof Adapter){
 			this.type = ((Adapter)object).getObjectType();
 		}
+		if (this.registryName == null) {
+			throw new RuntimeException("registryName cannot be null");
+		}
+		
 	}
 	
 	
@@ -79,9 +84,22 @@ public class SpaControl implements Comparable<SpaControl>{
 	public void setSequence(int sequence) {
 		this.sequence = sequence;
 	}
+	public String getRegistryName() {
+		return registryName;
+	}
+	public void setRegistryName(String registryName) {
+		this.registryName = registryName;
+	}
+	
+	
 	@Override
 	public int compareTo(SpaControl o) {
-		return this.sequence-o.getSequence();
+		if ( this.priority == o.getPriority()) {
+		    return  Integer.valueOf( this.sequence).compareTo(Integer.valueOf(  o.getSequence()));
+		}else {
+		    return  Integer.valueOf( this.priority).compareTo(Integer.valueOf( o.getPriority()));
+			
+		}
 	}
 
 }

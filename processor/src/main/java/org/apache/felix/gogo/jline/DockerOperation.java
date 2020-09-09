@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline;
 
 import java.util.ArrayList;
@@ -93,7 +94,18 @@ public class DockerOperation  {
         CommandLine line = getCommandLine();
         Object result=null;
 
-        List<CommandLine> commands = line.parseArgs((String[]) argv).asCommandLineList();
+        List<String> array = new ArrayList<String>();
+        for ( Object arg : argv) {
+        	String str = (String) arg;
+        	 if (str != null && str.length() > 0 && str.charAt(str.length() - 1) == '\n') {
+        	        str = str.substring(0, str.length() - 1);
+        	    }
+        	 array.add(str);
+        }
+        String[] arguments = array.toArray(new String[array.size()]);
+
+        List<CommandLine> commands = line.parseArgs(arguments).asCommandLineList();
+
         for (CommandLine command : commands) {
             Executable cmd = command.getCommand();
             if (cmd instanceof SessionAware) {

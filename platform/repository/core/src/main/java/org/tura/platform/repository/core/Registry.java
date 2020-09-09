@@ -1,51 +1,28 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-/**
-* Tura - application generation platform
-*
-* Copyright (c) 2012 - 2018, Arseniy Isakov
-*
-* This project includes software developed by Arseniy Isakov
-* http://sourceforge.net/p/tura/wiki/Home/
-*
-* Licensed under the Apache License, Version 2.0 (the
-* "License"); you may not use this file except in compliance
-* with the License. You may obtain a copy of the License at:
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing,
-* software distributed under the License is distributed on
-* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-* KIND, either express or implied. See the License for the
-* specific language governing permissions and limitations
-* under the License.
-*/
+
 package org.tura.platform.repository.core;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
@@ -55,18 +32,19 @@ public class Registry implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Map<String, Repository> providers = new HashMap<>();
+	private Map<String, String> providers = new HashMap<>();
 	private Map<String, String> classMapper = new HashMap<>();
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
 	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
 	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 	private Map<String, Mapper> mappers = new HashMap<>();
-	private Map<Repository, CommandProducer> commandProducers = new HashMap<>();
+	private Map<String, Class<? extends CommandProducer>> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
 	private Map<String, AdapterLoader> loaders = new HashMap<>();
 	private CommandLifecycle commandLifecycle;
 	private Map<String, ObjectGraphProfile> profiles = new HashMap<>();
+	private List<Instantiator> instantiators = new ArrayList<>();
 
 	public Registry() {
 
@@ -80,15 +58,19 @@ public class Registry implements Serializable {
 		return prImaryKeyStrategy;
 	}
 
+	public void addInstantiator(Instantiator instantiator) {
+		instantiators.add(instantiator);
+	}
+
 	public void addProfile(String profileName, ObjectGraphProfile profile) {
 		profiles.put(profileName, profile);
 	}
 
-	public void addCommandProducer(Repository repository, CommandProducer commandProducer) {
+	public void addCommandProducer(String repository, Class<? extends CommandProducer> commandProducer) {
 		commandProducers.put(repository, commandProducer);
 	}
 
-	public void addProvider(String persistanceClass, Repository provider) {
+	public void addProvider(String persistanceClass, String provider) {
 		providers.put(persistanceClass, provider);
 	}
 
@@ -127,11 +109,35 @@ public class Registry implements Serializable {
 		if (persistanceClass == null) {
 			throw new RepositoryException("Unsupporable class " + repositoryClass);
 		}
-		Repository provider = providers.get(persistanceClass);
+		String provider = providers.get(persistanceClass);
+		if (provider == null) {
+			throw new RepositoryException("Unsupporable class " + repositoryClass);
+		}
+		return instantiateProvider(provider);
+	}
+
+	
+	public StorageCommandProcessor getStorageCommandProcessor() {
+		Instantiator inst = this.findInstantiator(StorageCommandProcessor.class);
+		return  inst.newInstance(StorageCommandProcessor.class);
+	}
+	
+	public String findProviderName(String repositoryClass) throws RepositoryException {
+		String persistanceClass = classMapper.get(repositoryClass);
+		if (persistanceClass == null) {
+			throw new RepositoryException("Unsupporable class " + repositoryClass);
+		}
+		String provider = providers.get(persistanceClass);
 		if (provider == null) {
 			throw new RepositoryException("Unsupporable class " + repositoryClass);
 		}
 		return provider;
+	}
+
+	private Repository instantiateProvider(String provider) {
+		Instantiator inst = this.findInstantiator(provider);
+		Repository repository = inst.newInstance(provider);
+		return repository;
 	}
 
 	public String findPersistanceClass(String repositoryClass) throws RepositoryException {
@@ -144,11 +150,14 @@ public class Registry implements Serializable {
 	}
 
 	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException {
-		Repository repository = findProvider(repositoryClass);
-		CommandProducer commandProducer = commandProducers.get(repository);
-		if (commandProducer == null) {
+		String repositoryName = findProviderName(repositoryClass);
+		Class<? extends CommandProducer> commandProducerClass = commandProducers.get(repositoryName);
+		if (commandProducerClass == null) {
 			throw new RepositoryException("Unsupporable command producer for " + repositoryClass);
 		}
+
+		Instantiator inst = findInstantiator(commandProducerClass);
+		CommandProducer commandProducer = inst.newInstance(commandProducerClass);
 		return commandProducer;
 	}
 
@@ -158,10 +167,6 @@ public class Registry implements Serializable {
 			throw new RepositoryException("Unsupporable class repository class for " + persistanceClass);
 		}
 		return repositoryClass;
-	}
-
-	public Set<Repository> getListOfRepositories() {
-		return commandProducers.keySet();
 	}
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
@@ -215,4 +220,16 @@ public class Registry implements Serializable {
 		this.commandLifecycle = commandLifecycle;
 	}
 
+	public Instantiator findInstantiator(Class<?> clazz) {
+		return findInstantiator(clazz.getName());
+	}
+
+	public Instantiator findInstantiator(String className) {
+		for (Instantiator init : instantiators) {
+			if (init.check(className)) {
+				return init;
+			}
+		}
+		return null;
+	}
 }

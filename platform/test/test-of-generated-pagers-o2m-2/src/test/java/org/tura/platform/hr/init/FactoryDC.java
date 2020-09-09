@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.hr.init;
 
 import java.util.List;
@@ -52,7 +49,9 @@ import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 
 import objects.test.serialazable.jpa.Department2;
+import objects.test.serialazable.jpa.Department2Proxy;
 import objects.test.serialazable.jpa.Employee2;
+import objects.test.serialazable.jpa.Employee2Proxy;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.pager.Department22Employee2Pager;
 import objects.test.serialazable.jpa.pager.Department2Pager;;
@@ -63,8 +62,8 @@ public class FactoryDC implements Factory {
 	private EntityManager em;
 	private CommandStack sc;
 	private Repository repository ;
-	private Registry registry = new Registry();
-	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
+	private Registry registry ;
+	private SpaObjectRegistry spaRegistry;
 	private  EntityManagerProvider emProvider = new EntityManagerProvider(){
 
 		@Override
@@ -79,6 +78,9 @@ public class FactoryDC implements Factory {
 	};
 
 	public FactoryDC(String unit) throws Exception {
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		registry = new Registry();
+		spaRegistry = new SpaObjectRegistry();
 
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
@@ -89,8 +91,9 @@ public class FactoryDC implements Factory {
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 		repository = new BasicRepository(registry);
 
-		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry, spaRegistry);
+		InitJPARepository init = new InitJPARepository(registry, spaRegistry);
 		init.initClassMapping();
+		init.initFeldsMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		init.initEntityManagerProvider(emProvider);
@@ -120,6 +123,7 @@ public class FactoryDC implements Factory {
 		employeesDS.getKeys().add("objId");
 		employeesDS.setCommandStack(sc);
 		employeesDS.setBaseClass(Employee2.class);
+		employeesDS.setPrimaryKeyFields(Employee2Proxy.getPrimaryKeyFields());
 		sc.getPoolFlushAware().add(employeesDS);
 		createCreateCommand(employeesDS, elPrefix + "employees", Employee2.class);
 		createSearchCommand(employeesDS, elPrefix + "employees", Employee2.class);
@@ -148,6 +152,7 @@ public class FactoryDC implements Factory {
 		departmentsDS.getKeys().add("objId");
 		departmentsDS.setCommandStack(sc);
 		departmentsDS.setBaseClass(Department2.class);
+		departmentsDS.setPrimaryKeyFields(Department2Proxy.getPrimaryKeyFields());
 		sc.getPoolFlushAware().add(departmentsDS);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments", Department2.class);

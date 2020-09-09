@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
@@ -35,6 +49,7 @@ import domain.DomainTypes;
 import form.AreaRef;
 import form.CanvasFrame;
 import form.DataControl;
+import form.DataScroller;
 import form.Form;
 import form.LayerHolder;
 import form.MenuDefinition;
@@ -46,7 +61,9 @@ import form.Relation;
 import form.Uielement;
 import form.ViewArea;
 import form.Views;
+import mapper.Mapper;
 import mapper.MappingLayer;
+import mapper.Version;
 import recipe.Component;
 import recipe.ConfigExtension;
 import recipe.Configuration;
@@ -124,12 +141,28 @@ public class QueryHelper {
 
 	}
 
-
 	public Form getForm(DataControl dc) {
 		return (Form) dc.eContainer().eContainer();
 	}
 
+	public List<Version> getVersions(Mapper object) {
+		Mapper mapper = (Mapper) object;
+		ApplicationMappers obj = (ApplicationMappers) mapper.eContainer().eContainer().eContainer();
+		if (obj.getVersions() == null) {
+			return new ArrayList<Version>();
+		}
+		return obj.getVersions();
+	}
 
+	public List<Version> getVersions(Component object) {
+		Component jc = (Component) object;
+		Application app = (Application) jc.eContainer().eContainer().eContainer().eContainer().eContainer()
+				.eContainer();
+		if (app.getApplicationMappers() == null || app.getApplicationMappers().getVersions() == null) {
+			return new ArrayList<Version>();
+		}
+		return app.getApplicationMappers().getVersions();
+	}
 
 	@SuppressWarnings({ "unchecked" })
 	public void getTreeLeafs(List<Object> ls, DataControl root) throws Exception {
@@ -144,6 +177,18 @@ public class QueryHelper {
 				getTreeLeafs(ls, dc);
 			}
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public Infrastructure getInfrastructure(Recipe recipe) throws Exception {
+		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.source.uid ='" + recipe.getUid() + "')";
+
+		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(recipe, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getTarget();
+		else
+			return null;
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -170,7 +215,7 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Ingredient getIngredient(EObject obj, String uid) throws Exception {
-		
+
 		String query = "recipe::Ingredient.allInstances()->select(r|r.uid ='" + uid + "')";
 
 		Collection<Ingredient> map = (Collection<Ingredient>) internalEvaluate(obj, query);
@@ -178,12 +223,12 @@ public class QueryHelper {
 			return map.iterator().next();
 		else
 			return null;
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public Component getComponent(EObject obj, String uid) throws Exception {
-		
+
 		String query = "recipe::Component.allInstances()->select(r|r.uid ='" + uid + "')";
 
 		Collection<Component> map = (Collection<Component>) internalEvaluate(obj, query);
@@ -191,12 +236,12 @@ public class QueryHelper {
 			return map.iterator().next();
 		else
 			return null;
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public ModelMapper getModelMapper(EObject obj, String uid) throws Exception {
-		
+
 		String query = "recipe::ModelMapper.allInstances()->select(r|r.uid ='" + uid + "')";
 
 		Collection<ModelMapper> map = (Collection<ModelMapper>) internalEvaluate(obj, query);
@@ -204,10 +249,9 @@ public class QueryHelper {
 			return map.iterator().next();
 		else
 			return null;
-		
+
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public Collection<Recipe> getRecipes(EObject obj) throws Exception {
 		String query = "recipe::Recipe.allInstances()";
@@ -231,11 +275,10 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Configuration getConfiguration(EObject obj, String uid) throws Exception {
-		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
-				+ "')";
+		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid + "')";
 
-		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
-				obj, query);
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(obj,
+				query);
 		if ((map != null) && (map.size() != 0))
 			return map.iterator().next().getTarget();
 		else
@@ -320,8 +363,6 @@ public class QueryHelper {
 			return null;
 	}
 
-
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<?> getControlsList(Form frm) throws Exception {
 
@@ -339,10 +380,6 @@ public class QueryHelper {
 		return ls;
 
 	}
-
-
-
-
 
 	@SuppressWarnings("unchecked")
 	public Object getDomainApplications(EObject root) throws Exception {
@@ -526,7 +563,6 @@ public class QueryHelper {
 		return result;
 	}
 
-
 	@SuppressWarnings("unchecked")
 	public DomainTypes getTypesRepository(EObject obj) throws Exception {
 
@@ -538,6 +574,19 @@ public class QueryHelper {
 			return domainTypes;
 		} else
 			return null;
+	}
+
+	public MappersRoot getMappers(EObject obj) throws Exception {
+
+		Ingredient ingredient = (Ingredient) obj.eContainer();
+		Recipe recipe = (Recipe) ingredient.eContainer();
+
+		MappersRoot root = new MappersRoot();
+
+		root.getChildren().addAll(recipe.getMappers());
+		root.getChildren().addAll(ingredient.getMappers());
+
+		return root;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -611,7 +660,6 @@ public class QueryHelper {
 		return null;
 
 	}
-
 
 	@SuppressWarnings("unchecked")
 	public void getInheritTypes(List<Type> typesTree, Type type) {
@@ -847,6 +895,19 @@ public class QueryHelper {
 		for (Iterator<Uielement> itr = holder.getChildren().iterator(); itr.hasNext();) {
 
 			Uielement el = itr.next();
+
+			if (el instanceof DataScroller) {
+				DataScroller scroller = (DataScroller) el;
+				for (Uielement uel : scroller.getChildren()) {
+					if (uel instanceof LayerHolder) {
+						findUIElement(list, (LayerHolder) uel);
+						continue;
+					} else {
+						list.add(uel);
+					}
+				}
+			}
+
 			if (el instanceof LayerHolder) {
 				findUIElement(list, (LayerHolder) el);
 				continue;
@@ -1143,7 +1204,6 @@ public class QueryHelper {
 		return relations;
 	}
 
-	
 	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {
 		return internalEvaluate(eobj, strQuery);
 	}

@@ -1,5 +1,0 @@
-[% 
-operation  persistence_databasename() : String{
-     return "HSQL";
-}
-%]

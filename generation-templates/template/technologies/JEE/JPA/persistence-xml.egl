@@ -1,0 +1,75 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${JPA_implementation}.egl";
+import "tura:/generation-templates/template/technologies/${Database_type}.egl";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ ${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+%]
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
+
+ [%
+              var typeOfTransaction="JTA";
+              if (Transaction.equals("JEE/Transaction/LOCAL")){
+                typeOfTransaction="RESOURCE_LOCAL";
+              }
+              
+            var persistence_unit = configuration.get("persistence_unit");  
+             if ( model_mapper.findClassifier(util.getHint(model_mapper,"persistence_unit")) ){
+                  persistence_unit =  model_mapper.~hintDetails;
+             }
+            
+%]
+   <persistence-unit name="[%=persistence_unit%]"  transaction-type="[%=typeOfTransaction%]">
+
+		<provider>[%=persistence_jpaprovider()%]</provider>
+
+		
+[%    if (Connection.equals("JEE/DataSource/JNDI")){
+         var typeOfDataSource="jta-data-source"; 
+          if (Transaction.equals("JEE/Transaction/LOCAL"))
+            typeOfDataSource="non-jta-data-source"; 
+
+            var jndi_access_string = configuration.get("jndi access string");  
+             if ( model_mapper.findClassifier(util.getHint(model_mapper,"jndi access string")) ){
+                  jndi_access_string =  model_mapper.~hintDetails;
+             }
+            %]
+            
+		   <[%=typeOfDataSource%]>[%=jndi_access_string%]</[%=typeOfDataSource%]>
+[%   } %]		
+[%
+        for (class in classes) {
+%]
+        <class>[%=class%]</class>
+[%       
+        }
+%]   
+
+		[%=persistence_jpaproperties(Connection,JPA_Schema_update,configuration)%]
+
+	</persistence-unit>
+</persistence>

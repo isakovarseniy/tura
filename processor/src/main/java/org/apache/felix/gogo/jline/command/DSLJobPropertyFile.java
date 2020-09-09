@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import java.util.List;
@@ -19,37 +20,39 @@ import org.tura.configuration.dsl.commons.JobPropertyFile;
 
 import picocli.CommandLine.Option;
 
-public class DSLJobPropertyFile  extends DSLCommand{
+public class DSLJobPropertyFile extends DSLCommand {
 
 	@Option(names = "--application", required = true)
-	private String application; 
+	private String application;
 	@Option(names = "--relativeLocation", required = true)
-	private String relativeLocation; 
+	private String relativeLocation;
 	@Option(names = "--artifact", required = true)
-	private String artifact; 
+	private String artifact;
 	@Option(names = "--property")
 	private List<String> properties;
-	
-	
+
 	@Override
 	public Object execute() throws Exception {
 
-		JobPropertyFile dsl =  
-				new JobPropertyFile(artifact)
-		               .setApplication(application)
-                       .setRelativeLocation(relativeLocation);
-		
+		JobPropertyFile dsl = 
+				 			new JobPropertyFile(artifact,this.session)
+				 				.setApplication(application)
+				 				.setRelativeLocation(relativeLocation);
+
 		if (properties != null) {
 			for (String p : properties) {
-				String[] ps = p.split(":");
-				if (ps.length != 2) {
+				int index = p.indexOf(":");
+				if (index != -1) {
+					String key = p.substring(0, index);
+					String value = p.substring(index + 1);
+					dsl.addProperties(key, value);
+				} else {
 					throw new IllegalArgumentException("Wrong property " + p);
 				}
-				dsl.addProperties(ps[0], ps[1]);
 			}
 		}
 		dsl.run();
-		
+
 		return null;
 	}
 

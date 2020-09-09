@@ -1,0 +1,207 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+ import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+ 
+ package [%=savepackage%];
+ 
+ import org.tura.platform.repository.core.Registry;
+ import org.tura.platform.repository.spa.SpaObjectRegistry;
+ 
+ public class InitJPARepository{
+ 
+     private Registry registry;
+     private SpaObjectRegistry spaRegistry;
+     
+     public InitJPARepository(Registry registry,SpaObjectRegistry spaRegistry){
+         this.registry = registry;
+         this.spaRegistry= spaRegistry;
+     }
+ 
+ 
+    
+    public void initProvider(){
+    	registry.addInstantiator(new JPARepositoryInstantiator(registry,spaRegistry));  
+    
+       [%
+         for(type in typeCollection){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		           continue;
+		        }
+				if( not types.contains(type)){
+		               continue;
+				}
+		        
+       %] 
+        registry.addProvider("[%=t2model.get(type).get("fullName")%]","[%=component.artifactId%]");
+       [%
+       }
+       %] 
+    }
+ 
+     public void initClassMapping() throws Exception{
+    
+       [%
+         var triggers = new Native('java.util.ArrayList');
+         for(type in typeCollection){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		           continue;
+		        }
+				if( not types.contains(type)){
+		               continue;
+				}
+		        
+       %] 
+        registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
+        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
+
+        spaRegistry.getRegistry("[%=component.artifactId%]").addSearchProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.jpa.operation.JpaSearchService.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addCRUDProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.jpa.operation.JpaCRUDService.class);
+
+        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        
+       [%
+       
+          var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	      for (rel in assosiations){
+
+	         if ( rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  and  types.contains(rel.target.unwrap())  ){
+	               continue;
+	         }
+	         
+	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
+	         rel.target.mappingType2Java(recipe,ingredient,'VIEW');
+
+	         var t1 =rel.source.~fullName+rel.target.~fullName;
+	         var t2 = rel.target.~fullName+rel.source.~fullName;
+	         
+	         var directTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+	         var oppositTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+ 
+             if(rel.target.isInternal() ){
+                directTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
+             }
+             
+	         if ( not triggers.contains(t1)){
+               %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
+               triggers.add(t1);
+	         }
+	         if ( not triggers.contains(t2)){
+               %]registry.addTrigger([%=rel.target.~fullName%].class.getName(),  [%=rel.source.~fullName%].class.getName() , new [%=oppositTrigger%]);[%
+               triggers.add(t2);
+	         }
+          }
+	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+	      for (rel in assosiations){
+	      
+	         if ( rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))   and types.contains(rel.source) ){
+	               continue;
+	         }
+	         
+	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
+	         rel.target.mappingType2Java(recipe,ingredient,'VIEW');
+	         
+	         var t1 =rel.source.~fullName+rel.target.~fullName;
+	         var t2 = rel.target.~fullName+rel.source.~fullName;
+	         
+	         var directTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+	         var oppositTrigger = "org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger(registry)";
+ 
+             if(rel.source.isInternal() ){
+                oppositTrigger = "org.tura.platform.repository.spa.SkipQueryTrigger(registry)";
+             }
+	         
+	         if ( not triggers.contains(t1)){
+               %]registry.addTrigger([%=rel.source.~fullName%].class.getName(),  [%=rel.target.~fullName%].class.getName() , new [%=directTrigger%]);[%
+               triggers.add(t1);
+	         }
+	         if ( not triggers.contains(t2)){
+               %]registry.addTrigger([%=rel.target.~fullName%].class.getName(),  [%=rel.source.~fullName%].class.getName() , new [%=oppositTrigger%]);[%
+               triggers.add(t2);
+	         }
+          }
+       }
+       %] 
+    
+    }
+
+     public void initCommandProducer(){
+        registry.addCommandProducer("[%=component.artifactId%]",org.tura.platform.repository.jpa.operation.JpaCommandProducer.class);
+
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalConnectDetailToMasterOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalConnectMasterToDetailOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalDisconnectDetailFromMasterOperation.class);
+		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalDisconnectMasterFromDetailOperation.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new org.tura.platform.repository.jpa.operation.JpaOperationsInstantiator(registry,spaRegistry));
+        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new org.tura.platform.repository.jpa.operation.JpaServiceInstantiator(spaRegistry,"[%=component.artifactId%]",registry));
+     }
+ 
+ 	public void initEntityManagerProvider(org.tura.platform.repository.jpa.operation.EntityManagerProvider emProvider) {
+        spaRegistry.getRegistry("[%=component.artifactId%]").setEntityManagerProvider( emProvider );
+        
+	}
+ 
+  public void initFeldsMapping() throws Exception{
+         [%
+         for(type in typeCollection){
+		     if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		           continue;
+		     }
+		     if (type.isKindOf(type::Enumerator )){
+		          continue;
+		     }
+			if( not types.contains(type)){
+	               continue;
+			}
+		     
+
+	          var tp = type;
+	          while (1 == 1){
+				  for ( field in tp.attributes){
+				 %]
+				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=field.name.toLowerCase()%]","[%=util.splitByCapitalLatterAndCapitalize(field.name)%]");
+				  [%
+				  }
+				  if (tp.~extension.isDefined()){
+				       tp = tp.~extension;
+				  }else{
+				       break;
+				 }
+		      }
+	      
+	    }
+
+       %] 
+
+  
+  }
+ 
+ 
+ }
+ 

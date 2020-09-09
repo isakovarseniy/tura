@@ -2,15 +2,15 @@
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Development" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:48:27"/>
-    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
+    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="24"/>
   </context>
   <context confirmationNeeded="false" name="Development">
     <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:30:31"/>
-    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
+    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="24"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
@@ -38,8 +38,9 @@
     <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
     <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="CHECK" name="OVERRIDE_ENCODING_FLAG" value="false" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="OVERRIDE_ENCODING_IN_EXTRA" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="OVERRIDE_ENCODING_IN_EXTRA:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
     <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -52,7 +53,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:WvD0lWSJqhfMSZ53uJsm7a7va6dO5+6o8Y1bffzC" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -67,7 +68,7 @@
     <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
     <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
     <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
-    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/Users/arseniy/MyPrj/git/tura.4.2.2/examples/sales-analyzer/talend-workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/Users/arseniy/MyPrj/git/tura5/examples/sales-analyzer/talend-workspace/.metadata&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
@@ -75,7 +76,7 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
     <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_11" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_12" show="false"/>
     <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
     <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
     <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
@@ -87,7 +88,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:SXySzdAk4kNuzUpYv6J0bA7jJjEqU439ht9Xb8O5" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -106,6 +107,7 @@
     <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
     <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
     <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_NDnNoPcqEeeDcPDZb43hpw" name="StringValidation"/>
     <routinesParameter id="_BDOtgPTQEeexWLJikgfpgw" name="DataOperation"/>
     <routinesParameter id="_BDvD0PTQEeexWLJikgfpgw" name="Mathematical"/>
     <routinesParameter id="_BDyuMPTQEeexWLJikgfpgw" name="Numeric"/>
@@ -115,7 +117,6 @@
     <routinesParameter id="_BD_igPTQEeexWLJikgfpgw" name="TalendDate"/>
     <routinesParameter id="_BEG3QPTQEeexWLJikgfpgw" name="TalendStringUtil"/>
     <routinesParameter id="_BEDz8PTQEeexWLJikgfpgw" name="TalendString"/>
-    <routinesParameter id="_NDnNoPcqEeeDcPDZb43hpw" name="StringValidation"/>
   </parameters>
   <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
@@ -240,6 +241,8 @@
     <elementParameter field="IMAGE" name="PREVIEW" value="_rhH58PcfEeeDcPDZb43hpw-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
@@ -333,6 +336,8 @@
     <elementParameter field="IMAGE" name="PREVIEW" value="_rhH58PcfEeeDcPDZb43hpw-tMap_2-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
@@ -426,6 +431,8 @@
     <elementParameter field="IMAGE" name="PREVIEW" value="_rhH58PcfEeeDcPDZb43hpw-tMap_3-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
@@ -519,6 +526,8 @@
     <elementParameter field="IMAGE" name="PREVIEW" value="_rhH58PcfEeeDcPDZb43hpw-tMap_4-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
@@ -612,6 +621,8 @@
     <elementParameter field="IMAGE" name="PREVIEW" value="_rhH58PcfEeeDcPDZb43hpw-tMap_5-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>

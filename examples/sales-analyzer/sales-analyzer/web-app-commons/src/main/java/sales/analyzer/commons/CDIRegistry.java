@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2018, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package sales.analyzer.commons;
 
 import javax.annotation.PostConstruct;
@@ -32,7 +29,6 @@ import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
@@ -76,14 +72,15 @@ public class CDIRegistry extends Registry {
         try {
             this.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 
-            InitJPARepository init = new InitJPARepository(new SpaRepository(), this, spaRegistry);
+            InitJPARepository init = new InitJPARepository( this, spaRegistry);
             init.initClassMapping();
+			init.initFeldsMapping();
             init.initCommandProducer();
             init.initProvider();
             init.initEntityManagerProvider(new CDIEntityManagerProvider());
             this.setTransactrionAdapter(new CDITransactionAdapter(this));
 
-            InitSPARepository initSpa = new InitSPARepository(new SpaRepository(), this, spaRegistry);
+            InitSPARepository initSpa = new InitSPARepository( this, spaRegistry);
             initSpa.initClassMapping();
             initSpa.initCommandProducer();
             initSpa.initProvider();
@@ -116,6 +113,9 @@ public class CDIRegistry extends Registry {
                     ,keycloakAdminUser
                     ,keycloakAdminPassword
                     ,keycloakManagedRealm
+                    ,this 
+                    , spaRegistry
+                    ,"spa-persistence-repository"
                     );
 
             spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initK);
@@ -127,7 +127,7 @@ public class CDIRegistry extends Registry {
             spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(),new SPAAdapterLoader(realmResource));
             spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(),new SPAAdapterLoader(realmResource));
 
-            JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new CDIUserPeferencesProviderImpl(),this, spaRegistry);
+            JbpmServiceInstantiator initJ = new JbpmServiceInstantiator(kieserverUrl, new OAuthCredentialsProvider(), new CDIUserPeferencesProviderImpl(),this, spaRegistry,"spa-persistence-repository");
             spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initJ);
             spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerProcessInstance.class,JbpmCRUDService.class);
             spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerTaskInstance.class,JbpmCRUDService.class);

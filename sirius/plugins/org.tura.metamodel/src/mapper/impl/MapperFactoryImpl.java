@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.impl;
@@ -5,6 +19,7 @@ package mapper.impl;
 import mapper.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -58,6 +73,8 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 		switch (eClass.getClassifierID()) {
 			case MapperPackage.MAPPERS: return createMappers();
 			case MapperPackage.MAPPER: return createMapper();
+			case MapperPackage.VERSION: return createVersion();
+			case MapperPackage.VERSION_REF: return createVersionRef();
 			case MapperPackage.MAPPING_LAYER: return createMappingLayer();
 			case MapperPackage.TYPE_MAPPER: return createTypeMapper();
 			case MapperPackage.PACKAGE_MAPPER: return createPackageMapper();
@@ -70,6 +87,36 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 			case MapperPackage.XML_TYPE_MAPPER: return createXMLTypeMapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case MapperPackage.ARTIFACT_TYPE:
+				return createArtifactTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case MapperPackage.ARTIFACT_TYPE:
+				return convertArtifactTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -91,6 +138,26 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	public Mapper createMapper() {
 		MapperImpl mapper = new MapperImpl();
 		return mapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version createVersion() {
+		VersionImpl version = new VersionImpl();
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VersionRef createVersionRef() {
+		VersionRefImpl versionRef = new VersionRefImpl();
+		return versionRef;
 	}
 
 	/**
@@ -191,6 +258,26 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	public XMLTypeMapper createXMLTypeMapper() {
 		XMLTypeMapperImpl xmlTypeMapper = new XMLTypeMapperImpl();
 		return xmlTypeMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArtifactType createArtifactTypeFromString(EDataType eDataType, String initialValue) {
+		ArtifactType result = ArtifactType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

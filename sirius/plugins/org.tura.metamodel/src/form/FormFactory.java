@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form;
@@ -391,15 +405,6 @@ public interface FormFactory extends EFactory {
 	Selection createSelection();
 
 	/**
-	 * Returns a new object of class '<em>Option Selection</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Option Selection</em>'.
-	 * @generated
-	 */
-	OptionSelection createOptionSelection();
-
-	/**
 	 * Returns a new object of class '<em>Layer Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +466,15 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	CheckBox createCheckBox();
+
+	/**
+	 * Returns a new object of class '<em>Option Selection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Option Selection</em>'.
+	 * @generated
+	 */
+	OptionSelection createOptionSelection();
 
 	/**
 	 * Returns a new object of class '<em>Drop Down Selection</em>'.
@@ -596,6 +610,15 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	Poll createPoll();
+
+	/**
+	 * Returns a new object of class '<em>Data Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Template</em>'.
+	 * @generated
+	 */
+	DataTemplate createDataTemplate();
 
 	/**
 	 * Returns a new object of class '<em>Window Ref</em>'.

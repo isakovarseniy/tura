@@ -1,0 +1,101 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+
+       var util = new Native('org.tura.metamodel.commons.Util');
+       var action = trigger.expression.get( trigger.expression.size()-1);
+       var method = action.objRef;
+       var type = null;
+       
+       if (method <> null){
+           type = action.objRef.eContainer();
+       }
+       
+     
+         if (type <> null ){
+           type.importJavaScript(recipe,ingredient,component,"..");
+           if (type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)) {
+            }     
+         }
+%]
+import {[%=type.~class%]} from "[%=type.~importString%]";
+
+export class [%=util.mergeAndCapitalize(type.~class)%]_[%=util.mergeAndCapitalize(method.name)%]Command{
+
+
+    execute( event, contextManager,...args){
+        let  [%=util.mergeAndUnCapitalize(type.~class)%]_ = new [%=type.~class%]();
+        
+        [%
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
+              var i = 0;
+               for (parameter  in trigger.parameters){
+                  %] let [%=parameter.refObj.name%]Parameter = this.getParameter(event,"[%=parameter.refObj.name%]");[%
+               }
+           }        
+        %]
+        
+
+        if (typeof [%=util.mergeAndUnCapitalize(type.~class)%]_.setContextManager !== "undefined"){
+            [%=util.mergeAndUnCapitalize(type.~class)%]_.setContextManager(contextManager);
+        }
+
+        if ( typeof args !== "undefined" && args.length > 0){
+            let obj = args[0];
+            if ( typeof [%=util.mergeAndUnCapitalize(type.~class)%]_.setEvent !== "undefined"){
+                [%=util.mergeAndUnCapitalize(type.~class)%]_.setEvent(obj);
+            }
+            
+            if ( typeof [%=util.mergeAndUnCapitalize(type.~class)%]_.setArgs !== "undefined"){
+                [%=util.mergeAndUnCapitalize(type.~class)%]_.setArgs(args);
+            }
+            
+            
+        }
+
+        return [%=util.mergeAndUnCapitalize(type.~class)%]_.[%=method.name%]([%
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
+              var i = 0;
+               for (parameter  in trigger.parameters){
+                  if ( i <> 0)
+                     %],[%
+                  %][%=parameter.refObj.name%]Parameter.value[%
+                  i = 1;
+               }
+           }        
+        %]);
+    }
+
+
+
+    getParameter( event, paramName ){
+        for ( let i = 0 ; i < event.parameters.length;i++ ){
+            let param = event.parameters[i];
+            if ( paramName === param.parameter){
+                return param;
+            }
+        }
+        return null;
+    }
+
+}
+
+[%
+     util.saveFile( jsPath+"/triggers/"  , util.mergeAndCapitalize(type.~class)+"_"+util.mergeAndCapitalize(method.name)+"Command.js",out.toString());  
+%]

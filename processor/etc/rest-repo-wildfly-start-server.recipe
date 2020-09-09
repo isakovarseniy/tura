@@ -1,0 +1,55 @@
+tura:docker stopContainer --name rest-wf
+
+tura:docker removeContainer --name rest-wf
+
+tura:docker removeImage --registry tura/rest-repo/wildfly --tag 1.0
+
+tura:docker pullImage --registry jboss/wildfly --tag 10.1.0.Final
+
+tura:docker createNetwork --network rest-net
+
+c = tura:docker config --user 0 
+
+v = tura:docker createContainer --registry jboss/wildfly --tag 10.1.0.Final --var c
+
+tura:dsl jbossStandaloneFullXml\
+                 --container $v\
+                 --jboss_home /opt/jboss/wildfly\
+                 --application rest-repo\
+                 --serverType wildfly-10.1.0.Final
+
+
+tura:dsl copyFile\
+                --container $v\
+                --targetLocation /opt/jboss/wildfly/\
+                --sourceResource $repo_home/rest-repo/assets/first-db-schema.sql
+                
+tura:dsl copyFile\
+                --container $v\
+                --targetLocation /opt/jboss/wildfly/\
+                --sourceResource $repo_home/rest-repo/assets/second-db-schema.sql
+
+tura:docker commitContainer\
+                --registry tura/rest-repo/wildfly\
+                --tag 1.0\
+                --id $v\
+                --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0"
+
+tura:docker stopContainer --id $v
+
+tura:docker removeContainer --id $v
+
+tura:dsl mkDir --targetLocation $tura_working_directory/resources/rest-repo/deployments
+
+c = tura:docker config\
+                --port 8080:8080\
+                --port 3333:3333\
+                --port 8443:8443\
+                --network rest-net\
+                --volume $tura_working_directory/resources/rest-repo/deployments:/opt/jboss/wildfly/standalone/deployments
+
+tura:docker createContainer --registry tura/rest-repo/wildfly --tag 1.0 --var c --name rest-wf
+
+
+
+

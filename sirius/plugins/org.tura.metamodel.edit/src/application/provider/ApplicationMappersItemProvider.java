@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package application.provider;
@@ -131,6 +145,7 @@ public class ApplicationMappersItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MAPPERS__MAPPERS);
 			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MAPPERS__APP_LAYERS);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MAPPERS__VERSIONS);
 		}
 		return childrenFeatures;
 	}
@@ -192,6 +207,7 @@ public class ApplicationMappersItemProvider
 				return;
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
 			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+			case ApplicationPackage.APPLICATION_MAPPERS__VERSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -218,6 +234,11 @@ public class ApplicationMappersItemProvider
 			(createChildParameter
 				(ApplicationPackage.Literals.APPLICATION_MAPPERS__APP_LAYERS,
 				 MapperFactory.eINSTANCE.createMappingLayer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION_MAPPERS__VERSIONS,
+				 MapperFactory.eINSTANCE.createVersion()));
 	}
 
 	/**

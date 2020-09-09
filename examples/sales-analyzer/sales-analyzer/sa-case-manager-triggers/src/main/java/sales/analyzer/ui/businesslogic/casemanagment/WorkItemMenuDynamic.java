@@ -1,26 +1,49 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.casemanagment;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.view.ViewScoped;
+import javax.annotation.PostConstruct;
 
-import org.primefaces.model.menu.MenuItem;
+import org.tura.platform.uuiclient.annotations.UUIClientScoped;
+import org.tura.platform.uuiclient.menu.MenuElement;
 
-@ViewScoped
+@UUIClientScoped
 public class WorkItemMenuDynamic implements Serializable{
 	
 	private static final long serialVersionUID = 6731701381017313043L;
 
-	private List<MenuItem> menuItemsList = new ArrayList<>();
+	private List<MenuElement> menuItemsList ;
 
-	public List<MenuItem> getMenuItemsList() {
+	public List<MenuElement> getMenuItemsList() {
 		return menuItemsList;
 	}
 
-	public void setMenuItemsList(List<MenuItem> menuItemsList) {
+	public void setMenuItemsList(List<MenuElement> menuItemsList) {
 		this.menuItemsList = menuItemsList;
 	}
 
+	@PostConstruct
+	public void init() {
+		menuItemsList = new ArrayList<>();
+	}
 }

@@ -1,27 +1,27 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
@@ -43,7 +43,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.CommandStack;
@@ -146,7 +145,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(123L));
+			assertEquals(row.getObjId(),  Long.valueOf(123L));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -209,7 +208,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(new Long(20L), row.getObjId());
+			assertEquals( Long.valueOf(20L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -232,12 +231,12 @@ public class SingleDataControlPool {
 			newrow.setDepartmentName("test dep");
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(10));
+			assertEquals(row.getObjId(),  Long.valueOf(10));
 			assertEquals(row.getDepartmentName(), "Administration");
 
 			dc.nextObject();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(20L));
+			assertEquals(row.getObjId(),  Long.valueOf(20L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 		} catch (Exception e) {
@@ -270,13 +269,13 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(123L));
+			assertEquals(row.getObjId(),  Long.valueOf(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			dc.nextObject();
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), new Long(10L));
+			assertEquals(row.getObjId(),  Long.valueOf(10L));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -302,7 +301,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getDepartmentId(), new Long(123L));
+			assertEquals(row.getDepartmentId(),  Long.valueOf(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			dc.getCommandStack().savePoint();
@@ -315,14 +314,14 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(new Long(20L), row.getObjId());
+			assertEquals( Long.valueOf(20L), row.getObjId());
 
 			dc.getCommandStack().rallbackSavePoint();
 			dc.prevObject();
 
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getDepartmentId(), new Long(123L));
+			assertEquals(row.getDepartmentId(),  Long.valueOf(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			try {
@@ -335,7 +334,7 @@ public class SingleDataControlPool {
 			dc.getCommandStack().rallbackCommand();
 
 			row = dc.getCurrentObject();
-			assertEquals(new Long(10L), row.getObjId());
+			assertEquals( Long.valueOf(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -362,7 +361,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(new Long(10L), row.getObjId());
+			assertEquals( Long.valueOf(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -441,12 +440,6 @@ public class SingleDataControlPool {
 
 	@SuppressWarnings("unused")
 	@Test
-	@Ignore
-	/*  Do not enable this test                                                              */
-	/*  This is example of wrong using of datacontrol                          */
-	/*  We cannot set field value without setting of current row           */
-	/*  itr.next() will scroll list to next row without setting this row as a */ 
-	/*  current row for datacontrol                                                        */
 	public void t9_randomUpdateWithDefaultSearchCriteria() {
 		try {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
@@ -489,7 +482,7 @@ public class SingleDataControlPool {
 			dc.getCommandStack().savePoint();
 
 			DepartmentType row2 = dc2.getCurrentObject();
-			assertEquals(new Long(20), row2.getObjId());
+			assertEquals( Long.valueOf(20), row2.getObjId());
 
 			row2.setDepartmentName("test3");
 
@@ -591,6 +584,38 @@ public class SingleDataControlPool {
 		}
 	}
 	
+	
+	@Test
+	public void t11_pooledWithRefresDataCalontrol() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			
+			dc.getCommandStack().savePoint();
+			dc.forceRefresh();
+			
+			DepartmentType dept = dc.getCurrentObject();
+			dept.setDepartmentName("qwerty");
+			
+			dc.getCommandStack().savePoint();
+
+			
+			dept = dc.getCurrentObject();
+			assertEquals("qwerty", dept.getDepartmentName());
+			dc.forceRefresh();
+			
+			dept = dc.getCurrentObject();
+			assertEquals("qwerty", dept.getDepartmentName());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	
+	}
+		
+	
 	@Test
 	public void t11_pooledWithSavePointDataCalontrol() {
 		try {
@@ -623,7 +648,7 @@ public class SingleDataControlPool {
 			pager.addCommand(e);
 
 			DepartmentType  d0 = dc.getCurrentObject();
-			assertEquals(new Long(123L), d0.getObjId());
+			assertEquals( Long.valueOf(123L), d0.getObjId());
 			dc.nextObject();
 			DepartmentType  d1 = dc.getCurrentObject();
 			dc.getCommandStack().savePoint();

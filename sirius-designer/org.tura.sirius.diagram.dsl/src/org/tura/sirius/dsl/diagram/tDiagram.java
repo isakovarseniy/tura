@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.sirius.dsl.diagram;
 
 import org.eclipse.sirius.diagram.description.DescriptionFactory;
@@ -38,7 +52,7 @@ public class tDiagram implements ObjectWrapper {
 	public tLayer addLayer(String name) {
 		Layer layer = DescriptionFactory.eINSTANCE.createLayer();
 		layer.setName(name);
-		this.diagramDescription.getAllLayers().add(layer);
+		this.diagramDescription.setDefaultLayer(layer);
 		return new tLayer(layer, this.configurator);
 	}
 
@@ -61,22 +75,11 @@ public class tDiagram implements ObjectWrapper {
 	}
 
 	public tDiagram addCreationRepresentation(RepresentationCreationDescription desc, String layerName) {
-		if (this.diagramDescription.getAllLayers() == null) {
+		if (this.diagramDescription.getDefaultLayer() == null) {
 			throw new RuntimeException("No layer define");
 		}
-		boolean isFindLayer = false;
-		for (Layer layer : this.diagramDescription.getAllLayers()) {
-			if (layer.getName().equals(layerName)) {
-				isFindLayer = true;
-				if ((layer.getToolSections() == null) || (layer.getToolSections().size() == 0)) {
-					throw new RuntimeException("No Tools define");
-				}
-				((ToolSection) layer.getToolSections().get(0)).getOwnedTools().add(desc);
-			}
-		}
-		if (!isFindLayer) {
-			throw new RuntimeException("No layer define");
-		}
+		Layer layer = this.diagramDescription.getDefaultLayer();
+		((ToolSection) layer.getToolSections().get(0)).getOwnedTools().add(desc);
 		return this;
 	}
 

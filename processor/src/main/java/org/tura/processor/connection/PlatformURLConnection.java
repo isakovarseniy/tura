@@ -1,29 +1,27 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.tura.processor.connection;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.tura.configuration.dsl.commons.ConfigConstants;
+
 public class PlatformURLConnection extends URLConnection {
-	String ECLIPSE_URL_TEMPLATE="platform:/plugin/org.tura.metamodel.generation";
-	String FILEBASE_REPO = "FILEBASE_REPO";
-	
 
 	protected PlatformURLConnection(URL url) {
 		super(url);
@@ -36,20 +34,10 @@ public class PlatformURLConnection extends URLConnection {
 	
 	@Override
     public InputStream getInputStream() throws IOException {
-		String srcurl = url.toString();
-		String targetResource = srcurl.substring(ECLIPSE_URL_TEMPLATE.length()+1);
-		String repo = System.getProperty(FILEBASE_REPO);
-		if (repo != null){
-			File directory = new File(repo);
-			File f = new File(directory,targetResource );
-			return new FileInputStream(f);
-		}else{
-			InputStream in  = this.getClass().getClassLoader().getResourceAsStream(targetResource);
-			return in;
-		}
 		
+		String template = ConfigConstants.TURA_HOME+url.getPath();
+		url = new URL("file", "localhost", template);
+		return url.openConnection().getInputStream();
     }
-
-	
 
 }

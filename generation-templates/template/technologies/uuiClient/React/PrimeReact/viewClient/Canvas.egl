@@ -1,0 +1,82 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  form::Canvas createComponent(hash) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var webapp = hash.get("webapp");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var jsPath = hash.get("jsPath");
+     var ports = new Native("java.util.ArrayList");
+     var clientLibraryPackage = hash.get('clientLibraryPackage');
+     
+     util.traceIfDebug("React UI element","Canvas start: "+self.name);     
+
+    populateInclude(hash,"{TCanvas}",  clientLibraryPackage+"/component/TCanvas");
+    populateInclude(hash,"{TuraComponent}",  clientLibraryPackage+"/core/TuraComponent");
+    
+
+%]
+export class [%=util.mergeAndCapitalize(self.name)%] extends TuraComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TCanvas id="[%=self.uid%]" contextManager={this.contextManager}>
+        [%
+           for (element in self.viewElement.sortBy(q|q.order)){
+             if ( element.isKindOf(form::ViewPort) ){
+               ports.add(element);
+             }
+             %]
+             [%=element.createTag(hash)%]
+             [%
+           }
+        %]
+           </TCanvas>
+        );
+    }
+}
+[%
+          for (element in ports){
+             %]
+             [%=element.createComponent(hash)%]
+             [%
+          }
+          
+          for (element in ports){
+             var canvasesRef = ViewInheritance->allInstances()->select(vi|vi.source=element);
+		     if (canvasesRef <> null and canvasesRef.size <> 0){
+		       for ( canvasRef in canvasesRef){
+               %]
+               [%=canvasRef.target.createComponent(hash)%]
+               [%
+		       }
+		      }
+          }
+%]
+
+[%
+     util.traceIfDebug("React UI element","Canvas end: "+self.name);     
+
+
+}
+
+
+%]

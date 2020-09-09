@@ -1,0 +1,13 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+tura:docker stopContainer --name rest-wf
+
+tura:dsl removeFile --targetLocation  $tura_working_directory/resources/rest-repo/deployments
+tura:dsl mkDir --targetLocation $tura_working_directory/resources/rest-repo/deployments
+
+tura:dsl jbossDoDeploy --jboss_home $tura_working_directory/resources/rest-repo/deployments\
+                                      --targetName test-objects-restservice-repository-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/platform/test/generated-code/test-objects-restservice-repository/${tura_version}/test-objects-restservice-repository-${tura_version}.war
+
+
+tura:docker startContainer --name rest-wf

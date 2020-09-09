@@ -1,6 +1,24 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.admin;
 
-import com.octo.java.sql.exp.Operator;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,10 +31,10 @@ import org.josql.QueryResults;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.primefaces.model.GridModelMultiSelect;
-import org.tura.platform.primefaces.model.GridModelTriggers;
-import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.uuiclient.model.GridModel;
+import org.tura.platform.uuiclient.model.GridModelTriggers;
+import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionReferencesArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.Permission;
@@ -24,7 +42,12 @@ import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.PermissionReferencesProxy;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 
-public class PermissionSelectionGridTrigger implements GridModelTriggers {
+import com.octo.java.sql.exp.Operator;
+
+public class PermissionSelectionGridTrigger implements GridModelTriggers, Serializable {
+
+	private static final long serialVersionUID = -2076752896144809889L;
+
 
 	public static String QUERY_PERMISSION = "SELECT * FROM org.tura.salesanalyzer.serialized.db.PermissionReferences WHERE permission.objId = :objId";
 
@@ -168,18 +191,23 @@ public class PermissionSelectionGridTrigger implements GridModelTriggers {
     @Override
     public void toggleSelect(boolean selected) {
         ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelAdministration}");
-        GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(AdminCallBackProducer.PERMISSION_SELECTION_TABLE, null, null);
+        GridModel model = (GridModel) viewmodel.getModel(AdminCallBackProducer.PERMISSION_SELECTION_TABLE, null, null);
         if (selected) {
-            List<Object> list = model.getSelected();
+            List<Object> list = (List<Object>) model.getSelected();
             for (Object obj : list) {
                 onSelect(obj);
             }
         } else {
-            List<Object> list = (List<Object>) model.getLazyModel().getWrappedData();
+            List<Object> list = (List<Object>) model.load();
             for (Object obj : list) {
                 onUnselect(obj);
             }
         }
     }
+
+	@Override
+	public void customizeObject(Object source, Object target) {
+		
+	}
 
 }

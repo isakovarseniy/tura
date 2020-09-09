@@ -15,10 +15,8 @@
  */
 package sales.analyzer.commons;
 
-import javax.annotation.PostConstruct;
-import java.util.Map;
-import java.util.HashMap;
 import java.io.Serializable;
+import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

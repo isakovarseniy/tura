@@ -1,0 +1,27 @@
+tura:install maven   
+
+echo Build tura eclipse plugin
+tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
+
+echo "Install dependency"
+
+eclipse_sirius = $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product/linux/gtk/x86_64
+
+
+tura:mvn install --file=$eclipse_sirius/plugins/org.eclipse.ocl.ecore_3.9.0.v20180611-1119.jar --groupId=org.eclipse.ocl  --artifactId=org.eclipse.ocl.ecore --version=3.9.0.v20180611-1119 --packaging=jar
+
+tura:mvn install --file=$eclipse_sirius/plugins/org.eclipse.ocl.common_1.4.300.v20180611-1119.jar --groupId=org.eclipse.ocl  --artifactId=org.eclipse.ocl.common --version=1.4.300.v20180611-1119 --packaging=jar
+
+tura:mvn install --file=$eclipse_sirius/plugins/org.eclipse.emf.validation_1.8.0.201805030717.jar --groupId=org.eclipse.ocl  --artifactId=org.eclipse.emf.validation.ocl --version=1.8.0.201805030717 --packaging=jar
+
+tura:mvn install --file=$eclipse_sirius/plugins/org.eclipse.ocl_3.9.0.v20180611-1119.jar --groupId=org.eclipse.ocl --artifactId=org.eclipse.ocl --version=3.9.0.v20180611-1119 --packaging=jar
+
+tura:mvn install --file=$eclipse_sirius/plugins/lpg.runtime.java_2.0.17.v201004271640.jar --groupId=org.eclipse.ocl --artifactId=lpg.runtime.java --version=2.0.17.v201004271640 --packaging=jar
+
+
+echo Build tura headless processor
+tura:mvn build --pom.xml $tura_home/processor/pom.xml 
+
+         
+echo "Done"         
+

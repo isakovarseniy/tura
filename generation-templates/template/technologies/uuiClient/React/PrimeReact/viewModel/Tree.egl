@@ -1,0 +1,465 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::Tree createModel(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     var hints = new Native('java.util.HashMap');
+     var hints1 = new Native('java.util.HashMap');
+     var recipe =  hash.get('recipe');
+     var ingredient =  hash.get('ingredient');
+
+     var modelRegistration = hash.get("modelRegistration");
+     modelRegistration.add(self);
+     
+     util.traceIfDebug("UI element","Tree model start: "+self.uid);     
+     
+     self.generateComponentBody(hash,model_mapper);     
+     var childrenCollection = hash.get("childrenCollection");
+      hash.put("context","tree");
+     
+     hints.put("noCurlyBracket",true);
+     
+     
+    %]
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+            
+       import org.tura.platform.uuiclient.rest.UuiElement;
+	   import java.util.List;
+	   import java.util.Map;
+	   import org.tura.platform.uuiclient.rest.EventDescription;
+     
+       public class Tree_[%=self.mkuid_()%]  extends UuiElement{
+            private String id = "[%=self.uid%]";
+			private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.Tree_[%=self.mkuid_()%]";
+	        private java.util.List<java.util.Map<String, Object>>  values;
+			private String style;
+			private String className;
+		    private  boolean disabled;
+		  	private boolean rendered = true;
+		  	private Object selected;
+		    private boolean loading = false;
+		    private String selectionMode;
+		    private java.util.Map<String,Boolean> expandedNodes;
+            private String contextSelection;
+		    private List <String> modifiedRecords;
+		    
+		  	private Object menu;
+		    
+		    
+		    public Object getMenu() {
+				return menu;
+			}
+		
+			public void setMenu(Object menu) {
+				this.menu = menu;
+			}
+		
+		    public List<String> getModifiedRecords() {
+				return modifiedRecords;
+			}
+		
+			public void setModifiedRecords(List<String> modifiedRecords) {
+				this.modifiedRecords = modifiedRecords;
+			}
+		
+		    public java.util.Map<String,Boolean> getExpandedNodes() {
+				return expandedNodes;
+			}
+		
+			public void setExpandedNodes(java.util.Map<String,Boolean> expandedNodes) {
+				this.expandedNodes = expandedNodes;
+			}
+		
+			public void setLoading(boolean loading) {
+					this.loading = loading;
+			}
+			  
+			public String getContextSelection() {
+				return contextSelection;
+			}
+			
+			public void setContextSelection(String contextSelection) {
+				this.contextSelection = contextSelection;
+			}
+			  
+	          
+	        public boolean isLoading() {
+			      return loading;
+		    }
+		
+		
+		    public Object getSelected() {
+				return selected;
+			}
+		
+			public void setSelected(String selected) {
+				this.selected = selected;
+			}
+
+
+		    public Object getSelectionMode() {
+				return selectionMode;
+			}
+		
+			public void setSelectionMode(String selectionMode) {
+				this.selectionMode = selectionMode;
+			}
+
+		
+		    public String getClazz() {
+				return clazz;
+			}
+		
+			public void setClazz(String clazz) {
+				this.clazz = clazz;
+			}
+		    
+	        public boolean isRendered() {
+			    return rendered;
+		    }
+	
+			public void setRendered(boolean rendered) {
+				this.rendered = rendered;
+			}
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
+			}
+			public boolean isDisabled() {
+				return disabled;
+			}
+			public void setDisabled(boolean disabled) {
+				this.disabled = disabled;
+			}
+
+		    public java.util.List<java.util.Map<String, Object>> getValues() {
+				return values;
+			}
+		
+			public void setValues(java.util.List<java.util.Map<String, Object>> values) {
+				this.values = values;
+			}
+
+			public String getStyle() {
+				return style;
+			}
+		
+			public void setStyle(String style) {
+				this.style = style;
+			}
+		
+			public String getClassName() {
+				return className;
+			}
+		
+			public void setClassName(String className) {
+				this.className = className;
+			}
+		
+
+            @SuppressWarnings("unchecked")
+			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
+			    [%=self.style(hash)%]
+			    [%=self.styleClass(hash)%]
+			    [%=self.rendered(hash)%]
+			    [%=self.disabled(hash)%]
+
+			    [%=self.initContextTriggers(hash,"react.onMenuShow",null)%]
+			    
+
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%])}";
+			    org.tura.platform.uuiclient.model.TreeModel model =  (org.tura.platform.uuiclient.model.TreeModel) elResolver.getValue(modelExpression);
+
+
+			    [%
+			    if ( "Multiple".equals( self.selectionMode.toString())  or "CheckBox".equals( self.selectionMode.toString()) ){
+
+			      if ( "Multiple".equals( self.selectionMode.toString()) ){
+			      %]
+			      	this.selectionMode = "multiple";
+			      [%
+			      }
+			      if ( "CheckBox".equals( self.selectionMode.toString()) ){
+			      %]
+			      	this.selectionMode = "checkbox";
+			      [%
+			      }
+			    %]
+                java.util.List<java.util.List<org.tura.platform.datacontrol.TreePath>> nodeList =model.getMultipleSelectedNode();
+			    java.util.Map<String, Object> selectedArray = new java.util.HashMap<String, Object>();
+			    if (nodeList != null) {
+			      for (java.util.List<org.tura.platform.datacontrol.TreePath> path : nodeList) {
+			        selectedArray.put(
+			            model.stringify(path), new  java.util.HashMap<String, Object>());
+			      }
+			    }
+			    this.selected = selectedArray;
+			    [%}else{%]
+			    this.selectionMode = "single";
+			    model.getRoot();
+			    java.util.List<org.tura.platform.datacontrol.TreePath> path=  (java.util.List<org.tura.platform.datacontrol.TreePath>)model.getSelectedNode();
+			    if (path != null){
+			      this.selected =  model.stringify(path);
+			    }
+			    [%}%] 
+
+                this.expandedNodes = new java.util.HashMap<String,Boolean>();
+			    java.util.Map<String, Object> hashTree = new DataExtractor_[%=self.mkuid_()%]().beginWalk(elResolver,model.getRoot() ,null,model.getCallback(),this.expandedNodes,   this.selected,org.tura.platform.uuiclient.model.TreeType.[%=self.selectionMode.toString()%],model);
+			    this.values = ( java.util.List<java.util.Map<String, Object>>)hashTree.get("children");
+
+
+[%
+                for (col in self.cols.sortBy(q|q.order) ){
+	               var element = col.element ;
+	               var className = element.className(hash);
+	%]            
+	               [%=className%]_[%=element.mkuid_()%] [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] = new [%=className%]_[%=element.mkuid_()%] ();
+	               [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] .initContext(elResolver,responseState);
+	               getChildrens().add([%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%]);
+           
+[%
+                }  
+
+
+
+			  if(self.menu <> null ){
+			     hash.get("menuReferences").add(self);
+			%]
+						    modelExpression =  "#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]}";
+						    [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu.MenuProvider menuProvider = ([%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu.MenuProvider) elResolver.getValue(modelExpression); 
+						    this.menu = menuProvider.getModel("[%=self.mkuid_()%]");
+			[%
+			
+			}
+%]			    
+
+				   [%if ( not "CheckBox".equals( self.selectionMode.toString())){%]
+                this.createOnRowSelectionEvent(responseState.getResponse());
+				   [%}%] 
+                this.createOnNodeExpandEvent(responseState.getResponse());
+                this.createOnNodeCollapseEvent(responseState.getResponse());
+
+			    
+			}
+
+		   @SuppressWarnings("unchecked")
+			public UuiElement restoreContext( java.util.Map<String, Object> map,org.tura.platform.uuiclient.rest.DataUpdateRequest request, org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState, java.util.List<org.tura.platform.uuiclient.rest.EventDescription> eventsToFire) throws Exception {
+			       List<Object> childrens = (List<Object>) map.get("childrens");
+			       for ( Object child : childrens) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   String clazz = (String) chMap.get("clazz");
+			    	   Class<UuiElement> chClass =  (Class<UuiElement>) Class.forName(clazz);
+			    	   UuiElement uie = chClass.newInstance();
+			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       List<Object> events = (List<Object>) map.get("events");
+			       for ( Object child : events) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   EventDescription event = new EventDescription();
+			    	   getEvents().add((EventDescription)event.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       
+                   this.values = (java.util.List<java.util.Map<String, Object>>) map.get("values");
+		           this.modifiedRecords = (java.util.List <String>)map.get("modifiedRecords");
+                   this.selected = map.get("selected");
+                   this.expandedNodes = (Map<String, Boolean>) map.get("expandedNodes");
+				   this.contextSelection = (String) map.get("contextSelection");
+			       
+                   if ( map.get("menu") != null){
+                      org.tura.platform.uuiclient.menu.DefaultMenuModel menu = new org.tura.platform.uuiclient.menu.DefaultMenuModel();
+                      this.menu = menu.restoreContext((Map<String, Object>) map.get("menu"),request,responseState,eventsToFire);
+                      
+                   
+                   }
+			       
+			       return this;
+			   }
+
+
+			public void applyContext( org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception {
+			       String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%])}";
+			       org.tura.platform.uuiclient.model.TreeModel model =  (org.tura.platform.uuiclient.model.TreeModel) elResolver.getValue(modelExpression);
+                   if ( this.contextSelection != null){
+				        org.tura.platform.uuiclient.model.tree.TreeNode node = model.findNode(this.contextSelection);
+				        model.setContextSelectedNode(node);
+                   }
+
+				   if ( this.modifiedRecords != null) {
+				       java.util.List<java.util.Map<String,Object>>  records = new java.util.ArrayList<java.util.Map<String,Object>>();
+				       new DataExtractor_[%=self.mkuid_()%]().reverseWalk(( java.util.List<String>)this.modifiedRecords, (java.util.List<java.util.Map<String, Object>>) this.values,records);
+				       for (java.util.Map<String,Object> hashNode : records){
+					    	  String key = (String) hashNode.get("key");
+					    	  org.tura.platform.uuiclient.model.tree.TreeNode node =  model.findNode(key);
+					    	  
+					        org.tura.platform.repository.core.ObjectControl oc =
+					            (org.tura.platform.repository.core.ObjectControl) node.getData();
+					
+					        new DataExtractor_[%=self.mkuid_()%] ()
+					            .apply(elResolver, oc, hashNode);
+				       }
+				       
+				   }
+				   this.modifiedRecords = null;
+
+
+				   [% if ( "Multiple".equals( self.selectionMode.toString())  or "CheckBox".equals( self.selectionMode.toString()) ){%]
+
+				   if ( this.selected == null || this.selected instanceof java.util.ArrayList){
+				        return;
+				   }
+
+                   java.util.Map<String,  java.util.HashMap<String, Boolean>> selectedList = (java.util.Map<String,  java.util.HashMap<String, Boolean>>) this.selected;
+				   java.util.List<java.util.List<org.tura.platform.datacontrol.TreePath>> nodeList = new java.util.ArrayList<java.util.List<org.tura.platform.datacontrol.TreePath>>();
+				   for ( String key : selectedList.keySet() ){
+				     if ( "0".equals(key)) {
+		                     continue;
+	                 }
+				      List<org.tura.platform.datacontrol.TreePath> path = model.findPath(key);
+				      if (path != null) {
+				         nodeList.add(path);
+				      }
+				   }
+				   model.setMultipleSelectedNode(nodeList);
+				   [%}%] 
+            } 			
+            
+			private  Object resolve(String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    return  elResolver.getValue(expression);
+                } else {
+                   return expression;
+                }
+			} 
+          
+        
+			private void createOnRowSelectionEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeSelect}";
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onRowSelectionEvent", "server", modelExpression, "react.onRowSelectionEvent", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+				event.addParameters(id + "_onRowSelectionEvent", "node", null, 0);
+		        this.getEvents().add(event);
+			}
+          
+			private void createOnNodeExpandEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeExpand}";
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onNodeExpandEvent", "server", modelExpression, "react.onNodeExpandEvent", id,id );
+				event.addParameters(id + "_onNodeExpandEvent", "node", null, 0);
+		        this.getEvents().add(event);
+			}          
+          
+			private void createOnNodeCollapseEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeCollapse}";
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onNodeCollapseEvent", "server", modelExpression, "react.onNodeCollapseEvent", id,id );
+				event.addParameters(id + "_onNodeCollapseEvent", "node", null, 0);
+		        this.getEvents().add(event);
+			}          
+
+
+          
+        }   
+        
+        
+        class DataExtractor_[%=self.mkuid_()%] extends  org.tura.platform.uuiclient.model.TreeObjectExtractor {
+        
+          public Object  extract(org.tura.platform.datacontrol.ELResolver elResolver,Object obj) throws Exception {
+               java.util.HashMap<String,Object> extract = new java.util.HashMap<String,Object>();
+[%
+
+                for (col in self.cols.sortBy(q|q.order)){
+
+			          var pointer = util.findSourcePointer(col.element);
+			          var  value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),col.element.valuePointer),hints,hash);
+			          var field = col.element.valuePointer.name;
+
+%]           		
+                  elResolver.setValue("#{row}", obj);
+                  Object value = elResolver.getValue("#{row.[%=value%]}");
+                  extract.put("[%=field%]",  value);[%
+
+                }
+                  
+%]               
+          
+               return extract;
+          }
+          
+          public void  apply(org.tura.platform.datacontrol.ELResolver elResolver,Object obj,java.util.Map<String,Object> hashNode) throws Exception {
+
+                  elResolver.setValue("#{row}", obj);
+                  Object value = null;
+[%
+
+                for (col in self.cols.sortBy(q|q.order)){
+
+			          var pointer = util.findSourcePointer(col.element);
+			          var  value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),col.element.valuePointer),hints,hash);
+			          var field = col.element.valuePointer.name;
+
+%]           		
+                  value  = hashNode.get("[%=field%]");
+                  elResolver.setValue("#{row.[%=value%]}",value);
+[%
+
+                }
+                  
+%]               
+          
+          }
+          
+          
+        }
+         
+
+     [%
+     
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "Tree_"+self.mkuid_() +".java",out.toString());   
+
+      hash.remove("context");
+          
+     util.traceIfDebug("UI element","Tree model end: "+self.uid);     
+
+}
+
+operation form::Tree generateComponentBody(hash,model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var childrenCollection = new Native('java.util.ArrayList');
+     
+
+     hash.put("context","tree");
+     hash.put("childrenCollection",childrenCollection);
+
+     for (col in self.cols.sortBy(q|q.order) ){
+	      var element = col.element ;
+          element.createModel(hash);
+    }  
+    
+    hash.remove("context");
+    
+}
+
+operation form::Tree className(hash) { 
+   return self.eClass().getName();
+}
+
+%]

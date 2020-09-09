@@ -1,0 +1,183 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::Table createTag(hash) {
+       var util = new Native('org.tura.metamodel.commons.Util');
+       var model_mapper = hash.get('model_mapper');
+       var editable = false;
+       var template = false;
+       var clientLibraryPackage = hash.get('clientLibraryPackage');
+        
+        
+        for (col in self.cols.sortBy(q|q.order)){
+            if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+               editable = true;
+            }
+           if (not col.element.isKindOf(form::InputElement)){
+              template = true;
+           }
+           
+           if ( col.element.isKindOf(form::DataTemplate)){
+              template = true;
+           }
+            
+         }
+         
+       //Populate scriptTriggers
+       var hints = new Native('java.util.HashMap');
+       constructExpression(self,"react.onMenuShow",hints, hash);
+         
+        if ( not editable and not template){
+            populateInclude(hash,"{TTable}",  clientLibraryPackage+"/component/TTable");
+            
+        
+%]
+         <TTable id="[%=self.uid%]" contextManager={this.contextManager}/>
+            
+[%
+        } else{
+     var generateComponents = hash.get("generateComponents");
+      generateComponents.add(self);
+%]
+         <Table_[%=self.mkuid()%] id="[%=self.uid%]" contextManager={this.contextManager}/>
+[%
+        }
+}
+
+@template
+operation  form::Table createComponent(hash) {
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+  var clientLibraryPackage = hash.get('clientLibraryPackage');
+  
+  populateInclude(hash,"{TTable}", clientLibraryPackage+"/component/TTable");
+   
+  
+%]
+
+class Table_[%=self.mkuid()%] extends TTable {
+
+    constructor(props) {
+        super(props);
+        [%for (col in self.cols.sortBy(q|q.order)){
+            if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	               continue; 
+            }
+            if ( not col.element.isKindOf(form::InputElement) or  col.element.isKindOf(form::DataTemplate)   )  {
+            %]
+            this.template[%=col.mkuid_()%] = this.template[%=col.mkuid_()%].bind(this);
+            [%
+            continue;
+            }
+           var element = col.element ;
+        %]
+        this.editor[%=util.mergeAndCapitalize(element.valuePointer.name)%] = this.editor[%=util.mergeAndCapitalize(element.valuePointer.name)%].bind(this);
+        this.addEditor("[%=util.mergeAndUnCapitalize(element.valuePointer.name)%]", this.editor[%=util.mergeAndCapitalize(element.valuePointer.name)%] );
+        [%}%]
+        this.save = this.save.bind(this);
+
+    }
+    
+    [%
+      for (col in self.cols.sortBy(q|q.order)){
+            if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	               continue; 
+            }
+            if ( col.element.isKindOf(form::InputElement)   and not col.element.isKindOf(form::DataTemplate) )  {
+	               continue; 
+            }
+        var element = col.element ;
+            
+        hash.put("dependId","dependId={rowData.index}   rowkey={rowData.eventData}");
+            %]
+    template[%=col.mkuid_()%](rowData, column){
+        var state = this.contextManager.getState("[%=element.uid%]");
+        [%
+            if (  col.element.isKindOf(form::DataTemplate) )  {
+            %]
+             state.value = rowData.[%=util.mergeAndUnCapitalize(element.valuePointer.name)%];
+            [%
+            }
+        
+        %]
+        this.contextManager.addDependentState("[%=element.uid%]",rowData.index,state);
+            
+         return (
+         [%=element.createTag(hash)%]
+         )
+    }
+            [%
+            hash.remove("dependId");
+     }    
+    %]
+
+        [%
+        hash.put("dependId","dependId={e.rowData.index}");
+        for (col in self.cols.sortBy(q|q.order)){
+            if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	               continue; 
+            }
+            if ( not col.element.isKindOf(form::InputElement)   )  {
+	               continue; 
+            }
+            
+           var element = col.element ;
+        %]
+    editor[%=util.mergeAndCapitalize(element.valuePointer.name)%]( e ){
+        var state = this.contextManager.getState("[%=element.uid%]");
+        state.value = e.rowData.[%=util.mergeAndUnCapitalize(element.valuePointer.name)%];
+        this.contextManager.addDependentState("[%=element.uid%]",e.rowData.index,state);
+
+        return(
+            [%=element.createTag(hash)%]
+        )
+
+    }
+        [%}
+            hash.remove("dependId");
+        %]
+    
+    save( e ){
+        var index = e.data.index;
+        var component =null;
+        var state = null;
+[%
+        for (col in self.cols.sortBy(q|q.order)){
+            if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
+	               continue; 
+            }
+            if ( not col.element.isKindOf(form::InputElement)   )  {
+	               continue; 
+            }
+            
+           var element = col.element ;
+%]
+        component = this.contextManager.getComponent("[%=element.uid%]", index);
+        state = component.getState();
+        e.data.[%=util.mergeAndUnCapitalize(element.valuePointer.name)%] = state.value;
+        
+        [%}%]
+
+    }
+
+}
+
+[%
+
+}
+%]
+
+

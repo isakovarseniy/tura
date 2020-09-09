@@ -1,0 +1,129 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+
+ ${percent}${end}
+    [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hash = new Native('java.util.HashMap');
+     
+ %]
+ 
+ 
+ package [%=util.mergeAndUnCapitalize(application.name)%].[%=util.mergeAndUnCapitalize(uipackage.name)%];
+ 
+ public class [%=util.mergeAndCapitalize(form.name)%]Profile  extends org.tura.platform.repository.core.ObjectGraphProfile {
+ 
+    private java.util.ArrayList<String> profile = new java.util.ArrayList<String>();
+ 
+ 	public boolean skipRelation(Object repositoryObject, java.lang.reflect.Method method) {
+ 	  String key = repositoryObject.getClass().getName()+"."+method.getName();
+ 	    if (profile.contains(key)){
+		    return false;
+ 	    }else{
+ 	       return true;
+ 	    }
+	}
+ 
+ 	public String getProfileName(){
+		return "[%=util.mergeAndUnCapitalize(application.name)%].[%=util.mergeAndUnCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%]";
+	}
+ 
+ 
+   public [%=util.mergeAndCapitalize(form.name)%]Profile(){
+   [%
+            if (form.datacontrols <> null   and  form.datacontrols.controls <> null ){
+            
+            
+               var relCollection = new Native('java.util.ArrayList');
+               var typeCollection = new Native('java.util.ArrayList');
+               var processed = new Native('java.util.ArrayList');
+               
+               for (  dc in form.datacontrols.controls){
+                    var type = dc.baseType.typeRef;
+                    type.collectRelation(relCollection,typeCollection);
+               }
+            
+               for ( assossiation in relCollection){
+                   if (processed.contains(assossiation.uid)){
+                      continue;
+                   }
+                   processed.add(assossiation.uid);
+                   
+			        var hash = assossiation.sourceSideNamesCalculation();
+	                var type = hash.get("source");
+	                type.mappingType2Java(recipe,ingredient,'VIEW');
+	           %]
+	           profile.add("[%=type.~fullName%].get[%=hash.get("sourceMethodName")%]");
+	              [% 
+	
+			        var hash = assossiation.targetSideNamesCalculation();
+	                var type = hash.get("target");
+	                type.mappingType2Java(recipe,ingredient,'VIEW');
+	           %]
+	           profile.add("[%=type.~fullName%].get[%=hash.get("targetMethodName")%]");
+	              [% 
+            
+            }  
+        }
+%]          
+
+   }
+}      
+[%
+
+ operation type::TypeElement collectRelation(relCollection,typeCollection){
+
+	var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid );
+	if (assossiations <> null){
+	   relCollection.addAll(assossiations);
+	}
+    
+	var assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.source.uid <> self.uid);
+	if (assossiations <> null){
+	   relCollection.addAll(assossiations);
+	}
+	
+    var array = new Native('java.util.ArrayList');
+ 
+	var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid and t.internal);
+	if (assossiations <> null){
+	   array.addAll(assossiations);
+	}
+    
+	var assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.source.uid <> self.uid  and t.internal);
+	if (assossiations <> null){
+	   array.addAll(assossiations);
+	}
+	
+	for ( rel in array ){
+	   if ( not typeCollection.contains(rel.source.uid)  ){
+	      typeCollection.add(rel.source.uid);
+	      rel.source.collectRelation(relCollection,typeCollection);
+	   }
+	   
+	   if ( not typeCollection.contains(rel.target.uid)  ){
+	      typeCollection.add(rel.target.uid);
+	      rel.target.collectRelation(relCollection,typeCollection);
+	   }
+	}
+}
+%]

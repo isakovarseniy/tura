@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.mixed.test;
 
 import static org.junit.Assert.assertEquals;
@@ -37,7 +34,6 @@ import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger;
 import org.tura.platform.repository.spa.SkipQueryTrigger;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 import org.tura.spa.test.repo.InitSPARepository;
 
@@ -50,6 +46,7 @@ import objects.test.serialazable.jpa.C1;
 import objects.test.serialazable.jpa.DD1;
 import objects.test.serialazable.jpa.F1;
 import objects.test.serialazable.jpa.JPAObject1;
+import objects.test.serialazable.jpa.JPAObject11;
 import objects.test.serialazable.jpa.JPAObject2;
 import objects.test.serialazable.jpa.JPAObject3;
 import objects.test.serialazable.jpa.JPAObject4;
@@ -66,6 +63,7 @@ import objects.test.serialazable.jpa.W1;
 import objects.test.serialazable.jpa.W2;
 import objects.test.serialazable.jpa.W3;
 import objects.test.serialazable.jpa.W4;
+import objects.test.serialazable.jpa2.JPAObjectSecondDb;
 
 public class TriggersValidationTest {
 
@@ -96,13 +94,13 @@ public class TriggersValidationTest {
 			registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 			commandStack = new ArrayList<>();
 
-			InitJPARepository initJpa = new InitJPARepository(new SpaRepository(), registry, spaRegistry);
+			InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry);
 			initJpa.initClassMapping();
 			initJpa.initCommandProducer();
 			initJpa.initProvider();
 			initJpa.initEntityManagerProvider(emProvider);
 
-			InitSPARepository initSpa = new InitSPARepository(new SpaRepository(), registry, spaRegistry);
+			InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
 			initSpa.initClassMapping();
 			initSpa.initCommandProducer();
 			initSpa.initProvider();
@@ -196,6 +194,14 @@ public class TriggersValidationTest {
 			
 			trigger = registry.findPreQueryTrigger(F1.class.getName(), A4.class.getName());
 			assertEquals(SkipQueryTrigger.class.getName(), trigger.getClass().getName());
+			
+			
+			trigger = registry.findPreQueryTrigger(JPAObject11.class.getName(), JPAObjectSecondDb.class.getName());
+			assertEquals(ExternalConnectionPreQueryTrigger.class.getName(), trigger.getClass().getName());
+
+			trigger = registry.findPreQueryTrigger(JPAObjectSecondDb.class.getName(), JPAObject11.class.getName());
+			assertEquals(ExternalConnectionPreQueryTrigger.class.getName(), trigger.getClass().getName());
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

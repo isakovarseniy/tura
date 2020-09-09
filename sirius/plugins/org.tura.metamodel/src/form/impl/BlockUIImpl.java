@@ -1,21 +1,30 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.impl;
 
-import artifact.ArtifactPackage;
-import artifact.Categorized;
-import artifact.Classifier;
 import common.CommonPackage;
 import common.HTMLLayerHolder;
-import common.impl.HTMLLayerHolderImpl;
+
 import form.AreaRef;
 import form.BlockUI;
 import form.ChildrenHolder;
-import form.Context;
-import form.EnabledUIItem;
 import form.FormPackage;
-
 import form.Uielement;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +36,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -55,6 +65,7 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	 * @ordered
 	 */
 	protected EList<Uielement> children;
+
 	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,6 +75,7 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	 * @ordered
 	 */
 	protected static final int COLUMNS_EDEFAULT = 1;
+
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,6 +85,7 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getSourceTarget() <em>Source Target</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -297,7 +310,7 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (columns: ");
 		result.append(columns);
 		result.append(')');

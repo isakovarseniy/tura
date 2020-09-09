@@ -1,34 +1,35 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -44,18 +45,25 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
+import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.data.PagerData;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
+import org.tura.platform.uuiclient.model.GridModel;
+import org.tura.platform.uuiclient.model.GridType;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -63,50 +71,46 @@ import com.octo.java.sql.exp.Operator;
 public class SingleDataControl {
 
 	private static EntityManager em;
-	private static Factory factory;
+	protected static Factory factory;
 
 	private static Logger logger;
 	private static Server server;
 
 	
-	
 	@AfterClass
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
-	
+
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
-		
+
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-		
-		
+
 //		ConsoleHandler handler = new ConsoleHandler();
 //		handler.setFormatter(new LogFormatter());
 //		logger.addHandler(handler);
 //		logger.setLevel(Level.INFO);
 
-
 		Properties properties = new Properties();
-		String propFile = "config.properties";		
+		String propFile = "config.properties";
 		InputStream io = SingleDataControl.class.getClassLoader().getResourceAsStream(propFile);
-		if (io != null){
+		if (io != null) {
 			properties.load(io);
-		}else{
-			throw new Exception(propFile + " is not found"); 
+		} else {
+			throw new Exception(propFile + " is not found");
 		}
-		
+
 		String clazzName = properties.getProperty("factory");
 		Class<?> clazz = Class.forName(clazzName);
-		Constructor<?> constructor =    clazz.getConstructor(new Class<?>[]{String.class});
-		factory = (Factory)constructor.newInstance("SingleDataControl");
-		
-		
+		Constructor<?> constructor = clazz.getConstructor(new Class<?>[] { String.class });
+		factory = (Factory) constructor.newInstance("SingleDataControl");
+
 		em = factory.getEntityManager();
 		em.getTransaction().begin();
-		
+
 		factory.initDB("Departments", em);
 		try {
 			factory.initDB("Employes", em);
@@ -116,12 +120,11 @@ public class SingleDataControl {
 		}
 
 	}
-	
+
 	@Before
-	public void init(){
+	public void init() {
 		factory.clean();
 	}
-	
 
 	@Test
 	public void t1_getObject() {
@@ -129,7 +132,7 @@ public class SingleDataControl {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(10));
+			assertEquals(row.getObjId(), Long.valueOf(10));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -143,7 +146,7 @@ public class SingleDataControl {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
-			Long id = new Long(10);
+			Long id =  Long.valueOf(10);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -155,7 +158,7 @@ public class SingleDataControl {
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
-			id = new Long(270);
+			id =  Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -178,20 +181,19 @@ public class SingleDataControl {
 		try {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			
+
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
 
 			SearchCriteria s = new SearchCriteria();
-			s .setName("objId");
+			s.setName("objId");
 			s.setComparator(Operator.GT.name());
-			s.setValue(new Long(30));
+			s.setValue( Long.valueOf(30));
 			sc.add(s);
-			
+
 			dc.setDefaultSearchCriteria(sc);
-			
-			
+
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(40));
+			assertEquals(row.getObjId(),  Long.valueOf(40));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -204,20 +206,20 @@ public class SingleDataControl {
 		try {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			dc.getElResolver().setValue("limit", new Long(30));
-			
+			dc.getElResolver().setValue("limit",  Long.valueOf(30));
+
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
 
 			SearchCriteria s = new SearchCriteria();
-			s .setName("objId");
+			s.setName("objId");
 			s.setComparator(Operator.GT.name());
 			s.setValue("#{limit}");
 			sc.add(s);
-			
+
 			dc.setDefaultSearchCriteria(sc);
-			
+
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(40));
+			assertEquals(row.getObjId(),  Long.valueOf(40));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -226,11 +228,42 @@ public class SingleDataControl {
 	}
 
 	@Test
+	public void t3_randomUpdate() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			DepartmentType obj = dc.getCurrentObject();
+
+			ArrayList<DepartmentType> array = new ArrayList<DepartmentType>();
+			List<DepartmentType> scroller = dc.getScroller();
+			for (int i = 0; i < 8; i++) {
+				array.add(scroller.get(i));
+			}
+
+			array.get(3).setDepartmentName("qwerty");
+
+			array = new ArrayList<DepartmentType>();
+			scroller = dc.getScroller();
+			for (int i = 0; i < 8; i++) {
+				array.add(scroller.get(i));
+			}
+
+			assertEquals(obj.getDepartmentName(), array.get(0).getDepartmentName());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+
+	@Test
 	public void t5_removeScrollDownScrollUpCpmmitScrollDown() {
 		try {
 			Repository repo = factory.getRepository();
 
-			
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
@@ -252,7 +285,7 @@ public class SingleDataControl {
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
 
-			Long id = new Long(50);
+			Long id =  Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -264,7 +297,7 @@ public class SingleDataControl {
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
-			id = new Long(270);
+			id =  Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -278,7 +311,7 @@ public class SingleDataControl {
 
 			repo.applyChanges(null);
 
-			id = new Long(50);
+			id =  Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -289,9 +322,7 @@ public class SingleDataControl {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-			
 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -302,22 +333,22 @@ public class SingleDataControl {
 	public void t6_defaultSearchCriteriaWithConstantUpdateRequery() {
 		try {
 			Repository repo = factory.getRepository();
-			
+
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			
+
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
 
 			SearchCriteria s = new SearchCriteria();
-			s .setName("objId");
+			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(new Long(70));
+			s.setValue( Long.valueOf(70));
 			sc.add(s);
-			
+
 			dc.setDefaultSearchCriteria(sc);
-			
+
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(70));
+			assertEquals(row.getObjId(),  Long.valueOf(70));
 
 			dc.getCurrentObject().setDepartmentName("test");
 			dc.getCurrentObject().setDepartmentName("qwerty");
@@ -330,7 +361,6 @@ public class SingleDataControl {
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
 			assertEquals("qwerty", row.getDepartmentName());
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -347,7 +377,7 @@ public class SingleDataControl {
 			dc.setPreQueryTrigger(new DepartmentDCPreQueryTrigger());
 			dc.setPostQueryTrigger(new DepartmentDCPostQueryTrigger());
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(70));
+			assertEquals(row.getObjId(),  Long.valueOf(70));
 			assertEquals(row.getDepartmentName(), "test");
 
 		} catch (Exception e) {
@@ -360,7 +390,7 @@ public class SingleDataControl {
 	public void t8_scrollDownAddCommitScrollDown() {
 		try {
 			Repository repo = factory.getRepository();
-			
+
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
 
@@ -392,7 +422,7 @@ public class SingleDataControl {
 
 			dc.forceRefresh();
 
-			Long id = new Long(50);
+			Long id =  Long.valueOf(50);
 			for (int i = 0; i < 4; i++) {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -410,7 +440,7 @@ public class SingleDataControl {
 				dc.nextObject();
 			}
 
-			id = new Long(90);
+			id =  Long.valueOf(90);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -426,7 +456,7 @@ public class SingleDataControl {
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			repo.applyChanges(null);
-			
+
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
@@ -440,7 +470,7 @@ public class SingleDataControl {
 				dc.nextObject();
 			}
 
-			id = new Long(50);
+			id =  Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -451,7 +481,6 @@ public class SingleDataControl {
 			// Check last row
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -474,10 +503,10 @@ public class SingleDataControl {
 			} while (dc.hasNext());
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(270L));
+			assertEquals(row.getObjId(),  Long.valueOf(270L));
 			dc.removeObject();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), new Long(260L));
+			assertEquals(row.getObjId(),  Long.valueOf(260L));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -493,7 +522,6 @@ public class SingleDataControl {
 			dc.setPageSize(5);
 			DepartmentType o = dc.getCurrentObject();
 
-			
 			List<Object[]> options = new ArrayList<>();
 			try {
 				List<?> scroler = dc.getScroller();
@@ -509,24 +537,21 @@ public class SingleDataControl {
 				assertEquals(true, isSet);
 
 				assertEquals(o.getObjId(), dc.getCurrentObject().getObjId());
-				
-				
+
 				isSet = dc.setCurrentPosition(26);
 				assertEquals(true, isSet);
-				assertEquals((long)270, (long)(dc.getCurrentObject().getObjId()));
-				
+				assertEquals((long) 270, (long) (dc.getCurrentObject().getObjId()));
+
 				isSet = dc.setCurrentPosition(-3);
 				assertEquals(false, isSet);
-				
+
 				isSet = dc.setCurrentPosition(40);
 				assertEquals(false, isSet);
-				
-				
+
 				isSet = dc.setCurrentPosition(25);
 				assertEquals(true, isSet);
-				assertEquals((long)260, (long)(dc.getCurrentObject().getObjId()));
-				
-				
+				assertEquals((long) 260, (long) (dc.getCurrentObject().getObjId()));
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				fail(e.getMessage());
@@ -545,15 +570,13 @@ public class SingleDataControl {
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			DepartmentType o = dc.getCurrentObject();
-			
+
 			dc.createObject();
-			
+
 			dc.getCommandStack().rallbackCommand();
 
 			DepartmentType o1 = dc.getCurrentObject();
 			assertEquals(o.getObjId(), o1.getObjId());
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -561,26 +584,25 @@ public class SingleDataControl {
 		}
 
 	}
-	
-	
+
 	@Test
 	public void t12_create() {
-		final  int[] createRow = {0};
+		final int[] createRow = { 0 };
 
 		try {
-			
+
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
-			dc.addEventLiteners(new EventListener(){
+			dc.addEventLiteners(new EventListener() {
 
 				@Override
 				public void handleEventListener(Event event) throws TuraException {
 					createRow[0]++;
 				}
-				
+
 			});
-			
+
 			dc.createObject();
 			assertEquals(1, createRow[0]);
 
@@ -591,26 +613,23 @@ public class SingleDataControl {
 
 	}
 
-	
 	@Test
 	public void t13_removeWithPositioning() {
 
 		try {
-			
+
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
 			dc.setCurrentPosition(24);
-			
+
 			DepartmentType d = dc.getCurrentObject();
-			assertEquals(new Long(250), d.getObjId());
-			
+			assertEquals( Long.valueOf(250), d.getObjId());
+
 			dc.removeObject();
-			
+
 			boolean isSet = dc.setCurrentPosition(25);
 			assertTrue(isSet);
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -619,20 +638,251 @@ public class SingleDataControl {
 
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Test
+	public void t14_LRU_defaultSearchCriteriaWithConstant() {
+		try {
+			PlatformConfig.LRU_SIZE = 3;
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			CommandStack cs = dc.getCommandStack();
+			Pager pager = getPager(dc);
+
+			ArrayList<SearchCriteria> sc = new ArrayList<>();
+
+			SearchCriteria s = new SearchCriteria();
+			s.setName("objId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(Long.valueOf(10));
+			sc.add(s);
+
+			dc.setDefaultSearchCriteria(sc);
+			DepartmentType row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(10));
+
+			dc.forceRefresh();
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(10));
+
+			checkShifterHashSize(cs, pager, 1);
+			cs.savePoint();
+			checkShifterHashSize(cs, pager, 1);
+			
+			sc = new ArrayList<>();
+
+			s = new SearchCriteria();
+			s.setName("objId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(Long.valueOf(20));
+			sc.add(s);
+
+			dc.setDefaultSearchCriteria(sc);
+
+			dc.forceRefresh();
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(20));
+
+			sc = new ArrayList<>();
+
+			s = new SearchCriteria();
+			s.setName("objId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(Long.valueOf(30));
+			sc.add(s);
+			dc.setDefaultSearchCriteria(sc);
+
+			sc = new ArrayList<>();
+
+			s = new SearchCriteria();
+			s.setName("objId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(Long.valueOf(40));
+			sc.add(s);
+			dc.setDefaultSearchCriteria(sc);
+
+			dc.forceRefresh();
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(40));
+
+			dc.forceRefresh();
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(40));
+
+			checkShifterHashSize(cs, pager, 3);
+
+			cs.rallbackSavePoint();
+
+			checkShifterHashSize(cs, pager, 1);
+
+			dc.forceRefresh();
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), Long.valueOf(40));
+
+			checkShifterHashSize(cs, pager, 2);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void t15_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			
+			DepartmentType obj = dc.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			ObjectControl oc1 = (ObjectControl) dc.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+            assertTrue( dc.setCurrentPosition(10));
+			
+			obj = dc.getCurrentObject();
+			oc = (ObjectControl) obj;
+			key = oc.getKey();
+            
+			assertTrue( dc.setCurrentPosition(0));
+			dc.getCurrentObject();
+			
+			ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
+			SearchCriteria sc = new SearchCriteria("objId", Operator.EQ.name(), obj.getObjId(), Long.class.getName() );
+			search.add(sc);
+			
+			oc1 = (ObjectControl) dc.findObject(search, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 	
 	
+	@Test
+	public void t16_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			CommandStack cs = dc.getCommandStack();
+			dc.setPageSize(5);
+			
+			DepartmentType obj = dc.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			cs.savePoint();
+			dc.removeObject();
+			ObjectControl oc1 = (ObjectControl) dc.findObject(null, key);
+			assertNull(oc1);
+			
+			cs.rallbackSavePoint();
+			
+			oc1 = (ObjectControl) dc.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}	
 	
 	
+	@Test
+	public void t17_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			
+			DepartmentType obj = dc.getCurrentObject();
+			ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			assertTrue( dc.setCurrentPosition(10));
+			obj = dc.getCurrentObject();
+			obj.setDepartmentName("qwerty");
+			
+			oc = (ObjectControl) obj;
+			key = oc.getKey();
+            
+			assertTrue(dc.setCurrentPosition(0));
+			dc.getCurrentObject();
+			
+			
+			ObjectControl oc1 = (ObjectControl) dc.findObject(null, key);
+			assertNotNull(oc1);
+            assertEquals(key, oc1.getKey());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}	
+
+	
+	@Test
+	public void t18_findObjectKey() {
+		try {
+
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+
+			DepartmentType obj = dc.getCurrentObject();
+
+			GridModel model = new GridModel(dc, null, GridType.SingleSelect, "1");
+			model.setPageSize(5);
+			model.load();
+			
+			
+            assertTrue( dc.setCurrentPosition(10));
+			
+            obj = dc.getCurrentObject();
+            ObjectControl oc = (ObjectControl) obj;
+			String key = oc.getKey();
+			
+			HashMap<String,Object> hash = new HashMap<>();
+			hash.put("ObjId",obj.getObjId());
+			hash.put("key",key);
+
+            assertTrue( dc.setCurrentPosition(0));
+			
+			model.decodeAndSetSelected(hash);
+            
+            ObjectControl oc1 =  (ObjectControl) model.getSelected();
+            assertEquals(key, oc1.getKey());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+
 	public class DeparmentPostCreatTrigger implements PostCreateTrigger {
 
+		private static final long serialVersionUID = -6211662177439727224L;
+
 		@Override
-		public void execute(DataControl<?> datacontrol, Object obj, Map<String,Object> attributes)
+		public void execute(DataControl<?> datacontrol, Object obj, Map<String, Object> attributes)
 				throws TuraException {
-          try{
-			Reflection.call(obj,"setDepartmentName","test");
-          }catch(Exception e){
-        	  throw new TuraException(e);
-          }
+			try {
+				Reflection.call(obj, "setDepartmentName", "test");
+			} catch (Exception e) {
+				throw new TuraException(e);
+			}
 
 		}
 
@@ -640,18 +890,20 @@ public class SingleDataControl {
 
 	public class DepartmentDCPreQueryTrigger implements PreQueryTrigger {
 
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public void execute(DataControl<?> datacontrol) throws TuraException {
 			try {
 
 				SearchCriteria s = new SearchCriteria();
-				s .setName("objId");
+				s.setName("objId");
 				s.setComparator(Operator.EQ.name());
-				s.setValue(new Long(70));
+				s.setValue( Long.valueOf(70));
 				s.setClassName(Long.class.getName());
-				
+
 				datacontrol.getSearchCriteria().add(s);
-				
+
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}
@@ -661,14 +913,29 @@ public class SingleDataControl {
 
 	public class DepartmentDCPostQueryTrigger implements PostQueryTrigger {
 
+		private static final long serialVersionUID = 1L;
+
 		@Override
-		public void execute(DataControl<?> datacontrol, Object obj)
-				throws TuraException {
+		public void execute(DataControl<?> datacontrol, Object obj) throws TuraException {
 
 			DepartmentType d = (DepartmentType) obj;
 			d.setDepartmentName("test");
 		}
 
 	}
+
+	private Pager<?> getPager(DataControl<?> dc)
+			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		Field field = DataControl.class.getDeclaredField("pager");
+		field.setAccessible(true);
+		return (Pager<?>) field.get(dc);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	private void checkShifterHashSize(CommandStack cs , Pager pager , int size) {
+		PagerData pd =  pager.getPagerData();
+		assertEquals(size, pd.getShifterHash().size()) ;
+	}
+	
 
 }

@@ -1,55 +1,84 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.casemanagment;
 
-import com.octo.java.sql.exp.Operator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
+
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
-import org.primefaces.event.MenuActionEvent;
-import org.primefaces.model.menu.DefaultMenuItem;
-import org.primefaces.model.menu.MenuItem;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.primefaces.lib.EventAccessor;
-import org.tura.platform.primefaces.model.GridModelMultiSelect;
-import org.tura.platform.primefaces.model.ViewModel;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.uuiclient.cdi.BeansLocal;
+import org.tura.platform.uuiclient.menu.DefaultMenuItem;
+import org.tura.platform.uuiclient.menu.MenuElement;
+import org.tura.platform.uuiclient.model.GridModel;
+import org.tura.platform.uuiclient.model.ViewModel;
+import org.tura.platform.uuiclient.rest.EventDescription;
+import org.tura.platform.uuiclient.rest.EventParameter;
+import org.tura.platform.uuiclient.rest.client.commands.HidePopup;
+import org.tura.platform.uuiclient.rest.client.commands.OpenPopup;
+import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
+import org.tura.platform.uuiclient.rest.client.commands.SwitchWindow;
+import org.tura.platform.uuiclient.rest.client.commands.UpdateMessage;
+import org.tura.platform.uuiclient.rest.events.EventAware;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.CaseManagerArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.SearchObjectArtifitialFieldsAdapter;
-import org.tura.salesanalyzer.casemanagment.analysis.casemanager.datacontrol.TaskArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.WriteupOutcome;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
+
+import com.octo.java.sql.exp.Operator;
+
 import sales.analyzer.commons.CDIUserPeferencesProviderImpl;
 import sales.analyzer.commons.PrefConstants;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.jbpm.commands.AssignActorCommand;
 import sales.analyzer.user.UserPreferences;
 
-public class ActionsCaseManagement implements EventAccessor {
+public class ActionsCaseManagement implements EventAware {
 
+	private EventDescription event;
 	private transient Logger logger = Logger.getLogger(ActionsCaseManagement.class.getName());
-	private ActionEvent event;
 	private String pattern = "Case #";
 
+	@Inject
+	ResponseState responseState;
+
+	
 	private static String CASE_TABLE =  "tura"+"104d965f_253d_4210_8bfa_0577367e9cec";
 	
 	
@@ -66,11 +95,6 @@ public class ActionsCaseManagement implements EventAccessor {
 	@Inject
 	WorkItemMenuDynamic workItemMenu;
 
-	@Override
-	public void setEvent(ActionEvent event) {
-		this.event = event;
-
-	}
 
 	public Object resolver(String experssion, ELResolver eLResolver) {
 		if (experssion.length() > 2 && "#{".equals(experssion.substring(0, 2))) {
@@ -109,6 +133,12 @@ public class ActionsCaseManagement implements EventAccessor {
 			adapter.setCityId(city.getObjId());
 			adapter.setCityName(city.getName());
 
+			HidePopup cmd1 = new HidePopup();
+			cmd1.setTarget("48d7014d-1877-4010-8b22-d1734ae8e72e");
+			responseState.addCommand(cmd1);
+
+			
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -134,6 +164,11 @@ public class ActionsCaseManagement implements EventAccessor {
 			bf.setStateId(adapter.getStateid());
 			dc = (DataControl) bf.getSelectCity();
 			dc.forceRefresh();
+			
+			OpenPopup cmd1 = new OpenPopup();
+			cmd1.setTarget("48d7014d-1877-4010-8b22-d1734ae8e72e");
+			responseState.addCommand(cmd1);
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -142,23 +177,43 @@ public class ActionsCaseManagement implements EventAccessor {
 	public void openPopupUserForFilter() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForFilter");
+		
+		OpenPopup cmd1 = new OpenPopup();
+		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+		responseState.addCommand(cmd1);
+
 	}
 
 	public void openPopupUserForAssign() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForAssign");
+		
+		OpenPopup cmd1 = new OpenPopup();
+		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+		responseState.addCommand(cmd1);
+
 
 	}
 
 	public void openPopupUserForForAssignAnalyst() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForAssignAnalyst");
+		
+		OpenPopup cmd1 = new OpenPopup();
+		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+		responseState.addCommand(cmd1);
+
 
 	}
 
 	public void openPopupUserForForAssignManager() {
 		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 		bf.setUserSelectionPopupContext("PopupUserForAssignManager");
+		
+		OpenPopup cmd1 = new OpenPopup();
+		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+		responseState.addCommand(cmd1);
+
 
 	}
 
@@ -202,6 +257,12 @@ public class ActionsCaseManagement implements EventAccessor {
 			DataControl dc = (DataControl) bf.getSelectUser();
 			User user = (User) dc.getCurrentObject();
 			assignUsers(user.getUsername());
+			
+			HidePopup cmd1 = new HidePopup();
+			cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+			responseState.addCommand(cmd1);
+
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -215,6 +276,11 @@ public class ActionsCaseManagement implements EventAccessor {
 			User user = (User) dc.getCurrentObject();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
 			process.setAnalystActor(user.getUsername());
+			
+			HidePopup cmd1 = new HidePopup();
+			cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+			responseState.addCommand(cmd1);
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -228,14 +294,20 @@ public class ActionsCaseManagement implements EventAccessor {
 			User user = (User) dc.getCurrentObject();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
 			process.setManagerActor(user.getUsername());
+			
+			HidePopup cmd1 = new HidePopup();
+			cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+			responseState.addCommand(cmd1);
+	
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void assignUsers(String username) {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelCaseManager}");
-		GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(CASE_TABLE, null, null);
+		GridModel model = (GridModel) viewmodel.getModel(CASE_TABLE, null, null);
 		List<Object> list = (List<Object>) model.getSelected();
 		for (Object  obj : list) {
 			Task t = (Task) obj;
@@ -259,9 +331,10 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public void closeWF() {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelCaseManager}");
-		GridModelMultiSelect model = (GridModelMultiSelect) viewmodel.getModel(CASE_TABLE, null, null);
+		GridModel model = (GridModel) viewmodel.getModel(CASE_TABLE, null, null);
 		List<Object> list = (List<Object>) model.getSelected();
 		for (Object  obj : list) {
 			Task t = (Task) obj;
@@ -288,8 +361,7 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void assignMyselfWI() {
-		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-				.getRequest());
+		HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		String username = p.getName();
 		assignUsers(username);
@@ -299,8 +371,7 @@ public class ActionsCaseManagement implements EventAccessor {
 	public void assignMyselfForAnalyst() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
-			HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-					.getRequest());
+			HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 			String username = p.getName();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
@@ -314,8 +385,7 @@ public class ActionsCaseManagement implements EventAccessor {
 	public void assignMyselfForManager() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
-			HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-					.getRequest());
+			HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 			String username = p.getName();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
@@ -335,6 +405,11 @@ public class ActionsCaseManagement implements EventAccessor {
 			dc = (DataControl) bf.getSelectUser();
 			User user = (User) dc.getCurrentObject();
 			adapter.setAssignto(user.getUsername());
+			
+			HidePopup cmd1 = new HidePopup();
+			cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
+			responseState.addCommand(cmd1);
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -349,8 +424,7 @@ public class ActionsCaseManagement implements EventAccessor {
 			SearchObjectArtifitialFieldsAdapter adapter = new SearchObjectArtifitialFieldsAdapter(
 					(ObjectControl) dc.getCurrentObject());
 
-			HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-					.getRequest());
+			HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 			KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 			String username = p.getName();
 			adapter.setAssignto(username);
@@ -366,8 +440,10 @@ public class ActionsCaseManagement implements EventAccessor {
 			saveCaseOperation();
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 			((DataControl) bf.getCaseManager()).forceRefresh();
+			addInfomessage("SAVE_DATA_MESSAGE" );
 
 		} catch (Exception e) {
+			addErrormessage("ERROR_MESSAGE" );
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 	}
@@ -412,8 +488,9 @@ public class ActionsCaseManagement implements EventAccessor {
 		String value = pattern + process.getCaseId();
 		int currentItem = 1;
 
-		for (MenuItem item : workItemMenu.getMenuItemsList()) {
-			if (item.getValue().equals(value)) {
+		for (MenuElement it : workItemMenu.getMenuItemsList()) {
+			DefaultMenuItem item  = (DefaultMenuItem) it;
+			if (item.getLabel().equals(value)) {
 				break;
 			}
 			currentItem++;
@@ -427,7 +504,8 @@ public class ActionsCaseManagement implements EventAccessor {
 
 		} else {
 			bf.setCurrentOpenedCase(currentItem);
-			value = (String) workItemMenu.getMenuItemsList().get(currentItem - 1).getValue();
+			DefaultMenuItem item = (DefaultMenuItem) workItemMenu.getMenuItemsList().get(currentItem - 1);
+			value =  item.getLabel();
 			String caseId = value.substring(pattern.length());
 			bf.setCurrentOpenedCaseId(caseId);
 			((DataControl) bf.getCaseManager()).forceRefresh();
@@ -543,17 +621,19 @@ public class ActionsCaseManagement implements EventAccessor {
 	@SuppressWarnings({ "rawtypes" })
 	public void openCase() {
 		try {
-			ObjectControl oc = (ObjectControl) event.getComponent().getAttributes().get("param1");
-			TaskArtifitialFieldsAdapter adapter = new TaskArtifitialFieldsAdapter(oc);
+			
+			EventParameter param = event.findParameter("rowkey");
+			String caseId = (String) param.getValue();
 
-			String value = pattern + adapter.getCaseId();
+			String value = pattern + caseId;
 			int currentItem = 1;
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 
-			for (MenuItem item : workItemMenu.getMenuItemsList()) {
-				if (item.getValue().equals(value)) {
+			for (MenuElement it : workItemMenu.getMenuItemsList()) {
+				DefaultMenuItem item = (DefaultMenuItem) it;
+				if (item.getLabel().equals(value)) {
 					bf.setCurrentOpenedCase(currentItem);
-					bf.setCurrentOpenedCaseId(adapter.getCaseId());
+					bf.setCurrentOpenedCaseId(caseId);
 					((DataControl) bf.getCaseManager()).forceRefresh();
 					bf.setCanvasType("CASE");
 					return;
@@ -562,26 +642,28 @@ public class ActionsCaseManagement implements EventAccessor {
 			}
 
 			if (workItemMenu.getMenuItemsList().size() == 5) {
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "To many open windows"));
+				addErrormessage("ERROR_MSG_TOO_MANY_WINDOWS");
 				return;
 			}
 
 			DefaultMenuItem item = new DefaultMenuItem(value);
 			workItemMenu.getMenuItemsList().add(item);
+			item.setLabel(value);
 			bf.setCurrentOpenedCase(workItemMenu.getMenuItemsList().size());
-			item.setParam("case_id", adapter.getCaseId());
-			item.setIncludeViewParams(true);
-			item.setUpdate((String) resolver(
-					"#{viewIdentificator.getClientId(turaf279a609_bd23_4610_971f_91f9c788f39e)},#{viewIdentificator.getClientId(tura16dc93c8_bf33_4cb1_92fa_082f68441f88)}",
-					elResolver));
+			
+			String uuid = "354d416a-83e5-43c9-a83a-37f58dd3e905";
+	        EventDescription event =
+	                new EventDescription( UUID.randomUUID().toString(),
+	                    "server",
+	                    "#{actionExecutorAnalysisCaseManager.setSource('tura"+uuid.replaceAll("\\-","_")+"').action}",
+	                    "react.onClick", null,
+	                    "f279a609-bd23-4610-971f-91f9c788f39e,16dc93c8-bf33-4cb1-92fa-082f68441f88");
+	        item.getEvents().add(event);
+	        event.addParameters(UUID.randomUUID().toString(), "rowkey", caseId, 0);
+			
+			
 
-			item.setProcess("@this");
-
-			item.setCommand(
-					"#{actionExecutorAnalysisCaseManager.setSource('tura354d416a_83e5_43c9_a83a_37f58dd3e905').eventListener}");
-
-			bf.setCurrentOpenedCaseId(adapter.getCaseId());
+			bf.setCurrentOpenedCaseId(caseId);
 			((DataControl) bf.getCaseManager()).forceRefresh();
 
 			bf.setCanvasType("CASE");
@@ -595,13 +677,12 @@ public class ActionsCaseManagement implements EventAccessor {
 	@SuppressWarnings("rawtypes")
 	public void switchToWorkItem() {
 		try {
-
+			EventParameter param = event.findParameter("rowkey");
 			String caseId = null;
-			MenuActionEvent menuEvent = (MenuActionEvent) event;
-			if (menuEvent.getMenuItem().getParams() != null) {
-				List array = menuEvent.getMenuItem().getParams().get("case_id");
-				caseId = (String) (array.get(0));
+			if (param != null ) {
+				caseId = (String) param.getValue();
 			}
+
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 
 			if (caseId == null) {
@@ -610,8 +691,10 @@ public class ActionsCaseManagement implements EventAccessor {
 			} else {
 				String value = pattern + caseId;
 				int currentItem = 1;
-				for (MenuItem item : workItemMenu.getMenuItemsList()) {
-					if (item.getValue().equals(value)) {
+				for (MenuElement it : workItemMenu.getMenuItemsList()) {
+					DefaultMenuItem item = (DefaultMenuItem) it;
+					
+					if (item.getLabel().equals(value)) {
 						bf.setCurrentOpenedCase(currentItem);
 						bf.setCurrentOpenedCaseId(caseId);
 						((DataControl) bf.getCaseManager()).forceRefresh();
@@ -627,6 +710,7 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void completeTask() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
@@ -636,17 +720,17 @@ public class ActionsCaseManagement implements EventAccessor {
 					(ObjectControl) process);
 			if (AssignActorCommand.TASK1_NAME.equals(adapter.getStatus())) {
 				if (outcome.getCaseResolution() == null) {
-					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Resolution status is undefined"));
+					addErrormessage("ERROR_RESOLUTION_STATUS_IS_UNDEFINED");
 					return;
 				}
 				process.setCompleteTask(0);
 				saveCaseOperation();
+				((DataControl) bf.getCaseManager()).forceRefresh();
+				
 			} else {
 				String approveStatus = outcome.getApprovedStatus();
 				if (approveStatus == null) {
-					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Approve status is undefined"));
+					addErrormessage("ERROR_APPROVE_STATUS_IS_UNDEFINED");
 				} else {
 					if (approveStatus.equals("4")) {
 						process.setCompleteTask(0);
@@ -655,6 +739,7 @@ public class ActionsCaseManagement implements EventAccessor {
 					} else {
 						process.setCompleteTask(1);
 						saveCaseOperation();
+						((DataControl) bf.getCaseManager()).forceRefresh();
 					}
 				}
 			}
@@ -757,8 +842,7 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private UserPreferences getUserPreferences() {
-		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-				.getRequest());
+		HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		String username = p.getName();
 		return new CDIUserPeferencesProviderImpl().getUserPreferences(username);
@@ -766,22 +850,44 @@ public class ActionsCaseManagement implements EventAccessor {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private String getUser() {
-		HttpServletRequest request = ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-				.getRequest());
+		HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		return p.getName();
 
 	}
 
 	public void logout() {
-		try {
-			ExternalContext externalContext  = FacesContext.getCurrentInstance().getExternalContext();
-			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
-			request.logout();
-			externalContext.redirect("/sa-case-manager/analysis/casemanager/workItemWindow.xhtml");
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
+       SwitchWindow cmd = new SwitchWindow();
+       cmd.setTarget("http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-case-manager-react-client/analysis/casemanager/workItemWindow");
+	   responseState.addCommand(cmd);
+       
+	}
+
+	private void addInfomessage( String key ) {
+		UpdateMessage cmd = new UpdateMessage();
+		cmd.setTarget(IBeanFactory.MESSAGES.replaceAll("tura", "").replaceAll("_", "\\-"));
+		cmd.setSeverity("info");
+		cmd.setMessage("Info");
+		cmd.setDetails((String) elResolver.getValue("#{CaseManagement['"+key+"']}"));
+		responseState.addCommand(cmd);
+	}
+
+	
+	private void addErrormessage( String key ) {
+		UpdateMessage cmd = new UpdateMessage();
+		cmd.setTarget(IBeanFactory.MESSAGES.replaceAll("tura", "").replaceAll("_", "\\-"));
+		cmd.setSeverity("error");
+		cmd.setMessage("Erroe");
+		cmd.setDetails((String) elResolver.getValue("#{CaseManagement['"+key+"']}"));
+		responseState.addCommand(cmd);
+	}
+	
+	
+	
+	@Override
+	public void setEvent(EventDescription event) {
+		this.event = event;
+		
 	}
 
 }

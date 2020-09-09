@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.impl;
@@ -121,6 +135,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.FILE_DOWNLOAD: return createFileDownload();
 			case FormPackage.DATA_SCROLLER: return createDataScroller();
 			case FormPackage.POLL: return createPoll();
+			case FormPackage.DATA_TEMPLATE: return createDataTemplate();
 			case FormPackage.WINDOW_REF: return createWindowRef();
 			case FormPackage.MENU_HOLDER: return createMenuHolder();
 			case FormPackage.MENU_EXTENSION_REF: return createMenuExtensionRef();
@@ -630,16 +645,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OptionSelection createOptionSelection() {
-		OptionSelectionImpl optionSelection = new OptionSelectionImpl();
-		return optionSelection;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public LayerHolder createLayerHolder() {
 		LayerHolderImpl layerHolder = new LayerHolderImpl();
 		return layerHolder;
@@ -703,6 +708,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public CheckBox createCheckBox() {
 		CheckBoxImpl checkBox = new CheckBoxImpl();
 		return checkBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OptionSelection createOptionSelection() {
+		OptionSelectionImpl optionSelection = new OptionSelectionImpl();
+		return optionSelection;
 	}
 
 	/**
@@ -853,6 +868,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Poll createPoll() {
 		PollImpl poll = new PollImpl();
 		return poll;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTemplate createDataTemplate() {
+		DataTemplateImpl dataTemplate = new DataTemplateImpl();
+		return dataTemplate;
 	}
 
 	/**

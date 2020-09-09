@@ -52,12 +52,19 @@ import java.util.Comparator;
 /**
  * Job: Generate_data_for_period Purpose: <br>
  * Description:  <br>
- * @author 
- * @version 6.4.1.20170623_1246
+ * @author user@talend.com
+ * @version 7.3.1.20200117_1600-M6
  * @status 
  */
 public class Generate_data_for_period implements TalendJob {
 
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
+
+}
 
 
 	public final Object obj = new Object();
@@ -135,7 +142,7 @@ public java.util.Date getStart_date(){
 	return this.start_date;
 }
 	}
-	private ContextProperties context = new ContextProperties();
+	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
 	public ContextProperties getContext() {
 		return this.context;
 	}
@@ -158,6 +165,8 @@ private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
+	
+	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
@@ -165,6 +174,7 @@ private RunStat runStat = new RunStat();
 			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
+		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
 
@@ -302,7 +312,7 @@ private class TalendException extends Exception {
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
 			}
-		
+	
 
 
 
@@ -594,10 +604,13 @@ public void tRowGenerator_1Process(final java.util.Map<String, Object> globalMap
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -625,24 +638,12 @@ out1Struct out1 = new out1Struct();
 	currentComponent="tRunJob_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out1");
+					}
+				
 		int tos_count_tRunJob_1 = 0;
 		
-    	class BytesLimit65535_tRunJob_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tRunJob_1().limitLog4jByte();
 
 
  
@@ -671,24 +672,12 @@ out1Struct out1 = new out1Struct();
 	currentComponent="tMap_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
+					}
+				
 		int tos_count_tMap_1 = 0;
 		
-    	class BytesLimit65535_tMap_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_1().limitLog4jByte();
 
 
 
@@ -752,13 +741,6 @@ out1Struct out1_tmp = new out1Struct();
 	
 		int tos_count_tRowGenerator_1 = 0;
 		
-    	class BytesLimit65535_tRowGenerator_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tRowGenerator_1().limitLog4jByte();
 
 
 int nb_line_tRowGenerator_1 = 0;
@@ -807,6 +789,26 @@ class tRowGenerator_1Randomizer {
 /**
  * [tRowGenerator_1 main ] stop
  */
+	
+	/**
+	 * [tRowGenerator_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRowGenerator_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tRowGenerator_1 process_data_begin ] stop
+ */
 
 	
 	/**
@@ -820,18 +822,10 @@ class tRowGenerator_1Randomizer {
 	currentComponent="tMap_1";
 
 	
-
-			//row1
-			//row1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row1");
+					}
+					
 
 		
 		
@@ -882,6 +876,26 @@ rejectedInnerJoin_tMap_1 = false;
 /**
  * [tMap_1 main ] stop
  */
+	
+	/**
+	 * [tMap_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 process_data_begin ] stop
+ */
 // Start of branch "out1"
 if(out1 != null) { 
 
@@ -899,18 +913,10 @@ if(out1 != null) {
 	currentComponent="tRunJob_1";
 
 	
-
-			//out1
-			//out1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out1");
+					}
+					
 	java.util.List<String> paraList_tRunJob_1 = new java.util.ArrayList<String>();
 	
 	        			paraList_tRunJob_1.add("--father_pid="+pid);
@@ -921,6 +927,10 @@ if(out1 != null) {
 	      			
 	        			paraList_tRunJob_1.add("--context=Default");
 	      			
+		if(enableLogStash){
+			paraList_tRunJob_1.add("--monitoring="+enableLogStash);
+		}
+		
 	//for feature:10589
 	
 		paraList_tRunJob_1.add("--stat_port=" + portStats);
@@ -967,8 +977,6 @@ if(out1 != null) {
 	        childJob_tRunJob_1.setDataSources(dataSources_tRunJob_1);
 	    }
 		  
-			childJob_tRunJob_1.parentContextMap = parentContextMap_tRunJob_1;
-		  
 		
 		String[][] childReturn_tRunJob_1 = childJob_tRunJob_1.runJob((String[]) paraList_tRunJob_1.toArray(new String[paraList_tRunJob_1.size()]));
 		
@@ -987,10 +995,12 @@ if(out1 != null) {
 	  
 			 
 				if (childJob_tRunJob_1.getErrorCode() != null || ("failure").equals(childJob_tRunJob_1.getStatus())) {
-	        		throw new RuntimeException("Child job running failed.\n"+childJob_tRunJob_1.getExceptionStackTrace());
+					java.lang.Exception ce_tRunJob_1 = childJob_tRunJob_1.getException();
+					throw new RuntimeException("Child job running failed.\n" + ((ce_tRunJob_1!=null) ? (ce_tRunJob_1.getClass().getName() + ": " + ce_tRunJob_1.getMessage()) : ""));
 				}
 			
 	  	
+
  
 
 
@@ -999,15 +1009,95 @@ if(out1 != null) {
 /**
  * [tRunJob_1 main ] stop
  */
+	
+	/**
+	 * [tRunJob_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tRunJob_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tRunJob_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tRunJob_1 process_data_end ] stop
+ */
 
 } // End of branch "out1"
 
 
 
 
+	
+	/**
+	 * [tMap_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
 
 
 
+/**
+ * [tMap_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tRowGenerator_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRowGenerator_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tRowGenerator_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tRowGenerator_1 end ] start
@@ -1058,12 +1148,10 @@ end_Hash.put("tRowGenerator_1", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_1", true);
@@ -1089,12 +1177,10 @@ end_Hash.put("tMap_1", System.currentTimeMillis());
 
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out1");
+			  	}
+			  	
  
 
 ok_Hash.put("tRunJob_1", true);
@@ -1234,6 +1320,8 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
     public long startTime = 0;
     public boolean isChildJob = false;
     public String log4jLevel = "";
+    
+    private boolean enableLogStash;
 
     private boolean execStat = true;
 
@@ -1247,11 +1335,11 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
     };
 
 
-
     private PropertiesWithType context_param = new PropertiesWithType();
     public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
 
     public String status= "";
+    
 
     public static void main(String[] args){
         final Generate_data_for_period Generate_data_for_periodClass = new Generate_data_for_period();
@@ -1279,7 +1367,7 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
     public int runJobInTOS(String[] args) {
 	   	// reset status
 	   	status = "";
-
+	   	
         String lastStr = "";
         for (String arg : args) {
             if (arg.equalsIgnoreCase("--context_param")) {
@@ -1291,7 +1379,10 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
                 lastStr = "";
             }
         }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
 
+    	
+    	
 
         if(clientHost == null) {
             clientHost = defaultClientHost;
@@ -1323,19 +1414,21 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
 
         try {
             //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
-            java.io.InputStream inContext = Generate_data_for_period.class.getClassLoader().getResourceAsStream("etl/generate_data_for_period_0_1/contexts/"+contextStr+".properties");
-            if(isDefaultContext && inContext ==null) {
-
-            } else {
-                if (inContext!=null) {
-                    //defaultProps is in order to keep the original context value
-                    defaultProps.load(inContext);
-                    inContext.close();
-                    context = new ContextProperties(defaultProps);
-                }else{
-                    //print info and job continue to run, for case: context_param is not empty.
-                    System.err.println("Could not find the context " + contextStr);
+            java.io.InputStream inContext = Generate_data_for_period.class.getClassLoader().getResourceAsStream("etl/generate_data_for_period_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = Generate_data_for_period.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                //defaultProps is in order to keep the original context value
+                if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
                 }
+                
+                inContext.close();
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
             }
 
             if(!context_param.isEmpty()) {
@@ -1348,31 +1441,38 @@ end_Hash.put("tRunJob_1", System.currentTimeMillis());
 
 				}
             }
-				    context.setContextType("start_date", "id_Date");
-				
-            try{
-                String context_start_date_value = context.getProperty("start_date");
-                if (context_start_date_value == null){
-                    context_start_date_value = "";
-                }
-                int context_start_date_pos = context_start_date_value.indexOf(";");
-                String context_start_date_pattern =  "yyyy-MM-dd HH:mm:ss";
-                if(context_start_date_pos > -1){
-                    context_start_date_pattern = context_start_date_value.substring(0, context_start_date_pos);
-                    context_start_date_value = context_start_date_value.substring(context_start_date_pos + 1);
-                }
+            class ContextProcessing {
+                private void processContext_0() {
+                        context.setContextType("start_date", "id_Date");
+                        try{
+                            String context_start_date_value = context.getProperty("start_date");
+                            if (context_start_date_value == null){
+                                context_start_date_value = "";
+                            }
+                            int context_start_date_pos = context_start_date_value.indexOf(";");
+                            String context_start_date_pattern =  "yyyy-MM-dd HH:mm:ss";
+                            if(context_start_date_pos > -1){
+                                context_start_date_pattern = context_start_date_value.substring(0, context_start_date_pos);
+                                context_start_date_value = context_start_date_value.substring(context_start_date_pos + 1);
+                            }
 
-                context.start_date=(java.util.Date)(new java.text.SimpleDateFormat(context_start_date_pattern).parse(context_start_date_value));
+                            context.start_date=(java.util.Date)(new java.text.SimpleDateFormat(context_start_date_pattern).parse(context_start_date_value));
 
-            }catch(ParseException e)
-            {
-                context.start_date=null;
+                        } catch(ParseException e) {
+                                System.err.println(String.format("Null value will be used for context parameter %s: %s", "start_date", e.getMessage()));
+                            context.start_date=null;
+                        }
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
             }
+
+            new ContextProcessing().processAllContext();
         } catch (java.io.IOException ie) {
             System.err.println("Could not load context "+contextStr);
             ie.printStackTrace();
         }
-
 
         // get context value from parent directly
         if (parentContextMap != null && !parentContextMap.isEmpty()) {if (parentContextMap.containsKey("start_date")) {
@@ -1448,8 +1548,6 @@ this.globalResumeTicket = true;//to run tPostJob
         if (false) {
             System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : Generate_data_for_period");
         }
-
-
 
 
 
@@ -1551,10 +1649,13 @@ if (execStat) {
                     context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
                 }
             }
-        }else if (arg.startsWith("--log4jLevel=")) {
+        } else if (arg.startsWith("--log4jLevel=")) {
             log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
+			final String key = arg.substring("--".length(), equal);
+			System.setProperty(key, arg.substring(equal + 1));
 		}
-
     }
     
     private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
@@ -1605,6 +1706,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     39158 characters generated by Talend Open Studio for Data Integration 
- *     on the February 16, 2019 10:57:11 EST AM
+ *     41046 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 8, 2020 at 3:21:18 p.m. EST
  ************************************************************************************************/

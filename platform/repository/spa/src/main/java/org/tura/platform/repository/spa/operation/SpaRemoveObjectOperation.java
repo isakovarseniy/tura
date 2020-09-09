@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.spa.operation;
 
 import java.util.ArrayList;
@@ -36,6 +33,7 @@ import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaRemoveObjectOperation extends SpaRepositoryCommand{
 
+	private static final long serialVersionUID = -502654482830498361L;
 	private Object object;
 	private String objectType;
 	
@@ -53,7 +51,7 @@ public class SpaRemoveObjectOperation extends SpaRepositoryCommand{
 			Object persistancelObject = mapper.copyFromRepository2Persistence(object);
 			Mapper p2rMapper = findMapper(object.getClass());
 		
-			SpaControl masterControl = new SpaControl(persistancelObject,p2rMapper.getPrimaryKey(persistancelObject), OperationLevel.DELETE);
+			SpaControl masterControl = new SpaControl(persistancelObject,p2rMapper.getPrimaryKey(persistancelObject), OperationLevel.DELETE,registryName);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);

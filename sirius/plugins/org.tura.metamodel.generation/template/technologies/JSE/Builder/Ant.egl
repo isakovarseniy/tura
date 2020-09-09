@@ -1,7 +1,0 @@
-[% @template
-operation  builder(hash) {
-    
-         ant_builder(hash);
- 
-}
-%]

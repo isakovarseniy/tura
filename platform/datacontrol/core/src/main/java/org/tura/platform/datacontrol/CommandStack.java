@@ -1,26 +1,24 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.datacontrol;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,8 +31,9 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 
-public  class CommandStack {
+public  class CommandStack implements Serializable{
 
+	private static final long serialVersionUID = 4088238807395031890L;
 	private Stack<SavePoint> savePoints;
 	private String id = UUID.randomUUID().toString();
 	private ArrayList<IDataControl> poolFlushAware = new ArrayList<IDataControl>(); 
@@ -44,7 +43,16 @@ public  class CommandStack {
 		initSavePoint();
 	}
 
-	protected CommandStackData getCommandStackData() {
+	public boolean isSavePoint() {
+		if (savePoints.size() == 1) {
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	
+	public CommandStackData getCommandStackData() {
 		return (CommandStackData) this.savePoints.peek().getData().get(id);
 	}
 
@@ -188,8 +196,9 @@ public  class CommandStack {
 	}
 
 
-	public class SavePoint {
+	public class SavePoint implements Serializable {
 
+		private static final long serialVersionUID = -1418145643685114319L;
 		private HashMap<String, Object> data = new HashMap<>();
 
 		SavePoint() {
@@ -216,3 +225,4 @@ public  class CommandStack {
 	}
 
 }
+

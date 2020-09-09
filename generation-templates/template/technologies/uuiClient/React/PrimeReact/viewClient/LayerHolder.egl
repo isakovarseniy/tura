@@ -1,0 +1,48 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::LayerHolder createTag(hash) {
+     var key = getKey(hash);
+     var clientLibraryPackage = hash.get('clientLibraryPackage');
+     
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var model_mapper = hash.get('model_mapper');
+     
+     
+     var layout = "TLayerHolder";
+     if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
+        layout="TLayerHolderResponsive";
+     }
+     populateInclude(hash,"{"+layout+"}",  clientLibraryPackage+"/component/"+layout);
+      
+     
+
+%]
+       <[%=layout%] id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]>
+[%
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                    [%=element.createTag(hash)%]
+[%
+                }  
+%]
+
+       </[%=layout%] >
+            
+[%
+}
+
+%]

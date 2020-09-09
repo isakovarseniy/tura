@@ -126,6 +126,8 @@ class ApplicationMappers {
    attr EString name;
    val ApplicationMapper[*] mappers;
    val mapper.MappingLayer[*] appLayers;
+   val mapper.Version[*] versions;
+   
 }
 
 

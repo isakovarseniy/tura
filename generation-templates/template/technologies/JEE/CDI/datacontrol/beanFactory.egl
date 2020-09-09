@@ -1,0 +1,191 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+import org.tura.platform.datacontrol.commons.TuraException;
+import javax.inject.Inject;
+
+@javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%][%=bfSuffix%]")
+[%=datacontrol_scope()%]
+public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializable {
+
+    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+
+    private int section;
+
+
+	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BeanFactory[%=bfSuffix%].class.getName());;
+	
+	@javax.inject.Inject
+	javax.enterprise.inject.spi.BeanManager bm;	
+	
+	[%
+	var root = form.datacontrols.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   private [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   [%
+	   }
+	}
+	%]
+	@Inject
+	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
+	private transient javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger> factoryInitializeTrigger;
+	[%
+	var root = form.datacontrols.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%](){
+	             init();
+	              return this.[%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   
+	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]){
+                  init();
+	              this.[%=util.mergeAndUnCapitalize(frmvar.name)%] = [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   [%
+	   }
+	}
+	%]	
+	public void init() {
+    	if (section > 0)
+    		return;
+    	section++;
+		try {
+			org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
+			if (trigger != null)
+				trigger.execute(this);
+		} catch (TuraException e) {
+			logger.log (  java.util.logging.Level.SEVERE,   org.apache.commons.lang.exception.ExceptionUtils.getFullStackTrace( e));
+		}	   
+    }
+
+    [%
+     var controls =  form.datacontrols.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+       private [%=typeName(control, component, form)%] [%=propertyName(control)%];
+       [%}
+     }    
+    %]
+    
+ [%
+     for (control in controls){
+         var relations = form::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+           if (relation.detail.~dependObject <>  null ){ %] 
+       private [%=typeName(relation.detail, component, form)%] [%=propertyName(relation.detail)%];
+
+     [%}
+       }
+     } %]    
+    
+    [%
+     var controls =  form.datacontrols.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+          public    [%=typeName(control, component, form)%]  [%=methodName(control)%](){
+          init();
+               if ([%=propertyName(control)%] == null){
+                    @SuppressWarnings("unchecked")
+					javax.enterprise.inject.spi.Bean<[%=typeName(control, component, form)%]> bean = (javax.enterprise.inject.spi.Bean<[%=typeName(control, component, form)%]>) bm.getBeans([%=typeName(control, component, form)%].class).iterator().next();
+					javax.enterprise.context.spi.CreationalContext<[%=typeName(control, component, form)%]> ctx = bm.createCreationalContext(bean);
+					 [%=propertyName(control)%]  = ([%=typeName(control, component, form)%]) bm.getReference(bean, [%=typeName(control, component, form)%].class, ctx);
+               }
+               return [%=propertyName(control)%];
+         }
+       [%}
+     }    
+    %]
+    
+    
+[%
+     for (control in controls){
+         var relations = form::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+         if (relation.isTree = false){%]
+          public    [%=typeName(relation.detail, component, form)%]  [%=methodName(relation.detail)%]() throws org.tura.platform.datacontrol.commons.TuraException{
+          init();
+       [%if (relation.detail.~dependObject =  null ){ %] 
+          try {
+               [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();
+               return ( [%=typeName(relation.detail, component, form)%] )master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
+		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+			   logger.log (  java.util.logging.Level.SEVERE,   org.apache.commons.lang.exception.ExceptionUtils.getFullStackTrace( e));
+			   throw e;
+		     }
+         [%}%]
+
+       [%if (relation.detail.~dependObject <>  null ){ %] 
+          try {
+               if ([%=propertyName(relation.detail)%] == null){
+                  getTreeRoot[%=util.mergeAndCapitalize(relation.detail.~masterRoot.name)%]().getCurrentObject();
+                  @SuppressWarnings("unchecked")
+				  javax.enterprise.inject.spi.Bean<[%=typeName(relation.detail, component, form)%]> bean = (javax.enterprise.inject.spi.Bean<[%=typeName(relation.detail, component, form)%]>) bm.getBeans([%=typeName(relation.detail, component, form)%].class).iterator().next();
+				  javax.enterprise.context.spi.CreationalContext<[%=typeName(relation.detail, component, form)%]> ctx = bm.createCreationalContext(bean);
+				  [%=propertyName(relation.detail)%]  = ([%=typeName(relation.detail, component, form)%]) bm.getReference(bean, [%=typeName(relation.detail, component, form)%].class, ctx);
+                  
+               }
+               return [%=propertyName(relation.detail)%];
+		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+			   logger.log (  java.util.logging.Level.SEVERE,   org.apache.commons.lang.exception.ExceptionUtils.getFullStackTrace( e));
+			   throw e;
+		     }
+         [%}%]
+          }
+          [%}
+         }
+     }    
+%]
+
+}
+
+[% @template
+operation methodName(dc:form::DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
+ [%} 
+ 
+  @template
+operation typeName(dc:form::DataControl, component:recipe::Component, form:form::Form) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var uipackage = form.eContainer();
+     
+%]
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+ [%} 
+ 
+ @template
+operation propertyName(dc:DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   [%if (dc.~treeRoot=true){%]treeRoot[%=util.mergeAndCapitalize(dc.name)%][%} else {%][%=util.mergeAndUnCapitalize(dc.name)%][%}%]
+ [%} 
+ %]

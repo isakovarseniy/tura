@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import static com.github.dockerjava.api.model.AccessMode.rw;
@@ -18,7 +19,6 @@ import static com.github.dockerjava.api.model.AccessMode.rw;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.felix.gogo.jline.SessionAware;
 import org.apache.felix.service.command.CommandSession;
 
 import com.github.dockerjava.api.command.CreateContainerCmd;
@@ -33,7 +33,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(name = "createContainer")
-public class DockerCreateContainer extends DockerCommand implements SessionAware {
+public class DockerCreateContainer extends DockerCommand  {
 
 	@Option(names = "--name")
 	private String name;
@@ -47,7 +47,6 @@ public class DockerCreateContainer extends DockerCommand implements SessionAware
 	@Option(names = "--var")
 	private String var;
 
-	private CommandSession session;
 
 	@Override
 	public Object execute() {
@@ -90,13 +89,13 @@ public class DockerCreateContainer extends DockerCommand implements SessionAware
 			if (conf.getVolumesMapping() != null) {
 				List<Bind> bindings = new ArrayList<>();
 				for (String str : conf.getVolumesMapping()) {
-					String[] volumes = str.split(":");
-					if (volumes.length != 2) {
-						throw new IllegalArgumentException("Wrong volume definition " + str);
-					}
+					int index = str.indexOf(":");
 
-					Volume volume = new Volume(volumes[1]);
-					bindings.add(new Bind(volumes[0], volume, rw));
+					String v0 = str.substring(0,index);
+					String v1 = str.substring(index+1);
+
+					Volume volume = new Volume(v1);
+					bindings.add(new Bind(v0, volume, rw));
 				}
 				cmd.withBinds(bindings.toArray(new Bind[] {}));
 			}
@@ -118,9 +117,5 @@ public class DockerCreateContainer extends DockerCommand implements SessionAware
 		return container.getId();
 	}
 
-	@Override
-	public void setSession(CommandSession session) {
-		this.session = session;
-	}
 
 }

@@ -1,0 +1,257 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  form::PopupCanvas createModel(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     var hints = new Native('java.util.HashMap');
+     
+     util.traceIfDebug("UI element","PopupCanvas model start: "+self.uid);     
+     
+     %]
+     
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+            
+       import org.tura.platform.uuiclient.rest.UuiElement;
+       import java.util.List;
+       import java.util.Map;
+       
+     
+       public class PopupCanvas_[%=self.mkuid_()%]  extends UuiElement{
+       
+          private String id = "[%=self.uid%]";
+		  private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.PopupCanvas_[%=self.mkuid_()%]";
+          
+       
+		  private String columns= "[%=self.columns%]";
+		  
+		  private String style;
+		  
+		  private String className;
+		  
+		  private String[]  columnStyle;
+		  
+		  private String[]  columnStyleClass;
+       
+		  private boolean rendered = true;
+       
+		  private boolean modal = true;
+		  
+		  private boolean showHeader = true;
+		  
+		  private String header;
+		  
+		  private boolean visible = false;
+       
+       
+		  public boolean isModal() {
+				return modal;
+		  }
+		
+		  public void setModal(boolean modal) {
+				this.modal = modal;
+		  }
+		
+		  public boolean isShowHeader() {
+				return showHeader;
+		  }
+		
+		  public void setShowHeader(boolean showHeader) {
+				this.showHeader = showHeader;
+		  }
+		
+		  public String getHeader() {
+				return header;
+		  }
+		
+		  public void setHeader(String header) {
+				this.header = header;
+		  }
+		
+		  public boolean isVisible() {
+				return visible;
+		  }
+		
+		  public void setVisible(boolean visible) {
+				this.visible = visible;
+		  }
+	       
+	       
+		    public String getClazz() {
+				return clazz;
+			}
+		
+			public void setClazz(String clazz) {
+				this.clazz = clazz;
+			}
+       
+       
+          public boolean isRendered() {
+		      return rendered;
+	      }
+
+		  public void setRendered(boolean rendered) {
+				this.rendered = rendered;
+		  }
+       
+       
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
+			}
+			public String getColumns() {
+				return columns;
+			}
+			public void setColumns(String columns) {
+				this.columns = columns;
+			}
+			public String getStyle() {
+				return style;
+			}
+			public void setStyle(String style) {
+				this.style = style;
+			}
+
+			public String getClassName() {
+				return className;
+			}
+			public void setClassName(String className) {
+				this.className = className;
+			}
+
+			public String[] getColumnStyle() {
+				return columnStyle;
+			}
+			public void setColumnStyle(String[] columnStyle) {
+				this.columnStyle = columnStyle;
+			}
+			public String[] getColumnStyleClass() {
+				return columnStyleClass;
+			}
+			public void setColumnStyleClass(String[] columnStyleClass) {
+				this.columnStyleClass = columnStyleClass;
+			}
+			
+			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
+			    [%=self.style(hash)%]
+			    [%=self.styleClass(hash)%]
+			    this.columnStyleClass = new String[]{ [%=self.columnStyleClass(hash)%] };
+			    [%
+				     var t = buildExpression(self.multiLangLabel,hints,hash);
+				     var title = "";
+				     if (not "".equals(t) ){
+				 %]
+			    this.header = (String)resolve( "[%=t%]",elResolver);
+			    this.showHeader = true;
+				 [%    
+				     }else{
+				 %]
+			    this.showHeader = false;
+				 [%    
+				     }
+			    
+			    %]
+			    
+			    
+[%
+              for (element in self.viewElement.sortBy(q|q.order)){
+                
+                var className = element.className(hash);
+
+%]            
+               [%=className%]_[%=element.mkuid_()%] [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] = new [%=className%]_[%=element.mkuid_()%] ();
+               [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] .initContext(elResolver,responseState);
+               getChildrens().add([%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%]);
+               
+           
+[%
+                }  
+%]                    
+			    
+			}
+
+		   @SuppressWarnings("unchecked")
+			public UuiElement restoreContext( java.util.Map<String, Object> map,org.tura.platform.uuiclient.rest.DataUpdateRequest request, org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState, java.util.List<org.tura.platform.uuiclient.rest.EventDescription> eventsToFire) throws Exception {
+			       List<Object> childrens = (List<Object>) map.get("childrens");
+			       for ( Object child : childrens) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   String clazz = (String) chMap.get("clazz");
+			    	   Class<UuiElement> chClass =  (Class<UuiElement>) Class.forName(clazz);
+			    	   UuiElement uie = chClass.newInstance();
+			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       return this;
+			   }
+			
+			public void applyContext( org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception {
+		       for ( Object child : getChildrens()) {
+		        	UuiElement el = (UuiElement) child;
+		        	el.applyContext(elResolver,responseState);
+		       }
+            } 			
+
+
+			private  Object resolve(String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    return  elResolver.getValue(expression);
+                } else {
+                   return expression;
+                }
+			} 
+
+			private  void apply( Object obj , String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                     elResolver.setValue(expression, obj);
+                } 
+			}
+			
+			
+       }
+     
+     
+     [%
+     
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "PopupCanvas_"+self.mkuid_() +".java",out.toString());   
+
+     util.traceIfDebug("UI element","PopupCanvas model end: "+self.uid);     
+
+
+
+%]
+     [%=self.generateComponentBody(hash)%]     
+[%
+     
+}
+
+operation form::PopupCanvas generateComponentBody(hash){
+
+    for (element in self.viewElement.sortBy(q|q.order)){
+         element.createModel(hash);
+    }  
+}
+
+operation form::PopupCanvas className(hash) { 
+   return self.eClass().getName();
+}
+%]

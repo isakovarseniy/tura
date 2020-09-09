@@ -1,5 +1,18 @@
 <#assign dollar = "$" >
 <?xml version="1.0" ?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      http://sourceforge.net/p/tura/wiki/Home/
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
 
 <server xmlns="urn:jboss:domain:7.0">
     <extensions>
@@ -51,7 +64,9 @@
        <property name="keycloak_admin_password" value="${keycloak_admin_password}"/>	
        <property name="keycloak_managed_realm" value="${keycloak_managed_realm}"/>	
        <property name="kie_server_url" value="${kie_server_url}"/>	
-       
+       <property name="aes_key"  value="qvDHwQChO/NVvxCYG3yO+w=="/>	
+
+       <property name="tura.request.file.storage"  value="true"/>	
        
     </system-properties>    
     

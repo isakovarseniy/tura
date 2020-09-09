@@ -1,15 +1,17 @@
-/*******************************************************************************
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.sirius.properties.selections.dropdown;
 
 import java.util.HashMap;
@@ -32,6 +34,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
@@ -102,7 +105,7 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 		combo = getWidgetFactory().createCCombo(composite);
 		data = new FormData();
 		data.left = new FormAttachment(0, getStandardLabelWidth(composite, new String[] { getLabelText() }));
-		data.right = new FormAttachment(100, 0);
+		data.right = new FormAttachment(90, 0);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		combo.setLayoutData(data);
 
@@ -119,8 +122,44 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 				handleComboModified();
 			}
 		});
+		
+		Button btn = new Button(composite, SWT.PUSH | SWT.CENTER);
+		btn.setText("Clear");
+		data = new FormData();
+		data.left = new FormAttachment(combo,  -ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(combo, 0, SWT.CENTER);
+		btn.setLayoutData(data);
+
+		btn.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				handleClearContext();
+				refresh();
+				
+			}
+		});
+		
+		
+		
 	}
 
+	
+	protected void handleClearContext(){
+		Session session = SessionManager.INSTANCE.getSession(getModel());
+		EditingDomain editingDomain = session.getTransactionalEditingDomain();
+		CompoundCommand compoundCommand = new CompoundCommand();
+		EStructuralFeature[] features = getFeature();
+		if (features != null) {
+			for (int i = 0; i < features.length; i++) {
+				compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],
+						getFeatureValue(features[i], new Object[]{null})));
+			}
+			editingDomain.getCommandStack().execute(compoundCommand);
+		}
+
+	}
+	
+	
 	/**
 	 * Handle the combo modified event.
 	 */

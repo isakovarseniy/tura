@@ -1,4 +1,17 @@
 #!/bin/sh
+#
+#   Tura - Application generation solution
+#
+#   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+#
+#
+#   This project includes software developed by Arseniy Isakov
+#   http://sourceforge.net/p/tura/wiki/Home/
+#   All rights reserved. This program and the accompanying materials
+#   are made available under the terms of the Eclipse Public License v2.0
+#   which accompanies this distribution, and is available at
+#   http://www.eclipse.org/legal/epl-v20.html
+#
 
 realpath() {
   OURPWD=${PWD}
@@ -19,6 +32,27 @@ PROGNAME=$(basename "${REALNAME}")
 ROOTDIR=${DIRNAME}/..
 TARGETDIR=${DIRNAME}
 TURA_HOME=${ROOTDIR}
+TURA_WORKING_DIRECTORY_PATTERN=.tura
+TURA_WORKING_DIRECTORY=${HOME}/${TURA_WORKING_DIRECTORY_PATTERN}
+
+file="$DIRNAME/version.properties"
+
+if [ -f "$file" ]
+then
+  echo "$file found."
+
+  while IFS='=' read -r key value
+  do
+    key=$(echo $key | tr '.' '_')
+    eval ${key}=\${value}
+  done < "$file"
+
+else
+  echo "$file not found."
+  exit -1;
+fi
+
+echo TURA VERSION $TURA_VERSION
 
 opts="${JLINE_OPTS}"
 logconf="${DIRNAME}/etc/logging.properties"
@@ -65,9 +99,12 @@ nothing() {
 }
 trap 'nothing' TSTP
 
-java -cp ${TARGETDIR}/processor-2.0-jar-with-dependencies.jar:${EXTENSION}\
+java -cp ${TARGETDIR}/processor-${TURA_VERSION}-jar-with-dependencies.jar:${EXTENSION}\
      $opts \
     -Dgosh.home="${DIRNAME}" \
     -DTURA_HOME="${TURA_HOME}" \
+    -DTURA_WORKING_DIRECTORY="${TURA_WORKING_DIRECTORY}" \
+    -DTURA_WORKING_DIRECTORY_PATTERN="${TURA_WORKING_DIRECTORY_PATTERN}" \
+    -DTURA_VERSION="${TURA_VERSION}" \
     -Djava.util.logging.config.file="${logconf}" \
     org.apache.felix.gogo.jline.TuraMain ${cmd}

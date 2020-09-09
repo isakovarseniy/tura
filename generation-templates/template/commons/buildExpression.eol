@@ -1,0 +1,102 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+operation  buildExpression( contextValue,hints,inOutParams) : String {
+     
+     if (contextValue = null )
+         return "";
+
+      if (contextValue.constant = true )
+           return contextValue.value;
+
+     if (contextValue.value = null )
+         return "";
+         
+     if (contextValue.value.length() = 0 )
+         return "";
+
+       var i : Integer = 0;    
+       var resultExpression : String = ""; 
+       var tokenizer = new Native("java.util.StringTokenizer")(contextValue.value,"."); 
+       var tokenArray = new Native("java.util.ArrayList"); 
+       while (tokenizer.hasMoreTokens()) {
+         tokenArray.add(tokenizer.nextToken());
+       }
+       
+       for (  exprParam in  contextValue.expression  )  {
+       switch(exprParam.expressionType){
+       
+          case "ArtificialFieldImpl":              resultExpression = ArtificialFieldImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DataControlHolder":           resultExpression = DataControlHolder(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TreeRootDataControlHolder": resultExpression = TreeRootDataControlHolder(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DataControlImpl":               resultExpression = DataControlImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TriggerImpl":                       resultExpression = TriggerImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TypeElementImpl":             resultExpression = TypeElementImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TypeImpl":             	           resultExpression = TypeImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "AttributeImpl":                     resultExpression = AttributeImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TypesImpl":                       resultExpression = TypesImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "PackageImpl":                    resultExpression = PackageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "OperationImpl":                  resultExpression = OperationImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "GroupImpl":                        resultExpression = GroupImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "RoleImpl":                          resultExpression = RoleImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "MessageLibraryImpl":        resultExpression = MessageLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ApplicationMessageLibraryImpl":                 resultExpression = ApplicationMessageLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "MessageImpl":                   resultExpression = MessageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DomainArtifactsImpl":         resultExpression = DomainArtifactsImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DomainArtifactImpl":           resultExpression = DomainArtifactImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ArtifactImpl":                       resultExpression = ArtifactImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "GeneratioinHintImpl":                resultExpression = GeneratioinHint(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DataControlFakeAttribute": resultExpression = DataControlFakeAttribute(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "DataControlFakeMethod":  resultExpression = DataControlFakeMethod(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TreeDataControl":               resultExpression = TreeDataControl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ExtendedType":                   resultExpression = ExtendedType(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ApplicationRealmsImpl":      resultExpression = ApplicationRealmsImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"ApplicationStyleImpl":           resultExpression = ApplicationStyleImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"StylesPackageImpl":             resultExpression = StylesPackageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"StyleLibraryImpl":                 resultExpression = StyleLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams); 
+          case"StyleSetImpl":                       resultExpression = StyleSetImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"RootImpl":                             resultExpression = RootImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"FormVariableImpl":               resultExpression = FormVariableImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"WindowImpl":                        resultExpression = WindowImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          
+        }
+        i = i +1;
+       }  
+      
+     return  resultExpression.replaceAll(".<holder>","").replaceAll("<holder>","");
+}
+
+operation form::DataControl findTreeRoot(  ) : form::DataControl {
+
+     var masters; 
+     var i = form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->size();
+     
+     if ( i = 0 ){
+        return self;
+     }
+      if (i  > 1 ){
+         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self  and r.master <> self)->collect(w|w.master);
+      }else{
+         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+      }
+
+      for ( master in masters ){
+         if (master = self )
+            return self;
+            
+         return master.findTreeRoot();   
+      }
+}
+
+

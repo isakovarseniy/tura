@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package recipe.util;
@@ -6,6 +20,7 @@ import artifact.Categorized;
 import common.HTMLLayerHolder;
 import common.Orderable;
 
+import mapper.VersionRef;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -116,6 +131,10 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 				return createJavaComponentAdapter();
 			}
 			@Override
+			public Adapter caseJavaScriptComponent(JavaScriptComponent object) {
+				return createJavaScriptComponentAdapter();
+			}
+			@Override
 			public Adapter caseInfrastructure(Infrastructure object) {
 				return createInfrastructureAdapter();
 			}
@@ -162,6 +181,10 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOrderable(Orderable object) {
 				return createOrderableAdapter();
+			}
+			@Override
+			public Adapter caseVersionRef(VersionRef object) {
+				return createVersionRefAdapter();
 			}
 			@Override
 			public Adapter caseCategorized(Categorized object) {
@@ -342,6 +365,20 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link recipe.JavaScriptComponent <em>Java Script Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see recipe.JavaScriptComponent
+	 * @generated
+	 */
+	public Adapter createJavaScriptComponentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link recipe.Infrastructure <em>Infrastructure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -506,6 +543,20 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrderableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mapper.VersionRef <em>Version Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mapper.VersionRef
+	 * @generated
+	 */
+	public Adapter createVersionRefAdapter() {
 		return null;
 	}
 

@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.impl;
@@ -5,8 +19,10 @@ package form.impl;
 import artifact.ArtifactPackage;
 import artifact.Categorized;
 import artifact.Classifier;
+
 import common.CommonPackage;
 import common.Orderable;
+
 import form.AreaRef;
 import form.Context;
 import form.ControlPointer;
@@ -21,21 +37,26 @@ import form.MenuHolder;
 import form.NickNamed;
 import form.RadioLayout;
 import form.RadioSelection;
-
-import form.Selection;
 import form.SourcesPointer;
 import form.StyleElement;
 import form.Uielement;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import type.Type;
 
 /**
@@ -77,6 +98,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected Context style;
+
 	/**
 	 * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -86,6 +108,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected static final String NICKNAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,6 +118,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected String nickname = NICKNAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -104,6 +128,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
 	/**
 	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -113,6 +138,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected static final int ORDER_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -122,6 +148,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -131,6 +158,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected Context enabled;
+
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -140,6 +168,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected EList<FlexField> fields;
+
 	/**
 	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -149,6 +178,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected MenuFolder menu;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -158,6 +188,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected static final String UID_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -167,6 +198,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -176,6 +208,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected Context required;
+
 	/**
 	 * The cached value of the '{@link #getReadOnly() <em>Read Only</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -185,6 +218,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected Context readOnly;
+
 	/**
 	 * The cached value of the '{@link #getRefreshAreas() <em>Refresh Areas</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -194,6 +228,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected EList<AreaRef> refreshAreas;
+
 	/**
 	 * The cached value of the '{@link #getSourcePointer() <em>Source Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -203,6 +238,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected DataControl sourcePointer;
+
 	/**
 	 * The cached value of the '{@link #getValuePointer() <em>Value Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -212,6 +248,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected EObject valuePointer;
+
 	/**
 	 * The cached value of the '{@link #getSourceCast() <em>Source Cast</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -221,6 +258,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected Type sourceCast;
+
 	/**
 	 * The cached value of the '{@link #getSourceCastDataControl() <em>Source Cast Data Control</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -230,6 +268,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected DataControl sourceCastDataControl;
+
 	/**
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -239,6 +278,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected static final RadioLayout LAYOUT_EDEFAULT = RadioLayout.LINE_DIRECTION;
+
 	/**
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -248,6 +288,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected RadioLayout layout = LAYOUT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -257,6 +298,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * @ordered
 	 */
 	protected static final int COLUMNS_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -1211,7 +1253,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nickname: ");
 		result.append(nickname);
 		result.append(", order: ");

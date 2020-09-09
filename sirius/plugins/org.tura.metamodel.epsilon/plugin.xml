@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      http://sourceforge.net/p/tura/wiki/Home/
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
 <?eclipse version="3.0"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      http://sourceforge.net/p/tura/wiki/Home/
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
 
 <!--
 -->
 
 <plugin>
+
+		<extension point="org.eclipse.ui.startup">
+		   <startup class="org.tura.metamodel.epsilon.tura.AutoStartTrigger"/>
+		</extension>
 
 </plugin>

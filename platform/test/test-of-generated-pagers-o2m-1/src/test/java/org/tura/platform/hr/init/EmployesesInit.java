@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.hr.init;
 
 import java.text.ParseException;
@@ -148,6 +145,14 @@ public class EmployesesInit {
 		create( (long)203,(long)203,"Susan","Mavris","SMAVRIS","515.123.7777",format.parse("07-Jun-94"),"REP",(float)6500,null,(long)101,(long)40);
 		create( (long)204,(long)204,"Hermann","Baer","HBAER","515.123.8888",format.parse("07-Jun-94"),"PR_REP",(float)10000,null,(long)101,(long)70);
 		create( (long)205, (long)205,"Shelley","Higgins","SHIGGINS","515.123.8080",format.parse("07-Jun-94"),"AC_MGR",(float)12000,null,(long)101,(long)110);
+		
+		create( (long)206,(long)107,"Diana1","Lorentz1","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+		create( (long)207,(long)207,"Diana2","Lorentz2","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+		create( (long)208,(long)208,"Diana3","Lorentz3","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+		create( (long)209,(long)209,"Diana4","Lorentz4","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+		create( (long)210,(long)210,"Diana5","Lorentz5","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+		create( (long)211,(long)211,"Diana6","Lorentz6","DLORENTZ","590.423.5567",format.parse("07-Feb-99"),"IT_PROG",(float)4200,null,(long)103,(long)10);
+
 
 	}
 

@@ -1,14 +1,32 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package sales.analyzer.ui.businesslogic.etlcontroller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +37,13 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
-import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.uuiclient.rest.EventDescription;
+import org.tura.platform.uuiclient.rest.EventParameter;
+import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
+import org.tura.platform.uuiclient.rest.client.commands.SwitchWindow;
+import org.tura.platform.uuiclient.rest.events.EventAware;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.HolderObjectArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.viewmodel.IViewPortHolder;
@@ -36,12 +58,13 @@ import sales.analyzer.api.model.impl.EtlMLPMessage;
 import sales.analyzer.commons.CachedUserPreferences;
 import sales.analyzer.process.commons.Constants;
 
-public class Actions implements EventAccessor {
+public class Actions implements EventAware {
+
+	private EventDescription event;
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
 	private static String IMAGE_FILE = "ajaxloadingbar.gif";
 	
-	private ActionEvent event;
 
 	@Inject
 	ELResolver elResolver;
@@ -59,21 +82,30 @@ public class Actions implements EventAccessor {
 
 	@Inject
 	CachedUserPreferences userPref;
+	
+	@Inject
+	ResponseState responseState;
+
 
 	public void openProcess() {
 		try {
 
-			EtlProcess process = (EtlProcess) event.getComponent().getAttributes().get("param1");
-			if (process != null) {
+			EventParameter param = event.findParameter("rowkey");
+			String key = (String) param.getValue();
+			StringTokenizer multiTokenizer = new StringTokenizer(key, ".");
+			String processId = multiTokenizer.nextToken();
+			String processingDate = multiTokenizer.nextToken();
+
+			if (processId != null) {
 				IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
-				bf.setSelectedProcess(process.getId());
-				bf.setProcessingDate(process.getFileProcessingDate());
+				bf.setSelectedProcess(Long.parseLong(processId));
+				bf.setProcessingDate(processingDate);
 
 				ObjectControl oh = (ObjectControl) bf.getHolderObject().getCurrentObject();
 				HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(oh);
 				adapter.setImage(IMAGE_FILE);
 
-				new ViewPortUpdate().setup(vp, elResolver);
+				new ViewPortUpdate().setup(vp, elResolver,responseState);
 
 			}
 		} catch (Exception e) {
@@ -109,21 +141,11 @@ public class Actions implements EventAccessor {
 	}
 
 	public void logout() {
-		try {
-			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-			HttpServletRequest request = ((HttpServletRequest) externalContext.getRequest());
-			request.logout();
-			externalContext.redirect("/sa-etl-controller/dataloader/etlcontroller/etlControlWindow.xhtml");
-		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
+	       SwitchWindow cmd = new SwitchWindow();
+	       cmd.setTarget("http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-etl-controller-react-client/dataloader/etlcontroller/etlControlWindow");
+		   responseState.addCommand(cmd);
 	}
 
-	@Override
-	public void setEvent(ActionEvent event) {
-		this.event = event;
-
-	}
 
 	public void nextStep() {
 		try {
@@ -171,7 +193,7 @@ public class Actions implements EventAccessor {
 		task.setCompleteTask(s);
 		applyChanges();
 
-		new ViewPortUpdate().setup(vp, elResolver);
+		new ViewPortUpdate().setup(vp, elResolver,responseState);
 
 	}
 
@@ -182,9 +204,15 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) bf.getFileEntry();
 			dc.forceRefresh();
 
-			new ViewPortUpdate().setup(vp, elResolver);
+			new ViewPortUpdate().setup(vp, elResolver,responseState);
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
+	}
+
+	@Override
+	public void setEvent(EventDescription event) {
+		this.event = event;
+		
 	}
 }

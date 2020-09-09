@@ -9,7 +9,9 @@ tura:docker pullImage --registry postgres --tag 9.6
 
 tura:docker createNetwork --network hr-net
 
-c = tura:docker config --user 0 
+c = tura:docker config --user 0\
+                                   --var POSTGRES_PASSWORD=postgres
+
 
 v = tura:docker createContainer --registry postgres --tag 9.6 --var c
 

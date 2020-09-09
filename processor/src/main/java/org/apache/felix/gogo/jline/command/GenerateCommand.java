@@ -1,21 +1,26 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
-import java.net.URL;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Properties;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -26,24 +31,28 @@ import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.ModelRepository;
 import org.eclipse.epsilon.eol.types.EolClasspathNativeTypeDelegate;
+import org.tura.configuration.dsl.commons.ConfigConstants;
 import org.tura.metamodel.commons.GeneratotPreferences;
+import org.tura.metamodel.commons.JavaComponentWrapper;
+import org.tura.metamodel.commons.JavaScriptComponentWrapper;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.generation.HeadlessLogWrapper;
-import org.tura.processor.connection.PlatformURLStreamHandlerFactory;
 
 import domain.DomainPackage;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import recipe.Component;
 import recipe.Ingredient;
+import recipe.JavaComponent;
+import recipe.JavaScriptComponent;
 import recipe.ModelMapper;
 import recipe.Recipe;
 
 @Command(name = "generate")
-public class GenerateCommand extends TuraCommand implements Runnable{
+public class GenerateCommand extends TuraCommand implements Runnable {
 
-	@Option(names = "--recipeId",   description = "Recipe identificator")
+	@Option(names = "--recipeId", description = "Recipe identificator")
 	private String recipeId;
 
 	@Option(names = "--componentId", description = "Component identificator")
@@ -66,6 +75,11 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 
 	public void run() {
 		EmfModel model = null;
+
+//		if (!new LicenseValidation().validate()) {
+//			return;
+//		}
+
 		try {
 			String action = null;
 
@@ -83,15 +97,35 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 				action = "recipeId";
 			}
 			if (action == null) {
-				throw new IllegalArgumentException("One of parameters mapperId/componentId/ingredientId  should be defined");
+				throw new IllegalArgumentException(
+						"One of parameters mapperId/componentId/ingredientId  should be defined");
 			}
 
 			GeneratotPreferences.wrapper = new HeadlessLogWrapper();
-
-			if ( initURL == false){
-			   URL.setURLStreamHandlerFactory(new PlatformURLStreamHandlerFactory());
-			   initURL=true;
+			Properties prop = new Properties();
+			ByteArrayInputStream in = null;
+			try {
+				in = new ByteArrayInputStream(
+						Files.readAllBytes(Paths.get(ConfigConstants.TURA_WORKING_DIRECTORY + "/generation.properties")));
+				prop.load(in);
+			} catch (IOException e) {
 			}
+			
+			String s = (String) prop.get("LOG_TEMPLATES");
+			if ( s != null) {
+	            GeneratotPreferences.logTemlates = Boolean.parseBoolean(s);
+			}else {
+	            GeneratotPreferences.logTemlates = false;
+				
+			}
+			
+			s = (String) prop.get("DEBUGING");
+			if ( s != null) {
+	            GeneratotPreferences.debigging = Boolean.parseBoolean(s);
+			}else {
+	            GeneratotPreferences.debigging = false;
+			}
+
 			EPackage.Registry.INSTANCE.put(DomainPackage.eINSTANCE.getNsURI(), DomainPackage.eINSTANCE);
 
 			model = createEmfModelByURI("Model", modelFile, DomainPackage.eINSTANCE.getNsURI(), true, false);
@@ -137,21 +171,21 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 					break;
 				}
 				if (!result) {
-		            throw new IllegalArgumentException("Generation error");
+					throw new IllegalArgumentException("Generation error");
 				}
 				System.out.println("Generation  completed");
 				if (build) {
 					BuildCommand buildCmd = new BuildCommand();
-					result =buildCmd.depoymentRecipe(recipe);
+					result = buildCmd.depoymentRecipe(recipe);
 					if (!result) {
-			            throw new IllegalArgumentException("Building error");
+						throw new IllegalArgumentException("Building error");
 					}
 				}
 			}
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
-		}finally{
+		} finally {
 			if (model != null) {
 				model.dispose();
 			}
@@ -225,10 +259,18 @@ public class GenerateCommand extends TuraCommand implements Runnable{
 			factory.getContext().setOutputStream(System.out);
 			modelRepo.addModel(model);
 
+			Component componentWrap = null;
+			if (component instanceof JavaComponent) {
+				componentWrap = new JavaComponentWrapper((JavaComponent) component);
+			}
+			if (component instanceof JavaScriptComponent) {
+				componentWrap = new JavaScriptComponentWrapper((JavaScriptComponent) component);
+			}
+
 			HashMap<String, Object> parameters = new HashMap<>();
 			parameters.put("recipe", recipe);
 			parameters.put("ingredient", ingredient);
-			parameters.put("component", component);
+			parameters.put("component", componentWrap);
 			parameters.put("model_mapper", mapper);
 			parameters.put("configuration", configuration);
 

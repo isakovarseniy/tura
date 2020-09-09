@@ -1,0 +1,239 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/buildExpression.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ 
+
+
+operation form::Controls processRootElement(recipe:Recipe, ingredient :Ingredient ) { 
+    if (self.root.isDefined()){
+ 	   for ( frmvar in self.root.variables){
+ 	      if ( frmvar.typeRef <> null)
+ 	          frmvar.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
+ 	      if (frmvar.paramRef<> null and frmvar.paramRef.typeRef <> null  )    
+ 	         frmvar.paramRef.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
+	   }
+       if (self.root.preFormTrigger.isDefined()) 	         
+ 	        self.root.preFormTrigger.processTrigger(recipe,ingredient);
+    }
+}
+
+operation form::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient,hash ) { 
+
+      if ( self.defaultSearch<> null)
+            self.defaultSearch.processParameters(recipe,ingredient,self,hash);
+}
+
+operation form::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
+
+        self.create.processTrigger(recipe,ingredient,self,hash);
+        
+        self.search.processTrigger(recipe,ingredient,self,hash);
+}
+
+
+operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,model_mapper:ModelMapper, hash) {
+     var relSet = self.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=self );
+     
+     if (relSet.size() <> 0){
+        var rel =relSet.iterator().next();
+
+         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
+         if (assossiations.size() == 0){
+            assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
+         }
+         var  assossiation = null;
+        if (assossiations.size() == 0){
+             assossiation = rel.assosiationRef;
+         }else{
+              assossiation = assossiations.iterator().next();
+         }
+         
+        var hash = assossiation.findTypeOfAssosiation(model_mapper); 
+         
+        self.~containment=hash.get("containment");
+        self.~property=hash.get("property");
+        self.~pagerType="internalPager" ; 
+        self.~parenType=rel.master.baseType;
+        self.~rel=assossiation;
+        self.~masterControl = rel.master;
+        
+     }else{
+        self.~pagerType="topPager" ; 
+     }
+     
+}
+
+
+
+operation form::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        if (self.methodRef.isDefined()){
+          self.methodRef.eContainer().mappingType2Java(recipe,ingredient,'VIEW');
+          self.processParameters(recipe,ingredient,datacontrol,hash);
+        }
+}
+
+operation form::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+        
+        for (parameter in self.parameters){
+            parameter.value.~sourceControl=datacontrol.findTreeRoot();
+            parameter.~result =  buildExpression(parameter.value,hints,hash);
+            parameter.refObj.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
+        }
+}
+
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
+     self.processKeys(recipe,ingredient, null);
+}
+
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient , proxyJavaComponent) { 
+
+        var util = new Native('org.tura.metamodel.commons.Util');
+        
+        var basetype = self.getBaseClass(recipe,ingredient);
+        
+        self.~baseclass = basetype.~class;
+        self.~basepackage = basetype.~package;
+        if (proxyJavaComponent <> null){
+          self.~basepackage = proxyJavaComponent.basePackage;
+        }
+        self.~basefullName = basetype.~fullName;     
+        
+        var keys = new Native('java.util.ArrayList');
+        var operations = new Native('java.util.HashMap');
+        var attributes = new Native('java.util.HashMap');
+        
+        var helper = new Native('org.tura.metamodel.commons.Helper');
+        helper.addOperations(operations, attributes,basetype);
+
+         for (attribute in attributes.values){
+               if (attribute.pk == true ){
+                  keys.add(attribute);
+               }
+         }
+        self.~keys = keys;
+}
+
+
+
+operation form::DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredient ) { 
+
+        var artificialFields = self.artificialFields;
+        for (  field in artificialFields){
+           field.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
+        }
+}
+
+operation form::DataControl processRelations( recipe:Recipe, ingredient :Ingredient,hash) { 
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+        
+       var masterscontrol = form::DataControl.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid )->reject(q|form::Relation.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid  )->collect(w|w.detail)->includes(q));        
+        for ( master in masterscontrol ){
+            master.~masterControl = true;
+        }        
+        var form = queryHelper.getForm(self);
+        var treeRoots =   queryHelper.findTreeRootControls(form);
+        for ( tR in treeRoots ){
+            var treeRoot = tR.getDc();
+            var objectTrack =  new Native('java.util.ArrayList');
+            if (treeRoot.~dependArray = null)     
+                 treeRoot.~dependArray = new Native('java.util.ArrayList');    
+            treeRoot.~treeRoot=true;       
+            treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
+        }
+        
+}
+
+
+operation form::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient,hash){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+        
+        var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+        var form = queryHelper.getForm(self);
+        var listOfDependencies = form::Dependency.allInstances()->select(r| r.eContainer().uid = form.getDatacontrols().getUid())->collect(w|w);
+        for (dep in listOfDependencies){
+            var master = dep.master;
+            var dependent = dep.detail;
+             if (dependent.~dependObject = null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+         
+            dependent.~dependObject.add(master.getBaseClass(recipe,ingredient).~fullName);
+         
+             if (master.~dependArray = null)     
+                 master.~dependArray = new Native('java.util.ArrayList');    
+                 
+            master.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
+                 
+        }         
+
+}
+
+operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient,hash){
+
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+
+         if (objectTrack.contains(self) )
+              return;
+        
+        objectTrack.add(self);
+        
+        var listOfRelations = form::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        for (rel in listOfRelations){
+            var dependent = rel.detail;
+            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
+            if (dependent.~dependObject == null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+    // self is master datacontrol            
+            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+            dependent.~masterRoot=treeRoot;
+            dependent.~relation=rel;
+            for ( lnk in rel.links ){
+                lnk.masterField.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
+                lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,rel.master.findTreeRoot(), lnk),hints,hash);
+            }
+        }      
+              
+        var listOfDependecies = form::Dependency.allInstances()->select(r| r.master = self);
+        for (dep in listOfDependecies){
+            var dependent = dep.detail;
+            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
+           if (dependent.~dependObject == null)
+                dependent.~dependObject = new Native('java.util.ArrayList');  
+
+            dependent.~dependObject.add(self.getBaseClass(recipe,ingredient).~fullName);
+         
+        }              
+              
+        var listOfTreeNodes = form::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
+        for (treeNode in listOfTreeNodes){
+               treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
+        }
+}
+
+operation form::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : type::Type{
+
+       var base = self.baseType.typeRef;
+       base.mappingType2Java(recipe,ingredient,'VIEW');
+       return base;
+ 
+ }

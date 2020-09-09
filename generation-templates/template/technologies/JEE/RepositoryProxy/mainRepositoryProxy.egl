@@ -1,0 +1,95 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ 
+ 
+  [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var alltypes = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var templateStore = new Native('java.util.HashMap');
+
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+ 
+      if (types <> null and types.size <> 0 ){
+        var typeCollection = new Native("java.util.ArrayList");
+
+	    for (type in types){
+	       type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+
+      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+
+      for(type in typeCollection){
+        if (not type.~primaryKey.isDefined()  ){
+           continue;
+        }
+        
+        type.mappingType2Java(recipe,ingredient);
+
+        var interfaces = new Native('java.util.ArrayList');
+        var general = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+        for ( rel in general ){
+	        if ( rel.findClassifier(util.getHint(model_mapper,"Domain Interface"))){
+	           var i = rel.target;
+	           if (i.isKindOf(type::TypeReference)){
+	              i = i.typeRef;
+	           }
+	           i.mappingType2Java(recipe,ingredient);
+	           interfaces.add(i);
+	        }
+        }
+        
+
+	    hash.put("tp",type);
+	    hash.put("recipe",recipe);
+	    hash.put("ingredient",ingredient);
+	    hash.put("component",component);
+	    hash.put("model_mapper",model_mapper);
+	    hash.put("path",path);
+	    hash.put("interfaces",interfaces);
+		    
+	    util.populateTechnologies(hash,model_mapper);
+		
+	    var serializer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/proxyClass.egl",hash,TemplateFactory,templateStore);
+	    serializer.setFormatter(f);
+	    var buffer = serializer.process();
+	    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class+"Proxy.java",buffer);   
+         
+      }
+      
+
+	    hash.remove("type");
+	    hash.put("typeCollection",typeCollection);
+	    
+	    util.populateTechnologies(hash,model_mapper);
+		
+	    var repository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/proxyRepository.egl",hash,TemplateFactory);
+	    repository.setFormatter(f);
+	    var buffer = repository.process();
+	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);   
+    }
+    
+  %]  

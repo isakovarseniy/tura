@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.provider;
@@ -1014,29 +1028,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.OptionSelection} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionSelectionItemProvider optionSelectionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.OptionSelection}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionSelectionAdapter() {
-		if (optionSelectionItemProvider == null) {
-			optionSelectionItemProvider = new OptionSelectionItemProvider(this);
-		}
-
-		return optionSelectionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.LayerHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1195,6 +1186,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return checkBoxItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.OptionSelection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OptionSelectionItemProvider optionSelectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.OptionSelection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOptionSelectionAdapter() {
+		if (optionSelectionItemProvider == null) {
+			optionSelectionItemProvider = new OptionSelectionItemProvider(this);
+		}
+
+		return optionSelectionItemProvider;
 	}
 
 	/**
@@ -1540,6 +1554,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return pollItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.DataTemplate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataTemplateItemProvider dataTemplateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.DataTemplate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataTemplateAdapter() {
+		if (dataTemplateItemProvider == null) {
+			dataTemplateItemProvider = new DataTemplateItemProvider(this);
+		}
+
+		return dataTemplateItemProvider;
 	}
 
 	/**

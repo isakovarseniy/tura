@@ -2,15 +2,15 @@
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Development" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:48:27"/>
-    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
+    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="24"/>
   </context>
   <context confirmationNeeded="false" name="Development">
     <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:30:31"/>
-    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
-    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
+    <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/.tura/resources/sa/jobs/"/>
+    <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="24"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="32" show="false"/>
@@ -38,8 +38,9 @@
     <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
     <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="CHECK" name="OVERRIDE_ENCODING_FLAG" value="false" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="OVERRIDE_ENCODING_IN_EXTRA" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="OVERRIDE_ENCODING_IN_EXTRA:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
     <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -52,7 +53,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:1lUkwg9N4y2XYRcsQTi5DBg5jCHhgiuKDrWVwAq2" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -67,7 +68,7 @@
     <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
     <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
     <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
-    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/Users/arseniy/MyPrj/git/tura.4.2.2/examples/sales-analyzer/talend-workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/Users/arseniy/MyPrj/git/tura5/examples/sales-analyzer/talend-workspace/.metadata&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
     <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
@@ -75,7 +76,7 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
     <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_11" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_12" show="false"/>
     <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
     <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
     <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
@@ -87,7 +88,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:cDh8SJXlsC+YkY3SSl5hlcyD39vXdObPbkTH/SGj" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -235,11 +236,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_1" show="false"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_JAVA" name="CODE_START" value="// start part of your Java code&#xA;sales.analyzer.process.commons.rule.impl.MonthlyFileRuleServiceImpl service = new sales.analyzer.process.commons.rule.impl.MonthlyFileRuleServiceImpl();      "/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="    &#xA;sales.analyzer.process.commons.model.MonthlyFileRuleModel model = new sales.analyzer.process.commons.model.MonthlyFileRuleModel ();&#xA;model.setCountry_id(row1.country_id);&#xA;model.setId_state(row1.id_state);&#xA;model.setId_city(row1.id_city);&#xA;model.setProduct(row1.product);&#xA;model.setName_country(row1.name_country);&#xA;model.setName_state(row1.name_state);&#xA;model.setName_city(row1.name_city);&#xA;model.setAmount(row1.amount);&#xA;model.setDate(row1.date);&#xA;model.setMonth_1_amount(row1.month_1_amount);&#xA;model.setMonth_2_amount(row1.month_2_amount);&#xA;model.setMonth_3_amount(row1.month_3_amount);&#xA;&#xA;model = service.execute(model);    &#xA;&#xA;row2.isCaseGenerated = model.isWillCaseGenerate();&#xA;&#xA;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="    &#xA;sales.analyzer.process.commons.model.MonthlyFileRuleModel model = new sales.analyzer.process.commons.model.MonthlyFileRuleModel ();&#xA;model.setCountry_id(row1.country_id);&#xA;model.setId_state(row1.id_state);&#xA;model.setId_city(row1.id_city);&#xA;model.setProduct(row1.product);&#xA;model.setName_country(row1.name_country);&#xA;model.setName_state(row1.name_state);&#xA;model.setName_city(row1.name_city);&#xA;model.setAmount(row1.amount);&#xA;model.setDate(row1.date);&#xA;model.setMonth_1_amount(row1.month_1_amount);&#xA;model.setMonth_2_amount(row1.month_2_amount);&#xA;model.setMonth_3_amount(row1.month_3_amount);&#xA;&#xA;model = service.execute(model);    &#xA;&#xA;row2.isCaseGenerated = model.isWillCaseGenerate();&#xA;row2.country_id = row1.country_id;&#xA;row2.id_state = row1.id_state;&#xA;row2.id_city = row1.id_city;&#xA;row2.product = row1.product;&#xA;row2.name_country = row1.name_country;&#xA;row2.name_state = row1.name_state;&#xA;row2.name_city = row1.name_city;&#xA;row2.amount = row1.amount;&#xA;row2.date = row1.date;&#xA;row2.month_1_amount = row1.month_1_amount;&#xA;row2.month_2_amount = row1.month_2_amount;&#xA;row2.month_3_amount = row1.month_3_amount;&#xA;"/>
     <elementParameter field="MEMO_JAVA" name="CODE_END" value="// end of the component, outside/closing the loop&#xA;      "/>
     <elementParameter field="CHECK" name="Version_V2_0" value="false" show="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" value="false" show="false"/>
-    <elementParameter field="CHECK" name="Version_V4.0" value="true" show="false"/>
+    <elementParameter field="CHECK" name="Version_V4.0" value="false" show="false"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaFlex_1">
@@ -306,7 +307,7 @@
   </node>
   <node componentName="tLibraryLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="0" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLibraryLoad_1" show="false"/>
-    <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;rules-commons-1.0.0-SNAPSHOT.jar&quot;"/>
+    <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;rules-commons-5.0.0.jar&quot;"/>
     <elementParameter field="TABLE" name="HOTLIBS"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>

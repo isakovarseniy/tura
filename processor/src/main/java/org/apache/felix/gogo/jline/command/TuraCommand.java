@@ -1,23 +1,26 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Map;
 
+import org.apache.commons.lang.text.StrSubstitutor;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.EolModule;
@@ -34,7 +37,7 @@ import recipe.KeyValuePair;
 import recipe.Property;
 
 public class TuraCommand {
-	
+
 	public static boolean initURL = false;
 
 	protected EmfModel createEmfModel(String name, String model, String metamodel, boolean readOnLoad,
@@ -75,36 +78,41 @@ public class TuraCommand {
 		return module;
 	}
 
-	protected void getConfiguratioin(Configuration conf ,HashMap<String,Object> configuration){
+	protected void getConfiguratioin(Configuration conf, HashMap<String, Object> configuration) {
 		QueryHelper helper = new QueryHelper();
-		try{
-		if (conf != null){
-  		   for (Property prop : conf.getProperties()){
-			  String p = System.getProperty(prop.getConfVarRef().getName());
-			  if ( p != null){
-				  configuration.put(prop.getConfVarRef().getName(), p);
-			  }else{
-				  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
-			  }
-		   }
-  		   
- 		   for (HashProperty prop : conf.getHashProperties()){
- 			  HashMap <String,String> hash = new HashMap<String, String>();
+		try {
+			if (conf != null) {
 
- 			  for (KeyValuePair pair : prop.getHash())
- 				 hash.put(pair.getKey(), pair.getValue());
- 			  
-			  configuration.put(prop.getConfHashRef().getName(), hash);
-		   }
-  		   
-		   if (  helper.getConfigExtensionUp(conf) != null)
-			   getConfiguratioin(helper.getConfigExtensionUp(conf),configuration);
-		}
-		}catch(Exception e){
-			
+				Map<String, String> values = new HashMap<String, String>();
+				for (Object k : System.getProperties().keySet()) {
+					String key = (String) k;
+					values.put(key, System.getProperty(key));
+				}
+				for (Property prop : conf.getProperties()) {
+					values.put(prop.getConfVarRef().getName(), prop.getValue());
+				}
+
+				StrSubstitutor sub = new StrSubstitutor(values);
+
+				for (Property prop : conf.getProperties()) {
+					configuration.put(prop.getConfVarRef().getName(), sub.replace(prop.getValue()));
+				}
+
+				for (HashProperty prop : conf.getHashProperties()) {
+					HashMap<String, String> hash = new HashMap<String, String>();
+
+					for (KeyValuePair pair : prop.getHash())
+						hash.put(pair.getKey(), pair.getValue());
+
+					configuration.put(prop.getConfHashRef().getName(), hash);
+				}
+
+				if (helper.getConfigExtensionUp(conf) != null)
+					getConfiguratioin(helper.getConfigExtensionUp(conf), configuration);
+			}
+		} catch (Exception e) {
+
 		}
 	}
-	
-	
 
 }

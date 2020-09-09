@@ -1,9 +1,24 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.commons.properties.selections.adapters;
 
 
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.MappersRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationHashesHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationVariablesHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
@@ -19,6 +34,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 
 import application.Application;
 import application.ApplicationGroup;
+import application.ApplicationMapper;
 import application.ApplicationMessageLibrary;
 import application.ApplicationRealm;
 import application.ApplicationRealms;
@@ -43,6 +59,7 @@ import form.Form;
 import form.FormVariable;
 import form.Root;
 import form.Window;
+import mapper.Mapper;
 import message.Message;
 import message.MessageLibrary;
 import permission.Group;
@@ -112,6 +129,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationRealmsProvider applicationRealmsProvider;
 	private ApplicationStyleLibrariesProvider applicationStyleLibrariesProvider;
 	private ApplicationMessageLibraryProvider applicationMessageLibraryProvider;
+	private ApplicationMapperProvider applicationMapperProvider;
+	private MapperProvider mapperProvider;
+	private MapperRootProvider mapperRootProvider;
+
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -223,9 +244,16 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getApplicationStyleLibrariesProvider();
 			if (adaptableObject instanceof ApplicationMessageLibrary)
 				return getApplicationMessageLibraryProvider();
-	
-								
-			
+			if (adaptableObject instanceof ApplicationMapper)
+				return getApplicationMapperProvider();
+			if (adaptableObject instanceof Mapper)
+				return getMapperProvider();
+			if (adaptableObject instanceof MappersRoot)
+				return getMapperRootProvider();
+
+		
+					
+		
 		}
 		return null;
 	}
@@ -527,5 +555,24 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	}
 	
 	
+	protected ApplicationMapperProvider getApplicationMapperProvider(){
+		if (applicationMapperProvider == null)
+			applicationMapperProvider = new ApplicationMapperProvider();
+		return applicationMapperProvider;		
+	}
 	
+
+	protected MapperProvider getMapperProvider(){
+		if (mapperProvider == null)
+			mapperProvider = new MapperProvider();
+		return mapperProvider;		
+	}
+	
+	
+	protected MapperRootProvider getMapperRootProvider(){
+		if (mapperRootProvider == null)
+			mapperRootProvider = new MapperRootProvider();
+		return mapperRootProvider;		
+	}
+
 }

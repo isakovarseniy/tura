@@ -1,14 +1,32 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.impl;
 
+import mapper.ArtifactType;
 import mapper.JavaScriptMapper;
 import mapper.MapperPackage;
 
+import mapper.Version;
+import mapper.VersionRef;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,17 +37,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#getVersionRef <em>Version Ref</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link mapper.impl.JavaScriptMapperImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#getMappedToInternalLocation <em>Mapped To Internal Location</em>}</li>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#getMappedToClassName <em>Mapped To Class Name</em>}</li>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#getJsPackageName <em>Js Package Name</em>}</li>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#isLocal <em>Local</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMapper {
+	/**
+	 * The cached value of the '{@link #getVersionRef() <em>Version Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersionRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected Version versionRef;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -111,24 +143,84 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	protected String groupId = GROUP_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * The default value of the '{@link #getMappedToInternalLocation() <em>Mapped To Internal Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVersion()
+	 * @see #getMappedToInternalLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VERSION_EDEFAULT = null;
+	protected static final String MAPPED_TO_INTERNAL_LOCATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * The cached value of the '{@link #getMappedToInternalLocation() <em>Mapped To Internal Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVersion()
+	 * @see #getMappedToInternalLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected String version = VERSION_EDEFAULT;
+	protected String mappedToInternalLocation = MAPPED_TO_INTERNAL_LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMappedToClassName() <em>Mapped To Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappedToClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAPPED_TO_CLASS_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMappedToClassName() <em>Mapped To Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappedToClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mappedToClassName = MAPPED_TO_CLASS_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getJsPackageName() <em>Js Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJsPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JS_PACKAGE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJsPackageName() <em>Js Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJsPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jsPackageName = JS_PACKAGE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isLocal() <em>Local</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLocal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LOCAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isLocal() <em>Local</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLocal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean local = LOCAL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getArtifactType() <em>Artifact Type</em>}' attribute.
@@ -138,7 +230,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ARTIFACT_TYPE_EDEFAULT = "jar";
+	protected static final ArtifactType ARTIFACT_TYPE_EDEFAULT = ArtifactType.JAR;
 
 	/**
 	 * The cached value of the '{@link #getArtifactType() <em>Artifact Type</em>}' attribute.
@@ -148,7 +240,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * @generated
 	 * @ordered
 	 */
-	protected String artifactType = ARTIFACT_TYPE_EDEFAULT;
+	protected ArtifactType artifactType = ARTIFACT_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +259,44 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	protected EClass eStaticClass() {
 		return MapperPackage.Literals.JAVA_SCRIPT_MAPPER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version getVersionRef() {
+		if (versionRef != null && versionRef.eIsProxy()) {
+			InternalEObject oldVersionRef = (InternalEObject)versionRef;
+			versionRef = (Version)eResolveProxy(oldVersionRef);
+			if (versionRef != oldVersionRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF, oldVersionRef, versionRef));
+			}
+		}
+		return versionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version basicGetVersionRef() {
+		return versionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersionRef(Version newVersionRef) {
+		Version oldVersionRef = versionRef;
+		versionRef = newVersionRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF, oldVersionRef, versionRef));
 	}
 
 	/**
@@ -258,8 +388,8 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVersion() {
-		return version;
+	public String getMappedToInternalLocation() {
+		return mappedToInternalLocation;
 	}
 
 	/**
@@ -267,11 +397,11 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVersion(String newVersion) {
-		String oldVersion = version;
-		version = newVersion;
+	public void setMappedToInternalLocation(String newMappedToInternalLocation) {
+		String oldMappedToInternalLocation = mappedToInternalLocation;
+		mappedToInternalLocation = newMappedToInternalLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION, oldMappedToInternalLocation, mappedToInternalLocation));
 	}
 
 	/**
@@ -279,7 +409,70 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getArtifactType() {
+	public String getMappedToClassName() {
+		return mappedToClassName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMappedToClassName(String newMappedToClassName) {
+		String oldMappedToClassName = mappedToClassName;
+		mappedToClassName = newMappedToClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME, oldMappedToClassName, mappedToClassName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getJsPackageName() {
+		return jsPackageName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJsPackageName(String newJsPackageName) {
+		String oldJsPackageName = jsPackageName;
+		jsPackageName = newJsPackageName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME, oldJsPackageName, jsPackageName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isLocal() {
+		return local;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocal(boolean newLocal) {
+		boolean oldLocal = local;
+		local = newLocal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL, oldLocal, local));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArtifactType getArtifactType() {
 		return artifactType;
 	}
 
@@ -288,9 +481,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setArtifactType(String newArtifactType) {
-		String oldArtifactType = artifactType;
-		artifactType = newArtifactType;
+	public void setArtifactType(ArtifactType newArtifactType) {
+		ArtifactType oldArtifactType = artifactType;
+		artifactType = newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT : newArtifactType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE, oldArtifactType, artifactType));
 	}
@@ -303,6 +496,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF:
+				if (resolve) return getVersionRef();
+				return basicGetVersionRef();
 			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 				return getUid();
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
@@ -311,8 +507,14 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 				return getArtifactId();
 			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
 				return getGroupId();
-			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
-				return getVersion();
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION:
+				return getMappedToInternalLocation();
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME:
+				return getMappedToClassName();
+			case MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME:
+				return getJsPackageName();
+			case MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL:
+				return isLocal();
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
 				return getArtifactType();
 		}
@@ -327,6 +529,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF:
+				setVersionRef((Version)newValue);
+				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 				setUid((String)newValue);
 				return;
@@ -339,11 +544,20 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
 				setGroupId((String)newValue);
 				return;
-			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
-				setVersion((String)newValue);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION:
+				setMappedToInternalLocation((String)newValue);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME:
+				setMappedToClassName((String)newValue);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME:
+				setJsPackageName((String)newValue);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL:
+				setLocal((Boolean)newValue);
 				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
-				setArtifactType((String)newValue);
+				setArtifactType((ArtifactType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,6 +571,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF:
+				setVersionRef((Version)null);
+				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -369,8 +586,17 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
-			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
-				setVersion(VERSION_EDEFAULT);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION:
+				setMappedToInternalLocation(MAPPED_TO_INTERNAL_LOCATION_EDEFAULT);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME:
+				setMappedToClassName(MAPPED_TO_CLASS_NAME_EDEFAULT);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME:
+				setJsPackageName(JS_PACKAGE_NAME_EDEFAULT);
+				return;
+			case MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL:
+				setLocal(LOCAL_EDEFAULT);
 				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
 				setArtifactType(ARTIFACT_TYPE_EDEFAULT);
@@ -387,6 +613,8 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF:
+				return versionRef != null;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
@@ -395,12 +623,50 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
-			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION:
+				return MAPPED_TO_INTERNAL_LOCATION_EDEFAULT == null ? mappedToInternalLocation != null : !MAPPED_TO_INTERNAL_LOCATION_EDEFAULT.equals(mappedToInternalLocation);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME:
+				return MAPPED_TO_CLASS_NAME_EDEFAULT == null ? mappedToClassName != null : !MAPPED_TO_CLASS_NAME_EDEFAULT.equals(mappedToClassName);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME:
+				return JS_PACKAGE_NAME_EDEFAULT == null ? jsPackageName != null : !JS_PACKAGE_NAME_EDEFAULT.equals(jsPackageName);
+			case MapperPackage.JAVA_SCRIPT_MAPPER__LOCAL:
+				return local != LOCAL_EDEFAULT;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
-				return ARTIFACT_TYPE_EDEFAULT == null ? artifactType != null : !ARTIFACT_TYPE_EDEFAULT.equals(artifactType);
+				return artifactType != ARTIFACT_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == VersionRef.class) {
+			switch (derivedFeatureID) {
+				case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF: return MapperPackage.VERSION_REF__VERSION_REF;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == VersionRef.class) {
+			switch (baseFeatureID) {
+				case MapperPackage.VERSION_REF__VERSION_REF: return MapperPackage.JAVA_SCRIPT_MAPPER__VERSION_REF;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -412,7 +678,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
 		result.append(", libraryUrl: ");
@@ -421,8 +687,14 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 		result.append(artifactId);
 		result.append(", groupId: ");
 		result.append(groupId);
-		result.append(", version: ");
-		result.append(version);
+		result.append(", mappedToInternalLocation: ");
+		result.append(mappedToInternalLocation);
+		result.append(", mappedToClassName: ");
+		result.append(mappedToClassName);
+		result.append(", jsPackageName: ");
+		result.append(jsPackageName);
+		result.append(", local: ");
+		result.append(local);
 		result.append(", artifactType: ");
 		result.append(artifactType);
 		result.append(')');

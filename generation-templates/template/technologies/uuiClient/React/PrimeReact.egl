@@ -1,0 +1,118 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+// Model
+
+import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/idGenerator.egl";
+import "tura:/generation-templates/template/commons/roleElementUtil.eol";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Window.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Canvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/ViewArea.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/LayerHolder.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/ViewPort.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/TabCanvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/TabPage.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/PopupCanvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/OverlayCanvas.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/InputText.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/InputText_inputText.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/InputText_textAria.egl";
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Button.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Date.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Table.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataScroller.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Tree.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Label.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/OutputText.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Image.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/RadioSelection.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/FileUpload.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/FileDownload.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Poll.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/WindowRef.egl";
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataTemplate.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataTemplate_CommandLink.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/MessageElement.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/MessageElement_message.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/MessageElement_messages.egl";
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/CheckBox.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Password.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DropDownSelection.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/SelectManyMenu.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Menu.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/ViewModelReference.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/React.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/uuiCommons.egl";
+
+
+import "tura:/generation-templates/template/technologies/uuiClient/ActionExecutor.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/ScriptGenerator.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/MenuGenerator.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/MenuProvider.egl";
+
+
+//Client
+
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Canvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/OverlayCanvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/PopupCanvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/TabCanvas.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/ViewArea.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/ViewPort.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Window.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/LayerHolder.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Menu.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/OutputText.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/InputText.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Button.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Message.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Label.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/CheckBox.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Password.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Date.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Image.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/DropDownSelection.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/SelectManyMenu.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/RadioSelection.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/FileUpload.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/FileDownload.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Poll.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/DataScroller.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Table.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Tree.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/WindowRef.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/DataTemplate.egl";
+
+
+%]

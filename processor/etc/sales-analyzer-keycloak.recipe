@@ -8,13 +8,13 @@ tura:docker pullImage --registry jboss/keycloak --tag 4.8.3.Final
 
 tura:docker createNetwork --network sa-net
 
-c = tura:docker config                               \
-                --var DB_ADDR=db                     \
-                --var DB_VENDOR=postgres             \
-                --var DB_USER=postgres               \
-                --var DB_PASSWORD=postgres           \
-                --var DB_DATABASE=postgres           \
-                --var KEYCLOAK_USER=admin            \
+c = tura:docker config\
+                --var DB_ADDR=db\
+                --var DB_VENDOR=postgres\
+                --var DB_USER=postgres\
+                --var DB_PASSWORD=postgres\
+                --var DB_DATABASE=postgres\
+                --var KEYCLOAK_USER=admin\
                 --var KEYCLOAK_PASSWORD=qwerty
 
 v = tura:docker createContainer --registry jboss/keycloak --tag 4.8.3.Final --var c

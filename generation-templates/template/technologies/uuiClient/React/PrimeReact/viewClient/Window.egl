@@ -1,0 +1,131 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  form::Window createComponent(hash) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var jsPath = hash.get("jsPath");
+     var applicationContext = hash.get("applicationContext");
+     
+     var ports = new Native("java.util.ArrayList");
+     
+     var generateComponents = new Native("java.util.ArrayList");
+     var populateInclude = new Native("java.util.HashMap");
+     var clientLibraryPackage = hash.get('clientLibraryPackage');
+     
+     hash.put("generateComponents",generateComponents);
+     hash.put("populateInclude",populateInclude);
+     
+     
+     util.traceIfDebug("React UI element","Window start: "+self.name);     
+
+
+
+%]
+
+
+export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
+    constructor(props) {
+        super(props);
+        this.contextManager = new ContextManager('/[%=applicationContext%]/rest/uuiserver/update',"[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]", props.sessionId);
+    }
+
+    componentDidMount() {
+      [% if ( form.parameters.size() <> 0){ 
+          populateInclude(hash,"queryString",  "query-string");
+      %]
+        const values = queryString.parse(this.props.location.search);
+      [%}%]
+    
+      [%
+      for ( param in form.parameters){
+      %]
+      this.contextManager.addParam("[%=param.name%]",values.[%=param.name%]);
+      [%
+      }
+      %]
+        this.contextManager.setInit();
+        this.contextManager.processUpdate(null, null,['[%=self.uid%]']);
+    }
+
+    render() {
+        return (
+            <TWindow id="[%=self.uid%]" contextManager={this.contextManager}>
+        [%
+           for (element in self.viewElement.sortBy(q|q.order)){
+             if ( element.isKindOf(form::ViewPort) ){
+               ports.add(element);
+             }
+             %]
+             [%=element.createTag(hash)%]
+             [%
+           }
+        %]
+           </TWindow>
+        );
+    }
+}
+[%
+          for (element in ports){
+             %]
+             [%=element.createComponent(hash)%]
+             [%
+          }
+          
+          for (element in ports){
+             var canvasesRef = ViewInheritance->allInstances()->select(vi|vi.source=element);
+		     if (canvasesRef <> null and canvasesRef.size <> 0){
+		       for ( canvasRef in canvasesRef){
+               %]
+               [%=canvasRef.target.createComponent(hash)%]
+               [%
+		       }
+		      }
+          }
+     var generateComponents = hash.get("generateComponents");
+     for (comp in generateComponents){
+            %] [%=comp.createComponent(hash)%][%
+        
+     }
+          
+ var result = out.toString();          
+ util.cleanBuffer(out, "");
+          
+for ( obj in populateInclude.keySet()){
+%]import [%=obj%] from "[%=populateInclude.get(obj)%]";
+[%
+}          
+%]
+import React from 'react';
+import {ContextManager} from "[%=clientLibraryPackage%]/core/ContextManager";
+import {TWindow} from "[%=clientLibraryPackage%]/component/TWindow";
+import {Transformation} from "tura-lib/core/Transformation";
+
+
+
+[%
+
+     result = out.toString()+result;
+     util.saveFile( jsPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".js",result);   
+
+     util.traceIfDebug("React UI element","Window end: "+self.name);     
+
+
+}
+
+%]

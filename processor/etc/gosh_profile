@@ -6,19 +6,20 @@ addcommand system (((${.context} getClass) getClassLoader) loadClass java.lang.S
 
 
 # Load base profile
-tura_home = system:getproperty TURA_HOME
+tura_home = (${.context} getProperty TURA_HOME)
 repo_home = $tura_home/processor/etc
-user_home = system:getproperty user.home
+user_home = (${.context} getProperty user.home)
+tura_version = system:getproperty TURA_VERSION
+tura_working_directory = (${.context} getProperty TURA_WORKING_DIRECTORY)
+docker_host = "tcp://localhost:2375"
 
-
-source $repo_home/go.ext
-
+source file:///$repo_home/go.ext
+setTuraLocation
 
 try {
 
-setproperty chromedriverversion '2.40'
+setproperty chromedriverversion '2.44'
 setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
-tura_home = system:getproperty TURA_HOME
 
 complete -c tura:install -e
 complete -c tura:install -d "Tura install" 
@@ -53,40 +54,33 @@ complete -c tura:closure -a '__closure_Completer'
 
 
 
-
-buildPluginAndProcessor = {
-     source $tura_home/processor/etc/buildPluginAndProcessor;    
-}
-addClosure "buildPluginAndProcessor";
-
-
 buildPlatform = {
-     source $tura_home/processor/etc/buildPlatform;    
+     source pre:///$tura_home/processor/etc/buildPlatform;    
 }
 addClosure "buildPlatform";
 
 
 minimalInit = {
-     source $tura_home/processor/etc/minimalInit;    
+     source pre:///$tura_home/processor/etc/minimalInit;    
 }
 addClosure "minimalInit";
 
 
 startHRApplication = {
      stopSAApplication;
-     source $tura_home/processor/etc/hr-manager-deployment.recipe;    
+     source pre:///$tura_home/processor/etc/hr-manager-deployment.recipe;    
 }
 addClosure "startHRApplication";
 
 
 stopHRApplication = {
-     source $tura_home/processor/etc/hr-manager-stop-all.recipe;    
+     source pre:///$tura_home/processor/etc/hr-manager-stop-all.recipe;    
 }
 addClosure "stopHRApplication";
 
 
 redeployHRwildfly = {
-     source $tura_home/processor/etc/hr-manager-redeploy-wildfly.recipe;    
+     source pre:///$tura_home/processor/etc/hr-manager-redeploy-wildfly.recipe;    
      hrLogWatch;
 }
 addClosure "redeployHRwildfly";
@@ -95,36 +89,36 @@ addClosure "redeployHRwildfly";
 
 
 startHRIntegrationTest = {
-     tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing/pom.xml;    
+     tura:mvn build --pom.xml $tura_home/examples/hr-manager/integration-testing-react/pom.xml;    
 }
 addClosure "startHRIntegrationTest";
 
 
 
 generateHRApplication = {
-      tura:generate --build --recipeId 4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5 --infraId 25ebeb54-7003-4e72-bacc-3d8de138ac52 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+      tura:generate --build --recipeId 8175e9cf-9253-4c0c-a62a-c6a85def8a45 --infraId 94c559ea-28dc-4609-b50b-c9331c80e3c3 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 }
 addClosure "generateHRApplication";
 
 
 buildHRApplication = {
-      tura:build --recipeId 4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5 --infraId 25ebeb54-7003-4e72-bacc-3d8de138ac52 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+      tura:build --recipeId 8175e9cf-9253-4c0c-a62a-c6a85def8a45 --infraId 94c559ea-28dc-4609-b50b-c9331c80e3c3 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 }
 addClosure "buildHRApplication";
 
 
 hrUrlList = {
-    echo 'https://localhost:8443/hrform/hrmanager/hrcontroller/hrController.xhtml?param1=qwerty2           qwerty/qwerty'
-    echo 'http://localhost:8080/hrform/hrmanager/miscelements/miscElementsWindow.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/tree2tree/tree2TreeRelations.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm1.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm2.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm3.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm4.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform1/testForm5.xhtml'
-    echo 'http://localhost:8080/hrform/hrmanager/testform2/testFormWindow.xhtml'
-
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/hrcontroller/hrController?param1=qwerty2'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/tree2tree/tree2TreeRelations'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/tree2tree/tree2TreeMultiselect'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform1/testForm1'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform1/testForm2'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testFormWindow'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/simpleView'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testFormWindow'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testForm1Window'
+    
 }
 addClosure "hrUrlList";
 
@@ -140,7 +134,7 @@ addClosure "hrLogWatch";
 startSAApplication = {
      stopHRApplication;
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
-     source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+     source pre:///$tura_home/processor/etc/sales-analyzer-start-server.recipe;    
 }
 addClosure "startSAApplication";
 
@@ -148,14 +142,14 @@ addClosure "startSAApplication";
 startSAApplicationWithData = {
      stopHRApplication;
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerWithCasesDB.dump
-     source $tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+     source pre:///$tura_home/processor/etc/sales-analyzer-start-server.recipe;    
 }
 addClosure "startSAApplicationWithData";
 
 
 
 stopSAApplication = {
-     source $tura_home/processor/etc/sales-analyzer-stop-server.recipe;    
+     source pre:///$tura_home/processor/etc/sales-analyzer-stop-server.recipe;    
 }
 addClosure "stopSAApplication";
 
@@ -168,21 +162,21 @@ addClosure "startSAIntegrationTest";
 
 
 redeploySAwildfly = {
-     source $tura_home/processor/etc/sales-analyzer-deployment.recipe; 
+     source pre:///$tura_home/processor/etc/sales-analyzer-deployment.recipe; 
      saLogWatch;
 }
 addClosure "redeploySAwildfly";
 
 
 generateSAApplication = {
-     tura:generate --build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+     tura:generate --build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 }
 addClosure "generateSAApplication";
 
 
 buildSAApplication = {
-     tura:build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr/model/hr.domain
+     tura:build --recipeId be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3 --infraId 92f00187-c3de-4091-8eca-850df9713ef5 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 }
 addClosure "buildSAApplication";
@@ -191,9 +185,9 @@ addClosure "buildSAApplication";
 saUrlList = {
     echo 'service:jmx:remote+http://wf:9991                                                    admin/qwerty'
     echo 'http://kc:8080/auth/admin/master/console/                                            admin/qwerty'
-    echo 'http://wf:8081/sa-admin/admin/administration/adminWindow.xhtml                       sales-manager/sales01'
-    echo 'http://wf:8081/sa-case-manager/analysis/casemanager/workItemWindow.xhtml             sales-manager/sales01'
-    echo 'http://wf:8081/sa-etl-controller/dataloader/etlcontroller/etlControlWindow.xhtml     sales-manager/sales01' 
+    echo 'http://wf:8081/sa-admin-react-client/admin/administration/adminWindow                       sales-manager/sales01'
+    echo 'http://wf:8081/sa-case-manager-react-client/analysis/casemanager/workItemWindow             sales-manager/sales01'
+    echo 'http://wf:8081/sa-etl-controller-react-client/dataloader/etlcontroller/etlControlWindow     sales-manager/sales01' 
 }
 addClosure "saUrlList";
 
@@ -205,9 +199,80 @@ addClosure "saLogWatch";
 
 
 removeAll = {
-     source $tura_home/processor/etc/remove-all.recipe;    
+     source pre:///$tura_home/processor/etc/remove-all.recipe;    
 }
 addClosure "removeAll";
+
+
+startRestServer = {
+     source pre:///$tura_home/processor/etc/rest-repo-deployment.recipe;    
+     }
+addClosure "startRestServer";
+
+
+stopRestServer = {
+     source pre:///$tura_home/processor/etc/rest-repo-wildfly-stop-server.recipe;    
+}
+addClosure "stopRestServer";
+
+
+redeployRestServer = {
+     source pre:///$tura_home/processor/etc/rest-repo-redeploy-wildfly.recipe;
+     restLogWatch    
+}
+addClosure "redeployRestServer";
+
+restLogWatch = {
+     tura:docker logWatcher --name rest-wf 
+}
+addClosure "restLogWatch";
+
+
+localbuildPluginAndProcessor = {
+    source pre:///$tura_home/processor/etc/localbuildPluginAndProcessor
+}
+addClosure "localbuildPluginAndProcessor";
+
+
+
+
+setVersion = {
+  mr2 = tura:dsl config --mavenRepositoryLocation
+
+   tura:mvn setversion --pom.xml $tura_home/processor/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/processor-extension-build-application/pom.xml --version $1
+   tura:dsl exec --cmd "echo TURA_VERSION=$1 > $tura_home/processor/version.properties"
+   tura:mvn setversion --pom.xml $tura_home/platform/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/hr-manager/hrform-react-triggers/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/hr-manager/integration-testing-react/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/pom.xml --version $1
+   tura:mvn setversion --tycho --pom.xml $tura_home/sirius/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/rest-services/hr-complex-model-repository-triggers/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/rest-services/hr-simple-model-repository-triggers/pom.xml --version $1
+   tura:mvn setversion --pom.xml $tura_home/examples/rest-services/jpa-test-model-repository-triggers/pom.xml --version $1
+
+   tura:dsl removeFile --targetLocation $mr2/org/tura
+   tura:dsl removeFile --targetLocation  $mr2/sales-analyzer
+   
+   
+   
+   tura:dsl exec --cmd " cd $tura_home/examples/hr-manager/hrform-react-client-triggers;npm version $1"
+   tura:dsl exec --cmd " cd $tura_home/examples/sales-analyzer/sa-case-manager-react-client-triggers;npm version $1"
+   tura:dsl exec --cmd " cd $tura_home/examples/sales-analyzer/sa-admin-react-client-triggers;npm version $1"
+   tura:dsl exec --cmd " cd $tura_home/examples/sales-analyzer/sa-etl-controller-react-client-triggers;npm version $1"
+   tura:dsl exec --cmd " cd $tura_home/examples/sales-analyzer/commons-react-client-triggers;npm version $1"
+   
+
+    tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
+    tura:mvn build --pom.xml $tura_home/processor/pom.xml 
+    tura:mvn build --pom.xml $tura_home/processor-extension-build-application/pom.xml 
+   
+   echo "Change !!!!!!!" $tura_home/sirius/site/org.tura.metamodel.site-definition/tura.product
+   echo "Change !!!!!!!" version in model for HR and SA
+
+}
+addClosure "setVersion";
+
 
 postInit;
 

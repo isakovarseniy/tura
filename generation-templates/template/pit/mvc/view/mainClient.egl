@@ -1,0 +1,100 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${View_implementation}.egl";
+import "tura:/generation-templates/template/technologies/${View_implementation}/viewClient/client.egl";
+import "tura:/generation-templates/template/commons/buildExpression.eol";
+${percent}${end}
+[%
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var forms = new Native('java.util.ArrayList');
+     var clientTriggers = new Native('java.util.ArrayList');
+
+     var frm1 = util.runQuery(model_mapper,"Query form",model_mapper);
+     if ( frm1 <> null  and    frm1.size <> 0  ){
+          forms.addAll(frm1);
+     }
+
+     var frm2 = util.runQuery(model_mapper,"Query one form",model_mapper);
+     if (frm2 <> null  and   frm2.size <> 0 ){
+          forms.addAll(frm2);
+     }
+     
+     var serverComponents = util.runQuery(model_mapper,"Query server component",model_mapper);
+     var serverComponent = null;
+     if (serverComponents.size() <> 0){
+        serverComponent = util.getComponent(serverComponents.get(0));
+     }
+
+     var clientLibraryComponents = util.runQuery(model_mapper,"Query tura lib",model_mapper);
+     var clientLibraryComponent = null;
+     if (clientLibraryComponents.size() <> 0){
+        clientLibraryComponent = util.getComponent(clientLibraryComponents.get(0));
+     }
+
+     var triggers = util.runQuery(model_mapper,"Querty triggers",model_mapper);
+     if ( triggers <> null and triggers.size() <> 0){
+        clientTriggers.addAll(triggers);
+     }
+
+     
+     var artifactShift = "";
+     if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+        artifactShift =  model_mapper.artifactRoot+"/";
+     }
+     var jsPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+ artifactShift + component.getPackageName()+"/src";  
+     
+
+    if (forms.size() <> 0 ){
+          
+        var hash = new Native("java.util.HashMap"); 
+
+        util.populateTechnologies(hash,model_mapper);
+        hash.put("recipe",recipe);
+        hash.put("ingredient",ingredient);
+        hash.put("component",component);
+        hash.put("model_mapper",model_mapper);
+        hash.put("configuration",configuration);
+        hash.put("jsPath",jsPath);
+        hash.put("serverComponent",serverComponent);
+        hash.put("clientLibraryComponent",clientLibraryComponent);
+        hash.put("clientLibraryPackage",clientLibraryComponent.packageName);
+        hash.put("clientTriggers",clientTriggers);
+
+       for (form in forms){
+         var uipackage = form.eContainer();
+         var application = uipackage.eContainer();
+
+         hash.put("application",application);
+         hash.put("uipackage",uipackage);
+         hash.put("form",form);
+
+         clientgeneration(hash);
+       }
+       
+       hash.put("forms",forms);
+       all_selectedProcess(hash);
+       
+     }  
+     
+     
+     
+
+%]

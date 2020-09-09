@@ -128,6 +128,8 @@
         eType="#//ApplicationMapper" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appLayers" upperBound="-1"
         eType="ecore:EClass mapper.ecore#//MappingLayer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="versions" upperBound="-1"
+        eType="ecore:EClass mapper.ecore#//Version" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMapper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

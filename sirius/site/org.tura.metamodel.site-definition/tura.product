@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="4.2.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="5.0.2.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="eclipse_lg.png"/>
@@ -1106,7 +1106,6 @@
       <plugin id="org.w3c.dom.svg.source"/>
    </plugins>
 
-
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
@@ -1114,7 +1113,6 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
-
 
    <preferencesInfo>
       <targetfile overwrite="false"/>

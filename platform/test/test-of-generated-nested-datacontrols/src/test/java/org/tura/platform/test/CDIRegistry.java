@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.test;
 
 import javax.annotation.PostConstruct;
@@ -29,7 +26,6 @@ import org.elsoft.platform.hr.objects.complex.model.InitJPARepository;
 import org.tura.platform.hr.objects.serialization.Department;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 
 import uILayer.nestedFormPackage.HRControllerProfile;
 import uILayer.nestedFormPackage.Tree2TreeProfile;
@@ -50,7 +46,7 @@ public class CDIRegistry extends Registry {
 		try {
 			this.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 
-			InitJPARepository init = new InitJPARepository(new SpaRepository(), this, spaRegistry);
+			InitJPARepository init = new InitJPARepository( this, spaRegistry);
 
 			init.initClassMapping();
 			init.initCommandProducer();

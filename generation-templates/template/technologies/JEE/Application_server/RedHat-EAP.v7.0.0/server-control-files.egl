@@ -1,0 +1,49 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[% @template
+operation web_xml_serverspecific(hash){
+
+   var configuration = hash.get("configuration");
+   var component = hash.get("component");
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+
+   
+   var artifactShift = "";
+   if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+      artifactShift =  model_mapper.artifactRoot+"/";
+   }
+   var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+artifactShift+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+   var realms = hash.get("realms");
+   var recipe = hash.get("recipe");
+   var ingredient = hash.get("ingredient");
+   var app = hash.get("application");
+
+   var model_mapper = hash.get("model_mapper");
+
+   var context =  findContext(model_mapper,component);
+   
+%]
+<jboss-web>
+        <context-root>[%=context%]</context-root> 
+</jboss-web>
+[%
+ 
+     util.saveFile( webapp,"jboss-web.xml",out.toString());   
+   
+}
+%]
+

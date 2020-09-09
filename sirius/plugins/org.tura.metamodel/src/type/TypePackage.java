@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package type;
@@ -621,13 +635,22 @@ public interface TypePackage extends EPackage {
 	int ATTRIBUTE__PK = TYPE_POINTER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Uk</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__UK = TYPE_POINTER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 4;
+	int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link type.impl.OperationImpl <em>Operation</em>}' class.
@@ -1514,6 +1537,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getAttribute_Pk();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.Attribute#isUk <em>Uk</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uk</em>'.
+	 * @see type.Attribute#isUk()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Uk();
+
+	/**
 	 * Returns the meta object for class '{@link type.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2140,6 +2174,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__PK = eINSTANCE.getAttribute_Pk();
+
+		/**
+		 * The meta object literal for the '<em><b>Uk</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__UK = eINSTANCE.getAttribute_Uk();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.OperationImpl <em>Operation</em>}' class.

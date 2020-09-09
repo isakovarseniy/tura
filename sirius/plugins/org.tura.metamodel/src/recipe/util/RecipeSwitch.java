@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package recipe.util;
@@ -6,6 +20,7 @@ import artifact.Categorized;
 import common.HTMLLayerHolder;
 import common.Orderable;
 
+import mapper.VersionRef;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -141,8 +156,19 @@ public class RecipeSwitch<T> extends Switch<T> {
 				JavaComponent javaComponent = (JavaComponent)theEObject;
 				T result = caseJavaComponent(javaComponent);
 				if (result == null) result = caseComponent(javaComponent);
+				if (result == null) result = caseVersionRef(javaComponent);
 				if (result == null) result = caseHTMLLayerHolder(javaComponent);
 				if (result == null) result = caseOrderable(javaComponent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RecipePackage.JAVA_SCRIPT_COMPONENT: {
+				JavaScriptComponent javaScriptComponent = (JavaScriptComponent)theEObject;
+				T result = caseJavaScriptComponent(javaScriptComponent);
+				if (result == null) result = caseComponent(javaScriptComponent);
+				if (result == null) result = caseVersionRef(javaScriptComponent);
+				if (result == null) result = caseHTMLLayerHolder(javaScriptComponent);
+				if (result == null) result = caseOrderable(javaScriptComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -379,6 +405,21 @@ public class RecipeSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Script Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Script Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaScriptComponent(JavaScriptComponent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -555,6 +596,21 @@ public class RecipeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOrderable(Orderable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Version Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Version Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVersionRef(VersionRef object) {
 		return null;
 	}
 

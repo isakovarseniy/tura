@@ -1,0 +1,4 @@
+org.tura.platform.uuiclient.rest.client.commands.LifeCycleRegistry
+org.tura.platform.uuiclient.menu.EagerExtension
+org.tura.platform.uuiclient.menu.MenuExtension
+org.tura.platform.uuiclient.cdi.UUIClientScopeExtension

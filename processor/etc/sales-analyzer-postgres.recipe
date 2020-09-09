@@ -8,7 +8,8 @@ tura:docker pullImage --registry postgres --tag 9.6
 
 tura:docker createNetwork --network sa-net
 
-c = tura:docker config --user 0 
+c = tura:docker config --user 0\
+                                   --var POSTGRES_PASSWORD=postgres
 
 v = tura:docker createContainer --registry postgres --tag 9.6 --var c
 
@@ -24,6 +25,10 @@ tura:docker createContainer --registry tura/sa/postgres --tag 1.0 --var c --name
 
 tura:docker postgres postgresHealthCheck --name sa-pg
 
+try {
 tura:docker postgres postgresUploadDump --dump $dump_file --name sa-pg
+} catch {
+   echo "db dump upload error. Can be ignored"
+}
 
 

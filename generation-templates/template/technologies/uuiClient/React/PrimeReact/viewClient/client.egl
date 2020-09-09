@@ -1,0 +1,382 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+
+operation all_selectedProcess(hash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var jsPath = hash.get("jsPath");
+
+      var mainAppTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/mainApp.egl",hash,TemplateFactory);
+      var buffer = mainAppTemplate.process();
+      util.saveFile( jsPath+"/"  , "App.js",buffer);  
+
+
+      var mainAppTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/initializer.egl",hash,TemplateFactory);
+      var buffer = mainAppTemplate.process();
+      util.saveFile( jsPath+"/"  , "index.js",buffer);  
+
+
+}
+
+operation create_package(hash){
+    var component = hash.get("component");
+    var configuration = hash.get("configuration");
+    var model_mapper = hash.get("model_mapper");
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+
+     var artifactShift = "";
+     if ( model_mapper.artifactRoot <> null and not "".equals(model_mapper.artifactRoot)){
+        artifactShift =  model_mapper.artifactRoot+"/";
+     }
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+ artifactShift + component.getArtifactId();  
+
+
+    var mavenTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/ClientPackagingMaven.egl",hash,TemplateFactory);
+    var buffer = mavenTemplate.process();
+    util.saveFile( path  , "pom.xml",buffer);  
+
+
+
+}
+
+
+
+operation  clientgeneration(hash){
+     var form = hash.get("form");
+     var actionTriggers = new Native('java.util.ArrayList'); 
+     var scriptTriggers = new Native('java.util.ArrayList'); 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var model_mapper = hash.get("model_mapper");
+     var jsPath = hash.get("jsPath");
+     
+     var   serverComponent =   hash.get("serverComponent");
+
+	   var list = model_mapper.findAllClassifiers(util.getHint(model_mapper,"application.context.root"));
+	   var applicationContext = util.mergeAndCapitalize(serverComponent.artifactId).toLowerCase();
+	   if ( list<> null and list.size() <> 0){
+	     applicationContext = list.get(0).details;
+	   }
+
+      hash.put("actionTriggers",actionTriggers);
+      hash.put("scriptTriggers",scriptTriggers);
+      hash.put("applicationContext",applicationContext);
+      
+     
+     
+      if (form = null or form.view = null){
+         return;   
+      }
+      for (canvas in form.view.canvases){
+         if (canvas.isKindOf(form::Window) ){
+           canvas.createComponent(hash);   
+         }
+      }
+     menuScaner(hash); 
+      
+    for ( trigger in scriptTriggers)    {
+      hash.put("trigger",trigger);
+      var triggerTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/clientTrigger.egl",hash,TemplateFactory);
+      var buffer = triggerTemplate.process();
+    }  
+    
+   var scriptTriggersAll = hash.get("scriptTriggersAll");
+   if (scriptTriggersAll == null ){
+     scriptTriggersAll = new Native('java.util.ArrayList'); 
+     hash.put("scriptTriggersAll",scriptTriggersAll);
+   }
+   scriptTriggersAll.addAll(scriptTriggers);
+    
+   var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/public/index.html",hash,TemplateFactory);
+   var buffer = libTemplate.process();
+   util.saveFile( jsPath+"/../public/"  , "index.html",buffer);  
+    
+    
+}
+
+operation  install_components(hash) {
+
+      var jsPath = hash.get("jsPath");
+      var util = new Native('org.tura.metamodel.commons.Util');
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TLayerHolder.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TLayerHolder.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TTableRow.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TTableRow.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TRenderElement.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TRenderElement.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TButton.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TButton.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TCanvas.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TCanvas.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TCheckBox.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TCheckBox.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TDataScroller.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TDataScroller.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TDate.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TDate.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TDropDownSelection.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TDropDownSelection.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TFileUpload.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TFileUpload.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TImage.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TImage.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TInputAria.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TInputTextAria.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TInputText.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TInputText.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TLabel.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TLabel.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TLayerHolderResponsive.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TLayerHolderResponsive.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TMenu.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TMenu.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TMenutab.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TMenutab.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TMessage.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TMessage.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TMessages.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TMessages.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TMultiSelect.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TMultiSelect.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TOutputText.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TOutputText.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TOverlayCanvas.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TOverlayCanvas.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TPassword.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TPassword.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TPoll.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TPoll.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TLink.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TLink.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TPopupCanvas.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TPopupCanvas.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TRadioSelection.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TRadioSelection.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TReactPolling.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TReactPolling.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TRenderElementResponsive.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TRenderElementResponsive.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TTable.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TTable.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TTree.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TTree.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TViewAria.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TViewAria.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TWindow.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TWindow.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/ContextManager.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "ContextManager.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/DataUpdateRequest.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "DataUpdateRequest.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/EventExecutor.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "EventExecutor.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/TuraComponent.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "TuraComponent.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/ValidatedComponent.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "ValidatedComponent.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/Transformation.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "Transformation.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/ClearFormCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "ClearFormCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/DownloadFileCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "DownloadFileCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/HidePopupCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "HidePopupCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/OpenPopupCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "OpenPopupCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/StartPollCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "StartPollCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/StopPollCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "StopPollCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/Registry.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "Registry.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/SwitchWindowCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "SwitchWindowCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/UpdateMessageCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "UpdateMessageCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/ClientSystem.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/lib/"  , "ClientSystem.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/public/index.html",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/../public/"  , "index.html",buffer);  
+
+
+}
+
+operation  getDependentId(hash) {
+      var dependId = hash.get("dependId");
+      if ( dependId == null){
+         return "";
+      }else{
+         return dependId;
+      }
+}
+
+operation  getKey(hash) {
+      var key = hash.get("key");
+      if ( key == null){
+         return "";
+      }else{
+         return key;
+      }
+}
+
+
+operation form::Uielement addToChildren(hash){
+   if ( hash.get("context") = 'dataScroller' ){
+		  var childrenCollection  =   hash.get("childrenCollection"); 
+		  childrenCollection.add(self);
+	} 
+}
+
+operation populateInclude(hash,inclide,path ){
+    var populateInclude = hash.get("populateInclude");
+    populateInclude.put(inclide,path);
+}
+
+
+
+operation   menuScaner(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     
+     for (menuDefinition in form.view.menus){
+        for (menu in menuDefinition.menuFolders){
+           menu.menuWalk(hash);
+        }
+    }
+  }
+  
+  operation form:: MenuFolder menuWalk(hash){
+      var hints = new Native('java.util.HashMap');
+  
+     for (item in self.menuElements.sortBy(q|q.order)){
+        if (item.isKindOf(form:: MenuItem) ){
+           constructExpression(item,"react.preClick",hints, hash);
+           constructExpression(item,"react.onClick",hints, hash);
+        }
+    }
+  }
+
+
+
+%]

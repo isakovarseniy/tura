@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.spa;
 
 import java.lang.annotation.Annotation;
@@ -46,6 +43,7 @@ import org.tura.platform.repository.spa.operation.PathHelper;
 
 public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
+	private static final long serialVersionUID = 613281003437954850L;
 	protected Map<String, SearchProvider> providerHash = new HashMap<>();
 	protected List<String> knownObjects = new ArrayList<>();
 	protected String registryName;
@@ -104,10 +102,13 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 		}
 	}
 
-	public void setRegistry(String registry) {
-		this.registryName = registry;
+	public void setRegistryName(String registryName) {
+		this.registryName = registryName;
 	}
 	
+	public String getRegistryName() {
+		return this.registryName;
+	}
 
 	protected Object getExtendedObject(RepoKeyPath extendedPk, Object persistanceObject) throws Exception {
 		return PathHelper.getPathValue(extendedPk, 1, persistanceObject);
@@ -126,6 +127,11 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 		return registry.findPersistanceClass(repositoryClass);
 	}
 
+	
+    protected String getJpaRepositoryClassName(RepoKeyPath pk) throws RepositoryException {
+        return pk.getPath().get(0).getType();
+    }
+	
 	protected String getJpaRelationType(RepoKeyPath pk, String property) throws Exception {
 		String className = pk.getPath().get(0).getType();
 		Class<?> clazz = Class.forName(className);

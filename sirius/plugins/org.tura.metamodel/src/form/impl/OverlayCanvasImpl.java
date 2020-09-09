@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package form.impl;
@@ -5,8 +19,10 @@ package form.impl;
 import artifact.ArtifactPackage;
 import artifact.Categorized;
 import artifact.Classifier;
+
 import common.CommonPackage;
 import common.HTMLLayerHolder;
+
 import form.AreaRef;
 import form.Context;
 import form.DefaultCavas;
@@ -16,16 +32,21 @@ import form.FormPackage;
 import form.MultiLangLabel;
 import form.NickNamed;
 import form.OverlayCanvas;
-
 import form.ViewElement;
 import form.ViewPortHolder;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -60,6 +81,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected static final int COLUMNS_EDEFAULT = 1;
+
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +91,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getViewElement() <em>View Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -78,6 +101,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected EList<ViewElement> viewElement;
+
 	/**
 	 * The default value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,6 +111,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected static final boolean DEFAULT_CANVAS_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isDefaultCanvas() <em>Default Canvas</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,6 +121,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected boolean defaultCanvas = DEFAULT_CANVAS_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -105,6 +131,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected Context multiLangLabel;
+
 	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -114,6 +141,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -123,6 +151,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected EList<FlexField> fields;
+
 	/**
 	 * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -132,6 +161,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected static final String NICKNAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -141,6 +171,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected String nickname = NICKNAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #isModal() <em>Modal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -150,6 +181,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	 * @ordered
 	 */
 	protected static final boolean MODAL_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isModal() <em>Modal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -642,7 +674,7 @@ public class OverlayCanvasImpl extends CanvasFrameImpl implements OverlayCanvas 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (columns: ");
 		result.append(columns);
 		result.append(", defaultCanvas: ");

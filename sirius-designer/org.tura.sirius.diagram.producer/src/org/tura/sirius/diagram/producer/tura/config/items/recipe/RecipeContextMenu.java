@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.sirius.diagram.producer.tura.config.items.recipe;
 
 import java.util.ArrayList;
@@ -22,6 +36,19 @@ public class RecipeContextMenu {
 		action.setId("org.tura.metamodel.sirius.diagram.actions.AddDeploymentStepActionID");
 
 		menu.getMenuItemDescription().add(action);
+		
+		
+		menu = ToolFactory.eINSTANCE.createPopupMenu();
+		menu.setPrecondition("service:enableContextMenuForModelMapper");
+		menu.setName("Recipe processing");
+		tools.add(menu);
+
+		action = ToolFactory.eINSTANCE.createExternalJavaAction();
+		action.setName("Run generation");
+		action.setId("org.tura.metamodel.sirius.properties.actions.RunGenerationActionForMapperID");
+
+		menu.getMenuItemDescription().add(action);
+
 
 		return tools;
 	}

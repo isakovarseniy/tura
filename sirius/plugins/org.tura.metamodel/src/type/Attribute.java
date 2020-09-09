@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package type;
@@ -16,6 +30,7 @@ import artifact.Categorized;
  *   <li>{@link type.Attribute#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link type.Attribute#isPk <em>Pk</em>}</li>
+ *   <li>{@link type.Attribute#isUk <em>Uk</em>}</li>
  * </ul>
  *
  * @see type.TypePackage#getAttribute()
@@ -100,5 +115,31 @@ public interface Attribute extends TypePointer, Categorized {
 	 * @generated
 	 */
 	void setPk(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Uk</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uk</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uk</em>' attribute.
+	 * @see #setUk(boolean)
+	 * @see type.TypePackage#getAttribute_Uk()
+	 * @model
+	 * @generated
+	 */
+	boolean isUk();
+
+	/**
+	 * Sets the value of the '{@link type.Attribute#isUk <em>Uk</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uk</em>' attribute.
+	 * @see #isUk()
+	 * @generated
+	 */
+	void setUk(boolean value);
 
 } // Attribute

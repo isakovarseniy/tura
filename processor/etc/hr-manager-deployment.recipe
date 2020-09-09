@@ -1,14 +1,14 @@
 tura:install chromedriver
 
 echo 'Building postgres container'
-source $repo_home/hr_manager-postgres.recipe
+source pre:///$repo_home/hr_manager-postgres.recipe
 
 
 c2 = tura:docker findContainer --name hr-wf
 echo 'Wildfly container located? '$c2
 if { %(c2) } { } {
    echo 'Building wildfly container'
-   source $repo_home/hr_manager-wildfly.recipe
+   source pre:///$repo_home/hr_manager-wildfly.recipe
 }
  
- source $repo_home/hr-manager-redeploy-wildfly.recipe
+ source pre:///$repo_home/hr-manager-redeploy-wildfly.recipe

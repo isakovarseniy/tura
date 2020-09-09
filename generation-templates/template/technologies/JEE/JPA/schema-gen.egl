@@ -1,0 +1,75 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${JPA_implementation}.egl";
+import "tura:/generation-templates/template/technologies/${Database_type}.egl";
+ ${percent}${end}
+ 
+package org.tura.test;
+
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.Ignore;
+import org.junit.Test;
+
+
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.hibernate.tool.schema.TargetType;
+
+public class GenerateSchemaTest {
+
+    @Test
+    @Ignore
+    public  void schemaGeneration() {
+        Map<String, String> settings = new HashMap<>();
+        settings.put("connection.driver_class", "[%=configuration.get("DataBase jdbc driver")%]");
+        settings.put("dialect", "org.hibernate.dialect.[%=persistence_databasename()%]Dialect");
+        settings.put("hibernate.connection.url", "[%=configuration.get("DataBase jdbc url")%]");
+        settings.put("hibernate.connection.username", "[%=configuration.get("DataBase user")%]");
+        settings.put("hibernate.connection.password", "[%=configuration.get("DataBase password")%]");
+        settings.put("show_sql", "true");
+ 
+        MetadataSources metadata = new MetadataSources(
+                new StandardServiceRegistryBuilder()
+                        .applySettings(settings)
+                        .build());
+        
+[%
+        for (class in classes) {
+%]
+        metadata.addAnnotatedClass([%=class%].class);
+[%       
+        }
+%]           
+        
+        SchemaExport schemaExport = new SchemaExport( );
+        schemaExport.setHaltOnError(true);
+        schemaExport.setFormat(true);
+        schemaExport.setDelimiter(";");
+        schemaExport.setOutputFile("db-schema.sql");
+        schemaExport.create(EnumSet.of( TargetType.STDOUT ), metadata.buildMetadata());
+        
+        
+    }
+
+    
+}

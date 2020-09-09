@@ -1,0 +1,9 @@
+
+c2 = tura:docker findContainer --name rest-wf
+echo 'Wildfly container located? '$c2
+if { %(c2) } { } {
+   echo 'Building wildfly container'
+   source pre:///$repo_home/rest-repo-wildfly-start-server.recipe
+}
+ 
+ source pre:///$repo_home/rest-repo-redeploy-wildfly.recipe

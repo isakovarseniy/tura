@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.spa.operation;
 
 import java.util.ArrayList;
@@ -35,6 +32,7 @@ import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaCommandProducer implements CommandProducer{
 
+	private static final long serialVersionUID = 6820889754352511382L;
 	private String registryName;
 	private Repository masterProvider;
 	private Repository detailProvider;
@@ -78,6 +76,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaRemoveObjectOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.removeObject, repositoryObject);
 		list.add( cmd);
 		return list;
@@ -92,6 +91,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaRemoveInternalOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
 
 		list.add( cmd);
@@ -106,6 +106,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaAddObjectOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.addObject, repositoryObject);
 		list.add( cmd );
 		return list;
@@ -120,6 +121,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaAddInternalOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.addInternal, masterPk,masterProperty,detailObject,detailProperty);
 		list.add( cmd );
 		return list;
@@ -134,6 +136,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaDisconnectMasterFromDetailOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd );
 		return list;
@@ -148,6 +151,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaDisconnectDetailFromMasterOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk,masterProperty,detailPk,detailProperty);
 		list.add(cmd );
 		return list;
@@ -162,6 +166,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaConnectMasterToDetailOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd);
 		return list;
@@ -176,6 +181,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaConnectDetailToMasterOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 
 		list.add( cmd);
@@ -190,6 +196,7 @@ public class SpaCommandProducer implements CommandProducer{
 		}
 		list = new ArrayList<>();
 		SpaRepositoryCommand cmd = new SpaUpdateOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
 		cmd.checkCommand(RepositoryCommandType.update, pk,property,value);
 		list.add( cmd );
 		return list;

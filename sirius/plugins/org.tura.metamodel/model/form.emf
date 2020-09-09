@@ -373,6 +373,7 @@ class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HT
 enum SelectionMode {
    Single;
    Multiple;
+   CheckBox;
 }
 
 class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
@@ -396,7 +397,7 @@ class FileUpload extends Uielement{
     
 }
 
-class FileDownload extends Uielement{
+class FileDownload extends Uielement,MultiLangLabel{
     
 }
 
@@ -410,6 +411,11 @@ class DataScroller  extends SourcesPointer, ChildrenHolder, MultiLangLabel, comm
 class Poll extends Uielement{
 	
 }
+
+class DataTemplate extends InputElement{
+	
+}
+
 
 class WindowRef extends Uielement,FlexFields{
     attr EString label;

@@ -1,16 +1,17 @@
-/**
- * Tura - application generation platform
+/*
+ *   Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
- * This project includes software developed by Arseniy Isakov
- * https://github.com/isakovarseniy/tura
  *
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * which is available at https://www.eclipse.org/legal/epl-v10.html
- *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
  */
+
 package org.apache.felix.gogo.jline.command;
 
 import java.io.IOException;
@@ -20,6 +21,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.felix.service.command.CommandSession;
 
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.Frame;
@@ -41,7 +44,7 @@ public class DockerLogWatcher extends DockerCommand {
 		for (String cnt : names) {
 			ExecutorService watcher = Executors.newSingleThreadExecutor();
 			@SuppressWarnings("unchecked")
-			Future<Object> f = (Future<Object>) watcher.submit(new LogHandler(cnt));
+			Future<Object> f = (Future<Object>) watcher.submit(new LogHandler(cnt,session));
 			watchers.add(watcher);
 			runner.add(f);
 		}
@@ -68,8 +71,9 @@ public class DockerLogWatcher extends DockerCommand {
 	class LogHandler extends DockerCommand implements Runnable {
 		String name;
 
-		LogHandler(String name) {
+		LogHandler(String name, CommandSession session ) {
 			this.name = name;
+			this.session = session;
 			_init();
 		}
 

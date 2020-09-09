@@ -1,15 +1,17 @@
 <!--
-    Tura - application generation platform
-   
-    Copyright (c) 2012, 2015, Arseniy Isakov
-     
-    This project includes software developed by Arseniy Isakov
-    http://sourceforge.net/p/tura/wiki/Home/
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
- -->
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      http://sourceforge.net/p/tura/wiki/Home/
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+
 <plugin>
 
     <extension
@@ -58,6 +60,32 @@
       <javaActions
             actionClass="org.tura.metamodel.sirius.properties.actions.RunDeploymentAction"
             id="org.tura.metamodel.sirius.properties.actions.RunDeploymentActionID">
+      </javaActions>
+   </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponent"
+            id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponentID">
+      </javaActions>
+   </extension>
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForMapper"
+            id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForMapperID">
+      </javaActions>
+   </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForIngredient"
+            id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForIngredientID">
       </javaActions>
    </extension>
 
@@ -117,6 +145,10 @@
              id="tab.tree.mapper.MapperLayers"
              label="Mapping layer"/>
 
+          <propertyTab
+             category="default"
+             id="tab.tree.mapper.MapperVersion"
+             label="Mapping version"/>
 
           <propertyTab
              category="default"
@@ -145,6 +177,10 @@
              id="tab.tree.application.Layers"
              label="Application Layers"/>
 
+          <propertyTab
+             category="default"
+             id="tab.tree.application.Versions"
+             label="Application Versions"/>
 
       </propertyTabs>
 
@@ -166,6 +202,19 @@
      <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
 	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.VersionPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.VersionRefSelectionFilter"
+	            id="tree.mapper.MapperVersion"
+	            tab="tab.tree.mapper.MapperVersion">
+	      </propertySection>
+	   </propertySections>
+	</extension>      
+   
+   
+   
+     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ApplicationLayerPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.ApplicationMappersTreeFilter"
 	            id="tree.application.Layers"
@@ -174,6 +223,18 @@
 	   </propertySections>
 	</extension>   
    
+
+     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ApplicationVersionsPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ApplicationMappersTreeFilter"
+	            id="tree.application.Versions"
+	            tab="tab.tree.application.Versions">
+	      </propertySection>
+	   </propertySections>
+	</extension>   
+
    
   	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
@@ -441,6 +502,16 @@
              id="tab.form.MenuExtensionPoint"
              label="Extension point"/>
 
+   <propertyTab
+             category="domain"
+             id="tab.recipe.JavaComponent.MapperSelecton"
+             label="Mapper pointer"/>
+
+   <propertyTab
+             category="domain"
+             id="tab.recipe.JavaComponent.VersionSelecton"
+             label="Version"/>
+
 
       </propertyTabs>
 
@@ -591,6 +662,43 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.JavaComponenMapperPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.JavaComponentSelectionFilter"
+	            id="recipe.JavaComponent.MapperSelecton"
+	            tab="tab.recipe.JavaComponent.MapperSelecton">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.JavaScriptComponentMapperPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.JavaScriptComponentSelectionFilter"
+	            id="recipe.JavaScriptComponent.MapperSelecton"
+	            tab="tab.recipe.JavaComponent.MapperSelecton">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.VersionPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ComponentSelectionFilter"
+	            id="component.mapper.MapperVersion"
+	            tab="tab.recipe.JavaComponent.VersionSelecton">
+	      </propertySection>
+	   </propertySections>
+	</extension>      
+
+
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
@@ -1104,7 +1212,7 @@
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaSetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
-	            id="form.UIelement.RefreshArias"
+	            id="form.UIelement.RefreshAriasSet"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>
@@ -1115,7 +1223,7 @@
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaGetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
-	            id="form.UIelement.RefreshArias"
+	            id="form.UIelement.RefreshAriasGet"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>
@@ -1177,7 +1285,7 @@
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaMenuItemSetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuItemSectionFilter"
-	            id="form.MenuItem.RefreshArias"
+	            id="form.MenuItem.RefreshAriasSet"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>
@@ -1189,7 +1297,7 @@
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaMenuItemGetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuItemSectionFilter"
-	            id="form.MenuItem.RefreshArias"
+	            id="form.MenuItem.RefreshAriasGet"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>

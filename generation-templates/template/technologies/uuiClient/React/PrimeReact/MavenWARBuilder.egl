@@ -1,0 +1,187 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign openexp = "${" >
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>[%=component.getGroupId()%]</groupId>
+	<artifactId>[%=component.getArtifactId()%]</artifactId>
+	<version>[%=component.getVersion()%]</version>
+	<packaging>war</packaging>
+
+	<name>[%=component.getName()%]::[%=component.getArtifactId()%]</name>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<version.tura-platform>[%=turaVersion%]</version.tura-platform>
+		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
+		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
+		<version.java-sql-dsl>0.1.1-SNAPSHOT</version.java-sql-dsl>
+		<version.javaee-api>7.0</version.javaee-api>
+
+	</properties>
+
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${openexp}version.javaee-api}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${openexp}version.hibernate-entitymanager}</version>
+			<scope>provided</scope>
+		    <exclusions>
+		        <exclusion>
+		            <artifactId>xml-apis</artifactId>
+		            <groupId>xml-apis</groupId>
+		        </exclusion>        
+		    </exclusions>			
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${openexp}version.hibernate-jpa-2.1-api}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+			<version>${openexp}version.java-sql-dsl}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>core</artifactId>
+			<version>${openexp}version.tura-platform}</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.tura.platform</groupId>
+	        <artifactId>uuiserver-commons</artifactId>
+			<version>${openexp}version.tura-platform}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
+			<version>${openexp}version.tura-platform}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>uuiserver-rest</artifactId>
+			<version>${openexp}version.tura-platform}</version>
+		</dependency>
+		
+
+       [% for (h in lib.values()) { %]
+				<dependency>
+					<groupId>[%=h.get("groupId")%]</groupId>
+					<artifactId>[%=h.get("artifactId")%]</artifactId>
+					<version>[%=h.get("version")%]</version>
+				</dependency>
+       [% } %]
+
+
+		<dependency>
+	       <groupId>[%=component.getGroupId()%]</groupId>
+	       <artifactId>[%=component.getArtifactId()%]-interface</artifactId>
+	       <version>[%=component.getVersion()%]</version>
+		</dependency>
+
+	</dependencies>
+
+[%
+  var i =  Java.lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
+
+    <build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>[%=Java.substring(i)%]</source>
+					<target>[%=Java.substring(i)%]</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.1,)
+										</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

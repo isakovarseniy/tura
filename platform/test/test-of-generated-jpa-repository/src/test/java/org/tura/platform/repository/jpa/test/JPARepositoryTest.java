@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.jpa.test;
 
 import static org.junit.Assert.assertEquals;
@@ -70,13 +67,15 @@ import objects.test.serialazable.jpa.Vehicle;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class JPARepositoryTest {
 
-	private Registry registry = new Registry();
-	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
+	private Registry registry ;
+	private SpaObjectRegistry spaRegistry ;
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		private static final long serialVersionUID = 1L;
 
 		@SuppressWarnings("unchecked")
 		@Override
@@ -140,13 +139,18 @@ public class JPARepositoryTest {
 	}
 
 	private ProxyRepository getRepository() throws Exception {
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		registry = new Registry();
+		spaRegistry = new SpaObjectRegistry();
+		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository init = new InitJPARepository(new SpaRepository(),registry,spaRegistry);
+		InitJPARepository init = new InitJPARepository(registry,spaRegistry);
 		init.initClassMapping();
+		init.initFeldsMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		init.initEntityManagerProvider(emProvider);

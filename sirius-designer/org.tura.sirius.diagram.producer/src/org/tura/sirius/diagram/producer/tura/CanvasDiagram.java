@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.sirius.diagram.producer.tura;
 
 import java.util.ArrayList;
@@ -11,6 +25,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.ColumnConfigurato
 import org.tura.sirius.diagram.producer.tura.config.items.form.ColumnElementConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.DataExporterConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.DataScrollerConfiguration;
+import org.tura.sirius.diagram.producer.tura.config.items.form.DataTemplateConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.DateConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.DropDownSelectionConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.FileDownloadConfigurator;
@@ -63,7 +78,7 @@ public class CanvasDiagram {
                 .addChild(RadioSelectionConfigurator.create("0"))
                 .addChild(DataExporterConfigurator.create("0"))
                 .addChild(SelectManyMenuConfigurator.create("0"))
-                
+                .addChild(DataTemplateConfigurator.create("0"))
                 
                 .addChild(
                         TableConfigurator.create()
@@ -88,6 +103,7 @@ public class CanvasDiagram {
                                                                         .addChild(RadioSelectionConfigurator.create("1"))
                                                                         .addChild(DataExporterConfigurator.create("1"))
                                                                         .addChild(SelectManyMenuConfigurator.create("1"))
+                                                                        .addChild(DataTemplateConfigurator.create("1"))
                                                                         
                                                                         )
 
@@ -106,6 +122,7 @@ public class CanvasDiagram {
                                                                 .addChild(RadioSelectionConfigurator.create("2","feature:element"))
                                                                 .addChild(DataExporterConfigurator.create("2","feature:element"))
                                                                 .addChild(SelectManyMenuConfigurator.create("2","feature:element"))
+                                                                .addChild(DataTemplateConfigurator.create("2","feature:element"))
                                                                 
 
                                                                 ))))
@@ -132,6 +149,7 @@ public class CanvasDiagram {
                                                                         .addChild(RadioSelectionConfigurator.create("3"))
                                                                         .addChild(DataExporterConfigurator.create("3"))
                                                                         .addChild(SelectManyMenuConfigurator.create("3"))
+                                                                        .addChild(DataTemplateConfigurator.create("3"))
                                                                         
                                                                         )
 
@@ -150,6 +168,7 @@ public class CanvasDiagram {
                                                                 .addChild(RadioSelectionConfigurator.create("4","feature:element"))
                                                                 .addChild(DataExporterConfigurator.create("4","feature:element"))
                                                                 .addChild(SelectManyMenuConfigurator.create("4","feature:element"))
+                                                                .addChild(DataTemplateConfigurator.create("4","feature:element"))
                                                                 
                                                                 ))))
 
@@ -171,6 +190,7 @@ public class CanvasDiagram {
                         .addChild(RadioSelectionConfigurator.create("5"))
                         .addChild(DataExporterConfigurator.create("5"))
                         .addChild(SelectManyMenuConfigurator.create("5"))
+                        .addChild(DataTemplateConfigurator.create("5"))
                         
                         .addChild(LayerHolderinDataScroller.create()
                             .addChild(ButtonConfigurator.create("6"))
@@ -188,6 +208,7 @@ public class CanvasDiagram {
                             .addChild(RadioSelectionConfigurator.create("6"))
                             .addChild(DataExporterConfigurator.create("6"))
                             .addChild(SelectManyMenuConfigurator.create("6"))
+                            .addChild(DataTemplateConfigurator.create("6"))
                             
                           )
                         )
@@ -226,6 +247,7 @@ public class CanvasDiagram {
         nodeToolSection.addChildrens(RadioSelectionConfigurator.getTools());
         nodeToolSection.addChildrens(DataExporterConfigurator.getTools());
         nodeToolSection.addChildrens(SelectManyMenuConfigurator.getTools());
+        nodeToolSection.addChildrens(DataTemplateConfigurator.getTools());
         
         tToolSection edgeToolSection = new tToolSection("Connections");
         list.add(edgeToolSection);

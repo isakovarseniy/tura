@@ -16,6 +16,18 @@ class Mapper {
 }
 
 
+class Version {
+    id attr EString uid;
+    attr  EString  name;
+	attr EString version;
+}
+
+class VersionRef {
+	ref Version versionRef;
+}
+
+
+
 class MappingLayer{
     id attr EString uid;
    attr EString name;
@@ -29,36 +41,43 @@ class TypeMapper extends Mapper,type.TypePointer{
 class PackageMapper extends Mapper,type.PackagePointer{
 }
 
-class JavaMapper extends TypeMapper{
+enum ArtifactType{
+	jar;
+	jsPack;
+	
+}
+
+class JavaMapper extends TypeMapper,VersionRef{
     id attr EString uid;
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
    attr EString artifactId;
    attr EString groupId;
-   attr EString version;
    attr EString libraryName;
-   attr EString artifactType = "jar";
+   attr ArtifactType artifactType = "jar";
 }
 
 
-class JavaPackageMapper extends PackageMapper {
+class JavaPackageMapper extends PackageMapper,VersionRef {
     id attr EString uid;
    attr EString mappedToPackageName;
    attr EString artifactId;
    attr EString groupId;
-   attr EString version;
    attr EString libraryName;
-   attr EString artifactType = "jar";
+   attr ArtifactType artifactType = "jar";
 }
 
 
-class JavaScriptMapper extends TypeMapper{
+class JavaScriptMapper extends TypeMapper,VersionRef{
     id attr EString uid;
    attr EString libraryUrl;
    attr EString artifactId;
    attr EString groupId;
-   attr EString version;
-   attr EString artifactType = "jar";
+   attr EString mappedToInternalLocation;
+   attr EString mappedToClassName;
+   attr EString jsPackageName;
+   attr EBoolean local;
+   attr ArtifactType artifactType = "jar";
 }
 
 class CSSMapper extends Mapper, style.StylePointer{

@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.jpa;
 
 import static org.junit.Assert.assertEquals;
@@ -30,51 +27,51 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.client.rest.RestClientRepository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
+import objects.test.serialazable.jpa.JPAObject11;
 import objects.test.serialazable.jpa.One2One1A;
 import objects.test.serialazable.jpa.One2One1B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa2.JPAObjectSecondDb;
 
-@RunWith(Arquillian.class)
 public class RestRepositoryTest {
 
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
+	private static  String version ;
+
 	
-	
-	@Deployment
-	public static WebArchive createDeployment() {
+	public static void getVersion() {
 		File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
-				.resolve("org.tura.platform.test.generated-code:test-objects-restservice-repository:war:1.0")
+				.resolve("org.tura.platform.test.generated-code:test-objects-restservice-repository:war:?")
 				.withTransitivity().as(File.class);
 		
-		File[] libs1 = Maven.resolver().loadPomFromFile("pom.xml")
-				.resolve("org.tura.platform.test.generated-code:test-objects-repository-proxy:1.0")
-				.withTransitivity().as(File.class);
-				
-		WebArchive a =  ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
-				.addAsLibraries(libs1[0])
-				.addAsWebInfResource("jbossas-ds.xml")
-				;
-				return a;
+		if ( libs.length != 0  ) {
+			File f = libs[0];
+		    String name = f.getName();
+		    
+		    int i = "test-objects-restservice-repository".length();
+		    int j = name.lastIndexOf(".war");
+		    version = name.substring(i+1,j);
+			  
+		}
 	}
 
 	
-	private ProxyRepository getRepository() throws MalformedURLException {
-		URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
+	public static  ProxyRepository getRepository() throws MalformedURLException {
+		if (version == null ) {
+			getVersion();
+		}
+		
+		URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-"+version+"/");
 		commandStack = new ArrayList<>();
 		
 		ProxyRepository proxy = new ProxyRepository(new RestClientRepository(url),stackProvider);
@@ -84,7 +81,6 @@ public class RestRepositoryTest {
 	}
 	
 	@Test
-	@RunAsClient
 	public void t0000_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
@@ -134,8 +130,36 @@ public class RestRepositoryTest {
 
 	}
 	
+
+	@Test
+	@Ignore
+	public void t0001_JPAObject11JPAObjectSecondDb() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject11 jpaObject11 = (JPAObject11) repository.create(JPAObject11.class.getName());
+			JPAObjectSecondDb jpaObjectSecondDb = (JPAObjectSecondDb) repository.create(JPAObjectSecondDb.class.getName());
+			
+			repository.insert(jpaObject11, JPAObject11.class.getName());
+			repository.insert(jpaObjectSecondDb, JPAObjectSecondDb.class.getName());
+
+			jpaObjectSecondDb.setJPAObject11(jpaObject11);
+
+			repository.applyChanges(null);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+
 	
-	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+	
+	
+	private static ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		private static final long serialVersionUID = 4161290697692127678L;
 
 		@SuppressWarnings("unchecked")
 		@Override

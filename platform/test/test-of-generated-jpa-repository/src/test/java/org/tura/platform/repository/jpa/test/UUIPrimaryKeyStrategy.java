@@ -1,24 +1,21 @@
-/**
- * Tura - application generation platform
+/*
+ * Tura - Application generation solution
  *
- * Copyright (c) 2012 - 2019, Arseniy Isakov
+ * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package org.tura.platform.repository.jpa.test;
 
 import java.util.UUID;
@@ -36,6 +33,10 @@ import objects.test.serialazable.jpa.JPAObject1;
 import objects.test.serialazable.jpa.JPAObject2;
 import objects.test.serialazable.jpa.JPAObject3;
 import objects.test.serialazable.jpa.JPAObject4;
+import objects.test.serialazable.jpa.JPAObject5;
+import objects.test.serialazable.jpa.JPAObject6;
+import objects.test.serialazable.jpa.JPAObject7;
+import objects.test.serialazable.jpa.JPAObject8;
 import objects.test.serialazable.jpa.Location;
 import objects.test.serialazable.jpa.LocationMany2ManyCustomerRelation;
 import objects.test.serialazable.jpa.Order;
@@ -43,9 +44,13 @@ import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.SPAObject2;
 import objects.test.serialazable.jpa.SPAObject3;
 import objects.test.serialazable.jpa.SPAObject4;
+import objects.test.serialazable.jpa.SPAObject7;
+import objects.test.serialazable.jpa.SPAObject8;
 import objects.test.serialazable.jpa.Vehicle;
 
 public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
+
+	private static final long serialVersionUID = -8674066159162319557L;
 
 	@Override
 	public void generatePk(Object o) {
@@ -89,6 +94,30 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			((JPAObject4)o).setJpaObj4(UUID.randomUUID().getMostSignificantBits());
 			return;
 		}		
+
+
+		if (o instanceof JPAObject5){
+			((JPAObject5)o).setJpaObj5(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof JPAObject6){
+			((JPAObject6)o).setJpaObj6(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+
+		
+		if (o instanceof JPAObject7){
+			((JPAObject7)o).setJpaObj7(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+
+		if (o instanceof JPAObject8){
+			((JPAObject8)o).setJpaObj8(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+
+		
 		
 		if (o instanceof SPAObject1){
 			((SPAObject1)o).setSpaObj1(UUID.randomUUID().getMostSignificantBits());
@@ -108,6 +137,17 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			((SPAObject4)o).setSpaObj4(UUID.randomUUID().getMostSignificantBits());
 			return;
 		}		
+		
+		if (o instanceof SPAObject7){
+			((SPAObject7)o).setSpaObj7(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof SPAObject8){
+			((SPAObject8)o).setSpaObj8(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
 		
 		if (o instanceof A2){
 			((A2)o).setObjId2(UUID.randomUUID().getMostSignificantBits());

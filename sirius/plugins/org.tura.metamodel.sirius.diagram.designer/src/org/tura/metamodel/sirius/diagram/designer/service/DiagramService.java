@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 package org.tura.metamodel.sirius.diagram.designer.service;
 
 import java.util.ArrayList;
@@ -86,8 +100,10 @@ import message.Language;
 import message.Message;
 import message.MessageLibrary;
 import message.Translation;
+import recipe.Component;
 import recipe.Configuration;
 import recipe.Infrastructure;
+import recipe.Ingredient;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
@@ -131,6 +147,24 @@ public class DiagramService {
 		}
 	}
 
+	public boolean enableContextMenuForComponent(EObject eobject) {
+		if (eobject instanceof Component) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+
+	
+	public boolean enableContextMenuForIngredient(EObject eobject) {
+		if (eobject instanceof Ingredient) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+
+	
 	public boolean enableContextMenuForDatacontrol(EObject eobject) {
 		if (eobject instanceof DataControl) {
 			return true;

@@ -1,0 +1,70 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter   {
+
+   private java.util.Map<String,Object> attributes;
+   private org.tura.platform.repository.core.ObjectControl obj;
+   private org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger;
+   
+    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(org.tura.platform.repository.core.ObjectControl obj){
+        this.attributes = obj.getAttributes();
+        this.obj = obj;
+    }
+
+
+    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(org.tura.platform.repository.core.ObjectControl obj, org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger){
+        this.attributes = obj.getAttributes();
+        this.obj = obj;
+        this.onChangeArtificialFieldTrigger = onChangeArtificialFieldTrigger;
+    }
+
+
+    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter( java.util.Map<String,Object> attributes){
+        this.attributes = attributes;
+    }
+
+
+   [%
+    for (artificialField in control.artificialFields){%]
+			public  [%=artificialField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(artificialField.name)%]()throws org.tura.platform.datacontrol.commons.TuraException{
+			   Object[] result = null;
+			   if (onChangeArtificialFieldTrigger != null){
+			        result = onChangeArtificialFieldTrigger.onGet(obj, attributes,  "[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]" );
+			        if (result != null ){
+			           return ([%=artificialField.typeRef.~fullName%] )result[0];
+			        }
+			   }  
+			   return ([%=artificialField.typeRef.~fullName%])attributes.get("ATTRIBUTE_[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]");
+			}  
+			public void set[%=util.mergeAndCapitalize(artificialField.name)%]( [%=artificialField.typeRef.~fullName%] field) throws org.tura.platform.datacontrol.commons.TuraException{
+			   boolean result = true;
+			   if (onChangeArtificialFieldTrigger != null){
+			        result = onChangeArtificialFieldTrigger.onSet(obj, attributes,  "[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]" ,field);
+			   }  
+			   if ( result ){
+			      attributes.put("ATTRIBUTE_[%=util.mergeAndUnCapitalize(artificialField.name).toUpperCase()%]",field);
+			   }
+			
+			}
+    [%
+    }
+    %] 
+}

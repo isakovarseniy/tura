@@ -1,0 +1,77 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class [%=util.mergeAndCapitalize(control.name)%]TriggerProducer {
+
+ 	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")   @org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PreQueryTrigger getPreQueryTrigger( javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PostQueryTrigger getPostQueryTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PostCreateTrigger getPostCreateTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PreDeleteTrigger getPreDeleteTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PreInsertTrigger getPreInsertTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.PreUpdateTrigger getPreUpdateTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+	
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.AutoCreateObject("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.DCRule getAutoCreateObject(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.ArtificialFieldInterceptor("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger getArtificialFieldInterceptort(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+		return null;
+
+	}
+
+
+	
+}

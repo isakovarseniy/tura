@@ -1,0 +1,94 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+operation  viewgeneration(hash) {
+      var form = hash.get("form");   
+      var  javaPath =  hash.get("javaPath");  
+      var webapp = hash.get("webapp");
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var allPorts = new Native('java.util.ArrayList'); 
+      var actionTriggers = new Native('java.util.ArrayList'); 
+      var scriptTriggers = new Native('java.util.ArrayList'); 
+      var menuReferences = new Native('java.util.ArrayList'); 
+      var modelRegistration = new Native('java.util.ArrayList'); 
+      
+      var uipackage = hash.get("uipackage");
+
+      hash.put("actionTriggers",actionTriggers);
+      hash.put("scriptTriggers",scriptTriggers);
+      hash.put("menuReferences",menuReferences);
+      hash.put("modelRegistration",modelRegistration);
+
+      
+      if (form = null or form.view = null){
+         return;   
+      }
+      for (canvas in form.view.canvases){
+              if (not canvas.isKindOf(form::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(form::ViewPort)); 
+                   allPorts.addAll(ports);
+              }
+              canvas.createModel(hash);   
+      }
+      
+      buildContextRefClass( hash,form); 
+      menuGenerator(hash);
+      menuProvider(hash);
+      actionExecutor(hash);
+      
+      
+
+      hash.put("allPorts",allPorts);
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
+      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+             
+      var viewportclass : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/viewPortHolderClass.egl",hash,TemplateFactory);
+      viewportclass.setFormatter(f);
+      var buffer = viewportclass.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
+
+
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
+      var modelWrapper : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/modelWrapper.egl",hash,TemplateFactory);
+      modelWrapper.setFormatter(f);
+      var buffer = modelWrapper.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"   , "ViewModelWrapper.java",buffer);  
+
+
+
+      var viewmodelcallbackproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/callbackProducer.egl",hash,TemplateFactory);
+      viewmodelcallbackproducer.setFormatter(f);
+      var buffer = viewmodelcallbackproducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewModelCallBackProducer.java",buffer);  
+      
+
+      var viewporttriggerproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/viewPortTriggerProducer.egl",hash,TemplateFactory);
+      viewporttriggerproducer.setFormatter(f);
+      var buffer = viewporttriggerproducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
+
+      
+      var menutriggerproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/menuPostProcessorProducer.egl",hash,TemplateFactory);
+      menutriggerproducer.setFormatter(f);
+      var buffer = menutriggerproducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "MenuPostProcessorProducer.java",buffer);  
+      
+      
+      
+}      
+
+
+ %]

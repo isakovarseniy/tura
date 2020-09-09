@@ -55,12 +55,19 @@ import java.util.Comparator;
 /**
  * Job: Prepare_to_rules_run Purpose: <br>
  * Description:  <br>
- * @author 
- * @version 6.4.1.20170623_1246
+ * @author user@talend.com
+ * @version 7.3.1.20200117_1600-M6
  * @status 
  */
 public class Prepare_to_rules_run implements TalendJob {
 
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
+
+}
 
 
 	public final Object obj = new Object();
@@ -168,7 +175,7 @@ public String getSession(){
 	return this.session;
 }
 	}
-	private ContextProperties context = new ContextProperties();
+	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
 	public ContextProperties getContext() {
 		return this.context;
 	}
@@ -191,6 +198,8 @@ private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
+	
+	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
@@ -198,6 +207,7 @@ private RunStat runStat = new RunStat();
 			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
+		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
 
@@ -443,7 +453,7 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
 			}
-		
+	
 
 
 
@@ -461,10 +471,13 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -490,43 +503,101 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	
 		int tos_count_tJDBCConnection_1 = 0;
 		
-    	class BytesLimit65535_tJDBCConnection_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCConnection_1().limitLog4jByte();
-	
 
-	
-		String url_tJDBCConnection_1 = "jdbc:postgresql://db:5432/postgres";
 
-	String dbUser_tJDBCConnection_1 = "postgres";
-	
-	
-		 
-	final String decryptedPassword_tJDBCConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword("610243e4ca33e325f4f7aba1746784ea");
-		String dbPwd_tJDBCConnection_1 = decryptedPassword_tJDBCConnection_1;
-	
+org.talend.components.api.component.ComponentDefinition def_tJDBCConnection_1 =
+        new org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionDefinition();
 
-	java.sql.Connection conn_tJDBCConnection_1 = null;
-	
-		
-		String driverClass_tJDBCConnection_1 = "org.postgresql.Driver";
-		java.lang.Class.forName(driverClass_tJDBCConnection_1);
-		
-		conn_tJDBCConnection_1 = java.sql.DriverManager.getConnection(url_tJDBCConnection_1,dbUser_tJDBCConnection_1,dbPwd_tJDBCConnection_1);
+org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionProperties props_tJDBCConnection_1 =
+        (org.talend.components.jdbc.tjdbcconnection.TJDBCConnectionProperties) def_tJDBCConnection_1.createRuntimeProperties();
+ 		                    props_tJDBCConnection_1.setValue("shareConnection",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("useDataSource",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("useAutoCommit",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCConnection_1.setValue("autocommit",
+ 		                    true);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.setValue("jdbcUrl",
+ 		                    "jdbc:postgresql://db:5432/postgres");
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.setValue("driverClass",
+ 		                    "org.postgresql.Driver");
+ 		                    
+ 		                    java.util.List<Object> tJDBCConnection_1_connection_driverTable_drivers = new java.util.ArrayList<Object>();
+ 		                    
+ 		                                tJDBCConnection_1_connection_driverTable_drivers.add("mvn:org.talend.libraries/postgresql-9.4-1201.jdbc41/6.0.0/jar");
+ 		                                
+ 		                            tJDBCConnection_1_connection_driverTable_drivers.add("");
+ 		                            
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCConnection_1.connection.driverTable).setValue("drivers",tJDBCConnection_1_connection_driverTable_drivers);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCConnection_1.connection.userPassword.setValue("userId",
+ 		                    "postgres");
+ 		                    
+ 		                        props_tJDBCConnection_1.connection.userPassword.setValue("password",
+ 		                        routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:XybiPwxTfH2oqOlxnKl6JE76btUJPDU6gZ5Vl8Lrs85TOWJY"));
+ 		                        
+globalMap.put("tJDBCConnection_1_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCConnection_1);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCConnection_1= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCConnection_1_MAPPINGS_URL", mappings_url_tJDBCConnection_1);
 
-		globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	if (null != conn_tJDBCConnection_1) {
-		
-			conn_tJDBCConnection_1.setAutoCommit(true);
+org.talend.components.api.container.RuntimeContainer container_tJDBCConnection_1 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
+
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
+
+    public String getCurrentComponentId() {
+        return "tJDBCConnection_1";
+    }
+
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
+
+int nb_line_tJDBCConnection_1 = 0;
+
+org.talend.components.api.component.ConnectorTopology topology_tJDBCConnection_1 = null;
+topology_tJDBCConnection_1 = org.talend.components.api.component.ConnectorTopology.NONE;
+
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCConnection_1 = def_tJDBCConnection_1.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCConnection_1, topology_tJDBCConnection_1);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCConnection_1 = def_tJDBCConnection_1.getSupportedConnectorTopologies();
+
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCConnection_1 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCConnection_1.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCConnection_1 = componentRuntime_tJDBCConnection_1.initialize(container_tJDBCConnection_1, props_tJDBCConnection_1);
+
+if (initVr_tJDBCConnection_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCConnection_1.getMessage());
+}
+
+if(componentRuntime_tJDBCConnection_1 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCConnection_1 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCConnection_1;
+	compDriverInitialization_tJDBCConnection_1.runAtDriver(container_tJDBCConnection_1);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCConnection_1 = null;
+if(componentRuntime_tJDBCConnection_1 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCConnection_1 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCConnection_1;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCConnection_1 = sourceOrSink_tJDBCConnection_1.validate(container_tJDBCConnection_1);
+	if (vr_tJDBCConnection_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCConnection_1.getMessage());
 	}
-	
-	globalMap.put("conn_tJDBCConnection_1", conn_tJDBCConnection_1);
-	globalMap.put("url_tJDBCConnection_1", url_tJDBCConnection_1);
-	globalMap.put("username_tJDBCConnection_1", dbUser_tJDBCConnection_1);
+}
 
  
 
@@ -548,6 +619,7 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 
 	
 
+
  
 
 
@@ -555,6 +627,48 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 
 /**
  * [tJDBCConnection_1 main ] stop
+ */
+	
+	/**
+	 * [tJDBCConnection_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCConnection_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCConnection_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tJDBCConnection_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCConnection_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCConnection_1 process_data_end ] stop
  */
 	
 	/**
@@ -568,6 +682,7 @@ public void tJDBCConnection_1Process(final java.util.Map<String, Object> globalM
 	currentComponent="tJDBCConnection_1";
 
 	
+// end of generic
 
  
 
@@ -617,6 +732,7 @@ end_Hash.put("tJDBCConnection_1", System.currentTimeMillis());
 	currentComponent="tJDBCConnection_1";
 
 	
+// finally of generic
 
  
 
@@ -1317,10 +1433,13 @@ public void tJDBCInput_1Process(final java.util.Map<String, Object> globalMap) t
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -1348,24 +1467,12 @@ out1Struct out1 = new out1Struct();
 	currentComponent="tFileOutputDelimited_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("out1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out1");
+					}
+				
 		int tos_count_tFileOutputDelimited_2 = 0;
 		
-    	class BytesLimit65535_tFileOutputDelimited_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileOutputDelimited_2().limitLog4jByte();
 
 String fileName_tFileOutputDelimited_2 = "";
     fileName_tFileOutputDelimited_2 = (new java.io.File(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_extract.csv")).getAbsolutePath().replace("\\","/");
@@ -1450,24 +1557,12 @@ resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2
 	currentComponent="tMap_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row3" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
+					}
+				
 		int tos_count_tMap_2 = 0;
 		
-    	class BytesLimit65535_tMap_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMap_2().limitLog4jByte();
 
 
 
@@ -1531,202 +1626,362 @@ out1Struct out1_tmp = new out1Struct();
 	
 		int tos_count_tJDBCInput_1 = 0;
 		
-    	class BytesLimit65535_tJDBCInput_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJDBCInput_1().limitLog4jByte();
-	
-    
-	
-		    int nb_line_tJDBCInput_1 = 0;
-		    java.sql.Connection conn_tJDBCInput_1 = null;
-		        conn_tJDBCInput_1 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
-				
-		    
-			java.sql.Statement stmt_tJDBCInput_1 = conn_tJDBCInput_1.createStatement();
 
-		    String dbquery_tJDBCInput_1 = "SELECT  * FROM sales_analyzer.product_group_history where history_date between  TO_DATE('"
+
+org.talend.components.api.component.ComponentDefinition def_tJDBCInput_1 =
+        new org.talend.components.jdbc.tjdbcinput.TJDBCInputDefinition();
+
+org.talend.components.jdbc.tjdbcinput.TJDBCInputProperties props_tJDBCInput_1 =
+        (org.talend.components.jdbc.tjdbcinput.TJDBCInputProperties) def_tJDBCInput_1.createRuntimeProperties();
+ 		                    props_tJDBCInput_1.setValue("sql",
+ 		                    "SELECT  * FROM sales_analyzer.product_group_history where history_date between  TO_DATE('"
 +
 TalendDate.formatDate("yyyyMMdd",TalendDate.addDate( TalendDate.getFirstDayOfMonth(context.date),-2,"MM"))
 
-+"','YYYYMMDD') and TO_DATE('"+TalendDate.formatDate("yyyyMMdd", TalendDate.addDate(TalendDate.getFirstDayOfMonth(context.date),-1,"dd")) +"','yyyyMMdd')";
-			
++"','YYYYMMDD') and TO_DATE('"+TalendDate.formatDate("yyyyMMdd", TalendDate.addDate(TalendDate.getFirstDayOfMonth(context.date),-1,"dd")) +"','yyyyMMdd')");
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("useCursor",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("trimStringOrCharColumns",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("enableDBMapping",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.setValue("usePreparedStatement",
+ 		                    false);
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("referenceType",
+ 		                        org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE);
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("componentInstanceId",
+ 		                    "tJDBCConnection_1");
+ 		                    
+ 		                    props_tJDBCInput_1.referencedComponent.setValue("referenceDefinitionName",
+ 		                    "tJDBCConnection");
+ 		                    
+ 		                    props_tJDBCInput_1.connection.userPassword.setValue("useAuth",
+ 		                    false);
+ 		                    
+ 		                    class SchemaSettingTool_tJDBCInput_1_1_fisrt {
+ 		                    		
+ 		                    		String getSchemaValue() {
+ 		                    				
+ 		                    						StringBuilder s = new StringBuilder();
+                    						
+     		                    						a("{\"type\":\"record\",",s);
+     		                    						
+     		                    						a("\"name\":\"tJDBCInput_1\",\"fields\":[{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_id\",\"type\":\"string\",\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"UUID\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"obj_id\",\"di.column.talendType\":\"id_Object\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"2147483647\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_id\",\"talend.field.precision\":\"0\",\"talend.field.isKey\":\"true\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"active_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"active_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"active_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"create_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"create_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"create_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"exp_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"exp_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"exp_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_status\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_status\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_status\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"obj_type\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"obj_type\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"obj_type\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"update_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"TIMESTAMP\",\"talend.field.dbColumnName\":\"update_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"29\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"update_date\",\"talend.field.precision\":\"6\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"optlock\",\"type\":[\"int\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT4\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"optlock\",\"di.column.talendType\":\"id_Integer\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"10\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"optlock\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"country_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"country_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"country_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"country_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"state_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"state_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"state_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"state_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_id\",\"type\":\"long\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"INT8\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"city_id\",\"di.column.talendType\":\"id_Long\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"19\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_id\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"city_name\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"city_name\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"city_name\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"product\",\"type\":[\"string\",\"null\"],\"di.table.comment\":\"\",\"talend.field.dbType\":\"VARCHAR\",\"talend.field.dbColumnName\":\"product\",\"di.column.talendType\":\"id_String\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"255\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"product\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"amount\",\"type\":[{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"},\"null\"],\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"NUMERIC\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"amount\",\"di.column.talendType\":\"id_BigDecimal\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"\",\"talend.field.length\":\"20\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"amount\",\"talend.field.precision\":\"5\",\"di.column.relatedEntity\":\"\"},{",s);
+     		                    						
+     		                    						a("\"name\":\"history_date\",\"type\":[{\"type\":\"long\",\"java-class\":\"java.util.Date\"},\"null\"],\"default\":\"\",\"di.table.comment\":\"\",\"talend.field.dbType\":\"DATE\",\"talend.field.default\":\"\",\"talend.field.dbColumnName\":\"history_date\",\"di.column.talendType\":\"id_Date\",\"di.column.isNullable\":\"true\",\"talend.field.pattern\":\"dd-MM-yyyy\",\"talend.field.length\":\"13\",\"di.column.relationshipType\":\"\",\"di.table.label\":\"history_date\",\"talend.field.precision\":\"0\",\"di.column.relatedEntity\":\"\"}],\"di.table.name\":\"tJDBCInput_1\",\"di.table.label\":\"tJDBCInput_1\"}",s);
+     		                    						
+     		                    				return s.toString();
+     		                    		
+ 		                    		}
+ 		                    		
+ 		                    		void a(String part, StringBuilder strB) {
+ 		                    				strB.append(part);
+ 		                    		}
+ 		                    		
+ 		                    }
+ 		                    
+ 		                    SchemaSettingTool_tJDBCInput_1_1_fisrt sst_tJDBCInput_1_1_fisrt = new SchemaSettingTool_tJDBCInput_1_1_fisrt();
+ 		                    
+ 		                    props_tJDBCInput_1.main.setValue("schema",
+ 		                        new org.apache.avro.Schema.Parser().parse(sst_tJDBCInput_1_1_fisrt.getSchemaValue()));
+ 		                    
+ 		                    props_tJDBCInput_1.tableSelection.setValue("tablename",
+ 		                    "sales_analyzer.product_group_history");
+ 		                    
+ 		                    java.util.List<Object> tJDBCInput_1_trimTable_trim = new java.util.ArrayList<Object>();
+ 		                    
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                                tJDBCInput_1_trimTable_trim.add(false);
+ 		                                
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCInput_1.trimTable).setValue("trim",tJDBCInput_1_trimTable_trim);
+ 		                    
+ 		                    java.util.List<Object> tJDBCInput_1_trimTable_columnName = new java.util.ArrayList<Object>();
+ 		                    
+ 		                            tJDBCInput_1_trimTable_columnName.add("obj_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("active_date");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("create_date");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("exp_date");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("obj_status");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("obj_type");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("update_date");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("optlock");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("country_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("country_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("state_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("state_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("city_id");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("city_name");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("product");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("amount");
+ 		                            
+ 		                            tJDBCInput_1_trimTable_columnName.add("history_date");
+ 		                            
+ 		                    ((org.talend.daikon.properties.Properties)props_tJDBCInput_1.trimTable).setValue("columnName",tJDBCInput_1_trimTable_columnName);
+ 		                    
+    if (org.talend.components.api.properties.ComponentReferenceProperties.ReferenceType.COMPONENT_INSTANCE == props_tJDBCInput_1.referencedComponent.referenceType.getValue()) {
+        final String referencedComponentInstanceId_tJDBCInput_1 = props_tJDBCInput_1.referencedComponent.componentInstanceId.getStringValue();
+        if (referencedComponentInstanceId_tJDBCInput_1 != null) {
+            org.talend.daikon.properties.Properties referencedComponentProperties_tJDBCInput_1 = (org.talend.daikon.properties.Properties) globalMap.get(
+                referencedComponentInstanceId_tJDBCInput_1 + "_COMPONENT_RUNTIME_PROPERTIES");
+            props_tJDBCInput_1.referencedComponent.setReference(referencedComponentProperties_tJDBCInput_1);
+        }
+    }
+globalMap.put("tJDBCInput_1_COMPONENT_RUNTIME_PROPERTIES", props_tJDBCInput_1);
+globalMap.putIfAbsent("TALEND_PRODUCT_VERSION", "7.3");
+globalMap.put("TALEND_COMPONENTS_VERSION", "0.28.0.SNAPSHOT");
+java.net.URL mappings_url_tJDBCInput_1= this.getClass().getResource("/xmlMappings");
+globalMap.put("tJDBCInput_1_MAPPINGS_URL", mappings_url_tJDBCInput_1);
 
-                       globalMap.put("tJDBCInput_1_QUERY",dbquery_tJDBCInput_1);
+org.talend.components.api.container.RuntimeContainer container_tJDBCInput_1 = new org.talend.components.api.container.RuntimeContainer() {
+    public Object getComponentData(String componentId, String key) {
+        return globalMap.get(componentId + "_" + key);
+    }
 
-		    java.sql.ResultSet rs_tJDBCInput_1 = null;
-		try{
-		    rs_tJDBCInput_1 = stmt_tJDBCInput_1.executeQuery(dbquery_tJDBCInput_1);
-		    java.sql.ResultSetMetaData rsmd_tJDBCInput_1 = rs_tJDBCInput_1.getMetaData();
-		    int colQtyInRs_tJDBCInput_1 = rsmd_tJDBCInput_1.getColumnCount();
+    public void setComponentData(String componentId, String key, Object data) {
+        globalMap.put(componentId + "_" + key, data);
+    }
 
-		    String tmpContent_tJDBCInput_1 = null;
-		    
-		    
-		    while (rs_tJDBCInput_1.next()) {
-		        nb_line_tJDBCInput_1++;
-		        
-							if(colQtyInRs_tJDBCInput_1 < 1) {
-								row3.obj_id = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(1) != null) {
-                row3.obj_id = rs_tJDBCInput_1.getObject(1);
-            } else {
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 2) {
-								row3.active_date = null;
-							} else {
-										
-            java.util.Date date_tJDBCInput_1 = null;
-            try{
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getTimestamp(2);
-            }catch(java.lang.Exception e){
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getDate(2);
-            }
-            row3.active_date = date_tJDBCInput_1;
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 3) {
-								row3.create_date = null;
-							} else {
-										
-            java.util.Date date_tJDBCInput_1 = null;
-            try{
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getTimestamp(3);
-            }catch(java.lang.Exception e){
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getDate(3);
-            }
-            row3.create_date = date_tJDBCInput_1;
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 4) {
-								row3.exp_date = null;
-							} else {
-										
-            java.util.Date date_tJDBCInput_1 = null;
-            try{
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getTimestamp(4);
-            }catch(java.lang.Exception e){
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getDate(4);
-            }
-            row3.exp_date = date_tJDBCInput_1;
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 5) {
-								row3.obj_status = null;
-							} else {
-	                         		
-        	row3.obj_status = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 5, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 6) {
-								row3.obj_type = null;
-							} else {
-	                         		
-        	row3.obj_type = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 6, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 7) {
-								row3.update_date = null;
-							} else {
-										
-            java.util.Date date_tJDBCInput_1 = null;
-            try{
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getTimestamp(7);
-            }catch(java.lang.Exception e){
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getDate(7);
-            }
-            row3.update_date = date_tJDBCInput_1;
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 8) {
-								row3.optlock = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(8) != null) {
-                row3.optlock = rs_tJDBCInput_1.getInt(8);
-            } else {
-                    row3.optlock = null;
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 9) {
-								row3.country_id = 0;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(9) != null) {
-                row3.country_id = rs_tJDBCInput_1.getLong(9);
-            } else {
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 10) {
-								row3.country_name = null;
-							} else {
-	                         		
-        	row3.country_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 10, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 11) {
-								row3.state_id = 0;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(11) != null) {
-                row3.state_id = rs_tJDBCInput_1.getLong(11);
-            } else {
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 12) {
-								row3.state_name = null;
-							} else {
-	                         		
-        	row3.state_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 12, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 13) {
-								row3.city_id = 0;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(13) != null) {
-                row3.city_id = rs_tJDBCInput_1.getLong(13);
-            } else {
-                    throw new RuntimeException("Null value in non-Nullable column");
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 14) {
-								row3.city_name = null;
-							} else {
-	                         		
-        	row3.city_name = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 14, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 15) {
-								row3.product = null;
-							} else {
-	                         		
-        	row3.product = routines.system.JDBCUtil.getString(rs_tJDBCInput_1, 15, false);
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 16) {
-								row3.amount = null;
-							} else {
-		                          
-            if(rs_tJDBCInput_1.getObject(16) != null) {
-                row3.amount = rs_tJDBCInput_1.getBigDecimal(16);
-            } else {
-                    row3.amount = null;
-            }
-		                    }
-							if(colQtyInRs_tJDBCInput_1 < 17) {
-								row3.history_date = null;
-							} else {
-										
-            java.util.Date date_tJDBCInput_1 = null;
-            try{
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getTimestamp(17);
-            }catch(java.lang.Exception e){
-            	date_tJDBCInput_1 = rs_tJDBCInput_1.getDate(17);
-            }
-            row3.history_date = date_tJDBCInput_1;
-		                    }
-					
+    public String getCurrentComponentId() {
+        return "tJDBCInput_1";
+    }
 
+    public Object getGlobalData(String key) {
+    	return globalMap.get(key);
+    }
+};
+
+int nb_line_tJDBCInput_1 = 0;
+
+org.talend.components.api.component.ConnectorTopology topology_tJDBCInput_1 = null;
+topology_tJDBCInput_1 = org.talend.components.api.component.ConnectorTopology.OUTGOING;
+
+org.talend.daikon.runtime.RuntimeInfo runtime_info_tJDBCInput_1 = def_tJDBCInput_1.getRuntimeInfo(
+    org.talend.components.api.component.runtime.ExecutionEngine.DI, props_tJDBCInput_1, topology_tJDBCInput_1);
+java.util.Set<org.talend.components.api.component.ConnectorTopology> supported_connector_topologies_tJDBCInput_1 = def_tJDBCInput_1.getSupportedConnectorTopologies();
+
+org.talend.components.api.component.runtime.RuntimableRuntime componentRuntime_tJDBCInput_1 = (org.talend.components.api.component.runtime.RuntimableRuntime)(Class.forName(runtime_info_tJDBCInput_1.getRuntimeClassName()).newInstance());
+org.talend.daikon.properties.ValidationResult initVr_tJDBCInput_1 = componentRuntime_tJDBCInput_1.initialize(container_tJDBCInput_1, props_tJDBCInput_1);
+
+if (initVr_tJDBCInput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    throw new RuntimeException(initVr_tJDBCInput_1.getMessage());
+}
+
+if(componentRuntime_tJDBCInput_1 instanceof org.talend.components.api.component.runtime.ComponentDriverInitialization) {
+	org.talend.components.api.component.runtime.ComponentDriverInitialization compDriverInitialization_tJDBCInput_1 = (org.talend.components.api.component.runtime.ComponentDriverInitialization)componentRuntime_tJDBCInput_1;
+	compDriverInitialization_tJDBCInput_1.runAtDriver(container_tJDBCInput_1);
+}
+
+org.talend.components.api.component.runtime.SourceOrSink sourceOrSink_tJDBCInput_1 = null;
+if(componentRuntime_tJDBCInput_1 instanceof org.talend.components.api.component.runtime.SourceOrSink) {
+	sourceOrSink_tJDBCInput_1 = (org.talend.components.api.component.runtime.SourceOrSink)componentRuntime_tJDBCInput_1;
+	org.talend.daikon.properties.ValidationResult vr_tJDBCInput_1 = sourceOrSink_tJDBCInput_1.validate(container_tJDBCInput_1);
+	if (vr_tJDBCInput_1.getStatus() == org.talend.daikon.properties.ValidationResult.Result.ERROR ) {
+    	throw new RuntimeException(vr_tJDBCInput_1.getMessage());
+	}
+}
+
+    org.talend.components.api.component.runtime.Source source_tJDBCInput_1 =
+            (org.talend.components.api.component.runtime.Source)sourceOrSink_tJDBCInput_1;
+    org.talend.components.api.component.runtime.Reader reader_tJDBCInput_1 =
+            source_tJDBCInput_1.createReader(container_tJDBCInput_1);
+	reader_tJDBCInput_1 = new org.talend.codegen.flowvariables.runtime.FlowVariablesReader(reader_tJDBCInput_1, container_tJDBCInput_1);
+
+        boolean multi_output_is_allowed_tJDBCInput_1 = false;
+        org.talend.components.api.component.Connector c_tJDBCInput_1 = null;
+        for (org.talend.components.api.component.Connector currentConnector : props_tJDBCInput_1.getAvailableConnectors(null, true)) {
+            if (currentConnector.getName().equals("MAIN")) {
+                c_tJDBCInput_1 = currentConnector;
+            }
+
+            if (currentConnector.getName().equals("REJECT")) {//it's better to move the code to javajet
+                multi_output_is_allowed_tJDBCInput_1 = true;
+            }
+        }
+        org.apache.avro.Schema schema_tJDBCInput_1 = props_tJDBCInput_1.getSchema(c_tJDBCInput_1, true);
+
+        org.talend.codegen.enforcer.OutgoingSchemaEnforcer outgoingEnforcer_tJDBCInput_1 = org.talend.codegen.enforcer.EnforcerCreator.createOutgoingEnforcer(schema_tJDBCInput_1, false);
+
+        // Create a reusable factory that converts the output of the reader to an IndexedRecord.
+        org.talend.daikon.avro.converter.IndexedRecordConverter<Object, ? extends org.apache.avro.generic.IndexedRecord> factory_tJDBCInput_1 = null;
+
+    // Iterate through the incoming data.
+    boolean available_tJDBCInput_1 = reader_tJDBCInput_1.start();
+
+    resourceMap.put("reader_tJDBCInput_1", reader_tJDBCInput_1);
+
+    for (; available_tJDBCInput_1; available_tJDBCInput_1 = reader_tJDBCInput_1.advance()) {
+    	nb_line_tJDBCInput_1++;
+
+    	
+        if (multi_output_is_allowed_tJDBCInput_1) {
+                row3 = null;
+
+        }
+
+        try {
+            Object data_tJDBCInput_1 = reader_tJDBCInput_1.getCurrent();
+
+                if(multi_output_is_allowed_tJDBCInput_1) {
+                    row3 = new row3Struct();
+                }
+
+        // Construct the factory once when the first data arrives.
+        if (factory_tJDBCInput_1 == null) {
+            factory_tJDBCInput_1 = (org.talend.daikon.avro.converter.IndexedRecordConverter<Object, ? extends org.apache.avro.generic.IndexedRecord>)
+                    new org.talend.daikon.avro.AvroRegistry()
+                            .createIndexedRecordConverter(data_tJDBCInput_1.getClass());
+        }
+
+        // Enforce the outgoing schema on the input.
+        outgoingEnforcer_tJDBCInput_1.setWrapped(factory_tJDBCInput_1.convertToAvro(data_tJDBCInput_1));
+                Object columnValue_0_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(0);
+                        row3.obj_id = (Object) (columnValue_0_tJDBCInput_1);
+                Object columnValue_1_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(1);
+                        row3.active_date = (java.util.Date) (columnValue_1_tJDBCInput_1);
+                Object columnValue_2_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(2);
+                        row3.create_date = (java.util.Date) (columnValue_2_tJDBCInput_1);
+                Object columnValue_3_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(3);
+                        row3.exp_date = (java.util.Date) (columnValue_3_tJDBCInput_1);
+                Object columnValue_4_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(4);
+                        row3.obj_status = (String) (columnValue_4_tJDBCInput_1);
+                Object columnValue_5_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(5);
+                        row3.obj_type = (String) (columnValue_5_tJDBCInput_1);
+                Object columnValue_6_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(6);
+                        row3.update_date = (java.util.Date) (columnValue_6_tJDBCInput_1);
+                Object columnValue_7_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(7);
+                        row3.optlock = (Integer) (columnValue_7_tJDBCInput_1);
+                Object columnValue_8_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(8);
+                    if (columnValue_8_tJDBCInput_1 == null) {
+                        row3.country_id = 0;
+                    } else {
+                            row3.country_id = (long) (columnValue_8_tJDBCInput_1);
+                    }
+                Object columnValue_9_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(9);
+                        row3.country_name = (String) (columnValue_9_tJDBCInput_1);
+                Object columnValue_10_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(10);
+                    if (columnValue_10_tJDBCInput_1 == null) {
+                        row3.state_id = 0;
+                    } else {
+                            row3.state_id = (long) (columnValue_10_tJDBCInput_1);
+                    }
+                Object columnValue_11_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(11);
+                        row3.state_name = (String) (columnValue_11_tJDBCInput_1);
+                Object columnValue_12_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(12);
+                    if (columnValue_12_tJDBCInput_1 == null) {
+                        row3.city_id = 0;
+                    } else {
+                            row3.city_id = (long) (columnValue_12_tJDBCInput_1);
+                    }
+                Object columnValue_13_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(13);
+                        row3.city_name = (String) (columnValue_13_tJDBCInput_1);
+                Object columnValue_14_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(14);
+                        row3.product = (String) (columnValue_14_tJDBCInput_1);
+                Object columnValue_15_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(15);
+                        row3.amount = (BigDecimal) (columnValue_15_tJDBCInput_1);
+                Object columnValue_16_tJDBCInput_1 = outgoingEnforcer_tJDBCInput_1.get(16);
+                        row3.history_date = (java.util.Date) (columnValue_16_tJDBCInput_1);
+        } catch (org.talend.components.api.exception.DataRejectException e_tJDBCInput_1) {
+        	java.util.Map<String,Object> info_tJDBCInput_1 = e_tJDBCInput_1.getRejectInfo();
+            	//TODO use a method instead of getting method by the special key "error/errorMessage"
+            	Object errorMessage_tJDBCInput_1 = null;
+            	if(info_tJDBCInput_1.containsKey("error")){
+            		errorMessage_tJDBCInput_1 = info_tJDBCInput_1.get("error");
+        		}else if(info_tJDBCInput_1.containsKey("errorMessage")){
+            		errorMessage_tJDBCInput_1 = info_tJDBCInput_1.get("errorMessage");
+        		}else{
+        			errorMessage_tJDBCInput_1 = "Rejected but error message missing";
+        		}
+        		errorMessage_tJDBCInput_1 = "Row "+ nb_line_tJDBCInput_1 + ": "+errorMessage_tJDBCInput_1;
+    			System.err.println(errorMessage_tJDBCInput_1);
+            	// If the record is reject, the main line record should put NULL
+            	row3 = null;
+    }
+                java.lang.Iterable<?> outgoingMainRecordsList_tJDBCInput_1 = new java.util.ArrayList<Object>();
+                java.util.Iterator outgoingMainRecordsIt_tJDBCInput_1 = null;
 
 
  
@@ -1749,6 +2004,7 @@ TalendDate.formatDate("yyyyMMdd",TalendDate.addDate( TalendDate.getFirstDayOfMon
 
 	
 
+
  
 
 
@@ -1756,6 +2012,27 @@ TalendDate.formatDate("yyyyMMdd",TalendDate.addDate( TalendDate.getFirstDayOfMon
 
 /**
  * [tJDBCInput_1 main ] stop
+ */
+	
+	/**
+	 * [tJDBCInput_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCInput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCInput_1 process_data_begin ] stop
  */
 
 	
@@ -1770,18 +2047,10 @@ TalendDate.formatDate("yyyyMMdd",TalendDate.addDate( TalendDate.getFirstDayOfMon
 	currentComponent="tMap_2";
 
 	
-
-			//row3
-			//row3
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row3"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row3");
+					}
+					
 
 		
 		
@@ -1839,6 +2108,26 @@ rejectedInnerJoin_tMap_2 = false;
 /**
  * [tMap_2 main ] stop
  */
+	
+	/**
+	 * [tMap_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_2 process_data_begin ] stop
+ */
 // Start of branch "out1"
 if(out1 != null) { 
 
@@ -1856,18 +2145,10 @@ if(out1 != null) {
 	currentComponent="tFileOutputDelimited_2";
 
 	
-
-			//out1
-			//out1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("out1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"out1");
+					}
+					
 
 
                     StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
@@ -1943,15 +2224,96 @@ if(out1 != null) {
 /**
  * [tFileOutputDelimited_2 main ] stop
  */
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_end ] stop
+ */
 
 } // End of branch "out1"
 
 
 
 
+	
+	/**
+	 * [tMap_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_2";
+
+	
+
+ 
 
 
 
+/**
+ * [tMap_2 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tJDBCInput_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJDBCInput_1";
+
+	
+
+
+ 
+
+
+
+/**
+ * [tJDBCInput_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tJDBCInput_1 end ] start
@@ -1964,18 +2326,43 @@ if(out1 != null) {
 	currentComponent="tJDBCInput_1";
 
 	
+// end of generic
 
-	}
-}finally{
-	if(rs_tJDBCInput_1 !=null){
-		rs_tJDBCInput_1.close();
-	}
-	stmt_tJDBCInput_1.close();
 
+resourceMap.put("finish_tJDBCInput_1", Boolean.TRUE);
+
+    } // while
+    reader_tJDBCInput_1.close();
+    final java.util.Map<String, Object> resultMap_tJDBCInput_1 = reader_tJDBCInput_1.getReturnValues();
+if(resultMap_tJDBCInput_1!=null) {
+	for(java.util.Map.Entry<String,Object> entry_tJDBCInput_1 : resultMap_tJDBCInput_1.entrySet()) {
+		switch(entry_tJDBCInput_1.getKey()) {
+		case org.talend.components.api.component.ComponentDefinition.RETURN_ERROR_MESSAGE :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "ERROR_MESSAGE", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_TOTAL_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_LINE", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_SUCCESS_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_SUCCESS", entry_tJDBCInput_1.getValue());
+			break;
+		case org.talend.components.api.component.ComponentDefinition.RETURN_REJECT_RECORD_COUNT :
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", "NB_REJECT", entry_tJDBCInput_1.getValue());
+			break;
+		default :
+            StringBuilder studio_key_tJDBCInput_1 = new StringBuilder();
+            for (int i_tJDBCInput_1 = 0; i_tJDBCInput_1 < entry_tJDBCInput_1.getKey().length(); i_tJDBCInput_1++) {
+                char ch_tJDBCInput_1 = entry_tJDBCInput_1.getKey().charAt(i_tJDBCInput_1);
+                if(Character.isUpperCase(ch_tJDBCInput_1) && i_tJDBCInput_1> 0) {
+                	studio_key_tJDBCInput_1.append('_');
+                }
+                studio_key_tJDBCInput_1.append(ch_tJDBCInput_1);
+            }
+			container_tJDBCInput_1.setComponentData("tJDBCInput_1", studio_key_tJDBCInput_1.toString().toUpperCase(java.util.Locale.ENGLISH), entry_tJDBCInput_1.getValue());
+			break;
+		}
+	}
 }
-globalMap.put("tJDBCInput_1_NB_LINE", nb_line_tJDBCInput_1);
-
-
 
  
 
@@ -2011,12 +2398,10 @@ end_Hash.put("tJDBCInput_1", System.currentTimeMillis());
 
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row3"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
+			  	}
+			  	
  
 
 ok_Hash.put("tMap_2", true);
@@ -2059,12 +2444,10 @@ end_Hash.put("tMap_2", System.currentTimeMillis());
 		resourceMap.put("finish_tFileOutputDelimited_2", true);
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("out1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out1");
+			  	}
+			  	
  
 
 ok_Hash.put("tFileOutputDelimited_2", true);
@@ -2125,7 +2508,19 @@ end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 	currentComponent="tJDBCInput_1";
 
 	
+// finally of generic
 
+
+if(resourceMap.get("finish_tJDBCInput_1")==null){
+    if(resourceMap.get("reader_tJDBCInput_1")!=null){
+		try {
+			((org.talend.components.api.component.runtime.Reader)resourceMap.get("reader_tJDBCInput_1")).close();
+		} catch (java.io.IOException e_tJDBCInput_1) {
+			String errorMessage_tJDBCInput_1 = "failed to release the resource in tJDBCInput_1 :" + e_tJDBCInput_1.getMessage();
+			System.err.println(errorMessage_tJDBCInput_1);
+		}
+	}
+}
  
 
 
@@ -3156,10 +3551,13 @@ public void tFileInputDelimited_1Process(final java.util.Map<String, Object> glo
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -3188,24 +3586,12 @@ row2Struct row2 = new row2Struct();
 	currentComponent="tAggregateRow_1_AGGOUT";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
+					}
+				
 		int tos_count_tAggregateRow_1_AGGOUT = 0;
 		
-    	class BytesLimit65535_tAggregateRow_1_AGGOUT{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tAggregateRow_1_AGGOUT().limitLog4jByte();
 
 // ------------ Seems it is not used
 
@@ -3446,13 +3832,6 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 	
 		int tos_count_tFileInputDelimited_1 = 0;
 		
-    	class BytesLimit65535_tFileInputDelimited_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileInputDelimited_1().limitLog4jByte();
 	
 	
 	
@@ -3464,6 +3843,7 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 	
 				int nb_line_tFileInputDelimited_1 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try{
 					
 						Object filename_tFileInputDelimited_1 = context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_validated.csv";
@@ -3476,7 +3856,9 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 		
 						}
 						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_validated.csv", "UTF-8",";","\n",true,0,0,-1,-1, false);
+							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_validated.csv", "UTF-8",";","\n",true,0,0,
+									limit_tFileInputDelimited_1
+								,-1, false);
 						} catch(java.lang.Exception e) {
 							
 								throw e;
@@ -3507,12 +3889,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.id_city = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_city", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_city = null;
+								
+									row1.id_city = null;
+								
 							
 						}
 					
@@ -3532,12 +3917,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.state_id = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"state_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.state_id = null;
+								
+									row1.state_id = null;
+								
 							
 						}
 					
@@ -3552,12 +3940,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.id_state = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_state", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.id_state = null;
+								
+									row1.id_state = null;
+								
 							
 						}
 					
@@ -3577,12 +3968,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.country_id = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"country_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.country_id = null;
+								
+									row1.country_id = null;
+								
 							
 						}
 					
@@ -3617,12 +4011,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     								row1.amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"amount", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.amount = null;
+								
+									row1.amount = null;
+								
 							
 						}
 					
@@ -3637,12 +4034,15 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
     									row1.date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
     								
     							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
-									rowstate_tFileInputDelimited_1.setException(ex_tFileInputDelimited_1);
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"date", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
 								}
     							
 						} else {						
 							
-								row1.date = null;
+								
+									row1.date = null;
+								
 							
 						}
 					
@@ -3691,6 +4091,26 @@ java.util.Map hashAggreg_tAggregateRow_1 = new java.util.HashMap();
 /**
  * [tFileInputDelimited_1 main ] stop
  */
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_begin ] stop
+ */
 // Start of branch "row1"
 if(row1 != null) { 
 
@@ -3710,18 +4130,10 @@ if(row1 != null) {
 	currentComponent="tAggregateRow_1_AGGOUT";
 
 	
-
-			//row1
-			//row1
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row1"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row1");
+					}
+					
 	
 operation_finder_tAggregateRow_1.id_city = row1.id_city;
 			operation_finder_tAggregateRow_1.id_state = row1.id_state;
@@ -3794,12 +4206,76 @@ operation_finder_tAggregateRow_1.id_city = row1.id_city;
 /**
  * [tAggregateRow_1_AGGOUT main ] stop
  */
+	
+	/**
+	 * [tAggregateRow_1_AGGOUT process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGOUT";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGOUT process_data_begin ] stop
+ */
+	
+	/**
+	 * [tAggregateRow_1_AGGOUT process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGOUT";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGOUT process_data_end ] stop
+ */
 
 } // End of branch "row1"
 
 
 
 
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_end ] stop
+ */
 	
 	/**
 	 * [tFileInputDelimited_1 end ] start
@@ -3856,12 +4332,10 @@ end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row1"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
  
 
 ok_Hash.put("tAggregateRow_1_AGGOUT", true);
@@ -3891,24 +4365,12 @@ end_Hash.put("tAggregateRow_1_AGGOUT", System.currentTimeMillis());
 	currentComponent="tFileOutputDelimited_1";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row2" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row2");
+					}
+				
 		int tos_count_tFileOutputDelimited_1 = 0;
 		
-    	class BytesLimit65535_tFileOutputDelimited_1{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileOutputDelimited_1().limitLog4jByte();
 
 String fileName_tFileOutputDelimited_1 = "";
     fileName_tFileOutputDelimited_1 = (new java.io.File(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_extract.csv")).getAbsolutePath().replace("\\","/");
@@ -3996,13 +4458,6 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 	
 		int tos_count_tAggregateRow_1_AGGIN = 0;
 		
-    	class BytesLimit65535_tAggregateRow_1_AGGIN{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tAggregateRow_1_AGGIN().limitLog4jByte();
 
 java.util.Collection<AggOperationStruct_tAggregateRow_1> values_tAggregateRow_1 = hash_tAggregateRow_1.values();
 
@@ -4064,6 +4519,28 @@ for(AggOperationStruct_tAggregateRow_1 aggregated_row_tAggregateRow_1 : values_t
 /**
  * [tAggregateRow_1_AGGIN main ] stop
  */
+	
+	/**
+	 * [tAggregateRow_1_AGGIN process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGIN";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGIN process_data_begin ] stop
+ */
 
 	
 	/**
@@ -4077,18 +4554,10 @@ for(AggOperationStruct_tAggregateRow_1 aggregated_row_tAggregateRow_1 : values_t
 	currentComponent="tFileOutputDelimited_1";
 
 	
-
-			//row2
-			//row2
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row2"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row2");
+					}
+					
 
 
                     StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
@@ -4164,9 +4633,71 @@ for(AggOperationStruct_tAggregateRow_1 aggregated_row_tAggregateRow_1 : values_t
 /**
  * [tFileOutputDelimited_1 main ] stop
  */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
 
 
 
+/**
+ * [tFileOutputDelimited_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tAggregateRow_1_AGGIN process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tAggregateRow_1";
+	
+	currentComponent="tAggregateRow_1_AGGIN";
+
+	
+
+ 
+
+
+
+/**
+ * [tAggregateRow_1_AGGIN process_data_end ] stop
+ */
 	
 	/**
 	 * [tAggregateRow_1_AGGIN end ] start
@@ -4226,12 +4757,10 @@ end_Hash.put("tAggregateRow_1_AGGIN", System.currentTimeMillis());
 		resourceMap.put("finish_tFileOutputDelimited_1", true);
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row2"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row2");
+			  	}
+			  	
  
 
 ok_Hash.put("tFileOutputDelimited_1", true);
@@ -5969,10 +6498,13 @@ public void tFileInputDelimited_3Process(final java.util.Map<String, Object> glo
 	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	try {
-
-			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
 
@@ -6003,24 +6535,12 @@ row10Struct row10 = new row10Struct();
 	currentComponent="tSortRow_1_SortOut";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row4" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4");
+					}
+				
 		int tos_count_tSortRow_1_SortOut = 0;
 		
-    	class BytesLimit65535_tSortRow_1_SortOut{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tSortRow_1_SortOut().limitLog4jByte();
 
 
 class Comparablerow4Struct extends row4Struct implements Comparable<Comparablerow4Struct> {
@@ -6117,13 +6637,6 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
 	
 		int tos_count_tFileInputDelimited_3 = 0;
 		
-    	class BytesLimit65535_tFileInputDelimited_3{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileInputDelimited_3().limitLog4jByte();
 	
 	
 	
@@ -6135,6 +6648,7 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
 	
 				int nb_line_tFileInputDelimited_3 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
+				int limit_tFileInputDelimited_3 = -1;
 				try{
 					
 						Object filename_tFileInputDelimited_3 = context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_extract.csv";
@@ -6147,7 +6661,9 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
 		
 						}
 						try {
-							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_extract.csv", "UTF-8",";","\n",true,0,0,-1,-1, false);
+							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_extract.csv", "UTF-8",";","\n",true,0,0,
+									limit_tFileInputDelimited_3
+								,-1, false);
 						} catch(java.lang.Exception e) {
 							
 								
@@ -6179,12 +6695,15 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
     								row4.country_id = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(ex_tFileInputDelimited_3);
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"country_id", "row4", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
 								}
     							
 						} else {						
 							
-								row4.country_id = null;
+								
+									row4.country_id = null;
+								
 							
 						}
 					
@@ -6199,12 +6718,15 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
     								row4.id_state = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(ex_tFileInputDelimited_3);
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_state", "row4", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
 								}
     							
 						} else {						
 							
-								row4.id_state = null;
+								
+									row4.id_state = null;
+								
 							
 						}
 					
@@ -6219,12 +6741,15 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
     								row4.id_city = ParserUtils.parseTo_Long(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(ex_tFileInputDelimited_3);
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id_city", "row4", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
 								}
     							
 						} else {						
 							
-								row4.id_city = null;
+								
+									row4.id_city = null;
+								
 							
 						}
 					
@@ -6259,12 +6784,15 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
     								row4.amount = ParserUtils.parseTo_Float(temp);
     							
     							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(ex_tFileInputDelimited_3);
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"amount", "row4", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
 								}
     							
 						} else {						
 							
-								row4.amount = null;
+								
+									row4.amount = null;
+								
 							
 						}
 					
@@ -6279,12 +6807,15 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
     									row4.date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
     								
     							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
-									rowstate_tFileInputDelimited_3.setException(ex_tFileInputDelimited_3);
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"date", "row4", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
 								}
     							
 						} else {						
 							
-								row4.date = null;
+								
+									row4.date = null;
+								
 							
 						}
 					
@@ -6334,6 +6865,26 @@ java.util.List<Comparablerow4Struct> list_tSortRow_1_SortOut = new java.util.Arr
 /**
  * [tFileInputDelimited_3 main ] stop
  */
+	
+	/**
+	 * [tFileInputDelimited_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_3 process_data_begin ] stop
+ */
 // Start of branch "row4"
 if(row4 != null) { 
 
@@ -6353,18 +6904,10 @@ if(row4 != null) {
 	currentComponent="tSortRow_1_SortOut";
 
 	
-
-			//row4
-			//row4
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row4"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row4");
+					}
+					
 
 
 
@@ -6389,12 +6932,76 @@ if(row4 != null) {
 /**
  * [tSortRow_1_SortOut main ] stop
  */
+	
+	/**
+	 * [tSortRow_1_SortOut process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tSortRow_1";
+	
+	currentComponent="tSortRow_1_SortOut";
+
+	
+
+ 
+
+
+
+/**
+ * [tSortRow_1_SortOut process_data_begin ] stop
+ */
+	
+	/**
+	 * [tSortRow_1_SortOut process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tSortRow_1";
+	
+	currentComponent="tSortRow_1_SortOut";
+
+	
+
+ 
+
+
+
+/**
+ * [tSortRow_1_SortOut process_data_end ] stop
+ */
 
 } // End of branch "row4"
 
 
 
 
+	
+	/**
+	 * [tFileInputDelimited_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_3 process_data_end ] stop
+ */
 	
 	/**
 	 * [tFileInputDelimited_3 end ] start
@@ -6458,12 +7065,10 @@ java.util.Arrays.sort(array_tSortRow_1_SortOut);
 globalMap.put("tSortRow_1",array_tSortRow_1_SortOut);
 
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row4"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4");
+			  	}
+			  	
  
 
 ok_Hash.put("tSortRow_1_SortOut", true);
@@ -6495,24 +7100,12 @@ end_Hash.put("tSortRow_1_SortOut", System.currentTimeMillis());
 	currentComponent="tFileOutputDelimited_4";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row10" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row10");
+					}
+				
 		int tos_count_tFileOutputDelimited_4 = 0;
 		
-    	class BytesLimit65535_tFileOutputDelimited_4{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tFileOutputDelimited_4().limitLog4jByte();
 
 String fileName_tFileOutputDelimited_4 = "";
     fileName_tFileOutputDelimited_4 = (new java.io.File(context.outputDirectory+"MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd", TalendDate.getFirstDayOfMonth(context.date))+"_"+ context.session +"_before_rules.csv")).getAbsolutePath().replace("\\","/");
@@ -6596,24 +7189,12 @@ resourceMap.put("nb_line_tFileOutputDelimited_4", nb_line_tFileOutputDelimited_4
 	currentComponent="tJavaFlex_3";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row9" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row9");
+					}
+				
 		int tos_count_tJavaFlex_3 = 0;
 		
-    	class BytesLimit65535_tJavaFlex_3{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tJavaFlex_3().limitLog4jByte();
 
 
 // start part of your Java code
@@ -6646,24 +7227,12 @@ resourceMap.put("nb_line_tFileOutputDelimited_4", nb_line_tFileOutputDelimited_4
 	currentComponent="tMemorizeRows_2";
 
 	
-			if (execStat) {
-				if(resourceMap.get("inIterateVComp") == null){
-					
-						runStat.updateStatOnConnection("row5" + iterateId, 0, 0);
-					
-				}
-			} 
-
-		
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row5");
+					}
+				
 		int tos_count_tMemorizeRows_2 = 0;
 		
-    	class BytesLimit65535_tMemorizeRows_2{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tMemorizeRows_2().limitLog4jByte();
   int iRows_tMemorizeRows_2 = 4;
       Long[] country_id_tMemorizeRows_2 = new Long[iRows_tMemorizeRows_2];
     globalMap.put("tMemorizeRows_2_country_id", country_id_tMemorizeRows_2);
@@ -6714,16 +7283,9 @@ resourceMap.put("nb_line_tFileOutputDelimited_4", nb_line_tFileOutputDelimited_4
 	
 		int tos_count_tSortRow_1_SortIn = 0;
 		
-    	class BytesLimit65535_tSortRow_1_SortIn{
-    		public void limitLog4jByte() throws Exception{
-    			
-    		}
-    	}
-    	
-        new BytesLimit65535_tSortRow_1_SortIn().limitLog4jByte();
 
 
-row4Struct[] array_tSortRow_1_SortIn = (row4Struct[]) globalMap.get("tSortRow_1");
+row4Struct[] array_tSortRow_1_SortIn = (row4Struct[]) globalMap.remove("tSortRow_1");
 
 int nb_line_tSortRow_1_SortIn = 0;
 
@@ -6773,6 +7335,28 @@ for(int i_tSortRow_1_SortIn = 0; i_tSortRow_1_SortIn < array_tSortRow_1_SortIn.l
 /**
  * [tSortRow_1_SortIn main ] stop
  */
+	
+	/**
+	 * [tSortRow_1_SortIn process_data_begin ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tSortRow_1";
+	
+	currentComponent="tSortRow_1_SortIn";
+
+	
+
+ 
+
+
+
+/**
+ * [tSortRow_1_SortIn process_data_begin ] stop
+ */
 
 	
 	/**
@@ -6786,18 +7370,10 @@ for(int i_tSortRow_1_SortIn = 0; i_tSortRow_1_SortIn < array_tSortRow_1_SortIn.l
 	currentComponent="tMemorizeRows_2";
 
 	
-
-			//row5
-			//row5
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row5"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row5");
+					}
+					
     for (int i_tMemorizeRows_2 = iRows_tMemorizeRows_2 - 1 ; i_tMemorizeRows_2 > 0; i_tMemorizeRows_2--) {
         country_id_tMemorizeRows_2[i_tMemorizeRows_2] = country_id_tMemorizeRows_2[i_tMemorizeRows_2 - 1];  
         id_state_tMemorizeRows_2[i_tMemorizeRows_2] = id_state_tMemorizeRows_2[i_tMemorizeRows_2 - 1];  
@@ -6827,6 +7403,26 @@ for(int i_tSortRow_1_SortIn = 0; i_tSortRow_1_SortIn < array_tSortRow_1_SortIn.l
 /**
  * [tMemorizeRows_2 main ] stop
  */
+	
+	/**
+	 * [tMemorizeRows_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMemorizeRows_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tMemorizeRows_2 process_data_begin ] stop
+ */
 
 	
 	/**
@@ -6840,35 +7436,26 @@ for(int i_tSortRow_1_SortIn = 0; i_tSortRow_1_SortIn < array_tSortRow_1_SortIn.l
 	currentComponent="tJavaFlex_3";
 
 	
-
-			//row9
-			//row9
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row9"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row9");
+					}
+					
 
 
-	        				row10.country_id = row9.country_id;
-	        				row10.id_state = row9.id_state;
-	        				row10.id_city = row9.id_city;
-	        				row10.product = row9.product;
-	        				row10.name_country = row9.name_country;
-	        				row10.name_state = row9.name_state;
-	        				row10.name_city = row9.name_city;
-	        				row10.amount = row9.amount;
-	        				row10.date = row9.date;
 
 row10.month_1_amount=amount_tMemorizeRows_2[1]==null?0:amount_tMemorizeRows_2[1];
 row10.month_2_amount=amount_tMemorizeRows_2[2]==null?0:amount_tMemorizeRows_2[2];
 row10.month_3_amount=amount_tMemorizeRows_2[3]==null?0:amount_tMemorizeRows_2[3];
-
-
+row10.country_id = row9.country_id;
+row10.name_country =row9.name_country;
+row10.id_state = row9.id_state;
+row10.id_city = row9.id_city;
+row10.product = row9.product;
+row10.name_country = row9.name_country;
+row10.name_state = row9.name_state;
+row10.name_city = row9.name_city;
+row10.amount = row9.amount;
+row10.date = row9.date;
 
  
 
@@ -6877,6 +7464,26 @@ row10.month_3_amount=amount_tMemorizeRows_2[3]==null?0:amount_tMemorizeRows_2[3]
 
 /**
  * [tJavaFlex_3 main ] stop
+ */
+	
+	/**
+	 * [tJavaFlex_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_3 process_data_begin ] stop
  */
 
 	
@@ -6891,18 +7498,10 @@ row10.month_3_amount=amount_tMemorizeRows_2[3]==null?0:amount_tMemorizeRows_2[3]
 	currentComponent="tFileOutputDelimited_4";
 
 	
-
-			//row10
-			//row10
-
-
-			
-				if(execStat){
-					runStat.updateStatOnConnection("row10"+iterateId,1, 1);
-				} 
-			
-
-		
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row10");
+					}
+					
 
 
                     StringBuilder sb_tFileOutputDelimited_4 = new StringBuilder();
@@ -6996,15 +7595,117 @@ row10.month_3_amount=amount_tMemorizeRows_2[3]==null?0:amount_tMemorizeRows_2[3]
 /**
  * [tFileOutputDelimited_4 main ] stop
  */
+	
+	/**
+	 * [tFileOutputDelimited_4 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_4";
+
+	
+
+ 
 
 
 
+/**
+ * [tFileOutputDelimited_4 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_4 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_4";
+
+	
+
+ 
 
 
 
+/**
+ * [tFileOutputDelimited_4 process_data_end ] stop
+ */
 
 
 
+	
+	/**
+	 * [tJavaFlex_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tJavaFlex_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tJavaFlex_3 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tMemorizeRows_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMemorizeRows_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tMemorizeRows_2 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tSortRow_1_SortIn process_data_end ] start
+	 */
+
+	
+
+	
+	
+		currentVirtualComponent = "tSortRow_1";
+	
+	currentComponent="tSortRow_1_SortIn";
+
+	
+
+ 
+
+
+
+/**
+ * [tSortRow_1_SortIn process_data_end ] stop
+ */
 	
 	/**
 	 * [tSortRow_1_SortIn end ] start
@@ -7050,12 +7751,10 @@ end_Hash.put("tSortRow_1_SortIn", System.currentTimeMillis());
 
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row5"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row5");
+			  	}
+			  	
  
 
 ok_Hash.put("tMemorizeRows_2", true);
@@ -7085,12 +7784,10 @@ end_Hash.put("tMemorizeRows_2", System.currentTimeMillis());
 // end of the component, outside/closing the loop
       
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row9"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row9");
+			  	}
+			  	
  
 
 ok_Hash.put("tJavaFlex_3", true);
@@ -7133,12 +7830,10 @@ end_Hash.put("tJavaFlex_3", System.currentTimeMillis());
 		resourceMap.put("finish_tFileOutputDelimited_4", true);
 	
 
-			if(execStat){
-				if(resourceMap.get("inIterateVComp") == null || !((Boolean)resourceMap.get("inIterateVComp"))){
-			 		runStat.updateStatOnConnection("row10"+iterateId,2, 0); 
-			 	}
-			}
-		
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row10");
+			  	}
+			  	
  
 
 ok_Hash.put("tFileOutputDelimited_4", true);
@@ -7383,6 +8078,8 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
     public long startTime = 0;
     public boolean isChildJob = false;
     public String log4jLevel = "";
+    
+    private boolean enableLogStash;
 
     private boolean execStat = true;
 
@@ -7396,11 +8093,28 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
     };
 
 
-
     private PropertiesWithType context_param = new PropertiesWithType();
     public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
 
     public String status= "";
+    
+    private final org.talend.components.common.runtime.SharedConnectionsPool connectionPool = new org.talend.components.common.runtime.SharedConnectionsPool() {
+    	public java.sql.Connection getDBConnection(String dbDriver, String url, String userName, String password, String dbConnectionName)
+            throws ClassNotFoundException, java.sql.SQLException {
+            return SharedDBConnection.getDBConnection(dbDriver, url, userName, password, dbConnectionName);
+        }
+
+    	public java.sql.Connection getDBConnection(String dbDriver, String url, String dbConnectionName)
+            throws ClassNotFoundException, java.sql.SQLException {
+            return SharedDBConnection.getDBConnection(dbDriver, url, dbConnectionName);
+        }
+    };
+    
+    private static final String GLOBAL_CONNECTION_POOL_KEY = "GLOBAL_CONNECTION_POOL";
+    
+    {
+    	globalMap.put(GLOBAL_CONNECTION_POOL_KEY, connectionPool);
+    }
 
     public static void main(String[] args){
         final Prepare_to_rules_run Prepare_to_rules_runClass = new Prepare_to_rules_run();
@@ -7428,7 +8142,7 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
     public int runJobInTOS(String[] args) {
 	   	// reset status
 	   	status = "";
-
+	   	
         String lastStr = "";
         for (String arg : args) {
             if (arg.equalsIgnoreCase("--context_param")) {
@@ -7440,7 +8154,10 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
                 lastStr = "";
             }
         }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
 
+    	
+    	
 
         if(clientHost == null) {
             clientHost = defaultClientHost;
@@ -7472,19 +8189,21 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
 
         try {
             //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
-            java.io.InputStream inContext = Prepare_to_rules_run.class.getClassLoader().getResourceAsStream("etl/prepare_to_rules_run_0_1/contexts/"+contextStr+".properties");
-            if(isDefaultContext && inContext ==null) {
-
-            } else {
-                if (inContext!=null) {
-                    //defaultProps is in order to keep the original context value
-                    defaultProps.load(inContext);
-                    inContext.close();
-                    context = new ContextProperties(defaultProps);
-                }else{
-                    //print info and job continue to run, for case: context_param is not empty.
-                    System.err.println("Could not find the context " + contextStr);
+            java.io.InputStream inContext = Prepare_to_rules_run.class.getClassLoader().getResourceAsStream("etl/prepare_to_rules_run_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = Prepare_to_rules_run.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                //defaultProps is in order to keep the original context value
+                if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
                 }
+                
+                inContext.close();
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
             }
 
             if(!context_param.isEmpty()) {
@@ -7497,40 +8216,44 @@ end_Hash.put("tFileOutputDelimited_4", System.currentTimeMillis());
 
 				}
             }
-				    context.setContextType("date", "id_Date");
-				
-            try{
-                String context_date_value = context.getProperty("date");
-                if (context_date_value == null){
-                    context_date_value = "";
-                }
-                int context_date_pos = context_date_value.indexOf(";");
-                String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
-                if(context_date_pos > -1){
-                    context_date_pattern = context_date_value.substring(0, context_date_pos);
-                    context_date_value = context_date_value.substring(context_date_pos + 1);
-                }
+            class ContextProcessing {
+                private void processContext_0() {
+                        context.setContextType("date", "id_Date");
+                        try{
+                            String context_date_value = context.getProperty("date");
+                            if (context_date_value == null){
+                                context_date_value = "";
+                            }
+                            int context_date_pos = context_date_value.indexOf(";");
+                            String context_date_pattern =  "yyyy-MM-dd HH:mm:ss";
+                            if(context_date_pos > -1){
+                                context_date_pattern = context_date_value.substring(0, context_date_pos);
+                                context_date_value = context_date_value.substring(context_date_pos + 1);
+                            }
 
-                context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
+                            context.date=(java.util.Date)(new java.text.SimpleDateFormat(context_date_pattern).parse(context_date_value));
 
-            }catch(ParseException e)
-            {
-                context.date=null;
+                        } catch(ParseException e) {
+                                System.err.println(String.format("Null value will be used for context parameter %s: %s", "date", e.getMessage()));
+                            context.date=null;
+                        }
+                        context.setContextType("inputDirectory", "id_String");
+                            context.inputDirectory=(String) context.getProperty("inputDirectory");
+                        context.setContextType("outputDirectory", "id_String");
+                            context.outputDirectory=(String) context.getProperty("outputDirectory");
+                        context.setContextType("session", "id_String");
+                            context.session=(String) context.getProperty("session");
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
             }
-				    context.setContextType("inputDirectory", "id_String");
-				
-                context.inputDirectory=(String) context.getProperty("inputDirectory");
-				    context.setContextType("outputDirectory", "id_String");
-				
-                context.outputDirectory=(String) context.getProperty("outputDirectory");
-				    context.setContextType("session", "id_String");
-				
-                context.session=(String) context.getProperty("session");
+
+            new ContextProcessing().processAllContext();
         } catch (java.io.IOException ie) {
             System.err.println("Could not load context "+contextStr);
             ie.printStackTrace();
         }
-
 
         // get context value from parent directly
         if (parentContextMap != null && !parentContextMap.isEmpty()) {if (parentContextMap.containsKey("date")) {
@@ -7612,8 +8335,6 @@ this.globalResumeTicket = true;//to run tPostJob
         if (false) {
             System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : Prepare_to_rules_run");
         }
-
-
 
 
 
@@ -7727,10 +8448,13 @@ if (execStat) {
                     context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
                 }
             }
-        }else if (arg.startsWith("--log4jLevel=")) {
+        } else if (arg.startsWith("--log4jLevel=")) {
             log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
+			final String key = arg.substring("--".length(), equal);
+			System.setProperty(key, arg.substring(equal + 1));
 		}
-
     }
     
     private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
@@ -7781,6 +8505,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     194509 characters generated by Talend Open Studio for Data Integration 
- *     on the February 16, 2019 10:57:27 EST AM
+ *     229153 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 8, 2020 at 3:21:59 p.m. EST
  ************************************************************************************************/

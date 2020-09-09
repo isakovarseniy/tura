@@ -1,3 +1,17 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
 /**
  */
 package mapper.impl;
@@ -26,6 +40,7 @@ import infrastructure.InfrastructurePackage;
 
 import infrastructure.impl.InfrastructurePackageImpl;
 
+import mapper.ArtifactType;
 import mapper.CSSMapper;
 import mapper.JavaMapper;
 import mapper.JavaPackageMapper;
@@ -38,6 +53,8 @@ import mapper.MappingLayer;
 import mapper.PackageMapper;
 import mapper.RoleMapper;
 import mapper.TypeMapper;
+import mapper.Version;
+import mapper.VersionRef;
 import mapper.XMLPackageMapper;
 import mapper.XMLTypeMapper;
 
@@ -47,6 +64,7 @@ import message.impl.MessagePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -88,6 +106,20 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	private EClass mapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass versionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass versionRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +192,13 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	private EClass xmlTypeMapperEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum artifactTypeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -187,7 +226,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link MapperPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -201,22 +240,34 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		if (isInited) return (MapperPackage)EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MapperPackageImpl());
+		Object registeredMapperPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		MapperPackageImpl theMapperPackage = registeredMapperPackage instanceof MapperPackageImpl ? (MapperPackageImpl)registeredMapperPackage : new MapperPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
-		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
-		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
-		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
-		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
-		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
-		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
-		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
-		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI);
+		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(registeredPackage instanceof DomainPackageImpl ? registeredPackage : DomainPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
+		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(registeredPackage instanceof ArtifactPackageImpl ? registeredPackage : ArtifactPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI);
+		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
+		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
+		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
+		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(registeredPackage instanceof InfrastructurePackageImpl ? registeredPackage : InfrastructurePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI);
+		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(registeredPackage instanceof MessagePackageImpl ? registeredPackage : MessagePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI);
+		StylePackageImpl theStylePackage = (StylePackageImpl)(registeredPackage instanceof StylePackageImpl ? registeredPackage : StylePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI);
+		FormPackageImpl theFormPackage = (FormPackageImpl)(registeredPackage instanceof FormPackageImpl ? registeredPackage : FormPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI);
+		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(registeredPackage instanceof RecipePackageImpl ? registeredPackage : RecipePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(registeredPackage instanceof CommonPackageImpl ? registeredPackage : CommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theMapperPackage.createPackageContents();
@@ -249,7 +300,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		// Mark meta-data to indicate it can't be changed
 		theMapperPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(MapperPackage.eNS_URI, theMapperPackage);
 		return theMapperPackage;
@@ -298,6 +348,60 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 */
 	public EReference getMapper_Layers() {
 		return (EReference)mapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVersion() {
+		return versionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVersion_Uid() {
+		return (EAttribute)versionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVersion_Name() {
+		return (EAttribute)versionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVersion_Version() {
+		return (EAttribute)versionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVersionRef() {
+		return versionRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVersionRef_VersionRef() {
+		return (EReference)versionRefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -413,7 +517,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaMapper_Version() {
+	public EAttribute getJavaMapper_LibraryName() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -422,17 +526,8 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaMapper_LibraryName() {
-		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJavaMapper_ArtifactType() {
-		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -485,7 +580,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaPackageMapper_Version() {
+	public EAttribute getJavaPackageMapper_LibraryName() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -494,17 +589,8 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaPackageMapper_LibraryName() {
-		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJavaPackageMapper_ArtifactType() {
-		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -557,7 +643,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaScriptMapper_Version() {
+	public EAttribute getJavaScriptMapper_MappedToInternalLocation() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -566,8 +652,35 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaScriptMapper_ArtifactType() {
+	public EAttribute getJavaScriptMapper_MappedToClassName() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_JsPackageName() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_Local() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_ArtifactType() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -701,6 +814,15 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getArtifactType() {
+		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MapperFactory getMapperFactory() {
 		return (MapperFactory)getEFactoryInstance();
 	}
@@ -731,6 +853,14 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		mapperEClass = createEClass(MAPPER);
 		createEReference(mapperEClass, MAPPER__LAYERS);
 
+		versionEClass = createEClass(VERSION);
+		createEAttribute(versionEClass, VERSION__UID);
+		createEAttribute(versionEClass, VERSION__NAME);
+		createEAttribute(versionEClass, VERSION__VERSION);
+
+		versionRefEClass = createEClass(VERSION_REF);
+		createEReference(versionRefEClass, VERSION_REF__VERSION_REF);
+
 		mappingLayerEClass = createEClass(MAPPING_LAYER);
 		createEAttribute(mappingLayerEClass, MAPPING_LAYER__UID);
 		createEAttribute(mappingLayerEClass, MAPPING_LAYER__NAME);
@@ -746,7 +876,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_CLASS_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_ID);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__GROUP_ID);
-		createEAttribute(javaMapperEClass, JAVA_MAPPER__VERSION);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_TYPE);
 
@@ -755,7 +884,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_ID);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__GROUP_ID);
-		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__VERSION);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE);
 
@@ -764,7 +892,10 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__LIBRARY_URL);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__ARTIFACT_ID);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__GROUP_ID);
-		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__VERSION);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__MAPPED_TO_INTERNAL_LOCATION);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__MAPPED_TO_CLASS_NAME);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__JS_PACKAGE_NAME);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__LOCAL);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE);
 
 		cssMapperEClass = createEClass(CSS_MAPPER);
@@ -784,6 +915,9 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__UID);
 		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__NAMESPACE);
 		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__TYPENAME);
+
+		// Create enums
+		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 	}
 
 	/**
@@ -824,8 +958,11 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		packageMapperEClass.getESuperTypes().add(this.getMapper());
 		packageMapperEClass.getESuperTypes().add(theTypePackage.getPackagePointer());
 		javaMapperEClass.getESuperTypes().add(this.getTypeMapper());
+		javaMapperEClass.getESuperTypes().add(this.getVersionRef());
 		javaPackageMapperEClass.getESuperTypes().add(this.getPackageMapper());
+		javaPackageMapperEClass.getESuperTypes().add(this.getVersionRef());
 		javaScriptMapperEClass.getESuperTypes().add(this.getTypeMapper());
+		javaScriptMapperEClass.getESuperTypes().add(this.getVersionRef());
 		cssMapperEClass.getESuperTypes().add(this.getMapper());
 		cssMapperEClass.getESuperTypes().add(theStylePackage.getStylePointer());
 		roleMapperEClass.getESuperTypes().add(this.getMapper());
@@ -840,6 +977,14 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 
 		initEClass(mapperEClass, Mapper.class, "Mapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMapper_Layers(), this.getMappingLayer(), null, "layers", null, 0, -1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVersion_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVersion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(versionRefEClass, VersionRef.class, "VersionRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVersionRef_VersionRef(), this.getVersion(), null, "versionRef", null, 0, 1, VersionRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingLayerEClass, MappingLayer.class, "MappingLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMappingLayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -856,26 +1001,27 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getJavaMapper_MappedToClassName(), ecorePackage.getEString(), "mappedToClassName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaMapper_ArtifactType(), this.getArtifactType(), "artifactType", "jar", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaPackageMapperEClass, JavaPackageMapper.class, "JavaPackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaPackageMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaPackageMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaPackageMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_ArtifactType(), this.getArtifactType(), "artifactType", "jar", 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaScriptMapperEClass, JavaScriptMapper.class, "JavaScriptMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaScriptMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaScriptMapper_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaScriptMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaScriptMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaScriptMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaScriptMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_MappedToInternalLocation(), ecorePackage.getEString(), "mappedToInternalLocation", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_MappedToClassName(), ecorePackage.getEString(), "mappedToClassName", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_JsPackageName(), ecorePackage.getEString(), "jsPackageName", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_Local(), ecorePackage.getEBoolean(), "local", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_ArtifactType(), this.getArtifactType(), "artifactType", "jar", 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cssMapperEClass, CSSMapper.class, "CSSMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCSSMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -894,6 +1040,11 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getXMLTypeMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXMLTypeMapper_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXMLTypeMapper_Typename(), ecorePackage.getEString(), "typename", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.JAR);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.JS_PACK);
 
 		// Create resource
 		createResource(eNS_URI);

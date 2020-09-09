@@ -1,0 +1,57 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].commons.datacontrol;  
+
+[%=elresolver_scope()%]
+public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver, java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@javax.inject.Inject
+	private  javax.el.ExpressionFactory ef;
+	@javax.inject.Inject
+	private  javax.el.ELContext context;
+
+	public Object getValue(String exp) {
+		javax.el.ValueExpression ve = ef.createValueExpression(context, exp,
+				Object.class);
+		return ve.getValue(context);
+
+	}
+
+	public void setValue(String exp, Object value) {
+		javax.el.ValueExpression ve = ef.createValueExpression(context,exp,
+				Object.class);
+		ve.setValue(context,value);
+	}
+	
+	@Override
+	public Object callMethod(String expression, Object[] values, Class<?>[] classes, Class<?> expectedValue) {
+		javax.el.MethodExpression methodExpression =   ef.createMethodExpression(context, expression, expectedValue, classes);
+		return methodExpression.invoke(context, values);
+	}
+	
+
+
+}

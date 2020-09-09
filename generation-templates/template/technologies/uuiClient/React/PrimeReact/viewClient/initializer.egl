@@ -1,0 +1,123 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+
+%]
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+import {registry} from "[%=clientLibraryPackage%]/plugin/Registry";
+import {UpdateMessageCommand} from "[%=clientLibraryPackage%]/plugin/UpdateMessageCommand";
+import {HidePopupCommand} from "[%=clientLibraryPackage%]/plugin/HidePopupCommand"
+import {OpenPopupCommand} from "[%=clientLibraryPackage%]/plugin/OpenPopupCommand"
+import {DownloadFileCommand} from "[%=clientLibraryPackage%]/plugin/DownloadFileCommand";
+import {SwitchWindowCommand} from "[%=clientLibraryPackage%]/plugin/SwitchWindowCommand";
+import {ClearFormCommand} from "[%=clientLibraryPackage%]/plugin/ClearFormCommand";
+import {StartPollCommand} from "[%=clientLibraryPackage%]/plugin/StartPollCommand";
+import {StopPollCommand} from "[%=clientLibraryPackage%]/plugin/StopPollCommand";
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var lib = new Native('java.util.HashMap');
+
+
+    for ( trigger in scriptTriggersAll)    {
+
+       var action = trigger.expression.get( trigger.expression.size()-1);
+       var method = action.objRef;
+       var type = null;
+       
+       if (method <> null){
+           type = action.objRef.eContainer();
+       }
+       var name= util.mergeAndCapitalize(type.~class)+"_"+util.mergeAndCapitalize(method.name);
+       lib.put(name,name);
+       
+    }  
+    
+    for ( name in lib.values){
+%]import { [%=name%]Command} from "./triggers/[%=name%]Command"; 
+[%
+    }
+    
+
+
+    for ( trigger in clientTriggers)    {
+        trigger.importJavaScript(recipe,ingredient,component,null);
+          
+%]import { [%=trigger.~class%]} from "[%=trigger.~importString%]"; 
+[%
+    }  
+
+
+
+
+%]
+
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.UpdateMessage",new UpdateMessageCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.HidePopup",new HidePopupCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.OpenPopup",new OpenPopupCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.OpenPopup",new OpenPopupCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.DownloadFile",new DownloadFileCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.SwitchWindow",new SwitchWindowCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.ClearForm",new ClearFormCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.StartPoll",new StartPollCommand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.StopPoll",new StopPollCommand());
+
+[%
+    for ( trigger in scriptTriggersAll)    {
+
+       var action = trigger.expression.get( trigger.expression.size()-1);
+       var method = action.objRef;
+       var type = null;
+       
+       if (method <> null){
+           type = action.objRef.eContainer();
+       }
+%]    registry.addCommand("[%=trigger.uid%]",new [%=util.mergeAndCapitalize(type.~class)%]_[%=util.mergeAndCapitalize(method.name)%]Command()); 
+[%
+    }  
+     var wrapper = null;
+
+    for ( trigger in clientTriggers)    {
+        trigger.importJavaScript(recipe,ingredient,component,null);
+        if ( trigger.findClassifier(util.getHint(model_mapper,"trigger.launch.wrapper"))){
+           wrapper = trigger;
+        }else{
+%] new [%=trigger.~class%]().init(registry); 
+[%
+        }
+    } 
+    
+    if ( wrapper <> null ){
+%] new [%=wrapper.~class%]().init(registry, () => {
+     ReactDOM.render(<App />, document.getElementById('root'));
+}); 
+[%
+    }else{
+    %]ReactDOM.render(<App />, document.getElementById('root'));[%
+    }
+%]
+
+
+
+       
+
+
