@@ -44,7 +44,7 @@
 		<version.org.hsqldb.hsqldb>2.2.8</version.org.hsqldb.hsqldb>
 		<version.josql>2.2</version.josql>
 		<version.weld>2.1.1.Final</version.weld>
-		<verson.beanutil>1.9.2</verson.beanutil>
+		<verson.beanutil>1.9.4</verson.beanutil>
 		<version.deltaspike>1.6.1</version.deltaspike>
 		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
 		<version.resteasy-jackson-provider>3.0.19.Final</version.resteasy-jackson-provider>
