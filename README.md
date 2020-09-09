@@ -33,6 +33,7 @@ git checkout <branch>
 Start tura shell
 
 ```bash
+chmod +x ./processor/tura-gogo.sh
 ./processor/tura-gogo.sh
 ```
 
