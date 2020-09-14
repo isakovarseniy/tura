@@ -48,7 +48,7 @@ public class MetamodelDeploymentJob extends Job {
 	public static String CONSOLE_NAME = "Metamodel output";
 	private IEditorPart editorPart;
 	private Infrastructure infrastructure;
-	private String job1 = Util.turaLocation()+"processor/tura-gogo.sh";
+	private String job1 = Util.turaLocation()+"/processor/tura-gogo.sh";
 	private String job2 = "-c tura:build --recipeId ${recipeId} --infraId ${infraId} --modelFile ${file}";
 	
 
