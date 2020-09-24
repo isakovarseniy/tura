@@ -39,5 +39,9 @@ public interface Factory {
 	public void clean();
 	@SuppressWarnings("rawtypes")
 	public void setRelatioin(DataControl ddc,DataControl edc) throws TuraException;
+	
+	public Long cDept(Long id);
+	public Long cEmp(Long id);
+	
 
 }

@@ -37,7 +37,6 @@ public class JpaExternalConnectDetailToMasterOperation extends SpaExternalConnec
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
-		super.prepare();
-		return null;
+		return super.prepare();
 	}	
 }

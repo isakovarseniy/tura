@@ -18,6 +18,8 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 
 import org.tura.platform.hr.objects.jpa.Street;
@@ -25,10 +27,16 @@ import org.tura.platform.hr.objects.jpa.Street;
 
 public class StreetInit {
 	private EntityManager em;
+	private Map<Long,Long> cityConverter;
+	private Map<Long,Long> streetConverter ;
 
-	public StreetInit(EntityManager em) {
+	public StreetInit(EntityManager em, Map<Long,Long> cityConverter , Map<Long,Long> streetConverter) {
 		this.em = em;
+		this.cityConverter = cityConverter;
+		this.streetConverter = streetConverter;
+		
 	}
+
 
 	public void init() {
 
@@ -58,10 +66,14 @@ public class StreetInit {
 	
 	private Street create(Long obj_id, String streetName, Long city_id) {
 		Street dpt = new Street();
-		dpt.setObjId(obj_id);
-		dpt.setParentId(city_id);
+//		dpt.setObjId(obj_id);
+		dpt.setParentId( this.cityConverter.get(city_id));
 		dpt.setName(streetName);
+		
 		em.persist(dpt);
+		em.flush();
+		
+		streetConverter.put(obj_id, dpt.getObjId());
 		return dpt;
 
 	}

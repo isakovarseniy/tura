@@ -25,7 +25,9 @@ public interface Mapper extends Serializable {
 
 	Object getPrimaryKey(Object persistenceObject) throws RepositoryException;
   	Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException;
+  	void nillPrimaryKey(Object persistenceObject);
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,Map<Object, Object> context) throws RepositoryException;
+	void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
 }
 

@@ -42,18 +42,22 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.One2One1A;
 import objects.test.serialazable.jpa.One2One1B;
 import objects.test.serialazable.jpa.PersonType;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 
 
@@ -140,6 +144,7 @@ public class One2OneDirectContaintmentTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
@@ -240,10 +245,13 @@ public class One2OneDirectContaintmentTest {
 
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0002_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			One2One1A o1 = (One2One1A) repository.create(One2One1A.class.getName());
 			
@@ -252,7 +260,12 @@ public class One2OneDirectContaintmentTest {
 			o1.setOne2One1B(o2);
 			
 			repository.insert(o1, One2One1A.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o2);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class.getName());
 			assertEquals(1,result.getSearchResult().size());

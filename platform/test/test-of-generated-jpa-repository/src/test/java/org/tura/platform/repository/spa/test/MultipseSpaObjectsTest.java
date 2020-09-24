@@ -40,14 +40,17 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.test.AllowEverythingProfile;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 import org.tura.spa.test.repo.InitSPARepository;
 
 import objects.test.serialazable.jpa.A1;
@@ -56,6 +59,7 @@ import objects.test.serialazable.jpa.A4;
 import objects.test.serialazable.jpa.F1;
 import objects.test.serialazable.jpa.F2;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 public class MultipseSpaObjectsTest {
 
@@ -124,7 +128,8 @@ public class MultipseSpaObjectsTest {
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
-		
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 		
@@ -155,18 +160,25 @@ public class MultipseSpaObjectsTest {
 		
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0000_saveAndRemoveObject() {
 		try {
 			SearchBase.base.clear();
 			
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 			
 			A1 a1 = (A1) repository.create(A1.class.getName());
 			A2 a2 = (A2) repository.create(A2.class.getName());
 			a1.setA2(a2);
 			repository.insert(a1, A1.class.getName());
-			repository.applyChanges(null);
+			
+			
+			searchProvider.addKnownObject((ObjectControl) a1);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			A4 a4 = (A4) repository.create(A4.class.getName());
 			a2.getA4().add(a4);

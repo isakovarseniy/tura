@@ -23,11 +23,18 @@ import java.util.Map;
 
 import org.tura.platform.repository.core.Adapter;
 import org.tura.platform.repository.core.AdapterLoader;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 
-public class CRUDService implements CRUDProvider{
+public class CRUDService extends CRUDProvider{
+
+	public CRUDService(SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+		super(spaRegistry, registryName, registry);
+	}
 
 	private AdapterLoader loader;
 	
@@ -57,6 +64,8 @@ public class CRUDService implements CRUDProvider{
 	
 	
 	private void insert(SpaControl control) throws Exception {
+		 nillPk(control.getObject(), control.getType());
+		 
 		 Map<Object,Object> h = SearchBase.base.get(control.getType());
 		 if (h == null){
 			 h = new HashMap<>();
@@ -66,13 +75,17 @@ public class CRUDService implements CRUDProvider{
 		 if (obj != null) {
 			 throw new Exception("Object already exists");
 		 }
+
+		 new UUIPrimaryKeyStrategy(true).generatePk(control.getObject());
+		 
+		Object newPK = mapPk(control.getType(), control.getObject(), control.getKey());
 		 
 		 if (control.getObject() instanceof Adapter) {
-			 h.put(control.getKey(), loader.unWrapObject(control.getObject()));
+			 h.put(newPK, loader.unWrapObject(control.getObject()));
 			 return;
 		 }
 		 
-		 h.put(control.getKey(), control.getObject());
+		 h.put(newPK, control.getObject());
 
 	}
 	
@@ -99,6 +112,6 @@ public class CRUDService implements CRUDProvider{
 		 }
 		 h.remove(control.getKey());
 	}
-	
+
 }
 

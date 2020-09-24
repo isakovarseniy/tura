@@ -34,6 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Stack;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -61,6 +62,7 @@ import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.uuiclient.model.GridModel;
 import org.tura.platform.uuiclient.model.GridType;
@@ -150,24 +152,24 @@ public class SingleDataControl {
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(), factory.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 			id =  Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(), factory.cDept(id));
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 		} catch (Exception e) {
@@ -187,13 +189,13 @@ public class SingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.GT.name());
-			s.setValue( Long.valueOf(30));
+			s.setValue(factory.cDept( Long.valueOf(30)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(40));
+			assertEquals(row.getObjId(),  factory.cDept(Long.valueOf(40)));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,7 +208,7 @@ public class SingleDataControl {
 		try {
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			dc.getElResolver().setValue("limit",  Long.valueOf(30));
+			dc.getElResolver().setValue("limit",  factory.cDept(Long.valueOf(30)));
 
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
 
@@ -219,7 +221,7 @@ public class SingleDataControl {
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(40));
+			assertEquals(row.getObjId(), factory.cDept( Long.valueOf(40)));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -289,24 +291,24 @@ public class SingleDataControl {
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(), factory.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 			id =  Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(), factory.cDept(id));
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 			repo.applyChanges(null);
@@ -315,12 +317,12 @@ public class SingleDataControl {
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(),factory.cDept( id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 		} catch (Exception e) {
@@ -342,13 +344,13 @@ public class SingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue( Long.valueOf(70));
+			s.setValue( factory.cDept(Long.valueOf(70)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(70));
+			assertEquals(row.getObjId(),  factory.cDept(Long.valueOf(70)));
 
 			dc.getCurrentObject().setDepartmentName("test");
 			dc.getCurrentObject().setDepartmentName("qwerty");
@@ -377,7 +379,7 @@ public class SingleDataControl {
 			dc.setPreQueryTrigger(new DepartmentDCPreQueryTrigger());
 			dc.setPostQueryTrigger(new DepartmentDCPostQueryTrigger());
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(70));
+			assertEquals(row.getObjId(),  factory.cDept(Long.valueOf(70)));
 			assertEquals(row.getDepartmentName(), "test");
 
 		} catch (Exception e) {
@@ -386,10 +388,13 @@ public class SingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t8_scrollDownAddCommitScrollDown() {
 		try {
 			Repository repo = factory.getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
@@ -426,7 +431,7 @@ public class SingleDataControl {
 			for (int i = 0; i < 4; i++) {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(), factory.cDept(id) );
 				id = id + 10L;
 				dc.nextObject();
 			}
@@ -435,7 +440,7 @@ public class SingleDataControl {
 			for (int i = 0; i < 2; i++) {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(),  id);
 				id = id - 1L;
 				dc.nextObject();
 			}
@@ -444,42 +449,50 @@ public class SingleDataControl {
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				assertEquals(row.getObjId(),  factory.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(),  factory.cDept(id));
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
-			repo.applyChanges(null);
-
+			searchProvider.addKnownObject((ObjectControl) d1);
+			searchProvider.addKnownObject((ObjectControl) d2);
+			List commands =  repo.applyChanges(null);
+			processor.process(commands);
+			
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
-
-			id = d1.getObjId();
-			for (int i = 0; i < 2; i++) {
-				DepartmentType row = dc.getCurrentObject();
-				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
-				id = id + 1L;
-				dc.nextObject();
-			}
 
 			id =  Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
-				assertEquals(row.getObjId(), id);
+				if (factory.cDept(id) != null) {
+					assertEquals(row.getObjId(), factory.cDept(id) );
+				}else {
+					break;
+				}
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
+			
+			DepartmentType row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), d1.getObjId());
+			dc.nextObject();			
+			
+			row = dc.getCurrentObject();
+			assertEquals(row.getObjId(), d2.getObjId());
+			dc.nextObject();			
+			
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), id);
+			assertEquals(dc.getCurrentObject().getObjId(), d2.getObjId());
+			
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 		} catch (Exception e) {
@@ -496,17 +509,19 @@ public class SingleDataControl {
 			dc.setPageSize(5);
 			dc.getCurrentObject();
 
+			Stack<DepartmentType> st = new Stack<>();
 			do {
 				DepartmentType row = dc.getCurrentObject();
+				st.push(row);
 				logger.info(row.getObjId().toString());
 				dc.nextObject();
 			} while (dc.hasNext());
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(270L));
+			assertEquals( (long)(row.getObjId()),  38L );
 			dc.removeObject();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(260L));
+			assertEquals( (long)(row.getObjId()),  37L );
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -540,7 +555,7 @@ public class SingleDataControl {
 
 				isSet = dc.setCurrentPosition(26);
 				assertEquals(true, isSet);
-				assertEquals((long) 270, (long) (dc.getCurrentObject().getObjId()));
+				assertEquals(    (long) (factory.cDept( (long) 270)), (long) (dc.getCurrentObject().getObjId()));
 
 				isSet = dc.setCurrentPosition(-3);
 				assertEquals(false, isSet);
@@ -550,7 +565,7 @@ public class SingleDataControl {
 
 				isSet = dc.setCurrentPosition(25);
 				assertEquals(true, isSet);
-				assertEquals((long) 260, (long) (dc.getCurrentObject().getObjId()));
+				assertEquals((long) ( factory.cDept( (long) 260)), (long) (dc.getCurrentObject().getObjId()));
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -624,7 +639,7 @@ public class SingleDataControl {
 			dc.setCurrentPosition(24);
 
 			DepartmentType d = dc.getCurrentObject();
-			assertEquals( Long.valueOf(250), d.getObjId());
+			assertEquals( factory.cDept(Long.valueOf(250)) , d.getObjId());
 
 			dc.removeObject();
 
@@ -653,16 +668,16 @@ public class SingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(Long.valueOf(10));
+			s.setValue(factory.cDept(Long.valueOf(10)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(10));
+			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(10)));
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(10));
+			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(10)));
 
 			checkShifterHashSize(cs, pager, 1);
 			cs.savePoint();
@@ -673,21 +688,21 @@ public class SingleDataControl {
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(Long.valueOf(20));
+			s.setValue(factory.cDept(Long.valueOf(20)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(20));
+			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(20)));
 
 			sc = new ArrayList<>();
 
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(Long.valueOf(30));
+			s.setValue(factory.cDept(Long.valueOf(30)));
 			sc.add(s);
 			dc.setDefaultSearchCriteria(sc);
 
@@ -696,17 +711,17 @@ public class SingleDataControl {
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(Long.valueOf(40));
+			s.setValue(factory.cDept(Long.valueOf(40)));
 			sc.add(s);
 			dc.setDefaultSearchCriteria(sc);
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(40));
+			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(40));
+			assertEquals(row.getObjId(),factory.cDept( Long.valueOf(40)));
 
 			checkShifterHashSize(cs, pager, 3);
 
@@ -716,7 +731,7 @@ public class SingleDataControl {
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(40));
+			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
 
 			checkShifterHashSize(cs, pager, 2);
 			
@@ -899,7 +914,7 @@ public class SingleDataControl {
 				SearchCriteria s = new SearchCriteria();
 				s.setName("objId");
 				s.setComparator(Operator.EQ.name());
-				s.setValue( Long.valueOf(70));
+				s.setValue( factory.cDept(Long.valueOf(70)));
 				s.setClassName(Long.class.getName());
 
 				datacontrol.getSearchCriteria().add(s);

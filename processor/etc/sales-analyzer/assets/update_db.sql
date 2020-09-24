@@ -18,3 +18,13 @@ INSERT INTO sales_analyzer.permission(obj_id, name, description)VALUES (4, 'AC',
 INSERT INTO sales_analyzer.permission(obj_id, name, description)VALUES (5, 'CC', 'Close case');
 INSERT INTO sales_analyzer.permission(obj_id, name, description)VALUES (6, 'CAC', 'Close all cases');
 INSERT INTO sales_analyzer.permission(obj_id, name, description)VALUES (7, 'LSDIC', 'Load Sales Drop Investigation Case');
+
+
+  CREATE SEQUENCE sales_analyzer.hibernate_sequence
+  INCREMENT 1
+  MINVALUE 5000
+  MAXVALUE 9223372036854775807
+  START 5000
+  CACHE 1;
+ALTER TABLE sales_analyzer.hibernate_sequence
+  OWNER TO postgres;

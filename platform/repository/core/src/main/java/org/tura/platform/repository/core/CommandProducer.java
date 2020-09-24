@@ -32,6 +32,8 @@ public interface CommandProducer  extends Serializable {
 	List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
 	List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
 	List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException;
+	List<Object> link(RepoKeyPath masterPk, RepoKeyPath detailPk,List<List<String>> links) throws RepositoryException;
+	
 	
 	void setMasterProvider(Repository masterProvider);
 	void setDetailProvider(Repository detailProvider);

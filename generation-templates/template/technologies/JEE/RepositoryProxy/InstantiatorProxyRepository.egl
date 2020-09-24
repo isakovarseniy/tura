@@ -1,0 +1,62 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+package [%=component.basePackage%];
+ 
+import java.util.Arrays;
+
+import org.tura.platform.repository.core.Instantiator;
+
+public class ProxyRepositoryInstantiator implements Instantiator{
+
+
+	private static String[] knownObjects = new String[] { 
+			"proxy-repository"
+			};
+	
+	
+	@Override
+	public <T> T newInstance(Class<T> clazz) {
+		
+		throw new RuntimeException("Unknown class " + clazz);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T newInstance(String className) {
+		if ("proxy-repository".equals(className)){
+			ProxyRepository  repository = new ProxyRepository(null,null);
+		    return (T) repository;
+		}else {
+			try {
+				return (T) newInstance(Class.forName(className)) ;
+			}catch( Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+	}
+	
+	
+	@Override
+	public boolean check(Class<?> clazz) {
+		return check(clazz.getName());
+	}
+
+	@Override
+	public boolean check(String clazzName) {
+		return Arrays.asList(knownObjects).contains(clazzName);
+	}
+
+}

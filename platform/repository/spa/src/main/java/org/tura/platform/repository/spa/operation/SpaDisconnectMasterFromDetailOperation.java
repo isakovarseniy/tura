@@ -30,6 +30,7 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
+import org.tura.platform.repository.priority.LinkControl;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
@@ -75,19 +76,25 @@ public class SpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand
 			}
 			Object extendedPersistanceDetailObject = getExtendedObject(extendedDetailPk, persistanceDetailObject);
 
-			// RelOperation relation =
-			// PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(),
-			// masterProperty,
-			// extendedPersistanceDetailObject.getClass(), detailProperty);
 			RelOperation relation = PersistanceRelationBuilder.build(Class.forName(extendedMasterType), masterProperty);
 
 			relation.disconnect(extendedPersistanceMasterObject, extendedPersistanceDetailObject);
 
 			SpaControl masterControl = new SpaControl(persistanceMasterObject, masterMapper.getPKey(masterPk),
 					OperationLevel.UPDATE,registryName);
+			
+			LinkControl  linkControl = new LinkControl(persistanceMasterObject, masterMapper.getPKey( masterPk), OperationLevel.UNLINK, registryName);
+			linkControl.setMasterPk( masterMapper.getPKey( masterPk));
+			linkControl.setMasterType(persistanceMasterObject);
+			linkControl.setDetailPk(detailMapper.getPKey(detailPk));
+			linkControl.setDetailType(persistanceDetailObject);
+			linkControl.setExtendedMasterPk(extendedMasterPk);
+			linkControl.setExtendedDetailPk(extendedDetailPk);
+			
 
 			List<SpaControl> list = new ArrayList<>();
 			list.add(masterControl);
+			list.add(linkControl);
 			return list;
 		} catch (Exception e) {
 			throw new RepositoryException(e);

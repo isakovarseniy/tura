@@ -54,7 +54,7 @@ export class TPoll extends TuraComponent {
             );
         }
         return (
-            <TReactPolling id={this.id+"_poll"} ref={(el) => this.polling = el}  interval={3000} onPoll={this.onPoll} start="auto" />
+            <TReactPolling id={this.id+"_poll"} ref={(el) => this.polling = el}  interval={3000} onPoll={this.onPoll} start="false" />
         );
 
     }

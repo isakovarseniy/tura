@@ -22,7 +22,7 @@
 	<parent>
 		<groupId>sales-analyzer</groupId>
 		<artifactId>sales-analyzer-parent</artifactId>
-		<version>5.0.2</version>
+		<version>5.0.3</version>
 	</parent>
 
 	<artifactId>integration-testing</artifactId>
@@ -201,6 +201,13 @@
 			<artifactId>uuiserver-commons</artifactId>
 		</dependency>
 
+
+		<dependency>
+			<groupId>org.tura.platform.test</groupId>
+			<artifactId>commons-test</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 

@@ -54,6 +54,7 @@ import com.octo.java.sql.exp.Operator;
 import objects.test.serialazable.jpa.One2Many3A;
 import objects.test.serialazable.jpa.One2Many3B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2ManyTest {
@@ -137,6 +138,8 @@ public class One2ManyTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 

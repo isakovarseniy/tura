@@ -81,6 +81,8 @@ public class PollViewTest extends AbstractTest {
 		
 		PollViewPageObject page = new PollViewPageObject(driver);
 
+		page.getStartPoll().click();
+		
 		String [] id = {"","","",""};
 		new Repeater() {
 			
@@ -107,6 +109,10 @@ public class PollViewTest extends AbstractTest {
 		
 		
 		page.getStopPoll().click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
 		
 		new Repeater() {
 			@Override

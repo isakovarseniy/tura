@@ -106,6 +106,9 @@ public class RequestProcessor {
 		
 		for (Object obj : objects) {
 			Map<String, Object> map = (Map<String, Object>) obj;
+			if (map == null) {
+				continue;
+			}
 
 			String className = (String) map.get("clazz");
 			Class<UuiElement> clazz = (Class<UuiElement>) Class.forName(className);

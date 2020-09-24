@@ -44,9 +44,11 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
     private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
+    public boolean forcePKupdate = false;
 
     private org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider artificialFieldWrapper;
     private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
+    private org.tura.platform.repository.operation.AddLinkOperation linkOperation;
     private Object viewModelId1;
     private Object viewModelId2;
 
@@ -70,6 +72,11 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     
     
+  public  void setForcePKupdate(boolean forcePKupdate){
+      this.forcePKupdate = forcePKupdate;
+  }
+    
+    
     public Object getArtificialFieldWrapper(){
          if (artificialFieldWrapper != null){
              return artificialFieldWrapper.wrap(this);
@@ -86,6 +93,22 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	       return this.artificialFieldWrapper;
 	}
 
+    public void setLinkOperation(org.tura.platform.repository.operation.AddLinkOperation linkOperation){
+        this.linkOperation = linkOperation;
+    }
+    
+    public org.tura.platform.repository.operation.AddLinkOperation getLinkOperation(){
+       org.tura.platform.repository.operation.AddLinkOperation lnk   =  this.linkOperation;
+       if (lnk == null ){
+           lnk  =  (org.tura.platform.repository.operation.AddLinkOperation)this.attributes.get(org.tura.platform.datacontrol.commons.Constants.LINK_OPERATION);
+       }
+	    if ( lnk != null){
+	        lnk.setDetail(this);
+	        return lnk;
+	    }else{
+           return  null;
+	    }
+    }
     
     public  [%=tp.~class%]Proxy clone(){
       com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
@@ -282,6 +305,25 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
             if ( object.getAttached() == null || !object.getAttached()){
                    object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
             }else{
+                if (forcePKupdate){
+				try {
+                    org.tura.platform.repository.operation.UpdateObjectOperation command = new org.tura.platform.repository.operation.UpdateObjectOperation();
+            
+                    command.setProxy(this);
+                    command.setNewValue([%=util.mergeAndUnCapitalize(field.name)%]);
+                    command.setOldValue(object.get[%=util.mergeAndCapitalize(field.name)%]());
+                    command.setProperty("[%=util.mergeAndCapitalize(field.name)%]");
+                    command.setStackProvider(stackProvider);
+                    if (command.prepare()){
+                        object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+                         notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
+                    }
+                    return;
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+                    
+                }
                 throw new RuntimeException("Could  not modify primary key on attached object");
             }
           }

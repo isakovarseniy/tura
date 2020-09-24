@@ -71,12 +71,21 @@ import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
+public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
     protected static Logger logger;
     protected  WeldContainer weld;
 
     private ArrayList<String> delitedRows = new ArrayList<String>();
+
+   public abstract Long cCompany(Long id);
+   public abstract Long cCountry(Long id);
+   public abstract Long cState(Long id);
+   public abstract Long cCity(Long id);
+   public abstract Long cStreet(Long id);
+   public abstract Long cDepartment(Long id);
+   public abstract Long cEmployee(Long id);
+
 
 
     @Test
@@ -84,28 +93,25 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
         try {
 
             ArrayList<String> fact = new ArrayList<String>();
-            fact.add("Street_3");
-            fact.add("Street_7");
-            fact.add("Street_11");
-            fact.add("Street_15");
-
-            fact.add("Street_4");
-            fact.add("Street_8");
-            fact.add("Street_12");
-            fact.add("Street_16");
-
-            fact.add("City_3");
-            fact.add("City_4");
-
-            fact.add("State_6");
-            fact.add("State_7");
-            fact.add("State_8");
-            fact.add("State_9");
-            fact.add("State_10");
-
-            fact.add("Country_2");
-
-            fact.add("Company_2");
+            fact.add("Street_"+cStreet(3L));
+            fact.add("Street_"+cStreet(7L));
+            fact.add("Street_"+cStreet(11L));
+            fact.add("Street_"+cStreet(15L));
+            fact.add("Street_"+cStreet(4L));
+            fact.add("Street_"+cStreet(8L));
+            fact.add("Street_"+cStreet(12L));
+            fact.add("Street_"+cStreet(16L));
+      
+            fact.add("City_"+cCity(3L));
+            fact.add("City_"+cCity(4L));
+      
+            fact.add("State_"+cState(6L));
+            fact.add("State_"+cState(7L));
+            fact.add("State_"+cState(8L));
+            fact.add("State_"+cState(9L));
+            fact.add("State_"+cState(10L));
+            fact.add("Country_"+cCountry(2L));
+            fact.add("Company_"+cCompany(2L));
 
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             
@@ -156,11 +162,11 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 
             Country row = (Country) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(1));
+            assertEquals(row.getObjId(), cCountry(new Long(1)) );
 
             companyDC.nextObject();
             row = (Country) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(2));
+            assertEquals(row.getObjId(), cCountry(new Long(2)));
             companyDC.prevObject();
 
             CompanyArtifitialFieldsAdapter artf = new CompanyArtifitialFieldsAdapter((ObjectControl) company);
@@ -184,7 +190,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.nextObject();
 
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), new Long(2));
+            assertEquals(company.getObjId(), cCompany(new Long(2)));
 
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
             boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
@@ -193,7 +199,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             State row = (State) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(8));
+            assertEquals(row.getObjId(), cState(new Long(8)));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -209,7 +215,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), new Long(2));
+            assertEquals(company.getObjId(), cCompany(new Long(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
             assertEquals(departmentDC.isBlocked(), true);
@@ -226,10 +232,10 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(12));
+            assertEquals(row.getObjId(), cStreet(new Long(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), new Long(200));
+            assertEquals(department.getObjId(), cDepartment(new Long(200)));
 
             isSet = locationDC.setCurrentPosition(new TreePath[] {
                     new TreePath(null, 0), new TreePath("country2state", 3),
@@ -260,7 +266,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             Company company = (Company) companyDC.getCurrentObject();
             String saveCompanyName = company.getCompanyName();
             company.setCompanyName("New Company Name");
-            assertEquals(company.getObjId(), new Long(2));
+            assertEquals(company.getObjId(), cCompany(new Long(2)));
 
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
             boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
@@ -271,7 +277,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             State row = (State) locationDC.getCurrentObject();
             String saveStreetName = row.getName();
             row.setName("New Street Name");
-            assertEquals(row.getObjId(), new Long(8));
+            assertEquals(row.getObjId(), cState(new Long(8)));
 
             companyDC.getCommandStack().rallbackCommand();
 
@@ -313,7 +319,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             dc2.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
             Company obj1 = (Company) dc1.getCurrentObject();
-            assertEquals(new Long(1L), obj1.getObjId());
+            assertEquals( cCompany(new Long(1L)), obj1.getObjId());
             Department obj2 = (Department) dc2.getCurrentObject();
             assertNull(obj2);
 
@@ -325,7 +331,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             obj2 = (Department) dc2.getCurrentObject();
-            assertEquals(new Long(10L), obj2.getObjId());
+            assertEquals( cDepartment(new Long(10L)), obj2.getObjId());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -340,7 +346,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             PopupCompanyDCProviderDC popupDC = bf.getPopupCompanyDCProvider();
-            bf.setCmpId(1L);
+            bf.setCmpId(cCompany(1L));
 
             Company row = (Company) companyDC.getCurrentObject();
             String name = row.getCompanyName();
@@ -485,7 +491,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), new Long(2));
+            assertEquals(company.getObjId(), cCompany(new Long(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
             assertEquals(departmentDC.isBlocked(), true);
@@ -502,10 +508,10 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(12));
+            assertEquals(row.getObjId(), cStreet(new Long(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), new Long(200));
+            assertEquals(department.getObjId(), cDepartment(new Long(200)));
             
             assertNotNull(companyDC.getCurrentObject());
             assertNotNull(locationDC.getCurrentObject());
@@ -543,7 +549,7 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), new Long(2));
+            assertEquals(company.getObjId(), cCompany(new Long(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
             assertEquals(departmentDC.isBlocked(), true);
@@ -560,10 +566,10 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), new Long(12));
+            assertEquals(row.getObjId(), cStreet(new Long(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), new Long(200));
+            assertEquals(department.getObjId(), cDepartment(new Long(200)));
             
             assertNotNull(companyDC.getCurrentObject());
             assertNotNull(locationDC.getCurrentObject());

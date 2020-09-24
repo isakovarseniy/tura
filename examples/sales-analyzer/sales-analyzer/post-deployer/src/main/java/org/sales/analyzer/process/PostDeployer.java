@@ -88,7 +88,7 @@ public class PostDeployer {
 			public void action() throws Exception {
 				token = getToken();
 			}
-		}.repeat(10);
+		}.repeat(20);
 
 		config.setCredentialsProvider(new OAuthCredentialsProvider(token));
 		
@@ -106,7 +106,7 @@ public class PostDeployer {
 			}
 		}.repeat(10);
 		
-		new Repeater("Run test check") {
+		new Repeater("Run health check") {
 			@Override
 			public void action() {
 				ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);

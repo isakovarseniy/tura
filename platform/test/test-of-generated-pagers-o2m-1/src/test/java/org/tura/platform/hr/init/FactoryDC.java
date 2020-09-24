@@ -18,7 +18,9 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,6 +60,7 @@ import objects.test.serialazable.jpa.Employee1;
 import objects.test.serialazable.jpa.Employee1Proxy;
 import objects.test.serialazable.jpa.IndepObject1;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.pager.Department1Pager;
 import objects.test.serialazable.jpa.pager.Employee1Pager;
@@ -70,6 +73,9 @@ public class FactoryDC implements Factory {
 	private Repository repository;
 	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
+	private Map<Long,Long> departmentConverter = new HashMap<>();
+	private Map<Long,Long> employeeConverter = new HashMap<>();
+	
 
 	private EntityManagerProvider emProvider = new EntityManagerProvider() {
 
@@ -105,6 +111,7 @@ public class FactoryDC implements Factory {
 		init.initEntityManagerProvider(emProvider);
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 
 		InitSPARepository initSpa = new InitSPARepository(registry,spaRegistry);
 		initSpa.initClassMapping();
@@ -283,10 +290,10 @@ public class FactoryDC implements Factory {
 
 		switch (initializer) {
 		case "Departments":
-			new DepartmentsInit(em).init();
+			new DepartmentsInit(em,departmentConverter).init();
 			break;
 		case "Employes":
-			new EmployesesInit(em).init();
+			new EmployesesInit(em,departmentConverter,employeeConverter).init();
 			break;
 		}
 	}
@@ -308,6 +315,16 @@ public class FactoryDC implements Factory {
 
 		ddc.addChildren("departmentsToemployees", relation);
 
+	}
+
+	@Override
+	public Long cDept(Long id) {
+		return departmentConverter.get(id);
+	}
+
+	@Override
+	public Long cEmp(Long id) {
+		return employeeConverter.get(id);
 	}
 
 }

@@ -136,14 +136,18 @@ public class LazyDataGridModel<T> implements Serializable {
 			int j = first + pageSize;
 
 			for (int i = first; i < j; i++) {
-				if (scroler.get(i) != null) {
-					// Element could be null in case random delete
-					// Size of scroller will be adjusted only after
-					// scroler.get(i) operation
-					ObjectControl oc = (ObjectControl) scroler.get(i);
-					oc.setViewModelId1(i);
-					datasource.add(oc);
-				}else {
+				try {
+					if (scroler.get(i) != null) {
+						// Element could be null in case random delete
+						// Size of scroller will be adjusted only after
+						// scroler.get(i) operation
+						ObjectControl oc = (ObjectControl) scroler.get(i);
+						oc.setViewModelId1(i);
+						datasource.add(oc);
+					}else {
+						break;
+					}
+				}catch(IndexOutOfBoundsException e){
 					break;
 				}
 			}

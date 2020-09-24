@@ -25,11 +25,8 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 
 import org.josql.Query;
 import org.josql.QueryResults;
@@ -64,7 +61,6 @@ public class Actions implements EventAware {
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
 	private static String IMAGE_FILE = "ajaxloadingbar.gif";
-	
 
 	@Inject
 	ELResolver elResolver;
@@ -82,10 +78,9 @@ public class Actions implements EventAware {
 
 	@Inject
 	CachedUserPreferences userPref;
-	
+
 	@Inject
 	ResponseState responseState;
-
 
 	public void openProcess() {
 		try {
@@ -105,7 +100,7 @@ public class Actions implements EventAware {
 				HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter(oh);
 				adapter.setImage(IMAGE_FILE);
 
-				new ViewPortUpdate().setup(vp, elResolver,responseState);
+				new ViewPortUpdate().setup(vp, elResolver, responseState);
 
 			}
 		} catch (Exception e) {
@@ -141,11 +136,11 @@ public class Actions implements EventAware {
 	}
 
 	public void logout() {
-	       SwitchWindow cmd = new SwitchWindow();
-	       cmd.setTarget("http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-etl-controller-react-client/dataloader/etlcontroller/etlControlWindow");
-		   responseState.addCommand(cmd);
+		SwitchWindow cmd = new SwitchWindow();
+		cmd.setTarget(
+				"http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-etl-controller-react-client/dataloader/etlcontroller/etlControlWindow");
+		responseState.addCommand(cmd);
 	}
-
 
 	public void nextStep() {
 		try {
@@ -182,18 +177,20 @@ public class Actions implements EventAware {
 
 	private void changeStep(EtlProcess process, EtlMLPMessage message) throws Exception {
 		List<Object> list = new ArrayList<>();
-		list.addAll(process.getActiveUserTasks());
-		Query query = new Query();
-		query.parse(ViewPortUpdate.QUERY_LAST_TASK);
-		QueryResults result = query.execute(list);
+		if (process != null) {
+			list.addAll(process.getActiveUserTasks());
+			Query query = new Query();
+			query.parse(ViewPortUpdate.QUERY_LAST_TASK);
+			QueryResults result = query.execute(list);
 
-		ObjectMapper mapper = new ObjectMapper();
-		String s = mapper.writeValueAsString(message);
-		EtlTask task = (EtlTask) result.getResults().get(0);
-		task.setCompleteTask(s);
-		applyChanges();
+			ObjectMapper mapper = new ObjectMapper();
+			String s = mapper.writeValueAsString(message);
+			EtlTask task = (EtlTask) result.getResults().get(0);
+			task.setCompleteTask(s);
+			applyChanges();
+		}
 
-		new ViewPortUpdate().setup(vp, elResolver,responseState);
+		new ViewPortUpdate().setup(vp, elResolver, responseState);
 
 	}
 
@@ -203,8 +200,9 @@ public class Actions implements EventAware {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryDataLoaderETLController}");
 			DataControl dc = (DataControl) bf.getFileEntry();
 			dc.forceRefresh();
-
-			new ViewPortUpdate().setup(vp, elResolver,responseState);
+			
+			
+			new ViewPortUpdate().setup(vp, elResolver, responseState);
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -213,6 +211,6 @@ public class Actions implements EventAware {
 	@Override
 	public void setEvent(EventDescription event) {
 		this.event = event;
-		
+
 	}
 }

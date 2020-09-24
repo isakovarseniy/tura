@@ -121,6 +121,18 @@ public class FileSearchServiceTest {
 			return null;
 		}
 
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+			
+		}
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+			// TODO Auto-generated method stub
+			
+		}
+
 	}
 
 }

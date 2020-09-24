@@ -117,6 +117,7 @@
             <hints uid="506df12b-04c8-4de0-9604-ce075d440e57" name="Adapter" hint="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9"/>
             <hints uid="738f3f3f-578c-4480-bda8-2ebc9b9ba44e" name="SPA Object" hint="a33bf8db-5036-434d-9670-c89e8aa7ef73"/>
             <hints uid="90c31441-f8f5-4542-9aee-92dab7b1ebfb" name="SignalField" hint="b85caaed-4c99-4983-b88e-7c707b725e99"/>
+            <hints uid="d31b15b2-a772-490c-9eee-235c5c034b9e" name="DoNotNil" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
           </artifacts>
           <artifacts uid="3fffa2e2-c9c1-409c-96da-d679b61f6798" name="EnumeratorConverters" template="tura:/generation-templates/template/technologies/JEE/Repository/mainEnumeratorConveter.egl">
             <modelQuery uid="443caaa1-c2bf-4342-adaf-be2f75a3c9f1" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
@@ -632,6 +633,7 @@
           <hints uid="ea6c7eb1-77cc-442a-88c5-12b01a5e27b9" name="Adapter"/>
           <hints uid="a33bf8db-5036-434d-9670-c89e8aa7ef73" name="SPA Object"/>
           <hints uid="b85caaed-4c99-4983-b88e-7c707b725e99" name="SignalField"/>
+          <hints uid="a2eb633a-530b-4c82-96d2-7e61703bbadb" name="DoNotNil"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
         </techLeafs>
@@ -784,7 +786,9 @@
             <classifiers uid="c7f4f4f3-0e13-4496-8755-fddbe66bb927" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="3016ddb8-60f8-4337-b3d4-8c18cb24f4cb" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="ad628776-d1b3-4a56-ae17-57475f231811" name="objId" pk="true"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="42fbe763-a5fc-4666-8437-4d8d64ac111e" name="model" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="42fbe763-a5fc-4666-8437-4d8d64ac111e" name="model" pk="true">
+              <classifiers uid="bacf4598-17be-431d-9d16-7ae94b34fa02" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
+            </attributes>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ede239a4-5927-4bb4-b51c-301ca1f30243" name="plate"/>
           </types>
           <types xsi:type="tura.type:Enumerator" uid="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" name="Person type">
@@ -1240,6 +1244,29 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c27a9b38-9621-4e74-a823-6fe796fe19d1" name="parentId"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="e4dbc01f-8498-4bf5-b89d-7bb354aa1648" typeRef="7e87dec9-8279-4a31-a864-149fb05146d4"/>
+          <types xsi:type="tura.type:Type" uid="d83b5811-988a-46f8-9049-41f2bb815861" name="L1">
+            <classifiers uid="5d71337a-e603-4f2f-8138-b740d7630e55" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="2d9092e5-1ef1-4947-8cd4-1b2b7222e309" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="16f35e93-7e0c-4c3b-954c-686eb53e37ca" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="817cdd64-7e3f-4a42-a326-d607f2ee58df" name="L2">
+            <classifiers uid="03607875-dcbd-436c-8825-9e1bb290481b" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="6b180241-8821-4810-bd67-2e14a779d1b0" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="5eb4ffd9-036b-468e-916f-47914d5265f9" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="e2af3238-35d4-491c-a7b9-3e23aaae1cc2" name="parentId"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c0680fd9-ff25-4000-a4e1-0e15db795987" name="desc"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="42a8c464-8e2a-48a3-af7d-d60f73413a58" name="L3">
+            <classifiers uid="5468ae80-1ecd-4f4f-a10d-0c9f2b698031" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="426e8c71-e2ef-4913-88dc-4ef7dd8a2e67" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a63be7ce-77e8-4431-a79a-50c3a9f7379e" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="68f9386c-43e6-4bfe-9e1a-85268f479617" name="L4">
+            <classifiers uid="07917950-d430-4cfd-8761-f64f79c797bb" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <classifiers uid="fac4d03e-4b46-4589-9352-0eba226996bf" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="9f1379fd-c31a-46b2-a80d-5e15cde9eab6" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f487786f-c8fc-470d-bdb3-7013ec130635" name="parentId"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
           </relationships>
@@ -1379,6 +1406,9 @@
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="f7a7d309-fad4-4ebc-a353-4c94095d5583" source="e4dbc01f-8498-4bf5-b89d-7bb354aa1648" target="db2bb6fd-9df5-43e5-96a8-e51c1ec31c98" containment="Non">
             <links uid="8877ff67-3fee-493a-bca4-1c848869da8a" masterField="402aeb9d-3e11-481b-a4ce-0c5b3d77ebb7" detailField="c27a9b38-9621-4e74-a823-6fe796fe19d1"/>
+          </relationships>
+          <relationships xsi:type="tura.type:Assosiation" uid="2b2c5147-6ef9-4131-9d40-82c3ae527940" source="42a8c464-8e2a-48a3-af7d-d60f73413a58" target="68f9386c-43e6-4bfe-9e1a-85268f479617" internal="true">
+            <links uid="8b42e981-03a0-4160-b699-f761c847125b" masterField="a63be7ce-77e8-4431-a79a-50c3a9f7379e" detailField="f487786f-c8fc-470d-bdb3-7013ec130635"/>
           </relationships>
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
@@ -2226,7 +2256,9 @@
             <classifiers uid="d0847d5f-c43f-4a41-9bca-7f28a6a720f5" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="65da8db2-4a24-4fd7-ad82-6415ec09ba4f" hint="33258c88-1dfa-4c6f-b714-6a0cef9d1d91" details="product_group_history"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="86f857d6-3c28-46ff-a0c7-ce532596318a" name="country_id"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_Id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_Id" pk="true">
+              <classifiers uid="2d9963df-d748-4e84-a0b7-e4706a784758" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
+            </attributes>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ba81a903-5d00-4340-9ab2-abbf25ccd1a9" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="f4eeb2a7-443b-4660-808b-6651f19d6944" name="state_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f77c8ddd-4128-4045-93aa-4c8a13452b60" name="state_name"/>
@@ -2257,7 +2289,9 @@
           <types xsi:type="tura.type:Type" uid="3cfdf213-1f3f-461c-aec2-cdc313e51bd1" name="Product history">
             <classifiers uid="ffefa2ec-ffe1-47a0-929a-f39677f1aaee" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="892e63a6-6b10-4abf-b584-a43362f79277" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_Id" pk="true"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_Id" pk="true">
+              <classifiers uid="7dc6eb6a-06c6-45c6-94be-283da72db86f" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
+            </attributes>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="2a7b9bfa-c2af-4762-bf4d-60fafbb65601" name="country_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="60dd3bd5-7a17-441a-a329-a89c58a2da5e" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="614489d9-44d5-4458-a454-794cba60bb60" name="state_id"/>
@@ -3789,7 +3823,7 @@
               <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
               <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
               <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
-              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.0.2"/>
+              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.0.3"/>
               <versions uid="8bc8fa64-01a7-4ff2-a383-11765e47ab34" name="selenium.version" version="2.47.1"/>
               <versions uid="25576813-abe7-42bb-9316-854dee17e93f" name="junit.version" version="4.11"/>
               <versions uid="be26186b-9783-4472-a6cf-5834f1a98491" name="cdi.version" version="2.1.1.Final"/>
@@ -11664,7 +11698,7 @@
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
               <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
-              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.0.2"/>
+              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.0.3"/>
               <versions uid="c031121a-0df4-49df-ab47-5a69d10814dd" name="selenium.version" version="2.47.1"/>
               <versions uid="23484b46-6301-41f7-a371-733785a56a4b" name="keycloak.version" version="3.2.0.Final"/>
             </applicationMappers>
@@ -16472,8 +16506,23 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="96d21de5-a477-49c2-bfe3-d394d8dc333d" name="Monthly File Loading Process Steps">
                       <style uid="16df87dd-f69c-48e5-a2f1-444f2465b3ee" constant="true" value="width:100%"/>
-                      <viewElement xsi:type="tura.form:ViewPort" nickname="step_selector" uid="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" name="Step selector">
+                      <viewElement xsi:type="tura.form:ViewPort" nickname="step_selector" order="1" uid="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" name="Step selector">
                         <style uid="1282ee30-89dd-42b3-a20e-d22851ecc5b7" constant="true" value="width:100%"/>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="74f97f28-74a4-443b-956a-5fbb8b8babe2" name="Pooling Aria">
+                        <baseCanvas uid="160f6ef0-f987-4551-8738-ae560665c6ff">
+                          <children xsi:type="tura.form:Poll" uid="c82be598-0f08-4792-a0de-4234a7fc9de6">
+                            <fields uid="f98290d9-cdb0-45d6-be56-38aa8f412bc8" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.poll()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="b9da27e5-049e-48dc-970d-793e0202a063" order="4" expressionType="OperationImpl"/>
+                              <classifiers uid="0b13f8c9-3b65-47b1-a094-9af106e1623f" hint="3ac62cf6-88e7-43ad-86b5-2e0e575c82c6"/>
+                            </fields>
+                            <refreshAreas area="dcc20418-8850-4b11-9cd7-dfff6e8dcb38" group="2"/>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                       <fields uid="66c5cbb3-dab5-463b-9507-4425a0bfb263" constant="true" value="sa-panelgrid">
                         <classifiers uid="41b3010e-77cd-401b-b3cf-0dd01b636121" hint="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb"/>
@@ -16581,18 +16630,7 @@
                               <classifiers uid="919b5de9-bd37-4f84-96bd-0f178c2ea62b"/>
                             </children>
                           </children>
-                          <children xsi:type="tura.form:Poll" order="1" uid="dd6328b1-f5fb-4b6a-a675-ce4e3a718a1e">
-                            <fields uid="6ebc0dd6-4603-4edf-b9cc-4e435936c141" value="Types repository.Sales Analyzer.Business logic.Business logic::SA ETL controller.poll()">
-                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                              <expression objRef="50a0f20c-ec3f-4e4a-b3b8-0aa16b1183af" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                              <expression objRef="b2925f9f-89ba-4984-8053-68e6c1365073" order="2" expressionType="TypeGroupImpl"/>
-                              <expression objRef="3cbccbab-da94-48ba-95fd-976cf2709774" order="3" expressionType="TypeImpl"/>
-                              <expression objRef="b9da27e5-049e-48dc-970d-793e0202a063" order="4" expressionType="OperationImpl"/>
-                              <classifiers uid="278652b1-aa9d-47e7-81bb-cc65d4047bc4" hint="3ac62cf6-88e7-43ad-86b5-2e0e575c82c6"/>
-                            </fields>
-                            <refreshAreas area="f1b2627e-d451-40bc-ab12-d28cfe6ec4f7" group="2"/>
-                          </children>
-                          <children xsi:type="tura.form:Table" order="2" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2" rowNumber="10">
+                          <children xsi:type="tura.form:Table" order="1" uid="d78cdeec-c23d-4ac5-9ef9-27bebd187902" sourcePointer="3cd54df4-8475-4a9e-80b5-cbf846e7e306" columns="2" rowNumber="10">
                             <style uid="8bf179c7-6ebe-4f1a-8e32-622c55a2db60" constant="true" value="width:60%"/>
                             <cols uid="cb77fa12-02a2-4563-943c-180c7ea2f17a">
                               <multiLangLabel uid="e55981c2-3f80-4ead-9ecf-688378774c06" value="Application Message Libraries.ETLController.FILES_TABLE">

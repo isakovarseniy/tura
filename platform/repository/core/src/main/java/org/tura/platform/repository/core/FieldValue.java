@@ -56,6 +56,13 @@ public class FieldValue implements Serializable{
 		this.value = value;
 	}
 
-	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append(type);
+		buffer.append(name);
+		buffer.append(value);
+		return buffer.toString();
+	}
 	
 }

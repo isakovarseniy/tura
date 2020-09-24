@@ -15,6 +15,9 @@ CREATE SCHEMA IF NOT EXISTS HR;
 
     drop table HR.JPAOBJECTSECONDDB if exists;
 
+    drop sequence if exists HR.hibernate_sequence;
+create sequence HR.hibernate_sequence start with 1 increment by 1;
+
     create table HR.JPAOBJECTSECONDDB (
        OBJ_ID bigint not null,
         NAME varchar(255),

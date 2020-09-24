@@ -54,9 +54,10 @@ public class NutRepository implements Repository{
 		
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public void applyChanges(@SuppressWarnings("rawtypes") List changes) throws RepositoryException {
-		
+	public List applyChanges( List changes) throws RepositoryException {
+		return null;
 	}
 
 	@Override

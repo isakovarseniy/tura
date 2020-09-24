@@ -23,7 +23,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>repository</artifactId>
-		<version>5.0.2</version>
+		<version>5.0.3</version>
 	</parent>
 
 	<groupId>org.tura.platform.repository</groupId>
@@ -45,11 +45,12 @@
 			<artifactId>core</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>commons-jxpath</groupId>
-			<artifactId>commons-jxpath</artifactId>
-		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 
 	</dependencies>

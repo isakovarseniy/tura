@@ -19,6 +19,7 @@
 package org.tura.platform.repository.spa;
 
 import org.tura.platform.repository.core.Adapter;
+import org.tura.platform.repository.core.RepoObjectKey;
 
 public class SpaControl implements Comparable<SpaControl>{
 	
@@ -29,6 +30,7 @@ public class SpaControl implements Comparable<SpaControl>{
 	private int priority;
 	private int sequence;
 	private String registryName;
+	private RepoObjectKey pathPk;
 	
 
 	public SpaControl(Object object,Object key, OperationLevel level,String registryName){
@@ -89,6 +91,12 @@ public class SpaControl implements Comparable<SpaControl>{
 	}
 	public void setRegistryName(String registryName) {
 		this.registryName = registryName;
+	}
+	public RepoObjectKey getPathPk() {
+		return pathPk;
+	}
+	public void setPathPk(RepoObjectKey pathPk) {
+		this.pathPk = pathPk;
 	}
 	
 	

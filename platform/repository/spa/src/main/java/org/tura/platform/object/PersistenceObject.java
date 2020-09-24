@@ -21,6 +21,7 @@ package org.tura.platform.object;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
@@ -32,6 +33,7 @@ import org.tura.platform.object.TuraObject;
 @MappedSuperclass
 public class PersistenceObject  implements TuraObject{
 	@Id
+	@GeneratedValue(strategy = javax.persistence.GenerationType.SEQUENCE)
 	@Column(name = "OBJ_ID")
 	private Long objId;
 

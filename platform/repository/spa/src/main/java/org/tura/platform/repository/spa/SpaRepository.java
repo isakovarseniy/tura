@@ -18,9 +18,6 @@
 
 package org.tura.platform.repository.spa;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +31,12 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.core.StorageCommandProcessor;
 
-public class SpaRepository implements Repository, StorageCommandProcessor {
+public class SpaRepository implements Repository {
 
 	public transient static final ThreadLocal<AtomicReference<SpaRepositoryData>> SPA_REPOSITORY_DATA_THREAD_LOCAL = ThreadLocal
 			.withInitial(AtomicReference::new);
+
 
 	private static final long serialVersionUID = 1615677329324930020L;
 	private String registryName;
@@ -64,10 +61,6 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 		return i;
 	}
 
-	private void setSequence(int i) {
-		SpaRepositoryData data = getTheadData();
-		data.setSequence(i);
-	}
 
 	private SpaRepositoryData getTheadData() {
 		if (SPA_REPOSITORY_DATA_THREAD_LOCAL.get().get() == null) {
@@ -133,7 +126,7 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void applyChanges(List changes) throws RepositoryException {
+	public List applyChanges(List changes) throws RepositoryException {
 		try {
 			for (Object change : changes) {
 				SpaRepositoryCommand cmd = (SpaRepositoryCommand) change;
@@ -142,34 +135,13 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 				List<SpaControl> objects = cmd.prepare();
 				populateCache(objects);
 			}
-
+			return null;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
 	}
 
-	@Override
-	public void process() throws Exception {
-		persistCachedObjects();
-		cleanupCache();
-	}
 
-	private void persistCachedObjects() throws Exception {
-		List<SpaControl> preparedObjects = getListOfPreparedObjects();
-		for (SpaControl control : preparedObjects) {
-			CRUDProvider provider = findCRUDProvider(control);
-			provider.execute(control);
-		}
-	}
-
-	private CRUDProvider findCRUDProvider(SpaControl obj) throws Exception {
-		Class<?> clazz = Class.forName(obj.getType());
-		CRUDProvider provider = spaRegistry.getRegistry(obj.getRegistryName()).findCRUDProvider(clazz);
-		if (provider == null) {
-			throw new RepositoryException("Cannot find CRUDProvider for class " + clazz);
-		}
-		return provider;
-	}
 
 	private void populateCache(List<SpaControl> list) throws RepositoryException {
 		if (list == null) {
@@ -204,11 +176,7 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 		}
 	}
 
-	private void cleanupCache() {
-		getCache().clear();
-		getNomergeRules().clear();
-		setSequence(0);
-	}
+
 
 	private SearchProvider findSearchProvider(String className, String registryName) throws Exception {
 		SearchProvider provider = spaRegistry.getRegistry(registryName).findSearchProvider(className);
@@ -239,24 +207,6 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 		return mapper;
 	}
 
-	private List<SpaControl> getListOfPreparedObjects() {
-		ArrayList<SpaControl> list = new ArrayList<>();
-
-		for (String h : getCache().keySet()) {
-			Map<Object, SpaControl> typedList = getCache().get(h);
-			list.addAll(typedList.values());
-		}
-		list.addAll(getNomergeRules());
-
-		Collections.sort(list, new Comparator<SpaControl>() {
-
-			@Override
-			public int compare(SpaControl o1, SpaControl o2) {
-				return o1.compareTo(o2);
-			}
-		});
-		return list;
-	}
 
 	private void merge(Map<Object, SpaControl> listOfObjectsPerType, SpaControl preparedObject, SpaControl control)
 			throws RepositoryException {
@@ -272,4 +222,6 @@ public class SpaRepository implements Repository, StorageCommandProcessor {
 			return false;
 		}
 	}
+
+
 }

@@ -28,4 +28,5 @@ public enum RepositoryCommandType {
 	connectMasterToDetail,
 	connectDetailToMaster,
 	update,
+	link
 }

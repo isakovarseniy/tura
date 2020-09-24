@@ -23,6 +23,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.elsoft.platform.hr.objects.simple.model.InitJPARepository;
+import org.tura.platform.hr.objects.serialization.ProxyRepositoryInstantiator;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
@@ -50,6 +51,7 @@ public class CDIRegistry extends Registry {
 			init.initProvider();
 			init.initEntityManagerProvider(new CDIEntityManagerProvider());
 			this.setTransactrionAdapter(new CDITransactionAdapter(registry));
+			this.addInstantiator(new ProxyRepositoryInstantiator());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

@@ -23,7 +23,7 @@
 
 	<groupId>org.tura.example.service.hrform</groupId>
 	<artifactId>hr-complex-model-repository-triggers</artifactId>
-    <version>5.0.2</version>
+    <version>5.0.3</version>
 	<packaging>jar</packaging>
 
 	<dependencyManagement>
@@ -73,6 +73,14 @@
 			<artifactId>hr-complex-model-repository</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>hr-complex-model-proxy</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>

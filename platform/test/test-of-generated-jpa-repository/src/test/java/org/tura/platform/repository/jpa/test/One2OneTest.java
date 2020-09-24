@@ -42,19 +42,23 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.JPAObject5;
 import objects.test.serialazable.jpa.JPAObject6;
 import objects.test.serialazable.jpa.One2One4A;
 import objects.test.serialazable.jpa.One2One4B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2OneTest {
@@ -139,7 +143,8 @@ public class One2OneTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
-		
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -161,10 +166,13 @@ public class One2OneTest {
 
 
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0000_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			One2One4A o1 = (One2One4A) repository.create(One2One4A.class.getName());
 			
@@ -173,7 +181,13 @@ public class One2OneTest {
 			repository.insert(o2, One2One4B.class.getName());
 			repository.insert(o1, One2One4A.class.getName());
 			o2.setOne2One4A(o1);
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) o2);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
+			
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
@@ -204,31 +218,36 @@ public class One2OneTest {
 		}
 	}	
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0001_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			JPAObject5 o1 = (JPAObject5) repository.create(JPAObject5.class.getName());
-			Long o1pk = o1.getJpaObj5();
 			JPAObject6 o2 = (JPAObject6) repository.create(JPAObject6.class.getName());
-			Long o2pk = o2.getJpaObj6();
 			
 			o1.setUkObj5(100L);
 			o1.setJPAObject6(o2);
 
 			repository.insert(o1, JPAObject5.class.getName());
 
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
+			
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, JPAObject5.class.getName());
 			assertEquals(1,result.getSearchResult().size());
-			o1 = (JPAObject5) result.getSearchResult().get(0);
-			o2 = o1.getJPAObject6() ;
-           assertNotNull(o2);
+			JPAObject5 o1_ = (JPAObject5) result.getSearchResult().get(0);
+			JPAObject6 o2_ = o1.getJPAObject6() ;
+           assertNotNull(o2_);
 
-           assertEquals(o1pk, o1.getJpaObj5());
-           assertEquals(o2pk, o2.getJpaObj6());
+           assertEquals(o1.getJpaObj5(), o1_.getJpaObj5());
+           assertEquals(o2.getJpaObj6(), o2_.getJpaObj6());
            
 			
 		} catch (Exception e) {

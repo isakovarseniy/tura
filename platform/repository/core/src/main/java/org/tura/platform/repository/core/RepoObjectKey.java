@@ -22,14 +22,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepoObjectKey implements Serializable{
+public class RepoObjectKey implements Serializable {
 
 	private static final long serialVersionUID = -4545215428786037286L;
-	private List <FieldValue> key = new ArrayList<>();
+	private List<FieldValue> key = new ArrayList<>();
 	private String type;
 	private String relation;
-	
-	public void addValue (FieldValue value){
+
+	public void addValue(FieldValue value) {
 		key.add(value);
 	}
 
@@ -56,7 +56,17 @@ public class RepoObjectKey implements Serializable{
 	public void setRelation(String relation) {
 		this.relation = relation;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append(type);
+		buffer.append(relation);
+
+		for (FieldValue k : key) {
+			buffer.append(k.toString());
+		}
+		return buffer.toString();
+	}
+
 }

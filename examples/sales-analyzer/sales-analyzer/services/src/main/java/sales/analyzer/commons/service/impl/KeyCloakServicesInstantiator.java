@@ -80,7 +80,7 @@ public class KeyCloakServicesInstantiator implements Instantiator{
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
 		if (KeyCloakCRUDService.class.equals(clazz)){
-			return (T) new KeyCloakCRUDService(realmResource);
+			return (T) new KeyCloakCRUDService(realmResource,spaRegistry,registryName,registry);
 		}
 		if (KeyCloakSearchService.class.equals(clazz)) {
 			return (T) new KeyCloakSearchService(realmResource, spaRegistry, registryName, registry);

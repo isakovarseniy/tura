@@ -75,6 +75,14 @@ public class RepositoryHelper implements Serializable{
             throw new RepositoryException(e);
         }
     }
+    
+    public Class<?> findRepositoryClassNoException(String persistanceClass) throws RepositoryException {
+        try {
+            return Class.forName(registry.findRepositoryClass(persistanceClass));
+        } catch (Exception e) {
+        	return null;
+        }
+    }    
 
     public Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
             throws ClassNotFoundException, NoSuchMethodException, SecurityException, Exception {
@@ -272,6 +280,18 @@ public class RepositoryHelper implements Serializable{
             return obj.getClass();
         }
     }
+    
+	public boolean beckwardProperty(Object persistanceDetailObject, String detailProperty) {
+		try {
+			Class<?> clazz = persistanceDetailObject.getClass();
+			String methodName = "get" + WordUtils.capitalize(detailProperty);
+			clazz.getMethod(methodName);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+    
     
     public PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
         return registry.findPostCreateTrigger(repositoryClass);

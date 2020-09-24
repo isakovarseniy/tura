@@ -18,6 +18,8 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 
 import org.tura.platform.hr.objects.jpa.Country;
@@ -26,9 +28,13 @@ import org.tura.platform.hr.objects.jpa.Country;
 public class CountryInit {
 
 	private EntityManager em;
+	private Map<Long,Long> countryConverter;
+	private Map<Long,Long> companyConverter ;
 
-	public CountryInit(EntityManager em) {
+	public CountryInit(EntityManager em, Map<Long,Long> companyConverter , Map<Long,Long> countryConverter) {
 		this.em = em;
+		this.countryConverter = countryConverter;
+		this.companyConverter = companyConverter;
 	}
 	
 	public void init() {
@@ -42,10 +48,15 @@ public class CountryInit {
 
 	private Country create(Long obj_id, String countryName, Long companyid) {
 		Country dpt = new Country();
-		dpt.setObjId(obj_id);
+//		dpt.setObjId(obj_id);
 		dpt.setName(countryName);
-		dpt.setParentId(companyid);
+		dpt.setParentId( this.companyConverter.get( companyid));
+		
 		em.persist(dpt);
+		em.flush();
+		
+		countryConverter.put(obj_id, dpt.getObjId());
+		
 		return dpt;
 
 	}	

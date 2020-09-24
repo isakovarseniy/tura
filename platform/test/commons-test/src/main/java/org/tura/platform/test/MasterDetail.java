@@ -140,8 +140,8 @@ public abstract class MasterDetail {
 			dcd.nextObject();
 			EmployeeType rowe = dce.getCurrentObject();
 			
-			assertEquals(rowd.getObjId(),  Long.valueOf(10));
-			assertEquals(rowe.getObjId(),  Long.valueOf(201));
+			assertEquals(rowd.getObjId(),  factory.cDept(Long.valueOf(10)));
+			assertEquals(rowe.getObjId(),  factory.cEmp(Long.valueOf(201)));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,7 +165,7 @@ public abstract class MasterDetail {
 			SearchCriteria s = new SearchCriteria();
 			s .setName("objId");
 			s.setComparator(Operator.GT.name());
-			s.setValue( Long.valueOf(30));
+			s.setValue( factory.cDept(Long.valueOf(30)));
 			sc.add(s);
 			
 			dce.setDefaultSearchCriteria(sc);
@@ -194,8 +194,8 @@ public abstract class MasterDetail {
 			dcd.nextObject();
 			EmployeeType rowe = dce.getCurrentObject();
 			
-			assertEquals(rowd.getObjId(),  Long.valueOf(10));
-			assertEquals(rowe.getObjId(),  Long.valueOf(201));
+			assertEquals(rowd.getObjId(),  factory.cDept(Long.valueOf(10)));
+			assertEquals(rowe.getObjId(),  factory.cEmp(Long.valueOf(201)));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -303,8 +303,8 @@ public abstract class MasterDetail {
 			dce.getShifter().setLogger(logger);
 			dce.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
-		    assertEquals(rowd.getObjId(),  Long.valueOf(20));
-		    assertEquals(getParent(rowe),  Long.valueOf(20));
+		    assertEquals(rowd.getObjId(),  factory.cDept( Long.valueOf(20)));
+		    assertEquals(getParent(rowe),  factory.cDept(Long.valueOf(20)));
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -30,6 +30,7 @@ import org.keycloak.representations.idm.RoleRepresentation;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepositoryInstantiator;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import sales.analyzer.api.model.impl.AssignInfo;
@@ -79,6 +80,7 @@ public class CDIRegistry extends Registry {
             init.initProvider();
             init.initEntityManagerProvider(new CDIEntityManagerProvider());
             this.setTransactrionAdapter(new CDITransactionAdapter(this));
+            this.addInstantiator(new ProxyRepositoryInstantiator());
 
             InitSPARepository initSpa = new InitSPARepository( this, spaRegistry);
             initSpa.initClassMapping();
@@ -153,7 +155,7 @@ public class CDIRegistry extends Registry {
             spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(CloseWFCaseProcessCommand.class);
             spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(TaskCompletionCommand.class);
             spaRegistry.getRegistry("spa-persistence-repository").addExternalCommand(ETLCompleteTaskCommand.class);
-
+            
             
             AdministrationProfile p = new AdministrationProfile();
             this.addProfile(p.getProfileName(), p);

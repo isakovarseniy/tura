@@ -41,9 +41,11 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.test.AllowEverythingProfile;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
@@ -53,9 +55,11 @@ import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.spa.test.CRUDService;
 import org.tura.platform.repository.spa.test.SearchService;
 import org.tura.platform.repository.spa.test.TestServiceInstantiator;
+import org.tura.platform.test.ClientSearchProvider;
 import org.tura.spa.test.repo.InitSPARepository;
 
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 import objects.test.serialazable.jpa.Q1;
 import objects.test.serialazable.jpa.Q2;
 import objects.test.serialazable.jpa.Q3;
@@ -147,6 +151,7 @@ public class AdapterTest {
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
@@ -203,10 +208,13 @@ public class AdapterTest {
 
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void adapterObjectTest1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 			
 			Q1 o1 = (Q1) repository.create(Q1.class.getName());
 			W1 w1 = (W1) repository.create(W1.class.getName());
@@ -223,7 +231,10 @@ public class AdapterTest {
 
 			o1.setW1(w1);
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) w1);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, Q1.class.getName());
@@ -312,10 +323,13 @@ public class AdapterTest {
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void twoDifferentPersistenceProvidersObjectTest1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 			
 			Q4 o4 = (Q4) repository.create(Q4.class.getName());
 			W4 w4 = (W4) repository.create(W4.class.getName());
@@ -330,7 +344,10 @@ public class AdapterTest {
 			repository.insert(o4, Q4.class.getName());
 
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) o4);
+			searchProvider.addKnownObject((ObjectControl) w4);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, Q4.class.getName());

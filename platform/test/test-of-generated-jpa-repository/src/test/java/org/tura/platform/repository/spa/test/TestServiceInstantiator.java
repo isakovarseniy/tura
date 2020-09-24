@@ -57,7 +57,7 @@ public class TestServiceInstantiator implements Instantiator{
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
 		if (CRUDService.class.equals(clazz)){
-			return (T) new CRUDService();
+			return (T) new CRUDService(spaRegistry, registryName, registry);
 		}
 		if (SearchService.class.equals(clazz)) {
 			return (T) new SearchService(spaRegistry, registryName, registry);

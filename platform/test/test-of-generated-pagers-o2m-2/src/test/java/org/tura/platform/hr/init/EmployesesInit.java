@@ -22,6 +22,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 
@@ -33,9 +34,13 @@ import org.tura.jpa.test.Department2;;
 public class EmployesesInit {
 
 	private EntityManager em;
+	private Map<Long,Long> departmentConverter;
+	private Map<Long,Long> employeeConverter;
 
-	public EmployesesInit(EntityManager em) {
+	public EmployesesInit(EntityManager em,Map<Long,Long> departmentConverter,Map<Long,Long> employeeConverter) {
 		this.em = em;
+		this.departmentConverter = departmentConverter;
+		this.employeeConverter = employeeConverter;
 	}
 
 	public void init() throws ParseException {
@@ -160,7 +165,7 @@ public class EmployesesInit {
 
 	private void create(Long obj_id, Long employeeid,String firstname,String lastname,String email, String phonenumber,Date hiredate,String jobid,Float salary, Float commissionpct, Long managerid, Long departmentid) {
 		Employee2 emp = new Employee2();
-		emp.setObjId(obj_id);
+//		emp.setObjId(obj_id);
 		emp.setEmployeeId(employeeid);
 		emp.setFirstName(firstname);
 		emp.setLastName(lastname);
@@ -172,12 +177,14 @@ public class EmployesesInit {
 		emp.setManagerId(managerid);
 		emp.setDepartmentId(departmentid);
 		
-		Department2 dep = em.find(Department2.class, departmentid);
+		Department2 dep = em.find(Department2.class, departmentConverter.get(departmentid));
 		if ( dep.getEmployee2() == null){
 			dep.setEmployee2(new ArrayList<Employee2>()); 	     
 		}
 		dep.getEmployee2().add(emp);
 		em.persist(emp);
+		em.flush();
+		employeeConverter.put(obj_id,emp.getObjId());
 
 	}
 

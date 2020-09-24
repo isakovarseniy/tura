@@ -28,6 +28,7 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.CommandLifecycle.LifecycleReturn;
 import org.tura.platform.repository.data.AddContainmentObjectData;
+import org.tura.platform.repository.data.AddLinkData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
@@ -40,19 +41,17 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 public class BasicRepository extends RepositoryHelper implements Repository {
 
 	private static final long serialVersionUID = 6266970411524948146L;
-	
+
 	private Registry registry;
 
-	
 	public BasicRepository() {
-		
+
 	}
-	
+
 	public BasicRepository(Registry registry) {
 		super(registry);
 		this.registry = registry;
 	}
-
 
 	private TransactionAdapter getTransactionAdapter() throws RepositoryException {
 		TransactionAdapter ta = registry.getTransactrionAdapter();
@@ -98,22 +97,22 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			List<OrderCriteria> newOrder = prepareOrderCriteria(orderCriteria);
 
 			ObjectGraphProfile profile = loadProfile(newSearch);
-			
+
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(newSearch, newOrder);
 			}
-			
 
-			SearchResult result = provider.find(newSearch, newOrder, startIndex, endIndex,
-					persistanceClass.getName());
+			SearchResult result = provider.find(newSearch, newOrder, startIndex, endIndex, persistanceClass.getName());
 
 			List<Object> records = new ArrayList<>();
 
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,registry);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass) ,new ObjectGraph(),profile));
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,
+						registry);
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass),
+						new ObjectGraph(), profile));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
@@ -132,70 +131,68 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		}
 
 	}
-	
+
 	private ObjectGraphProfile loadProfile(List<SearchCriteria> searchCriteria) {
 		ObjectGraphProfile profile = new ObjectGraphProfile();
 		SearchCriteria s = null;
-		for (SearchCriteria sc : searchCriteria){
-			if (sc instanceof ObjectProfileCriteria){
+		for (SearchCriteria sc : searchCriteria) {
+			if (sc instanceof ObjectProfileCriteria) {
 				profile = findProfileImplementation(((ObjectProfileCriteria) sc).getProfile());
-				s= sc;
+				s = sc;
 				break;
 			}
 		}
-		if (s != null ){
+		if (s != null) {
 			searchCriteria.remove(s);
 		}
 		return profile;
 	}
 
-
-
 	private List<SearchCriteria> prepareSearchCriteria(List<SearchCriteria> search) {
 		List<SearchCriteria> newSearch = new ArrayList<>();
-		for (SearchCriteria sc : search){
-			if (sc.getParentClass() == null && sc.getProperty() == null){
+		for (SearchCriteria sc : search) {
+			if (sc.getParentClass() == null && sc.getProperty() == null) {
 				newSearch.add(sc);
 			}
 		}
-		
+
 		return newSearch;
-	}	
-	
+	}
+
 	private List<OrderCriteria> prepareOrderCriteria(List<OrderCriteria> search) {
 		List<OrderCriteria> newOrder = new ArrayList<>();
-		for (OrderCriteria sc : search){
-			if (sc.getParentClass() == null && sc.getProperty() == null){
+		for (OrderCriteria sc : search) {
+			if (sc.getParentClass() == null && sc.getProperty() == null) {
 				newOrder.add(sc);
 			}
 		}
-		
+
 		return newOrder;
-	}		
+	}
 
 	@SuppressWarnings("rawtypes")
-	public void applyChanges(List changes) throws RepositoryException {
+	public List applyChanges(List changes) throws RepositoryException {
 		CommandLifecycle cl = getCommandLifecycle();
 		try {
 			cl.beforeTransaction();
 			getTransactionAdapter().begin();
 
 			changes = cl.preprocessChangeSequence(changes);
-			
+
 			for (Object change : changes) {
 				LifecycleReturn lf = cl.preprocess(change);
-				if ( LifecycleReturn.Skip.equals(lf)) {
+				if (LifecycleReturn.Skip.equals(lf)) {
 					continue;
 				}
-				if ( LifecycleReturn.Break.equals(lf)) {
+				if (LifecycleReturn.Break.equals(lf)) {
 					break;
 				}
-				if ( LifecycleReturn.Error.equals(lf)) {
+				if (LifecycleReturn.Error.equals(lf)) {
 					throw cl.getException();
 				}
-				
+
 				try {
-				
+
 					if (change instanceof AddContainmentObjectData) {
 						new RepositoryObjectInstaller(registry).add((AddContainmentObjectData) change);
 						cl.postprocess(change);
@@ -205,47 +202,56 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 						new RepositoryObjectInstaller(registry).add((AddObjectData) change);
 						continue;
 					}
-	
+
 					if (change instanceof AddTopObjectData) {
 						new RepositoryObjectInstaller(registry).add((AddTopObjectData) change);
 						continue;
 					}
-	
+
 					if (change instanceof RemoveContainmentObjectData) {
 						new RepositoryObjectRemover(registry).remove((RemoveContainmentObjectData) change);
 						continue;
 					}
-	
+
 					if (change instanceof RemoveObjectData) {
 						new RepositoryObjectRemover(registry).remove((RemoveObjectData) change);
 						continue;
 					}
-	
+
 					if (change instanceof RemoveTopObjectData) {
 						new RepositoryObjectRemover(registry).remove((RemoveTopObjectData) change);
 						continue;
 					}
-	
+
 					if (change instanceof UpdateObjectData) {
 						new RepositoryObjectUpdate(registry).update((UpdateObjectData) change);
 						continue;
 					}
-				}finally {
+					
+					if (change instanceof AddLinkData) {
+						new RepositoryObjectLinker(registry).linkObjects((AddLinkData) change);
+						continue;
+					}
+
+					
+				} finally {
 					lf = cl.postprocess(change);
-					if ( LifecycleReturn.Break.equals(lf)) {
+					if (LifecycleReturn.Break.equals(lf)) {
 						break;
 					}
-					if ( LifecycleReturn.Error.equals(lf)) {
+					if (LifecycleReturn.Error.equals(lf)) {
 						throw cl.getException();
 					}
 				}
 
 			}
-			registry.getStorageCommandProcessor().process();
-			
+			List response = registry.getStorageCommandProcessor().process();
+
 			cl.beforeCommit();
 			getTransactionAdapter().commit();
 			cl.afterCommit();
+
+			return response;
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -277,4 +283,3 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	}
 
 }
-

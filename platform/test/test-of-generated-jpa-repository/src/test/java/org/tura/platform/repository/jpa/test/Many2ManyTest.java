@@ -41,17 +41,21 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.Many2Many2A;
 import objects.test.serialazable.jpa.Many2Many2B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -136,6 +140,8 @@ public class Many2ManyTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -155,10 +161,13 @@ public class Many2ManyTest {
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0000_One2Many() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			Many2Many2A o1 = (Many2Many2A) repository.create(Many2Many2A.class.getName());
 			repository.insert(o1, Many2Many2A.class.getName());
@@ -168,7 +177,10 @@ public class Many2ManyTest {
 			
 			o1.getMany2Many2B().add(o2);
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2A.class.getName());

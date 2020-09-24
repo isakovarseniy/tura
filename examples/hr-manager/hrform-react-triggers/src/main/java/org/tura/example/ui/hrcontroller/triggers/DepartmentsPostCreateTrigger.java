@@ -29,9 +29,12 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.objects.serialization.Department;
+import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.operation.AddLinkOperation;
 
 @Alternative
 @Priority(10)
@@ -50,6 +53,12 @@ public class DepartmentsPostCreateTrigger implements PostCreateTrigger {
 		Object t =  (Object) beanFactory.getTreeRootCountry().getCurrentObject();
 		Long l = (Long) Reflection.call(t, "getObjId");
 		((Department) obj).setParentId(l);
+		
+		AddLinkOperation lo = new AddLinkOperation();
+		lo.setMaster((ObjectControl) t);
+		lo.addLink("objId", "parentId");
+		attributes.put(Constants.LINK_OPERATION,lo);
+		
 		}catch (Exception e){
 			throw new TuraException(e);
 		}

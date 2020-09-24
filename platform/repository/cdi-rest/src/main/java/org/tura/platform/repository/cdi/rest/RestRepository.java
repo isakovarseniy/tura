@@ -20,6 +20,7 @@ package org.tura.platform.repository.cdi.rest;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -123,8 +124,19 @@ public class RestRepository {
 				list.add( mapper.readValue(map.get(key).get(0),clazz));
 			}
 
-			repository.applyChanges(list);
-			return Response.status(Response.Status.OK).build();
+			@SuppressWarnings("rawtypes")
+			List changes = repository.applyChanges(list);
+			
+			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
+
+			int index = 0;
+			for (Object o : changes) {
+				formData.add(Integer.valueOf(index).toString()+"_type", o.getClass().getName());
+				formData.add(Integer.valueOf(index).toString(), mapper.writeValueAsString(o));
+				index++;
+			}
+			
+			return Response.status(Response.Status.OK).entity(formData).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}

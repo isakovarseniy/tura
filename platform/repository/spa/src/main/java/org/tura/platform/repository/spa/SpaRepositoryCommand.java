@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.PathHelper;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
@@ -39,7 +40,6 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.persistence.PersistanceMapper;
-import org.tura.platform.repository.spa.operation.PathHelper;
 
 public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
@@ -91,16 +91,6 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
 	
 	
-	protected boolean beckwardProperty(Object persistanceDetailObject, String detailProperty) {
-		try {
-			Class<?> clazz = persistanceDetailObject.getClass();
-			String methodName = "get" + WordUtils.capitalize(detailProperty);
-			clazz.getMethod(methodName);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
 
 	public void setRegistryName(String registryName) {
 		this.registryName = registryName;

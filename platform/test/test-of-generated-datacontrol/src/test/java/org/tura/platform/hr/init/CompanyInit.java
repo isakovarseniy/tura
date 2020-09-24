@@ -18,6 +18,8 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 
 import org.tura.platform.hr.objects.jpa.Company;
@@ -25,9 +27,11 @@ import org.tura.platform.hr.objects.jpa.Company;
 
 public class CompanyInit {
 	private EntityManager em;
+	private Map<Long,Long> companyConverter ;
 
-	public CompanyInit(EntityManager em) {
+	public CompanyInit(EntityManager em,Map<Long,Long> companyConverter ) {
 		this.em = em;
+		this.companyConverter = companyConverter;
 	}
 
 	public void init() {
@@ -38,9 +42,13 @@ public class CompanyInit {
 
 	private Company create(Long obj_id, String companyName) {
 		Company dpt = new Company();
-		dpt.setObjId(obj_id);
+//		dpt.setObjId(obj_id);
 		dpt.setCompanyName(companyName);
+		
 		em.persist(dpt);
+		em.flush();
+		companyConverter.put(obj_id, dpt.getObjId());
+
 		return dpt;
 
 	}

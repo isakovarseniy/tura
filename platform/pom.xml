@@ -23,7 +23,7 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>platform</artifactId>
-	<version>5.0.2</version>
+	<version>5.0.3</version>
 	<packaging>pom</packaging>
 
 	<name>Tura :: Platform</name>
@@ -77,8 +77,8 @@
 
 	<dependencyManagement>
 		<dependencies>
-		
-		
+
+
 			<dependency>
 				<groupId>javax.xml.bind</groupId>
 				<artifactId>jaxb-api</artifactId>
@@ -116,7 +116,7 @@
 			</dependency>
 
 			<dependency>
-			    <groupId>org.wildfly.arquillian</groupId>
+				<groupId>org.wildfly.arquillian</groupId>
 				<artifactId>wildfly-arquillian-container-managed</artifactId>
 				<version>${version.wildfly-arquillian-container-managed}</version>
 			</dependency>
@@ -200,7 +200,11 @@
 				<version>${project.version}</version>
 			</dependency>
 
-
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>cpa</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.tura.platform.repository</groupId>
@@ -403,7 +407,7 @@
 				<module>datacontrol</module>
 				<module>uuiserver-commons</module>
 				<module>uuiserver-rest</module>
-				<module>primereact-selenium</module>			
+				<module>primereact-selenium</module>
 				<module>repository</module>
 			</modules>
 		</profile>

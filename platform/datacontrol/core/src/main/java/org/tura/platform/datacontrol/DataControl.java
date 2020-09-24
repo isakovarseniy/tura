@@ -35,9 +35,11 @@ import org.tura.platform.datacontrol.event.RowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
+import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.operation.AddLinkOperation;
 
 
 public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {
@@ -244,11 +246,20 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		try {
 			if (obj != null ) {
 				if (getParent() != null){
-				
+					
 					List<SearchCriteria> ls = getParent().getChildSearchCriteria();
 					ObjectControl cnt = (ObjectControl) obj;
 					Object wobj = cnt.getWrappedObject();
 
+					Relation rel = getParent();
+					AddLinkOperation lo = new AddLinkOperation();
+					for( PropertyLink lnk : rel.getLinks()) {
+						lo.addLink(lnk.getParent(), lnk.getChild());
+					}
+					lo.setMaster((ObjectControl) rel.getMasterCurrentObject());
+					lo.setDetail(cnt);
+					cnt.setLinkOperation(lo);
+					
 					for (SearchCriteria sc : ls ) {
 
 						String name = sc.getName();
@@ -263,6 +274,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 									Class.forName(className), value);
 						}
 					}
+					
+					
 				}	
 				notifyLiteners(new RowCreatedEvent(this, getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());

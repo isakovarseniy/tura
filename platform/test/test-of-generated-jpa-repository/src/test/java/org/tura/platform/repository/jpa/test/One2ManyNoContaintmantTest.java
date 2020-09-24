@@ -52,6 +52,7 @@ import org.tura.platform.repository.spa.SpaRepository;
 import objects.test.serialazable.jpa.One2Many1A;
 import objects.test.serialazable.jpa.One2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2ManyNoContaintmantTest {
@@ -135,6 +136,8 @@ public class One2ManyNoContaintmantTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 

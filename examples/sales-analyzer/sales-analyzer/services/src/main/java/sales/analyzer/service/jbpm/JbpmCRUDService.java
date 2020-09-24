@@ -27,9 +27,11 @@ import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
 import org.tura.platform.repository.core.AdapterLoader;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 import sales.analyzer.api.model.impl.AssignInfo;
 import sales.analyzer.api.model.impl.ETLProcessInstance;
@@ -40,11 +42,12 @@ import sales.analyzer.api.model.impl.TaskComletion;
 import sales.analyzer.api.model.impl.TerminateProcessEvent;
 import sales.analyzer.process.commons.Constants;
 
-public class JbpmCRUDService implements CRUDProvider {
+public class JbpmCRUDService extends CRUDProvider {
 
 	private KieServicesClient client;
 
-	public JbpmCRUDService(KieServicesClient client) {
+	public JbpmCRUDService(KieServicesClient client, SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+		super(spaRegistry, registryName, registry);
 		this.client = client;
 	}
 

@@ -42,9 +42,11 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.test.AllowEverythingProfile;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
@@ -55,6 +57,7 @@ import org.tura.platform.repository.spa.test.CRUDService;
 import org.tura.platform.repository.spa.test.SearchBase;
 import org.tura.platform.repository.spa.test.SearchService;
 import org.tura.platform.repository.spa.test.TestServiceInstantiator;
+import org.tura.platform.test.ClientSearchProvider;
 import org.tura.spa.test.repo.InitSPARepository;
 
 import objects.test.serialazable.jpa.A1;
@@ -73,6 +76,7 @@ import objects.test.serialazable.jpa.JPAObject3;
 import objects.test.serialazable.jpa.JPAObject4;
 import objects.test.serialazable.jpa.P1;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.SPAObject2;
 import objects.test.serialazable.jpa.SPAObject3;
@@ -161,6 +165,8 @@ public class MixedRepositoryTest {
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -211,16 +217,23 @@ public class MixedRepositoryTest {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void mixedObjectTest1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			JPAObject1 o1 = (JPAObject1) repository.create(JPAObject1.class.getName());
 			SPAObject1 o2 = (SPAObject1) repository.create(SPAObject1.class.getName());
 			o1.setSPAObject1(o2);
 			repository.insert(o1, JPAObject1.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, JPAObject1.class.getName());
@@ -259,16 +272,23 @@ public class MixedRepositoryTest {
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void mixedObjectTest2() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			JPAObject2 o1 = (JPAObject2) repository.create(JPAObject2.class.getName());
 			SPAObject2 o2 = (SPAObject2) repository.create(SPAObject2.class.getName());
 			o1.getSPAObject2().add(o2);
 			repository.insert(o1, JPAObject2.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, JPAObject2.class.getName());
@@ -308,16 +328,23 @@ public class MixedRepositoryTest {
 	
 	
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void mixedObjectTest3() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			JPAObject3 o2 = (JPAObject3) repository.create(JPAObject3.class.getName());
 			SPAObject3 o1 = (SPAObject3) repository.create(SPAObject3.class.getName());
 			o1.setJPAObject3(o2);
 			repository.insert(o1, SPAObject3.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, SPAObject3.class.getName());
@@ -354,16 +381,23 @@ public class MixedRepositoryTest {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void mixedObjectTest4() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			JPAObject4 o2 = (JPAObject4) repository.create(JPAObject4.class.getName());
 			SPAObject4 o1 = (SPAObject4) repository.create(SPAObject4.class.getName());
 			o1.getJPAObject4().add(o2);
 			repository.insert(o1, SPAObject4.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, SPAObject4.class.getName());
@@ -401,16 +435,23 @@ public class MixedRepositoryTest {
 	}
 
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void mixedObjectTest5() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			A1 a1 = (A1) repository.create(A1.class.getName());
 			A2 a2 = (A2) repository.create(A2.class.getName());
 			a1.setA2(a2);
 			repository.insert(a1, A1.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) a1);
+			searchProvider.addKnownObject((ObjectControl) a2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			A3 a3 = (A3) repository.create(A3.class.getName());
 			a2.getA3().add(a3);
@@ -434,7 +475,18 @@ public class MixedRepositoryTest {
 			
 			DD1 dd1 = (DD1) repository.create(DD1.class.getName());
 			a1.setDD1(dd1);
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) a1);
+			searchProvider.addKnownObject((ObjectControl) a2);
+			searchProvider.addKnownObject((ObjectControl) a3);
+			searchProvider.addKnownObject((ObjectControl) a4);
+			searchProvider.addKnownObject((ObjectControl) f1);
+			searchProvider.addKnownObject((ObjectControl) c1);
+			searchProvider.addKnownObject((ObjectControl) b1);
+			searchProvider.addKnownObject((ObjectControl) b2);
+			searchProvider.addKnownObject((ObjectControl) dd1);
+			commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, DD1.class.getName());
@@ -476,7 +528,13 @@ public class MixedRepositoryTest {
 			a1.setA5(a5);
 			a5.setP1(p1);
 			
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) a5);
+			searchProvider.addKnownObject((ObjectControl) p1);
+			commands =  repository.applyChanges(null);
+			processor.process(commands);
+			
+			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,100, DD1.class.getName());
 			dd1_ = (DD1) result.getSearchResult().get(0);
 			a1_ = dd1_.getA1();

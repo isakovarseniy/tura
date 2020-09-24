@@ -89,7 +89,15 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	    var repository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/proxyRepository.egl",hash,TemplateFactory);
 	    repository.setFormatter(f);
 	    var buffer = repository.process();
-	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);   
+	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);
+	    
+	    var repository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/InstantiatorProxyRepository.egl",hash,TemplateFactory);
+	    repository.setFormatter(f);
+	    var buffer = repository.process();
+	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepositoryInstantiator.java",buffer);   
+	    
+	    
+	       
     }
     
   %]  

@@ -48,13 +48,17 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
+import org.tura.platform.repository.operation.AddLinkOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.Country;
@@ -68,6 +72,7 @@ import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepositoryInstantiator;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.exp.Operator;
@@ -198,6 +203,7 @@ public class KeycloakServiceTest {
 																);
 		
 		
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
 		spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(init);
 		
@@ -317,15 +323,23 @@ public class KeycloakServiceTest {
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void rolePermitionTest() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
+			
+			
 			Role role = (Role) repository.create(Role.class.getName());
 			String roleName = "role_"+UUID.randomUUID().toString();
 			role.setName(roleName);
 			repository.insert(role, Role.class.getName());
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) role);
+			List list =  repository.applyChanges(null);
+			processor.process(list);
 
 			ArrayList<SearchCriteria> search = new ArrayList<>();
 			SearchCriteria sc = new SearchCriteria();
@@ -346,7 +360,10 @@ public class KeycloakServiceTest {
 			perm2.setName("Perm2");
 			repository.insert(perm2, Permission.class.getName());
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) perm1);
+			searchProvider.addKnownObject((ObjectControl) perm2);
+			 list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			PermissionReferences permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
 			role.getPermissionReferences().add(permRef);
@@ -357,7 +374,6 @@ public class KeycloakServiceTest {
 			permRef.setPermission(perm2);
 			
 			repository.applyChanges(null);
-			
 			
 			search = new ArrayList<>();
 			sc = new SearchCriteria();
@@ -412,16 +428,22 @@ public class KeycloakServiceTest {
 
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void userPreferencesTest() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 			
 			User user = (User) repository.create(User.class.getName());
 			String userName = UUID.randomUUID().toString();
 			user.setUsername(userName);
 			repository.insert(user, User.class.getName());
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) user);
+			List list =  repository.applyChanges(null);
+			processor.process(list);
 
 			ArrayList<SearchCriteria>search = new ArrayList<>();
 			SearchCriteria sc = new SearchCriteria();
@@ -457,7 +479,14 @@ public class KeycloakServiceTest {
 			user.getCityRefeence().add(cityRef);
 			cityRef.setCityId(city.getObjId());
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) country);
+			searchProvider.addKnownObject((ObjectControl) cntRef);
+			searchProvider.addKnownObject((ObjectControl) state);
+			searchProvider.addKnownObject((ObjectControl) stateRef);
+			searchProvider.addKnownObject((ObjectControl) city);
+			searchProvider.addKnownObject((ObjectControl) cityRef);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			search = new ArrayList<>();
 			sc = new SearchCriteria();
@@ -482,8 +511,6 @@ public class KeycloakServiceTest {
 			assertEquals(1,user.getStateReference().size());
 			StateReference _stateRef = user.getStateReference().get(0);
 			assertEquals(stateRef.getObjId(),_stateRef.getObjId());
-
-			
 			
 			repository.remove(user, User.class.getName());
 			repository.applyChanges(null);
@@ -528,17 +555,24 @@ public class KeycloakServiceTest {
 	}
 
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void loadPreferencesTest() {
 		try {
 	
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 			
 			User user = (User) repository.create(User.class.getName());
 			String userName = UUID.randomUUID().toString();
 			user.setUsername(userName);
 			repository.insert(user, User.class.getName());
-			repository.applyChanges(null);
+			
+			
+			searchProvider.addKnownObject((ObjectControl) user);
+			List list =  repository.applyChanges(null);
+			processor.process(list);
 
 			ArrayList<SearchCriteria> search = new ArrayList<>();
 			SearchCriteria sc = new SearchCriteria();
@@ -555,7 +589,12 @@ public class KeycloakServiceTest {
 			
 			CountryReference cntRef = (CountryReference) repository.create(CountryReference.class.getName());
 			cntRef.setCountryId(country.getObjId());
+			AddLinkOperation lo =  new AddLinkOperation();
+			lo.setMaster((ObjectControl) country);
+			lo.addLink("objId", "countryId");
+			((ObjectControl) cntRef).setLinkOperation(lo);
 			user.getCountryReference().add(cntRef);
+			
 
 			Country countryAdm = (Country) repository.create(Country.class.getName());
 			repository.insert(countryAdm, Country.class.getName());
@@ -563,25 +602,36 @@ public class KeycloakServiceTest {
 			CountryReference cntRefAdm = (CountryReference) repository.create(CountryReference.class.getName());
 			cntRefAdm.setCountryId(countryAdm.getObjId());
 			cntRefAdm.setAdmin(true);
+			lo =  new AddLinkOperation();
+			lo.setMaster((ObjectControl) countryAdm);
+			lo.addLink("objId", "countryId");
+			((ObjectControl) cntRefAdm).setLinkOperation(lo);
 			user.getCountryReference().add(cntRefAdm);
-			
 			
 			
 			State state = (State) repository.create(State.class.getName());
 			repository.insert(state, State.class.getName());
 			
 			StateReference stateRef = (StateReference) repository.create(StateReference.class.getName());
-			user.getStateReference().add(stateRef);
 			stateRef.setStateId(state.getObjId());
+			lo = new AddLinkOperation();
+			lo.addLink("objId", "stateId");
+			lo.setMaster((ObjectControl) state);
+			((ObjectControl)stateRef).setLinkOperation(lo);
+			user.getStateReference().add(stateRef);
 			
 
 			State stateAdm = (State) repository.create(State.class.getName());
 			repository.insert(stateAdm, State.class.getName());
 			
 			StateReference stateRefAdm = (StateReference) repository.create(StateReference.class.getName());
-			user.getStateReference().add(stateRefAdm);
 			stateRefAdm.setStateId(stateAdm.getObjId());
 			stateRefAdm.setAdmin(true);
+			lo = new AddLinkOperation();
+			lo.addLink("objId", "stateId");
+			lo.setMaster((ObjectControl) stateAdm);
+			((ObjectControl)stateRefAdm).setLinkOperation(lo);
+			user.getStateReference().add(stateRefAdm);
 			
 
 			
@@ -589,26 +639,51 @@ public class KeycloakServiceTest {
 			repository.insert(city, City.class.getName());
 			
 			CityRefeence cityRef = (CityRefeence) repository.create(CityRefeence.class.getName());
-			user.getCityRefeence().add(cityRef);
 			cityRef.setCityId(city.getObjId());
-			
+			lo = new AddLinkOperation();
+			lo.addLink("objId", "cityId");
+			lo.setMaster((ObjectControl) city);
+			((ObjectControl)cityRef).setLinkOperation(lo);
+			user.getCityRefeence().add(cityRef);
 
+			
 			City cityAdm = (City) repository.create(City.class.getName());
 			repository.insert(cityAdm, City.class.getName());
 			
 			CityRefeence cityRefAdm = (CityRefeence) repository.create(CityRefeence.class.getName());
-			user.getCityRefeence().add(cityRefAdm);
 			cityRefAdm.setCityId(cityAdm.getObjId());
 			cityRefAdm.setAdmin(true);
-
+			lo = new AddLinkOperation();
+			lo.addLink("objId", "cityId");
+			lo.setMaster((ObjectControl) cityAdm);
+			((ObjectControl)cityRefAdm).setLinkOperation(lo);
+			user.getCityRefeence().add(cityRefAdm);
 			
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) countryAdm );
+			searchProvider.addKnownObject((ObjectControl) cntRefAdm  );
+			searchProvider.addKnownObject((ObjectControl) stateAdm );
+			searchProvider.addKnownObject((ObjectControl) stateRefAdm  );
+			searchProvider.addKnownObject((ObjectControl) cityAdm );
+			searchProvider.addKnownObject((ObjectControl) cityRefAdm  );
+			searchProvider.addKnownObject((ObjectControl) cntRef);
+			searchProvider.addKnownObject((ObjectControl) country);
+			searchProvider.addKnownObject((ObjectControl) cntRef);
+			searchProvider.addKnownObject((ObjectControl) state);
+			searchProvider.addKnownObject((ObjectControl) stateRef);
+			searchProvider.addKnownObject((ObjectControl) city);
+			searchProvider.addKnownObject((ObjectControl) cityRef);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			Role role = (Role) repository.create(Role.class.getName());
 			String roleName = "role_"+UUID.randomUUID().toString();
 			role.setName(roleName);
 			repository.insert(role, Role.class.getName());
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) role);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			search = new ArrayList<>();
 			sc = new SearchCriteria();
@@ -629,22 +704,32 @@ public class KeycloakServiceTest {
 			perm2.setName("Perm2");
 			repository.insert(perm2, Permission.class.getName());
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) perm1);
+			searchProvider.addKnownObject((ObjectControl) perm2);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
-			PermissionReferences permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
-			role.getPermissionReferences().add(permRef);
-			permRef.setPermission(perm1);
+			PermissionReferences permRef1 = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef1);
+			permRef1.setPermission(perm1);
 			
-			permRef = (PermissionReferences) repository.create(PermissionReferences.class.getName());
-			role.getPermissionReferences().add(permRef);
-			permRef.setPermission(perm2);
+			PermissionReferences permRef2 = (PermissionReferences) repository.create(PermissionReferences.class.getName());
+			role.getPermissionReferences().add(permRef2);
+			permRef2.setPermission(perm2);
 			
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) permRef1);
+			searchProvider.addKnownObject((ObjectControl) permRef2);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			RoleReference roleref = (RoleReference) repository.create(RoleReference.class.getName());
 			user.getRoleReference().add(roleref);
 			roleref.setRole(role);
-			repository.applyChanges(null);
+			
+			
+			searchProvider.addKnownObject((ObjectControl) roleref);
+			list =  repository.applyChanges(null);
+			processor.process(list);
 			
 			UserPreferencesLoader prefLoader = new UserPreferencesLoader();
 			prefLoader.setRepository(repository);

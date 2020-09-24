@@ -19,6 +19,8 @@
 package org.tura.platform.test;
 
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +49,13 @@ public class CDITest  extends CDITestHRController {
 
 	private  Weld w;
 	private static Server server;
+	private Map<Long,Long> companyConverter  =  new HashMap<Long, Long>();
+	private Map<Long,Long> countryConverter  =  new HashMap<Long, Long>();
+	private Map<Long,Long> stateConverter   =  new HashMap<Long, Long>();
+	private Map<Long,Long> cityConverter  =  new HashMap<Long, Long>();
+	private Map<Long,Long> streetConverter   =  new HashMap<Long, Long>();
+	private Map<Long,Long> departmentsConverter  =  new HashMap<Long, Long>();
+	private Map<Long,Long> employeeConverter   =  new HashMap<Long, Long>();
 
 
 	@After
@@ -88,20 +97,55 @@ public class CDITest  extends CDITestHRController {
 
 		em.getTransaction().begin();
 
-		new CompanyInit(em).init();
-		new CountryInit(em).init();
-		new StateInit(em).init();
-		new CityInit(em).init();
-		new StreetInit(em).init();
+		new CompanyInit(em,companyConverter).init();
+		new CountryInit(em, companyConverter,countryConverter).init();
+		new StateInit(em,countryConverter, stateConverter).init();
+		new CityInit(em,stateConverter,cityConverter).init();
+		new StreetInit(em,cityConverter,streetConverter).init();
 
-		new DepartmentsInit(em).init();
+		new DepartmentsInit(em,streetConverter, departmentsConverter).init();
 		try {
-			new EmployesesInit(em).init();
+			new EmployesesInit(em,departmentsConverter,employeeConverter).init();
 			em.getTransaction().commit();
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public Long cCompany(Long id) {
+		return this.companyConverter.get(id);
+	}
+
+	@Override
+	public Long cCountry(Long id) {
+		return this.countryConverter.get(id);
+	}
+
+	@Override
+	public Long cState(Long id) {
+		return this.stateConverter.get(id);
+	}
+
+	@Override
+	public Long cCity(Long id) {
+		return this.cityConverter.get(id);
+	}
+
+	@Override
+	public Long cStreet(Long id) {
+		return this.streetConverter.get(id);
+	}
+
+	@Override
+	public Long cDepartment(Long id) {
+		return this.departmentsConverter.get(id);
+	}
+
+	@Override
+	public Long cEmployee(Long id) {
+		return this.employeeConverter.get(id);
 	}
 
 }

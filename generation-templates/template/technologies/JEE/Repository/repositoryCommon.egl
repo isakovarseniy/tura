@@ -37,6 +37,33 @@
  			[%}
  }
  
+ 
+@template
+ operation serializerPK (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+		    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+		        continue; 
+		    }
+		    if (not field.pk){
+		      continue;
+		    }
+            var startConverter="";
+            var endConverter="";
+            if (field.typeRef.isKindOf(type::Enumerator )){
+                var enum = field.typeRef; 
+                enum.mappingType2Java(recipe,ingredient,'VIEW');
+                startConverter = enum.~package+".converter."+enum.~class+"Converter" +".convert(";   
+                endConverter = ")";
+            }
+            
+            %][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%]( [%=startConverter%] [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]() [%=endConverter%] );
+ 			[%}
+ } 
+ 
  @template
  operation saveLink (type,skipAttributes, inObj, outObj){
         var util = new Native('org.tura.metamodel.commons.Util');
@@ -73,6 +100,21 @@
 		   [%=name%].append("[%=objFullName%]");
  [%
 }
+
+@template
+ operation nilPK (type,name,model_mapper){
+        var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+		  [%for ( field in type.~primaryKey){
+		    if (field.findClassifier(util.getHint(model_mapper,"DoNotNil"))){
+		        continue; 
+		    }
+		  %]
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%]( null );
+		   [%}%]
+ [%
+}
+
 
 @template
  operation PK (type,name,obj,objFullName,recipe,ingredient){

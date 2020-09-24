@@ -91,23 +91,23 @@ public class JPATest {
 	public void createObject(){
 		
 		Client client = new Client();
-		client.setObjId(1L);
+//		client.setObjId(1L);
 		client.setName("Cleint 1");
 		
 	     Person person = new Person();
-	     person.setObjId(2L);
+//	     person.setObjId(2L);
 	     person.setName("Jon Jonson");
 	     client.setPerson(person);
 	     
 	     MailAddress mail = new MailAddress();
-	     mail.setObjId(3L);
+//	     mail.setObjId(3L);
 	     mail.setAddress("qwerty@gmail.com");
 	     ArrayList<Person> array = new ArrayList<>();
 	     array.add(person);
 	     mail.setPerson(array);
 	     
 	     Phone phone = new Phone();
-	     phone.setObjId(4L);
+//	     phone.setObjId(4L);
 	     phone.setPhone("111-111-1111");
 	     phone.setPerson(person);
 	     

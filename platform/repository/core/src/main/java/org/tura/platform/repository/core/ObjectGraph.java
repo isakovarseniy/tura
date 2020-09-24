@@ -41,6 +41,10 @@ public class ObjectGraph implements Serializable{
 		return true;
 	}
 	
+   public boolean exists(String branch) {
+		return tree.contains(branch);
+   }
+	
 	public void removeLastBranch(String branch) throws RepositoryException{
 		String id = tree.pop();
 		

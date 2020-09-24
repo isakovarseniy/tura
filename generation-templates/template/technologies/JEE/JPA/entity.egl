@@ -51,14 +51,27 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
     if (field.findClassifier(util.getHint(model_mapper,"Bean validation")))%]
     [%=field.~hintDetails%]  
     
-    [%if (field.findClassifier(util.getHint(model_mapper,"Sequence")))%]
-    [%=field.~hintDetails%]  
-    [%if ( field.pk) %]
+    [%if ( field.pk){ %]
     @javax.persistence.Id
-    [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp")%]
+        [%if (field.findClassifier(util.getHint(model_mapper,"Sequence"))){%]
+          [%=field.~hintDetails%]
+        [%} else {%]
+             [%if (field.typeRef.~fullName == "java.lang.Long"  or field.typeRef.~fullName == "java.lang.Integer"){%]
+			@javax.persistence.GeneratedValue(
+			    strategy = javax.persistence .GenerationType.SEQUENCE
+			)
+             [%}%]
+        [%}%]
+    [%}%]
+    
+    [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp"){%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    [%if (field.typeRef.isKindOf(type::Enumerator ))%]
+    [%}%]
+    
+    [%if (field.typeRef.isKindOf(type::Enumerator )){%]
     @javax.persistence.Enumerated(javax.persistence.EnumType.STRING)
+    [%}%]
+    
 	@javax.persistence.Column(name = "[%=util.splitByCapitalLatterAndCapitalize(field.name)%]")
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
 	

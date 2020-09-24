@@ -19,6 +19,7 @@
 package org.tura.platform.hr.init;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 
@@ -29,9 +30,14 @@ import org.tura.platform.hr.objects.jpa.State;
 
 public class CityInit {
 	private EntityManager em;
+	private Map<Long,Long> cityConverter;
+	private Map<Long,Long> stateConverter ;
 
-	public CityInit(EntityManager em) {
+	public CityInit(EntityManager em, Map<Long,Long> stateConverter,Map<Long,Long> cityConverter ) {
 		this.em = em;
+		this.cityConverter = cityConverter;
+		this.stateConverter = stateConverter;
+		
 	}
 
 	public void init() {
@@ -45,10 +51,10 @@ public class CityInit {
 	
 	private City create(Long obj_id, String cityName, Long state_id) {
 		City dpt = new City();
-		dpt.setObjId(obj_id);
+//		dpt.setObjId(obj_id);
 		dpt.setName(cityName);
 		
-		State cmp = em.find(State.class, state_id);
+		State cmp = em.find(State.class, this.stateConverter.get( state_id));
 		if ( cmp.getCity() == null){
 			cmp.setCity(new ArrayList<City>()); 	     
 		}
@@ -57,6 +63,10 @@ public class CityInit {
 		
 		em.persist(cmp);
 		em.persist(dpt);
+		em.flush();
+		
+		cityConverter.put(obj_id, dpt.getObjId());
+		
 		return dpt;
 
 	}

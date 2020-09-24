@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import org.elsoft.platform.hr.objects.complex.model.InitJPARepository;
 import org.tura.platform.hr.objects.serialization.Department;
+import org.tura.platform.hr.objects.serialization.ProxyRepositoryInstantiator;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
@@ -53,6 +54,8 @@ public class CDIRegistry extends Registry {
 			init.initProvider();
 			init.initEntityManagerProvider(new CDIEntityManagerProvider());
 			this.setTransactrionAdapter(new CDITransactionAdapter(registry));
+			this.addInstantiator(new ProxyRepositoryInstantiator());
+			
 			registry.addTrigger(Department.class.getName() , new DepartmentTriggers());
 			
 			HRControllerProfile p1 = new HRControllerProfile();

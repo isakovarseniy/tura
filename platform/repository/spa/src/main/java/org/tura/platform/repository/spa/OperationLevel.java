@@ -24,12 +24,14 @@ import org.tura.platform.repository.spa.merge.rules.MergeRule;
 import org.tura.platform.repository.spa.merge.rules.UpdateMergeRule;
 
 public enum OperationLevel {
-	UPDATE( new UpdateMergeRule(),100),
-	INSERT(new InsertMergeRule(),100),
-	DELETE( new DeleteMergeRule(),100),
-	OPERATION(null,120),
-	CONNECT(null,110),
-	DISCONNECT(null,90);
+	LINK(null,0),
+	UNLINK(null,0),
+	DISCONNECT(null,100),                           //1
+	INSERT(new InsertMergeRule(),200),       //2
+	UPDATE( new UpdateMergeRule(),300),  //3
+	DELETE( new DeleteMergeRule(),300),    //3
+	CONNECT(null,400),                                 //4
+	OPERATION(null,500);                              //5
 	
 	private MergeRule rule;
 	private int priority;

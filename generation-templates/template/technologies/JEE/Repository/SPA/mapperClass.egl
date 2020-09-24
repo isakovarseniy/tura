@@ -78,6 +78,13 @@ ${start}${percent}
       	return pk;
       	}
       	
+      	public void nillPrimaryKey(Object persistenceObject){
+	        [%=t2model.get(type).get("fullName")%] jpa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
+      	
+        	[%=nilPK(type,"jpa",model_mapper)%]   
+      	}
+      	
+      	
       	public Object getPrimaryKeyFromRepositoryObject(Object repositoryObject){
 
 	    [%=t2view.get(type).get("fullName")%] obj = ( [%=t2view.get(type).get("fullName")%]) repositoryObject;
@@ -93,6 +100,27 @@ ${start}${percent}
 	               
         }      	
         
+	    public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject){
+
+	    [%=t2model.get(type).get("fullName")%] jpa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
+	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+	    
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializerPK(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    %]
+	    
+	    }        
         
 	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject, java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException{
 	    

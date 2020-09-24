@@ -145,8 +145,9 @@ public class RestClientRepository implements Repository {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public void applyChanges(@SuppressWarnings("rawtypes") List changes) throws RepositoryException {
+	public List applyChanges( List changes) throws RepositoryException {
 		try {
 			client = ClientBuilder.newClient();
 
@@ -166,9 +167,26 @@ public class RestClientRepository implements Repository {
 			Response response = client.target(new URL(base, context + "rest/repository/applyChanges").toExternalForm())
 					.request(MediaType.APPLICATION_JSON).post(Entity.form(formData));
 
+			
+			
 			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
+			
+			@SuppressWarnings("unchecked")
+			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
+		    ArrayList<Object> list = new ArrayList<>();
+		    
+			for (int i  = 0; ;i++){
+				String key = Integer.valueOf(i).toString();
+				if (map.get(key) == null){
+					break;
+				}
+				String className = map.get(key+"_type").get(0);
+				Class<?> clazz = Class.forName(className);
+				list.add( mapper.readValue(map.get(key).get(0),clazz));
+			}
+			return list;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}finally{

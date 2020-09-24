@@ -18,7 +18,9 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,6 +55,7 @@ import objects.test.serialazable.jpa.Department2Proxy;
 import objects.test.serialazable.jpa.Employee2;
 import objects.test.serialazable.jpa.Employee2Proxy;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 import objects.test.serialazable.jpa.pager.Department22Employee2Pager;
 import objects.test.serialazable.jpa.pager.Department2Pager;;
 
@@ -61,10 +64,13 @@ public class FactoryDC implements Factory {
 	private ELResolver elResolver;
 	private EntityManager em;
 	private CommandStack sc;
-	private Repository repository ;
-	private Registry registry ;
+	private Repository repository;
+	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
-	private  EntityManagerProvider emProvider = new EntityManagerProvider(){
+	private Map<Long, Long> departmentConverter = new HashMap<>();
+	private Map<Long, Long> employeeConverter = new HashMap<>();
+
+	private EntityManagerProvider emProvider = new EntityManagerProvider() {
 
 		@Override
 		public EntityManager getEntityManager() {
@@ -73,12 +79,12 @@ public class FactoryDC implements Factory {
 
 		@Override
 		public void destroyEntityManager() {
-			
+
 		}
 	};
 
 	public FactoryDC(String unit) throws Exception {
-		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
+		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get().set(null);
 		registry = new Registry();
 		spaRegistry = new SpaObjectRegistry();
 
@@ -98,27 +104,27 @@ public class FactoryDC implements Factory {
 		init.initProvider();
 		init.initEntityManagerProvider(emProvider);
 
-		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
-		
+		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+
 		sc = new CommandStack();
 		elResolver = new ELResolverImpl();
 	}
 
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public DataControl initEmployees(String elPrefix) throws Exception {
 		EmployeesDC<Employee2> employeesDS = new EmployeesDC<Employee2>();
-		Department22Employee2Pager<Employee2> pager =new Department22Employee2Pager<Employee2>(employeesDS);
+		Department22Employee2Pager<Employee2> pager = new Department22Employee2Pager<Employee2>(employeesDS);
 		pager.setCommandStack(sc);
 
 		CommandStackProvider sp = new CommandStackProvider();
 		sp.setDataControl(employeesDS);
 		sp.setCommandStack(sc);
-		
-		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+
+		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		pager.setRepository(proxyRepository);
-		
+
 		employeesDS.setElResolver(elResolver);
 		employeesDS.getKeys().add("objId");
 		employeesDS.setCommandStack(sc);
@@ -136,15 +142,14 @@ public class FactoryDC implements Factory {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public DataControl initDepartments(String elPrefix) throws Exception {
 		DepartmentsDC<Department2> departmentsDS = new DepartmentsDC<Department2>();
-		Department2Pager<Department2> pager =new Department2Pager<Department2>(departmentsDS);
+		Department2Pager<Department2> pager = new Department2Pager<Department2>(departmentsDS);
 		pager.setCommandStack(sc);
-		
-		
+
 		CommandStackProvider sp = new CommandStackProvider();
 		sp.setDataControl(departmentsDS);
 		sp.setCommandStack(sc);
-		
-		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+
+		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		pager.setRepository(proxyRepository);
 
@@ -167,14 +172,12 @@ public class FactoryDC implements Factory {
 		prm.setName("obj");
 		prm.setClazz(String.class);
 		prm.setValue(clazz.getName());
-		
+
 		CreateObjectParameters createObjectParameters = new CreateObjectParameters();
 		createObjectParameters.setObjectType(prm);
-		
+
 		control.setCreateObjectParameters(createObjectParameters);
 	}
-
-
 
 	void createSearchCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
@@ -220,7 +223,7 @@ public class FactoryDC implements Factory {
 
 	@Override
 	public EmployeeType getNewEmployeeType() throws Exception {
-		ProxyRepository proxyRepository =   (ProxyRepository) getRepository();
+		ProxyRepository proxyRepository = (ProxyRepository) getRepository();
 		return (EmployeeType) proxyRepository.create(Employee2.class.getName());
 	}
 
@@ -228,32 +231,31 @@ public class FactoryDC implements Factory {
 	public DepartmentType getNewDepartmentType() throws Exception {
 		CommandStackProvider sp = new CommandStackProvider();
 		sp.setCommandStack(sc);
-		ProxyRepository proxyRepository =   (ProxyRepository) getRepository();
+		ProxyRepository proxyRepository = (ProxyRepository) getRepository();
 		return (DepartmentType) proxyRepository.create(Department2.class.getName());
 	}
-
-
-
 
 	@Override
 	public Repository getRepository() {
 		CommandStackProvider sp = new CommandStackProvider();
 		sp.setCommandStack(sc);
-		ProxyRepository proxyRepository =   new ProxyRepository(repository,sp);
+		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
 		proxyRepository.setProfile(AllowEverythingProfile.class.getName());
 		return proxyRepository;
 	}
 
-
 	@Override
 	public void initDB(String initializer, EntityManager em) throws Exception {
-		
-		switch (initializer){
-		case "Departments":  new DepartmentsInit(em).init(); break;
-		case "Employes":       new EmployesesInit(em).init();   break;
+
+		switch (initializer) {
+		case "Departments":
+			new DepartmentsInit(em,departmentConverter).init();
+			break;
+		case "Employes":
+			new EmployesesInit(em,departmentConverter,employeeConverter).init();
+			break;
 		}
 	}
-
 
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -261,16 +263,25 @@ public class FactoryDC implements Factory {
 		Relation relation = new Relation();
 		relation.setParent(ddc);
 		relation.setChild(edc);
-		
+
 		ddc.addChildren("departmentsToemployees", relation);
-		
+
 	}
-	
-	
+
 	@Override
 	public void clean() {
 		sc = new CommandStack();
-		
+
+	}
+
+	@Override
+	public Long cDept(Long id) {
+		return departmentConverter.get(id);
+	}
+
+	@Override
+	public Long cEmp(Long id) {
+		return employeeConverter.get(id);
 	}
 
 }

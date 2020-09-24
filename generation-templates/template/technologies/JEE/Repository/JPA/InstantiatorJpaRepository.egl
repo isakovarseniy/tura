@@ -23,6 +23,7 @@ import org.tura.platform.repository.jpa.operation.JpaCommandProducer;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.core.StorageCommandProcessor;
+import org.tura.platform.repository.spa.StorageUpdater;
 
 public class JPARepositoryInstantiator implements Instantiator{
 
@@ -49,9 +50,9 @@ public class JPARepositoryInstantiator implements Instantiator{
 		    return (T) new JpaCommandProducer(spaRegistry,"[%=component.artifactId%]",registry);
 		}
 		if (StorageCommandProcessor.class.equals(clazz)){
-		    SpaRepository repository = new SpaRepository();
-		    repository.setRegistry(spaRegistry, null, registry);
-		    return (T) repository;
+		    StorageUpdater updater = new StorageUpdater();
+		    updater.setRegistry(spaRegistry,  registry);
+		    return (T) updater;
 		}
 		
 		throw new RuntimeException("Unknown class " + clazz);

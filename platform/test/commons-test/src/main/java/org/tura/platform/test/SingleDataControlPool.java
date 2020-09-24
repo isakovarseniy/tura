@@ -208,7 +208,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals( Long.valueOf(20L), row.getObjId());
+			assertEquals( factory.cDept(Long.valueOf(20L)), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -231,12 +231,12 @@ public class SingleDataControlPool {
 			newrow.setDepartmentName("test dep");
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(10));
+			assertEquals(row.getObjId(), factory.cDept( Long.valueOf(10)));
 			assertEquals(row.getDepartmentName(), "Administration");
 
 			dc.nextObject();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(),  Long.valueOf(20L));
+			assertEquals(row.getObjId(),  factory.cDept(Long.valueOf(20L)));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 		} catch (Exception e) {
@@ -314,7 +314,7 @@ public class SingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals( Long.valueOf(20L), row.getObjId());
+			assertEquals(factory.cDept( Long.valueOf(20L)), row.getObjId());
 
 			dc.getCommandStack().rallbackSavePoint();
 			dc.prevObject();
@@ -482,7 +482,7 @@ public class SingleDataControlPool {
 			dc.getCommandStack().savePoint();
 
 			DepartmentType row2 = dc2.getCurrentObject();
-			assertEquals( Long.valueOf(20), row2.getObjId());
+			assertEquals( factory.cDept(Long.valueOf(20)), row2.getObjId());
 
 			row2.setDepartmentName("test3");
 

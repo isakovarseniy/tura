@@ -45,13 +45,16 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.Client;
 import objects.test.serialazable.jpa.Customer;
@@ -62,6 +65,7 @@ import objects.test.serialazable.jpa.Order;
 import objects.test.serialazable.jpa.Person;
 import objects.test.serialazable.jpa.Phone;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 import objects.test.serialazable.jpa.Vehicle;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -145,6 +149,8 @@ public class JPARepositoryTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -309,12 +315,14 @@ public class JPARepositoryTest {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Test
 	public void t0002_insertIndependentObject() {
 		try {
 
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			Customer customer = (Customer) repository.create(Customer.class.getName());
 			customer.setCustomerName("Customer 1");
@@ -335,7 +343,12 @@ public class JPARepositoryTest {
 			order.setCustomer(customer);
 			order.setVehicle(vehicle);
 
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) order);
+			searchProvider.addKnownObject((ObjectControl) vehicle);
+			searchProvider.addKnownObject((ObjectControl) customer);
+			searchProvider.addKnownObject((ObjectControl) location);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			Query query = em.createQuery("from Location");
 			List<org.tura.jpa.test.Location> listLocatioin = query.getResultList();

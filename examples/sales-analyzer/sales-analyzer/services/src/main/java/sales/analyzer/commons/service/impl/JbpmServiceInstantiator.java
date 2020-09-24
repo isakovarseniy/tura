@@ -95,7 +95,7 @@ public class JbpmServiceInstantiator implements Instantiator{
     public <T> T newInstance(Class<T> clazz) {
         
         if (JbpmCRUDService.class.equals(clazz)){
-            return (T) new JbpmCRUDService(client);
+            return (T) new JbpmCRUDService(client,spaRegistry,registryName,registry);
         }
         if (JbpmSearchService.class.equals(clazz)) {
             return (T) new JbpmSearchService(client,prefRef, spaRegistry, registryName, registry);

@@ -64,9 +64,14 @@ public class ViewPortUpdate {
 			this.setStepSelectorViewPort(bf, vp, elResolver,responseState);
 			if (vp.getStepSelector().equals(AUTOMATED_STEPS)) {
 				setAUStepsViewPort(bf, vp, elResolver);
+				startPoll(responseState);
 			} else {
 				setHTStepsViewPort(bf, vp, elResolver);
+				stopPoll(responseState);
+				
 			}
+		}else {
+			stopPoll(responseState);
 		}
 	}
 
@@ -127,7 +132,6 @@ public class ViewPortUpdate {
 	private void setVewAriaPort(IBeanFactory bf, IViewPortHolder vp, ELResolver elResolver,ResponseState responseState) {
 		try {
 			if (bf.getSelectedProcess() == null) {
-				stopPoll(responseState);
 				vp.setViewAria(processSelection);
 				return;
 			}
@@ -137,27 +141,8 @@ public class ViewPortUpdate {
 			EtlProcess process = (EtlProcess) dc.getCurrentObject();
 
 			if (process == null) {
-				dc = (DataControl) bf.getEtlNodeLog();
+				dc = (DataControl) bf.getEtlProcess();
 				dc.forceRefresh();
-				for (Object obj : dc.getScroller()) {
-					EtlNodeLog log = (EtlNodeLog) obj;
-					if (log.getType() == 1 && Constants.STEP9.equals(log.getNodeName())) {
-						dc = (DataControl) bf.getEtlProcess();
-						bf.setRefreshControl(true);
-						dc.forceRefresh();
-						stopPoll(responseState);
-						vp.setViewAria(processSelection);
-						return;
-					}
-					if (log.getType() == 0 && Constants.CT_ARRAY.contains(log.getNodeName())) {
-						int i = Constants.PRC_NODES.indexOf(log.getNodeName());
-						bf.setActiveStep(i);
-
-						vp.setViewAria(monthlyFileProcessSteps);
-						return;
-					}
-				}
-
 				vp.setViewAria(processSelection);
 				return;
 			}
@@ -189,12 +174,11 @@ public class ViewPortUpdate {
 		bf.setActiveStep(i);
 
 		String nodename = (String) elResolver
-				.getValue("#{ETLController['STEP_" + new Integer(i + 1).toString() + "']}");
+				.getValue("#{ETLController['STEP_" +  Integer.valueOf(i + 1).toString() + "']}");
 		HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
 		HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
 		adapter.setStepName(nodename);
 
-		startPoll(responseState);
 
 	}
 
@@ -202,10 +186,9 @@ public class ViewPortUpdate {
 		EtlTask task = tasks.get(0);
 		int i = Constants.PRC_NODES.indexOf(task.getName());
 		bf.setActiveStep(i);
-		stopPoll(responseState);
 
 		String nodename = (String) elResolver
-				.getValue("#{ETLController['STEP_" + new Integer(i + 1).toString() + "']}");
+				.getValue("#{ETLController['STEP_" +  Integer.valueOf(i + 1).toString() + "']}");
 		HolderObject holder = (HolderObject) bf.getHolderObject().getCurrentObject();
 		HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter((ObjectControl) holder);
 		adapter.setStepName(nodename);
@@ -229,16 +212,16 @@ public class ViewPortUpdate {
 
 	
 	
-	private void startPoll(ResponseState responseState) {
+	public void startPoll(ResponseState responseState) {
 		StartPoll cmd = new StartPoll();
-		cmd.setTarget("dd6328b1-f5fb-4b6a-a675-ce4e3a718a1e");
+		cmd.setTarget("c82be598-0f08-4792-a0de-4234a7fc9de6");
 		responseState.addCommand(cmd);
 		
 	}
 	
-	private void stopPoll(ResponseState responseState) {
+	public void stopPoll(ResponseState responseState) {
 		StopPoll cmd = new StopPoll();
-		cmd.setTarget("dd6328b1-f5fb-4b6a-a675-ce4e3a718a1e");
+		cmd.setTarget("c82be598-0f08-4792-a0de-4234a7fc9de6");
 		responseState.addCommand(cmd);
 		
 	}

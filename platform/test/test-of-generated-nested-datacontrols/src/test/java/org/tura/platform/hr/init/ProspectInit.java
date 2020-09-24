@@ -38,7 +38,7 @@ public class ProspectInit {
 
 	private Prospect create(Long obj_id, String prospectName) {
 		Prospect dpt = new Prospect();
-		dpt.setObjId(obj_id);
+//		dpt.setObjId(obj_id);
 		dpt.setName(prospectName);
 		em.persist(dpt);
 		return dpt;

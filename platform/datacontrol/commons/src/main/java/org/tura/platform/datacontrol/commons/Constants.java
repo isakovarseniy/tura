@@ -25,6 +25,7 @@ public class Constants {
 	public static String PARENT_OBJECT = "Parent object";
 	public static String TURA_EXT_QUERY = "TURA_EXTENDED_PARAMETER";
 	public static String POOL_CREATE_DATE = "POOL_CREATE_DATE";
+	public static String  LINK_OPERATION = "LINK_OPERATION";
 	
 
 }

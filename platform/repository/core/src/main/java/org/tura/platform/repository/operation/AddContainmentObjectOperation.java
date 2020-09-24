@@ -73,6 +73,12 @@ public class AddContainmentObjectOperation extends ProxyOperation{
         data.setObject(cloned);
 
         stackProvider.addCommand(data);
+        
+        if (detail.getLinkOperation() != null) {
+        	AddLinkOperation lo = detail.getLinkOperation();
+        	lo.setStackProvider(stackProvider);
+        	lo.prepare();
+        }
 
         detail.setAttached(true);
 

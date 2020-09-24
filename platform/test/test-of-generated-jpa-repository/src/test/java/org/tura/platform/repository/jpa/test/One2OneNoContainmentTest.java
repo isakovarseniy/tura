@@ -42,17 +42,21 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.One2One3A;
 import objects.test.serialazable.jpa.One2One3B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2OneNoContainmentTest {
@@ -134,6 +138,8 @@ public class One2OneNoContainmentTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -144,6 +150,7 @@ public class One2OneNoContainmentTest {
 		init.initEntityManagerProvider(emProvider);
 
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em,registry));
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 
 		ProxyRepository proxy = new ProxyRepository(repository, stackProvider);
 		proxy.setProfile(AllowEverythingProfile.class.getName());
@@ -152,10 +159,13 @@ public class One2OneNoContainmentTest {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0000_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			One2One3A o1 = (One2One3A) repository.create(One2One3A.class.getName());
 
@@ -164,7 +174,11 @@ public class One2OneNoContainmentTest {
 			repository.insert(o2, One2One3B.class.getName());
 			o1.setOne2One3B(o2);
 			repository.insert(o1, One2One3A.class.getName());
-			repository.applyChanges(null);
+			
+			searchProvider.addKnownObject((ObjectControl) o1);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
 					One2One3A.class.getName());

@@ -26,6 +26,8 @@ import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
+
 
 @ApplicationScoped
 public class CDIRegistry extends Registry {
@@ -59,6 +61,7 @@ public class CDIRegistry extends Registry {
 			
 			this.setTransactrionAdapter(new CDITransactionAdapter(this));
 			this.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+			this.addInstantiator(new ProxyRepositoryInstantiator());
 
 			
 		} catch (Exception e) {

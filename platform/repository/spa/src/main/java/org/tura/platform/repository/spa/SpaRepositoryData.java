@@ -28,7 +28,22 @@ public class SpaRepositoryData {
 	private Map<String, Map<Object, SpaControl>> cache = new HashMap<>();
 	private List<SpaControl> nomergeRules = new ArrayList<>();
 	private int sequence;
+	private Map<String, Map<Object, Object>> keyMaper = new HashMap<>();
+	private  List<Object> commandStack = new ArrayList<>();
+
 	
+	public List<Object> getCommandStack() {
+		return commandStack;
+	}
+	public void setCommandStack(List<Object> commandStack) {
+		this.commandStack = commandStack;
+	}
+	public Map<String, Map<Object, Object>> getKeyMaper() {
+		return keyMaper;
+	}
+	public void setKeyMaper(Map<String, Map<Object, Object>> keyMaper) {
+		this.keyMaper = keyMaper;
+	}
 	public Map<String, Map<Object, SpaControl>> getCache() {
 		return cache;
 	}

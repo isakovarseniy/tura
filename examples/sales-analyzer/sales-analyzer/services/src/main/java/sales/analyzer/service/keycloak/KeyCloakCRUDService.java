@@ -26,17 +26,21 @@ import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.tura.platform.repository.core.AdapterLoader;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.salesanalyzer.persistence.keycloak.User;
 
-public class KeyCloakCRUDService implements CRUDProvider{
+public class KeyCloakCRUDService extends CRUDProvider{
 
 	private AdapterLoader loader;
 	private RealmResource realmResource;
 	
-	public KeyCloakCRUDService(RealmResource realmResource) {
+	public KeyCloakCRUDService(RealmResource realmResource, SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+		super(spaRegistry, registryName, registry);
 		this.realmResource = realmResource;
 	}
 	
@@ -93,16 +97,22 @@ public class KeyCloakCRUDService implements CRUDProvider{
 	
 	private void insertRole(SpaControl control) throws Exception {
 		RoleRepresentation role = (RoleRepresentation) control.getObject();
-		role.setId(null);
 		realmResource.roles().create(role);
+		RoleRepresentation createdRole = realmResource.roles().get(role.getName()).toRepresentation();
+		role.setId(createdRole.getId());
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void insertUser(SpaControl control) throws Exception {
 		Map<String,Object> map = (Map) loader.unWrapObject(control.getObject());
 		UserRepresentation user = (UserRepresentation) map.get("userRef");
-		user.setId(null);
 		realmResource.users().create(user);
+		List<UserRepresentation> ls = realmResource.users().search(user.getUsername(), null, null, null, 0,1);
+		if ( ls == null || ls.size() == 0) {
+			throw new RepositoryException("Error during user creation");
+		}
+		user.setId( ls.get(0).getId());
+		
 	}
 	
 	private void updateRole(SpaControl control) throws Exception {

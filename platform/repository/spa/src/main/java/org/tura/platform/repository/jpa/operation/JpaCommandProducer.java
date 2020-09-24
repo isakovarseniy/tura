@@ -192,5 +192,20 @@ public class JpaCommandProducer implements CommandProducer {
 		return list;
 	}
 
+	@Override
+	public List<Object> link(RepoKeyPath masterPk, RepoKeyPath detailPk, List<List<String>> links)
+			throws RepositoryException {
+		List<Object> list =   spaRegistry.getRegistry(registryName).findCommand(RepositoryCommandType.link, masterPk,detailPk,links);
+		if (list  != null && list.size() > 0  ){
+			return  list;
+		}
+		list = new ArrayList<>();
+		SpaRepositoryCommand cmd = new JpaLinkOperation(registry,spaRegistry);
+		cmd.setRegistryName(registryName);
+		cmd.checkCommand(RepositoryCommandType.link, masterPk,detailPk,links);
+		list.add( cmd);
+		return list;
+	}
+
 
 }

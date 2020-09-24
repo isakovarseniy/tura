@@ -21,6 +21,7 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.util.Map;
 
+import org.tura.platform.repository.operation.AddLinkOperation;
 import org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
@@ -61,5 +62,11 @@ public interface ObjectControl extends Serializable{
    void  setViewModelId2(Object viewModelId2);    
    
    Object getViewModelId2();    
+   
+   void setForcePKupdate(boolean forcePKupdate);
+   
+   void setLinkOperation(AddLinkOperation operation);
+   
+    AddLinkOperation getLinkOperation();
 
 }

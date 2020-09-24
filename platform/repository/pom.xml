@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.0.2</version>
+     <version>5.0.3</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -36,6 +36,7 @@
   <modules>
     <module>core</module>
     <module>spa</module>
+    <module>cpa</module>
     <module>cdi</module>
     <module>cdi-rest</module>
     <module>rest-client</module>

@@ -42,17 +42,21 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.One2One2A;
 import objects.test.serialazable.jpa.One2One2B;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2OneOpositContaintmentTest {
@@ -137,6 +141,8 @@ public class One2OneOpositContaintmentTest {
 		
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
@@ -234,10 +240,13 @@ public class One2OneOpositContaintmentTest {
 
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0002_One2One1() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
 			
@@ -246,7 +255,12 @@ public class One2OneOpositContaintmentTest {
 			o2.setOne2One2A(o1);
 			
 			repository.insert(o2, One2One2B.class.getName());
-			repository.applyChanges(null);
+
+			searchProvider.addKnownObject((ObjectControl) o2);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 			
 			o2.setOne2One2A(null);
 			assertNull(o2.getOne2One2A());

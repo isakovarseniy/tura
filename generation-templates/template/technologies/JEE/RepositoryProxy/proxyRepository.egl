@@ -23,7 +23,7 @@
 %]
 package [%=component.basePackage%];
 
-public class ProxyRepository implements org.tura.platform.repository.core.Repository,java.io.Serializable{
+public class ProxyRepository implements org.tura.platform.repository.core.Repository,org.tura.platform.repository.core.ProxyFactory , java.io.Serializable {
 	private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
 	private org.tura.platform.repository.core.Repository transport;
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
@@ -42,6 +42,10 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	   this.profile = profile;
 	}
 
+
+  public void setStackProvider(ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
+	}
 
     public String getProfile() {
 		return profile;
@@ -66,6 +70,14 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
                cmd.setStackProvider(stackProvider);
                cmd.setProxy((org.tura.platform.repository.core.ObjectControl) obj);
                cmd.prepare();
+               
+		       org.tura.platform.repository.core.ObjectControl oc = (org.tura.platform.repository.core.ObjectControl) obj;
+		       if ( oc.getLinkOperation() != null) {
+		        	org.tura.platform.repository.operation.AddLinkOperation lo = oc.getLinkOperation();
+		        	lo.setStackProvider(stackProvider);
+		        	lo.prepare();
+		       }
+               
         	}catch(Exception e){
                 throw new org.tura.platform.repository.core.RepositoryException(e);
         	}
@@ -128,10 +140,11 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
     
 	@Override
     @SuppressWarnings("rawtypes")
-	public void applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
+	public List applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
 	   try{
-		transport.applyChanges(stackProvider.getListOfCommand());
+		List response = transport.applyChanges(stackProvider.getListOfCommand());
 		stackProvider.clear();
+		return response;
 		}catch(Exception e){
 		  throw new org.tura.platform.repository.core.RepositoryException(e);
 		}
@@ -139,7 +152,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	}
 	
 	
-	private Object factory( Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException{
+	public Object factory( Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException{
 	
 	switch (objectClass){
 	

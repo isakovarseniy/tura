@@ -18,8 +18,10 @@
 
 package org.tura.platform.repository.core;
 
+import java.util.List;
+
 public interface StorageCommandProcessor {
 
-	void process() throws Exception;
+	List<Object> process() throws Exception;
 
 }

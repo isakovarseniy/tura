@@ -43,6 +43,9 @@ export class TReactPolling extends React.Component {
     }
 
     startPolling() {
+        if( this.state.isPolling){
+            return;
+        }
         this.setState({
             isPolling: true
         });

@@ -43,18 +43,22 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.ObjectGraphProfile;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.IndepObject1;
 import objects.test.serialazable.jpa.IndepObject2;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.ProxyRepositoryInstantiator;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BusinessObjectTest {
@@ -139,6 +143,7 @@ public class BusinessObjectTest {
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		registry.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
         registry.addProfile(IndepObject2ExceptionProfile.class.getName(), new IndepObject2ExceptionProfile());
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 		
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
@@ -204,10 +209,13 @@ public class BusinessObjectTest {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void t0001_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
 
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
@@ -215,7 +223,11 @@ public class BusinessObjectTest {
 			IndepObject2 o2 = (IndepObject2) repository.create(IndepObject2.class.getName());
 			repository.insert(o2, IndepObject2.class.getName());
 
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) o2);
+			searchProvider.addKnownObject((ObjectControl) o1);
+			
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, IndepObject1.class.getName());

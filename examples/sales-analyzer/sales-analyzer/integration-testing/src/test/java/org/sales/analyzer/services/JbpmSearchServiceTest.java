@@ -46,6 +46,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepositoryInstantiator;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.query.SelectQuery.Order;
@@ -82,6 +83,10 @@ public class JbpmSearchServiceTest {
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
+		
+		
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
+
 	}
 
     
@@ -445,11 +450,23 @@ public class JbpmSearchServiceTest {
             return null;
         }
 
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+		     throw new UnsupportedOperationException();
+		}
+        
         @Override
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
                 Map<Object, Object> context) throws RepositoryException {
             return null;
         }
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+		     throw new UnsupportedOperationException();
+			
+		}
 
     }
 
@@ -478,6 +495,18 @@ public class JbpmSearchServiceTest {
             return null;
         }
 
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+		     throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+			// TODO Auto-generated method stub
+			
+		}
+
     }
 
     class ETLProcessMapper implements Mapper {
@@ -499,11 +528,22 @@ public class JbpmSearchServiceTest {
             return null;
         }
 
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+		     throw new UnsupportedOperationException();
+		}        
+        
         @Override
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
                 Map<Object, Object> context) throws RepositoryException {
             return null;
         }
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+		     throw new UnsupportedOperationException();
+		}
 
     }
 
@@ -526,12 +566,23 @@ public class JbpmSearchServiceTest {
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) {
             return null;
         }
+        
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+		     throw new UnsupportedOperationException();
+		}        
 
         @Override
         public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,
                 Map<Object, Object> context) throws RepositoryException {
             return null;
         }
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+		     throw new UnsupportedOperationException();
+		}
 
     }
 
@@ -559,6 +610,18 @@ public class JbpmSearchServiceTest {
                 Map<Object, Object> context) throws RepositoryException {
             return null;
         }
+
+		@Override
+		public void nillPrimaryKey(Object persistenceObject) {
+		     throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
+				throws RepositoryException {
+			// TODO Auto-generated method stub
+			
+		}
 
     }
 

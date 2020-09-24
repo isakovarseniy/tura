@@ -57,6 +57,7 @@ import org.tura.salesanalyzer.serialized.db.State;
 import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
+import org.tura.salesanalyzer.serialized.proxy.ProxyRepositoryInstantiator;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import com.octo.java.sql.exp.Operator;
@@ -189,7 +190,7 @@ public class JbpmServiceTest {
 
 		JbpmServiceInstantiator init = new JbpmServiceInstantiator( PostDeployer.KIE_SERVER_URL , new OAuthCredentialsProvider(new PostDeployer().getToken()),new UserPeferencesProviderImpl(),registry,spaRegistry,"spa-persistence-repository");
 		
-		
+		registry.addInstantiator(new ProxyRepositoryInstantiator());
 		registry.setTransactrionAdapter(new JpaTransactionAdapter(em, registry));
 		spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(init);
 		

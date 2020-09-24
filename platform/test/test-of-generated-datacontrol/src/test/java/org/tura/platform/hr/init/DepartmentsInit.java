@@ -18,6 +18,8 @@
 
 package org.tura.platform.hr.init;
 
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 
 import org.tura.platform.hr.objects.jpa.Department;
@@ -25,9 +27,14 @@ import org.tura.platform.hr.objects.jpa.Department;
 public class DepartmentsInit {
 
 	private EntityManager em;
+	private Map<Long,Long> departmentsConverter;
+	private Map<Long,Long> streetConverter ;
 
-	public DepartmentsInit(EntityManager em) {
+	public DepartmentsInit(EntityManager em,  Map<Long,Long> streetConverter ,Map<Long,Long> departmentsConverter ) {
 		this.em = em;
+		this.departmentsConverter = departmentsConverter;
+		this.streetConverter = streetConverter;
+		
 	}
 
 	public void init() {
@@ -64,15 +71,19 @@ public class DepartmentsInit {
 	private Department create(Long obj_id, Long departmentId,
 			String departmentName, Long managerId, Long locationId) {
 		Department dpt = new Department();
-		dpt.setObjId(obj_id);
+//		dpt.setObjId(obj_id);
+		
 		dpt.setDepartmentId(departmentId);
 		dpt.setDepartmentName(departmentName);
 		dpt.setManagerId(managerId);
 		dpt.setLocationId(locationId);
-		dpt.setParentId(locationId);
+		dpt.setParentId(  streetConverter.get(locationId));
 		
 
 		em.persist(dpt);
+		em.flush();
+
+		departmentsConverter.put(obj_id, dpt.getObjId());
 		return dpt;
 
 	}

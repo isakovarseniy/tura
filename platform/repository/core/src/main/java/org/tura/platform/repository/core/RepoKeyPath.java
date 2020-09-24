@@ -43,4 +43,13 @@ public class RepoKeyPath implements Serializable{
 		this.path = path;
 	}
 	
+	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		for ( RepoObjectKey k : path) {
+			buffer.append(k.toString());
+		}
+		return buffer.toString();
+	}
 }

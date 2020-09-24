@@ -27,79 +27,77 @@ import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
-public class JpaCRUDService implements CRUDProvider{
-
-    
-    private String registryName;
-    private SpaObjectRegistry spaRegistry;
-    @SuppressWarnings("unused")
-    private Registry registry;
-
-    public JpaCRUDService(SpaObjectRegistry spaRegistry,String registryName,Registry registry) {
-        this.registryName = registryName;
-        this.spaRegistry = spaRegistry;
-        this.registry = registry;
-    }
-
-    public EntityManager getEm() {
-        return spaRegistry.getRegistry(registryName).getEntityManagerProvider().getEntityManager();
-    }
-    
-    
-    @Override
-    public void setAdapterLoader(AdapterLoader loader) {
-        
-    }
-
-    @Override
-    public void execute(SpaControl control) throws Exception {
-        if (control.getLevel().equals(OperationLevel.INSERT)) {
-        	getEm().persist(control.getObject());    
-            return;
-        }
-        if (control.getLevel().equals(OperationLevel.UPDATE)) {
-        	getEm().merge(control.getObject());    
-            return;
-        }
-        if (control.getLevel().equals(OperationLevel.DELETE)) {
-        	Class <?> controlType = Class.forName(control.getType());
-        	Object master = getEm().find(controlType, control.getKey());
-            getEm().remove(master);
-            return;
-        }
-        
-        if (control.getLevel().equals(OperationLevel.CONNECT)) {
-        	JpaControl jpaControl = (JpaControl) control;
-        	
-        	Class <?> masterType = Class.forName(jpaControl.getType());
-        	Object master = getEm().find(masterType, jpaControl.getKey());
-        	
-        	
-        	Class <?> detailType = Class.forName(jpaControl.getDetailType());
-        	Object detail = getEm().find(detailType, jpaControl.getDetailPk());
-        	jpaControl.getOperation().connect(master, detail, jpaControl.getMasterProperty());
-            return;
-        }
-        
-        if (control.getLevel().equals(OperationLevel.DISCONNECT)) {
-        	JpaControl jpaControl = (JpaControl) control;
-        	
-        	Class <?> masterType = Class.forName(jpaControl.getType());
-        	Object master = getEm().find(masterType, jpaControl.getKey());
-        	
-        	
-        	Class <?> detailType = Class.forName(jpaControl.getDetailType());
-        	Object detail = getEm().find(detailType, jpaControl.getDetailPk());
-        	jpaControl.getOperation().disconnect(master, detail, jpaControl.getMasterProperty());
-            return;
-        }
-
-        throw new Exception("Unknown operation");
-        
-    }
+public class JpaCRUDService extends CRUDProvider {
 
 
-    
-    
+	public JpaCRUDService(SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+		super( spaRegistry,  registryName,  registry);
+	}
+
+	public EntityManager getEm() {
+		return spaRegistry.getRegistry(registryName).getEntityManagerProvider().getEntityManager();
+	}
+
+	@Override
+	public void setAdapterLoader(AdapterLoader loader) {
+
+	}
+
+	@Override
+	public void execute(SpaControl control) throws Exception {
+		if (control.getLevel().equals(OperationLevel.INSERT)) {
+			
+			nillPk(control.getObject(), control.getType());
+			getEm().persist(control.getObject());
+			getEm().flush();
+
+			mapPk(control.getType(), control.getObject(), control.getKey());
+			return;
+		}
+		if (control.getLevel().equals(OperationLevel.UPDATE)) {
+			getEm().merge(control.getObject());
+			return;
+		}
+		if (control.getLevel().equals(OperationLevel.DELETE)) {
+			Class<?> controlType = Class.forName(control.getType());
+			Object master = getEm().find(controlType, control.getKey());
+			getEm().remove(master);
+			return;
+		}
+
+		if (control.getLevel().equals(OperationLevel.CONNECT)) {
+			JpaControl jpaControl = (JpaControl) control;
+
+			Class<?> masterType = Class.forName(jpaControl.getType());
+			Object pk = findPK(jpaControl.getKey(), jpaControl.getType());
+			Object master = getEm().find(masterType, pk);
+
+			Class<?> detailType = Class.forName(jpaControl.getDetailType());
+			pk = findPK(jpaControl.getDetailPk(), jpaControl.getDetailType());
+			Object detail = getEm().find(detailType, pk);
+
+			jpaControl.getOperation().connect(master, detail, jpaControl.getMasterProperty());
+			return;
+		}
+
+		if (control.getLevel().equals(OperationLevel.DISCONNECT)) {
+			JpaControl jpaControl = (JpaControl) control;
+
+			Class<?> masterType = Class.forName(jpaControl.getType());
+			Object pk = findPK(jpaControl.getKey(), jpaControl.getType());
+			Object master = getEm().find(masterType, pk);
+
+			Class<?> detailType = Class.forName(jpaControl.getDetailType());
+			pk = findPK(jpaControl.getDetailPk(), jpaControl.getDetailType());
+			Object detail = getEm().find(detailType, pk);
+
+			jpaControl.getOperation().disconnect(master, detail, jpaControl.getMasterProperty());
+			return;
+		}
+
+		throw new Exception("Unknown operation");
+
+	}
+
+
 }
-

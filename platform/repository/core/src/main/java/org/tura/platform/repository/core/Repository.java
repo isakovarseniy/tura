@@ -38,6 +38,6 @@ public interface Repository extends Serializable{
 	public void remove( Object obj , String objectClass) throws RepositoryException;
 	
     @SuppressWarnings("rawtypes")
-	public void applyChanges(List changes) throws RepositoryException;
+	public List applyChanges(List changes) throws RepositoryException;
 	
 }

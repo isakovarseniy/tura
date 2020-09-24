@@ -26,6 +26,15 @@ CREATE SEQUENCE hr.obj_id_gen
 ALTER TABLE hr.obj_id_gen
   OWNER TO postgres;
 
+  
+  CREATE SEQUENCE hr.hibernate_sequence
+  INCREMENT 1
+  MINVALUE 5000
+  MAXVALUE 9223372036854775807
+  START 5000
+  CACHE 1;
+ALTER TABLE hr.hibernate_sequence
+  OWNER TO postgres;
 
 
 -- Table: hr.company
