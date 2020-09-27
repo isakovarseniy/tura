@@ -16542,7 +16542,7 @@
                             <style uid="cdbbb674-734c-4a15-83b8-0ff6fdc16d42" constant="true" value="width:100%;margin-bottom: 25px;"/>
                             <required uid="3d351f41-040a-4ee1-b79e-4325768ebcb4"/>
                             <children xsi:type="tura.form:Label" uid="65ea3f24-b7d5-4e42-9f00-6d022ca3a626" label="step name">
-                              <style uid="9975eb9b-4151-4719-b30c-d8507a6b13fb" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <style uid="9975eb9b-4151-4719-b30c-d8507a6b13fb" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 2em"/>
                               <required uid="bcf7ce95-e57b-4a38-b959-6f7685a4b211"/>
                               <multiLangLabel uid="e14cb6f1-9a7b-4cc1-80fa-ede101a946d9" value="Application Message Libraries.ETLController.STEP_NAME">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
@@ -16551,7 +16551,7 @@
                               </multiLangLabel>
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="0436421b-c9ef-4a23-bdc2-112ddf98c5d9" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
-                              <style uid="8bda0eb6-6840-4a51-8228-7b15858035b2" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <style uid="8bda0eb6-6840-4a51-8228-7b15858035b2" constant="true" value="width:100%;display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 2em;border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;border-bottom-style: hidden;"/>
                               <classifiers uid="820e3068-8828-4b77-9f37-990c87f470fb"/>
                               <enabled uid="937a37da-498d-43e8-8f26-ea887cee2b1c"/>
                               <required uid="0452eeb8-98a2-44f0-ac29-163a6676a0f6"/>
@@ -16618,7 +16618,7 @@
                           <children xsi:type="tura.form:LayerHolder" uid="4c88ecce-7078-486a-95ff-95a97183fa44" columns="2">
                             <style uid="62db5bf9-5ecf-4e0d-ae44-3c7ab43cca69" constant="true" value="width:100%;margin-bottom: 25px;"/>
                             <children xsi:type="tura.form:Label" uid="bd4afccd-7e49-411f-81a0-3651a015cb59" label="Step name">
-                              <style uid="3a0ec098-0564-46aa-ab97-229ec39ee87f" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <style uid="3a0ec098-0564-46aa-ab97-229ec39ee87f" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 2em"/>
                               <multiLangLabel uid="ff7e4648-2dd6-4bba-9ee1-0c7af8f3444a" value="Application Message Libraries.ETLController.STEP_NAME">
                                 <expression objRef="aafd1a0e-dc69-4493-82d2-2db4e86edb59" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" order="1" expressionType="MessageLibraryImpl"/>
@@ -16626,7 +16626,7 @@
                               </multiLangLabel>
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="1b9de96f-92b3-4e2e-8c63-87faad38de08" sourcePointer="40731043-5d0e-44e9-b707-e18085a1279c" valuePointer="1aa1eb05-4071-40fa-b595-d939f00405c4">
-                              <style uid="7022f11b-3f4d-48c9-b3cc-609e0c1c093a" constant="true" value="display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 3em"/>
+                              <style uid="7022f11b-3f4d-48c9-b3cc-609e0c1c093a" constant="true" value="width:100%;display: inline-block;margin:0px 50px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline;font-size: 2em;border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;border-bottom-style: hidden;"/>
                               <classifiers uid="919b5de9-bd37-4f84-96bd-0f178c2ea62b"/>
                             </children>
                           </children>
