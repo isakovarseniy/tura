@@ -41,7 +41,7 @@ public class SimpleViewTest extends AbstractTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "/hrmanager/simpleform/simpleView";
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/chromedriver";
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
 	@BeforeClass
 	public static void beforeClass() {

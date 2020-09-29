@@ -62,7 +62,7 @@ public class CaseManagementTest extends AbstractTest{
 	static private String admin_url = "/admin/administration/adminWindow";
 	static private String casemgm_url = "/analysis/casemanager/workItemWindow";
 
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/chromedriver";
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
 	@BeforeClass
 	public static void beforeClass() {

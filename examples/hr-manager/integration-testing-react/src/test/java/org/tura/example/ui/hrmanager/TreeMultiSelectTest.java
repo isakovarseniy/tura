@@ -48,7 +48,7 @@ public class TreeMultiSelectTest extends AbstractTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "/hrmanager/testform2/testForm1Window";
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/chromedriver";
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
 	private TreeRow tr;
 	private Menu menu;

@@ -25,6 +25,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.tura.example.ui.TestSuite;
 import org.tura.platform.uuiclient.rest.DataUpdateRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,6 +36,16 @@ public class AbstractTest {
 	
 	static private String health_test = "http://localhost:8080/hrform-react/rest/uuiserver/update";
 
+	
+	public static String getChromeDriverName() {
+		if ( TestSuite.isWindows()) {
+			return "chromedriver.exe";
+		}else {
+			return "chromedriver";
+		}
+		
+	}
+	
 	public static void healthCheckt() throws Exception {
 		for (int i = 0; i < 100; i++) {
 			try {

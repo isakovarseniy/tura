@@ -28,7 +28,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.sales.analyzer.process.PostDeployer;
 import org.tura.platform.uuiclient.rest.DataUpdateRequest;
-
+import org.sales.analyzer.suites.TestSute;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AbstractTest {
@@ -39,6 +39,13 @@ public class AbstractTest {
 	static private String case_health_test = "http://wf:8081/sa-case-manager/rest/uuiserver/update";
 
 	
+	public static String getChromeDriverName() {
+		if ( TestSute.isWindows()) {
+			return "chromedriver.exe";
+		}else {
+			return "chromedriver";
+		}
+	}
 	
 	
 	public static void adminHealthCheckt() throws Exception {

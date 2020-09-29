@@ -49,7 +49,7 @@ public class HrControllerTest extends AbstractTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "/hrmanager/hrcontroller/hrController?param1=qwerty2";
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/chromedriver";
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -105,7 +105,13 @@ public class HrControllerTest extends AbstractTest {
 
 		inputText.setValue("111");
 		t.getRow(0).acceptRowChange();
-		hrControllerPage.getSaveButton().click();
+		
+		new Repeater() {
+			public void action() {
+				hrControllerPage.getSaveButton().click();
+			}
+		}.repeat(10);
+		
 		new Repeater() {
 			@Override
 			public void action() {
