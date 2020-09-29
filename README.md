@@ -10,6 +10,7 @@ Update hosts file
 127.0.0.1       kc
 127.0.0.1       wf
 ```
+Install jdk 11+
 
 Install docker
 
