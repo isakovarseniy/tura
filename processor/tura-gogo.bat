@@ -16,6 +16,31 @@ For /F "tokens=1* delims==" %%A IN (%file%) DO (
 
 echo "%TURA_VERSION%"
 
+
+@REM ==== START VALIDATION ====
+if not "%JAVA_HOME%" == "" goto OkJHome
+
+echo.
+echo Error: JAVA_HOME not found in your environment. >&2
+echo Please set the JAVA_HOME variable in your environment to match the >&2
+echo location of your Java installation. >&2
+echo.
+goto error
+
+:OkJHome
+if exist "%JAVA_HOME%\bin\java.exe" goto RUN
+
+echo.
+echo Error: JAVA_HOME is set to an invalid directory. >&2
+echo JAVA_HOME = "%JAVA_HOME%" >&2
+echo Please set the JAVA_HOME variable in your environment to match the >&2
+echo location of your Java installation. >&2
+echo.
+goto error
+
+:RUN
+set JAVACMD="%JAVA_HOME%\bin\java.exe"
+
 set opts=%JLINE_OPTS%
 
 set "logconf=%DIRNAME%etc\logging.properties"
@@ -55,8 +80,11 @@ set cmd=
 :EXECUTE_MAIN
 popd
 
+echo JAVA : %JAVACMD%
+%JAVACMD% -version
 
-call java -cp %TARGETDIR%processor-%TURA_VERSION%-jar-with-dependencies.jar;%EXTENSION%^
+
+call %JAVACMD% -cp %TARGETDIR%processor-%TURA_VERSION%-jar-with-dependencies.jar;%EXTENSION%^
           %opts%^
 		  -Dgosh.home=%DIRNAME%^
 		  -DHOME=%HOME% -DTURA_HOME=%TURA_HOME%^
@@ -66,6 +94,12 @@ call java -cp %TARGETDIR%processor-%TURA_VERSION%-jar-with-dependencies.jar;%EXT
 		  -Djava.util.logging.config.file=%logconf%^
 		  org.apache.felix.gogo.jline.TuraMain %cmd%
 
+goto END
+
+:error
+set ERROR_CODE=1
+
+:END
 set TURA_WORKING_DIRECTORY_PATTERN=
 set TURA_WORKING_DIRECTORY_PATTERN=
 set TARGETDIR=
@@ -73,7 +107,7 @@ set TURA_HOME=
 set EXTENSION=
 set JLINE_OPTS=
 
-:END
+
 
 
 

@@ -1,17 +1,4 @@
 #!/bin/sh
-#
-#   Tura - Application generation solution
-#
-#   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
-#
-#
-#   This project includes software developed by Arseniy Isakov
-#   http://sourceforge.net/p/tura/wiki/Home/
-#   All rights reserved. This program and the accompanying materials
-#   are made available under the terms of the Eclipse Public License v2.0
-#   which accompanies this distribution, and is available at
-#   http://www.eclipse.org/legal/epl-v20.html
-#
 
 realpath() {
   OURPWD=${PWD}
@@ -25,6 +12,50 @@ realpath() {
   cd "${OURPWD}"
   echo "${REALPATH}"
 }
+
+if [ -z "$JAVA_HOME" ]; then
+  javaExecutable="`which javac`"
+  if [ -n "$javaExecutable" ] && ! [ "`expr \"$javaExecutable\" : '\([^ ]*\)'`" = "no" ]; then
+    # readlink(1) is not available as standard on Solaris 10.
+    readLink=`which readlink`
+    if [ ! `expr "$readLink" : '\([^ ]*\)'` = "no" ]; then
+      if $darwin ; then
+        javaHome="`dirname \"$javaExecutable\"`"
+        javaExecutable="`cd \"$javaHome\" && pwd -P`/javac"
+      else
+        javaExecutable="`readlink -f \"$javaExecutable\"`"
+      fi
+      javaHome="`dirname \"$javaExecutable\"`"
+      javaHome=`expr "$javaHome" : '\(.*\)/bin'`
+      JAVA_HOME="$javaHome"
+      export JAVA_HOME
+    fi
+  fi
+fi
+
+if [ -z "$JAVACMD" ] ; then
+  if [ -n "$JAVA_HOME"  ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+      # IBM's JDK on AIX uses strange locations for the executables
+      JAVACMD="$JAVA_HOME/jre/sh/java"
+    else
+      JAVACMD="$JAVA_HOME/bin/java"
+    fi
+  else
+    JAVACMD="`which java`"
+  fi
+fi
+
+if [ ! -x "$JAVACMD" ] ; then
+  echo "Error: JAVA_HOME is not defined correctly." >&2
+  echo "  We cannot execute $JAVACMD" >&2
+  exit 1
+fi
+
+if [ -z "$JAVA_HOME" ] ; then
+  echo "Warning: JAVA_HOME environment variable is not set."
+fi
+
 
 REALNAME=$(realpath "$0")
 DIRNAME=$(dirname "${REALNAME}")
@@ -99,7 +130,10 @@ nothing() {
 }
 trap 'nothing' TSTP
 
-java -cp ${TARGETDIR}/processor-${TURA_VERSION}-jar-with-dependencies.jar:${EXTENSION}\
+echo JAVA : $JAVACMD
+"$JAVACMD" -version
+
+"$JAVACMD" -cp ${TARGETDIR}/processor-${TURA_VERSION}-jar-with-dependencies.jar:${EXTENSION}\
      $opts \
     -Dgosh.home="${DIRNAME}" \
     -DTURA_HOME="${TURA_HOME}" \
