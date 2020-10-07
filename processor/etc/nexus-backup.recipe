@@ -1,0 +1,8 @@
+
+tura:dsl removeFile --targetLocation $user_home/nexus_backup
+
+tura:dsl mkDir --targetLocation $user_home/nexus_backup
+
+tura:docker stopContainer --name nexus  
+
+tura:dsl exec --cmd "docker run --rm --volumes-from nexus  -v $user_home/nexus_backup:/backup ubuntu bash -c 'cd /nexus-data && tar cvf /backup/nexus-data.tar .'"

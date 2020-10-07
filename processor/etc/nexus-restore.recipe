@@ -1,0 +1,11 @@
+tura:docker stopContainer --name nexus  
+
+tura:docker removeContainer --name nexus
+
+tura:dsl exec --cmd "docker volume rm nexus-data"
+
+tura:dsl exec --cmd "docker volume create --name nexus-data"
+
+tura:dsl exec --cmd "docker run --rm -v nexus-data:/recover -v $user_home/nexus_backup:/backup ubuntu bash -c 'cd /recover && tar xvf /backup/nexus-data.tar'"
+
+tura:dsl exec --cmd "docker run -d -p 2222:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3"

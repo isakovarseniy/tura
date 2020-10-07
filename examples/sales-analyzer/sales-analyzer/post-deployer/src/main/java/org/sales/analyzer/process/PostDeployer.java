@@ -104,7 +104,7 @@ public class PostDeployer {
 			public void action() {
 				client.createContainer(Constants.CONTAINER_ID, new KieContainerResource(releaseId));
 			}
-		}.repeat(10);
+		}.repeat(20);
 		
 		new Repeater("Run health check") {
 			@Override
@@ -112,7 +112,7 @@ public class PostDeployer {
 				ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 				processClient.startProcess(Constants.CONTAINER_ID, HEALTH_CHECK_PROCESS_ID,new HashMap<String, Object>());
 			}
-		}.repeat(10);
+		}.repeat(20);
 		
 		JbpmConfiguration.init(client,JNDI_FOR_JBPM_ACCESS);
 		

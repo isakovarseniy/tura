@@ -234,7 +234,30 @@ localbuildPluginAndProcessor = {
 addClosure "localbuildPluginAndProcessor";
 
 
+nexusBackup = {
+    source pre:///$tura_home/processor/etc/nexus-backup.recipe
+}
+addClosure "nexusBackup";
 
+
+nexusRestore = {
+    source pre:///$tura_home/processor/etc/nexus-restore.recipe
+    tura:docker logWatcher --name nexus 
+}
+addClosure "nexusRestore";
+
+
+nexusStop = {
+     tura:docker stopContainer --name nexus
+}
+addClosure "nexusStop";
+
+
+nexusStart = {
+     tura:docker startContainer --name nexus
+     tura:docker logWatcher --name nexus 
+}
+addClosure "nexusStart";
 
 setVersion = {
   mr2 = tura:dsl config --mavenRepositoryLocation
