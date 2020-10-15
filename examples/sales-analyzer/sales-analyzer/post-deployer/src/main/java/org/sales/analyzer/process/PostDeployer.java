@@ -88,7 +88,7 @@ public class PostDeployer {
 			public void action() throws Exception {
 				token = getToken();
 			}
-		}.repeat(20);
+		}.repeat(40);
 
 		config.setCredentialsProvider(new OAuthCredentialsProvider(token));
 		
@@ -97,14 +97,14 @@ public class PostDeployer {
 			public void action() {
 				client = KieServicesFactory.newKieServicesClient(config);
 			}
-		}.repeat(20);
+		}.repeat(40);
 
 		new Repeater("Create container") {
 			@Override
 			public void action() {
 				client.createContainer(Constants.CONTAINER_ID, new KieContainerResource(releaseId));
 			}
-		}.repeat(20);
+		}.repeat(40);
 		
 		new Repeater("Run health check") {
 			@Override
@@ -112,7 +112,7 @@ public class PostDeployer {
 				ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 				processClient.startProcess(Constants.CONTAINER_ID, HEALTH_CHECK_PROCESS_ID,new HashMap<String, Object>());
 			}
-		}.repeat(20);
+		}.repeat(40);
 		
 		JbpmConfiguration.init(client,JNDI_FOR_JBPM_ACCESS);
 		
