@@ -51,7 +51,7 @@ public class DockerKeyCloakAdapter extends DockerCommand{
                 .copyFromExternal();
             
     		 String filename = FilenameUtils.getName(keyCloakAdapter);
-             new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c 'cd %s; unzip -o  ./%s' ", containerId,jboss_home,  filename) ).execute();
+             new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"cd %s; unzip -o  ./%s\" ", containerId,jboss_home,  filename) ).execute();
              
              new CopyFile(this.session)
  	        	.setTargetLocation( jboss_home+"/bin")
@@ -60,7 +60,7 @@ public class DockerKeyCloakAdapter extends DockerCommand{
  	        	.setContainer(containerId)
  	        	.copyFromExternal();
  
-             new ExecuteExternalOperation(String.format( "docker exec -i  %s sh -c ' %s/bin/jboss-cli.sh  --file=%s/bin/adapter-install-offline.cli' ",containerId,jboss_home,jboss_home) ).execute();
+             new ExecuteExternalOperation(String.format( "docker exec -i  %s sh -c \" %s/bin/jboss-cli.sh  --file=%s/bin/adapter-install-offline.cli\" ",containerId,jboss_home,jboss_home) ).execute();
     		
     		
     	}catch( Exception e) {
