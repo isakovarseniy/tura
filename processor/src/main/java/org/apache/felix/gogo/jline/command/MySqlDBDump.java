@@ -37,7 +37,7 @@ public class MySqlDBDump extends DockerCommand{
     
     @Override
     public Object execute() {
-        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c '/usr/bin/mysqldump -B -u %s --password=%s %s'  > %s",name,user, password,database,dump) ).execute();
+        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"/usr/bin/mysqldump -B -u %s --password=%s %s\"  > %s",name,user, password,database,dump) ).execute();
         return null;
     }
 

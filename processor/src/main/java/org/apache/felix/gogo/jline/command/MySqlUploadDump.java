@@ -33,7 +33,7 @@ public class MySqlUploadDump extends DockerCommand{
     
     @Override
     public Object execute() {
-        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c '/usr/bin/mysql -u %s --password=%s'  < %s",name,user,password,dump) ).execute();
+        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"/usr/bin/mysql -u %s --password=%s\"  < %s",name,user,password,dump) ).execute();
         return null;
     }
 

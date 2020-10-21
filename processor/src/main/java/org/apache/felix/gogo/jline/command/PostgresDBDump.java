@@ -27,7 +27,7 @@ public class PostgresDBDump extends DockerCommand{
     
     @Override
     public Object execute() {
-        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c '/usr/lib/postgresql/9.6/bin/pg_dump -Fc -U postgres postgres'  > %s",name,dump) ).execute();
+        new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"/usr/lib/postgresql/9.6/bin/pg_dump -Fc -U postgres postgres\"  > %s",name,dump) ).execute();
         return null;
     }
 
