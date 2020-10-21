@@ -23,8 +23,13 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
+import org.tura.metamodel.commons.OSHelper;
 
 import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarStyle;
 
 public class Wget {
 
@@ -47,7 +52,12 @@ public class Wget {
 			byte data[] = new byte[1024];
 			boolean fileComplete = false;
 			int count = 0;
-			try (ProgressBar pb = new ProgressBar(saveAsFile, size)) {
+			ProgressBarStyle style = ProgressBarStyle.COLORFUL_UNICODE_BLOCK;
+			if (OSHelper.isWindows()) {
+				style = ProgressBarStyle.ASCII;
+			}
+			try (ProgressBar pb = new ProgressBar(saveAsFile, size, 1000, System.err, style, "", 1, false, null,
+					ChronoUnit.SECONDS, 0L, Duration.ZERO);) {
 
 				while (!fileComplete) {
 					count = httpIn.read(data, 0, 1024);

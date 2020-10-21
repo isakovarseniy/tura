@@ -24,9 +24,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.felix.service.command.CommandSession;
 
+import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.Frame;
-import com.github.dockerjava.core.command.LogContainerResultCallback;
 
 import picocli.CommandLine.Option;
 
@@ -118,7 +118,7 @@ public class DockerLogWatcher extends DockerCommand {
 	}
 	
 
- class LogContainerCallback extends LogContainerResultCallback {
+ class LogContainerCallback extends  ResultCallback.Adapter<Frame> {
 
     @Override
     public void onNext(Frame frame) {

@@ -24,13 +24,13 @@ import org.apache.felix.service.command.CommandSession;
 import org.tura.metamodel.commons.OSHelper;
 
 import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.command.ExecCreateCmdResponse;
 import com.github.dockerjava.api.model.Container;
 import com.github.dockerjava.api.model.Frame;
 import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
-import com.github.dockerjava.core.command.ExecStartResultCallback;
 
 import picocli.CommandLine.Command;
 
@@ -95,7 +95,7 @@ public class DockerCommand implements Executable, SessionAware {
         _init();
         ExecCreateCmdResponse exe = dockerClient.execCreateCmd(containerId).withCmd("mkdir", "-p", targetDir).exec();
 
-        dockerClient.execStartCmd(exe.getId()).exec(new ExecStartResultCallback() {
+        dockerClient.execStartCmd(exe.getId()).exec(new ResultCallback.Adapter<Frame>() {
             @Override
             public void onNext(Frame frame) {
                 super.onNext(frame);

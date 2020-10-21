@@ -14,14 +14,21 @@
 
 package org.apache.felix.gogo.jline.command;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.tura.metamodel.commons.OSHelper;
+
 import com.github.dockerjava.api.command.PullImageCmd;
+import com.github.dockerjava.api.exception.DockerClientException;
 import com.github.dockerjava.api.model.PullResponseItem;
-import com.github.dockerjava.core.command.PullImageResultCallback;
+import com.github.dockerjava.api.command.PullImageResultCallback;
 
 import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarStyle;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
@@ -35,6 +42,7 @@ public class DockerPullImage extends DockerCommand {
 	private String tag;
 
 	private Map<String, ProgressBar> map = new HashMap<>();
+	private ProgressBarStyle style;
 
 	@Override
 	public Object execute() {
@@ -42,13 +50,20 @@ public class DockerPullImage extends DockerCommand {
 		if (findImage(registry + ":" + tag) == null) {
 			PullImageCmd req = dockerClient.pullImageCmd(registry).withAuthConfig(dockerClient.authConfig());
 			req.withTag(tag);
+
+			style = ProgressBarStyle.COLORFUL_UNICODE_BLOCK;
+			if (OSHelper.isWindows()) {
+				style = ProgressBarStyle.ASCII;
+			}
+
 			PullImageResultCallback res = new PullImageResultCallback() {
 
 				@Override
 				public void onNext(PullResponseItem item) {
 					if (map.get(item.getId()) == null) {
 						if (item.getProgressDetail() != null && item.getProgressDetail().getTotal() != null) {
-							ProgressBar bar = new ProgressBar(item.getId(), item.getProgressDetail().getTotal());
+							ProgressBar bar = new ProgressBar(item.getId(), item.getProgressDetail().getTotal(), 1000,
+									System.err, style, "", 1, false, null, ChronoUnit.SECONDS, 0L, Duration.ZERO);
 							map.put(item.getId(), bar);
 						}
 					}
@@ -56,6 +71,7 @@ public class DockerPullImage extends DockerCommand {
 						if (map.get(item.getId()) != null) {
 							ProgressBar bar = map.get(item.getId());
 							bar.stepTo(item.getProgressDetail().getCurrent());
+							bar.setExtraMessage(item.getStatus());
 						}
 					}
 
@@ -65,8 +81,17 @@ public class DockerPullImage extends DockerCommand {
 
 			try {
 				res = req.exec(res);
-				res.awaitSuccess();
+				try {
+					res.awaitCompletion();
+				} catch (InterruptedException e) {
+					throw new DockerClientException("", e);
+				}
 			} finally {
+				try {
+					res.close();
+				} catch (IOException e) {
+				}
+
 				for (ProgressBar bar : map.values()) {
 					bar.close();
 				}

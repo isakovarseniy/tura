@@ -19,8 +19,6 @@ import static com.github.dockerjava.api.model.AccessMode.rw;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.felix.service.command.CommandSession;
-
 import com.github.dockerjava.api.command.CreateContainerCmd;
 import com.github.dockerjava.api.command.CreateContainerResponse;
 import com.github.dockerjava.api.model.Bind;
