@@ -117,13 +117,13 @@ tura:dsl jbossDoDeploy\
 tura:docker startContainer --name sa-wf
 tura:dsl copyMonthlyFiles --application sales-analyzer --relativeLocation sa/jobs
 
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_data_for_period/Generate_data_for_period_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_monthly_file/Generate_monthly_file_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/History_loader/History_loader_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chmod +x /opt/jboss/jobs/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh'"
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c 'chown -R jboss:jboss /opt/jboss/jobs'"
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_data_for_period/Generate_data_for_period_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_monthly_file/Generate_monthly_file_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/History_loader/History_loader_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chown -R jboss:jboss /opt/jboss/jobs\" "
 
 
 #Deploying jbpm artifacts on kieserver

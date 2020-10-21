@@ -63,7 +63,7 @@ tura:dsl wfStartupConfig\
                       --serverType wildfly-13.0.0.Final
 
 
-tura:dsl exec --cmd "docker exec -i --user jboss $v sh -c '/opt/jboss/wildfly/bin/add-user.sh admin qwerty --silent'"
+tura:dsl exec --cmd "docker exec -i --user jboss $v sh -c \"/opt/jboss/wildfly/bin/add-user.sh admin qwerty --silent\" "
 
 
 tura:docker keycloak doDeployAdapter\
@@ -74,8 +74,8 @@ tura:docker keycloak doDeployAdapter\
                      --keyCloakAdapter $mr2/org/keycloak/keycloak-wildfly-adapter-dist/4.8.3.Final/keycloak-wildfly-adapter-dist-4.8.3.Final.zip
 
 
-tura:dsl exec --cmd "docker exec -i --user root $v sh -c 'chown -R jboss:jboss /opt/jboss'"
-tura:dsl exec --cmd "docker exec -i --user root $v sh -c 'rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/'"
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss\" "
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/\" "
 
 
 tura:docker commitContainer\
