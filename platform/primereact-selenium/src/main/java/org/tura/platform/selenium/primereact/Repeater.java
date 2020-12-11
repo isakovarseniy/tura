@@ -40,4 +40,12 @@ public abstract class Repeater {
 
 	}
 
+	public void waitOneSecond() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+
+	}
+
 }

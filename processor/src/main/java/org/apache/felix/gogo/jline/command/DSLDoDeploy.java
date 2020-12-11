@@ -26,13 +26,20 @@ public class DSLDoDeploy extends DSLCommand{
 	private String targetName;
 	@Option(names = "--srcResource", required = true)
 	private String srcResource;
+	@Option(names = "--container", required = false)
+	private String container;
 	
 	
 	@Override
 	public Object execute() throws Exception {
-        new DoDeploy(jboss_home,targetName,this.session)
-        .setSourceResource( srcResource)
-        .doDeployExploaded();
+		DoDeploy cmd = new DoDeploy(jboss_home,targetName,this.session)
+                                           .setSourceResource( srcResource)
+                                           .setContainer(container);
+		if (container != null) {
+		   cmd.doDeploy();
+		}else {
+		   cmd.doDeployExploaded();
+		}
 
 		return null;
 	}

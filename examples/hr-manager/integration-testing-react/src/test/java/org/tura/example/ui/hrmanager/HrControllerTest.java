@@ -1503,5 +1503,36 @@ public class HrControllerTest extends AbstractTest {
 		}
 
 	}
+	
+	@Test
+	public void t014_Popup() {
+		// Go to the Google Suggest home page
+		driver.get(getUrl(app_url));
+		login();
+
+		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
+		
+		hrControllerPage.getAddCompany().click();
+		
+		hrControllerPage.getRollbackButton().click();
+		
+		Table t = hrControllerPage.getCompanies();
+
+		Button button = new ButtonPrimeReact(t.getRow(1).getCell(2).findElement(By.cssSelector("button")), driver);
+		button.click();
+
+		new Repeater() {
+			@Override
+			public void action() {
+				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(driver);
+				popUp.getCancel().click();
+			}
+
+		}.repeat(10);
+		
+		
+
+	}
+	
 
 }

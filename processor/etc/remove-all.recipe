@@ -24,8 +24,6 @@ tura:docker removeContainer --name hr-wf
 
 tura:docker removeImage --registry tura/hr-manager/wildfly --tag 1.0
 
-tura:docker removeContainer --name rest-wf
-
 tura:docker removeImage --registry tura/rest-repo/wildfly --tag 1.0
 
 

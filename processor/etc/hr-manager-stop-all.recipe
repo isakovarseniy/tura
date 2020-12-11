@@ -1,3 +1,5 @@
 tura:docker stopContainer --name hr-pg
+tura:docker removeContainer --name hr-pg
 
 tura:docker stopContainer --name hr-wf
+tura:docker removeContainer --name hr-wf

@@ -22,9 +22,12 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -57,6 +60,26 @@ public class FileSearchServiceTest {
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
+		
+		
+		new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/").mkdirs();
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-02-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-04-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-05-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-06-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-07-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-08-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-09-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-10-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_after_rules.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_before_rules.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_extract.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home")+ "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_process_run_errors.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_processed.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_validated.csv"));
+		FileUtils.touch(new File(System.getProperty("user.home")+ "/.tura/resources/sa/jobs/MonthlyData_2017-11-01_24_validation_error.csv"));		
+		
 	}
 	
 	

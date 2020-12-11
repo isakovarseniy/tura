@@ -1,9 +1,19 @@
-
 c2 = tura:docker findContainer --name rest-wf
 echo 'Wildfly container located? '$c2
-if { %(c2) } { } {
+
+if { %(c2) } { 
+     echo '  Stop container '
+     tura:docker stopContainer --name rest-wf
+     echo ' Remove container '
+     tura:docker removeContainer --name rest-wf
+} {
+   c2 = tura:docker findImage --registry tura/rest-repo/wildfly --tag 1.0
+   if { %(c2) } { } {
+   
    echo 'Building wildfly container'
    source pre:///$repo_home/rest-repo-wildfly-start-server.recipe
+   
+   }
 }
  
  source pre:///$repo_home/rest-repo-redeploy-wildfly.recipe

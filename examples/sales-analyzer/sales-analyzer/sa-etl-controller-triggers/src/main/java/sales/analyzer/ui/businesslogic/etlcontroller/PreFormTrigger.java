@@ -32,6 +32,8 @@ import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.datacontrol
 @Selector("dataloader.etlcontroller")
 public class PreFormTrigger implements FactoryInitializeTrigger{
 
+	private static final long serialVersionUID = 2650814015181053661L;
+
 	@Override
 	public void execute(Object obj) throws TuraException {
 		IBeanFactory bf = (IBeanFactory) obj;

@@ -16,7 +16,7 @@
 <feature
       id="org.tura.metamodel.editor.feature"
       label="Application generator"
-      version="5.0.3">
+      version="5.0.4">
 
    <description url="http://www.example.com/description">
       This feature provides functionality for application generation

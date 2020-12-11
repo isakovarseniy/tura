@@ -77,6 +77,7 @@ tura:docker keycloak doDeployAdapter\
 tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss\" "
 tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/\" "
 
+tura:docker stopContainer --id $v
 
 tura:docker commitContainer\
                       --registry tura/sa/wildfly\
@@ -85,28 +86,6 @@ tura:docker commitContainer\
                       --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.socket.binding.port-offset=1"
 
 
-
-tura:docker stopContainer --id $v
-
 tura:docker removeContainer --id $v
-
-
-tura:dsl mkDir --targetLocation $tura_working_directory/resources/sa/deployments
-tura:dsl mkDir --targetLocation $tura_working_directory/resources/sa/jobs
-
-
-c = tura:docker config\
-                      --alias wf\
-                      --port 8081:8081\
-                      --port 9991:9991\
-                      --port 3333:3333\
-                      --port 8444:8444\
-                      --network sa-net\
-                      --volume $tura_working_directory/resources/sa/deployments:/opt/jboss/wildfly/standalone/deployments\
-                      --volume $tura_working_directory/resources/sa/jobs:/opt/jboss/jobs\
-                      --volume $mr2:/root/.m2/repository  
-
-tura:docker createContainer --registry tura/sa/wildfly --tag 1.0 --var c --name sa-wf
-
 
 

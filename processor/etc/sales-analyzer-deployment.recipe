@@ -1,132 +1,54 @@
 tura:install chromedriver
 
-mr2 = tura:dsl config --mavenRepositoryLocation
+echo 'Building Postgres container'
+source pre:///$repo_home/sales-analyzer-postgres.recipe
 
-tura:docker stopContainer --name sa-wf
+c2 = tura:docker findContainer --name sa-kc
+echo 'Keycloak container located? '$c2
 
-tura:dsl removeFile --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments
+if { %(c2) } { } {
 
+   c2 = tura:docker findImage --registry tura/sa/keycloak --tag 1.0
+   if { %(c2) } {
+   
+   c = tura:docker config --port 8080:8080 --network sa-net --alias kc
+   tura:docker createContainer --registry tura/sa/keycloak --tag 1.0 --var c --name sa-kc
+   
+    } {
 
-tura:dsl jbossDoDeploy\
-         --jboss_home $tura_working_directory/resources/sa/deployments\
-         --targetName kie-server.war\
-         --srcResource $mr2/org/kie/server/kie-server/6.5.0.Final/kie-server-6.5.0.Final-ee7.war
+	   echo 'Building Keycloak container'
+	   source pre:///$repo_home/sales-analyzer-keycloak.recipe
+   
+   }
 
-
-tura:dsl copyFile\
-         --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/\
-         --targetName server-extension-${tura_version}.jar\
-         --sourceResource "$mr2/sales-analyzer/server-extension/${tura_version}/server-extension-${tura_version}.jar" 
-
-
-tura:dsl copyFile\
-         --targetLocation $tura_working_directory/resources/sa/deployments/standalone/deployments/kie-server.war/WEB-INF/lib/\
-         --targetName api-extension-${tura_version}.jar\
-         --sourceResource $mr2/sales-analyzer/api-extension/${tura_version}/api-extension-${tura_version}.jar
-
-
-tura:dsl copyFile\
-         --unzip\
-         --sourceResource $tura_home/examples/sales-analyzer/talend-jobs/monthly_file_processing.zip\
-         --targetLocation $tura_working_directory/resources/sa/jobs\
-         --targetName monthly_file_processing.zip
-
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
-
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Development.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
+}
 
 
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1\
-         --property USER_HOME:/opt/jboss/jobs/  
+c2 = tura:docker findContainer --name sa-wf
+echo 'WildFly container located? '$c2
 
+if { %(c2) } { 
 
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
+     echo '  Stop container '
+     tura:docker stopContainer --name sa-wf
+     echo ' Remove container '
+     tura:docker removeContainer --name sa-wf
 
+} {
 
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
+   c2 = tura:docker findImage --registry tura/sa/wildfly --tag 1.0
+   
+   if { %(c2) } { } {
+   
+   echo 'Building WildFly container'
+   source pre:///$repo_home/sales-analyzer-wildfly.recipe
+   
+   }
 
-                  
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
-                  
+}
 
-tura:dsl jobPropertyFile\
-         --application sales-analyzer\
-         --artifact Default.properties\
-         --relativeLocation /sa/jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts\
-         --property USER_HOME:/opt/jboss/jobs/  
-                  
+echo 'Deploying WildFly container'
+source pre:///$repo_home/sales-analyzer-redeploy.recipe
 
-tura:dsl jbossDoDeploy\
-         --jboss_home $tura_working_directory/resources/sa/deployments\
-        --targetName sa-case-manager.war\
-        --srcResource $mr2/org/tura/sales-analyzer/sa-case-manager/${tura_version}/sa-case-manager-${tura_version}.war
-
-tura:dsl jbossDoDeploy\
-         --jboss_home $tura_working_directory/resources/sa/deployments\
-        --targetName sa-case-manager-react-client.war\
-        --srcResource $mr2/org/tura/sales-analyzer/sa-case-manager-react-client/${tura_version}/sa-case-manager-react-client-${tura_version}.war
-
-
-
-tura:dsl jbossDoDeploy\
-        --jboss_home $tura_working_directory/resources/sa/deployments\
-        --targetName sa-etl-controller.war\
-        --srcResource $mr2/org/tura/sales-analyzer/sa-etl-controller/${tura_version}/sa-etl-controller-${tura_version}.war
-
-
-tura:dsl jbossDoDeploy\
-        --jboss_home $tura_working_directory/resources/sa/deployments\
-        --targetName sa-etl-controller-react-client.war\
-        --srcResource $mr2/org/tura/sales-analyzer/sa-etl-controller-react-client/${tura_version}/sa-etl-controller-react-client-${tura_version}.war
-
-
-tura:dsl jbossDoDeploy\
-         --jboss_home $tura_working_directory/resources/sa/deployments\
-         --targetName sa-admin.war\
-         --srcResource $mr2/org/tura/sales-analyzer/sa-admin/${tura_version}/sa-admin-${tura_version}.war
-                   
-tura:dsl jbossDoDeploy\
-         --jboss_home $tura_working_directory/resources/sa/deployments\
-         --targetName sa-admin-react-client.war\
-         --srcResource $mr2/org/tura/sales-analyzer/sa-admin-react-client/${tura_version}/sa-admin-react-client-${tura_version}.war
-
-
-tura:docker startContainer --name sa-wf
-tura:dsl copyMonthlyFiles --application sales-analyzer --relativeLocation sa/jobs
-
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_data_for_period/Generate_data_for_period_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_monthly_file/Generate_monthly_file_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/History_loader/History_loader_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh\" "
-tura:dsl exec --cmd "docker exec -i --user root sa-wf sh -c \"chown -R jboss:jboss /opt/jboss/jobs\" "
-
-
-#Deploying jbpm artifacts on kieserver
-tura:dsl exec --cmd "java -jar  $tura_home/examples/sales-analyzer/sales-analyzer/post-deployer/target/post-deployer-${tura_version}-jar-with-dependencies.jar"
 
 

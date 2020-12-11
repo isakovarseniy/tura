@@ -1,18 +1,20 @@
 mr2 = tura:dsl config --mavenRepositoryLocation
 
-tura:docker stopContainer --name hr-wf
+c = tura:docker config\
+                --port 8080:8080\
+                --port 3333:3333\
+                --port 8443:8443\
+                --network hr-net
 
-tura:dsl removeFile --targetLocation $tura_working_directory/resources/hrmanager/deployments
-tura:dsl mkDir --targetLocation $tura_working_directory/resources/hrmanager/deployments
+v = tura:docker createContainer --registry tura/hr-manager/wildfly --tag 1.0 --var c --name hr-wf
 
-tura:dsl jbossDoDeploy --jboss_home $tura_working_directory/resources/hrmanager/deployments\
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
                                       --targetName hrform-react-${tura_version}.war\
                                       --srcResource $mr2/org/tura/example/ui/hrform-react/${tura_version}/hrform-react-${tura_version}.war
 
 
-tura:dsl jbossDoDeploy --jboss_home $tura_working_directory/resources/hrmanager/deployments\
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
                                       --targetName hr-form-react-client-${tura_version}.war\
                                       --srcResource $mr2/org/tura/example/ui/hr-form-react-client/${tura_version}/hr-form-react-client-${tura_version}.war
-
-
-tura:docker startContainer --name hr-wf

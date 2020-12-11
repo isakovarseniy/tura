@@ -33,8 +33,7 @@ public class CopyMonthlyFiles extends CopyArtifact<CopyMonthlyFiles> {
 	}
 
 	public CopyMonthlyFiles setRelativePath(String relativePath) {
-		targetPath = targetPath + File.separator + relativePath;
-		this.setTargetLocation(targetPath);
+		this.setTargetLocation( targetLocation + File.separator + relativePath);
 		return this;
 	}
 
@@ -65,7 +64,6 @@ public class CopyMonthlyFiles extends CopyArtifact<CopyMonthlyFiles> {
 
 	@Override
 	public void copyFromExternal() throws Exception {
-		deleteFiles();
 		sourceName = ConfigConstants.TURA_CONFIG_REPOSITORY + File.separator + sourceName;
 
 		this.setTargetName("MonthlyData_2017-02-01.csv");

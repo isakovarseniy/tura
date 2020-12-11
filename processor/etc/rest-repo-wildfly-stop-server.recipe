@@ -1,5 +1,7 @@
 echo Stop rest-wf
 tura:docker stopContainer --name rest-wf
+tura:docker removeContainer --name rest-wf
+
 
 
 

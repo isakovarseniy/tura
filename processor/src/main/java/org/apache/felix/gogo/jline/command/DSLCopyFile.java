@@ -47,10 +47,16 @@ public class DSLCopyFile extends DSLCommand{
             .copyFromExternal();
         
         
-        if (unzip ) {
+        if (unzip && containerId == null) {
     		ZipUtil.unpack(new File(targetLocation+"/"+targetName ), new File(targetLocation));
         }
-		
+
+        if (unzip && containerId != null) {
+            new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"cd %s; unzip -o  ./%s\" ", containerId,targetLocation,  targetName) ).execute();
+        }
+        
+        
+        
 		return null;
 	}
 

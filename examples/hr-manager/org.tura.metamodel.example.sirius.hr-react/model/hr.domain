@@ -3823,7 +3823,7 @@
               <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
               <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
               <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
-              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.0.3"/>
+              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.0.4"/>
               <versions uid="8bc8fa64-01a7-4ff2-a383-11765e47ab34" name="selenium.version" version="2.47.1"/>
               <versions uid="25576813-abe7-42bb-9316-854dee17e93f" name="junit.version" version="4.11"/>
               <versions uid="be26186b-9783-4472-a6cf-5834f1a98491" name="cdi.version" version="2.1.1.Final"/>
@@ -11698,7 +11698,7 @@
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
               <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
-              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.0.3"/>
+              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.0.4"/>
               <versions uid="c031121a-0df4-49df-ab47-5a69d10814dd" name="selenium.version" version="2.47.1"/>
               <versions uid="23484b46-6301-41f7-a371-733785a56a4b" name="keycloak.version" version="3.2.0.Final"/>
             </applicationMappers>
@@ -12989,6 +12989,7 @@
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="a4c7afc7-9e91-428f-8860-b544d5a31986" name="currentOpenedCaseId"/>
                       <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8124d32c-c476-4884-bd47-e4ef33b00986" name="canvasType"/>
                       <variables typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="941756a8-f744-4538-af91-fd7979878ceb" name="activeIndex"/>
+                      <variables typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="3eb303b5-5e90-4a46-8995-2bc12770f46e" name="isAssigned"/>
                     </root>
                     <controls uid="9694e8d3-2a79-4857-9eec-12f98d920ac6" name="Task">
                       <baseType typeRef="97b7efd6-a3c9-4b21-8fb5-f63ec582035c"/>

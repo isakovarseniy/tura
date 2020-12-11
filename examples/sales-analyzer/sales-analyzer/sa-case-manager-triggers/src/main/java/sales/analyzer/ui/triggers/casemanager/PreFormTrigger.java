@@ -40,7 +40,7 @@ public class PreFormTrigger implements FactoryInitializeTrigger{
 		bf.setShowSearchPanelForWI(false);
 		bf.setActiveIndex(1);
 		bf.setCurrentOpenedCase(0);
-		
+		bf.setIsAssigned(false);
 	}
 
 }

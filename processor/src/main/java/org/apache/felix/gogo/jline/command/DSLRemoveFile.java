@@ -33,7 +33,7 @@ public class DSLRemoveFile extends DSLCommand{
         new RemoveFile()
             .setContainer(containerId)
     		.setTargetLocation(targetLocation)
-            .removeFromExternal();
+            .removeFile();
 		
 		return null;
 	}

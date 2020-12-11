@@ -80,7 +80,7 @@ addClosure "stopHRApplication";
 
 
 redeployHRwildfly = {
-     source pre:///$tura_home/processor/etc/hr-manager-redeploy-wildfly.recipe;    
+     source pre:///$tura_home/processor/etc/hr-manager-deployment.recipe;    
      hrLogWatch;
 }
 addClosure "redeployHRwildfly";
@@ -134,7 +134,7 @@ addClosure "hrLogWatch";
 startSAApplication = {
      stopHRApplication;
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerDB.dump
-     source pre:///$tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+     source pre:///$tura_home/processor/etc/sales-analyzer-deployment.recipe;    
 }
 addClosure "startSAApplication";
 
@@ -142,7 +142,7 @@ addClosure "startSAApplication";
 startSAApplicationWithData = {
      stopHRApplication;
      dump_file = $repo_home/sales-analyzer/assets/SalesAnalyzerWithCasesDB.dump
-     source pre:///$tura_home/processor/etc/sales-analyzer-start-server.recipe;    
+     source pre:///$tura_home/processor/etc/sales-analyzer-deployment.recipe;    
 }
 addClosure "startSAApplicationWithData";
 
@@ -217,7 +217,7 @@ addClosure "stopRestServer";
 
 
 redeployRestServer = {
-     source pre:///$tura_home/processor/etc/rest-repo-redeploy-wildfly.recipe;
+     source pre:///$tura_home/processor/etc/rest-repo-deployment.recipe;    
      restLogWatch    
 }
 addClosure "redeployRestServer";

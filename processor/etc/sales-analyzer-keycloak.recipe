@@ -19,9 +19,10 @@ c = tura:docker config\
 
 v = tura:docker createContainer --registry jboss/keycloak --tag 4.8.3.Final --var c
 
-tura:docker commitContainer --registry tura/sa/keycloak --tag 1.0 --id $v
-
 tura:docker stopContainer --id $v
+
+
+tura:docker commitContainer --registry tura/sa/keycloak --tag 1.0 --id $v
 
 tura:docker removeContainer --id $v
 

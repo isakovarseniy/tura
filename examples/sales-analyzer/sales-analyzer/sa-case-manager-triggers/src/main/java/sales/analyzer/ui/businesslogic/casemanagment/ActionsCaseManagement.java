@@ -202,6 +202,8 @@ public class ActionsCaseManagement implements EventAware {
 		OpenPopup cmd1 = new OpenPopup();
 		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
 		responseState.addCommand(cmd1);
+		
+		bf.setIsAssigned(true);
 
 
 	}
@@ -214,6 +216,7 @@ public class ActionsCaseManagement implements EventAware {
 		cmd1.setTarget("a1b353dd-a8ad-44e2-b2cf-950cd3cc999d");
 		responseState.addCommand(cmd1);
 
+		bf.setIsAssigned(true);
 
 	}
 
@@ -376,6 +379,9 @@ public class ActionsCaseManagement implements EventAware {
 			String username = p.getName();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
 			process.setAnalystActor(username);
+			
+			bf.setIsAssigned(true);
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -390,6 +396,9 @@ public class ActionsCaseManagement implements EventAware {
 			String username = p.getName();
 			CaseProcess process = (CaseProcess) bf.getCaseManager().getCurrentObject();
 			process.setManagerActor(username);
+			
+			bf.setIsAssigned(true);
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -440,6 +449,7 @@ public class ActionsCaseManagement implements EventAware {
 			saveCaseOperation();
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
 			((DataControl) bf.getCaseManager()).forceRefresh();
+			bf.setIsAssigned(false);
 			addInfomessage("SAVE_DATA_MESSAGE" );
 
 		} catch (Exception e) {
@@ -726,6 +736,7 @@ public class ActionsCaseManagement implements EventAware {
 				process.setCompleteTask(0);
 				saveCaseOperation();
 				((DataControl) bf.getCaseManager()).forceRefresh();
+				addInfomessage("SAVE_DATA_MESSAGE" );
 				
 			} else {
 				String approveStatus = outcome.getApprovedStatus();
@@ -787,15 +798,26 @@ public class ActionsCaseManagement implements EventAware {
 	}
 
 	public boolean allowCompleteTask() {
-		UserPreferences pref = getUserPreferences();
-		if (!checkUser()) {
-			return false;
+		try {
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			if ( bf.getIsAssigned()) {
+				return false;
+			}
+			
+			UserPreferences pref = getUserPreferences();
+			if (!checkUser()) {
+				return false;
+			}
+			if (pref.getPermissions().contains(PrefConstants.SCR) && pref.getPermissions().contains(PrefConstants.AC)) {
+				return true;
+			} else {
+				return false;
+			}			
+			
+		}catch(Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
 		}
-		if (pref.getPermissions().contains(PrefConstants.SCR) && pref.getPermissions().contains(PrefConstants.AC)) {
-			return true;
-		} else {
-			return false;
-		}
+		return false;
 	}
 
 	public boolean allowSubmitForReview() {

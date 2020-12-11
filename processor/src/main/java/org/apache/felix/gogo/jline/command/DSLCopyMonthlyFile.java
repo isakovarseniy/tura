@@ -26,13 +26,26 @@ public class DSLCopyMonthlyFile extends DSLCommand {
 	@Option(names = "--application", required = true)
 	private String application;
 	
+	@Option(names = "--containerId")
+	private String containerId;
+	
+	@Option(names = "--targetLocation")
+	private String targetLocation;
+	
+	
 	
 	@Override
 	public Object execute() throws Exception {
 		
-		new CopyMonthlyFiles(this.session)
-		   .setApplication(application)
-		   .setRelativePath(relativeLocation)
+		CopyMonthlyFiles dsl = 
+				new CopyMonthlyFiles(this.session)
+		               .setApplication(application)
+		               .setContainer(containerId);
+		
+		if (targetLocation != null) {
+			dsl.setTargetLocation(targetLocation);
+		}
+		dsl.setRelativePath(relativeLocation)
 		   .copyFromExternal();
 		
 		return null;

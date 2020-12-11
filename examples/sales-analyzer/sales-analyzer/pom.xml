@@ -22,7 +22,7 @@
 
 	<groupId>sales-analyzer</groupId>
 	<artifactId>sales-analyzer-parent</artifactId>
-	<version>5.0.3</version>
+	<version>5.0.4</version>
 
 	<packaging>pom</packaging>
 

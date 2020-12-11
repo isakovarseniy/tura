@@ -99,11 +99,22 @@ public class CopyArtifact<T> {
         if (containerId == null) {
             copyFromExternalNoContainer();
         } else {
+        	if (targetName != null ) {
+                String tmpLocation = System.getProperty("java.io.tmpdir");
+                Files.copy(Paths.get(srcResource), Paths.get(tmpLocation, targetName), StandardCopyOption.REPLACE_EXISTING);
+                srcResource = Paths.get(tmpLocation, targetName).toString();
+        	}
+
         	DockerCommand cmd = new DockerCommand();
         	cmd.setSession(session);
         	
         	cmd.mkdir(containerId, targetLocation);
         	cmd.copyFilesToDocker(containerId, srcResource, targetLocation, targetName);
+        	
+        	if (targetName != null ) {
+                new File(srcResource).delete();
+        	}
+
         }
     }
 

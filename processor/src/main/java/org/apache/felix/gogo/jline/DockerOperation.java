@@ -23,6 +23,7 @@ import org.apache.felix.gogo.jline.command.DockerCommitContainer;
 import org.apache.felix.gogo.jline.command.DockerConfig;
 import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
+import org.apache.felix.gogo.jline.command.DockerFindImage;
 import org.apache.felix.gogo.jline.command.DockerKeyCloak;
 import org.apache.felix.gogo.jline.command.DockerKeyCloakAdapter;
 import org.apache.felix.gogo.jline.command.DockerLdap;
@@ -129,6 +130,7 @@ public class DockerOperation  {
                 .addSubcommand("stopContainer", new DockerStopContainer())
                 .addSubcommand("pullImage", new DockerPullImage())
                 .addSubcommand("findContainer", new DockerFindContainer())
+                .addSubcommand("findImage", new DockerFindImage())
                 .addSubcommand("logWatcher", new DockerLogWatcher())
                 .addSubcommand("createNetwork", new DockerNetwork())
                 .addSubcommand("postgres", new CommandLine(new DockerPostgresSQL())

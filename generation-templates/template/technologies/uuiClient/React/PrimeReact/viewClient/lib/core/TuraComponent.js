@@ -79,6 +79,7 @@ export class TuraComponent extends  React.Component {
                     rendered:false
                 });
             }
+            this.contextManager.addRegistercontext(this.id,this.dependId,this);
         }
     }
 

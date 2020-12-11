@@ -30,6 +30,11 @@ public class DSLJobPropertyFile extends DSLCommand {
 	private String artifact;
 	@Option(names = "--property")
 	private List<String> properties;
+	@Option(names = "--containerId")
+	private String containerId;
+	@Option(names = "--targetLocation")
+	private String targetLocation;
+	
 
 	@Override
 	public Object execute() throws Exception {
@@ -37,7 +42,12 @@ public class DSLJobPropertyFile extends DSLCommand {
 		JobPropertyFile dsl = 
 				 			new JobPropertyFile(artifact,this.session)
 				 				.setApplication(application)
-				 				.setRelativeLocation(relativeLocation);
+				 				.setContainerId(containerId);		
+		if (targetLocation != null) {
+			dsl.setArtifactTargerLocation(targetLocation);
+		}
+		
+		dsl.setRelativeLocation(relativeLocation);
 
 		if (properties != null) {
 			for (String p : properties) {

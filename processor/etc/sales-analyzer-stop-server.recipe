@@ -1,10 +1,14 @@
 echo Stop sa-wf
 tura:docker stopContainer --name sa-wf
+tura:docker removeContainer --name sa-wf
+
 
 echo Stop sa-kc
 tura:docker stopContainer --name sa-kc
+tura:docker removeContainer --name sa-kc
 
 echo Stop sa-pg
 tura:docker stopContainer --name sa-pg
+tura:docker removeContainer --name sa-pg
 
 

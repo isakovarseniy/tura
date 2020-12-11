@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.felix.gogo.jline.command.ExecuteExternalOperation;
 
 public class RemoveArtifact<T> {
 
@@ -42,6 +43,7 @@ public class RemoveArtifact<T> {
 		if (containerId == null) {
 			removeFromExternal();
 		} else {
+            new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"rm -rf %s;\" ", containerId, targetLocation) ).execute();
 		}
 	}
 

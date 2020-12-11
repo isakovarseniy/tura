@@ -57,8 +57,6 @@ operation  message_provider(library,javaPath,application,model_mappe,component) 
   %]
   package  [%=component.basePackage%].messages;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -93,8 +91,7 @@ public class [%=util.mergeAndCapitalize(library.name)%]Library extends  Abstract
 	[%
      for (  lang in library.eContainer().eContainer().applicationLanguages.languages){
      %]
-        java.net.URL url_[%=lang.code%] = this.getClass().getResource("/[%=util.mergeAndCapitalize(application.name).toLowerCase()%]/[%=util.mergeAndCapitalize(library.name)%]_[%=lang.code%].properties");
-        java.io.FileInputStream in_[%=lang.code%] = new java.io.FileInputStream(new java.io.File(url_[%=lang.code%].getFile()));
+        java.io.InputStream in_[%=lang.code%] = this.getClass().getResourceAsStream("/[%=util.mergeAndCapitalize(application.name).toLowerCase()%]/[%=util.mergeAndCapitalize(library.name)%]_[%=lang.code%].properties");
         
         Properties [%=lang.code%] = new Properties();
         [%=lang.code%].load(new java.io.InputStreamReader(in_[%=lang.code%], java.nio.charset.Charset.forName("UTF-8"))  );
