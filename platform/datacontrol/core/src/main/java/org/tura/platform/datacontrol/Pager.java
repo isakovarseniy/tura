@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.Repository;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -78,7 +79,11 @@ public abstract class Pager<T> extends Pool {
 	protected abstract List<SearchCriteria> getSearchCriteria();
 
 	protected abstract DataControl<T> getDataControl();
-	
+
+	public Repository getRepository() {
+		return null;
+	}
+
 	public PagerData getPagerData() {
 		if (commandStack.getData(id) == null)
 			commandStack.addData(id, new PagerData());
@@ -153,7 +158,7 @@ public abstract class Pager<T> extends Pool {
 				}
 			} while (obj != null && removed);
 			if (obj != null) {
-				obj = (ObjectControl) checkForUpdate(getBaseClass(), endTimeStamp, obj, obj.getKey(), index );
+				obj = (ObjectControl) checkForUpdate(getBaseClass(), endTimeStamp, obj, obj.getKey(), index);
 			}
 
 			notifyOptional(created, obj);
@@ -164,21 +169,22 @@ public abstract class Pager<T> extends Pool {
 	}
 
 	public Object findObject(List<SearchCriteria> search, Object key, Integer index) throws TuraException {
-		long endTimeStamp =1000000L;
+		long endTimeStamp = 1000000L;
 		long beginTimeStamp = 0L;
 		String shifterId = UUID.randomUUID().toString();
 		try {
-			if (index  != null ) {
+			if (index != null) {
 				ObjectControl obj = (ObjectControl) this.get(index);
 				if (obj != null && key.equals(obj.getKey())) {
 					return obj;
 				}
 			}
-			boolean removed = isRemoved(getBaseClass(), beginTimeStamp, endTimeStamp, key, -1, shifterId,false);
+			boolean removed = isRemoved(getBaseClass(), beginTimeStamp, endTimeStamp, key, -1, shifterId, false);
 			if (removed) {
 				return null;
 			}
-			ObjectControl obj = (ObjectControl) checkForUpdate(getBaseClass(),beginTimeStamp,  endTimeStamp, null, key, -1, shifterId, false);
+			ObjectControl obj = (ObjectControl) checkForUpdate(getBaseClass(), beginTimeStamp, endTimeStamp, null, key,
+					-1, shifterId, false);
 			if (obj != null) {
 				return obj;
 			}
@@ -194,11 +200,10 @@ public abstract class Pager<T> extends Pool {
 			throw new TuraException(e);
 		}
 	}
-	
-	 protected Object externalObjectSearch(List<SearchCriteria> search) throws Exception{
-			return null;
-		  }
 
+	protected Object externalObjectSearch(List<SearchCriteria> search) throws Exception {
+		return null;
+	}
 
 	private void notifyOptional(int i, Object obj) throws TuraException {
 		if (i == 0) {

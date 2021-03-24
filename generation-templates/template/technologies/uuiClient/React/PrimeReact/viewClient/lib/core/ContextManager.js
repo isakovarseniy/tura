@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -260,7 +260,13 @@ export class ContextManager{
             this.fixEvent(clonedState.events,serverAction );
         }
         clonedState.childrens=[];
-        let children = React.Children.toArray(component.props.children);
+
+        let children = null;
+        if ( typeof component.getComponentCildren === "undefined"){
+            children =  React.Children.toArray(component.props.children);
+        }else{
+            children = component.getComponentCildren();
+        }
         for ( let i = 0 ; i < children.length ; i++) {
             let child = children[i];
             clonedState.childrens.push(this.processChildren(child,hash,_THIS_,serverAction));

@@ -1,0 +1,137 @@
+{
+    "swagger": "2.0",
+    "tags": [
+        {
+            "name": "ControlFacade"
+        }
+    ],
+    "paths": {
+        "/control/initSession": {
+            "get": {
+                "tags": [
+                    "ControlFacade"
+                ],
+                "operationId": "initSession",
+                "parameters": [
+                    {
+                        "name": "serviceName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "methodName",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sessionType",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/control/createReturnObjectCommand": {
+            "post": {
+                "tags": [
+                    "ControlFacade"
+                ],
+                "operationId": "createReturnObjectCommand",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CreateReturnObject"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/control/createExceptionObjectCommand": {
+            "post": {
+                "tags": [
+                    "ControlFacade"
+                ],
+                "operationId": "createExceptionObjectCommand",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CreateExceptionObject"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CreateReturnObject": {
+            "type": "object",
+            "properties": {
+                "serviceName": {
+                    "type": "string"
+                },
+                "methodName": {
+                    "type": "string"
+                },
+                "sequence": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "payload": {
+                    "type": "string"
+                },
+                "dalay": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "CreateExceptionObject": {
+            "type": "object",
+            "properties": {
+                "serviceName": {
+                    "type": "string"
+                },
+                "methodName": {
+                    "type": "string"
+                },
+                "sequence": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,6 @@ import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.db.City;
 import org.tura.salesanalyzer.serialized.db.ProductGroupHistory;
 import org.tura.salesanalyzer.serialized.db.State;
@@ -155,7 +154,6 @@ public class JbpmServiceTest {
 	}
 
 	private ProxyRepository getRepository() throws Exception {
-		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
 		registry = new Registry();
 		spaRegistry = new SpaObjectRegistry();
 
@@ -176,13 +174,13 @@ public class JbpmServiceTest {
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry);
+		InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
 		initJpa.initClassMapping();
 		initJpa.initCommandProducer();
 		initJpa.initProvider();
 		initJpa.initEntityManagerProvider(emProvider);
 
-		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
+		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
@@ -249,6 +247,7 @@ public class JbpmServiceTest {
 			SearchResult  result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 100,CaseProcess.class.getName());
 			assertEquals(1, result.getNumberOfRows());
 
+			@SuppressWarnings("unused")
 			CaseProcess c1_ = (CaseProcess) result.getSearchResult().get(0);
 //			assertEquals(1, c1_.getProductGroupHistory().size());
 			

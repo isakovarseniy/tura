@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -227,7 +227,11 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			return;
 		}		
 
-		Reflection.callTyped(o, "setObjId", Long.class,getSequence());
+		Object pk = Reflection.callTyped(o, "getObjId");
+		if (pk == null ) {
+			Reflection.callTyped(o, "setObjId", Long.class,getSequence());
+		}
+
 		
 		}catch(Exception e){
 			throw new RuntimeException(e);

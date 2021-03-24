@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,7 @@
 
 package org.apache.felix.gogo.jline.command;
 
+import com.github.dockerjava.api.exception.NotModifiedException;
 import com.github.dockerjava.api.model.Container;
 
 import picocli.CommandLine.Command;
@@ -39,7 +40,11 @@ public class DockerStopContainer extends DockerCommand {
         if (name != null) {
             Container cn = findContainer(name);
             if (cn  != null && !cn.getStatus().contains("Exited")) {
+            	try {
                 dockerClient.stopContainerCmd(cn.getId()).exec();
+            	}catch(NotModifiedException e) {
+            		// ignoring exception container already stopped 
+            	}
                 return null;
             }
             return null;

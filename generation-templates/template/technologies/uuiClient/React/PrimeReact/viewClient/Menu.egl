@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,13 +24,15 @@ operation form::Menu createTag(hash) {
        menuType = "TMenutab";
      }
 
+     var ref = getReactRef(self);
+
     populateInclude(hash,"{"+menuType+"}",  clientLibraryPackage+"/component/"+menuType);
      
      
 
 
 %]
-       <[%=menuType%] id="[%=self.uid%]" contextManager={this.contextManager}/>
+       <[%=menuType%] id="[%=self.uid%]"  [%=ref%]  contextManager={this.contextManager}/>
 [%
 }
 

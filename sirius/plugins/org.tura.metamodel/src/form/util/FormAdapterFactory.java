@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -342,6 +342,14 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataScroller(DataScroller object) {
 				return createDataScrollerAdapter();
+			}
+			@Override
+			public Adapter caseTimeLine(TimeLine object) {
+				return createTimeLineAdapter();
+			}
+			@Override
+			public Adapter caseFullCalendar(FullCalendar object) {
+				return createFullCalendarAdapter();
 			}
 			@Override
 			public Adapter casePoll(Poll object) {
@@ -1414,6 +1422,34 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataScrollerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.TimeLine <em>Time Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.TimeLine
+	 * @generated
+	 */
+	public Adapter createTimeLineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.FullCalendar <em>Full Calendar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.FullCalendar
+	 * @generated
+	 */
+	public Adapter createFullCalendarAdapter() {
 		return null;
 	}
 

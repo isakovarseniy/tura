@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -135,6 +135,14 @@ public class LayerHolderConfiguration implements ContainerConfigurator {
         c2.getSubModelOperations().add(c3);
         c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
         
+
+        c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::TimeLine)");
+        c1.getCases().add(c2);
+
+        c3 = ToolHelper.createInstance("form.LayerHolder", "instance", "children");
+        c2.getSubModelOperations().add(c3);
+        c3.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
+        
         
         c2 = ToolHelper.createCase("aql:self.oclIsKindOf(form::Column)");
         c1.getCases().add(c2);
@@ -176,6 +184,16 @@ public class LayerHolderConfiguration implements ContainerConfigurator {
         tool.getContainerMappings().add(mapper);
         
         
+        wrapper = (ObjectWrapper) tRoot.context.get("LayerHolderinTimeLine" + tContainer.class.getName());
+
+        mapper = (ContainerMapping) wrapper.getWrapedObject();
+        if (mapper == null) {
+            throw new RuntimeException("Tool mapping is null");
+        }
+        tool.getContainerMappings().add(mapper);
+        
+        
+        
         return tool;
     }
 
@@ -210,6 +228,10 @@ public class LayerHolderConfiguration implements ContainerConfigurator {
         w = (ObjectWrapper) tRoot.context.get("LayerHolderinDataScroller" + tContainer.class.getName());
         ContainerMapping scrollerContainer = (ContainerMapping) w.getWrapedObject();
 
+
+        w = (ObjectWrapper) tRoot.context.get("LayerHolderinTimeLine" + tContainer.class.getName());
+        ContainerMapping timeLineContainer = (ContainerMapping) w.getWrapedObject();
+        
         
         ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
 
@@ -221,6 +243,7 @@ public class LayerHolderConfiguration implements ContainerConfigurator {
         tableContainer.getDropDescriptions().add(tool);
         treeContainer.getDropDescriptions().add(tool);
         scrollerContainer.getDropDescriptions().add(tool);
+        timeLineContainer.getDropDescriptions().add(tool);
         tool.getMappings().add(mapper);
 
         return tool;

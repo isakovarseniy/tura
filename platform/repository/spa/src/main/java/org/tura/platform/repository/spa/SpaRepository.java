@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ package org.tura.platform.repository.spa;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -34,45 +33,18 @@ import org.tura.platform.repository.core.SearchResult;
 
 public class SpaRepository implements Repository {
 
-	public transient static final ThreadLocal<AtomicReference<SpaRepositoryData>> SPA_REPOSITORY_DATA_THREAD_LOCAL = ThreadLocal
-			.withInitial(AtomicReference::new);
-
-
 	private static final long serialVersionUID = 1615677329324930020L;
 	private String registryName;
 	private SpaObjectRegistry spaRegistry;
 	private Registry registry;
-
-	private Map<String, Map<Object, SpaControl>> getCache() {
-		SpaRepositoryData data = getTheadData();
-		return data.getCache();
-
-	}
-
-	private List<SpaControl> getNomergeRules() {
-		SpaRepositoryData data = getTheadData();
-		return data.getNomergeRules();
-	}
-
-	private int getSequence() {
-		SpaRepositoryData data = getTheadData();
-		int i = data.getSequence();
-		data.setSequence(i + 1);
-		return i;
-	}
+	private RequestDataProducer requestDataProducer;
 
 
-	private SpaRepositoryData getTheadData() {
-		if (SPA_REPOSITORY_DATA_THREAD_LOCAL.get().get() == null) {
-			SPA_REPOSITORY_DATA_THREAD_LOCAL.get().set(new SpaRepositoryData());
-		}
-		return SPA_REPOSITORY_DATA_THREAD_LOCAL.get().get();
-	}
-
-	public void setRegistry(SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+	public void setRegistry(SpaObjectRegistry spaRegistry, String registryName, Registry registry,RequestDataProducer requestDataProducer) {
 		this.registryName = registryName;
 		this.spaRegistry = spaRegistry;
 		this.registry = registry;
+		this.requestDataProducer = requestDataProducer;
 	}
 
 	public String getRegistryName() {
@@ -80,7 +52,7 @@ public class SpaRepository implements Repository {
 	}
 
 	public Map<Object, SpaControl> getCache(String objectName) {
-		return getCache().get(objectName);
+		return requestDataProducer.getCache().get(objectName);
 	}
 
 	@Override
@@ -148,17 +120,17 @@ public class SpaRepository implements Repository {
 			return;
 		}
 		for (SpaControl control : list) {
-			control.setSequence(getSequence());
+			control.setSequence(requestDataProducer.getSequence());
 
 			if (control.getLevel().getRule() == null) {
-				getNomergeRules().add(control);
+				requestDataProducer.getNomergeRules().add(control);
 				return;
 			}
 
-			Map<Object, SpaControl> listOfObjectsPerType = (Map<Object, SpaControl>) getCache().get(control.getType());
+			Map<Object, SpaControl> listOfObjectsPerType = (Map<Object, SpaControl>) requestDataProducer.getCache().get(control.getType());
 			if (listOfObjectsPerType == null) {
 				listOfObjectsPerType = new HashMap<>();
-				getCache().put(control.getType(), listOfObjectsPerType);
+				requestDataProducer.getCache().put(control.getType(), listOfObjectsPerType);
 			}
 			SpaControl preparedObject = (SpaControl) listOfObjectsPerType.get(control.getKey());
 			if (preparedObject == null) {
@@ -190,7 +162,7 @@ public class SpaRepository implements Repository {
 		}
 		if (provider instanceof AbstaractSearchService) {
 			((AbstaractSearchService) provider).setMapper(findMapper(className));
-			((AbstaractSearchService) provider).setCache(getCache().get(className));
+			((AbstaractSearchService) provider).setCache(requestDataProducer.getCache().get(className));
 		}
 		return provider;
 

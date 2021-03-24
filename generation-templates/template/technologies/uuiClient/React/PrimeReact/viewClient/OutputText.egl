@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,11 +17,16 @@
 operation form::OutputText createTag(hash) {
      var clientLibraryPackage = hash.get('clientLibraryPackage');
 
+
+    var dependId = getDependentId(hash);
+    self.addToChildren(hash);
      populateInclude(hash,"{TOutputText}",  clientLibraryPackage+"/component/TOutputText");
+     
+     var ref = getReactRef(self);
      
 
 %]
-       <TOutputText id="[%=self.uid%]" contextManager={this.contextManager}/>
+       <TOutputText id="[%=self.uid%]" [%=ref%] contextManager={this.contextManager}  [%=dependId%]/>
             
 [%
 }

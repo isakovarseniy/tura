@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,12 +18,18 @@ export class Transformation{
 
    stylePreProcessor( obj ){
        let style = obj.style;
+       let className = obj.className;
        if ( typeof obj.id !== "undefined"){
            let customizer = registry.getElementCustomizer(obj.id);
            if ( typeof customizer !== "undefined" && customizer !== null){
                if (typeof customizer.style !== "undefined" && customizer.style !== null){
                    style = customizer.style;
                }
+               if (typeof customizer.className !== "undefined" && customizer.className !== null){
+                   className = customizer.className;
+               }
+
+
            }
        }
 
@@ -35,6 +41,7 @@ export class Transformation{
            }
        }
        obj.style = style;
+       obj.className = className;
        return obj;
 
    }
@@ -86,7 +93,8 @@ export class Transformation{
 
         for (var i = 0; i < attributes.length; i++) {
             var entry = attributes[i].split(':');
-            result[entry.splice(0,1)[0]] = entry.join(':');
+            var key = entry.splice(0,1)[0];
+            result[key.trim()] = entry.join(':');
         }
         return result;
     }

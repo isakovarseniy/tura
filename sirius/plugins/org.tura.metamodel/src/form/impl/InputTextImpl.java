@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link form.impl.InputTextImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link form.impl.InputTextImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link form.impl.InputTextImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.impl.InputTextImpl#getMask <em>Mask</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +102,26 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMask() <em>Mask</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMask()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MASK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMask() <em>Mask</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMask()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mask = MASK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +210,27 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMask() {
+		return mask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMask(String newMask) {
+		String oldMask = mask;
+		mask = newMask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.INPUT_TEXT__MASK, oldMask, mask));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -198,6 +240,8 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 				return getRows();
 			case FormPackage.INPUT_TEXT__COLUMNS:
 				return getColumns();
+			case FormPackage.INPUT_TEXT__MASK:
+				return getMask();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +262,9 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 				return;
 			case FormPackage.INPUT_TEXT__COLUMNS:
 				setColumns((Integer)newValue);
+				return;
+			case FormPackage.INPUT_TEXT__MASK:
+				setMask((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,6 +287,9 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 			case FormPackage.INPUT_TEXT__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
+			case FormPackage.INPUT_TEXT__MASK:
+				setMask(MASK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -258,6 +308,8 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 				return rows != ROWS_EDEFAULT;
 			case FormPackage.INPUT_TEXT__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
+			case FormPackage.INPUT_TEXT__MASK:
+				return MASK_EDEFAULT == null ? mask != null : !MASK_EDEFAULT.equals(mask);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -310,6 +362,8 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 		result.append(rows);
 		result.append(", columns: ");
 		result.append(columns);
+		result.append(", mask: ");
+		result.append(mask);
 		result.append(')');
 		return result.toString();
 	}

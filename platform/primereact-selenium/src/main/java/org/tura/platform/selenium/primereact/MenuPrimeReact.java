@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public class MenuPrimeReact implements Menu{
 	
 	@Override
 	public void clickOnItem(String itemName) {
-		List<WebElement> list = element.findElements(By.xpath("./ul/li/a/span"));
+		List<WebElement> list = element.findElements(By.xpath("./ul/li"));
 		for ( WebElement el : list) {
 			if (itemName.equals(el.getText() )){
 				el.click();

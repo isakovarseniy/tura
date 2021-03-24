@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,6 +30,10 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	private static java.util.List <String> array;
 	private String profile;
 	
+	
+	public ProxyRepository() {
+
+	}	
 	
 	public ProxyRepository(org.tura.platform.repository.core.Repository transport,org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
 	   this.transport = transport;
@@ -59,6 +63,9 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 
 	@Override
 	public Object create(String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+	    if (org.tura.platform.repository.data.ObjectHolder.class.getName().equals(objectClass)){
+	        	return new org.tura.platform.repository.data.ObjectHolderProxy(new org.tura.platform.repository.data.ObjectHolder(), stackProvider);
+	    }
         return factory( transport.create(objectClass),objectClass);
 	}
 
@@ -114,6 +121,12 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
     public org.tura.platform.repository.core.SearchResult  find(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria,
         java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
         Integer endIndex, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+    	
+    	
+	    if (org.tura.platform.repository.data.ObjectHolder.class.getName().equals(objectClass)) {
+	        return new org.tura.platform.repository.core.SearchResult(new java.util.ArrayList<Object>(),0);
+	      }
+    	
     	
     	java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> search = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> ();
     	search.addAll(searchCriteria);

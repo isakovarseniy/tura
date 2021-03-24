@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,13 +151,9 @@ public class Registry implements Serializable {
 
 	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException {
 		String repositoryName = findProviderName(repositoryClass);
-		Class<? extends CommandProducer> commandProducerClass = commandProducers.get(repositoryName);
-		if (commandProducerClass == null) {
-			throw new RepositoryException("Unsupporable command producer for " + repositoryClass);
-		}
 
-		Instantiator inst = findInstantiator(commandProducerClass);
-		CommandProducer commandProducer = inst.newInstance(commandProducerClass);
+		Instantiator inst = findInstantiator(repositoryName+".CommandProducer");
+		CommandProducer commandProducer = inst.newInstance(repositoryName+".CommandProducer");
 		return commandProducer;
 	}
 

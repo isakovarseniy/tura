@@ -13,3 +13,20 @@ tura:dsl jbossDoDeploy --container $v\
                                       --jboss_home /opt/jboss/wildfly\
                                       --targetName test-objects-restservice-repository-${tura_version}.war\
                                       --srcResource $mr2/org/tura/platform/test/generated-code/test-objects-restservice-repository/${tura_version}/test-objects-restservice-repository-${tura_version}.war
+
+                                      
+                                      
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName emulator-control-rest-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/platform/test/emulator-control-rest-service/${tura_version}/emulator-control-rest-service-${tura_version}.war
+                                      
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName  emulator-user-rest-service-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/platform/test/emulator-user-rest-service/${tura_version}/emulator-user-rest-service-${tura_version}.war
+                                      
+                                      
+                                     

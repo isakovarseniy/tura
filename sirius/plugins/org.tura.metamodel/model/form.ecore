@@ -223,6 +223,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rows" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Password" eSuperTypes="#//InputElement #//Formatable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Uielement #//MultiLangLabel">
@@ -312,6 +313,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="colNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeLine" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layout" eType="#//TimeLineLayout"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="align" eType="#//TimeLineAlign"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TimeLineLayout">
+    <eLiterals name="horizontal"/>
+    <eLiterals name="vertical" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TimeLineAlign">
+    <eLiterals name="right"/>
+    <eLiterals name="left" value="1"/>
+    <eLiterals name="alternate" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FullCalendar" eSuperTypes="#//SourcesPointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Poll" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataTemplate" eSuperTypes="#//InputElement"/>

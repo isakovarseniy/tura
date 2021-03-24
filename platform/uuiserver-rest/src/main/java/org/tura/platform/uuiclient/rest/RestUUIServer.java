@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.uuiclient.cdi.Scope;
 import org.tura.platform.uuiclient.cdi.ScopeStorage;
 import org.tura.platform.uuiclient.cdi.StorageNotFountException;
@@ -104,7 +105,7 @@ public class RestUUIServer {
 					byte[] bytes = toByteArray(inputStream);
 					json += new String(bytes);
 				}
-				ObjectMapper mapper = new ObjectMapper();
+				ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 				mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 				DataUpdateRequest request = mapper.readValue(json, DataUpdateRequest.class);
 				return executeRequesr(request, files);
@@ -198,7 +199,7 @@ public class RestUUIServer {
 	private MultivaluedMap<String, String> prepareResponse(DataUpdateResponse object) throws JsonProcessingException {
 		MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
 
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 		formData.add("response", encode(mapper.writeValueAsString(object)));
 		return formData;
@@ -209,5 +210,6 @@ public class RestUUIServer {
 	private String encode( String message) {
 		return message.replaceAll(" ", "(_)");
 	}
+	
 	
 }

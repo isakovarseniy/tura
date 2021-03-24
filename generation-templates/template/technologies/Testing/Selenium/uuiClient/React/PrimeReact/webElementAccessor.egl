@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -453,7 +453,7 @@ operation  form::TabPage accessor(id,methodName,model_mapper)  {
      var list = TabPagesInheritance->allInstances()->select(r|r.target.uid = self.uid)->collect(q|q.source);
      var tabCanvasUid = list.get(0).uid;
      
-     var s = 'org.openqa.selenium.By.cssSelector("a[href$=\'#'+tabCanvasUid+"_content_"+self.tabSequence+'\']")';     
+     var s = 'org.openqa.selenium.By.cssSelector("a[id$=\''+tabCanvasUid+"_header_"+self.tabSequence+'\']")';     
 
    %]
      public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
@@ -625,6 +625,13 @@ operation  form::OverlayCanvas accessor(id,methodName,model_mapper) {
 }
 
 
+@template
+operation  form::FullCalendar accessor(id,methodName,model_mapper) {
+}
+
+@template
+operation  form::TimeLine accessor(id,methodName,model_mapper) {
+}
 
 
 %]

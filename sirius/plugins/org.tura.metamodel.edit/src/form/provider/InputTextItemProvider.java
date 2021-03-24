@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -62,6 +62,7 @@ public class InputTextItemProvider extends InputElementItemProvider {
 			addFormatPropertyDescriptor(object);
 			addRowsPropertyDescriptor(object);
 			addColumnsPropertyDescriptor(object);
+			addMaskPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,28 @@ public class InputTextItemProvider extends InputElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Mask feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaskPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputText_mask_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputText_mask_feature", "_UI_InputText_type"),
+				 FormPackage.Literals.INPUT_TEXT__MASK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns InputText.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,6 +196,7 @@ public class InputTextItemProvider extends InputElementItemProvider {
 			case FormPackage.INPUT_TEXT__FORMAT:
 			case FormPackage.INPUT_TEXT__ROWS:
 			case FormPackage.INPUT_TEXT__COLUMNS:
+			case FormPackage.INPUT_TEXT__MASK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

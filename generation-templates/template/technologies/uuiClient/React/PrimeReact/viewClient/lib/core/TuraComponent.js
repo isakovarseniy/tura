@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -191,5 +191,10 @@ export class TuraComponent extends  React.Component {
         }
 
     }
+
+    getComponentCildren(){
+        return React.Children.toArray(this.props.children);
+    }
+
 
 }

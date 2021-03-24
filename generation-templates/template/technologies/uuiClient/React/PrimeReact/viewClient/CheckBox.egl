@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -35,11 +35,13 @@ operation form::CheckBox createTag(hash) {
 
     var dependId = getDependentId(hash);
     self.addToChildren(hash);
+     var ref = getReactRef(self);
+    
     populateInclude(hash,"{TCheckBox}",  clientLibraryPackage+"/component/TCheckBox");
     
 
 %]
-       <TCheckBox id="[%=self.uid%]" [%=label%] [%=message%] contextManager={this.contextManager}   [%=dependId%]/>
+       <TCheckBox id="[%=self.uid%]" [%=label%] [%=message%] [%=ref%] contextManager={this.contextManager}   [%=dependId%]/>
             
 [%
 }

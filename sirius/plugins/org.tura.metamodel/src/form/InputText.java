@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -28,6 +28,7 @@ package form;
  * <ul>
  *   <li>{@link form.InputText#getRows <em>Rows</em>}</li>
  *   <li>{@link form.InputText#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.InputText#getMask <em>Mask</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getInputText()
@@ -86,5 +87,31 @@ public interface InputText extends InputElement, Formatable {
 	 * @generated
 	 */
 	void setColumns(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Mask</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mask</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mask</em>' attribute.
+	 * @see #setMask(String)
+	 * @see form.FormPackage#getInputText_Mask()
+	 * @model
+	 * @generated
+	 */
+	String getMask();
+
+	/**
+	 * Sets the value of the '{@link form.InputText#getMask <em>Mask</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mask</em>' attribute.
+	 * @see #getMask()
+	 * @generated
+	 */
+	void setMask(String value);
 
 } // InputText

@@ -3,7 +3,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -47,6 +47,10 @@
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
+
+    <system-properties>
+       <property name="basePath"  value="/opt/jboss"/>	
+    </system-properties>
 
 
     <management>

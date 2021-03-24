@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,6 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger;
 import org.tura.platform.repository.spa.SkipQueryTrigger;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
@@ -56,7 +55,6 @@ public class TriggersValidationTest {
 	
 	@Test
 	public void triggersTest() {
-		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
 		registry = new Registry();
 		spaRegistry = new SpaObjectRegistry();
 		
@@ -64,12 +62,12 @@ public class TriggersValidationTest {
 			registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 			commandStack = new ArrayList<>();
 
-			InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry);
+			InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
 			initJpa.initClassMapping();
 			initJpa.initCommandProducer();
 			initJpa.initProvider();
 
-			InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
+			InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
 			initSpa.initClassMapping();
 			initSpa.initCommandProducer();
 			initSpa.initProvider();

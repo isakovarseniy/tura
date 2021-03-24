@@ -118,7 +118,8 @@ hrUrlList = {
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/simpleView'
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testFormWindow'
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testForm1Window'
-    
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/fullCalendar'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/timeLine'
 }
 addClosure "hrUrlList";
 

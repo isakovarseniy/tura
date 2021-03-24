@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.cdi.Repo;
@@ -54,8 +55,9 @@ public class RestRepository {
 	@Path("create/{id}")
 	public Response create(@PathParam("id") String objectClass) {
 		try {
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 			Object obj = repository.create(objectClass);
-			return Response.status(Response.Status.OK).entity(obj).build();
+			return Response.status(Response.Status.OK).entity(mapper.writeValueAsString(obj)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
@@ -76,7 +78,7 @@ public class RestRepository {
 			
 			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());
 
-			ObjectMapper mapper = new ObjectMapper();
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
 			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
 			formData.add("size",  Long.valueOf (result.getNumberOfRows()).toString());
@@ -110,7 +112,7 @@ public class RestRepository {
 	@Path("applyChanges")
 	public Response applyChanges(MultivaluedMap<String,String> map) {
 		try {
-			ObjectMapper mapper = new ObjectMapper();
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 			mapper.enableDefaultTyping();
 		    ArrayList<Object> list = new ArrayList<>();
 		    
@@ -141,4 +143,8 @@ public class RestRepository {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
 	}
+	
+
+	
+	
 }

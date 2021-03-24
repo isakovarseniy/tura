@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,8 +26,15 @@ operation form::LayerHolder createTag(hash) {
      if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
         layout="TLayerHolderResponsive";
      }
+     if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
+        var generateComponents = hash.get("generateComponents");
+        generateComponents.add(self);
+        %]
+          <TLayerHolder_[%=self.mkuid()%] id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]/>
+        [%
+        return;
+     }
      populateInclude(hash,"{"+layout+"}",  clientLibraryPackage+"/component/"+layout);
-      
      
 
 %]
@@ -44,5 +51,79 @@ operation form::LayerHolder createTag(hash) {
             
 [%
 }
+
+@template
+operation  form::LayerHolder createComponent(hash) {
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+  var clientLibraryPackage = hash.get('clientLibraryPackage');
+   
+   populateInclude(hash,"{TLayerHolder}",  clientLibraryPackage+"/component/TLayerHolder");
+   populateInclude(hash,"{registry}",  clientLibraryPackage+"/plugin/Registry");
+  
+  %]
+  
+  export class TLayerHolder_[%=self.mkuid()%] extends TLayerHolder {
+        constructor(props) {
+         super(props);
+         }
+         
+         getComponentCildren(){
+               var array = [];
+ [%
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                  array.push(this.[%=element.mkuid()%]);
+[%
+                }  
+%]
+             return array;
+         }
+         
+         
+         
+    render() {
+        if ( !this.state.rendered ) {
+            return (
+                <></>
+            );
+        }
+           var lines = [];
+ [%
+                for (element in self.children.sortBy(q|q.order)){
+                   element.~ref = true;
+%]                
+             var [%=element.mkuid()%] =  [%=element.createTag(hash)%];
+             lines["[%=element.mkuid()%]"] =  [%=element.mkuid()%];
+[%
+                }  
+%]
+       let externalLayoutManager = registry.getComponentLayoutManager(this.id);
+        if ( externalLayoutManager !== null && typeof externalLayoutManager !== "undefined" ){
+            return externalLayoutManager.getLayout(lines, this.contextManager, this.state,this);
+        }
+       
+
+        return (
+             <table>
+        
+[%
+                for (element in self.children.sortBy(q|q.order)){
+%]
+                  <tr>
+                   {[%=element.mkuid()%]}
+                   </tr>
+[%
+                }  
+%]
+            </table>
+
+         );         
+      }
+     }
+  
+  [%
+}
+
 
 %]

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -97,7 +97,7 @@ public class ApplicationLayerDS extends DataSource {
 		Session session = SessionManager.INSTANCE.getSession(this.property.getModel());
 		EditingDomain editingDomain = session.getTransactionalEditingDomain();
 
-		for ( int k = rowList.size()-1,  j = 0 ; k > 0; k-- ,j++){
+		for ( int k = rowList.size()-1,  j = 0 ; k >= 0; k-- ,j++){
 			editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, rowList.get(j),
 					MapperPackage.eINSTANCE.getMappingLayer_Order(), k));
 		}

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,7 +26,7 @@ public class ConfigConstants {
 	public static String MAVEN_HOME = RESOURCE_HOME+"/apache-maven";
 	
 	public static String TURA_HOME = System.getProperty(KEY_TURA_HOME);
-	public static String TURA_CONFIG_REPOSITORY=TURA_HOME+"/processor/etc";
+	public static String TURA_CONFIG_REPOSITORY=getTuraRepository();
 	
 	
 	public static String CHROMEDRIVERVERSION="chromedriverversion";
@@ -37,8 +37,23 @@ public class ConfigConstants {
 	
 	public static String MAVEN_REPO_LINK = "mvnRepoLink";
 	
+	public static String TEMPLATES_ROOT_LINK = "templateLink";
 	
 	
+	public static String getTuraRepository() {
+		
+		String repo_home = System.getProperty("REPO_HOME");
+		if ( repo_home == null) {
+			return TURA_HOME+"/processor/etc";
+		}else {
+			return repo_home;
+		}
+		
+		
+	}
+	
+	public static String roots;
+
 	
 	
 }

@@ -266,6 +266,7 @@ class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
 class InputText extends InputElement ,Formatable{
     attr EInt rows;
     attr EInt columns;
+    attr EString mask;
 }
 
 class Password extends InputElement ,Formatable{
@@ -406,6 +407,31 @@ class DataScroller  extends SourcesPointer, ChildrenHolder, MultiLangLabel, comm
    attr EInt rowNumber;
    attr EInt colNumber;
 }
+
+
+class TimeLine  extends SourcesPointer, ChildrenHolder, MultiLangLabel, common.HTMLLayerHolder {
+   attr TimeLineLayout layout;
+   attr TimeLineAlign align;
+}
+
+enum TimeLineLayout{
+	horizontal;
+	vertical;
+}
+
+
+enum TimeLineAlign{
+	right;
+	left;
+	alternate;
+} 
+
+
+
+class FullCalendar  extends SourcesPointer {
+    attr EString viewType;
+}
+
 
 
 class Poll extends Uielement{

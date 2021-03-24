@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -57,6 +57,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     public  [%=tp.~class%]Proxy([%=tp.~fullName%] object, org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
         this.object = object;
         this.stackProvider = stackProvider;
+        this.object.setSerializationid(java.util.UUID.randomUUID().toString());
     }
     
     public void addListener( org.tura.platform.repository.proxy.ProxyObjectUpdateListener listener){

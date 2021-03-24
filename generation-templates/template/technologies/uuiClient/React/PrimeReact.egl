@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -43,6 +43,7 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Table.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataScroller.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Tree.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/TimeLine.egl";
 
 
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Label.egl";
@@ -53,6 +54,8 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/FileDownload.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Poll.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/WindowRef.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/FullCalendar.egl";
+
 
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataTemplate.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataTemplate_CommandLink.egl";
@@ -113,6 +116,8 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Tree.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/WindowRef.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/DataTemplate.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/FullCalendar.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/TimeLine.egl";
 
 
 %]

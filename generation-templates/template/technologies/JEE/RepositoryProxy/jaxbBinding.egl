@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -46,6 +46,12 @@
 		</jxb:bindings>        
 	</jxb:bindings>          
 
+
+	<jxb:bindings  schemaLocation="../xsd/extension.xsd" >
+		<jxb:bindings  node="//xs:simpleType[@name='instant-type']">
+			<jxb:javaType name="java.time.Instant" parseMethod="org.acme.foo.InstantConverter.parse" printMethod="org.acme.foo.InstantConverter.print"/>
+		</jxb:bindings>        
+	</jxb:bindings>          
         
                              
 </jxb:bindings>

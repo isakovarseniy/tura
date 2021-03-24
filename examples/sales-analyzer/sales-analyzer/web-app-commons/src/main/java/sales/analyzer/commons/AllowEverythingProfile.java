@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ import java.lang.reflect.Method;
 import org.tura.platform.repository.core.ObjectGraphProfile;
 
 public class AllowEverythingProfile  extends ObjectGraphProfile {
+
+	private static final long serialVersionUID = -3784020231716931078L;
 
 	public boolean skipRelation(Object repositoryObject, Method method) {
 		return false;

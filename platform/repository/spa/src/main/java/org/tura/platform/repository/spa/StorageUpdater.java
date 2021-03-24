@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,51 +53,22 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 	public static String KEY_PROXY_REPOSITORY = "proxy-repository";
 	private SpaObjectRegistry spaRegistry;
 	private Registry registry;
+	private RequestDataProducer requestDataProducer;
 
-	private List<Object> getCommandStack() {
-		SpaRepositoryData data = getTheadData();
-		return data.getCommandStack();
-	}
 
-	private Map<String, Map<Object, SpaControl>> getCache() {
-		SpaRepositoryData data = getTheadData();
-		return data.getCache();
-	}
-
-	private List<SpaControl> getNomergeRules() {
-		SpaRepositoryData data = getTheadData();
-		return data.getNomergeRules();
-	}
-
-	public void setRegistry(SpaObjectRegistry spaRegistry, Registry registry) {
+	public void setRegistry(SpaObjectRegistry spaRegistry, Registry registry,RequestDataProducer requestDataProducer) {
 		this.spaRegistry = spaRegistry;
 		this.registry = registry;
+		this.requestDataProducer = requestDataProducer;
 	}
 
-	private SpaRepositoryData getTheadData() {
-		if (SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get().get() == null) {
-			SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get().set(new SpaRepositoryData());
-		}
-		return SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get().get();
-	}
-
-	private void setSequence(int i) {
-		SpaRepositoryData data = getTheadData();
-		data.setSequence(i);
-	}
-
-	private Map<String, Map<Object, Object>> getKeyMapper() {
-		SpaRepositoryData data = getTheadData();
-		return data.getKeyMaper();
-
-	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List process() throws Exception {
 		persistCachedObjects();
 		cleanupCache();
-		return getCommandStack();
+		return requestDataProducer.getCommandStack();
 	}
 
 	private void persistCachedObjects() throws Exception {
@@ -238,25 +209,25 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 		if (provider == null) {
 			throw new RepositoryException("Cannot find CRUDProvider for class " + clazz);
 		}
-		provider.setKeyMapper(getKeyMapper());
+		provider.setKeyMapper(requestDataProducer.getKeyMapper());
 
 		return provider;
 	}
 
 	private void cleanupCache() {
-		getCache().clear();
-		getNomergeRules().clear();
-		setSequence(0);
+		requestDataProducer.getCache().clear();
+		requestDataProducer.getNomergeRules().clear();
+		requestDataProducer.setSequence(0);
 	}
 
 	private List<SpaControl> getListOfPreparedObjects() {
 		ArrayList<SpaControl> list = new ArrayList<>();
 
-		for (String h : getCache().keySet()) {
-			Map<Object, SpaControl> typedList = getCache().get(h);
+		for (String h : requestDataProducer.getCache().keySet()) {
+			Map<Object, SpaControl> typedList = requestDataProducer.getCache().get(h);
 			list.addAll(typedList.values());
 		}
-		list.addAll(getNomergeRules());
+		list.addAll(requestDataProducer.getNomergeRules());
 
 		Collections.sort(list, new Comparator<SpaControl>() {
 
@@ -278,18 +249,18 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 
 		@Override
 		public void addCommand(Object cmd) throws Exception {
-			getCommandStack().add(cmd);
+			requestDataProducer.getCommandStack().add(cmd);
 
 		}
 
 		@Override
 		public List<Object> getListOfCommand() throws Exception {
-			return getCommandStack();
+			return requestDataProducer.getCommandStack();
 		}
 
 		@Override
 		public void clear() throws Exception {
-			getCommandStack().clear();
+			requestDataProducer.getCommandStack().clear();
 
 		}
 

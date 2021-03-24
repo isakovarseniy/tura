@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.TreePath;
 import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
@@ -177,7 +178,7 @@ private TreeNode root;
 	}
 	
 	public String stringify(List<TreePath> path) throws Exception {
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 		return mapper.writeValueAsString(path);
 	}
 
@@ -201,7 +202,7 @@ private TreeNode root;
 	@SuppressWarnings("unchecked")
 	public List<TreePath> findPath(EventDescription event) throws Exception {
 		Map<String, Object> map = (Map<String, Object>) event.findParameter("node").getValue();
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
 		String json = (String) map.get("key");
 
@@ -212,7 +213,7 @@ private TreeNode root;
 
 
 	public List<TreePath> findPath(String key) throws Exception {
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
 		List<TreePath> path = mapper.readValue(key, new TypeReference<ArrayList<TreePath>>() {});
 		return path;

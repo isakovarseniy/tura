@@ -1,0 +1,167 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::TimeLine createTag(hash) {
+     var generateComponents = hash.get("generateComponents");
+     generateComponents.add(self);
+     
+     
+     var ref = getReactRef(self);
+     
+     
+%]
+     <TimeLine[%=self.mkuid()%]  id="[%=self.uid%]"  [%=ref%] contextManager={this.contextManager}/>
+[%
+
+}
+
+@template
+operation  form::TimeLine createComponent(hash) {
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+  var clientLibraryPackage = hash.get('clientLibraryPackage');
+  
+   populateInclude(hash,"{Timeline}",  "primereact/timeline");
+   populateInclude(hash,"{TuraComponent}",  clientLibraryPackage+"/core/TuraComponent");
+  
+  %]
+ export class TimeLine[%=self.mkuid()%] extends TuraComponent {
+  [%
+  
+  var opposite = false;
+  var marker = false;
+  var content = false;
+
+  var childrenCollection = new Native("java.util.ArrayList");
+
+  hash.put("childrenCollection", childrenCollection); 
+  hash.put("context", 'timeLine'); 
+  hash.put("key","key = {row.index}");
+  hash.put("dependId","dependId={row.index}");
+
+  for ( element in self.children){
+         var methodName = "content";
+         if (element.findClassifier(util.getHint(model_mapper,"react.timeline.opposite"))) {
+             if (opposite) continue;
+             methodName = "opposite";
+             opposite = true;
+         }
+         if (element.findClassifier(util.getHint(model_mapper,"react.timeline.marker"))) {
+             if (marker) continue;
+             methodName = "marker";
+             marker = true;
+         }
+         if (not element.findClassifier(util.getHint(model_mapper,"react.timeline.opposite")) and  
+              not element.findClassifier(util.getHint(model_mapper,"react.timeline.marker"))
+            ) {
+             if (content) continue;
+             methodName = "content";
+             content = true;
+         }
+                    
+         %]
+         [%=methodName%](row) {
+             [%if  (  methodName =  "content")  {%] 
+             this.populateData(row);
+              [%}%]
+             return(
+                 [%=element.createTag(hash)%]
+                 );
+         }
+         [%
+         
+         
+  }   
+  %]
+  
+  
+      constructor(props) {
+         super(props);
+         [% if(opposite) {%]
+         this.opposite=this.opposite.bind(this);
+         [%}%]
+         [% if(content) {%]
+         this.content=this.content.bind(this);
+         [%}%]
+         [% if(marker) {%]
+         this.marker=this.marker.bind(this);
+         [%}%]
+     }
+  
+  
+    populateData(row ){
+       let  state = null;
+    [% 
+		  childrenCollection  =   hash.get("childrenCollection"); 
+		  for (element in  childrenCollection){
+		  %]
+       state = this.contextManager.getState("[%=element.uid%]",null);
+       state.value = row.[%=element.valuePointer.name%];
+       this.contextManager.addDependentState("[%=element.uid%]",row.index,state);
+		  
+		  [%
+		  }
+    %]
+    }
+    
+    render() {
+        if ( !this.state.rendered ) {
+            return (
+                <></>
+            );
+        }
+        return (
+         [% 
+         var oppositeAttr="";
+         var contentAttr = "";
+         var markerAttr = "";
+         
+         if(opposite) {
+              oppositeAttr = "opposite={this.opposite}";
+         }
+         if(content) {
+              contentAttr = "content={this.content}";
+         }
+         if(marker) {
+              markerAttr = "marker={this.marker}";
+         }
+         
+        %]
+         <Timeline id={this.id}  value={this.state.values} layout="[%=self.layout%]"  align="[%=self.align%]" [%=oppositeAttr%]   [%=contentAttr%]   [%=markerAttr%]/> 
+        
+         )
+      }
+      
+    componentPreProcessSate( obj){
+        return new Transformation().stylePreProcessor(obj);
+    }
+
+    componentPostProcessState( obj){
+        return new Transformation().stylePostProcessor(obj);
+    }
+      
+  
+  }
+  [%
+           hash.remove("context"); 
+           hash.remove("key");
+           hash.remove("dependId");
+           hash.remove("childrenCollection"); 
+
+}
+
+
+%]

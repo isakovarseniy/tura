@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -65,6 +65,7 @@ import form.DeleteTrigger;
 import form.DropDownSelection;
 import form.Form;
 import form.FormParameter;
+import form.FullCalendar;
 import form.InsertTrigger;
 import form.InternalRelation;
 import form.LayerHolder;
@@ -221,6 +222,10 @@ public class DiagramService {
 		return menu.getMenu().getName();
 	}
 
+	public String generateName(FullCalendar fullCalendar) {
+		return "FullCalendar";
+	}
+	
 	public String generateName(DomainArtifact domainArtifact) {
 		return "Domain Artifact" + ((DomainArtifacts) (domainArtifact.eContainer())).getDomainArtifact().size();
 	}

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -134,6 +134,8 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.FILE_UPLOAD: return createFileUpload();
 			case FormPackage.FILE_DOWNLOAD: return createFileDownload();
 			case FormPackage.DATA_SCROLLER: return createDataScroller();
+			case FormPackage.TIME_LINE: return createTimeLine();
+			case FormPackage.FULL_CALENDAR: return createFullCalendar();
 			case FormPackage.POLL: return createPoll();
 			case FormPackage.DATA_TEMPLATE: return createDataTemplate();
 			case FormPackage.WINDOW_REF: return createWindowRef();
@@ -198,6 +200,10 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return createSortableFromString(eDataType, initialValue);
 			case FormPackage.SELECTION_MODE:
 				return createSelectionModeFromString(eDataType, initialValue);
+			case FormPackage.TIME_LINE_LAYOUT:
+				return createTimeLineLayoutFromString(eDataType, initialValue);
+			case FormPackage.TIME_LINE_ALIGN:
+				return createTimeLineAlignFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -225,6 +231,10 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 				return convertSortableToString(eDataType, instanceValue);
 			case FormPackage.SELECTION_MODE:
 				return convertSelectionModeToString(eDataType, instanceValue);
+			case FormPackage.TIME_LINE_LAYOUT:
+				return convertTimeLineLayoutToString(eDataType, instanceValue);
+			case FormPackage.TIME_LINE_ALIGN:
+				return convertTimeLineAlignToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -865,6 +875,26 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TimeLine createTimeLine() {
+		TimeLineImpl timeLine = new TimeLineImpl();
+		return timeLine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FullCalendar createFullCalendar() {
+		FullCalendarImpl fullCalendar = new FullCalendarImpl();
+		return fullCalendar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Poll createPoll() {
 		PollImpl poll = new PollImpl();
 		return poll;
@@ -1367,6 +1397,46 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	 * @generated
 	 */
 	public String convertSelectionModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeLineLayout createTimeLineLayoutFromString(EDataType eDataType, String initialValue) {
+		TimeLineLayout result = TimeLineLayout.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeLineLayoutToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeLineAlign createTimeLineAlignFromString(EDataType eDataType, String initialValue) {
+		TimeLineAlign result = TimeLineAlign.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeLineAlignToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

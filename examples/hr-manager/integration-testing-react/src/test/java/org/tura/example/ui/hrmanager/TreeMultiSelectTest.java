@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,6 +114,7 @@ public class TreeMultiSelectTest extends AbstractTest {
 		}.repeat(3);
 
 		tr.rightClick();
+		menu = testForm1WindowPageObject.getFullTreeContextMenu();
 		menu.clickOnItem("Create child");
 
 		new Repeater() {
@@ -130,7 +131,7 @@ public class TreeMultiSelectTest extends AbstractTest {
 			@Override
 			public void action() {
 				Messages messages = testForm1WindowPageObject.getMessages();
-				assertEquals("Data rolled back", messages.getValue(0));
+				assertEquals ("Data rolled back" ,messages.getValue(0));
 			}
 		}.repeat(3);
 

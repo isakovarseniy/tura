@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -32,7 +32,7 @@ export class TWindow extends TuraComponent {
         }
         let externalLayoutManager = registry.getComponentLayoutManager(this.id);
         if ( externalLayoutManager !== null && typeof externalLayoutManager !== "undefined" ){
-            return externalLayoutManager.getLayout(this.props.children, this.contextManager, this.state);
+            return externalLayoutManager.getLayout(this.props.children, this.contextManager, this.state,this);
         }
 
         return (

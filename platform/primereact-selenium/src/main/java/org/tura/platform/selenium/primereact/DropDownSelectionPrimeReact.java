@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,14 +39,14 @@ public class DropDownSelectionPrimeReact implements DropDownSelection {
 	@Override
 	public void click() {
 		WebElement e = element.findElement(By
-				.cssSelector("label"));
+				.cssSelector("span[class*='p-dropdown-label']"));
 		e.click();
 	}
 
 	@Override
 	public String getValue() {
 		WebElement e = element.findElement(By
-				.cssSelector("label"));
+				.cssSelector("span[class*='p-dropdown-label']"));
 		return e.getText();
 
 	}

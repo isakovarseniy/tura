@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ public class CommandStackProvider implements ProxyCommadStackProvider,Serializab
 	@SuppressWarnings("rawtypes")
 	private DataControl  dataControl;
 	
-	private Collection<DataControl<?>> listForCleaning;
+	transient private Collection<DataControl<?>> listForCleaning;
 	
 	@Override
 	public void addCommand(Object cmd) throws Exception {

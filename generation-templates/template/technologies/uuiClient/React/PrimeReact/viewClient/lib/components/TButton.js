@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,8 @@ import React from 'react';
 import {TuraComponent} from "../core/TuraComponent";
 import {Button} from 'primereact/button';
 import {EventExecuter} from "../core/EventExecutor";
+import {registry} from "../plugin/Registry";
+import {Transformation} from "../core/Transformation";
 
 export class TButton extends TuraComponent {
 
@@ -61,12 +63,28 @@ export class TButton extends TuraComponent {
             );
         }
 
+        let externalLayoutManager = registry.getComponentLayoutManager(this.id);
+        if ( externalLayoutManager !== null && typeof externalLayoutManager !== "undefined" ){
+            return externalLayoutManager.getLayout(this.props.children, this.contextManager, this.state, this);
+        }
+
+
         return (
-            <Button id={this.id}  onClick={this.handleClick}  label={this.state.label}  icon={this.state.icon}>
+            <Button id={this.id}  onClick={this.handleClick}  label={this.state.label}  icon={this.state.icon} style={this.state.style}
+                    className = {this.state.className}>
             </Button>
 
         );
 
     }
+
+    componentPreProcessSate( obj){
+        return new Transformation().stylePreProcessor(obj);
+    }
+
+    componentPostProcessState( obj){
+        return new Transformation().stylePostProcessor(obj);
+    }
+
 
 }

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,7 @@
 
 import React from 'react';
 import {TuraComponent} from "../core/TuraComponent";
+import {registry} from "../plugin/Registry";
 
 export class TImage extends TuraComponent {
 
@@ -27,6 +28,10 @@ export class TImage extends TuraComponent {
             return (
                 <></>
             );
+        }
+        let externalLayoutManager = registry.getComponentLayoutManager(this.id);
+        if ( externalLayoutManager !== null && typeof externalLayoutManager !== "undefined" ){
+            return externalLayoutManager.getLayout(this.props.children, this.contextManager, this.state,this);
         }
 
         return (

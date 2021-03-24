@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,6 @@ import org.tura.platform.repository.cpa.ClientObjectProcessor;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.test.ClientSearchProvider;
 
 import objects.test.serialazable.jpa.Client;
@@ -143,7 +142,6 @@ public class JPARepositoryTest {
 	}
 
 	private ProxyRepository getRepository() throws Exception {
-		SpaRepository.SPA_REPOSITORY_DATA_THREAD_LOCAL.get() .set(null);
 		registry = new Registry();
 		spaRegistry = new SpaObjectRegistry();
 		
@@ -154,7 +152,7 @@ public class JPARepositoryTest {
 		Repository repository = new BasicRepository(registry);
 		commandStack = new ArrayList<>();
 
-		InitJPARepository init = new InitJPARepository(registry,spaRegistry);
+		InitJPARepository init = new InitJPARepository(registry,spaRegistry, new LocalRepositoryDataProducer());
 		init.initClassMapping();
 		init.initFeldsMapping();
 		init.initCommandProducer();

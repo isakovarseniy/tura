@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,12 @@ public class PersistanceRelationBuilder {
 		Method masterMethod = masterClazz.getMethod(masterMethodName);
 
 		String detailMethodName = "get" + WordUtils.capitalize(detailProperty);
-		Method detailMethod = detailClazz.getMethod(detailMethodName);
+		Method detailMethod = null;
+		try {
+		  detailMethod = detailClazz.getMethod(detailMethodName);
+		}catch ( NoSuchMethodException e) {
+			return ownWayBuild(masterMethod);
+		}
 
 		boolean masterIsListResult = false;
 		Type returnType = masterMethod.getGenericReturnType();
@@ -82,6 +87,28 @@ public class PersistanceRelationBuilder {
 
 		return null;
 
+	}
+
+	private static RelOperation ownWayBuild(Method masterMethod) {
+		boolean masterIsListResult = false;
+		
+		Type returnType = masterMethod.getGenericReturnType();
+		if (returnType instanceof ParameterizedType) {
+			ParameterizedType type = (ParameterizedType) returnType;
+			if (((Class<?>) type.getRawType()).getName().equals(List.class.getName())
+					|| ((Class<?>) type.getRawType()).getName().equals(Collection.class.getName())) {
+				masterIsListResult = true;
+			}
+		}
+		if (!masterIsListResult) {
+			return new One2One();
+		}
+
+		if (masterIsListResult ) {
+			return new One2Many();
+		}
+		
+		return null;
 	}
 
 	public static RelOperation build(Class<?> masterClazz, String masterProperty) throws Exception {

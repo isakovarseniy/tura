@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -11,6 +11,31 @@
  *   which accompanies this distribution, and is available at
  *   http://www.eclipse.org/legal/epl-v20.html
  */
+
+ operation type::TypeElement collectType(pk){
+    var tp = self;
+    var primaryKey=pk;
+    if (pk == null){
+        primaryKey=new Native('java.util.ArrayList');
+        self.~primaryKey = primaryKey;
+    }
+
+     for(field in tp.attributes){
+        if (field.pk){
+            primaryKey.add(field);
+        }
+     }
+
+    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
+    if (extension <> null){
+	   var ex =  extension.target;
+	   if (ex.isKindOf(type::TypeReference )){
+	       ex = extension.target.typeRef;
+	   }
+	   ex.collectType(primaryKey);
+    }
+}
+
 
  operation type::Assosiation findTypeOfAssosiation(model_mapper){
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -288,6 +313,24 @@ operation type::Assosiation  targetSideNamesCalculation(){
       return hash;
 
 }
+
+operation type::Assosiation targetFn(){
+    var target = self.target;
+     if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+     }
+    return target;
+}
+
+operation type::Assosiation sourceFn(){
+    var source = self.source;
+     if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+     }
+    return source;
+}
+
+
 
 operation type::Assosiation merge(hash){
     var source = self.source;

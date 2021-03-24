@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -71,6 +71,7 @@ import form.FormPackage;
 import form.FormParameter;
 import form.FormVariable;
 import form.Formatable;
+import form.FullCalendar;
 import form.Image;
 import form.InputElement;
 import form.InputText;
@@ -127,6 +128,9 @@ import form.TabCanvas;
 import form.TabPage;
 import form.TabPagesInheritance;
 import form.Table;
+import form.TimeLine;
+import form.TimeLineAlign;
+import form.TimeLineLayout;
 import form.ToSubmenu;
 import form.Tree;
 import form.Trigger;
@@ -631,6 +635,20 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass timeLineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fullCalendarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass pollEClass = null;
 
 	/**
@@ -933,6 +951,20 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EEnum selectionModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum timeLineLayoutEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum timeLineAlignEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -2162,6 +2194,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInputText_Mask() {
+		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPassword() {
 		return passwordEClass;
 	}
@@ -2578,6 +2619,51 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EAttribute getDataScroller_ColNumber() {
 		return (EAttribute)dataScrollerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimeLine() {
+		return timeLineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeLine_Layout() {
+		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeLine_Align() {
+		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFullCalendar() {
+		return fullCalendarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFullCalendar_ViewType() {
+		return (EAttribute)fullCalendarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3692,6 +3778,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTimeLineLayout() {
+		return timeLineLayoutEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTimeLineAlign() {
+		return timeLineAlignEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FormFactory getFormFactory() {
 		return (FormFactory)getEFactoryInstance();
 	}
@@ -3881,6 +3985,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		inputTextEClass = createEClass(INPUT_TEXT);
 		createEAttribute(inputTextEClass, INPUT_TEXT__ROWS);
 		createEAttribute(inputTextEClass, INPUT_TEXT__COLUMNS);
+		createEAttribute(inputTextEClass, INPUT_TEXT__MASK);
 
 		passwordEClass = createEClass(PASSWORD);
 
@@ -3948,6 +4053,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		dataScrollerEClass = createEClass(DATA_SCROLLER);
 		createEAttribute(dataScrollerEClass, DATA_SCROLLER__ROW_NUMBER);
 		createEAttribute(dataScrollerEClass, DATA_SCROLLER__COL_NUMBER);
+
+		timeLineEClass = createEClass(TIME_LINE);
+		createEAttribute(timeLineEClass, TIME_LINE__LAYOUT);
+		createEAttribute(timeLineEClass, TIME_LINE__ALIGN);
+
+		fullCalendarEClass = createEClass(FULL_CALENDAR);
+		createEAttribute(fullCalendarEClass, FULL_CALENDAR__VIEW_TYPE);
 
 		pollEClass = createEClass(POLL);
 
@@ -4110,6 +4222,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		dataExporterTypeEEnum = createEEnum(DATA_EXPORTER_TYPE);
 		sortableEEnum = createEEnum(SORTABLE);
 		selectionModeEEnum = createEEnum(SELECTION_MODE);
+		timeLineLayoutEEnum = createEEnum(TIME_LINE_LAYOUT);
+		timeLineAlignEEnum = createEEnum(TIME_LINE_ALIGN);
 	}
 
 	/**
@@ -4260,6 +4374,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		dataScrollerEClass.getESuperTypes().add(this.getChildrenHolder());
 		dataScrollerEClass.getESuperTypes().add(this.getMultiLangLabel());
 		dataScrollerEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		timeLineEClass.getESuperTypes().add(this.getSourcesPointer());
+		timeLineEClass.getESuperTypes().add(this.getChildrenHolder());
+		timeLineEClass.getESuperTypes().add(this.getMultiLangLabel());
+		timeLineEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		fullCalendarEClass.getESuperTypes().add(this.getSourcesPointer());
 		pollEClass.getESuperTypes().add(this.getUielement());
 		dataTemplateEClass.getESuperTypes().add(this.getInputElement());
 		windowRefEClass.getESuperTypes().add(this.getUielement());
@@ -4473,6 +4592,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputText_Rows(), ecorePackage.getEInt(), "rows", null, 0, 1, InputText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInputText_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, InputText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputText_Mask(), ecorePackage.getEString(), "mask", null, 0, 1, InputText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(passwordEClass, Password.class, "Password", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4540,6 +4660,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(dataScrollerEClass, DataScroller.class, "DataScroller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataScroller_RowNumber(), ecorePackage.getEInt(), "rowNumber", null, 0, 1, DataScroller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataScroller_ColNumber(), ecorePackage.getEInt(), "colNumber", null, 0, 1, DataScroller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timeLineEClass, TimeLine.class, "TimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeLine_Layout(), this.getTimeLineLayout(), "layout", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeLine_Align(), this.getTimeLineAlign(), "align", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fullCalendarEClass, FullCalendar.class, "FullCalendar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFullCalendar_ViewType(), ecorePackage.getEString(), "viewType", null, 0, 1, FullCalendar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pollEClass, Poll.class, "Poll", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4736,6 +4863,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		addEEnumLiteral(selectionModeEEnum, SelectionMode.SINGLE);
 		addEEnumLiteral(selectionModeEEnum, SelectionMode.MULTIPLE);
 		addEEnumLiteral(selectionModeEEnum, SelectionMode.CHECK_BOX);
+
+		initEEnum(timeLineLayoutEEnum, TimeLineLayout.class, "TimeLineLayout");
+		addEEnumLiteral(timeLineLayoutEEnum, TimeLineLayout.HORIZONTAL);
+		addEEnumLiteral(timeLineLayoutEEnum, TimeLineLayout.VERTICAL);
+
+		initEEnum(timeLineAlignEEnum, TimeLineAlign.class, "TimeLineAlign");
+		addEEnumLiteral(timeLineAlignEEnum, TimeLineAlign.RIGHT);
+		addEEnumLiteral(timeLineAlignEEnum, TimeLineAlign.LEFT);
+		addEEnumLiteral(timeLineAlignEEnum, TimeLineAlign.ALTERNATE);
 
 		// Create resource
 		createResource(eNS_URI);

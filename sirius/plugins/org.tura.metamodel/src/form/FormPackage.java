@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1380,7 +1380,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 77;
+	int TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -3010,13 +3010,22 @@ public interface FormPackage extends EPackage {
 	int INPUT_TEXT__COLUMNS = INPUT_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Mask</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_TEXT__MASK = INPUT_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Input Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 3;
+	int INPUT_TEXT_FEATURE_COUNT = INPUT_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link form.impl.PasswordImpl <em>Password</em>}' class.
@@ -6144,6 +6153,368 @@ public interface FormPackage extends EPackage {
 	int DATA_SCROLLER_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '{@link form.impl.TimeLineImpl <em>Time Line</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.TimeLineImpl
+	 * @see form.impl.FormPackageImpl#getTimeLine()
+	 * @generated
+	 */
+	int TIME_LINE = 63;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__STYLE = SOURCES_POINTER__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__ORDER = SOURCES_POINTER__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__ENABLED = SOURCES_POINTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__FIELDS = SOURCES_POINTER__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__MENU = SOURCES_POINTER__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__UID = SOURCES_POINTER__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__REFRESH_AREAS = SOURCES_POINTER__REFRESH_AREAS;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__CHILDREN = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Layout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__LAYOUT = SOURCES_POINTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Align</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__ALIGN = SOURCES_POINTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Time Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link form.impl.FullCalendarImpl <em>Full Calendar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.FullCalendarImpl
+	 * @see form.impl.FormPackageImpl#getFullCalendar()
+	 * @generated
+	 */
+	int FULL_CALENDAR = 64;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__STYLE = SOURCES_POINTER__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__NICKNAME = SOURCES_POINTER__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__CLASSIFIERS = SOURCES_POINTER__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__ORDER = SOURCES_POINTER__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__ENABLED = SOURCES_POINTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__FIELDS = SOURCES_POINTER__FIELDS;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__MENU = SOURCES_POINTER__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__UID = SOURCES_POINTER__UID;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__REQUIRED = SOURCES_POINTER__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__READ_ONLY = SOURCES_POINTER__READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__REFRESH_AREAS = SOURCES_POINTER__REFRESH_AREAS;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__SOURCE_POINTER = SOURCES_POINTER__SOURCE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__VALUE_POINTER = SOURCES_POINTER__VALUE_POINTER;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__SOURCE_CAST = SOURCES_POINTER__SOURCE_CAST;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>View Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR__VIEW_TYPE = SOURCES_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Full Calendar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FULL_CALENDAR_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link form.impl.PollImpl <em>Poll</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6151,7 +6522,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPoll()
 	 * @generated
 	 */
-	int POLL = 63;
+	int POLL = 65;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6269,7 +6640,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataTemplate()
 	 * @generated
 	 */
-	int DATA_TEMPLATE = 64;
+	int DATA_TEMPLATE = 66;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6423,7 +6794,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getWindowRef()
 	 * @generated
 	 */
-	int WINDOW_REF = 65;
+	int WINDOW_REF = 67;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6550,7 +6921,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 66;
+	int MENU_HOLDER = 68;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -6578,7 +6949,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 67;
+	int MENU_EXTENSION_REF = 69;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -6606,7 +6977,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 68;
+	int MENU_ELEMENT = 70;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6697,7 +7068,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 69;
+	int MENU_FOLDER = 71;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -6815,7 +7186,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 70;
+	int MENU_ITEM = 72;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6933,7 +7304,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 71;
+	int MENU_EXTENSION_POINT = 73;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -7033,7 +7404,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 72;
+	int SUB_MENU = 74;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -7133,7 +7504,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getToSubmenu()
 	 * @generated
 	 */
-	int TO_SUBMENU = 73;
+	int TO_SUBMENU = 75;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7179,7 +7550,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 74;
+	int MENU_SEPARATOR = 76;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -7270,7 +7641,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 75;
+	int TREE = 77;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7469,7 +7840,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 76;
+	int CONTROLS = 78;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7533,7 +7904,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 78;
+	int PRE_FORM_TRIGGER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7579,7 +7950,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 79;
+	int PRE_QUERY_TRIGGER = 81;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7625,7 +7996,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 80;
+	int POST_QUERY_TRIGGER = 82;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7671,7 +8042,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 81;
+	int PRE_INSERT_TRIGGER = 83;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7717,7 +8088,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 82;
+	int PRE_DELETE_TRIGGER = 84;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7763,7 +8134,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 83;
+	int POST_CREATE_TRIGGER = 85;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7809,7 +8180,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 84;
+	int PRE_UPDATE_TRIGGER = 86;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7855,7 +8226,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 85;
+	int CREATE_TRIGGER = 87;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7901,7 +8272,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 86;
+	int INSERT_TRIGGER = 88;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7947,7 +8318,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 87;
+	int UPDATE_TRIGGER = 89;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -7993,7 +8364,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 88;
+	int DELETE_TRIGGER = 90;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -8039,7 +8410,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 89;
+	int SEARCH_TRIGGER = 91;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -8085,7 +8456,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 90;
+	int ROOT = 92;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8140,7 +8511,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 91;
+	int FORM_VARIABLE = 93;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -8195,7 +8566,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 92;
+	int DATA_CONTROL = 94;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -8358,7 +8729,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelationMapper()
 	 * @generated
 	 */
-	int RELATION_MAPPER = 93;
+	int RELATION_MAPPER = 95;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8413,7 +8784,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 94;
+	int ORDERS = 96;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8450,7 +8821,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 95;
+	int ORDER_BY = 97;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8496,7 +8867,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 96;
+	int RELATION = 98;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8569,7 +8940,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInternalRelation()
 	 * @generated
 	 */
-	int INTERNAL_RELATION = 97;
+	int INTERNAL_RELATION = 99;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8651,7 +9022,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 98;
+	int DEPENDENCY = 100;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8706,7 +9077,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 99;
+	int ARTIFICIAL_FIELD = 101;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -8752,7 +9123,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 100;
+	int COMPARATOR = 102;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -8762,7 +9133,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 101;
+	int ORDER = 103;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -8772,7 +9143,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 102;
+	int ORIENTATION = 104;
 
 	/**
 	 * The meta object id for the '{@link form.RadioLayout <em>Radio Layout</em>}' enum.
@@ -8782,7 +9153,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRadioLayout()
 	 * @generated
 	 */
-	int RADIO_LAYOUT = 103;
+	int RADIO_LAYOUT = 105;
 
 	/**
 	 * The meta object id for the '{@link form.DataExporterType <em>Data Exporter Type</em>}' enum.
@@ -8792,7 +9163,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataExporterType()
 	 * @generated
 	 */
-	int DATA_EXPORTER_TYPE = 104;
+	int DATA_EXPORTER_TYPE = 106;
 
 	/**
 	 * The meta object id for the '{@link form.Sortable <em>Sortable</em>}' enum.
@@ -8802,7 +9173,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSortable()
 	 * @generated
 	 */
-	int SORTABLE = 105;
+	int SORTABLE = 107;
 
 	/**
 	 * The meta object id for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
@@ -8812,7 +9183,28 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelectionMode()
 	 * @generated
 	 */
-	int SELECTION_MODE = 106;
+	int SELECTION_MODE = 108;
+
+
+	/**
+	 * The meta object id for the '{@link form.TimeLineLayout <em>Time Line Layout</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.TimeLineLayout
+	 * @see form.impl.FormPackageImpl#getTimeLineLayout()
+	 * @generated
+	 */
+	int TIME_LINE_LAYOUT = 109;
+
+	/**
+	 * The meta object id for the '{@link form.TimeLineAlign <em>Time Line Align</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.TimeLineAlign
+	 * @see form.impl.FormPackageImpl#getTimeLineAlign()
+	 * @generated
+	 */
+	int TIME_LINE_ALIGN = 110;
 
 
 	/**
@@ -10137,6 +10529,17 @@ public interface FormPackage extends EPackage {
 	EAttribute getInputText_Columns();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.InputText#getMask <em>Mask</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mask</em>'.
+	 * @see form.InputText#getMask()
+	 * @see #getInputText()
+	 * @generated
+	 */
+	EAttribute getInputText_Mask();
+
+	/**
 	 * Returns the meta object for class '{@link form.Password <em>Password</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10632,6 +11035,59 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataScroller_ColNumber();
+
+	/**
+	 * Returns the meta object for class '{@link form.TimeLine <em>Time Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time Line</em>'.
+	 * @see form.TimeLine
+	 * @generated
+	 */
+	EClass getTimeLine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.TimeLine#getLayout <em>Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Layout</em>'.
+	 * @see form.TimeLine#getLayout()
+	 * @see #getTimeLine()
+	 * @generated
+	 */
+	EAttribute getTimeLine_Layout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.TimeLine#getAlign <em>Align</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Align</em>'.
+	 * @see form.TimeLine#getAlign()
+	 * @see #getTimeLine()
+	 * @generated
+	 */
+	EAttribute getTimeLine_Align();
+
+	/**
+	 * Returns the meta object for class '{@link form.FullCalendar <em>Full Calendar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Full Calendar</em>'.
+	 * @see form.FullCalendar
+	 * @generated
+	 */
+	EClass getFullCalendar();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.FullCalendar#getViewType <em>View Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>View Type</em>'.
+	 * @see form.FullCalendar#getViewType()
+	 * @see #getFullCalendar()
+	 * @generated
+	 */
+	EAttribute getFullCalendar_ViewType();
 
 	/**
 	 * Returns the meta object for class '{@link form.Poll <em>Poll</em>}'.
@@ -11943,6 +12399,26 @@ public interface FormPackage extends EPackage {
 	EEnum getSelectionMode();
 
 	/**
+	 * Returns the meta object for enum '{@link form.TimeLineLayout <em>Time Line Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Time Line Layout</em>'.
+	 * @see form.TimeLineLayout
+	 * @generated
+	 */
+	EEnum getTimeLineLayout();
+
+	/**
+	 * Returns the meta object for enum '{@link form.TimeLineAlign <em>Time Line Align</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Time Line Align</em>'.
+	 * @see form.TimeLineAlign
+	 * @generated
+	 */
+	EEnum getTimeLineAlign();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13043,6 +13519,14 @@ public interface FormPackage extends EPackage {
 		EAttribute INPUT_TEXT__COLUMNS = eINSTANCE.getInputText_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Mask</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_TEXT__MASK = eINSTANCE.getInputText_Mask();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.PasswordImpl <em>Password</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -13457,6 +13941,50 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SCROLLER__COL_NUMBER = eINSTANCE.getDataScroller_ColNumber();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.TimeLineImpl <em>Time Line</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.TimeLineImpl
+		 * @see form.impl.FormPackageImpl#getTimeLine()
+		 * @generated
+		 */
+		EClass TIME_LINE = eINSTANCE.getTimeLine();
+
+		/**
+		 * The meta object literal for the '<em><b>Layout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_LINE__LAYOUT = eINSTANCE.getTimeLine_Layout();
+
+		/**
+		 * The meta object literal for the '<em><b>Align</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_LINE__ALIGN = eINSTANCE.getTimeLine_Align();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.FullCalendarImpl <em>Full Calendar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.FullCalendarImpl
+		 * @see form.impl.FormPackageImpl#getFullCalendar()
+		 * @generated
+		 */
+		EClass FULL_CALENDAR = eINSTANCE.getFullCalendar();
+
+		/**
+		 * The meta object literal for the '<em><b>View Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FULL_CALENDAR__VIEW_TYPE = eINSTANCE.getFullCalendar_ViewType();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.PollImpl <em>Poll</em>}' class.
@@ -14529,6 +15057,26 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SELECTION_MODE = eINSTANCE.getSelectionMode();
+
+		/**
+		 * The meta object literal for the '{@link form.TimeLineLayout <em>Time Line Layout</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.TimeLineLayout
+		 * @see form.impl.FormPackageImpl#getTimeLineLayout()
+		 * @generated
+		 */
+		EEnum TIME_LINE_LAYOUT = eINSTANCE.getTimeLineLayout();
+
+		/**
+		 * The meta object literal for the '{@link form.TimeLineAlign <em>Time Line Align</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.TimeLineAlign
+		 * @see form.impl.FormPackageImpl#getTimeLineAlign()
+		 * @generated
+		 */
+		EEnum TIME_LINE_ALIGN = eINSTANCE.getTimeLineAlign();
 
 	}
 

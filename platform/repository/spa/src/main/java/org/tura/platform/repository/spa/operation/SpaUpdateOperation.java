@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,12 +38,12 @@ import org.tura.platform.repository.spa.SpaRepositoryCommand;
 public class SpaUpdateOperation extends SpaRepositoryCommand {
 
 	private static final long serialVersionUID = -5703569928798444741L;
-	private RepoObjectKey pk;
-	private RepoKeyPath extendedPk;
-	private String property;
-	private Object value;
-	private String objectType;
-	private String persistanceType;
+	protected RepoObjectKey pk;
+	protected RepoKeyPath extendedPk;
+	protected String property;
+	protected Object value;
+	protected String objectType;
+	protected String persistanceType;
 	
 	
 	public SpaUpdateOperation(Registry registry, SpaObjectRegistry spaRegistry) {

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.felix.gogo.jline.Posix.HelpException;
+import org.apache.felix.gogo.jline.command.DSLAddTemplateRoot;
 import org.apache.felix.gogo.jline.command.DSLCommand;
 import org.apache.felix.gogo.jline.command.DSLConfiguration;
 import org.apache.felix.gogo.jline.command.DSLCopyDir;
@@ -26,10 +27,14 @@ import org.apache.felix.gogo.jline.command.DSLCopyMonthlyFile;
 import org.apache.felix.gogo.jline.command.DSLCopyRoles;
 import org.apache.felix.gogo.jline.command.DSLCopyUsers;
 import org.apache.felix.gogo.jline.command.DSLCreateLink;
+import org.apache.felix.gogo.jline.command.DSLDelTemplateRoot;
 import org.apache.felix.gogo.jline.command.DSLDoDeploy;
 import org.apache.felix.gogo.jline.command.DSLExecuteExternal;
 import org.apache.felix.gogo.jline.command.DSLGenerateArtifact;
+import org.apache.felix.gogo.jline.command.DSLGitAddAndCommit;
 import org.apache.felix.gogo.jline.command.DSLGitArchive;
+import org.apache.felix.gogo.jline.command.DSLGitClone;
+import org.apache.felix.gogo.jline.command.DSLGitPush;
 import org.apache.felix.gogo.jline.command.DSLJobPropertyFile;
 import org.apache.felix.gogo.jline.command.DSLLicenseSet;
 import org.apache.felix.gogo.jline.command.DSLLicenseShow;
@@ -128,12 +133,16 @@ public class DSLOperation  {
                 .addSubcommand("mkDir", new DSLMkDir())
                 .addSubcommand("removeFile", new DSLRemoveFile())
                 .addSubcommand("gitArchive", new DSLGitArchive())
+                .addSubcommand("gitAddAndCommit", new DSLGitAddAndCommit())
+                .addSubcommand("gitClone", new DSLGitClone())
+                .addSubcommand("gitPush", new DSLGitPush())
                 .addSubcommand("copyDir", new DSLCopyDir())
                 .addSubcommand("licenseSet", new DSLLicenseSet())
                 .addSubcommand("licenseShow", new DSLLicenseShow())
                 .addSubcommand("generateArtifact", new DSLGenerateArtifact())
                 .addSubcommand("config", new DSLConfiguration())
-                
+                .addSubcommand("addTmplRoot", new DSLAddTemplateRoot())
+                .addSubcommand("delTmplRoot", new DSLDelTemplateRoot())
         ;
     }
 

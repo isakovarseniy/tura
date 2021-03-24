@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -32,19 +32,22 @@ ${start}${percent}
  
  import org.tura.platform.repository.core.Registry;
  import org.tura.platform.repository.spa.SpaObjectRegistry;
+ import org.tura.platform.repository.spa.RequestDataProducer;
  
  public class InitSPARepository{
  
      private Registry registry;
      private SpaObjectRegistry spaRegistry;
+     private RequestDataProducer requestDataProducer;
      
-     public InitSPARepository(Registry registry,SpaObjectRegistry spaRegistry){
+     public InitSPARepository(Registry registry,SpaObjectRegistry spaRegistry,RequestDataProducer requestDataProducer){
          this.registry = registry;
          this.spaRegistry= spaRegistry;
+		 this.requestDataProducer = requestDataProducer;
      }
  
     public void initProvider(){
-    	registry.addInstantiator(new SPARepositoryInstantiator(registry,spaRegistry));  
+    	registry.addInstantiator(new SPARepositoryInstantiator(registry,spaRegistry,requestDataProducer));  
     
        [%
          for(type in typeCollection){

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,6 +23,7 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import form.DataScroller;
 import form.SourcesPointer;
 import form.Table;
+import form.TimeLine;
 import form.Tree;
 import form.Views;
 
@@ -46,7 +47,7 @@ public class SourcesPointerSectionFilter implements IFilter {
     
     protected boolean isNotExternalControlExists(EObject obj){
         EObject parent = obj.eContainer();
-        if (parent instanceof Tree || parent instanceof Table || parent instanceof DataScroller){
+        if (parent instanceof Tree || parent instanceof Table || parent instanceof DataScroller || parent instanceof TimeLine){
             return false;
         }
         if (parent instanceof Views){

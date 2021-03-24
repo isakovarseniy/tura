@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,21 +38,20 @@ public class SelectManyPrimeReact implements SelectMany{
 	
 	@Override
 	public void click() {
-		WebElement e = element.findElement(By
-				.cssSelector("label"));
+		WebElement e = element.findElement(By.cssSelector("div[class*='p-multiselect-label-container']"));
 		e.click();
 	}
 
 	@Override
 	public String getValue() {
 		WebElement el = element.findElement(By.cssSelector("div[class*='p-multiselect-label-container']"));
-		return el.findElement(By.xpath("./label")).getText();
+		return el.findElement(By.xpath("./div")).getText();
 	}
 
 	@Override
 	public void setValue(String value) {
 		WebElement el = element.findElement(By.cssSelector("div[class*='p-multiselect-items-wrapper']"));
-		el.findElement(By.xpath("./ul/li/label[text()='" + value + "']")).click();
+		el.findElement(By.xpath("./ul/li/span[text()='" + value + "']")).click();
 		
 	}
 

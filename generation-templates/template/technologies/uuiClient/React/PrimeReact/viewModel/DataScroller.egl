@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -230,7 +230,7 @@ operation form::DataScroller createModel(hash) {
 					            } 
 					        }
 					       }
-                 map.put("[%=element.valuePointer.name%]",elResolver.getValue("#{row.[%=value%]}"));[%
+                 map.put("[%=element.valuePointer.name%]",value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] );[%
 
                 }
                   

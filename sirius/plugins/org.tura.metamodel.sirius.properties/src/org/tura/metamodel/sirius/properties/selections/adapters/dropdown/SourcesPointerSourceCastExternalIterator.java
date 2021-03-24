@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,20 +19,26 @@ import org.eclipse.emf.ecore.EObject;
 import form.DataScroller;
 import form.SourcesPointer;
 import form.Table;
+import form.TimeLine;
 import form.Tree;
 
 public class SourcesPointerSourceCastExternalIterator extends SourcesPointerSourceCast {
 
-    public Object[] getWatchPointObject(Object eObject) {
+	public Object[] getWatchPointObject(Object eObject) {
 
-        EObject eobj = (EObject) eObject;
-        do {
-            eobj = eobj.eContainer();
-            if (eobj == null)
-                return new Object[] {};
-        } while (!(eobj instanceof Table)&& !(eobj instanceof Tree)&& !(eobj instanceof DataScroller) );
+		EObject eobj = (EObject) eObject;
+		do {
+			eobj = eobj.eContainer();
+			if (eobj == null)
+				return new Object[] {};
+		} while (
+				!(eobj instanceof Table)
+				&& !(eobj instanceof Tree)
+				&& !(eobj instanceof DataScroller)
+				&& !(eobj instanceof TimeLine)
+				);
 
-        return new Object[] { ((SourcesPointer) eobj).getSourcePointer() };
-    }
+		return new Object[] { ((SourcesPointer) eobj).getSourcePointer() };
+	}
 
 }

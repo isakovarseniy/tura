@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,10 +30,15 @@ import com.octo.java.sql.query.SelectQuery.Order;
 
 public class DefaulQueryFactory {
 
+	
 	public static SelectQuery builder(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Class<?> baseClass ) throws TuraException {
+		return builder(searchCriteria,orderCriteria, baseClass.getCanonicalName());
+	}	
+	
+	public static SelectQuery builder(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, String  baseClass ) throws TuraException {
 
 		try{
-			SelectQuery query = select(c("x")).from(baseClass.getCanonicalName()).as("x");
+			SelectQuery query = select(c("x")).from(baseClass).as("x");
 	
 			String condition = "WHERE";
 	
@@ -74,9 +79,12 @@ public class DefaulQueryFactory {
 		}
 		
 		Class<?> clazz  = Class.forName(criteria.getClassName());
-		Constructor<?>  contructor = clazz.getConstructor(criteria.getValue().getClass());
-		return contructor.newInstance(criteria.getValue()); 
-		
+        try {
+            Constructor<?> c = clazz.getConstructor(String.class);
+            return c.newInstance(criteria.getValue());
+          } catch (NoSuchMethodException e) {
+            return org.tura.platform.datacontrol.commons.Parser.parse(criteria.getValue(), clazz);
+          }
 	}
 	
 	

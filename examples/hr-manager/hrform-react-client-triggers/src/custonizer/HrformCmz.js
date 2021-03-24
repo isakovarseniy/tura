@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ export class HrformCmz {
 
     initCustomization(registry){
         registry.addElementCustomizer("a864ec88-7708-454b-b447-a009717dd3a7",{
-            style : "font:35px arial, sans-serif;color: #cc3d00;text-decoration: underline"
+            style : "font:2rem arial, sans-serif;color: #cc3d00;text-decoration: underline"
         });
 
 

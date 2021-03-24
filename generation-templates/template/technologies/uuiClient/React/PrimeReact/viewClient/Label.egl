@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,10 +17,11 @@
 operation form::Label createTag(hash) {
      var clientLibraryPackage = hash.get('clientLibraryPackage');
      populateInclude(hash,"{TLabel}",  clientLibraryPackage+"/component/TLabel");
+    var ref = getReactRef(self);
     
 
 %]
-       <TLabel id="[%=self.uid%]" contextManager={this.contextManager}/>
+       <TLabel id="[%=self.uid%]"  [%=ref%] contextManager={this.contextManager}/>
             
 [%
 }

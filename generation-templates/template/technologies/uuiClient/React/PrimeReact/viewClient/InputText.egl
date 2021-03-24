@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -39,8 +39,15 @@ operation form::InputText createTag(hash) {
      if (self.findClassifier(util.getHint(model_mapper,"InputTextAria"))){
        inputTextType = "TInputTextAria";
      }
+     if (self.findClassifier(util.getHint(model_mapper,"InputMask"))){
+       inputTextType = "TInputMask";
+     }
+     
+     
 
     var dependId = getDependentId(hash);
+     var ref = getReactRef(self);
+    
     self.addToChildren(hash);
     populateInclude(hash,"{"+inputTextType+"}",  clientLibraryPackage+"/component/"+inputTextType);
     
@@ -48,7 +55,7 @@ operation form::InputText createTag(hash) {
 
 
 %]
-       <[%=inputTextType%] id="[%=self.uid%]" [%=label%] [%=message%] contextManager={this.contextManager}  [%=dependId%]/>
+       <[%=inputTextType%] id="[%=self.uid%]"  [%=ref%] [%=label%] [%=message%] contextManager={this.contextManager}  [%=dependId%]/>
             
 [%
 }

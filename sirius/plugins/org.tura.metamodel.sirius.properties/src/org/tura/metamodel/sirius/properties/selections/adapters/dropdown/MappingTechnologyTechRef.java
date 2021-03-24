@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -52,6 +52,9 @@ public class MappingTechnologyTechRef implements DropDownDataAdapter {
 	}
 
 	private String getName(TechLeaf leaf){
+		if (leaf == null) {
+			return "";
+		}
 		if (leaf.eContainer() instanceof TechLeaf){
 			return ((TechLeaf) (leaf.eContainer())).getName() + ":" + leaf.getName();
 		}else{

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -787,6 +787,41 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEnabledUIItem(dataScroller);
 				if (result == null) result = caseFlexFields(dataScroller);
 				if (result == null) result = caseMenuHolder(dataScroller);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.TIME_LINE: {
+				TimeLine timeLine = (TimeLine)theEObject;
+				T result = caseTimeLine(timeLine);
+				if (result == null) result = caseSourcesPointer(timeLine);
+				if (result == null) result = caseChildrenHolder(timeLine);
+				if (result == null) result = caseMultiLangLabel(timeLine);
+				if (result == null) result = caseHTMLLayerHolder(timeLine);
+				if (result == null) result = caseUielement(timeLine);
+				if (result == null) result = caseControlPointer(timeLine);
+				if (result == null) result = caseStyleElement(timeLine);
+				if (result == null) result = caseNickNamed(timeLine);
+				if (result == null) result = caseCategorized(timeLine);
+				if (result == null) result = caseOrderable(timeLine);
+				if (result == null) result = caseEnabledUIItem(timeLine);
+				if (result == null) result = caseFlexFields(timeLine);
+				if (result == null) result = caseMenuHolder(timeLine);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.FULL_CALENDAR: {
+				FullCalendar fullCalendar = (FullCalendar)theEObject;
+				T result = caseFullCalendar(fullCalendar);
+				if (result == null) result = caseSourcesPointer(fullCalendar);
+				if (result == null) result = caseUielement(fullCalendar);
+				if (result == null) result = caseControlPointer(fullCalendar);
+				if (result == null) result = caseStyleElement(fullCalendar);
+				if (result == null) result = caseNickNamed(fullCalendar);
+				if (result == null) result = caseCategorized(fullCalendar);
+				if (result == null) result = caseOrderable(fullCalendar);
+				if (result == null) result = caseEnabledUIItem(fullCalendar);
+				if (result == null) result = caseFlexFields(fullCalendar);
+				if (result == null) result = caseMenuHolder(fullCalendar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2082,6 +2117,36 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataScroller(DataScroller object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimeLine(TimeLine object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Full Calendar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Full Calendar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFullCalendar(FullCalendar object) {
 		return null;
 	}
 

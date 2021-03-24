@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,7 +63,9 @@ public class TablePrimeReact implements Table {
 	public void nextPage() {
 
 		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "button[class*='p-paginator-next']" ));
-		pagenatorNextElement.click();
+		if ( pagenatorNextElement.isEnabled()) {
+	  	   pagenatorNextElement.click();
+		}
 		
 		Point p = pagenatorNextElement.getLocation();
 		Actions builder = new Actions(driver);  
@@ -74,12 +76,13 @@ public class TablePrimeReact implements Table {
 	@Override
 	public void prevPage() {
 		WebElement pagenatorNextElement =  element.findElement(By.cssSelector(  "button[class*='p-paginator-prev']" ));
-		pagenatorNextElement.click();
+		if (pagenatorNextElement.isEnabled() ) {
+			pagenatorNextElement.click();
+		}
 		
 		Point p = pagenatorNextElement.getLocation();
 		Actions builder = new Actions(driver);  
 		builder.moveToElement(pagenatorNextElement,p.x+50 , p.y+50).click().build().perform();
-		
 	}
 
 }

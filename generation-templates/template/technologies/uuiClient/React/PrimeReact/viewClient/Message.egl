@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -25,12 +25,14 @@ operation form::MessageElement createTag(hash) {
        messageType = "TMessages";
      }
 
+     var ref = getReactRef(self);
+
     populateInclude(hash,"{"+messageType+"}",  clientLibraryPackage+"/component/"+messageType);
       
 
 
 %]
-       <[%=messageType%] id="[%=self.uid%]" contextManager={this.contextManager}/>
+       <[%=messageType%] id="[%=self.uid%]"  [%=ref%]  contextManager={this.contextManager}/>
             
 [%
 }

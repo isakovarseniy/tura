@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -116,7 +116,7 @@ operation form::DataTemplate createModelAsCommandLink(hash) {
 			    [%if ( hash.get("context") = null ){%]
 			    this.value = resolve("[%=self.createValue(hash)%]",elResolver);
 			    [%}else{
-			       if ( hash.get("context") = 'dataScroller' ){ 
+			       if ( hash.get("context") = 'dataScroller' or hash.get("context") = 'timeLine' ){ 
 			          var childrenCollection = hash.get("childrenCollection");
 			          childrenCollection.add(self);
 			        }

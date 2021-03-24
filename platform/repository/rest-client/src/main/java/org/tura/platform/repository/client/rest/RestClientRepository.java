@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,11 +26,13 @@ import java.util.List;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -46,24 +48,40 @@ public class RestClientRepository implements Repository {
 	private static final long serialVersionUID = -1003783682499426763L;
 	private URL base;
 	private Client client;
+	private  RequestCustomizer customizer;
+
+	public RestClientRepository(URL base, RequestCustomizer customizer) {
+		this.base = base;
+		this.customizer = customizer;
+	}
 
 	public RestClientRepository(URL base) {
 		this.base = base;
+		this.customizer = null;
 	}
 
+	
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
 		try {
 			client = ClientBuilder.newClient();
 			Class<?> clazz = Class.forName(objectClass);
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
 			String context = base.getPath();
-			Response response = client.target(new URL(base, context + "rest/repository/create").toExternalForm())
-					.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass, "UTF-8"))
-					.request(MediaType.APPLICATION_JSON).get(Response.class);
+			
+			 Invocation.Builder builder = client.target(new URL(base, context + "rest/repository/create").toExternalForm())
+						.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass, "UTF-8"))
+						.request(MediaType.APPLICATION_JSON);
+			 if ( customizer != null) {
+				 builder = customizer.process(builder);
+			 }
+			
+			Response response = builder.get(Response.class);
 
 			if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-				return response.readEntity(clazz);
+				String json = response.readEntity(String.class);
+				return mapper.readValue(json,clazz );
 			} else {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
@@ -98,8 +116,12 @@ public class RestClientRepository implements Repository {
 			}
 			
 			String context = base.getPath();
-			Response response = client.target(new URL(base, context + "rest/repository/find").toExternalForm())
-					.request(MediaType.APPLICATION_JSON).post(Entity.entity(request, MediaType.APPLICATION_JSON));
+			 Invocation.Builder builder = client.target(new URL(base, context + "rest/repository/find").toExternalForm())
+						.request(MediaType.APPLICATION_JSON);
+			 if ( customizer != null) {
+				 builder = customizer.process(builder);
+			 }
+			Response response = builder.post(Entity.entity(request, MediaType.APPLICATION_JSON));
 
 			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
 				throw new RepositoryException(response.readEntity(String.class));
@@ -108,7 +130,7 @@ public class RestClientRepository implements Repository {
 			@SuppressWarnings("unchecked")
 			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
 			
-			ObjectMapper mapper = new ObjectMapper();
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 		    ArrayList<Object> list = new ArrayList<>();
 		    
 			for (int i  = 0; ;i++){
@@ -151,7 +173,7 @@ public class RestClientRepository implements Repository {
 		try {
 			client = ClientBuilder.newClient();
 
-			ObjectMapper mapper = new ObjectMapper();
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 			mapper.enableDefaultTyping();
 
 			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
@@ -164,8 +186,13 @@ public class RestClientRepository implements Repository {
 			}
 
 			String context = base.getPath();
-			Response response = client.target(new URL(base, context + "rest/repository/applyChanges").toExternalForm())
-					.request(MediaType.APPLICATION_JSON).post(Entity.form(formData));
+			
+			Invocation.Builder builder = client.target(new URL(base, context + "rest/repository/applyChanges").toExternalForm())
+					.request(MediaType.APPLICATION_JSON);
+			 if ( customizer != null) {
+				 builder = customizer.process(builder);
+			 }
+			Response response = builder.post(Entity.form(formData));
 
 			
 			
@@ -199,4 +226,6 @@ public class RestClientRepository implements Repository {
 		throw new UnsupportedOperationException();
 	}
 
+	
+	
 }

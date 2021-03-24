@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -13,7 +13,7 @@
       http://www.eclipse.org/legal/epl-v20.html
 -->
 <site>
-   <feature url="features/org.tura.metamodel.editor.feature_5.0.4.jar" id="org.tura.metamodel.editor.feature" version="5.0.4">
+   <feature url="features/org.tura.metamodel.editor.feature_5.0.5.jar" id="org.tura.metamodel.editor.feature" version="5.0.5">
       <category name="org.tura.id"/>
    </feature>
    <category-def name="org.tura.id" label="Tura"/>

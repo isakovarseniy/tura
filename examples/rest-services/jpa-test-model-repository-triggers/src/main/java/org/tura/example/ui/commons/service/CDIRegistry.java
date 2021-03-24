@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,6 @@ public class CDIRegistry extends Registry {
 
 	@Inject
 	SpaObjectRegistry spaRegistry;
-//	@Inject
-//	Registry registry;
 
 	@PostConstruct
 	public void init() {
@@ -45,14 +43,14 @@ public class CDIRegistry extends Registry {
 		try {
 			this.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 
-			InitJPARepository init = new InitJPARepository( this, spaRegistry);
+			InitJPARepository init = new InitJPARepository( this, spaRegistry, new CDIRepositoryDataProducer());
 
 			init.initClassMapping();
 			init.initCommandProducer();
 			init.initProvider();
 			init.initEntityManagerProvider(new CDIEntityManagerProvider());
 			
-			org.tura.jpa2.test.repo.InitJPARepository initSesond =  new org.tura.jpa2.test.repo.InitJPARepository( this, spaRegistry);
+			org.tura.jpa2.test.repo.InitJPARepository initSesond =  new org.tura.jpa2.test.repo.InitJPARepository( this, spaRegistry, new CDIRepositoryDataProducer());
 			
 			initSesond.initClassMapping();
 			initSesond.initCommandProducer();

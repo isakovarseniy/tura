@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -156,6 +156,11 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TImage.js",buffer);  
 
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TFullCalendar.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TFullCalendar.js",buffer);  
+
+
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TInputAria.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TInputTextAria.js",buffer);  
@@ -243,6 +248,10 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TViewAria.js",buffer);  
 
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TInputMask.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TInputMask.js",buffer);  
+
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TWindow.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TWindow.js",buffer);  
@@ -327,6 +336,15 @@ operation  getDependentId(hash) {
       }
 }
 
+operation getReactRef(obj){
+    if (obj.~ref <> null ){
+        var ref = "ref={(el) => this."+ obj.mkuid() +" = el} ";
+        return ref;
+    }
+    return "";
+}
+
+
 operation  getKey(hash) {
       var key = hash.get("key");
       if ( key == null){
@@ -338,7 +356,7 @@ operation  getKey(hash) {
 
 
 operation form::Uielement addToChildren(hash){
-   if ( hash.get("context") = 'dataScroller' ){
+   if ( hash.get("context") = 'dataScroller' or hash.get("context") = 'timeLine' ){
 		  var childrenCollection  =   hash.get("childrenCollection"); 
 		  childrenCollection.add(self);
 	} 

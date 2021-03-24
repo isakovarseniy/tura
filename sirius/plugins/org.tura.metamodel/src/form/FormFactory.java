@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -601,6 +601,24 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	DataScroller createDataScroller();
+
+	/**
+	 * Returns a new object of class '<em>Time Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Line</em>'.
+	 * @generated
+	 */
+	TimeLine createTimeLine();
+
+	/**
+	 * Returns a new object of class '<em>Full Calendar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Full Calendar</em>'.
+	 * @generated
+	 */
+	FullCalendar createFullCalendar();
 
 	/**
 	 * Returns a new object of class '<em>Poll</em>'.

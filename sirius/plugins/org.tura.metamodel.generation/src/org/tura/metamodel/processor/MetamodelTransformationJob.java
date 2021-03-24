@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -160,10 +160,12 @@ public class MetamodelTransformationJob extends Job {
 				job2 = job2 + " --mapperId "+mapper.getUid();
 			}
 			
-			
+
 			if (isWindows) {
+				System.out.println(job1+".bat" +" " + job2 );
 				process = Runtime.getRuntime().exec( new String[] {job1+".bat",job2} );
 			} else {
+				System.out.println(job1+".sh" +" " + job2 );
 				process = Runtime.getRuntime().exec(new String[] {job1+".sh",job2});
 			}
 

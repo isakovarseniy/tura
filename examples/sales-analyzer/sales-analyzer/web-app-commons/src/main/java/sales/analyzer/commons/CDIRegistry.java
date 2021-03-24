@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,7 @@ import sales.analyzer.service.keycloak.KeyCloakSearchService;
 import uILayer.admin.AdministrationProfile;
 import uILayer.analysis.CaseManagerProfile;
 
+
 @ApplicationScoped
 public class CDIRegistry extends Registry {
 
@@ -73,7 +74,7 @@ public class CDIRegistry extends Registry {
         try {
             this.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 
-            InitJPARepository init = new InitJPARepository( this, spaRegistry);
+            InitJPARepository init = new InitJPARepository( this, spaRegistry, new CDIRepositoryDataProducer());
             init.initClassMapping();
 			init.initFeldsMapping();
             init.initCommandProducer();
@@ -82,7 +83,7 @@ public class CDIRegistry extends Registry {
             this.setTransactrionAdapter(new CDITransactionAdapter(this));
             this.addInstantiator(new ProxyRepositoryInstantiator());
 
-            InitSPARepository initSpa = new InitSPARepository( this, spaRegistry);
+            InitSPARepository initSpa = new InitSPARepository( this, spaRegistry,new CDIRepositoryDataProducer());
             initSpa.initClassMapping();
             initSpa.initCommandProducer();
             initSpa.initProvider();

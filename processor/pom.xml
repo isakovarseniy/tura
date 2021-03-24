@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -19,7 +19,7 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>processor</artifactId>
-	<version>5.0.4</version>
+	<version>5.0.5</version>
 	<packaging>jar</packaging>
 
 	<name>Tura :: Platform :: Processor</name>
@@ -157,25 +157,25 @@
 		<dependency>
 			<groupId>org.eclipse.ocl</groupId>
 			<artifactId>org.eclipse.ocl.ecore</artifactId>
-			<version>3.9.0.v20180611-1119</version>
+			<version>3.15.0.v20200608-1555</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.ocl</groupId>
 			<artifactId>org.eclipse.ocl.common</artifactId>
-			<version>1.4.300.v20180611-1119</version>
+			<version>1.8.400.v20200608-1555</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.ocl</groupId>
 			<artifactId>org.eclipse.emf.validation.ocl</artifactId>
-			<version>1.8.0.201805030717</version>
+			<version>1.8.0.201812070911</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.ocl</groupId>
 			<artifactId>org.eclipse.ocl</artifactId>
-			<version>3.9.0.v20180611-1119</version>
+			<version>3.15.0.v20200608-1555</version>
 		</dependency>
 
 		<dependency>

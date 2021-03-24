@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,20 +24,23 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.core.StorageCommandProcessor;
 import org.tura.platform.repository.spa.StorageUpdater;
+import org.tura.platform.repository.spa.RequestDataProducer;
 
 public class SPARepositoryInstantiator implements Instantiator{
 
 	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
+    private RequestDataProducer requestDataProducer;
 
-	public SPARepositoryInstantiator(Registry registry, SpaObjectRegistry spaRegistry) {
+	public SPARepositoryInstantiator(Registry registry, SpaObjectRegistry spaRegistry,RequestDataProducer requestDataProducer) {
 		this.spaRegistry = spaRegistry;
 		this.registry = registry;
+		this.requestDataProducer = requestDataProducer;
 	}
 
 	private static String[] knownObjects = new String[] { 
 			"[%=component.artifactId%]",
-			SpaCommandProducer.class.getName(),
+			"[%=component.artifactId%].CommandProducer",
 			StorageCommandProcessor.class.getName()
 			};
 	
@@ -46,12 +49,9 @@ public class SPARepositoryInstantiator implements Instantiator{
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
-		if (SpaCommandProducer.class.equals(clazz)){
-		    return (T) new SpaCommandProducer(spaRegistry,"[%=component.artifactId%]",registry);
-		}
 		if (StorageCommandProcessor.class.equals(clazz)){
 		    StorageUpdater updater = new StorageUpdater();
-		    updater.setRegistry(spaRegistry,  registry);
+		    updater.setRegistry(spaRegistry,  registry,requestDataProducer);
 		    return (T) updater;
 		}
 		
@@ -63,15 +63,15 @@ public class SPARepositoryInstantiator implements Instantiator{
 	public <T> T newInstance(String className) {
 		if ("[%=component.artifactId%]".equals(className)){
 			SpaRepository  repository = new SpaRepository();
-			repository.setRegistry(spaRegistry,"[%=component.artifactId%]",registry);
+			repository.setRegistry(spaRegistry,"[%=component.artifactId%]",registry,requestDataProducer);
 		    return (T) repository;
-		}else {
-			try {
-				return (T) newInstance(Class.forName(className)) ;
-			}catch( Exception e) {
-				throw new RuntimeException(e);
-			}
 		}
+		if ("[%=component.artifactId%].CommandProducer".equals(className)){
+		    return (T) new SpaCommandProducer(spaRegistry,"[%=component.artifactId%]",registry);
+		}
+		
+		throw new RuntimeException("Unknown class " + className);
+
 	}
 	
 	

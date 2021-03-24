@@ -1,7 +1,7 @@
 -- 
 --   Tura - Application generation solution
 --
---   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+--   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 --
 --
 --   This project includes software developed by Arseniy Isakov
@@ -362,6 +362,23 @@ ALTER TABLE hr.vehicle
   OWNER TO postgres;
 
 
+
+CREATE TABLE hr.timeline (
+	obj_id int8 NOT NULL,
+	status varchar(255),
+	action_date timestamp,
+	icon varchar(255),
+	color varchar(255),
+	CONSTRAINT timeline_pkey PRIMARY KEY (obj_id)
+)WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE hr.timeline
+  OWNER TO postgres;
+
+
+
 insert into hr.company (obj_id,company_name, country_id) values (1101, 'Company A', 1);
 insert into hr.company (obj_id,company_name, country_id) values (1102, 'Company B', 2);
 
@@ -509,6 +526,14 @@ insert into hr.file(obj_id,parent_id,file_name,directory,size) values(1907,1905,
 insert into hr.file(obj_id,parent_id,file_name,directory,size) values(1908,1905,'file6', false, 100);
 
 insert into hr.dept2emp(obj_id,department_ref,entity_ref,image) values(3000,-1,-1,'48x48/shield01.png');
+
+
+INSERT INTO hr.timeline (obj_id, status, action_date, icon, color) VALUES(0, 'Ordered', TO_TIMESTAMP('15/10/2020 10:30','DD/MM/YYYY HH24:MI'), 'pi pi-shopping-cart', '#9C27B0');
+INSERT INTO hr.timeline (obj_id, status, action_date, icon, color) VALUES(1, 'Processing', TO_TIMESTAMP('15/10/2020 14:00','DD/MM/YYYY HH24:MI'), 'pi pi-cog', '#673AB7');
+INSERT INTO hr.timeline (obj_id, status, action_date, icon, color) VALUES(2, 'Shipped', TO_TIMESTAMP('15/10/2020 16:15','DD/MM/YYYY HH24:MI'), 'pi pi-shopping-cart', '#FF9800');
+INSERT INTO hr.timeline (obj_id, status, action_date, icon, color) VALUES(3, 'Delivered', TO_TIMESTAMP('16/10/2020 10:00','DD/MM/YYYY HH24:MI'), 'pi pi-check', '#607D8B');
+
+
 
 
 update hr.company set optlock=0;

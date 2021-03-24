@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,10 +17,11 @@
 operation form::FileUpload createTag(hash) {
      var clientLibraryPackage = hash.get('clientLibraryPackage');
      populateInclude(hash,"{TFileUpload}",  clientLibraryPackage+"/component/TFileUpload");
+     var ref = getReactRef(self);
      
 
 %]
-       <TFileUpload id="[%=self.uid%]" contextManager={this.contextManager}/>
+       <TFileUpload id="[%=self.uid%]" [%=ref%]  contextManager={this.contextManager}/>
             
 [%
 }

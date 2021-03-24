@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -106,6 +106,7 @@ public class MetamodelDeploymentJob extends Job {
 			job2 = job2.replace("${file}" , path);
 			
 			
+			System.out.println(job1 +" " + job2 );
 			if (isWindows) {
 				process = Runtime.getRuntime().exec( new String[] {job1,job2} );
 			} else {

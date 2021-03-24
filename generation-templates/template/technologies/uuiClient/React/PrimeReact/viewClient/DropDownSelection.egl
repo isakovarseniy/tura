@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -33,13 +33,15 @@ operation form::DropDownSelection createTag(hash) {
        message="message=\""+linkToMessage.target.uid+"\"";
      }
      var dependId = getDependentId(hash);
+     var ref = getReactRef(self);
+     
      self.addToChildren(hash);
      populateInclude(hash,"{TDropDownSelection}",  clientLibraryPackage+"/component/TDropDownSelection");
      
      
 
 %]
-       <TDropDownSelection id="[%=self.uid%]" [%=label%] [%=message%] contextManager={this.contextManager}  [%=dependId%]/>
+       <TDropDownSelection id="[%=self.uid%]" [%=ref%] [%=label%] [%=message%] contextManager={this.contextManager}  [%=dependId%]/>
             
 [%
 }

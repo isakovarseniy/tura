@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,12 +30,14 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.DateConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.DropDownSelectionConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.FileDownloadConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.FileUploadConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.FullCalendarConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.ImageConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.InputTextConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LabelConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderConfiguration;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinDataScroller;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinTableColumn;
+import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinTimeLine;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LayerHolderinTreeColumn;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LinkToLabelConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.LinkToMessageConfigurator;
@@ -48,6 +50,7 @@ import org.tura.sirius.diagram.producer.tura.config.items.form.RadioSelectionCon
 import org.tura.sirius.diagram.producer.tura.config.items.form.SelectManyMenuConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableColumnsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TableConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.form.TimeLineConfiguration;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeColumnsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.TreeConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.form.WindowRefConfigurator;
@@ -57,7 +60,7 @@ import org.tura.sirius.dsl.diagram.tToolSection;
 import org.tura.sirius.dsl.viewpoint.tRoot;
 
 public class CanvasDiagram {
-    public static int SUFFIX_LIMIT = 7;
+    public static int SUFFIX_LIMIT = 8;
     
     public List<Object> getChildrens() {
         ArrayList<Object> list = new ArrayList<Object>();
@@ -174,6 +177,7 @@ public class CanvasDiagram {
 
                 .addChild(MenuConfigurator.create()).addChild(MessageElementConfigurator.create())
                 .addChild(PollConfigurator.create())
+                .addChild(FullCalendarConfigurator.create())
                 .addChild(DataScrollerConfiguration.create()
                         .addChild(ButtonConfigurator.create("5"))
                         .addChild(CheckBoxConfigurator.create("5"))
@@ -212,8 +216,30 @@ public class CanvasDiagram {
                             
                           )
                         )
+                
+                .addChild(TimeLineConfiguration.create()
+                        .addChild(LayerHolderinTimeLine.create()
+                            .addChild(ButtonConfigurator.create("7"))
+                            .addChild(CheckBoxConfigurator.create("7"))
+                            .addChild(DateConfigurator.create("7"))
+                            .addChild(DropDownSelectionConfigurator.create("7"))
+                            .addChild(ImageConfigurator.create("7"))
+                            .addChild(InputTextConfigurator.create("7"))
+                            .addChild(OutputTextConfigurator.create("7"))
+                            .addChild(PasswordConfigurator.create("7"))
+                            .addChild(LabelConfigurator.create("7"))
+                            .addChild(FileUploadConfigurator.create("7"))
+                            .addChild(FileDownloadConfigurator.create("7"))
+                            .addChild(WindowRefConfigurator.create("7"))
+                            .addChild(RadioSelectionConfigurator.create("7"))
+                            .addChild(DataExporterConfigurator.create("7"))
+                            .addChild(SelectManyMenuConfigurator.create("7"))
+                            .addChild(DataTemplateConfigurator.create("7"))
+                            
+                          )
+                        )                
                 .addChild(BlockUIConfiguration.create()
-                        .addChild(ImageConfigurator.create("7"))
+                        .addChild(ImageConfigurator.create("8"))
                         );
 
         list.add(cnt);
@@ -237,6 +263,7 @@ public class CanvasDiagram {
         nodeToolSection.addChildrens(ColumnConfigurator.getTools());
         nodeToolSection.addChildrens(TreeConfigurator.getTools());
         nodeToolSection.addChildrens(MenuConfigurator.getTools());
+        nodeToolSection.addChildrens(FullCalendarConfigurator.getTools());
         nodeToolSection.addChildrens(MessageElementConfigurator.getTools());
         nodeToolSection.addChildrens(PollConfigurator.getTools());
         nodeToolSection.addChildrens(BlockUIConfiguration.getTools());
@@ -244,6 +271,7 @@ public class CanvasDiagram {
         nodeToolSection.addChildrens(FileDownloadConfigurator.getTools());
         nodeToolSection.addChildrens(WindowRefConfigurator.getTools());
         nodeToolSection.addChildrens(DataScrollerConfiguration.getTools());
+        nodeToolSection.addChildrens(TimeLineConfiguration.getTools());
         nodeToolSection.addChildrens(RadioSelectionConfigurator.getTools());
         nodeToolSection.addChildrens(DataExporterConfigurator.getTools());
         nodeToolSection.addChildrens(SelectManyMenuConfigurator.getTools());

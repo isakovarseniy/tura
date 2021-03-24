@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.tura.platform.datacontrol.TreePath;
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -128,7 +129,7 @@ public class TreeProcessor {
 	}
 
 	public static String stringify(List<TreePath> path) throws Exception {
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 		return mapper.writeValueAsString(path);
 	}
 

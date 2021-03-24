@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,6 @@ public class ViewModel implements Serializable {
     public void setCallBackProducer( CallbackProducer  callbackProducer ) {
     	this.callbackProducer = callbackProducer;
     }
-    
 
     @SuppressWarnings({ "rawtypes" })
     public Object getModel(String modelId, String modelType, Object obj) {
@@ -72,11 +71,25 @@ public class ViewModel implements Serializable {
         if ("multiSelectOptions".equals(modelType)) {
             model = getMultiSelectOptionsModel((DataControl) obj,callback,modelId);
         }
-        
+
+        if ("fullCalendar".equals(modelType)) {
+            model = getFullCalendarModel((DataControl) obj,callback,modelId);
+        }
+
+        if ("timeLine".equals(modelType)) {
+            model = getTimeLineModel((DataControl) obj,callback,modelId);
+        }
+
         modelHolder.put(modelId, model);
         return model;
 
     }
+    
+	@SuppressWarnings("rawtypes")
+	private Object getFullCalendarModel(DataControl dc, Object callback,String modelId) {
+        return new FullCalendarModel(dc, callback,modelId);
+	}
+    
 
 	@SuppressWarnings("rawtypes")
 	private Object getMultiSelectOptionsModel(DataControl dc, Object callback,String modelId) {
@@ -105,6 +118,10 @@ public class ViewModel implements Serializable {
 
     private OptionsModel getOptionsModel(DataControl<?> dc,Object callback,String modelId) {
         return new OptionsModel( dc, callback ,modelId);
+    }
+
+    private TimeLineModel getTimeLineModel(DataControl<?> dc,Object callback,String modelId) {
+        return new TimeLineModel( dc, callback ,modelId);
     }
 
     

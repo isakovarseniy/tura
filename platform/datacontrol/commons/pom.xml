@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>datacontrol</artifactId>
-		<version>5.0.4</version>
+		<version>5.0.5</version>
 	</parent>
 
 	<groupId>org.tura.platform.datacontrol</groupId>
@@ -53,6 +53,13 @@
 			<artifactId>jaxb-impl</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 

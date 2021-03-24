@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -15,20 +15,26 @@
 %]
 package org.acme.foo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import javax.xml.bind.DatatypeConverter;
 
-@SuppressWarnings("restriction")
 public class DateAdapter {
-	public static Date parseDate(String s) {
-		return DatatypeConverter.parseDate(s).getTime();
-	}
 
-	public static String printDate(Date dt) {
-		Calendar cal = new GregorianCalendar();
-		cal.setTime(dt);
-		return DatatypeConverter.printDate(cal);
+  public static Date parseDate(String s) {
+	  try {
+		return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(s);
+	} catch (ParseException e) {
+		e.printStackTrace();
 	}
+	  return null;
+  }
+
+  public static String printDate(Date dt) {
+    Calendar cal = new GregorianCalendar();
+    cal.setTime(dt);
+    return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(cal.getTime());
+  }
 }

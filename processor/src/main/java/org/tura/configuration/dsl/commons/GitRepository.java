@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -21,17 +21,49 @@ import java.io.OutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.TransportConfigCallback;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.archive.ArchiveFormats;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.transport.JschConfigSessionFactory;
+import org.eclipse.jgit.transport.OpenSshConfig.Host;
+import org.eclipse.jgit.transport.SshTransport;
+import org.eclipse.jgit.transport.Transport;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.zeroturnaround.zip.ZipUtil;
+
+import com.jcraft.jsch.Session;
 
 public class GitRepository {
 
 	private String localRepositoryPath;
 	private String branch;
 	private String outputFilePath;
+	private String user;
+	private String password;
+	private String remote;
+	private String message;
+
+	public GitRepository setMessage(String message) {
+		this.message = message;
+		return this;
+	}
+
+	public GitRepository setUser(String user) {
+		this.user = user;
+		return this;
+	}
+
+	public GitRepository setPassword(String password) {
+		this.password = password;
+		return this;
+	}
+
+	public GitRepository setRemote(String remote) {
+		this.remote = remote;
+		return this;
+	}
 
 	public GitRepository setLocalRepositoryPath(String localRepositoryPath) {
 		this.localRepositoryPath = localRepositoryPath;
@@ -48,11 +80,104 @@ public class GitRepository {
 		return this;
 	}
 
+	
+	public void pullRepository()throws IOException, GitAPIException {
+		FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+		Repository repository = repositoryBuilder.setGitDir(new File(this.localRepositoryPath + "/.git")).setup().build();
+		
+		JschConfigSessionFactory sshSessionFactory = new JschConfigSessionFactory() {
+			  @Override
+			  protected void configure( Host host, Session session ) {
+			    session.setPassword( password );
+			    session.setConfig("StrictHostKeyChecking", "no");					    
+			  }
+			} ;				
+
+		try (Git git = new Git(repository)) {
+			git.pull()
+			.setTransportConfigCallback( new TransportConfigCallback() {
+				  @Override
+				  public void configure( Transport transport ) {
+				    SshTransport sshTransport = ( SshTransport )transport;
+				    sshTransport.setSshSessionFactory( sshSessionFactory );
+				  }
+				}) 
+			.call();
+		}
+
+	}
+	
+	
+	
+	public void pushRepository()throws IOException, GitAPIException {
+		FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+		Repository repository = repositoryBuilder.setGitDir(new File(this.localRepositoryPath + "/.git")).setup().build();
+		
+		JschConfigSessionFactory sshSessionFactory = new JschConfigSessionFactory() {
+			  @Override
+			  protected void configure( Host host, Session session ) {
+			    session.setPassword( password );
+			    session.setConfig("StrictHostKeyChecking", "no");					    
+			  }
+			} ;				
+
+		try (Git git = new Git(repository)) {
+			git.push()
+			.setTransportConfigCallback( new TransportConfigCallback() {
+				  @Override
+				  public void configure( Transport transport ) {
+				    SshTransport sshTransport = ( SshTransport )transport;
+				    sshTransport.setSshSessionFactory( sshSessionFactory );
+				  }
+				}) 
+			.call();
+		}
+
+	}
+
+	
+	
+	public void addAndCommitRepository()throws IOException, GitAPIException {
+		FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+		Repository repository = repositoryBuilder.setGitDir(new File(this.localRepositoryPath + "/.git")).setup().build();
+		try (Git git = new Git(repository)) {
+			git.add().addFilepattern(".").call();
+			git.commit().setMessage(message).call();
+		}
+
+	}
+	
+	public void cloneRepository() throws IOException, GitAPIException {
+			try {
+				JschConfigSessionFactory sshSessionFactory = new JschConfigSessionFactory() {
+					  @Override
+					  protected void configure( Host host, Session session ) {
+					    session.setPassword( password );
+					    session.setConfig("StrictHostKeyChecking", "no");					    
+					  }
+					} ;				
+				
+				Git.cloneRepository()
+				.setURI(this.remote)
+				.setCredentialsProvider(new UsernamePasswordCredentialsProvider(user, password))
+				.setDirectory(new File(this.outputFilePath))
+				.setTransportConfigCallback( new TransportConfigCallback() {
+					  @Override
+					  public void configure( Transport transport ) {
+					    SshTransport sshTransport = ( SshTransport )transport;
+					    sshTransport.setSshSessionFactory( sshSessionFactory );
+					  }
+					}) 
+				.call();
+			} finally {
+			}
+	}
+
 	public void archiveRepository() throws IOException, GitAPIException {
 		try (Repository repository = createRepository()) {
 			ArchiveFormats.registerAll();
 			try {
-				write(repository, ".zip", "zip");
+				archive(repository, ".zip", "zip");
 
 			} finally {
 				ArchiveFormats.unregisterAll();
@@ -60,7 +185,7 @@ public class GitRepository {
 		}
 	}
 
-	private void write(Repository repository, String suffix, String format) throws IOException, GitAPIException {
+	private void archive(Repository repository, String suffix, String format) throws IOException, GitAPIException {
 		// this is the file that we write the archive to
 		File file = new File(outputFilePath + suffix);
 		FileUtils.forceMkdirParent(file);

@@ -1,0 +1,230 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   http://sourceforge.net/p/tura/wiki/Home/
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::FullCalendar createModel(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var javaPath = hash.get("javaPath");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
+     var component  = hash.get("component");
+     var hints = new Native('java.util.HashMap');
+     var hints1 = new Native('java.util.HashMap');
+     var recipe =  hash.get('recipe');
+     var ingredient =  hash.get('ingredient');
+
+     var modelRegistration = hash.get("modelRegistration");
+     modelRegistration.add(self);
+     
+     util.traceIfDebug("UI element","FullCalendar model start: "+self.uid);     
+     
+    %]
+       package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel; 
+            
+		import org.tura.platform.uuiclient.rest.EventDescription;
+		import org.tura.platform.uuiclient.rest.UuiElement;
+		import java.util.List;
+		import java.util.Map;
+		import java.util.ArrayList;
+		import java.util.HashMap;
+
+  
+       public class FullCalendar_[%=self.mkuid_()%]  extends UuiElement{
+            private String id = "[%=self.uid%]";
+			private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.FullCalendar_[%=self.mkuid_()%]";
+	        private List<Map<String,Object> > values;
+            private Map<String,Object> options;	        
+			private String style;
+			private String className;
+		    private  boolean disabled;
+		  	private boolean rendered = true;
+		  	private String layout; 
+		    
+			 public Map<String, Object> getOptions() {
+				return options;
+			}
+			
+			public void setOptions(Map<String, Object> options) {
+				this.options = options;
+			}
+
+		    public String getLayout() {
+		        return layout;
+		    }
+		
+		    public void setLayout(String layout) {
+		        this.layout = layout;
+		    }		
+		
+		  	
+		    public String getClazz() {
+				return clazz;
+			}
+		
+			public void setClazz(String clazz) {
+				this.clazz = clazz;
+			}
+		    
+	        public boolean isRendered() {
+			    return rendered;
+		    }
+	
+			public void setRendered(boolean rendered) {
+				this.rendered = rendered;
+			}
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
+			}
+			public boolean isDisabled() {
+				return disabled;
+			}
+			public void setDisabled(boolean disabled) {
+				this.disabled = disabled;
+			}
+
+		    public List<Map<String, Object>> getValues() {
+				return values;
+			}
+		
+			public void setValues(List<Map<String, Object>> values) {
+				this.values = values;
+			}
+
+			public String getStyle() {
+				return style;
+			}
+		
+			public void setStyle(String style) {
+				this.style = style;
+			}
+		
+			public String getClassName() {
+				return className;
+			}
+		
+			public void setClassName(String className) {
+				this.className = className;
+			}
+		
+          [%
+               hints.put("noCurlyBracket",true);
+          %]
+			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
+			    [%=self.style(hash)%]
+			    [%=self.styleClass(hash)%]
+			    [%=self.rendered(hash)%]
+			    [%=self.disabled(hash)%]
+
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','fullCalendar', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%])}";
+			    org.tura.platform.uuiclient.model.FullCalendarModel model =  (org.tura.platform.uuiclient.model.FullCalendarModel) elResolver.getValue(modelExpression);
+
+
+                model.load();
+			    if (model.getOptions() != null){
+			       options = model.getOptions().toMap();
+			    }
+			    
+			    this.values = new ArrayList<Map<String,Object>>();
+			    java.util.List<org.tura.platform.uuiclient.model.FullCalendarModel.CalendarEvent> list = model.getEvents();
+			    if (list != null){
+				    for ( org.tura.platform.uuiclient.model.FullCalendarModel.CalendarEvent obj: list ){
+	                   java.util.Map<String,Object> map = obj.toMap();
+			           this.values.add(map);    
+				    }
+			    }
+                this.createOnDataClickEvent(responseState.getResponse());
+                this.createOnDropEvent(responseState.getResponse());
+                
+			    
+			}
+
+		   @SuppressWarnings("unchecked")
+			public UuiElement restoreContext( java.util.Map<String, Object> map,org.tura.platform.uuiclient.rest.DataUpdateRequest request, org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState, java.util.List<org.tura.platform.uuiclient.rest.EventDescription> eventsToFire) throws Exception {
+			       List<Object> childrens = (List<Object>) map.get("childrens");
+			       for ( Object child : childrens) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   String clazz = (String) chMap.get("clazz");
+			    	   Class<UuiElement> chClass =  (Class<UuiElement>) Class.forName(clazz);
+			    	   UuiElement uie = chClass.newInstance();
+			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       List<Object> events = (List<Object>) map.get("events");
+			       for ( Object child : events) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   EventDescription event = new EventDescription();
+			    	   getEvents().add((EventDescription)event.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
+			       
+                   this.values = (java.util.List<java.util.Map<String, Object>>) map.get("values");
+			       
+			       return this;
+			   }
+
+
+			public void applyContext( org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception {
+            } 			
+            
+			private  Object resolve(String expression, org.tura.platform.datacontrol.ELResolver elResolver ){
+			    if (expression.length()>3 && "#{".equals(expression.substring(0, 2))) {
+                    return  elResolver.getValue(expression);
+                } else {
+                   return expression;
+                }
+			} 
+          
+          
+			private void createOnDataClickEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','fullCalendar', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).onDataClick}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onDataClickEvent", "server", modelExpression, "react.onDataClickEvent", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onDataClickEvent", "date", null, 0);
+		        this.getEvents().add(event);
+			}          
+
+
+			private void createOnDropEvent(org.tura.platform.uuiclient.rest.DataUpdateResponse response) {
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','fullCalendar', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).onDrop}";
+			
+				org.tura.platform.uuiclient.rest.EventDescription event = new org.tura.platform.uuiclient.rest.EventDescription(id+"_onDropEvent", "server", modelExpression, "react.onDropEvent", [%=self.refreshProcessArias()%],[%=self.refreshUpdateArias()%] );
+                event.addParameters(id + "_onDropEvent", "eventId", null, 0);
+                event.addParameters(id + "_onDropEvent", "start", null, 0);
+                event.addParameters(id + "_onDropEvent", "end", null, 0);
+		        this.getEvents().add(event);
+			}          
+        
+          
+        }    
+
+     [%
+     
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     out.formatWith(f);
+     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/",  "FullCalendar_"+self.mkuid_() +".java",out.toString());   
+
+     util.traceIfDebug("UI element","FullCalendar model end: "+self.uid);     
+
+}
+
+
+
+operation form::FullCalendar className(hash) { 
+   return self.eClass().getName();
+}
+
+%]

@@ -117,7 +117,7 @@ public class HrControllerTest extends AbstractTest {
 			public void action() {
 				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Messages msg = hrControllerPage.getMessages();
-				assertEquals("Data persisted", msg.getValue());
+				assertEquals(  "Data persisted", msg.getValue());
 			}
 		}.repeat(5);
 		;
@@ -153,7 +153,7 @@ public class HrControllerTest extends AbstractTest {
 			public void action() {
 				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Messages msg = hrControllerPage.getMessages();
-				assertEquals("Data persisted", msg.getValue());
+				assertEquals("Data persisted" , msg.getValue());
 			}
 		}.repeat(5);
 		;
@@ -977,14 +977,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("button")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -994,12 +994,18 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr2 = (TreeRow) tree.getRow("1_1");
 		tr2.rightClick();
 
-		menu = hrControllerPage.getLocationTreeContextMenu();
-		menu.clickOnItem("Update");
+		
+		final Menu m = hrControllerPage.getLocationTreeContextMenu();
+		new Repeater() {
+			public void action() {
+				m.clickOnItem("Update");
+			}
+		}.repeat(10);
+
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1021,14 +1027,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("button")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1039,12 +1045,18 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr3 = (TreeRow) tree.getRow("1_1_1");
 		tr3.rightClick();
 
-		menu = hrControllerPage.getLocationTreeContextMenu();
-		menu.clickOnItem("Update");
+		Menu m4 = hrControllerPage.getLocationTreeContextMenu();
+		new Repeater() {
+			public void action() {
+				m4.clickOnItem("Update");
+			}
+		}.repeat(10);
+
+		
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1066,14 +1078,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("button")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1085,12 +1097,17 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr4 = (TreeRow) tree.getRow("1_1_1_1");
 		tr4.rightClick();
 
-		menu = hrControllerPage.getLocationTreeContextMenu();
-		menu.clickOnItem("Update");
+		final Menu m1 = hrControllerPage.getLocationTreeContextMenu();
+		new Repeater() {
+			public void action() {
+				m1.clickOnItem("Update");
+			}
+		}.repeat(10);
+
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1112,14 +1129,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("button")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1158,8 +1175,16 @@ public class HrControllerTest extends AbstractTest {
 		inputText.setValue("Dept 1 desk");
 		deptTable.getRow(0).acceptRowChange();
 
+		new Repeater() {
+			@Override
+			public void action() {
+				EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
+				employeesPage.getAddEmployee().click();
+			}
+		}.repeat(10);
+		
+		
 		EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
-		employeesPage.getAddEmployee().click();
 
 		Table empTable = (Table) employeesPage.getEmployeeTable();
 
@@ -1180,7 +1205,14 @@ public class HrControllerTest extends AbstractTest {
 		inputText.setValue("LName 1");
 		empTable.getRow(0).acceptRowChange();
 
-		employeesPage.getAddVehicle().click();
+		new Repeater() {
+			@Override
+			public void action() {
+				EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
+				employeesPage.getAddVehicle().click();
+			}
+		}.repeat(10);
+
 
 		new Repeater() {
 			public void action() {
@@ -1219,12 +1251,17 @@ public class HrControllerTest extends AbstractTest {
 		TreeRow tr5 = (TreeRow) tree.getRow("1");
 		tr5.rightClick();
 
-		menu = filesPageObject.getContentTableContextMenu();
-		menu.clickOnItem("Update");
+		final Menu m2 = filesPageObject.getContentTableContextMenu();
+		new Repeater() {
+			public void action() {
+				m2.clickOnItem("Update");
+			}
+		}.repeat(10);
+
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1246,14 +1283,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("button")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("button")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 

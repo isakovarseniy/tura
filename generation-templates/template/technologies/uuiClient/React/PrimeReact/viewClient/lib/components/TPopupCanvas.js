@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -49,7 +49,7 @@ export class TPopupCanvas extends TuraComponent {
 
         return (
 
-            <Dialog id={this.id}  showHeader={this.state.showHeader} header={this.state.header} visible={this.state.visible} style={this.state.style} className={this.state.styleClass}  modal={this.state.modal} onHide={this.onHideEvent}>
+            <Dialog id={this.id} closable={false} showHeader={this.state.showHeader} header={this.state.header} visible={this.state.visible} style={this.state.style} className={this.state.styleClass}  modal={this.state.modal} onHide={this.onHideEvent}>
                 {this.props.children}
             </Dialog>
 

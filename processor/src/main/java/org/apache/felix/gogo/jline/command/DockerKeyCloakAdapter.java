@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -20,9 +20,8 @@ import org.tura.configuration.dsl.commons.CopyFile;
 
 import picocli.CommandLine.Option;
 
-public class DockerKeyCloakAdapter extends DockerCommand{
+public class DockerKeyCloakAdapter extends DockerCommand {
 
-	
 	@Option(names = "--container", required = true)
 	private String containerId;
 
@@ -34,40 +33,42 @@ public class DockerKeyCloakAdapter extends DockerCommand{
 
 	@Option(names = "--serverType", required = true)
 	private String serverType;
-	
+
 	@Option(names = "--keyCloakAdapter", required = true)
 	private String keyCloakAdapter;
 
-	
-	
-    @Override
-    public Object execute()  {
-    	try {
+	@Option(names = "--cliFile")
+	private String cliFile;
 
-            new CopyFile(this.session)
-   	            .setTargetLocation(jboss_home)
-   	            .setSourceResource(keyCloakAdapter)
-                .setContainer(containerId)
-                .copyFromExternal();
-            
-    		 String filename = FilenameUtils.getName(keyCloakAdapter);
-             new ExecuteExternalOperation(String.format( "docker exec -i %s sh -c \"cd %s; unzip -o  ./%s\" ", containerId,jboss_home,  filename) ).execute();
-             
-             new CopyFile(this.session)
- 	        	.setTargetLocation( jboss_home+"/bin")
- 	        	.setSourceResource(ConfigConstants.TURA_CONFIG_REPOSITORY+"/"+this.application +"/"+ serverType + "/assets/adapter-install-offline.cli")
- 	        	.setTargetName("adapter-install-offline.cli")
- 	        	.setContainer(containerId)
- 	        	.copyFromExternal();
- 
-             new ExecuteExternalOperation(String.format( "docker exec -i  %s sh -c \" %s/bin/jboss-cli.sh  --file=%s/bin/adapter-install-offline.cli\" ",containerId,jboss_home,jboss_home) ).execute();
-    		
-    		
-    	}catch( Exception e) {
-    		throw new RuntimeException(e); 
-    	}
-    	
-        return null;
-    }
+	@Override
+	public Object execute() {
+		try {
+
+			if (cliFile == null) {
+				cliFile = "adapter-install-offline.cli";
+			}
+
+			new CopyFile(this.session).setTargetLocation(jboss_home).setSourceResource(keyCloakAdapter)
+					.setContainer(containerId).copyFromExternal();
+
+			String filename = FilenameUtils.getName(keyCloakAdapter);
+			new ExecuteExternalOperation(String.format("docker exec -i %s sh -c \"cd %s; unzip -o  ./%s\" ",
+					containerId, jboss_home, filename)).execute();
+
+			new CopyFile(this.session).setTargetLocation(jboss_home + "/bin")
+					.setSourceResource(ConfigConstants.TURA_CONFIG_REPOSITORY + "/" + this.application + "/"
+							+ serverType + "/assets/" + cliFile)
+					.setTargetName(cliFile).setContainer(containerId).copyFromExternal();
+
+			new ExecuteExternalOperation(
+					String.format("docker exec -i  %s sh -c \" %s/bin/jboss-cli.sh  --file=%s/bin/%s\" ", containerId,
+							jboss_home, jboss_home, cliFile)).execute();
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+		return null;
+	}
 
 }

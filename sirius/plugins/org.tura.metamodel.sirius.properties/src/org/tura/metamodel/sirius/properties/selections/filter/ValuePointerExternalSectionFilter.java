@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,8 +19,10 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
+import form.DataScroller;
 import form.SourcesPointer;
 import form.Table;
+import form.TimeLine;
 import form.Tree;
 
 public class ValuePointerExternalSectionFilter extends SourcesPointerSectionFilter {
@@ -33,7 +35,12 @@ public class ValuePointerExternalSectionFilter extends SourcesPointerSectionFilt
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof SourcesPointer && !(element instanceof Tree) && !(element instanceof  Table)) {
+			if (element instanceof SourcesPointer 
+					&& !(element instanceof Tree) 
+					&& !(element instanceof  Table)
+					&& !(element instanceof  DataScroller)
+					&& !(element instanceof  TimeLine)
+					) {
 				return !isNotExternalControlExists(element);
 			}
 		}

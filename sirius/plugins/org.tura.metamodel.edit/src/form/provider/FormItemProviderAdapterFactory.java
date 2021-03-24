@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1531,6 +1531,52 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return dataScrollerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.TimeLine} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeLineItemProvider timeLineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.TimeLine}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeLineAdapter() {
+		if (timeLineItemProvider == null) {
+			timeLineItemProvider = new TimeLineItemProvider(this);
+		}
+
+		return timeLineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.FullCalendar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FullCalendarItemProvider fullCalendarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.FullCalendar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFullCalendarAdapter() {
+		if (fullCalendarItemProvider == null) {
+			fullCalendarItemProvider = new FullCalendarItemProvider(this);
+		}
+
+		return fullCalendarItemProvider;
 	}
 
 	/**

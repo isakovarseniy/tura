@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -61,6 +61,7 @@ import form.DataControl;
 import form.DataScroller;
 import form.Form;
 import form.Table;
+import form.TimeLine;
 import form.Tree;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -202,6 +203,8 @@ public class Util {
 		if (top instanceof Tree)
 			return top;
 		if (top instanceof DataScroller)
+			return top;
+		if (top instanceof TimeLine)
 			return top;
 
 		return findSourcePointer(top);

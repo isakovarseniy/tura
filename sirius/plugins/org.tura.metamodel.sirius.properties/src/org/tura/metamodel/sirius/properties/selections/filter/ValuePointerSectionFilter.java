@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2020 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -20,25 +20,32 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 import form.DataScroller;
+import form.FullCalendar;
 import form.SourcesPointer;
 import form.Table;
+import form.TimeLine;
 import form.Tree;
 
-public class ValuePointerSectionFilter  extends SourcesPointerSectionFilter {
+public class ValuePointerSectionFilter extends SourcesPointerSectionFilter {
 
-    @Override
-    public boolean select(Object toTest) {
-        EditPart editPart = (EditPart) toTest;
+	@Override
+	public boolean select(Object toTest) {
+		EditPart editPart = (EditPart) toTest;
 
-        if (((View) editPart.getModel()).getElement() instanceof DRepresentationElement) {
-            DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
-            EObject element = obj.getTarget();
+		if (((View) editPart.getModel()).getElement() instanceof DRepresentationElement) {
+			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
+			EObject element = obj.getTarget();
 
-            if (element instanceof SourcesPointer && !(element instanceof Tree) && !(element instanceof  Table) && !(element instanceof DataScroller)  ) {
-                return isNotExternalControlExists(element);
-            }
-        }
-        return false;
-    }
+			if (    element instanceof SourcesPointer 
+					&& !(element instanceof Tree) 
+					&& !(element instanceof Table)
+					&& !(element instanceof DataScroller)
+					&& !(element instanceof TimeLine) 
+					&& !(element instanceof FullCalendar)) {
+				return isNotExternalControlExists(element);
+			}
+		}
+		return false;
+	}
 
 }
