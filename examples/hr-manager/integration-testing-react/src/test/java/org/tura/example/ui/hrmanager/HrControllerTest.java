@@ -924,13 +924,13 @@ public class HrControllerTest extends AbstractTest {
 		InputText inputText = new InputTextPrimeReact(t.getRow(0).getCell(0).findElement(By.cssSelector("input")),
 				driver);
 		inputText.clear();
-		inputText.setValue("Company 3");
-		assertEquals("Company 3", inputText.getValue());
+		inputText.setValue("Company_3");
+		assertEquals("Company_3", inputText.getValue());
 
 		t.getRow(0).getCell(1).click();
 		inputText = new InputTextPrimeReact(t.getRow(0).getCell(1).findElement(By.cssSelector("input")), driver);
 		inputText.clear();
-		inputText.setValue("Company 3 description");
+		inputText.setValue("Company_3 description");
 
 		t.getRow(0).acceptRowChange();
 
@@ -964,14 +964,14 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")), driver);
-				inputText.setValue("Country 3");
+				inputText.setValue("Country_3");
 			}
 		}.repeat(10);
 		
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("Country 3"));
+				assertNotEquals( -1,inputText.getValue().indexOf("Country_3"));
 			}
 		}.repeat(10);
 		
@@ -1013,7 +1013,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")), driver);
-				inputText.setValue("State 3");
+				inputText.setValue("State_3");
 			}
 		}.repeat(10);		
 		
@@ -1021,7 +1021,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("State 3"));
+				assertNotEquals( -1,inputText.getValue().indexOf("State_3"));
 			}
 		}.repeat(10);
 		
@@ -1064,7 +1064,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")), driver);
-				inputText.setValue("City 3");
+				inputText.setValue("City_3");
 			}
 		}.repeat(10);		
 		
@@ -1072,7 +1072,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("City 3"));
+				assertNotEquals( -1,inputText.getValue().indexOf("City_3"));
 			}
 		}.repeat(10);
 		
@@ -1115,7 +1115,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")), driver);
-				inputText.setValue("Street 3");
+				inputText.setValue("Street_3");
 			}
 		}.repeat(10);		
 		
@@ -1123,7 +1123,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			public void action() {
 				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("Street 3"));
+				assertNotEquals( -1,inputText.getValue().indexOf("Street_3"));
 			}
 		}.repeat(10);
 		
@@ -1167,12 +1167,12 @@ public class HrControllerTest extends AbstractTest {
 		deptTable.getRow(0).getCell(0).click();
 		inputText = new InputTextPrimeReact(deptTable.getRow(0).getCell(0).findElement(By.cssSelector("input")),
 				driver);
-		inputText.setValue("Dept 1");
+		inputText.setValue("Dept_1");
 
 		deptTable.getRow(0).getCell(1).click();
 		inputText = new InputTextPrimeReact(deptTable.getRow(0).getCell(1).findElement(By.cssSelector("input")),
 				driver);
-		inputText.setValue("Dept 1 desk");
+		inputText.setValue("Dept_1 desk");
 		deptTable.getRow(0).acceptRowChange();
 
 		new Repeater() {
@@ -1197,12 +1197,12 @@ public class HrControllerTest extends AbstractTest {
 		empTable.getRow(0).getCell(0).click();
 
 		inputText = new InputTextPrimeReact(empTable.getRow(0).getCell(0).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("FName 1");
+		inputText.setValue("FName_1");
 
 		empTable.getRow(0).getCell(1).click();
 
 		inputText = new InputTextPrimeReact(empTable.getRow(0).getCell(1).findElement(By.cssSelector("input")), driver);
-		inputText.setValue("LName 1");
+		inputText.setValue("LName_1");
 		empTable.getRow(0).acceptRowChange();
 
 		new Repeater() {
@@ -1327,18 +1327,18 @@ public class HrControllerTest extends AbstractTest {
 		t = hrControllerPage.getCompanies();
 		t.getRow(0).click();
 		WebElement el = t.getRow(0).getCell(0);
-		assertEquals("Company 3", el.getText());
+		assertEquals("Company_3", el.getText());
 
 		tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("1");
 		tr.open();
 
 		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
-		assertNotEquals(-1, el.getText().contains("Country 3"));
+		assertNotEquals(-1, el.getText().contains("Country_3"));
 
 		CountryDetailsPageObject countryDetails = new CountryDetailsPageObject(driver);
 		String value = countryDetails.getCompanyDetails().getValue();
-		assertNotEquals(-1, value.contains("Country 3"));
+		assertNotEquals(-1, value.contains("Country_3"));
 
 		new Repeater() {
 			public void action() {
@@ -1354,10 +1354,10 @@ public class HrControllerTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("1_1");
 
 		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
-		assertNotEquals(-1, el.getText().indexOf("State 3"));
+		assertNotEquals(-1, el.getText().indexOf("State_3"));
 		StateDetailsPageObject stateDetails = new StateDetailsPageObject(driver);
 		value = stateDetails.getStateDeteails().getValue();
-		assertNotEquals(-1, value.indexOf("NAState 3"));
+		assertNotEquals(-1, value.indexOf("NAState_3"));
 
 		new Repeater() {
 			public void action() {
@@ -1373,10 +1373,10 @@ public class HrControllerTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("1_1_1");
 
 		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
-		assertNotEquals(-1, el.getText().indexOf("City 3"));
+		assertNotEquals(-1, el.getText().indexOf("City_3"));
 		CityDetailsPageObject cityDetails = new CityDetailsPageObject(driver);
 		value = cityDetails.getCityDetails().getValue();
-		assertNotEquals(-1 , value.indexOf("City 3"));
+		assertNotEquals(-1 , value.indexOf("City_3"));
 
 		new Repeater() {
 			public void action() {
@@ -1392,15 +1392,15 @@ public class HrControllerTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("1_1_1_1");
 
 		el = tr.getCell(1);
-		assertNotEquals(-1, el.getText().indexOf("Street 3"));
+		assertNotEquals(-1, el.getText().indexOf("Street_3"));
 
 		DepartmentsDetailsPageObject departmentsDetails = new DepartmentsDetailsPageObject(driver);
 		TableRow row = (TableRow) departmentsDetails.getDepartmentTable().getRow(0);
-		assertEquals("Dept 1", row.getCell(0).getText());
+		assertEquals("Dept_1", row.getCell(0).getText());
 
 		EmployeesPageObject employees = new EmployeesPageObject(driver);
 		row = (TableRow) employees.getEmployeeTable().getRow(0);
-		assertEquals("FName 1", row.getCell(0).getText());
+		assertEquals("FName_1", row.getCell(0).getText());
 
 		row = (TableRow) employees.getVehicleTable().getRow(0);
 		assertEquals("Honda", row.getCell(0).getText());

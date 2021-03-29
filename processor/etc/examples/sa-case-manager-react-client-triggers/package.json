@@ -1,6 +1,6 @@
 {
   "name": "sa-case-manager-react-client-triggers",
-  "version": "5.0.2",
+  "version": "${TURA_VERSION}",
   "private": true,
   "babel": {
     "presets": [

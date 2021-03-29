@@ -130,6 +130,7 @@ public class ListSelectionTest extends AbstractTest {
 	public void t000_listSelection02() {
 		driver.get(getUrl(app_url));
 		
+		
 		ListSelectionPageObject page = new ListSelectionPageObject(driver);
 		
 		SelectMany el = page.getMultiselect();

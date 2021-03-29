@@ -43,7 +43,7 @@ public class CheckBoxPrimeReact implements CheckBox {
 
 	@Override
 	public boolean getValue() {
-		WebElement el =  element.findElement(By.cssSelector("input[type='checkbox']"));
+		WebElement el =  element.findElement(By.cssSelector("div[class*='p-checkbox-box']"));
 		return  Boolean.parseBoolean (el.getAttribute("aria-checked"));
 	}
 

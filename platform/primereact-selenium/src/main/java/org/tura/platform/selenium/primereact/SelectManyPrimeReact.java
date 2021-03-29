@@ -50,8 +50,13 @@ public class SelectManyPrimeReact implements SelectMany{
 
 	@Override
 	public void setValue(String value) {
-		WebElement el = element.findElement(By.cssSelector("div[class*='p-multiselect-items-wrapper']"));
-		el.findElement(By.xpath("./ul/li/span[text()='" + value + "']")).click();
+		new Repeater() {
+			@Override
+			public void action() {
+				WebElement el = driver.findElement(By.cssSelector("div[class*='p-multiselect-items-wrapper']"));
+				el.findElement(By.xpath("./ul/li/span[text()='" + value + "']")).click();
+			}
+		}.repeat(10);
 		
 	}
 

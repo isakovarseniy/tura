@@ -26,13 +26,13 @@ tura:generate --build --recipeId 79ad0912-2614-4e51-8828-741f315d47d2 --infraId 
 
 echo Populate package.json
 
-tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-admin-react-client-triggers --templateLocation examples/sa-admin-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-admin-react-client-triggers --templateLocation examples/sa-admin-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
 
-tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-case-manager-react-client-triggers --templateLocation examples/sa-case-manager-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-case-manager-react-client-triggers --templateLocation examples/sa-case-manager-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
 
-tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-etl-controller-react-client-triggers --templateLocation examples/sa-etl-controller-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/sales-analyzer/sa-etl-controller-react-client-triggers --templateLocation examples/sa-etl-controller-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
 
-tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/hr-manager/hrform-react-client-triggers --templateLocation examples/hrform-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/hr-manager/hrform-react-client-triggers --templateLocation examples/hrform-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
 
 
 echo Generate Hr form recipe
