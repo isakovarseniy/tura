@@ -40,6 +40,7 @@ import org.apache.felix.gogo.jline.command.DSLLicenseSet;
 import org.apache.felix.gogo.jline.command.DSLLicenseShow;
 import org.apache.felix.gogo.jline.command.DSLMkDir;
 import org.apache.felix.gogo.jline.command.DSLModule;
+import org.apache.felix.gogo.jline.command.DSLPropertiesFile;
 import org.apache.felix.gogo.jline.command.DSLRemoveFile;
 import org.apache.felix.gogo.jline.command.DSLStandaloneFullXml;
 import org.apache.felix.gogo.jline.command.DSLWildFlyConfiguration;
@@ -143,6 +144,7 @@ public class DSLOperation  {
                 .addSubcommand("config", new DSLConfiguration())
                 .addSubcommand("addTmplRoot", new DSLAddTemplateRoot())
                 .addSubcommand("delTmplRoot", new DSLDelTemplateRoot())
+                .addSubcommand("properties", new DSLPropertiesFile())
         ;
     }
 

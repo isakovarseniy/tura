@@ -297,6 +297,7 @@ setVersion = {
 }
 addClosure "setVersion";
 
+tura:dsl removeFile --targetLocation ${tura_working_directory}/generation.properties
 
 postInit;
 
