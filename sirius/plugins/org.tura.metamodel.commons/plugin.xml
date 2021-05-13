@@ -5,7 +5,7 @@
 
 
       This project includes software developed by Arseniy Isakov
-      http://sourceforge.net/p/tura/wiki/Home/
+      https://github.com/isakovarseniy/tura
       All rights reserved. This program and the accompanying materials
       are made available under the terms of the Eclipse Public License v2.0
       which accompanies this distribution, and is available at
@@ -181,6 +181,13 @@
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
+      
+      <factory  adaptableType="objectmapper.Variable"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+      
 
       <factory  adaptableType="domain.DomainApplications"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -192,6 +192,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -201,6 +202,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -213,6 +215,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ViewElement> getViewElement() {
 		if (viewElement == null) {
 			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, FormPackage.TAB_PAGE__VIEW_ELEMENT);
@@ -225,6 +228,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -249,6 +253,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -268,6 +273,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.TAB_PAGE__CLASSIFIERS);
@@ -280,6 +286,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -289,6 +296,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -301,6 +309,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.TAB_PAGE__FIELDS);
@@ -313,6 +322,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getTabSequence() {
 		return tabSequence;
 	}
@@ -322,6 +332,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTabSequence(int newTabSequence) {
 		int oldTabSequence = tabSequence;
 		tabSequence = newTabSequence;

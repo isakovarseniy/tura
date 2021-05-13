@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -132,6 +132,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -141,6 +142,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -153,6 +155,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getRefObj() {
 		if (refObj != null && refObj.eIsProxy()) {
 			InternalEObject oldRefObj = (InternalEObject)refObj;
@@ -179,6 +182,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRefObj(EObject newRefObj) {
 		EObject oldRefObj = refObj;
 		refObj = newRefObj;
@@ -191,6 +195,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Comparator getOperation() {
 		return operation;
 	}
@@ -200,6 +205,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperation(Comparator newOperation) {
 		Comparator oldOperation = operation;
 		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
@@ -212,6 +218,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContextValue getValue() {
 		return value;
 	}
@@ -236,6 +243,7 @@ public class ContextParameterImpl extends EObjectImpl implements ContextParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(ContextValue newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;

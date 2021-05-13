@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -225,6 +225,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getEnabled() {
 		return enabled;
 	}
@@ -249,6 +250,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(Context newEnabled) {
 		if (newEnabled != enabled) {
 			NotificationChain msgs = null;
@@ -268,6 +270,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.MENU_FOLDER__CLASSIFIERS);
@@ -280,6 +283,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getStyle() {
 		return style;
 	}
@@ -304,6 +308,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(Context newStyle) {
 		if (newStyle != style) {
 			NotificationChain msgs = null;
@@ -323,6 +328,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -347,6 +353,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -366,6 +373,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getIcon() {
 		return icon;
 	}
@@ -390,6 +398,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIcon(Context newIcon) {
 		if (newIcon != icon) {
 			NotificationChain msgs = null;
@@ -409,6 +418,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.MENU_FOLDER__FIELDS);
@@ -421,6 +431,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -430,6 +441,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -442,6 +454,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -451,6 +464,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -463,6 +477,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isExtensionPoint() {
 		return extensionPoint;
 	}
@@ -472,6 +487,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExtensionPoint(boolean newExtensionPoint) {
 		boolean oldExtensionPoint = extensionPoint;
 		extensionPoint = newExtensionPoint;
@@ -484,6 +500,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MenuElement> getMenuElements() {
 		if (menuElements == null) {
 			menuElements = new EObjectContainmentEList<MenuElement>(MenuElement.class, this, FormPackage.MENU_FOLDER__MENU_ELEMENTS);

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -80,6 +80,7 @@ public class TechLeafItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addKeyIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -99,6 +100,28 @@ public class TechLeafItemProvider
 				 getString("_UI_TechLeaf_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TechLeaf_uid_feature", "_UI_TechLeaf_type"),
 				 ArtifactPackage.Literals.TECH_LEAF__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Key Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TechLeaf_keyId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TechLeaf_keyId_feature", "_UI_TechLeaf_type"),
+				 ArtifactPackage.Literals.TECH_LEAF__KEY_ID,
 				 true,
 				 false,
 				 false,
@@ -201,6 +224,7 @@ public class TechLeafItemProvider
 
 		switch (notification.getFeatureID(TechLeaf.class)) {
 			case ArtifactPackage.TECH_LEAF__UID:
+			case ArtifactPackage.TECH_LEAF__KEY_ID:
 			case ArtifactPackage.TECH_LEAF__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

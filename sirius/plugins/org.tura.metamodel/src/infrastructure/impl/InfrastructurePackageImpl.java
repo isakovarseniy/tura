@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -58,6 +58,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -221,6 +223,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI);
@@ -242,6 +246,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theMessagePackage.createPackageContents();
 		theStylePackage.createPackageContents();
@@ -256,6 +261,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
 		theStylePackage.initializePackageContents();
@@ -277,6 +283,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnterpriseInfrastructure() {
 		return enterpriseInfrastructureEClass;
 	}
@@ -286,6 +293,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnterpriseInfrastructure_Uid() {
 		return (EAttribute)enterpriseInfrastructureEClass.getEStructuralFeatures().get(0);
 	}
@@ -295,6 +303,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnterpriseInfrastructure_Name() {
 		return (EAttribute)enterpriseInfrastructureEClass.getEStructuralFeatures().get(1);
 	}
@@ -304,6 +313,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnterpriseInfrastructure_Datacenters() {
 		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(2);
 	}
@@ -313,6 +323,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnterpriseInfrastructure_InfrastructureConnections() {
 		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(3);
 	}
@@ -322,6 +333,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDatacenter() {
 		return datacenterEClass;
 	}
@@ -331,6 +343,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDatacenter_Uid() {
 		return (EAttribute)datacenterEClass.getEStructuralFeatures().get(0);
 	}
@@ -340,6 +353,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDatacenter_Subsystems() {
 		return (EReference)datacenterEClass.getEStructuralFeatures().get(1);
 	}
@@ -349,6 +363,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDatacenter_Name() {
 		return (EAttribute)datacenterEClass.getEStructuralFeatures().get(2);
 	}
@@ -358,6 +373,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubsystem() {
 		return subsystemEClass;
 	}
@@ -367,6 +383,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSubsystem_Uid() {
 		return (EAttribute)subsystemEClass.getEStructuralFeatures().get(0);
 	}
@@ -376,6 +393,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSubsystem_Name() {
 		return (EAttribute)subsystemEClass.getEStructuralFeatures().get(1);
 	}
@@ -385,6 +403,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSubsystem_InfrastructureLayer() {
 		return (EReference)subsystemEClass.getEStructuralFeatures().get(2);
 	}
@@ -394,6 +413,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfrastructureLayer() {
 		return infrastructureLayerEClass;
 	}
@@ -403,6 +423,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructureLayer_Uid() {
 		return (EAttribute)infrastructureLayerEClass.getEStructuralFeatures().get(0);
 	}
@@ -412,6 +433,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructureLayer_Name() {
 		return (EAttribute)infrastructureLayerEClass.getEStructuralFeatures().get(1);
 	}
@@ -421,6 +443,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfrastructureLayer_InfrastructureComponent() {
 		return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(2);
 	}
@@ -430,6 +453,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfrastructureConnection() {
 		return infrastructureConnectionEClass;
 	}
@@ -439,6 +463,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructureConnection_Uid() {
 		return (EAttribute)infrastructureConnectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -448,6 +473,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfrastructureConnection_Source() {
 		return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(1);
 	}
@@ -457,6 +483,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfrastructureConnection_Target() {
 		return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(2);
 	}
@@ -466,6 +493,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfrastructureComponent() {
 		return infrastructureComponentEClass;
 	}
@@ -475,6 +503,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructureComponent_Uid() {
 		return (EAttribute)infrastructureComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -484,6 +513,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructureComponent_Name() {
 		return (EAttribute)infrastructureComponentEClass.getEStructuralFeatures().get(1);
 	}
@@ -493,6 +523,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getServer() {
 		return serverEClass;
 	}
@@ -502,6 +533,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRouter() {
 		return routerEClass;
 	}
@@ -511,6 +543,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHub() {
 		return hubEClass;
 	}
@@ -520,6 +553,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStorage() {
 		return storageEClass;
 	}
@@ -529,6 +563,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getServerClaster() {
 		return serverClasterEClass;
 	}
@@ -538,6 +573,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getServerClaster_Servers() {
 		return (EReference)serverClasterEClass.getEStructuralFeatures().get(0);
 	}
@@ -547,6 +583,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InfrastructureFactory getInfrastructureFactory() {
 		return (InfrastructureFactory)getEFactoryInstance();
 	}

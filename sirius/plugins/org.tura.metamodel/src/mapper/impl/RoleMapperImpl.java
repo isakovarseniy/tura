@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -141,6 +141,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityEntity getSecurityEntity() {
 		if (securityEntity != null && securityEntity.eIsProxy()) {
 			InternalEObject oldSecurityEntity = (InternalEObject)securityEntity;
@@ -167,6 +168,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecurityEntity(SecurityEntity newSecurityEntity) {
 		SecurityEntity oldSecurityEntity = securityEntity;
 		securityEntity = newSecurityEntity;
@@ -179,6 +181,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -188,6 +191,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -200,6 +204,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLocalRoleName() {
 		return localRoleName;
 	}
@@ -209,6 +214,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLocalRoleName(String newLocalRoleName) {
 		String oldLocalRoleName = localRoleName;
 		localRoleName = newLocalRoleName;
@@ -221,6 +227,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getGlobalRoleName() {
 		return globalRoleName;
 	}
@@ -230,6 +237,7 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGlobalRoleName(String newGlobalRoleName) {
 		String oldGlobalRoleName = globalRoleName;
 		globalRoleName = newGlobalRoleName;

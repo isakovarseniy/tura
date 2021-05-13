@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -147,6 +147,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return format;
 	}
@@ -156,6 +157,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		String oldFormat = format;
 		format = newFormat;
@@ -168,6 +170,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRows() {
 		return rows;
 	}
@@ -177,6 +180,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRows(int newRows) {
 		int oldRows = rows;
 		rows = newRows;
@@ -189,6 +193,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -198,6 +203,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -210,6 +216,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMask() {
 		return mask;
 	}
@@ -219,6 +226,7 @@ public class InputTextImpl extends InputElementImpl implements InputText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMask(String newMask) {
 		String oldMask = mask;
 		mask = newMask;

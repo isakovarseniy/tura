@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -48,6 +48,7 @@ import type.TypePackage;
  * <ul>
  *   <li>{@link type.impl.AttributeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.AttributeImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#isPk <em>Pk</em>}</li>
  *   <li>{@link type.impl.AttributeImpl#isUk <em>Uk</em>}</li>
@@ -85,6 +86,26 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -170,6 +191,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, TypePackage.ATTRIBUTE__CLASSIFIERS);
@@ -182,6 +204,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -191,6 +214,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -203,6 +227,30 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ATTRIBUTE__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -212,6 +260,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -224,6 +273,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPk() {
 		return pk;
 	}
@@ -233,6 +283,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPk(boolean newPk) {
 		boolean oldPk = pk;
 		pk = newPk;
@@ -245,6 +296,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUk() {
 		return uk;
 	}
@@ -254,6 +306,7 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUk(boolean newUk) {
 		boolean oldUk = uk;
 		uk = newUk;
@@ -287,6 +340,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 				return getClassifiers();
 			case TypePackage.ATTRIBUTE__UID:
 				return getUid();
+			case TypePackage.ATTRIBUTE__KEY_ID:
+				return getKeyId();
 			case TypePackage.ATTRIBUTE__NAME:
 				return getName();
 			case TypePackage.ATTRIBUTE__PK:
@@ -312,6 +367,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 				return;
 			case TypePackage.ATTRIBUTE__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.ATTRIBUTE__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.ATTRIBUTE__NAME:
 				setName((String)newValue);
@@ -340,6 +398,9 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 			case TypePackage.ATTRIBUTE__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.ATTRIBUTE__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.ATTRIBUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -365,6 +426,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 				return classifiers != null && !classifiers.isEmpty();
 			case TypePackage.ATTRIBUTE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.ATTRIBUTE__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.ATTRIBUTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.ATTRIBUTE__PK:
@@ -419,6 +482,8 @@ public class AttributeImpl extends TypePointerImpl implements Attribute {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", pk: ");

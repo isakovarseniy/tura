@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.eclipse.sirius.tree.description.TreeVariable;
 import org.eclipse.sirius.viewpoint.description.SystemColor;
 import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
 import org.eclipse.sirius.viewpoint.description.tool.CreateInstance;
+import org.eclipse.sirius.viewpoint.description.tool.Let;
 import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
@@ -86,12 +87,22 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		c1.setBrowseExpression("var:element");
 		tool.setFirstModelOperation(c1);
 
-		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
-		c2.setReferenceName("applications");
-		c2.setTypeName("application.Application");
-		c2.setVariableName("instance");
-		c1.getSubModelOperations().add(c2);
+		Let cx1 = ToolFactory.eINSTANCE.createLet();
+		cx1.setValueExpression("service:createApp");
+		cx1.setVariableName("instance");
+		c1.getSubModelOperations().add(cx1);
+		
+		SetValue cx2 = ToolFactory.eINSTANCE.createSetValue();
+		cx2.setFeatureName("applications");
+		cx2.setValueExpression("var:instance");
+		c1.getSubModelOperations().add(cx2);
 
+
+		ChangeContext c2 = ToolFactory.eINSTANCE.createChangeContext();
+		c2.setBrowseExpression("var:instance");
+		c1.getSubModelOperations().add(c2);
+		
+		
 		SetValue c3 = ToolFactory.eINSTANCE.createSetValue();
 		c3.setFeatureName("uid");
 		c3.setValueExpression("service:generateUID");
@@ -115,7 +126,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return tools;
 	}
 
-	private ModelOperation createApplicationRecipes(CreateInstance c1) {
+	private ModelOperation createApplicationRecipes(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationRecipes");
 		c2.setTypeName("application.ApplicationRecipes");
@@ -135,7 +146,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationMappers(CreateInstance c1) {
+	private ModelOperation createApplicationMappers(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationMappers");
 		c2.setTypeName("application.ApplicationMappers");
@@ -155,7 +166,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationUILayer(CreateInstance c1) {
+	private ModelOperation createApplicationUILayer(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationUILayer");
 		c2.setTypeName("application.ApplicationUILayer");
@@ -175,7 +186,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationInfrastructureLayers(CreateInstance c1) {
+	private ModelOperation createApplicationInfrastructureLayers(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationInfrastructureLayer");
 		c2.setTypeName("application.ApplicationInfrastructureLayers");
@@ -195,7 +206,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationStyleLibraries(CreateInstance c1) {
+	private ModelOperation createApplicationStyleLibraries(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationStyle");
 		c2.setTypeName("application.ApplicationStyleLibraries");
@@ -215,7 +226,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationRealms(CreateInstance c1) {
+	private ModelOperation createApplicationRealms(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationRole");
 		c2.setTypeName("application.ApplicationRealms");
@@ -235,7 +246,7 @@ public class ApplicationGroupConfigurator implements TreeItemConfigurator {
 		return c2;
 	}
 
-	private ModelOperation createApplicationMessageLibraries(CreateInstance c1) {
+	private ModelOperation createApplicationMessageLibraries(ChangeContext c1) {
 		CreateInstance c2 = ToolFactory.eINSTANCE.createCreateInstance();
 		c2.setReferenceName("applicationMessages");
 		c2.setTypeName("application.ApplicationMessageLibraries");

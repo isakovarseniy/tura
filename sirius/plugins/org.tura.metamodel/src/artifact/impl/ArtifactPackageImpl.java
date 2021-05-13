@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -62,6 +62,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -251,6 +253,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
@@ -273,6 +277,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theDomainPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -287,6 +292,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theDomainPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -309,6 +315,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactGroup() {
 		return artifactGroupEClass;
 	}
@@ -318,6 +325,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtifactGroup_Uid() {
 		return (EAttribute)artifactGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -327,7 +335,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArtifactGroup_Name() {
+	@Override
+	public EAttribute getArtifactGroup_KeyId() {
 		return (EAttribute)artifactGroupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -336,8 +345,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifactGroup_Artifacts() {
-		return (EReference)artifactGroupEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getArtifactGroup_Name() {
+		return (EAttribute)artifactGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -345,6 +355,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getArtifactGroup_Artifacts() {
+		return (EReference)artifactGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTechLeaf() {
 		return techLeafEClass;
 	}
@@ -354,6 +375,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTechLeaf_Uid() {
 		return (EAttribute)techLeafEClass.getEStructuralFeatures().get(0);
 	}
@@ -363,7 +385,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTechLeaf_Name() {
+	@Override
+	public EAttribute getTechLeaf_KeyId() {
 		return (EAttribute)techLeafEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -372,8 +395,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTechLeaf_Hints() {
-		return (EReference)techLeafEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getTechLeaf_Name() {
+		return (EAttribute)techLeafEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -381,7 +405,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTechLeaf_ConfigVariables() {
+	@Override
+	public EReference getTechLeaf_Hints() {
 		return (EReference)techLeafEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -390,7 +415,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTechLeaf_ConfigHashes() {
+	@Override
+	public EReference getTechLeaf_ConfigVariables() {
 		return (EReference)techLeafEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -399,7 +425,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTechLeaf_TechLeafs() {
+	@Override
+	public EReference getTechLeaf_ConfigHashes() {
 		return (EReference)techLeafEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -408,6 +435,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getTechLeaf_TechLeafs() {
+		return (EReference)techLeafEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -417,6 +455,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtifact_Uid() {
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(0);
 	}
@@ -426,7 +465,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArtifact_Name() {
+	@Override
+	public EAttribute getArtifact_KeyId() {
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -435,7 +475,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArtifact_Description() {
+	@Override
+	public EAttribute getArtifact_Name() {
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -444,8 +485,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_ConfigVariables() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(3);
+	@Override
+	public EAttribute getArtifact_Description() {
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -453,7 +495,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_ConfigHashes() {
+	@Override
+	public EReference getArtifact_ConfigVariables() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -462,7 +505,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_ModelQuery() {
+	@Override
+	public EReference getArtifact_ConfigHashes() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -471,7 +515,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Technologies() {
+	@Override
+	public EReference getArtifact_ModelQuery() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -480,7 +525,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Hints() {
+	@Override
+	public EReference getArtifact_Technologies() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -489,8 +535,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArtifact_Template() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(8);
+	@Override
+	public EReference getArtifact_Hints() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -498,6 +545,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getArtifact_Template() {
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGenerationHintWithNickName() {
 		return generationHintWithNickNameEClass;
 	}
@@ -507,6 +565,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGenerationHintWithNickName_Uid() {
 		return (EAttribute)generationHintWithNickNameEClass.getEStructuralFeatures().get(0);
 	}
@@ -516,7 +575,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerationHintWithNickName_Name() {
+	@Override
+	public EAttribute getGenerationHintWithNickName_KeyId() {
 		return (EAttribute)generationHintWithNickNameEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -525,8 +585,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGenerationHintWithNickName_Hint() {
-		return (EReference)generationHintWithNickNameEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getGenerationHintWithNickName_Name() {
+		return (EAttribute)generationHintWithNickNameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -534,6 +595,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getGenerationHintWithNickName_Hint() {
+		return (EReference)generationHintWithNickNameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfigVariableWithNickName() {
 		return configVariableWithNickNameEClass;
 	}
@@ -543,6 +615,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfigVariableWithNickName_Uid() {
 		return (EAttribute)configVariableWithNickNameEClass.getEStructuralFeatures().get(0);
 	}
@@ -552,7 +625,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigVariableWithNickName_Name() {
+	@Override
+	public EAttribute getConfigVariableWithNickName_KeyId() {
 		return (EAttribute)configVariableWithNickNameEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -561,8 +635,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfigVariableWithNickName_Var() {
-		return (EReference)configVariableWithNickNameEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getConfigVariableWithNickName_Name() {
+		return (EAttribute)configVariableWithNickNameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -570,6 +645,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getConfigVariableWithNickName_VarRef() {
+		return (EReference)configVariableWithNickNameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfigHashWithNickName() {
 		return configHashWithNickNameEClass;
 	}
@@ -579,6 +665,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfigHashWithNickName_Uid() {
 		return (EAttribute)configHashWithNickNameEClass.getEStructuralFeatures().get(0);
 	}
@@ -588,7 +675,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigHashWithNickName_Name() {
+	@Override
+	public EAttribute getConfigHashWithNickName_KeyId() {
 		return (EAttribute)configHashWithNickNameEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -597,8 +685,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfigHashWithNickName_Hash() {
-		return (EReference)configHashWithNickNameEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getConfigHashWithNickName_Name() {
+		return (EAttribute)configHashWithNickNameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -606,6 +695,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getConfigHashWithNickName_Hash() {
+		return (EReference)configHashWithNickNameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGenerationHint() {
 		return generationHintEClass;
 	}
@@ -615,6 +715,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGenerationHint_Uid() {
 		return (EAttribute)generationHintEClass.getEStructuralFeatures().get(0);
 	}
@@ -624,7 +725,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerationHint_Name() {
+	@Override
+	public EAttribute getGenerationHint_KeyId() {
 		return (EAttribute)generationHintEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -633,6 +735,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getGenerationHint_Name() {
+		return (EAttribute)generationHintEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfigVariable() {
 		return configVariableEClass;
 	}
@@ -642,6 +755,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfigVariable_Uid() {
 		return (EAttribute)configVariableEClass.getEStructuralFeatures().get(0);
 	}
@@ -651,7 +765,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigVariable_Name() {
+	@Override
+	public EAttribute getConfigVariable_KeyId() {
 		return (EAttribute)configVariableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -660,6 +775,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getConfigVariable_Name() {
+		return (EAttribute)configVariableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfigHash() {
 		return configHashEClass;
 	}
@@ -669,6 +795,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfigHash_Uid() {
 		return (EAttribute)configHashEClass.getEStructuralFeatures().get(0);
 	}
@@ -678,7 +805,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigHash_Name() {
+	@Override
+	public EAttribute getConfigHash_KeyId() {
 		return (EAttribute)configHashEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -687,6 +815,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getConfigHash_Name() {
+		return (EAttribute)configHashEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModelQuery() {
 		return modelQueryEClass;
 	}
@@ -696,6 +835,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelQuery_Uid() {
 		return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(0);
 	}
@@ -705,7 +845,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModelQuery_Name() {
+	@Override
+	public EAttribute getModelQuery_KeyId() {
 		return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -714,7 +855,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModelQuery_Query() {
+	@Override
+	public EAttribute getModelQuery_Name() {
 		return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -723,8 +865,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModelQuery_Parameters() {
-		return (EReference)modelQueryEClass.getEStructuralFeatures().get(3);
+	@Override
+	public EAttribute getModelQuery_Query() {
+		return (EAttribute)modelQueryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -732,6 +875,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getModelQuery_Parameters() {
+		return (EReference)modelQueryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getQueryParameter() {
 		return queryParameterEClass;
 	}
@@ -741,6 +895,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQueryParameter_Uid() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -750,7 +905,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_Name() {
+	@Override
+	public EAttribute getQueryParameter_KeyId() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -759,6 +915,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getQueryParameter_Name() {
+		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTechnology() {
 		return technologyEClass;
 	}
@@ -768,6 +935,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTechnology_Uid() {
 		return (EAttribute)technologyEClass.getEStructuralFeatures().get(0);
 	}
@@ -777,7 +945,8 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTechnology_Name() {
+	@Override
+	public EAttribute getTechnology_KeyId() {
 		return (EAttribute)technologyEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -786,8 +955,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTechnology_Options() {
-		return (EReference)technologyEClass.getEStructuralFeatures().get(2);
+	@Override
+	public EAttribute getTechnology_Name() {
+		return (EAttribute)technologyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -795,6 +965,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getTechnology_Options() {
+		return (EReference)technologyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOption() {
 		return optionEClass;
 	}
@@ -804,6 +985,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOption_Uid() {
 		return (EAttribute)optionEClass.getEStructuralFeatures().get(0);
 	}
@@ -813,8 +995,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOption_Value() {
-		return (EReference)optionEClass.getEStructuralFeatures().get(1);
+	@Override
+	public EAttribute getOption_KeyId() {
+		return (EAttribute)optionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -822,6 +1005,17 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getOption_Value() {
+		return (EReference)optionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCategorized() {
 		return categorizedEClass;
 	}
@@ -831,6 +1025,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCategorized_Classifiers() {
 		return (EReference)categorizedEClass.getEStructuralFeatures().get(0);
 	}
@@ -840,6 +1035,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClassifier() {
 		return classifierEClass;
 	}
@@ -849,6 +1045,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getClassifier_Uid() {
 		return (EAttribute)classifierEClass.getEStructuralFeatures().get(0);
 	}
@@ -858,8 +1055,19 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getClassifier_KeyId() {
+		return (EAttribute)classifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getClassifier_Hint() {
-		return (EReference)classifierEClass.getEStructuralFeatures().get(1);
+		return (EReference)classifierEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -867,8 +1075,9 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getClassifier_Details() {
-		return (EAttribute)classifierEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)classifierEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -876,6 +1085,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactFactory getArtifactFactory() {
 		return (ArtifactFactory)getEFactoryInstance();
 	}
@@ -901,11 +1111,13 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		// Create classes and their features
 		artifactGroupEClass = createEClass(ARTIFACT_GROUP);
 		createEAttribute(artifactGroupEClass, ARTIFACT_GROUP__UID);
+		createEAttribute(artifactGroupEClass, ARTIFACT_GROUP__KEY_ID);
 		createEAttribute(artifactGroupEClass, ARTIFACT_GROUP__NAME);
 		createEReference(artifactGroupEClass, ARTIFACT_GROUP__ARTIFACTS);
 
 		techLeafEClass = createEClass(TECH_LEAF);
 		createEAttribute(techLeafEClass, TECH_LEAF__UID);
+		createEAttribute(techLeafEClass, TECH_LEAF__KEY_ID);
 		createEAttribute(techLeafEClass, TECH_LEAF__NAME);
 		createEReference(techLeafEClass, TECH_LEAF__HINTS);
 		createEReference(techLeafEClass, TECH_LEAF__CONFIG_VARIABLES);
@@ -914,6 +1126,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__UID);
+		createEAttribute(artifactEClass, ARTIFACT__KEY_ID);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
 		createEAttribute(artifactEClass, ARTIFACT__DESCRIPTION);
 		createEReference(artifactEClass, ARTIFACT__CONFIG_VARIABLES);
@@ -925,48 +1138,58 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		generationHintWithNickNameEClass = createEClass(GENERATION_HINT_WITH_NICK_NAME);
 		createEAttribute(generationHintWithNickNameEClass, GENERATION_HINT_WITH_NICK_NAME__UID);
+		createEAttribute(generationHintWithNickNameEClass, GENERATION_HINT_WITH_NICK_NAME__KEY_ID);
 		createEAttribute(generationHintWithNickNameEClass, GENERATION_HINT_WITH_NICK_NAME__NAME);
 		createEReference(generationHintWithNickNameEClass, GENERATION_HINT_WITH_NICK_NAME__HINT);
 
 		configVariableWithNickNameEClass = createEClass(CONFIG_VARIABLE_WITH_NICK_NAME);
 		createEAttribute(configVariableWithNickNameEClass, CONFIG_VARIABLE_WITH_NICK_NAME__UID);
+		createEAttribute(configVariableWithNickNameEClass, CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID);
 		createEAttribute(configVariableWithNickNameEClass, CONFIG_VARIABLE_WITH_NICK_NAME__NAME);
-		createEReference(configVariableWithNickNameEClass, CONFIG_VARIABLE_WITH_NICK_NAME__VAR);
+		createEReference(configVariableWithNickNameEClass, CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF);
 
 		configHashWithNickNameEClass = createEClass(CONFIG_HASH_WITH_NICK_NAME);
 		createEAttribute(configHashWithNickNameEClass, CONFIG_HASH_WITH_NICK_NAME__UID);
+		createEAttribute(configHashWithNickNameEClass, CONFIG_HASH_WITH_NICK_NAME__KEY_ID);
 		createEAttribute(configHashWithNickNameEClass, CONFIG_HASH_WITH_NICK_NAME__NAME);
 		createEReference(configHashWithNickNameEClass, CONFIG_HASH_WITH_NICK_NAME__HASH);
 
 		generationHintEClass = createEClass(GENERATION_HINT);
 		createEAttribute(generationHintEClass, GENERATION_HINT__UID);
+		createEAttribute(generationHintEClass, GENERATION_HINT__KEY_ID);
 		createEAttribute(generationHintEClass, GENERATION_HINT__NAME);
 
 		configVariableEClass = createEClass(CONFIG_VARIABLE);
 		createEAttribute(configVariableEClass, CONFIG_VARIABLE__UID);
+		createEAttribute(configVariableEClass, CONFIG_VARIABLE__KEY_ID);
 		createEAttribute(configVariableEClass, CONFIG_VARIABLE__NAME);
 
 		configHashEClass = createEClass(CONFIG_HASH);
 		createEAttribute(configHashEClass, CONFIG_HASH__UID);
+		createEAttribute(configHashEClass, CONFIG_HASH__KEY_ID);
 		createEAttribute(configHashEClass, CONFIG_HASH__NAME);
 
 		modelQueryEClass = createEClass(MODEL_QUERY);
 		createEAttribute(modelQueryEClass, MODEL_QUERY__UID);
+		createEAttribute(modelQueryEClass, MODEL_QUERY__KEY_ID);
 		createEAttribute(modelQueryEClass, MODEL_QUERY__NAME);
 		createEAttribute(modelQueryEClass, MODEL_QUERY__QUERY);
 		createEReference(modelQueryEClass, MODEL_QUERY__PARAMETERS);
 
 		queryParameterEClass = createEClass(QUERY_PARAMETER);
 		createEAttribute(queryParameterEClass, QUERY_PARAMETER__UID);
+		createEAttribute(queryParameterEClass, QUERY_PARAMETER__KEY_ID);
 		createEAttribute(queryParameterEClass, QUERY_PARAMETER__NAME);
 
 		technologyEClass = createEClass(TECHNOLOGY);
 		createEAttribute(technologyEClass, TECHNOLOGY__UID);
+		createEAttribute(technologyEClass, TECHNOLOGY__KEY_ID);
 		createEAttribute(technologyEClass, TECHNOLOGY__NAME);
 		createEReference(technologyEClass, TECHNOLOGY__OPTIONS);
 
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__UID);
+		createEAttribute(optionEClass, OPTION__KEY_ID);
 		createEReference(optionEClass, OPTION__VALUE);
 
 		categorizedEClass = createEClass(CATEGORIZED);
@@ -974,6 +1197,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		classifierEClass = createEClass(CLASSIFIER);
 		createEAttribute(classifierEClass, CLASSIFIER__UID);
+		createEAttribute(classifierEClass, CLASSIFIER__KEY_ID);
 		createEReference(classifierEClass, CLASSIFIER__HINT);
 		createEAttribute(classifierEClass, CLASSIFIER__DETAILS);
 	}
@@ -1010,11 +1234,13 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		// Initialize classes and features; add operations and parameters
 		initEClass(artifactGroupEClass, ArtifactGroup.class, "ArtifactGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifactGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifactGroup_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifactGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifactGroup_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(techLeafEClass, TechLeaf.class, "TechLeaf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTechLeaf_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTechLeaf_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTechLeaf_Name(), ecorePackage.getEString(), "name", null, 0, 1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTechLeaf_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTechLeaf_ConfigVariables(), this.getConfigVariable(), null, "configVariables", null, 0, -1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1023,6 +1249,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_ConfigVariables(), this.getConfigVariableWithNickName(), null, "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1034,48 +1261,58 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		initEClass(generationHintWithNickNameEClass, GenerationHintWithNickName.class, "GenerationHintWithNickName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerationHintWithNickName_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GenerationHintWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerationHintWithNickName_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, GenerationHintWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerationHintWithNickName_Name(), ecorePackage.getEString(), "name", null, 0, 1, GenerationHintWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerationHintWithNickName_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, GenerationHintWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configVariableWithNickNameEClass, ConfigVariableWithNickName.class, "ConfigVariableWithNickName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigVariableWithNickName_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigVariableWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigVariableWithNickName_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ConfigVariableWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigVariableWithNickName_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigVariableWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigVariableWithNickName_Var(), this.getConfigVariable(), null, "var", null, 0, 1, ConfigVariableWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigVariableWithNickName_VarRef(), this.getConfigVariable(), null, "varRef", null, 0, 1, ConfigVariableWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configHashWithNickNameEClass, ConfigHashWithNickName.class, "ConfigHashWithNickName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigHashWithNickName_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigHashWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigHashWithNickName_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ConfigHashWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigHashWithNickName_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigHashWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigHashWithNickName_Hash(), this.getConfigHash(), null, "hash", null, 0, 1, ConfigHashWithNickName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generationHintEClass, GenerationHint.class, "GenerationHint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerationHint_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenerationHint_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerationHint_Name(), ecorePackage.getEString(), "name", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configVariableEClass, ConfigVariable.class, "ConfigVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigVariable_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configHashEClass, ConfigHash.class, "ConfigHash", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigHash_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigHash_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigHash_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelQueryEClass, ModelQuery.class, "ModelQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModelQuery_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelQuery_Query(), ecorePackage.getEString(), "query", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelQuery_Parameters(), this.getQueryParameter(), null, "parameters", null, 0, -1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryParameterEClass, QueryParameter.class, "QueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQueryParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQueryParameter_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTechnology_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTechnology_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTechnology_Name(), ecorePackage.getEString(), "name", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTechnology_Options(), this.getOption(), null, "options", null, 1, -1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOption_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOption_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOption_Value(), this.getTechLeaf(), null, "value", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categorizedEClass, Categorized.class, "Categorized", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1083,6 +1320,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 
 		initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassifier_KeyId(), ecorePackage.getEString(), "keyId", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClassifier_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClassifier_Details(), ecorePackage.getEString(), "details", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

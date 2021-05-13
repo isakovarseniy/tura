@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -158,6 +158,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -1022,6 +1024,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
@@ -1043,6 +1047,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -1057,6 +1062,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -1078,6 +1084,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getForm() {
 		return formEClass;
 	}
@@ -1087,6 +1094,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getForm_Uid() {
 		return (EAttribute)formEClass.getEStructuralFeatures().get(0);
 	}
@@ -1096,6 +1104,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getForm_Name() {
 		return (EAttribute)formEClass.getEStructuralFeatures().get(1);
 	}
@@ -1105,6 +1114,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForm_View() {
 		return (EReference)formEClass.getEStructuralFeatures().get(2);
 	}
@@ -1114,6 +1124,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForm_Datacontrols() {
 		return (EReference)formEClass.getEStructuralFeatures().get(3);
 	}
@@ -1123,6 +1134,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getForm_Parameters() {
 		return (EReference)formEClass.getEStructuralFeatures().get(4);
 	}
@@ -1132,6 +1144,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFormParameter() {
 		return formParameterEClass;
 	}
@@ -1141,6 +1154,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormParameter_Uid() {
 		return (EAttribute)formParameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -1150,6 +1164,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormParameter_Name() {
 		return (EAttribute)formParameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -1159,6 +1174,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViews() {
 		return viewsEClass;
 	}
@@ -1168,6 +1184,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViews_Uid() {
 		return (EAttribute)viewsEClass.getEStructuralFeatures().get(0);
 	}
@@ -1177,6 +1194,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViews_Canvases() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(1);
 	}
@@ -1186,6 +1204,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViews_ViewInheritances() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(2);
 	}
@@ -1195,6 +1214,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViews_TabPagesInheritances() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(3);
 	}
@@ -1204,6 +1224,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViews_Menus() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(4);
 	}
@@ -1213,6 +1234,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMultiLangLabel() {
 		return multiLangLabelEClass;
 	}
@@ -1222,6 +1244,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMultiLangLabel_MultiLangLabel() {
 		return (EReference)multiLangLabelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1231,6 +1254,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCanvasFrame() {
 		return canvasFrameEClass;
 	}
@@ -1240,6 +1264,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCanvasFrame_Uid() {
 		return (EAttribute)canvasFrameEClass.getEStructuralFeatures().get(0);
 	}
@@ -1249,6 +1274,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCanvasFrame_Name() {
 		return (EAttribute)canvasFrameEClass.getEStructuralFeatures().get(1);
 	}
@@ -1258,6 +1284,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewPortHolder() {
 		return viewPortHolderEClass;
 	}
@@ -1267,6 +1294,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewPortHolder_ViewElement() {
 		return (EReference)viewPortHolderEClass.getEStructuralFeatures().get(0);
 	}
@@ -1276,6 +1304,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDefaultCavas() {
 		return defaultCavasEClass;
 	}
@@ -1285,6 +1314,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDefaultCavas_DefaultCanvas() {
 		return (EAttribute)defaultCavasEClass.getEStructuralFeatures().get(0);
 	}
@@ -1294,6 +1324,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewElement() {
 		return viewElementEClass;
 	}
@@ -1303,6 +1334,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPopupCanvas() {
 		return popupCanvasEClass;
 	}
@@ -1312,6 +1344,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPopupCanvas_Modal() {
 		return (EAttribute)popupCanvasEClass.getEStructuralFeatures().get(0);
 	}
@@ -1321,6 +1354,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOverlayCanvas() {
 		return overlayCanvasEClass;
 	}
@@ -1330,6 +1364,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOverlayCanvas_Modal() {
 		return (EAttribute)overlayCanvasEClass.getEStructuralFeatures().get(0);
 	}
@@ -1339,6 +1374,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOverlayCanvas_SourceTarget() {
 		return (EReference)overlayCanvasEClass.getEStructuralFeatures().get(1);
 	}
@@ -1348,6 +1384,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCanvas() {
 		return canvasEClass;
 	}
@@ -1357,6 +1394,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWindow() {
 		return windowEClass;
 	}
@@ -1366,6 +1404,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuDefinition() {
 		return menuDefinitionEClass;
 	}
@@ -1375,6 +1414,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuDefinition_Uid() {
 		return (EAttribute)menuDefinitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -1384,6 +1424,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuDefinition_Name() {
 		return (EAttribute)menuDefinitionEClass.getEStructuralFeatures().get(1);
 	}
@@ -1393,6 +1434,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuDefinition_MenuFolders() {
 		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(2);
 	}
@@ -1402,6 +1444,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuDefinition_ToSubMenu() {
 		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(3);
 	}
@@ -1411,6 +1454,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTabCanvas() {
 		return tabCanvasEClass;
 	}
@@ -1420,6 +1464,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTabCanvas_Orientation() {
 		return (EAttribute)tabCanvasEClass.getEStructuralFeatures().get(0);
 	}
@@ -1429,6 +1474,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTabPage() {
 		return tabPageEClass;
 	}
@@ -1438,6 +1484,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTabPage_TabSequence() {
 		return (EAttribute)tabPageEClass.getEStructuralFeatures().get(0);
 	}
@@ -1447,6 +1494,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewPort() {
 		return viewPortEClass;
 	}
@@ -1456,6 +1504,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewPort_Uid() {
 		return (EAttribute)viewPortEClass.getEStructuralFeatures().get(0);
 	}
@@ -1465,6 +1514,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewPort_Name() {
 		return (EAttribute)viewPortEClass.getEStructuralFeatures().get(1);
 	}
@@ -1474,6 +1524,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewPort_ViewPortTrigger() {
 		return (EReference)viewPortEClass.getEStructuralFeatures().get(2);
 	}
@@ -1483,6 +1534,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewArea() {
 		return viewAreaEClass;
 	}
@@ -1492,6 +1544,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewArea_Uid() {
 		return (EAttribute)viewAreaEClass.getEStructuralFeatures().get(0);
 	}
@@ -1501,6 +1554,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewArea_Name() {
 		return (EAttribute)viewAreaEClass.getEStructuralFeatures().get(1);
 	}
@@ -1510,6 +1564,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewArea_BaseCanvas() {
 		return (EReference)viewAreaEClass.getEStructuralFeatures().get(2);
 	}
@@ -1519,6 +1574,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewArea_LinkToLabels() {
 		return (EReference)viewAreaEClass.getEStructuralFeatures().get(3);
 	}
@@ -1528,6 +1584,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewArea_LinkToMessages() {
 		return (EReference)viewAreaEClass.getEStructuralFeatures().get(4);
 	}
@@ -1537,6 +1594,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewPortTrigger() {
 		return viewPortTriggerEClass;
 	}
@@ -1546,6 +1604,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewPortTrigger_Uid() {
 		return (EAttribute)viewPortTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1555,6 +1614,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViewInheritance() {
 		return viewInheritanceEClass;
 	}
@@ -1564,6 +1624,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewInheritance_Uid() {
 		return (EAttribute)viewInheritanceEClass.getEStructuralFeatures().get(0);
 	}
@@ -1573,6 +1634,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewInheritance_Source() {
 		return (EReference)viewInheritanceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1582,6 +1644,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getViewInheritance_Target() {
 		return (EReference)viewInheritanceEClass.getEStructuralFeatures().get(2);
 	}
@@ -1591,6 +1654,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTabPagesInheritance() {
 		return tabPagesInheritanceEClass;
 	}
@@ -1600,6 +1664,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTabPagesInheritance_Uid() {
 		return (EAttribute)tabPagesInheritanceEClass.getEStructuralFeatures().get(0);
 	}
@@ -1609,6 +1674,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTabPagesInheritance_Source() {
 		return (EReference)tabPagesInheritanceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1618,6 +1684,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTabPagesInheritance_Target() {
 		return (EReference)tabPagesInheritanceEClass.getEStructuralFeatures().get(2);
 	}
@@ -1627,6 +1694,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLinkToMessage() {
 		return linkToMessageEClass;
 	}
@@ -1636,6 +1704,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLinkToMessage_Uid() {
 		return (EAttribute)linkToMessageEClass.getEStructuralFeatures().get(0);
 	}
@@ -1645,6 +1714,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLinkToMessage_Source() {
 		return (EReference)linkToMessageEClass.getEStructuralFeatures().get(1);
 	}
@@ -1654,6 +1724,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLinkToMessage_Target() {
 		return (EReference)linkToMessageEClass.getEStructuralFeatures().get(2);
 	}
@@ -1663,6 +1734,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLinkToLabel() {
 		return linkToLabelEClass;
 	}
@@ -1672,6 +1744,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLinkToLabel_Uid() {
 		return (EAttribute)linkToLabelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1681,6 +1754,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLinkToLabel_Source() {
 		return (EReference)linkToLabelEClass.getEStructuralFeatures().get(1);
 	}
@@ -1690,6 +1764,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLinkToLabel_Target() {
 		return (EReference)linkToLabelEClass.getEStructuralFeatures().get(2);
 	}
@@ -1699,6 +1774,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChildrenHolder() {
 		return childrenHolderEClass;
 	}
@@ -1708,6 +1784,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChildrenHolder_Children() {
 		return (EReference)childrenHolderEClass.getEStructuralFeatures().get(0);
 	}
@@ -1717,6 +1794,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContextParameter() {
 		return contextParameterEClass;
 	}
@@ -1726,6 +1804,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContextParameter_Uid() {
 		return (EAttribute)contextParameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -1735,6 +1814,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContextParameter_RefObj() {
 		return (EReference)contextParameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -1744,6 +1824,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContextParameter_Operation() {
 		return (EAttribute)contextParameterEClass.getEStructuralFeatures().get(2);
 	}
@@ -1753,6 +1834,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContextParameter_Value() {
 		return (EReference)contextParameterEClass.getEStructuralFeatures().get(3);
 	}
@@ -1762,6 +1844,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContextValue() {
 		return contextValueEClass;
 	}
@@ -1771,6 +1854,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContextValue_Uid() {
 		return (EAttribute)contextValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -1780,6 +1864,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContextValue_Constant() {
 		return (EAttribute)contextValueEClass.getEStructuralFeatures().get(1);
 	}
@@ -1789,6 +1874,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContextValue_Value() {
 		return (EAttribute)contextValueEClass.getEStructuralFeatures().get(2);
 	}
@@ -1798,6 +1884,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContextValue_Expression() {
 		return (EReference)contextValueEClass.getEStructuralFeatures().get(3);
 	}
@@ -1807,6 +1894,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExpressionPart() {
 		return expressionPartEClass;
 	}
@@ -1816,6 +1904,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExpressionPart_Uid() {
 		return (EAttribute)expressionPartEClass.getEStructuralFeatures().get(0);
 	}
@@ -1825,6 +1914,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExpressionPart_ObjRef() {
 		return (EReference)expressionPartEClass.getEStructuralFeatures().get(1);
 	}
@@ -1834,6 +1924,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExpressionPart_Order() {
 		return (EAttribute)expressionPartEClass.getEStructuralFeatures().get(2);
 	}
@@ -1843,6 +1934,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExpressionPart_ExpressionType() {
 		return (EAttribute)expressionPartEClass.getEStructuralFeatures().get(3);
 	}
@@ -1852,6 +1944,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContextParameters() {
 		return contextParametersEClass;
 	}
@@ -1861,6 +1954,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContextParameters_Parameters() {
 		return (EReference)contextParametersEClass.getEStructuralFeatures().get(0);
 	}
@@ -1870,6 +1964,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContext() {
 		return contextEClass;
 	}
@@ -1879,6 +1974,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStyleElement() {
 		return styleElementEClass;
 	}
@@ -1888,6 +1984,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStyleElement_Style() {
 		return (EReference)styleElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1897,6 +1994,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNickNamed() {
 		return nickNamedEClass;
 	}
@@ -1906,6 +2004,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNickNamed_Nickname() {
 		return (EAttribute)nickNamedEClass.getEStructuralFeatures().get(0);
 	}
@@ -1915,6 +2014,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFlexFields() {
 		return flexFieldsEClass;
 	}
@@ -1924,6 +2024,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFlexFields_Fields() {
 		return (EReference)flexFieldsEClass.getEStructuralFeatures().get(0);
 	}
@@ -1933,6 +2034,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFlexField() {
 		return flexFieldEClass;
 	}
@@ -1942,6 +2044,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnabledUIItem() {
 		return enabledUIItemEClass;
 	}
@@ -1951,6 +2054,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEnabledUIItem_Enabled() {
 		return (EReference)enabledUIItemEClass.getEStructuralFeatures().get(0);
 	}
@@ -1960,6 +2064,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUielement() {
 		return uielementEClass;
 	}
@@ -1969,6 +2074,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUielement_Uid() {
 		return (EAttribute)uielementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1978,6 +2084,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUielement_Required() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1987,6 +2094,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUielement_ReadOnly() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(2);
 	}
@@ -1996,6 +2104,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUielement_RefreshAreas() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(3);
 	}
@@ -2005,6 +2114,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getItemIcon() {
 		return itemIconEClass;
 	}
@@ -2014,6 +2124,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getItemIcon_Icon() {
 		return (EReference)itemIconEClass.getEStructuralFeatures().get(0);
 	}
@@ -2023,6 +2134,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAreaRef() {
 		return areaRefEClass;
 	}
@@ -2032,6 +2144,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAreaRef_Area() {
 		return (EReference)areaRefEClass.getEStructuralFeatures().get(0);
 	}
@@ -2041,6 +2154,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAreaRef_Group() {
 		return (EAttribute)areaRefEClass.getEStructuralFeatures().get(1);
 	}
@@ -2050,6 +2164,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFormatable() {
 		return formatableEClass;
 	}
@@ -2059,6 +2174,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormatable_Format() {
 		return (EAttribute)formatableEClass.getEStructuralFeatures().get(0);
 	}
@@ -2068,6 +2184,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getControlPointer() {
 		return controlPointerEClass;
 	}
@@ -2077,6 +2194,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControlPointer_SourcePointer() {
 		return (EReference)controlPointerEClass.getEStructuralFeatures().get(0);
 	}
@@ -2086,6 +2204,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControlPointer_ValuePointer() {
 		return (EReference)controlPointerEClass.getEStructuralFeatures().get(1);
 	}
@@ -2095,6 +2214,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControlPointer_SourceCast() {
 		return (EReference)controlPointerEClass.getEStructuralFeatures().get(2);
 	}
@@ -2104,6 +2224,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControlPointer_SourceCastDataControl() {
 		return (EReference)controlPointerEClass.getEStructuralFeatures().get(3);
 	}
@@ -2113,6 +2234,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSourcesPointer() {
 		return sourcesPointerEClass;
 	}
@@ -2122,6 +2244,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInputElement() {
 		return inputElementEClass;
 	}
@@ -2131,6 +2254,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSelection() {
 		return selectionEClass;
 	}
@@ -2140,6 +2264,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSelection_DisplayOptionPointer() {
 		return (EReference)selectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -2149,6 +2274,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSelection_ValueOptionPointer() {
 		return (EReference)selectionEClass.getEStructuralFeatures().get(1);
 	}
@@ -2158,6 +2284,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLayerHolder() {
 		return layerHolderEClass;
 	}
@@ -2167,6 +2294,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInputText() {
 		return inputTextEClass;
 	}
@@ -2176,6 +2304,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInputText_Rows() {
 		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(0);
 	}
@@ -2185,6 +2314,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInputText_Columns() {
 		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(1);
 	}
@@ -2194,6 +2324,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInputText_Mask() {
 		return (EAttribute)inputTextEClass.getEStructuralFeatures().get(2);
 	}
@@ -2203,6 +2334,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPassword() {
 		return passwordEClass;
 	}
@@ -2212,6 +2344,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLabel() {
 		return labelEClass;
 	}
@@ -2221,6 +2354,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLabel_Label() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
 	}
@@ -2230,6 +2364,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMessageElement() {
 		return messageElementEClass;
 	}
@@ -2239,6 +2374,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMessageElement_Label() {
 		return (EAttribute)messageElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -2248,6 +2384,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOutputText() {
 		return outputTextEClass;
 	}
@@ -2257,6 +2394,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCheckBox() {
 		return checkBoxEClass;
 	}
@@ -2266,6 +2404,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOptionSelection() {
 		return optionSelectionEClass;
 	}
@@ -2275,6 +2414,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOptionSelection_OptionPointer() {
 		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -2284,6 +2424,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOptionSelection_OptionCast() {
 		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(1);
 	}
@@ -2293,6 +2434,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOptionSelection_OptionCastDataControl() {
 		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(2);
 	}
@@ -2302,6 +2444,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOptionSelection_Selection() {
 		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(3);
 	}
@@ -2311,6 +2454,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOptionSelection_InitialOptionMessage() {
 		return (EReference)optionSelectionEClass.getEStructuralFeatures().get(4);
 	}
@@ -2320,6 +2464,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOptionSelection_InitialOptionValue() {
 		return (EAttribute)optionSelectionEClass.getEStructuralFeatures().get(5);
 	}
@@ -2329,6 +2474,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDropDownSelection() {
 		return dropDownSelectionEClass;
 	}
@@ -2338,6 +2484,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSelectManyMenu() {
 		return selectManyMenuEClass;
 	}
@@ -2347,6 +2494,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRadioSelection() {
 		return radioSelectionEClass;
 	}
@@ -2356,6 +2504,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRadioSelection_Layout() {
 		return (EAttribute)radioSelectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -2365,6 +2514,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRadioSelection_Columns() {
 		return (EAttribute)radioSelectionEClass.getEStructuralFeatures().get(1);
 	}
@@ -2374,6 +2524,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -2383,6 +2534,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDate() {
 		return dateEClass;
 	}
@@ -2392,6 +2544,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getButton() {
 		return buttonEClass;
 	}
@@ -2401,6 +2554,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getButton_Label() {
 		return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
 	}
@@ -2410,6 +2564,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataExporter() {
 		return dataExporterEClass;
 	}
@@ -2419,6 +2574,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataExporter_SourceTarget() {
 		return (EReference)dataExporterEClass.getEStructuralFeatures().get(0);
 	}
@@ -2428,6 +2584,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataExporter_Type() {
 		return (EAttribute)dataExporterEClass.getEStructuralFeatures().get(1);
 	}
@@ -2437,6 +2594,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -2446,6 +2604,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_Uid() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(0);
 	}
@@ -2455,6 +2614,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_Label() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
 	}
@@ -2464,6 +2624,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_Sortable() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
 	}
@@ -2473,6 +2634,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getColumn_Element() {
 		return (EReference)columnEClass.getEStructuralFeatures().get(3);
 	}
@@ -2482,6 +2644,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_Priority() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(4);
 	}
@@ -2491,6 +2654,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -2500,6 +2664,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_Label() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(0);
 	}
@@ -2509,6 +2674,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_RowNumber() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
 	}
@@ -2518,6 +2684,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_SelectionMode() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
 	}
@@ -2527,6 +2694,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTable_Cols() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(3);
 	}
@@ -2536,6 +2704,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_Scrollable() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(4);
 	}
@@ -2545,6 +2714,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTable_ScrollHeight() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
 	}
@@ -2554,6 +2724,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenu() {
 		return menuEClass;
 	}
@@ -2563,6 +2734,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBlockUI() {
 		return blockUIEClass;
 	}
@@ -2572,6 +2744,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBlockUI_SourceTarget() {
 		return (EReference)blockUIEClass.getEStructuralFeatures().get(0);
 	}
@@ -2581,6 +2754,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFileUpload() {
 		return fileUploadEClass;
 	}
@@ -2590,6 +2764,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFileDownload() {
 		return fileDownloadEClass;
 	}
@@ -2599,6 +2774,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataScroller() {
 		return dataScrollerEClass;
 	}
@@ -2608,6 +2784,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataScroller_RowNumber() {
 		return (EAttribute)dataScrollerEClass.getEStructuralFeatures().get(0);
 	}
@@ -2617,6 +2794,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataScroller_ColNumber() {
 		return (EAttribute)dataScrollerEClass.getEStructuralFeatures().get(1);
 	}
@@ -2626,6 +2804,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTimeLine() {
 		return timeLineEClass;
 	}
@@ -2635,6 +2814,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTimeLine_Layout() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(0);
 	}
@@ -2644,6 +2824,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTimeLine_Align() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(1);
 	}
@@ -2653,6 +2834,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFullCalendar() {
 		return fullCalendarEClass;
 	}
@@ -2662,6 +2844,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFullCalendar_ViewType() {
 		return (EAttribute)fullCalendarEClass.getEStructuralFeatures().get(0);
 	}
@@ -2671,6 +2854,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPoll() {
 		return pollEClass;
 	}
@@ -2680,6 +2864,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataTemplate() {
 		return dataTemplateEClass;
 	}
@@ -2689,6 +2874,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWindowRef() {
 		return windowRefEClass;
 	}
@@ -2698,6 +2884,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getWindowRef_Label() {
 		return (EAttribute)windowRefEClass.getEStructuralFeatures().get(0);
 	}
@@ -2707,6 +2894,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuHolder() {
 		return menuHolderEClass;
 	}
@@ -2716,6 +2904,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuHolder_Menu() {
 		return (EReference)menuHolderEClass.getEStructuralFeatures().get(0);
 	}
@@ -2725,6 +2914,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuExtensionRef() {
 		return menuExtensionRefEClass;
 	}
@@ -2734,6 +2924,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuExtensionRef_ExtensionRef() {
 		return (EReference)menuExtensionRefEClass.getEStructuralFeatures().get(0);
 	}
@@ -2743,6 +2934,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuElement() {
 		return menuElementEClass;
 	}
@@ -2752,6 +2944,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuElement_Uid() {
 		return (EAttribute)menuElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -2761,6 +2954,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuElement_Name() {
 		return (EAttribute)menuElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -2770,6 +2964,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuFolder() {
 		return menuFolderEClass;
 	}
@@ -2779,6 +2974,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuFolder_Uid() {
 		return (EAttribute)menuFolderEClass.getEStructuralFeatures().get(0);
 	}
@@ -2788,6 +2984,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuFolder_Name() {
 		return (EAttribute)menuFolderEClass.getEStructuralFeatures().get(1);
 	}
@@ -2797,6 +2994,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMenuFolder_ExtensionPoint() {
 		return (EAttribute)menuFolderEClass.getEStructuralFeatures().get(2);
 	}
@@ -2806,6 +3004,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuFolder_MenuElements() {
 		return (EReference)menuFolderEClass.getEStructuralFeatures().get(3);
 	}
@@ -2815,6 +3014,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuItem() {
 		return menuItemEClass;
 	}
@@ -2824,6 +3024,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuItem_Transition() {
 		return (EReference)menuItemEClass.getEStructuralFeatures().get(0);
 	}
@@ -2833,6 +3034,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMenuItem_RefreshAreas() {
 		return (EReference)menuItemEClass.getEStructuralFeatures().get(1);
 	}
@@ -2842,6 +3044,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuExtensionPoint() {
 		return menuExtensionPointEClass;
 	}
@@ -2851,6 +3054,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubMenu() {
 		return subMenuEClass;
 	}
@@ -2860,6 +3064,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getToSubmenu() {
 		return toSubmenuEClass;
 	}
@@ -2869,6 +3074,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getToSubmenu_Uid() {
 		return (EAttribute)toSubmenuEClass.getEStructuralFeatures().get(0);
 	}
@@ -2878,6 +3084,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getToSubmenu_Source() {
 		return (EReference)toSubmenuEClass.getEStructuralFeatures().get(1);
 	}
@@ -2887,6 +3094,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getToSubmenu_Target() {
 		return (EReference)toSubmenuEClass.getEStructuralFeatures().get(2);
 	}
@@ -2896,6 +3104,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMenuSeparator() {
 		return menuSeparatorEClass;
 	}
@@ -2905,6 +3114,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTree() {
 		return treeEClass;
 	}
@@ -2914,6 +3124,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTree_Label() {
 		return (EAttribute)treeEClass.getEStructuralFeatures().get(0);
 	}
@@ -2923,6 +3134,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTree_SelectionMode() {
 		return (EAttribute)treeEClass.getEStructuralFeatures().get(1);
 	}
@@ -2932,6 +3144,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTree_Image() {
 		return (EReference)treeEClass.getEStructuralFeatures().get(2);
 	}
@@ -2941,6 +3154,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTree_Cols() {
 		return (EReference)treeEClass.getEStructuralFeatures().get(3);
 	}
@@ -2950,6 +3164,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getControls() {
 		return controlsEClass;
 	}
@@ -2959,6 +3174,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getControls_Uid() {
 		return (EAttribute)controlsEClass.getEStructuralFeatures().get(0);
 	}
@@ -2968,6 +3184,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControls_Root() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(1);
 	}
@@ -2977,6 +3194,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControls_Controls() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(2);
 	}
@@ -2986,6 +3204,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControls_Relations() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(3);
 	}
@@ -2995,6 +3214,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getControls_Dependencies() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(4);
 	}
@@ -3004,6 +3224,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTrigger() {
 		return triggerEClass;
 	}
@@ -3013,6 +3234,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPREFormTrigger() {
 		return preFormTriggerEClass;
 	}
@@ -3022,6 +3244,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPREFormTrigger_Uid() {
 		return (EAttribute)preFormTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3031,6 +3254,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPREQueryTrigger() {
 		return preQueryTriggerEClass;
 	}
@@ -3040,6 +3264,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPREQueryTrigger_Uid() {
 		return (EAttribute)preQueryTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3049,6 +3274,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPOSTQueryTrigger() {
 		return postQueryTriggerEClass;
 	}
@@ -3058,6 +3284,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPOSTQueryTrigger_Uid() {
 		return (EAttribute)postQueryTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3067,6 +3294,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPREInsertTrigger() {
 		return preInsertTriggerEClass;
 	}
@@ -3076,6 +3304,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPREInsertTrigger_Uid() {
 		return (EAttribute)preInsertTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3085,6 +3314,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPREDeleteTrigger() {
 		return preDeleteTriggerEClass;
 	}
@@ -3094,6 +3324,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPREDeleteTrigger_Uid() {
 		return (EAttribute)preDeleteTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3103,6 +3334,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPOSTCreateTrigger() {
 		return postCreateTriggerEClass;
 	}
@@ -3112,6 +3344,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPOSTCreateTrigger_Uid() {
 		return (EAttribute)postCreateTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3121,6 +3354,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPREUpdateTrigger() {
 		return preUpdateTriggerEClass;
 	}
@@ -3130,6 +3364,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPREUpdateTrigger_Uid() {
 		return (EAttribute)preUpdateTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3139,6 +3374,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCreateTrigger() {
 		return createTriggerEClass;
 	}
@@ -3148,6 +3384,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCreateTrigger_Uid() {
 		return (EAttribute)createTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3157,6 +3394,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInsertTrigger() {
 		return insertTriggerEClass;
 	}
@@ -3166,6 +3404,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInsertTrigger_Uid() {
 		return (EAttribute)insertTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3175,6 +3414,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUpdateTrigger() {
 		return updateTriggerEClass;
 	}
@@ -3184,6 +3424,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUpdateTrigger_Uid() {
 		return (EAttribute)updateTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3193,6 +3434,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDeleteTrigger() {
 		return deleteTriggerEClass;
 	}
@@ -3202,6 +3444,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeleteTrigger_Uid() {
 		return (EAttribute)deleteTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3211,6 +3454,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSearchTrigger() {
 		return searchTriggerEClass;
 	}
@@ -3220,6 +3464,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSearchTrigger_Uid() {
 		return (EAttribute)searchTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -3229,6 +3474,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoot() {
 		return rootEClass;
 	}
@@ -3238,6 +3484,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoot_Uid() {
 		return (EAttribute)rootEClass.getEStructuralFeatures().get(0);
 	}
@@ -3247,6 +3494,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoot_Name() {
 		return (EAttribute)rootEClass.getEStructuralFeatures().get(1);
 	}
@@ -3256,6 +3504,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_PreFormTrigger() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(2);
 	}
@@ -3265,6 +3514,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_Variables() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(3);
 	}
@@ -3274,6 +3524,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFormVariable() {
 		return formVariableEClass;
 	}
@@ -3283,6 +3534,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormVariable_Uid() {
 		return (EAttribute)formVariableEClass.getEStructuralFeatures().get(0);
 	}
@@ -3292,6 +3544,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormVariable_Name() {
 		return (EAttribute)formVariableEClass.getEStructuralFeatures().get(1);
 	}
@@ -3301,6 +3554,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFormVariable_ParamRef() {
 		return (EReference)formVariableEClass.getEStructuralFeatures().get(2);
 	}
@@ -3310,6 +3564,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDataControl() {
 		return dataControlEClass;
 	}
@@ -3319,6 +3574,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataControl_Uid() {
 		return (EAttribute)dataControlEClass.getEStructuralFeatures().get(0);
 	}
@@ -3328,6 +3584,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDataControl_Name() {
 		return (EAttribute)dataControlEClass.getEStructuralFeatures().get(1);
 	}
@@ -3337,6 +3594,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_BaseType() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(2);
 	}
@@ -3346,6 +3604,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PreQueryTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(3);
 	}
@@ -3355,6 +3614,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PostQueryTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(4);
 	}
@@ -3364,6 +3624,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PreInsertTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(5);
 	}
@@ -3373,6 +3634,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PreDeleteTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(6);
 	}
@@ -3382,6 +3644,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PostCreateTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(7);
 	}
@@ -3391,6 +3654,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_PreUpdateTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(8);
 	}
@@ -3400,6 +3664,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_Create() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(9);
 	}
@@ -3409,6 +3674,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_Search() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
 	}
@@ -3418,6 +3684,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_ArtificialFields() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
 	}
@@ -3427,6 +3694,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_DefaultSearch() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
 	}
@@ -3436,6 +3704,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_DefaultOrderBy() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
 	}
@@ -3445,6 +3714,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDataControl_RelationMappers() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(14);
 	}
@@ -3454,6 +3724,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationMapper() {
 		return relationMapperEClass;
 	}
@@ -3463,6 +3734,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelationMapper_Uid() {
 		return (EAttribute)relationMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -3472,6 +3744,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationMapper_DataControlRef() {
 		return (EReference)relationMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -3481,6 +3754,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationMapper_TypeRef() {
 		return (EReference)relationMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -3490,6 +3764,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationMapper_AssosiationRef() {
 		return (EReference)relationMapperEClass.getEStructuralFeatures().get(3);
 	}
@@ -3499,6 +3774,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOrders() {
 		return ordersEClass;
 	}
@@ -3508,6 +3784,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrders_Uid() {
 		return (EAttribute)ordersEClass.getEStructuralFeatures().get(0);
 	}
@@ -3517,6 +3794,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOrders_OrderRules() {
 		return (EReference)ordersEClass.getEStructuralFeatures().get(1);
 	}
@@ -3526,6 +3804,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOrderBy() {
 		return orderByEClass;
 	}
@@ -3535,6 +3814,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderBy_Uid() {
 		return (EAttribute)orderByEClass.getEStructuralFeatures().get(0);
 	}
@@ -3544,6 +3824,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOrderBy_RefObj() {
 		return (EReference)orderByEClass.getEStructuralFeatures().get(1);
 	}
@@ -3553,6 +3834,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderBy_Order() {
 		return (EAttribute)orderByEClass.getEStructuralFeatures().get(2);
 	}
@@ -3562,6 +3844,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelation() {
 		return relationEClass;
 	}
@@ -3571,6 +3854,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelation_Uid() {
 		return (EAttribute)relationEClass.getEStructuralFeatures().get(0);
 	}
@@ -3580,6 +3864,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelation_Name() {
 		return (EAttribute)relationEClass.getEStructuralFeatures().get(1);
 	}
@@ -3589,6 +3874,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelation_Master() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(2);
 	}
@@ -3598,6 +3884,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelation_Detail() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(3);
 	}
@@ -3607,6 +3894,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelation_IsTree() {
 		return (EAttribute)relationEClass.getEStructuralFeatures().get(4);
 	}
@@ -3616,6 +3904,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelation_Links() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(5);
 	}
@@ -3625,6 +3914,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInternalRelation() {
 		return internalRelationEClass;
 	}
@@ -3634,6 +3924,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInternalRelation_AssosiationRef() {
 		return (EReference)internalRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -3643,6 +3934,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDependency() {
 		return dependencyEClass;
 	}
@@ -3652,6 +3944,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDependency_Uid() {
 		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(0);
 	}
@@ -3661,6 +3954,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDependency_Name() {
 		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(1);
 	}
@@ -3670,6 +3964,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDependency_Master() {
 		return (EReference)dependencyEClass.getEStructuralFeatures().get(2);
 	}
@@ -3679,6 +3974,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDependency_Detail() {
 		return (EReference)dependencyEClass.getEStructuralFeatures().get(3);
 	}
@@ -3688,6 +3984,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtificialField() {
 		return artificialFieldEClass;
 	}
@@ -3697,6 +3994,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtificialField_Uid() {
 		return (EAttribute)artificialFieldEClass.getEStructuralFeatures().get(0);
 	}
@@ -3706,6 +4004,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtificialField_Name() {
 		return (EAttribute)artificialFieldEClass.getEStructuralFeatures().get(1);
 	}
@@ -3715,6 +4014,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getComparator() {
 		return comparatorEEnum;
 	}
@@ -3724,6 +4024,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getOrder() {
 		return orderEEnum;
 	}
@@ -3733,6 +4034,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getOrientation() {
 		return orientationEEnum;
 	}
@@ -3742,6 +4044,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getRadioLayout() {
 		return radioLayoutEEnum;
 	}
@@ -3751,6 +4054,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getDataExporterType() {
 		return dataExporterTypeEEnum;
 	}
@@ -3760,6 +4064,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSortable() {
 		return sortableEEnum;
 	}
@@ -3769,6 +4074,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSelectionMode() {
 		return selectionModeEEnum;
 	}
@@ -3778,6 +4084,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getTimeLineLayout() {
 		return timeLineLayoutEEnum;
 	}
@@ -3787,6 +4094,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getTimeLineAlign() {
 		return timeLineAlignEEnum;
 	}
@@ -3796,6 +4104,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FormFactory getFormFactory() {
 		return (FormFactory)getEFactoryInstance();
 	}

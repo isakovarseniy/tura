@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -226,6 +226,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -250,6 +251,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -269,6 +271,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -278,6 +281,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -290,6 +294,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -299,6 +304,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
@@ -311,6 +317,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRowNumber() {
 		return rowNumber;
 	}
@@ -320,6 +327,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRowNumber(int newRowNumber) {
 		int oldRowNumber = rowNumber;
 		rowNumber = newRowNumber;
@@ -332,6 +340,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SelectionMode getSelectionMode() {
 		return selectionMode;
 	}
@@ -341,6 +350,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelectionMode(SelectionMode newSelectionMode) {
 		SelectionMode oldSelectionMode = selectionMode;
 		selectionMode = newSelectionMode == null ? SELECTION_MODE_EDEFAULT : newSelectionMode;
@@ -353,6 +363,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Column> getCols() {
 		if (cols == null) {
 			cols = new EObjectContainmentEList<Column>(Column.class, this, FormPackage.TABLE__COLS);
@@ -365,6 +376,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isScrollable() {
 		return scrollable;
 	}
@@ -374,6 +386,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScrollable(boolean newScrollable) {
 		boolean oldScrollable = scrollable;
 		scrollable = newScrollable;
@@ -386,6 +399,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getScrollHeight() {
 		return scrollHeight;
 	}
@@ -395,6 +409,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScrollHeight(int newScrollHeight) {
 		int oldScrollHeight = scrollHeight;
 		scrollHeight = newScrollHeight;

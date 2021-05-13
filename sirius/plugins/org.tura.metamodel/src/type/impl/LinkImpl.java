@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.LinkImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.LinkImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.LinkImpl#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link type.impl.LinkImpl#getDetailField <em>Detail Field</em>}</li>
  * </ul>
@@ -63,6 +64,26 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMasterField() <em>Master Field</em>}' reference.
@@ -108,6 +129,7 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -117,6 +139,7 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -129,6 +152,30 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.LINK__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Attribute getMasterField() {
 		if (masterField != null && masterField.eIsProxy()) {
 			InternalEObject oldMasterField = (InternalEObject)masterField;
@@ -155,6 +202,7 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMasterField(Attribute newMasterField) {
 		Attribute oldMasterField = masterField;
 		masterField = newMasterField;
@@ -167,6 +215,7 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Attribute getDetailField() {
 		if (detailField != null && detailField.eIsProxy()) {
 			InternalEObject oldDetailField = (InternalEObject)detailField;
@@ -193,6 +242,7 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDetailField(Attribute newDetailField) {
 		Attribute oldDetailField = detailField;
 		detailField = newDetailField;
@@ -210,6 +260,8 @@ public class LinkImpl extends EObjectImpl implements Link {
 		switch (featureID) {
 			case TypePackage.LINK__UID:
 				return getUid();
+			case TypePackage.LINK__KEY_ID:
+				return getKeyId();
 			case TypePackage.LINK__MASTER_FIELD:
 				if (resolve) return getMasterField();
 				return basicGetMasterField();
@@ -230,6 +282,9 @@ public class LinkImpl extends EObjectImpl implements Link {
 		switch (featureID) {
 			case TypePackage.LINK__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.LINK__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.LINK__MASTER_FIELD:
 				setMasterField((Attribute)newValue);
@@ -252,6 +307,9 @@ public class LinkImpl extends EObjectImpl implements Link {
 			case TypePackage.LINK__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.LINK__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.LINK__MASTER_FIELD:
 				setMasterField((Attribute)null);
 				return;
@@ -272,6 +330,8 @@ public class LinkImpl extends EObjectImpl implements Link {
 		switch (featureID) {
 			case TypePackage.LINK__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.LINK__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.LINK__MASTER_FIELD:
 				return masterField != null;
 			case TypePackage.LINK__DETAIL_FIELD:
@@ -292,6 +352,8 @@ public class LinkImpl extends EObjectImpl implements Link {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(')');
 		return result.toString();
 	}

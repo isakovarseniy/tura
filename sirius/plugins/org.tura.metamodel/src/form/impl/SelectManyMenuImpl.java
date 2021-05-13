@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -239,6 +239,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getStyle() {
 		return style;
 	}
@@ -263,6 +264,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(Context newStyle) {
 		if (newStyle != style) {
 			NotificationChain msgs = null;
@@ -282,6 +284,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNickname() {
 		return nickname;
 	}
@@ -291,6 +294,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNickname(String newNickname) {
 		String oldNickname = nickname;
 		nickname = newNickname;
@@ -303,6 +307,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.SELECT_MANY_MENU__CLASSIFIERS);
@@ -315,6 +320,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -324,6 +330,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -336,6 +343,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getEnabled() {
 		return enabled;
 	}
@@ -360,6 +368,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(Context newEnabled) {
 		if (newEnabled != enabled) {
 			NotificationChain msgs = null;
@@ -379,6 +388,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.SELECT_MANY_MENU__FIELDS);
@@ -391,6 +401,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MenuFolder getMenu() {
 		if (menu != null && menu.eIsProxy()) {
 			InternalEObject oldMenu = (InternalEObject)menu;
@@ -417,6 +428,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMenu(MenuFolder newMenu) {
 		MenuFolder oldMenu = menu;
 		menu = newMenu;
@@ -429,6 +441,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -438,6 +451,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -450,6 +464,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getRequired() {
 		return required;
 	}
@@ -474,6 +489,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequired(Context newRequired) {
 		if (newRequired != required) {
 			NotificationChain msgs = null;
@@ -493,6 +509,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getReadOnly() {
 		return readOnly;
 	}
@@ -517,6 +534,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReadOnly(Context newReadOnly) {
 		if (newReadOnly != readOnly) {
 			NotificationChain msgs = null;
@@ -536,6 +554,7 @@ public class SelectManyMenuImpl extends OptionSelectionImpl implements SelectMan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AreaRef> getRefreshAreas() {
 		if (refreshAreas == null) {
 			refreshAreas = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, FormPackage.SELECT_MANY_MENU__REFRESH_AREAS);

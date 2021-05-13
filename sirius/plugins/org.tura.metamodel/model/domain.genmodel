@@ -7,41 +7,61 @@
   <genPackages prefix="Domain" disposableProviderFactory="true" ecorePackage="domain.ecore#/">
     <genClasses ecoreClass="domain.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Domain/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Domain/keyId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainMappers"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/domainArtifact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/techLeafs"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifact">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifact/artifactPackages"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainTypes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypes/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypes/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypes/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainTypes/typesRepository"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainTypes/primitives"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainTypesRepository">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypesRepository/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypesRepository/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainTypesRepository/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainTypesRepository/repositoryPackages"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainApplications">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplications/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplications/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplications/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainApplications/applications"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainApplication">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/keyId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainApplication/applicationPackages"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DomainMappers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMappers/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMappers/keyId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMappers/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainMappers/mappers"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//DomainMapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMapper/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMapper/keyId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainMapper/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainMapper/objectMapperPackages"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

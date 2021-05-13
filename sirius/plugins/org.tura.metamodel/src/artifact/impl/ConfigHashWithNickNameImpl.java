@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.ConfigHashWithNickNameImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.ConfigHashWithNickNameImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.ConfigHashWithNickNameImpl#getName <em>Name</em>}</li>
  *   <li>{@link artifact.impl.ConfigHashWithNickNameImpl#getHash <em>Hash</em>}</li>
  * </ul>
@@ -63,6 +64,26 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -118,6 +139,7 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -127,6 +149,7 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -139,6 +162,30 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -148,6 +195,7 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -160,6 +208,7 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigHash getHash() {
 		if (hash != null && hash.eIsProxy()) {
 			InternalEObject oldHash = (InternalEObject)hash;
@@ -186,6 +235,7 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHash(ConfigHash newHash) {
 		ConfigHash oldHash = hash;
 		hash = newHash;
@@ -203,6 +253,8 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 		switch (featureID) {
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__UID:
 				return getUid();
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__NAME:
 				return getName();
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__HASH:
@@ -222,6 +274,9 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 		switch (featureID) {
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__UID:
 				setUid((String)newValue);
+				return;
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__NAME:
 				setName((String)newValue);
@@ -244,6 +299,9 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -264,6 +322,8 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 		switch (featureID) {
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME__HASH:
@@ -284,6 +344,8 @@ public class ConfigHashWithNickNameImpl extends EObjectImpl implements ConfigHas
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -224,6 +224,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Version getVersionRef() {
 		if (versionRef != null && versionRef.eIsProxy()) {
 			InternalEObject oldVersionRef = (InternalEObject)versionRef;
@@ -250,6 +251,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersionRef(Version newVersionRef) {
 		Version oldVersionRef = versionRef;
 		versionRef = newVersionRef;
@@ -262,6 +264,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -271,6 +274,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -283,6 +287,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMappedToPackageName() {
 		return mappedToPackageName;
 	}
@@ -292,6 +297,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappedToPackageName(String newMappedToPackageName) {
 		String oldMappedToPackageName = mappedToPackageName;
 		mappedToPackageName = newMappedToPackageName;
@@ -304,6 +310,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMappedToClassName() {
 		return mappedToClassName;
 	}
@@ -313,6 +320,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappedToClassName(String newMappedToClassName) {
 		String oldMappedToClassName = mappedToClassName;
 		mappedToClassName = newMappedToClassName;
@@ -325,6 +333,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -334,6 +343,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
@@ -346,6 +356,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
@@ -355,6 +366,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
@@ -367,6 +379,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLibraryName() {
 		return libraryName;
 	}
@@ -376,6 +389,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLibraryName(String newLibraryName) {
 		String oldLibraryName = libraryName;
 		libraryName = newLibraryName;
@@ -388,6 +402,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactType getArtifactType() {
 		return artifactType;
 	}
@@ -397,6 +412,7 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactType(ArtifactType newArtifactType) {
 		ArtifactType oldArtifactType = artifactType;
 		artifactType = newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT : newArtifactType;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -150,6 +150,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -174,6 +175,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -193,6 +195,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -202,6 +205,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
@@ -214,6 +218,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SelectionMode getSelectionMode() {
 		return selectionMode;
 	}
@@ -223,6 +228,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelectionMode(SelectionMode newSelectionMode) {
 		SelectionMode oldSelectionMode = selectionMode;
 		selectionMode = newSelectionMode == null ? SELECTION_MODE_EDEFAULT : newSelectionMode;
@@ -235,6 +241,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getImage() {
 		return image;
 	}
@@ -259,6 +266,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImage(Context newImage) {
 		if (newImage != image) {
 			NotificationChain msgs = null;
@@ -278,6 +286,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Column> getCols() {
 		if (cols == null) {
 			cols = new EObjectContainmentEList<Column>(Column.class, this, FormPackage.TREE__COLS);

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.OptionImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.OptionImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -62,6 +63,26 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
@@ -97,6 +118,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -106,6 +128,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -118,6 +141,30 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.OPTION__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TechLeaf getValue() {
 		if (value != null && value.eIsProxy()) {
 			InternalEObject oldValue = (InternalEObject)value;
@@ -144,6 +191,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(TechLeaf newValue) {
 		TechLeaf oldValue = value;
 		value = newValue;
@@ -161,6 +209,8 @@ public class OptionImpl extends EObjectImpl implements Option {
 		switch (featureID) {
 			case ArtifactPackage.OPTION__UID:
 				return getUid();
+			case ArtifactPackage.OPTION__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.OPTION__VALUE:
 				if (resolve) return getValue();
 				return basicGetValue();
@@ -178,6 +228,9 @@ public class OptionImpl extends EObjectImpl implements Option {
 		switch (featureID) {
 			case ArtifactPackage.OPTION__UID:
 				setUid((String)newValue);
+				return;
+			case ArtifactPackage.OPTION__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case ArtifactPackage.OPTION__VALUE:
 				setValue((TechLeaf)newValue);
@@ -197,6 +250,9 @@ public class OptionImpl extends EObjectImpl implements Option {
 			case ArtifactPackage.OPTION__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.OPTION__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.OPTION__VALUE:
 				setValue((TechLeaf)null);
 				return;
@@ -214,6 +270,8 @@ public class OptionImpl extends EObjectImpl implements Option {
 		switch (featureID) {
 			case ArtifactPackage.OPTION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.OPTION__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.OPTION__VALUE:
 				return value != null;
 		}
@@ -232,6 +290,8 @@ public class OptionImpl extends EObjectImpl implements Option {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(')');
 		return result.toString();
 	}

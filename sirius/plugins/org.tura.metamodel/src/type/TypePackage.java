@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -94,13 +94,22 @@ public interface TypePackage extends EPackage {
 	int TYPE_GROUP__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_GROUP__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_GROUP__NAME = 1;
+	int TYPE_GROUP__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -109,7 +118,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_GROUP__TYPES = 2;
+	int TYPE_GROUP__TYPES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
@@ -118,7 +127,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_GROUP__RELATIONSHIPS = 3;
+	int TYPE_GROUP__RELATIONSHIPS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -127,7 +136,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_GROUP_FEATURE_COUNT = 4;
+	int TYPE_GROUP_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link type.impl.PrimitivesGroupImpl <em>Primitives Group</em>}' class.
@@ -177,13 +186,22 @@ public interface TypePackage extends EPackage {
 	int TYPE_ELEMENT__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ELEMENT__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_ELEMENT__NAME = 1;
+	int TYPE_ELEMENT__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -192,7 +210,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_ELEMENT_FEATURE_COUNT = 2;
+	int TYPE_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link type.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -223,13 +241,22 @@ public interface TypePackage extends EPackage {
 	int RELATIONSHIP__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIONSHIP__KEY_ID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__SOURCE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
+	int RELATIONSHIP__SOURCE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -238,7 +265,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__TARGET = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int RELATIONSHIP__TARGET = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Relationship</em>' class.
@@ -247,7 +274,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int RELATIONSHIP_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link type.impl.ReferencesImpl <em>References</em>}' class.
@@ -276,6 +303,15 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCES__UID = RELATIONSHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCES__KEY_ID = RELATIONSHIP__KEY_ID;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -331,6 +367,15 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERALIZATION__UID = RELATIONSHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__KEY_ID = RELATIONSHIP__KEY_ID;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -444,6 +489,15 @@ public interface TypePackage extends EPackage {
 	int ASSOSIATION__UID = RELATIONSHIP__UID;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOSIATION__KEY_ID = RELATIONSHIP__KEY_ID;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,13 +607,22 @@ public interface TypePackage extends EPackage {
 	int LINK__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Master Field</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__MASTER_FIELD = 1;
+	int LINK__MASTER_FIELD = 2;
 
 	/**
 	 * The feature id for the '<em><b>Detail Field</b></em>' reference.
@@ -568,7 +631,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__DETAIL_FIELD = 2;
+	int LINK__DETAIL_FIELD = 3;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -577,7 +640,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 3;
+	int LINK_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link type.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -617,13 +680,22 @@ public interface TypePackage extends EPackage {
 	int ATTRIBUTE__UID = TYPE_POINTER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__KEY_ID = TYPE_POINTER_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 2;
+	int ATTRIBUTE__NAME = TYPE_POINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Pk</b></em>' attribute.
@@ -632,7 +704,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__PK = TYPE_POINTER_FEATURE_COUNT + 3;
+	int ATTRIBUTE__PK = TYPE_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Uk</b></em>' attribute.
@@ -641,7 +713,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__UK = TYPE_POINTER_FEATURE_COUNT + 4;
+	int ATTRIBUTE__UK = TYPE_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -650,7 +722,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 5;
+	int ATTRIBUTE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link type.impl.OperationImpl <em>Operation</em>}' class.
@@ -690,13 +762,22 @@ public interface TypePackage extends EPackage {
 	int OPERATION__UID = PermissionPackage.SECURED_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__KEY_ID = PermissionPackage.SECURED_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = PermissionPackage.SECURED_FEATURE_COUNT + 2;
+	int OPERATION__NAME = PermissionPackage.SECURED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -705,7 +786,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARAMETERS = PermissionPackage.SECURED_FEATURE_COUNT + 3;
+	int OPERATION__PARAMETERS = PermissionPackage.SECURED_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
@@ -714,7 +795,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RETURN_VALUE = PermissionPackage.SECURED_FEATURE_COUNT + 4;
+	int OPERATION__RETURN_VALUE = PermissionPackage.SECURED_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -723,7 +804,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = PermissionPackage.SECURED_FEATURE_COUNT + 5;
+	int OPERATION_FEATURE_COUNT = PermissionPackage.SECURED_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link type.impl.PrimitiveImpl <em>Primitive</em>}' class.
@@ -743,6 +824,15 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE__UID = TYPE_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE__KEY_ID = TYPE_ELEMENT__KEY_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -780,6 +870,15 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__UID = TYPE_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__KEY_ID = TYPE_ELEMENT__KEY_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -846,6 +945,15 @@ public interface TypePackage extends EPackage {
 	int TYPE_REFERENCE__UID = TYPE_ELEMENT__UID;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_REFERENCE__KEY_ID = TYPE_ELEMENT__KEY_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -901,13 +1009,22 @@ public interface TypePackage extends EPackage {
 	int PARAMETER__UID = TYPE_POINTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__KEY_ID = TYPE_POINTER_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = TYPE_POINTER_FEATURE_COUNT + 1;
+	int PARAMETER__NAME = TYPE_POINTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -916,7 +1033,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__ORDER = TYPE_POINTER_FEATURE_COUNT + 2;
+	int PARAMETER__ORDER = TYPE_POINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -925,7 +1042,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 3;
+	int PARAMETER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link type.impl.ReturnValueImpl <em>Return Value</em>}' class.
@@ -956,13 +1073,22 @@ public interface TypePackage extends EPackage {
 	int RETURN_VALUE__UID = TYPE_POINTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE__KEY_ID = TYPE_POINTER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Return Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+	int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link type.impl.EnumeratorImpl <em>Enumerator</em>}' class.
@@ -982,6 +1108,15 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUMERATOR__UID = TYPE_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATOR__KEY_ID = TYPE_ELEMENT__KEY_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1048,13 +1183,22 @@ public interface TypePackage extends EPackage {
 	int ENUM_ATTRIBUTE__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_ATTRIBUTE__KEY_ID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
+	int ENUM_ATTRIBUTE__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1063,7 +1207,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__VALUE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int ENUM_ATTRIBUTE__VALUE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Enum Attribute</em>' class.
@@ -1072,7 +1216,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int ENUM_ATTRIBUTE_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
@@ -1113,13 +1257,22 @@ public interface TypePackage extends EPackage {
 	int ATTRIBUTE_POINTER = 20;
 
 	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_POINTER__UID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Attribute Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_POINTER__ATTRIBUTE_REF = 0;
+	int ATTRIBUTE_POINTER__ATTRIBUTE_REF = 1;
 
 	/**
 	 * The number of structural features of the '<em>Attribute Pointer</em>' class.
@@ -1128,7 +1281,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_POINTER_FEATURE_COUNT = 1;
+	int ATTRIBUTE_POINTER_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link type.RelationType <em>Relation Type</em>}' enum.
@@ -1171,6 +1324,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTypeGroup_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.TypeGroup#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.TypeGroup#getKeyId()
+	 * @see #getTypeGroup()
+	 * @generated
+	 */
+	EAttribute getTypeGroup_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link type.TypeGroup#getName <em>Name</em>}'.
@@ -1248,6 +1412,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getTypeElement_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.TypeElement#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.TypeElement#getKeyId()
+	 * @see #getTypeElement()
+	 * @generated
+	 */
+	EAttribute getTypeElement_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link type.TypeElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1278,6 +1453,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRelationship_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.Relationship#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.Relationship#getKeyId()
+	 * @see #getRelationship()
+	 * @generated
+	 */
+	EAttribute getRelationship_KeyId();
 
 	/**
 	 * Returns the meta object for the reference '{@link type.Relationship#getSource <em>Source</em>}'.
@@ -1472,6 +1658,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getLink_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.Link#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.Link#getKeyId()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_KeyId();
+
+	/**
 	 * Returns the meta object for the reference '{@link type.Link#getMasterField <em>Master Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1513,6 +1710,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAttribute_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.Attribute#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.Attribute#getKeyId()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link type.Attribute#getName <em>Name</em>}'.
@@ -1567,6 +1775,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOperation_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.Operation#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.Operation#getKeyId()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link type.Operation#getName <em>Name</em>}'.
@@ -1675,6 +1894,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getParameter_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.Parameter#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.Parameter#getKeyId()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link type.Parameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1718,6 +1948,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getReturnValue_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.ReturnValue#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.ReturnValue#getKeyId()
+	 * @see #getReturnValue()
+	 * @generated
+	 */
+	EAttribute getReturnValue_KeyId();
+
+	/**
 	 * Returns the meta object for class '{@link type.Enumerator <em>Enumerator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1758,6 +1999,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEnumAttribute_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.EnumAttribute#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see type.EnumAttribute#getKeyId()
+	 * @see #getEnumAttribute()
+	 * @generated
+	 */
+	EAttribute getEnumAttribute_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link type.EnumAttribute#getName <em>Name</em>}'.
@@ -1811,6 +2063,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAttributePointer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.AttributePointer#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see type.AttributePointer#getUid()
+	 * @see #getAttributePointer()
+	 * @generated
+	 */
+	EAttribute getAttributePointer_Uid();
 
 	/**
 	 * Returns the meta object for the reference '{@link type.AttributePointer#getAttributeRef <em>Attribute Ref</em>}'.
@@ -1884,6 +2147,14 @@ public interface TypePackage extends EPackage {
 		EAttribute TYPE_GROUP__UID = eINSTANCE.getTypeGroup_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_GROUP__KEY_ID = eINSTANCE.getTypeGroup_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1944,6 +2215,14 @@ public interface TypePackage extends EPackage {
 		EAttribute TYPE_ELEMENT__UID = eINSTANCE.getTypeElement_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_ELEMENT__KEY_ID = eINSTANCE.getTypeElement_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1968,6 +2247,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELATIONSHIP__UID = eINSTANCE.getRelationship_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATIONSHIP__KEY_ID = eINSTANCE.getRelationship_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -2126,6 +2413,14 @@ public interface TypePackage extends EPackage {
 		EAttribute LINK__UID = eINSTANCE.getLink_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__KEY_ID = eINSTANCE.getLink_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Master Field</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2158,6 +2453,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__UID = eINSTANCE.getAttribute_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__KEY_ID = eINSTANCE.getAttribute_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2200,6 +2503,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__UID = eINSTANCE.getOperation_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__KEY_ID = eINSTANCE.getOperation_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2290,6 +2601,14 @@ public interface TypePackage extends EPackage {
 		EAttribute PARAMETER__UID = eINSTANCE.getParameter_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__KEY_ID = eINSTANCE.getParameter_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2322,6 +2641,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RETURN_VALUE__UID = eINSTANCE.getReturnValue_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETURN_VALUE__KEY_ID = eINSTANCE.getReturnValue_KeyId();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.EnumeratorImpl <em>Enumerator</em>}' class.
@@ -2358,6 +2685,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUM_ATTRIBUTE__UID = eINSTANCE.getEnumAttribute_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENUM_ATTRIBUTE__KEY_ID = eINSTANCE.getEnumAttribute_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2402,6 +2737,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ATTRIBUTE_POINTER = eINSTANCE.getAttributePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_POINTER__UID = eINSTANCE.getAttributePointer_Uid();
 
 		/**
 		 * The meta object literal for the '<em><b>Attribute Ref</b></em>' reference feature.

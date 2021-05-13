@@ -1,0 +1,540 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+  
+  @template
+  operation objectmapper::ObjectMapper  copy(cursorsNames,transformGroup,recipe,ingredient,hash){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var operations = transformGroup.operationsConnector->select(q|q.target.uid = self.uid );
+         if (operations.size() <> 0 ){
+           %][%=self.copyOperation(cursorsNames,transformGroup,recipe,ingredient,hash)%][%
+         }else{
+           %][%=self.copyAttributes(cursorsNames,transformGroup,recipe,ingredient)%][%
+         }
+  }
+  
+  
+  @template
+  operation objectmapper::ObjectMapper  copyOperation(cursorsNames,transformGroup,recipe,ingredient,hash){
+        var util = new Native('org.tura.metamodel.commons.Util');
+        var operations = transformGroup.operationsConnector->select(q|q.target.uid = self.uid );
+        if (operations.size() <> 0 ){
+	         for ( oper in operations){
+	            var h = oper.details(cursorsNames);
+%]
+		public void copyFrom[%=h.get("sourceCursorName")%]() {
+			     [%=body(oper,transformGroup,h,cursorsNames,recipe,ingredient)%]
+		}
+[%	 
+
+    if (oper.defaultSearch <> null) {
+%]
+		public boolean filterFrom[%=h.get("sourceCursorName")%]([%=h.get("sourceType").~fullName%] t) throws Exception{
+
+         org.tura.platform.datacontrol.commons.SearchCriteria sc = null;
+         java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> search = new java.util.ArrayList<>();
+		
+[%
+    var hints = new Native('java.util.HashMap');
+    
+    for (param in oper.defaultSearch.parameters){
+
+            param.~result =  buildExpression(param.value,hints,hash);
+%]
+            sc = new org.tura.platform.datacontrol.commons.SearchCriteria();
+            sc.setName("[%=util.mergeAndUnCapitalize(param.refObj.name)%]");
+            sc.setComparator(com.octo.java.sql.exp.Operator.[%=param.getOperation()%] .name());
+            sc.setValue(bf.get[%=util.mergeAndCapitalize(param.~result)%]());
+            search.add(sc);
+            
+[%
+    }
+%]
+    List<[%=h.get("sourceType").~fullName%]> array = new ArrayList<>();
+    array.add(t);
+    
+    if ( this.findBy(search, array,[%=h.get("sourceType").~fullName%].class).size() == 0 ) {
+    	return true;
+    }else {
+    	return false;
+    }
+}[%    
+                } 
+  	         }
+  	    }
+  }  
+  
+    operation objectmapper::ObjectMapper  copyAttributes(cursorsNames,transformGroup,recipe,ingredient){
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable)  and q.target.eContainer().uid = self.uid);
+            if ( attrMergeConnections.size() <> 0){
+                 var sourcesMap = new Native('java.util.HashMap');
+                 for ( attrCon in attrMergeConnections ){
+                     var sm = attrCon.source.eContainer();
+                     sourcesMap.put(sm.uid, sm);
+                 }
+                 
+                 for ( mp in sourcesMap.values){
+                 
+                   var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and    not q.source.isTypeOf(objectmapper::Variable) and  q.source.eContainer().uid = mp.uid   and q.target.eContainer().uid = self.uid);
+                   var h = attrMergeConnections.first .details(cursorsNames);
+
+                   attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and (    q.source.isTypeOf(objectmapper::Variable) or q.source.eContainer().uid = mp.uid ) and q.target.eContainer().uid = self.uid);
+
+%]
+public void copyFrom[%=h.get("sourceCursorName")%](){ 
+[%
+                 for (attrCon in attrMergeConnections ){
+                   var h = attrCon.details(cursorsNames);
+%]
+                  [%=attrCon.set(transformGroup,h,cursorsNames,recipe,ingredient)%]
+[%                 
+                  }
+%]
+}			     
+[%                      
+                 }
+            }     
+  }  
+  
+  
+  
+  @template
+  operation objectmapper::ObjectMapper  load(cursorsNames,transformGroup,recipe,ingredient,hash){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var operations = transformGroup.operationsConnector->select(q|q.target.uid = self.uid );
+         if (operations.size() <> 0 ){
+	         for ( oper in operations){
+	            var h = oper.details(cursorsNames);
+
+	            if ( h.get("sourceMapper").aggrigations.size() <> 0){
+	               for(  agr in h.get("sourceMapper").aggrigations ){
+%]
+                       bf.get[%=h.get("sourceCursorName")%]Cursor().set[%=util.mergeAndCapitalize(agr.getName())%](null);
+[%	                   
+	               }
+	            } 
+	            
+	%]
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().load();
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().setPosition(0);
+			     [%=h.get("sourceType").~fullName%] currentt[%=h.get("sourceCursorName")%] = bf.get[%=h.get("sourceCursorName")%]Cursor().getCurrentObject();
+			     while (  currentt[%=h.get("sourceCursorName")%]  !=  null){
+[%	 
+    if (oper.defaultSearch <> null) {
+%]
+		      if ( !filterFrom[%=h.get("sourceCursorName")%](currentt[%=h.get("sourceCursorName")%])){
+[%    
+    }
+%]
+
+
+		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
+
+			     [%=startTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
+
+                 copyFrom[%=h.get("sourceCursorName")%]();
+                 [%=h.get("targetMapper").loadChildren(cursorsNames)%]
+
+			     [%=endTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
+			     
+		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnEndRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
+
+[%	 
+    if (oper.defaultSearch <> null) {
+%]
+		      }
+[%    
+    }
+%]
+
+
+					if (bf.get[%=h.get("sourceCursorName")%]Cursor().hasNext()) {
+			             currentt[%=h.get("sourceCursorName")%] = bf.get[%=h.get("sourceCursorName")%]Cursor().next();
+					} else {
+						currentt[%=h.get("sourceCursorName")%] = null;
+					}			     
+			     }
+	[%             
+	         }
+         }else{
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and  not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = self.uid);
+            if ( attrMergeConnections.size() <> 0){
+                 var sourcesMap = new Native('java.util.HashMap');
+                 for ( attrCon in attrMergeConnections ){
+                     var sm = attrCon.source.eContainer();
+                     sourcesMap.put(sm.uid, sm);
+                 }
+                 
+                 for ( mp in sourcesMap.values){
+                 
+                   var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and  not q.source.isTypeOf(objectmapper::Variable) and q.source.eContainer().uid = mp.uid and q.target.eContainer().uid = self.uid);
+                   var h = attrMergeConnections.first().details(cursorsNames);
+%]
+{
+		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
+
+			     [%=addOperationStartTag(transformGroup,h,cursorsNames)%]
+
+                  copyFrom[%=h.get("sourceCursorName")%]();
+                  
+			     [%=addOperationEndTag(transformGroup,h,cursorsNames)%]
+			     
+		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnEndRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
+}			     
+[%                      
+                 }
+%]
+                 [%=self.loadChildren(cursorsNames)%]
+[%                      
+                 
+            }         
+         }
+  }
+  
+  
+  
+  operation objectmapper::OperationConnector details(cursorsNames){
+         var h = new Native('java.util.HashMap');
+  	     var sourceMapper = self.source;
+	     var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+	     var sourceType = sourceMapper.baseType.typeRef;
+	     var targetMapper = self.target;
+	     var targetCursorName = cursorsNames.get(targetMapper.uid);
+	     var targetType = targetMapper.baseType.typeRef;
+	     
+	     h.put("sourceMapper",sourceMapper);
+	     h.put("sourceCursorName",sourceCursorName);
+	     h.put("sourceType",sourceType);
+	     h.put("targetMapper",targetMapper);
+	     h.put("targetCursorName",targetCursorName);
+	     h.put("targetType",targetType);
+	     
+	     return h;
+  }
+  
+  
+  operation objectmapper::AttributeConnector details(cursorsNames){
+         var h = new Native('java.util.HashMap');
+         if (not self.source.isTypeOf(objectmapper::Variable) ){
+	    	 var sourceMapper = self.source.eContainer();
+		     var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+		     var sourceType = sourceMapper.baseType.typeRef;
+
+	  	     h.put("sourceMapper",sourceMapper);
+		     h.put("sourceCursorName",sourceCursorName);
+		     h.put("sourceType",sourceType);
+	     }
+
+    	 var targetMapper = self.target.eContainer();
+	     var targetCursorName = cursorsNames.get(targetMapper.uid);
+	     var targetType = targetMapper.baseType.typeRef;
+    	 
+	     h.put("targetMapper",targetMapper);
+	     h.put("targetCursorName",targetCursorName);
+	     h.put("targetType",targetType);
+	     
+	     return h;
+  
+  }
+  
+  operation objectmapper::OperationConnector details(cursorsNames){
+         var h = new Native('java.util.HashMap');
+  	     var sourceMapper = self.source;
+	     var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+	     var sourceType = sourceMapper.baseType.typeRef;
+	     var targetMapper = self.target;
+	     var targetCursorName = cursorsNames.get(targetMapper.uid);
+	     var targetType = targetMapper.baseType.typeRef;
+	     
+	     h.put("sourceMapper",sourceMapper);
+	     h.put("sourceCursorName",sourceCursorName);
+	     h.put("sourceType",sourceType);
+	     h.put("targetMapper",targetMapper);
+	     h.put("targetCursorName",targetCursorName);
+	     h.put("targetType",targetType);
+	     
+	     return h;
+  }
+  
+  
+  operation objectmapper::AttributeConnector details(cursorsNames){
+         var h = new Native('java.util.HashMap');
+    	 var sourceMapper = self.source.eContainer();
+	     var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+	     var sourceType = sourceMapper.baseType.typeRef;
+
+    	 var targetMapper = self.target.eContainer();
+	     var targetCursorName = cursorsNames.get(targetMapper.uid);
+	     var targetType = targetMapper.baseType.typeRef;
+    	 
+  	     h.put("sourceMapper",sourceMapper);
+	     h.put("sourceCursorName",sourceCursorName);
+	     h.put("sourceType",sourceType);
+	     h.put("targetMapper",targetMapper);
+	     h.put("targetCursorName",targetCursorName);
+	     h.put("targetType",targetType);
+	     
+	     return h;
+  
+  }
+  
+  
+  @template
+  operation startTag (operationType,transformGroup,h,cursorsNames){
+         if ( operationType.equals("delete")){
+               %][%=deleteOperationStartTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+         if ( operationType.equals("add")){
+               %][%=addOperationStartTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+         if ( operationType.equals("mergeOrAdd")){
+               %][%=mergeOrAddOperationStartTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+  }
+  @template
+    operation endTag (operationType,transformGroup,h,cursorsNames){
+         if ( operationType.equals("delete")){
+               %][%=deleteOperationEndTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+         if ( operationType.equals("add")){
+               %][%=addOperationEndTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+         if ( operationType.equals("mergeOrAdd")){
+               %][%=mergeOrAddOperationEndTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+  }
+  
+  
+  @template
+  operation body (oper,transformGroup,h,cursorsNames,recipe,ingredient){
+         var operationType = oper.operationType.toString();
+         if ( operationType.equals("delete")){
+               %][%=deleteOperationBody(transformGroup,h,cursorsNames,recipe,ingredient)%][%
+               return;
+         }
+         if ( operationType.equals("add")){
+               %][%=addOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper)%][%
+               return;
+         }
+         if ( operationType.equals("mergeOrAdd")){
+               %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper)%][%
+               return;
+         }
+  }
+
+
+  @template
+    operation mergeOrAddOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var attrConnections = transformGroup.attributesConnector->select(q|q.target <> null  and q.target.eContainer().uid = h.get("targetMapper").uid);
+         for (attrCon in attrConnections){
+             if ( attrCon.operationRef == null or ( attrCon.operationRef<> null and attrCon.operationRef.uid.equals(oper.uid))){
+                var ha = attrCon.details(cursorsNames);
+         %][%=attrCon.set(transformGroup,ha,cursorsNames,recipe,ingredient)%][%
+             }
+         }    
+    }  
+  
+  @template
+    operation objectmapper::AttributeConnector set (transformGroup,h,cursorsNames,recipe,ingredient){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var trgAttrType = self.target.getType(); 
+	     trgAttrType.mappingType2Java(recipe,ingredient);
+         var srcAttrType = self.source.getType(); 
+	     srcAttrType.mappingType2Java(recipe,ingredient);
+         var typeConvertStart = "";
+         var typeConvertEnd = "";
+         if ( not srcAttrType.uid.equals(trgAttrType.uid) ){
+               typeConvertStart = "("+trgAttrType.~fullName +")(";
+               typeConvertEnd= ")";
+         }
+         
+        if ( self.source.isTypeOf(objectmapper:: Variable)){
+%]
+           bf.get[%=util.mergeAndCapitalize(h.get("targetCursorName"))%]Cursor().getCurrentObject().set[%=util.mergeAndCapitalize(self.target.attributeRef.getName())%]( [%=typeConvertStart%] bf.get[%=util.mergeAndCapitalize(self.source.getName())%]()  [%=typeConvertEnd%]  );
+[%     
+         return;                  
+        }
+        
+        if ( self.source.isTypeOf(objectmapper:: Aggregation)){
+%]
+           bf.get[%=util.mergeAndCapitalize(h.get("targetCursorName"))%]Cursor().getCurrentObject().set[%=util.mergeAndCapitalize(self.target.attributeRef.getName())%]( [%=typeConvertStart%] bf.get[%=util.mergeAndCapitalize(h.get("sourceCursorName"))%]Cursor().get[%=util.mergeAndCapitalize(self.source.getName())%]()  [%=typeConvertEnd%]  );
+[%     
+         return;                  
+        }
+%]
+           bf.get[%=util.mergeAndCapitalize(h.get("targetCursorName"))%]Cursor().getCurrentObject().set[%=util.mergeAndCapitalize(self.target.attributeRef.getName())%]( [%=typeConvertStart%] bf.get[%=util.mergeAndCapitalize(h.get("sourceCursorName"))%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(self.source.attributeRef.getName())%]()  [%=typeConvertEnd%]  );
+[%                     
+                  
+    }  
+  
+    @template
+    operation addOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper){
+          %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,oper)%][%
+    }  
+    
+      @template
+    operation deleteOperationBody (transformGroup,h,cursorsNames,recipe,ingredient){
+    }  
+  
+  
+  
+  @template
+    operation deleteOperationStartTag (transformGroup,h,cursorsNames){
+            var util = new Native('org.tura.metamodel.commons.Util');
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
+            if ( attrMergeConnections.size() <> 0){
+%]
+                         java.util.List<[%=h.get("targetType").~fullName%]>  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List =    bf.get[%=h.get("targetCursorName")%]Cursor().
+                         findBy(  
+[%
+                      var first = true; 
+                      for( attrCon in attrMergeConnections){
+                          var ha = attrCon.details(cursorsNames);
+%]                
+                         [%if (not first) {%],[%}%]bf.get[%=ha.get("sourceCursorName")%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(attrCon.source.getFieldName())%]()
+[%
+                         first = false;
+                      }
+%]);
+
+[%                
+       }
+%]
+          if ( [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List.size() != 0){
+             for ([%=h.get("targetType").~fullName%]  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]Obj:  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List ){  
+[%       
+    }
+  
+    @template
+    operation deleteOperationEndTag (transformGroup,h,cursorsNames){
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable)  and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
+             if ( attrMergeConnections.size() <> 0){
+             %]}
+             }[%
+             }
+    }
+  
+    @template
+    operation addOperationStartTag (transformGroup,h,cursorsNames){
+                 var util = new Native('org.tura.metamodel.commons.Util');
+%]
+          [%=h.get("targetType").~fullName%] obj = new  [%=h.get("targetType").~fullName%]();
+          bf.get[%=h.get("targetCursorName")%]Cursor().add(obj);             
+[%       
+    }
+  
+    @template
+    operation addOperationEndTag (transformGroup,h,cursorsNames){
+    }
+  @template
+    operation mergeOrAddOperationStartTag (transformGroup,h,cursorsNames){
+                 var util = new Native('org.tura.metamodel.commons.Util');
+                 var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
+                 if ( attrMergeConnections.size() <> 0){
+%]
+                         java.util.List<[%=h.get("targetType").~fullName%]>  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List =    bf.get[%=h.get("targetCursorName")%]Cursor().
+                         findBy(  
+[%
+                      var first = true; 
+                      for( attrCon in attrMergeConnections){
+                          var ha = attrCon.details(cursorsNames);
+%]                
+                         [%if (not first) {%],[%}%]bf.get[%=ha.get("sourceCursorName")%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(attrCon.source.getFieldName())%]()
+[%
+                         first = false;
+                      }
+%]);
+          if ( [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List.size() == 0){
+             [%=h.get("targetType").~fullName%] obj = new  [%=h.get("targetType").~fullName%]();
+             bf.get[%=h.get("targetCursorName")%]Cursor().add(obj);    
+             copyFrom[%=h.get("sourceCursorName")%]();   
+             [%=h.get("targetMapper").loadChildren(cursorsNames)%]
+             
+          }else{
+          for ([%=h.get("targetType").~fullName%]  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]Obj:  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List ){
+          bf.get[%=h.get("targetCursorName")%]Cursor().setPosition([%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]Obj);  
+[%       
+       }else{
+        %][%=self.addOperationStartTag(transformGroup,h,cursorsNames)%][%
+       }
+    }
+    
+  @template
+    operation mergeOrAddOperationEndTag (transformGroup,h,cursorsNames){
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable)   and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
+             if ( attrMergeConnections.size() <> 0){
+             %]}
+             }[%
+             }else{
+            %][%=self.addOperationEndTag(transformGroup,h,cursorsNames)%][%
+           }
+    }
+  
+  @template
+  operation objectmapper::ObjectMapper loadChildren(cursorsNames){
+   	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.eContainer().uid = self.uid and q.objectMapperRef <> null);
+
+ 	  if (omRelations.size <> 0){
+ 	      for ( omRel in omRelations){
+ 	          
+  	         var refMapper = omRel.objectMapperRef;
+	         var refCursorName = cursorsNames.get(refMapper.uid);
+    	     var sourceMapper = self;
+	         var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+	         
+%]
+	             bf.get[%=refCursorName%]Cursor().load();
+[%	         
+	         
+ 	      }
+ 	  
+ 	  }
+  }
+  
+  operation type::AttributePointer getFieldName(){
+        return self.attributeRef.name;
+   }
+   
+  operation objectmapper::Aggregation getFieldName(){
+      return self.name;
+   }
+     
+  operation objectmapper::CalculatedField getFieldName(){
+      return self.name;
+   } 
+  
+  operation type::AttributePointer getType(){
+        return self.attributeRef.typeRef;
+   }
+   
+  operation objectmapper::Aggregation getType(){
+      return self.typeRef;
+   }
+     
+  operation objectmapper::CalculatedField getType(){
+      return self.typeRef;
+   }   
+  
+  
+  %]
+ 

@@ -5,7 +5,7 @@
 
 
       This project includes software developed by Arseniy Isakov
-      http://sourceforge.net/p/tura/wiki/Home/
+      https://github.com/isakovarseniy/tura
       All rights reserved. This program and the accompanying materials
       are made available under the terms of the Eclipse Public License v2.0
       which accompanies this distribution, and is available at
@@ -13,6 +13,25 @@
 -->
 
 <plugin>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.PopulateDomainObjectGenerationRecipeAction"
+            id="org.tura.metamodel.sirius.properties.actions.PopulateDomainObjectGenerationRecipeActionID">
+      </javaActions>
+   </extension>
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.ObjectMapperRefreshAction"
+            id="org.tura.metamodel.sirius.properties.actions.ObjectMapperRefreshActionID">
+      </javaActions>
+   </extension>
+
+
 
     <extension
          point="org.eclipse.sirius.externalJavaAction">
@@ -111,6 +130,14 @@
       <javaActions
             actionClass="org.tura.metamodel.sirius.properties.actions.DeleteDataControlAction"
             id="org.tura.metamodel.sirius.properties.actions.DeleteDataControlActionID">
+      </javaActions>
+   </extension>
+   
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.DeleteObjectMapperAction"
+            id="org.tura.metamodel.sirius.properties.actions.DeleteObjectMapperActionID">
       </javaActions>
    </extension>
 
@@ -400,6 +427,16 @@
 
     <propertyTab
              category="domain"
+             id="tab.objectmapper.ObjectMapper.baseType"
+             label="Base type"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.objectmapper.AttributeConnector.Operation"
+             label="Operation Ref"/>
+
+    <propertyTab
+             category="domain"
              id="tab.form.DataContorol.DefaultSearch"
              label="Default search"/>
 
@@ -519,6 +556,18 @@
    </extension>
  
  
+ 
+ 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.OperationConnectorPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.AttributeConnectorSectionFilter"
+	            id="objectmapper.AttributeConnector.Operation"
+	            tab="tab.objectmapper.AttributeConnector.Operation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
  
  
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
@@ -862,6 +911,18 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+	
+	
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.ObjectMapperBaseTypePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
+	            id="objectmapper.ObjectMapper.baseType"
+	            tab="tab.objectmapper.ObjectMapper.baseType">
+	      </propertySection>
+	   </propertySections>
+	</extension>
 
 	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
@@ -869,6 +930,18 @@
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.DefaultSearchPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataControlSectionFilter"
 	            id="form.DataContorol.DefaultSearch"
+	            tab="tab.form.DataContorol.DefaultSearch">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.OperationConnectorFilterPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.OperationConnectorSectionFilter"
+	            id="objectmapper.filter"
 	            tab="tab.form.DataContorol.DefaultSearch">
 	      </propertySection>
 	   </propertySections>

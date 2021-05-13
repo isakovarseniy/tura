@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -80,6 +80,7 @@ public class ServerClasterImpl extends InfrastructureComponentImpl implements Se
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Server> getServers() {
 		if (servers == null) {
 			servers = new EObjectContainmentEList<Server>(Server.class, this, InfrastructurePackage.SERVER_CLASTER__SERVERS);

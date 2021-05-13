@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -108,6 +108,7 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Uielement> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentEList<Uielement>(Uielement.class, this, FormPackage.LAYER_HOLDER__CHILDREN);
@@ -120,6 +121,7 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -129,6 +131,7 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;

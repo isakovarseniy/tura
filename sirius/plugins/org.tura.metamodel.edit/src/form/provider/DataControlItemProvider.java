@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import java.util.List;
 
 import mapper.MapperFactory;
 
+import objectmapper.ObjectmapperFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -275,6 +276,21 @@ public class DataControlItemProvider extends CategorizedItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 ObjectmapperFactory.eINSTANCE.createCalculatedField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 ObjectmapperFactory.eINSTANCE.createVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 ObjectmapperFactory.eINSTANCE.createAggregation()));
 
 		newChildDescriptors.add
 			(createChildParameter

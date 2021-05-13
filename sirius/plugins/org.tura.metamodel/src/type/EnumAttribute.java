@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import artifact.Categorized;
  * </p>
  * <ul>
  *   <li>{@link type.EnumAttribute#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.EnumAttribute#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.EnumAttribute#getName <em>Name</em>}</li>
  *   <li>{@link type.EnumAttribute#getValue <em>Value</em>}</li>
  * </ul>
@@ -62,6 +63,28 @@ public interface EnumAttribute extends Categorized {
 	 * @generated
 	 */
 	void setUid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key Id</em>' attribute.
+	 * @see #setKeyId(String)
+	 * @see type.TypePackage#getEnumAttribute_KeyId()
+	 * @model
+	 * @generated
+	 */
+	String getKeyId();
+
+	/**
+	 * Sets the value of the '{@link type.EnumAttribute#getKeyId <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key Id</em>' attribute.
+	 * @see #getKeyId()
+	 * @generated
+	 */
+	void setKeyId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

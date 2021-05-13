@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -217,6 +217,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -226,6 +227,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -238,6 +240,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, RecipePackage.MODEL_MAPPER__CLASSIFIERS);
@@ -250,6 +253,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -259,6 +263,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -271,6 +276,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getArtifactRoot() {
 		return artifactRoot;
 	}
@@ -280,6 +286,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactRoot(String newArtifactRoot) {
 		String oldArtifactRoot = artifactRoot;
 		artifactRoot = newArtifactRoot;
@@ -292,6 +299,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MappingTecnologiy> getTechnologies() {
 		if (technologies == null) {
 			technologies = new EObjectContainmentEList<MappingTecnologiy>(MappingTecnologiy.class, this, RecipePackage.MODEL_MAPPER__TECHNOLOGIES);
@@ -304,6 +312,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Query> getQueries() {
 		if (queries == null) {
 			queries = new EObjectContainmentEList<Query>(Query.class, this, RecipePackage.MODEL_MAPPER__QUERIES);
@@ -316,6 +325,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSkip() {
 		return skip;
 	}
@@ -325,6 +335,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSkip(boolean newSkip) {
 		boolean oldSkip = skip;
 		skip = newSkip;
@@ -337,6 +348,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getArtifactExtension() {
 		return artifactExtension;
 	}
@@ -346,6 +358,7 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactExtension(String newArtifactExtension) {
 		String oldArtifactExtension = artifactExtension;
 		artifactExtension = newArtifactExtension;

@@ -2,16 +2,17 @@
 package artifact;
 	
 class ArtifactGroup{
-    id attr EString uid;
-    attr EString name;
+   id attr EString uid;
+   attr EString keyId;
+   attr EString name;
    val Artifact[*] artifacts;
-
 }
 
 
 class TechLeaf{
-    id attr EString uid;
-    attr EString name;
+   id attr EString uid;
+   attr EString keyId;
+   attr EString name;
    val  GenerationHint[*] hints;
    val  ConfigVariable[*] configVariables;
    val  ConfigHash[*] configHashes;
@@ -19,7 +20,8 @@ class TechLeaf{
 }
 
 class Artifact{
-    id attr EString uid;
+   id attr EString uid;
+   attr EString keyId;
    attr EString name;
    attr EString description;
    
@@ -45,60 +47,71 @@ class Artifact{
 
 class GenerationHintWithNickName{
    id attr EString uid;
+   attr EString keyId;
    attr EString name;
    ref   GenerationHint hint;
 }
 
 class ConfigVariableWithNickName{
    id attr EString uid;
+   attr EString keyId;
    attr EString name;
-   ref   ConfigVariable var;
+   ref   ConfigVariable varRef;
+   
 }
 
 class ConfigHashWithNickName{
    id attr EString uid;
+   attr EString keyId;
    attr EString name;
    ref   ConfigHash hash;	
 }
 
 class GenerationHint{
-   id attr EString uid;
-  attr EString name;
+    id attr EString uid;
+    attr EString keyId;
+    attr EString name;
 }
 
 class ConfigVariable{
-   id attr EString uid;
-  attr EString name;
+    id attr EString uid;
+    attr EString keyId;
+    attr EString name;
 }
 
 class ConfigHash{
-   id attr EString uid;
-  attr EString name;
+    id attr EString uid;
+    attr EString keyId;
+    attr EString name;
 }
 
 
 class ModelQuery{
     id attr EString uid;
-   attr EString name;
-   attr EString query;
-   val  QueryParameter[*] parameters;  
+    attr EString keyId;
+    attr EString name;
+    attr EString query;
+    val  QueryParameter[*] parameters;  
 
 }
 
 class QueryParameter{
-    id attr EString uid;
-   attr EString name;
+     id attr EString uid;
+     attr EString keyId;
+     attr EString name;
 }
 
 class Technology{
     id attr EString uid;
-   attr EString name;
-   val  Option[1..*] options;  
+    attr EString keyId;
+    attr EString name;
+    val  Option[1..*] options;  
 }
 
 class Option{
     id attr EString uid;
-   ref TechLeaf value;
+    attr EString keyId;
+    ref TechLeaf value;
 }
 
 class Categorized{
@@ -107,6 +120,7 @@ class Categorized{
 
 class Classifier{
     id attr EString uid;
+    attr EString keyId;
     ref GenerationHint hint;
     attr EString details;
 }

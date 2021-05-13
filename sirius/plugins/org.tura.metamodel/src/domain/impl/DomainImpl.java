@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -19,6 +19,7 @@ package domain.impl;
 import domain.Domain;
 import domain.DomainApplications;
 import domain.DomainArtifacts;
+import domain.DomainMappers;
 import domain.DomainPackage;
 import domain.DomainTypes;
 
@@ -40,9 +41,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.DomainImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainTypes <em>Domain Types</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainApplications <em>Domain Applications</em>}</li>
+ *   <li>{@link domain.impl.DomainImpl#getDomainMappers <em>Domain Mappers</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +70,26 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDomainArtifacts() <em>Domain Artifacts</em>}' containment reference.
@@ -99,6 +122,16 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	protected DomainApplications domainApplications;
 
 	/**
+	 * The cached value of the '{@link #getDomainMappers() <em>Domain Mappers</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDomainMappers()
+	 * @generated
+	 * @ordered
+	 */
+	protected DomainMappers domainMappers;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -122,6 +155,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -131,6 +165,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -143,6 +178,30 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DomainArtifacts getDomainArtifacts() {
 		return domainArtifacts;
 	}
@@ -167,6 +226,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDomainArtifacts(DomainArtifacts newDomainArtifacts) {
 		if (newDomainArtifacts != domainArtifacts) {
 			NotificationChain msgs = null;
@@ -186,6 +246,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainTypes getDomainTypes() {
 		return domainTypes;
 	}
@@ -210,6 +271,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDomainTypes(DomainTypes newDomainTypes) {
 		if (newDomainTypes != domainTypes) {
 			NotificationChain msgs = null;
@@ -229,6 +291,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainApplications getDomainApplications() {
 		return domainApplications;
 	}
@@ -253,6 +316,7 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDomainApplications(DomainApplications newDomainApplications) {
 		if (newDomainApplications != domainApplications) {
 			NotificationChain msgs = null;
@@ -273,6 +337,51 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * @generated
 	 */
 	@Override
+	public DomainMappers getDomainMappers() {
+		return domainMappers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDomainMappers(DomainMappers newDomainMappers, NotificationChain msgs) {
+		DomainMappers oldDomainMappers = domainMappers;
+		domainMappers = newDomainMappers;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_MAPPERS, oldDomainMappers, newDomainMappers);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDomainMappers(DomainMappers newDomainMappers) {
+		if (newDomainMappers != domainMappers) {
+			NotificationChain msgs = null;
+			if (domainMappers != null)
+				msgs = ((InternalEObject)domainMappers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_MAPPERS, null, msgs);
+			if (newDomainMappers != null)
+				msgs = ((InternalEObject)newDomainMappers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_MAPPERS, null, msgs);
+			msgs = basicSetDomainMappers(newDomainMappers, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_MAPPERS, newDomainMappers, newDomainMappers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
@@ -281,6 +390,8 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return basicSetDomainTypes(null, msgs);
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return basicSetDomainApplications(null, msgs);
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
+				return basicSetDomainMappers(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,12 +406,16 @@ public class DomainImpl extends EObjectImpl implements Domain {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				return getUid();
+			case DomainPackage.DOMAIN__KEY_ID:
+				return getKeyId();
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				return getDomainArtifacts();
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				return getDomainTypes();
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return getDomainApplications();
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
+				return getDomainMappers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +431,9 @@ public class DomainImpl extends EObjectImpl implements Domain {
 			case DomainPackage.DOMAIN__UID:
 				setUid((String)newValue);
 				return;
+			case DomainPackage.DOMAIN__KEY_ID:
+				setKeyId((String)newValue);
+				return;
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				setDomainArtifacts((DomainArtifacts)newValue);
 				return;
@@ -324,6 +442,9 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				setDomainApplications((DomainApplications)newValue);
+				return;
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
+				setDomainMappers((DomainMappers)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,6 +461,9 @@ public class DomainImpl extends EObjectImpl implements Domain {
 			case DomainPackage.DOMAIN__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case DomainPackage.DOMAIN__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				setDomainArtifacts((DomainArtifacts)null);
 				return;
@@ -348,6 +472,9 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				setDomainApplications((DomainApplications)null);
+				return;
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
+				setDomainMappers((DomainMappers)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,12 +490,16 @@ public class DomainImpl extends EObjectImpl implements Domain {
 		switch (featureID) {
 			case DomainPackage.DOMAIN__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.DOMAIN__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 				return domainArtifacts != null;
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				return domainTypes != null;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return domainApplications != null;
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
+				return domainMappers != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -385,6 +516,8 @@ public class DomainImpl extends EObjectImpl implements Domain {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(')');
 		return result.toString();
 	}

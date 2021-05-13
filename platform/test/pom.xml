@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.0.5</version>
+     <version>5.1.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -30,7 +30,6 @@
   <packaging>pom</packaging>
 
   <name>Tura :: Platform :: Test</name>
-  <url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 
   <modules>
@@ -42,7 +41,8 @@
     <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-domain-objects</module>
     <module>test-of-generated-jpa-repository</module>  
-    <module>test-of-generated-jpa-rest-repository</module>      
+    <module>test-of-generated-jpa-rest-repository</module>  
+    <module>test-of-generated-transformation</module>    
     <module>test-of-generated-pagers-o2m-1</module>
     <module>test-of-generated-pagers-o2m-2</module>
     <module>test-of-generated-datacontrol</module>

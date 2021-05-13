@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -38,6 +38,7 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.RelationshipImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.RelationshipImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.RelationshipImpl#getSource <em>Source</em>}</li>
  *   <li>{@link type.impl.RelationshipImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -64,6 +65,26 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -109,6 +130,7 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -118,6 +140,7 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -130,6 +153,30 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.RELATIONSHIP__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TypeElement getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
@@ -156,6 +203,7 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(TypeElement newSource) {
 		TypeElement oldSource = source;
 		source = newSource;
@@ -168,6 +216,7 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeElement getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -194,6 +243,7 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(TypeElement newTarget) {
 		TypeElement oldTarget = target;
 		target = newTarget;
@@ -211,6 +261,8 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 		switch (featureID) {
 			case TypePackage.RELATIONSHIP__UID:
 				return getUid();
+			case TypePackage.RELATIONSHIP__KEY_ID:
+				return getKeyId();
 			case TypePackage.RELATIONSHIP__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
@@ -231,6 +283,9 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 		switch (featureID) {
 			case TypePackage.RELATIONSHIP__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.RELATIONSHIP__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.RELATIONSHIP__SOURCE:
 				setSource((TypeElement)newValue);
@@ -253,6 +308,9 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 			case TypePackage.RELATIONSHIP__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.RELATIONSHIP__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.RELATIONSHIP__SOURCE:
 				setSource((TypeElement)null);
 				return;
@@ -273,6 +331,8 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 		switch (featureID) {
 			case TypePackage.RELATIONSHIP__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.RELATIONSHIP__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.RELATIONSHIP__SOURCE:
 				return source != null;
 			case TypePackage.RELATIONSHIP__TARGET:
@@ -293,6 +353,8 @@ public class RelationshipImpl extends CategorizedImpl implements Relationship {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(')');
 		return result.toString();
 	}

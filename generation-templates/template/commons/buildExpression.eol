@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -69,6 +69,7 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
           case"RootImpl":                             resultExpression = RootImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case"FormVariableImpl":               resultExpression = FormVariableImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case"WindowImpl":                        resultExpression = WindowImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case"VariableImpl":                        resultExpression = VariableImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           
         }
         i = i +1;

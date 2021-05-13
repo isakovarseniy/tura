@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -36,6 +36,7 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.EnumAttributeImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.EnumAttributeImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.EnumAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.EnumAttributeImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -62,6 +63,26 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -127,6 +148,7 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -136,6 +158,7 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -148,6 +171,30 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ENUM_ATTRIBUTE__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -157,6 +204,7 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -169,6 +217,7 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -178,6 +227,7 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
@@ -195,6 +245,8 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				return getUid();
+			case TypePackage.ENUM_ATTRIBUTE__KEY_ID:
+				return getKeyId();
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				return getName();
 			case TypePackage.ENUM_ATTRIBUTE__VALUE:
@@ -213,6 +265,9 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.ENUM_ATTRIBUTE__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				setName((String)newValue);
@@ -235,6 +290,9 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.ENUM_ATTRIBUTE__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -255,6 +313,8 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.ENUM_ATTRIBUTE__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.ENUM_ATTRIBUTE__VALUE:
@@ -275,6 +335,8 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", value: ");

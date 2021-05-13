@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -127,6 +127,7 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -136,6 +137,7 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -148,6 +150,7 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -157,6 +160,7 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -169,6 +173,7 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<StyleLibrary> getLibraries() {
 		if (libraries == null) {
 			libraries = new EObjectContainmentEList<StyleLibrary>(StyleLibrary.class, this, ApplicationPackage.APPLICATION_STYLE__LIBRARIES);

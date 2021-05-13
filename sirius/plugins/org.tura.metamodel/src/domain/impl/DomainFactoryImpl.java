@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -77,6 +77,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY: return createDomainTypesRepository();
 			case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
 			case DomainPackage.DOMAIN_APPLICATION: return createDomainApplication();
+			case DomainPackage.DOMAIN_MAPPERS: return createDomainMappers();
+			case DomainPackage.DOMAIN_MAPPER: return createDomainMapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,6 +89,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Domain createDomain() {
 		DomainImpl domain = new DomainImpl();
 		return domain;
@@ -97,6 +100,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainArtifacts createDomainArtifacts() {
 		DomainArtifactsImpl domainArtifacts = new DomainArtifactsImpl();
 		return domainArtifacts;
@@ -107,6 +111,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainArtifact createDomainArtifact() {
 		DomainArtifactImpl domainArtifact = new DomainArtifactImpl();
 		return domainArtifact;
@@ -117,6 +122,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainTypes createDomainTypes() {
 		DomainTypesImpl domainTypes = new DomainTypesImpl();
 		return domainTypes;
@@ -127,6 +133,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainTypesRepository createDomainTypesRepository() {
 		DomainTypesRepositoryImpl domainTypesRepository = new DomainTypesRepositoryImpl();
 		return domainTypesRepository;
@@ -137,6 +144,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainApplications createDomainApplications() {
 		DomainApplicationsImpl domainApplications = new DomainApplicationsImpl();
 		return domainApplications;
@@ -147,6 +155,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomainApplication createDomainApplication() {
 		DomainApplicationImpl domainApplication = new DomainApplicationImpl();
 		return domainApplication;
@@ -157,6 +166,29 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public DomainMappers createDomainMappers() {
+		DomainMappersImpl domainMappers = new DomainMappersImpl();
+		return domainMappers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DomainMapper createDomainMapper() {
+		DomainMapperImpl domainMapper = new DomainMapperImpl();
+		return domainMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DomainPackage getDomainPackage() {
 		return (DomainPackage)getEPackage();
 	}

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -37,8 +37,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.ConfigVariableWithNickNameImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.ConfigVariableWithNickNameImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.ConfigVariableWithNickNameImpl#getName <em>Name</em>}</li>
- *   <li>{@link artifact.impl.ConfigVariableWithNickNameImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link artifact.impl.ConfigVariableWithNickNameImpl#getVarRef <em>Var Ref</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,26 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	protected String uid = UID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,14 +106,14 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVar() <em>Var</em>}' reference.
+	 * The cached value of the '{@link #getVarRef() <em>Var Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVar()
+	 * @see #getVarRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConfigVariable var;
+	protected ConfigVariable varRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +139,7 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -127,6 +149,7 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -139,6 +162,30 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -148,6 +195,7 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -160,16 +208,17 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigVariable getVar() {
-		if (var != null && var.eIsProxy()) {
-			InternalEObject oldVar = (InternalEObject)var;
-			var = (ConfigVariable)eResolveProxy(oldVar);
-			if (var != oldVar) {
+	@Override
+	public ConfigVariable getVarRef() {
+		if (varRef != null && varRef.eIsProxy()) {
+			InternalEObject oldVarRef = (InternalEObject)varRef;
+			varRef = (ConfigVariable)eResolveProxy(oldVarRef);
+			if (varRef != oldVarRef) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR, oldVar, var));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF, oldVarRef, varRef));
 			}
 		}
-		return var;
+		return varRef;
 	}
 
 	/**
@@ -177,8 +226,8 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigVariable basicGetVar() {
-		return var;
+	public ConfigVariable basicGetVarRef() {
+		return varRef;
 	}
 
 	/**
@@ -186,11 +235,12 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVar(ConfigVariable newVar) {
-		ConfigVariable oldVar = var;
-		var = newVar;
+	@Override
+	public void setVarRef(ConfigVariable newVarRef) {
+		ConfigVariable oldVarRef = varRef;
+		varRef = newVarRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR, oldVar, var));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF, oldVarRef, varRef));
 	}
 
 	/**
@@ -203,11 +253,13 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 		switch (featureID) {
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
 				return getUid();
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				return getName();
-			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR:
-				if (resolve) return getVar();
-				return basicGetVar();
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF:
+				if (resolve) return getVarRef();
+				return basicGetVarRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,11 +275,14 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
 				setUid((String)newValue);
 				return;
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID:
+				setKeyId((String)newValue);
+				return;
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				setName((String)newValue);
 				return;
-			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR:
-				setVar((ConfigVariable)newValue);
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF:
+				setVarRef((ConfigVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,11 +299,14 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR:
-				setVar((ConfigVariable)null);
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF:
+				setVarRef((ConfigVariable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -264,10 +322,12 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 		switch (featureID) {
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR:
-				return var != null;
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF:
+				return varRef != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -284,6 +344,8 @@ public class ConfigVariableWithNickNameImpl extends EObjectImpl implements Confi
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

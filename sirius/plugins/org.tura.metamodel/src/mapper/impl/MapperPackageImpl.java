@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -62,6 +62,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -254,6 +256,8 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
@@ -275,6 +279,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -289,6 +294,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -310,6 +316,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMappers() {
 		return mappersEClass;
 	}
@@ -319,6 +326,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappers_Uid() {
 		return (EAttribute)mappersEClass.getEStructuralFeatures().get(0);
 	}
@@ -328,6 +336,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMappers_Mappers() {
 		return (EReference)mappersEClass.getEStructuralFeatures().get(1);
 	}
@@ -337,6 +346,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMapper() {
 		return mapperEClass;
 	}
@@ -346,6 +356,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMapper_Layers() {
 		return (EReference)mapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -355,6 +366,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVersion() {
 		return versionEClass;
 	}
@@ -364,6 +376,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getVersion_Uid() {
 		return (EAttribute)versionEClass.getEStructuralFeatures().get(0);
 	}
@@ -373,6 +386,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getVersion_Name() {
 		return (EAttribute)versionEClass.getEStructuralFeatures().get(1);
 	}
@@ -382,6 +396,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getVersion_Version() {
 		return (EAttribute)versionEClass.getEStructuralFeatures().get(2);
 	}
@@ -391,6 +406,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVersionRef() {
 		return versionRefEClass;
 	}
@@ -400,6 +416,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVersionRef_VersionRef() {
 		return (EReference)versionRefEClass.getEStructuralFeatures().get(0);
 	}
@@ -409,6 +426,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMappingLayer() {
 		return mappingLayerEClass;
 	}
@@ -418,6 +436,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingLayer_Uid() {
 		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(0);
 	}
@@ -427,6 +446,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingLayer_Name() {
 		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(1);
 	}
@@ -436,6 +456,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingLayer_Order() {
 		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(2);
 	}
@@ -445,6 +466,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypeMapper() {
 		return typeMapperEClass;
 	}
@@ -454,6 +476,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPackageMapper() {
 		return packageMapperEClass;
 	}
@@ -463,6 +486,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaMapper() {
 		return javaMapperEClass;
 	}
@@ -472,6 +496,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_Uid() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -481,6 +506,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_MappedToPackageName() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -490,6 +516,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_MappedToClassName() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -499,6 +526,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_ArtifactId() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(3);
 	}
@@ -508,6 +536,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_GroupId() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(4);
 	}
@@ -517,6 +546,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_LibraryName() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(5);
 	}
@@ -526,6 +556,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaMapper_ArtifactType() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(6);
 	}
@@ -535,6 +566,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaPackageMapper() {
 		return javaPackageMapperEClass;
 	}
@@ -544,6 +576,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_Uid() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -553,6 +586,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_MappedToPackageName() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -562,6 +596,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_ArtifactId() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -571,6 +606,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_GroupId() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(3);
 	}
@@ -580,6 +616,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_LibraryName() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(4);
 	}
@@ -589,6 +626,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaPackageMapper_ArtifactType() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(5);
 	}
@@ -598,6 +636,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaScriptMapper() {
 		return javaScriptMapperEClass;
 	}
@@ -607,6 +646,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_Uid() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -616,6 +656,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_LibraryUrl() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -625,6 +666,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_ArtifactId() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -634,6 +676,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_GroupId() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(3);
 	}
@@ -643,6 +686,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_MappedToInternalLocation() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(4);
 	}
@@ -652,6 +696,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_MappedToClassName() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(5);
 	}
@@ -661,6 +706,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_JsPackageName() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(6);
 	}
@@ -670,6 +716,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_Local() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(7);
 	}
@@ -679,6 +726,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptMapper_ArtifactType() {
 		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(8);
 	}
@@ -688,6 +736,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCSSMapper() {
 		return cssMapperEClass;
 	}
@@ -697,6 +746,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCSSMapper_Uid() {
 		return (EAttribute)cssMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -706,6 +756,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCSSMapper_LibraryUrl() {
 		return (EAttribute)cssMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -715,6 +766,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoleMapper() {
 		return roleMapperEClass;
 	}
@@ -724,6 +776,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoleMapper_Uid() {
 		return (EAttribute)roleMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -733,6 +786,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoleMapper_LocalRoleName() {
 		return (EAttribute)roleMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -742,6 +796,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoleMapper_GlobalRoleName() {
 		return (EAttribute)roleMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -751,6 +806,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getXMLPackageMapper() {
 		return xmlPackageMapperEClass;
 	}
@@ -760,6 +816,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLPackageMapper_Uid() {
 		return (EAttribute)xmlPackageMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -769,6 +826,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLPackageMapper_Namespace() {
 		return (EAttribute)xmlPackageMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -778,6 +836,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getXMLTypeMapper() {
 		return xmlTypeMapperEClass;
 	}
@@ -787,6 +846,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLTypeMapper_Uid() {
 		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -796,6 +856,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLTypeMapper_Namespace() {
 		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -805,6 +866,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLTypeMapper_Typename() {
 		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -814,6 +876,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
 	}
@@ -823,6 +886,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MapperFactory getMapperFactory() {
 		return (MapperFactory)getEFactoryInstance();
 	}

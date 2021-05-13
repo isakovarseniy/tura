@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -28,8 +28,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link artifact.ConfigVariableWithNickName#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.ConfigVariableWithNickName#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.ConfigVariableWithNickName#getName <em>Name</em>}</li>
- *   <li>{@link artifact.ConfigVariableWithNickName#getVar <em>Var</em>}</li>
+ *   <li>{@link artifact.ConfigVariableWithNickName#getVarRef <em>Var Ref</em>}</li>
  * </ul>
  *
  * @see artifact.ArtifactPackage#getConfigVariableWithNickName()
@@ -64,6 +65,28 @@ public interface ConfigVariableWithNickName extends EObject {
 	void setUid(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key Id</em>' attribute.
+	 * @see #setKeyId(String)
+	 * @see artifact.ArtifactPackage#getConfigVariableWithNickName_KeyId()
+	 * @model
+	 * @generated
+	 */
+	String getKeyId();
+
+	/**
+	 * Sets the value of the '{@link artifact.ConfigVariableWithNickName#getKeyId <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key Id</em>' attribute.
+	 * @see #getKeyId()
+	 * @generated
+	 */
+	void setKeyId(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -90,29 +113,25 @@ public interface ConfigVariableWithNickName extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Var</b></em>' reference.
+	 * Returns the value of the '<em><b>Var Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Var</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Var</em>' reference.
-	 * @see #setVar(ConfigVariable)
-	 * @see artifact.ArtifactPackage#getConfigVariableWithNickName_Var()
+	 * @return the value of the '<em>Var Ref</em>' reference.
+	 * @see #setVarRef(ConfigVariable)
+	 * @see artifact.ArtifactPackage#getConfigVariableWithNickName_VarRef()
 	 * @model
 	 * @generated
 	 */
-	ConfigVariable getVar();
+	ConfigVariable getVarRef();
 
 	/**
-	 * Sets the value of the '{@link artifact.ConfigVariableWithNickName#getVar <em>Var</em>}' reference.
+	 * Sets the value of the '{@link artifact.ConfigVariableWithNickName#getVarRef <em>Var Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Var</em>' reference.
-	 * @see #getVar()
+	 * @param value the new value of the '<em>Var Ref</em>' reference.
+	 * @see #getVarRef()
 	 * @generated
 	 */
-	void setVar(ConfigVariable value);
+	void setVarRef(ConfigVariable value);
 
 } // ConfigVariableWithNickName

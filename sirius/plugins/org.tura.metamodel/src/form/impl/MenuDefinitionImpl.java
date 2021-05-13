@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -152,6 +152,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.MENU_DEFINITION__CLASSIFIERS);
@@ -164,6 +165,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -173,6 +175,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -185,6 +188,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -194,6 +198,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -206,6 +211,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MenuFolder> getMenuFolders() {
 		if (menuFolders == null) {
 			menuFolders = new EObjectContainmentEList<MenuFolder>(MenuFolder.class, this, FormPackage.MENU_DEFINITION__MENU_FOLDERS);
@@ -218,6 +224,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ToSubmenu> getToSubMenu() {
 		if (toSubMenu == null) {
 			toSubMenu = new EObjectContainmentEList<ToSubmenu>(ToSubmenu.class, this, FormPackage.MENU_DEFINITION__TO_SUB_MENU);

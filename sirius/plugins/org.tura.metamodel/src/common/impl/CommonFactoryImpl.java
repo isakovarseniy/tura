@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -82,6 +82,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HTMLLayerHolder createHTMLLayerHolder() {
 		HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
 		return htmlLayerHolder;
@@ -92,6 +93,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Orderable createOrderable() {
 		OrderableImpl orderable = new OrderableImpl();
 		return orderable;
@@ -102,6 +104,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommonPackage getCommonPackage() {
 		return (CommonPackage)getEPackage();
 	}

@@ -4,59 +4,81 @@ package domain;
 import "platform:/resource/org.tura.metamodel/model/application.ecore";
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
+import "platform:/resource/org.tura.metamodel/model/objectMapper.ecore";
+
 
 //do not remove
 @gmf.diagram
 class Domain{
-  id attr EString uid;
-  val DomainArtifacts[1] domainArtifacts;
-  val DomainTypes[1] domainTypes;
-  val DomainApplications[1] domainApplications;
-
+   id attr EString uid;
+   attr EString keyId;
+   val DomainArtifacts[1] domainArtifacts;
+   val DomainTypes[1] domainTypes;
+   val DomainApplications[1] domainApplications;
+   val DomainMappers[1] domainMappers;
 }
 
 //do not remove
 @gmf.node(label="name")
 class DomainArtifacts {
     id attr EString uid;
+    attr EString keyId;
     attr EString name;  
     val DomainArtifact[*] domainArtifact;
     val artifact.TechLeaf[*] techLeafs;
 }
 
 class DomainArtifact{
-    id attr EString uid;
+   id attr EString uid;
+   attr EString keyId;
    attr EString name;
    val  artifact.ArtifactGroup[*] artifactPackages;
 }
 
 
 class DomainTypes{
-    id attr EString uid;
+   id attr EString uid;
+   attr EString keyId;
    attr EString name;  
    val DomainTypesRepository[*] typesRepository;
    val type.PrimitivesGroup primitives;
 }
 
 class DomainTypesRepository{
-    id attr EString uid;
+   id attr EString uid;
+   attr EString keyId;
    attr EString name;
    val  type.TypeGroup[*] repositoryPackages;
 }
 
 
 class DomainApplications {
-    id attr EString uid;
+   id attr EString uid;
+   attr EString keyId;
    attr EString name;  
    val DomainApplication[*] applications;
 }
 
 class DomainApplication{
    id attr EString uid;
+   attr EString keyId;
    attr EString name;  
    val application.ApplicationGroup[*] applicationPackages;
 }
 
+class DomainMappers{
+   id attr EString uid;
+   attr EString keyId;
+   attr EString name;  
+   val DomainMapper[*] mappers;
+}
+
+class DomainMapper{
+   id attr EString uid;
+   attr EString keyId;
+   attr EString name;  
+   val objectmapper.ObjectMapperGroup[*] objectMapperPackages;
+}
 
 
 

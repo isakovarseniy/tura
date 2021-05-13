@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -272,6 +272,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -281,6 +282,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -293,6 +295,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -302,6 +305,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -314,6 +318,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypePointer getBaseType() {
 		return baseType;
 	}
@@ -338,6 +343,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBaseType(TypePointer newBaseType) {
 		if (newBaseType != baseType) {
 			NotificationChain msgs = null;
@@ -357,6 +363,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PREQueryTrigger getPreQueryTrigger() {
 		return preQueryTrigger;
 	}
@@ -381,6 +388,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPreQueryTrigger(PREQueryTrigger newPreQueryTrigger) {
 		if (newPreQueryTrigger != preQueryTrigger) {
 			NotificationChain msgs = null;
@@ -400,6 +408,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public POSTQueryTrigger getPostQueryTrigger() {
 		return postQueryTrigger;
 	}
@@ -424,6 +433,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPostQueryTrigger(POSTQueryTrigger newPostQueryTrigger) {
 		if (newPostQueryTrigger != postQueryTrigger) {
 			NotificationChain msgs = null;
@@ -443,6 +453,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PREInsertTrigger getPreInsertTrigger() {
 		return preInsertTrigger;
 	}
@@ -467,6 +478,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPreInsertTrigger(PREInsertTrigger newPreInsertTrigger) {
 		if (newPreInsertTrigger != preInsertTrigger) {
 			NotificationChain msgs = null;
@@ -486,6 +498,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PREDeleteTrigger getPreDeleteTrigger() {
 		return preDeleteTrigger;
 	}
@@ -510,6 +523,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPreDeleteTrigger(PREDeleteTrigger newPreDeleteTrigger) {
 		if (newPreDeleteTrigger != preDeleteTrigger) {
 			NotificationChain msgs = null;
@@ -529,6 +543,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public POSTCreateTrigger getPostCreateTrigger() {
 		return postCreateTrigger;
 	}
@@ -553,6 +568,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPostCreateTrigger(POSTCreateTrigger newPostCreateTrigger) {
 		if (newPostCreateTrigger != postCreateTrigger) {
 			NotificationChain msgs = null;
@@ -572,6 +588,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PREUpdateTrigger getPreUpdateTrigger() {
 		return preUpdateTrigger;
 	}
@@ -596,6 +613,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPreUpdateTrigger(PREUpdateTrigger newPreUpdateTrigger) {
 		if (newPreUpdateTrigger != preUpdateTrigger) {
 			NotificationChain msgs = null;
@@ -615,6 +633,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CreateTrigger getCreate() {
 		return create;
 	}
@@ -639,6 +658,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCreate(CreateTrigger newCreate) {
 		if (newCreate != create) {
 			NotificationChain msgs = null;
@@ -658,6 +678,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SearchTrigger getSearch() {
 		return search;
 	}
@@ -682,6 +703,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSearch(SearchTrigger newSearch) {
 		if (newSearch != search) {
 			NotificationChain msgs = null;
@@ -701,6 +723,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtificialField> getArtificialFields() {
 		if (artificialFields == null) {
 			artificialFields = new EObjectContainmentEList<ArtificialField>(ArtificialField.class, this, FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS);
@@ -713,6 +736,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContextParameters getDefaultSearch() {
 		return defaultSearch;
 	}
@@ -737,6 +761,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultSearch(ContextParameters newDefaultSearch) {
 		if (newDefaultSearch != defaultSearch) {
 			NotificationChain msgs = null;
@@ -756,6 +781,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Orders getDefaultOrderBy() {
 		return defaultOrderBy;
 	}
@@ -780,6 +806,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultOrderBy(Orders newDefaultOrderBy) {
 		if (newDefaultOrderBy != defaultOrderBy) {
 			NotificationChain msgs = null;
@@ -799,6 +826,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<RelationMapper> getRelationMappers() {
 		if (relationMappers == null) {
 			relationMappers = new EObjectContainmentEList<RelationMapper>(RelationMapper.class, this, FormPackage.DATA_CONTROL__RELATION_MAPPERS);

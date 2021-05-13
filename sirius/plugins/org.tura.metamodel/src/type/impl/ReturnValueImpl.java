@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.ReturnValueImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.ReturnValueImpl#getKeyId <em>Key Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,26 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 	protected String uid = UID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -83,6 +104,7 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -92,6 +114,7 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -105,10 +128,35 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 	 * @generated
 	 */
 	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.RETURN_VALUE__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TypePackage.RETURN_VALUE__UID:
 				return getUid();
+			case TypePackage.RETURN_VALUE__KEY_ID:
+				return getKeyId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +171,9 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 		switch (featureID) {
 			case TypePackage.RETURN_VALUE__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.RETURN_VALUE__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +190,9 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 			case TypePackage.RETURN_VALUE__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.RETURN_VALUE__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,6 +207,8 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 		switch (featureID) {
 			case TypePackage.RETURN_VALUE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.RETURN_VALUE__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -169,6 +225,8 @@ public class ReturnValueImpl extends TypePointerImpl implements ReturnValue {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(')');
 		return result.toString();
 	}

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.ArtifactImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.ArtifactImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.ArtifactImpl#getName <em>Name</em>}</li>
  *   <li>{@link artifact.impl.ArtifactImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link artifact.impl.ArtifactImpl#getConfigVariables <em>Config Variables</em>}</li>
@@ -81,6 +82,26 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -216,6 +237,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -225,6 +247,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -237,6 +260,30 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.ARTIFACT__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -246,6 +293,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -258,6 +306,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -267,6 +316,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -279,6 +329,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ConfigVariableWithNickName> getConfigVariables() {
 		if (configVariables == null) {
 			configVariables = new EObjectContainmentEList<ConfigVariableWithNickName>(ConfigVariableWithNickName.class, this, ArtifactPackage.ARTIFACT__CONFIG_VARIABLES);
@@ -291,6 +342,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ConfigHashWithNickName> getConfigHashes() {
 		if (configHashes == null) {
 			configHashes = new EObjectContainmentEList<ConfigHashWithNickName>(ConfigHashWithNickName.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
@@ -303,6 +355,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ModelQuery> getModelQuery() {
 		if (modelQuery == null) {
 			modelQuery = new EObjectContainmentEList<ModelQuery>(ModelQuery.class, this, ArtifactPackage.ARTIFACT__MODEL_QUERY);
@@ -315,6 +368,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Technology> getTechnologies() {
 		if (technologies == null) {
 			technologies = new EObjectContainmentEList<Technology>(Technology.class, this, ArtifactPackage.ARTIFACT__TECHNOLOGIES);
@@ -327,6 +381,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<GenerationHintWithNickName> getHints() {
 		if (hints == null) {
 			hints = new EObjectContainmentEList<GenerationHintWithNickName>(GenerationHintWithNickName.class, this, ArtifactPackage.ARTIFACT__HINTS);
@@ -339,6 +394,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTemplate() {
 		return template;
 	}
@@ -348,6 +404,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTemplate(String newTemplate) {
 		String oldTemplate = template;
 		template = newTemplate;
@@ -387,6 +444,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 		switch (featureID) {
 			case ArtifactPackage.ARTIFACT__UID:
 				return getUid();
+			case ArtifactPackage.ARTIFACT__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.ARTIFACT__NAME:
 				return getName();
 			case ArtifactPackage.ARTIFACT__DESCRIPTION:
@@ -418,6 +477,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 		switch (featureID) {
 			case ArtifactPackage.ARTIFACT__UID:
 				setUid((String)newValue);
+				return;
+			case ArtifactPackage.ARTIFACT__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case ArtifactPackage.ARTIFACT__NAME:
 				setName((String)newValue);
@@ -463,6 +525,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 			case ArtifactPackage.ARTIFACT__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.ARTIFACT__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.ARTIFACT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -501,6 +566,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 		switch (featureID) {
 			case ArtifactPackage.ARTIFACT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.ARTIFACT__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.ARTIFACT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ArtifactPackage.ARTIFACT__DESCRIPTION:
@@ -533,6 +600,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", description: ");

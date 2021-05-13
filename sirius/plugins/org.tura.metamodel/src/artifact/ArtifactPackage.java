@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -89,13 +89,22 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT_GROUP__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_GROUP__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_GROUP__NAME = 1;
+	int ARTIFACT_GROUP__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
@@ -104,7 +113,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_GROUP__ARTIFACTS = 2;
+	int ARTIFACT_GROUP__ARTIFACTS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -113,7 +122,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_GROUP_FEATURE_COUNT = 3;
+	int ARTIFACT_GROUP_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.TechLeafImpl <em>Tech Leaf</em>}' class.
@@ -135,13 +144,22 @@ public interface ArtifactPackage extends EPackage {
 	int TECH_LEAF__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECH_LEAF__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__NAME = 1;
+	int TECH_LEAF__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Hints</b></em>' containment reference list.
@@ -150,7 +168,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__HINTS = 2;
+	int TECH_LEAF__HINTS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Config Variables</b></em>' containment reference list.
@@ -159,7 +177,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__CONFIG_VARIABLES = 3;
+	int TECH_LEAF__CONFIG_VARIABLES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config Hashes</b></em>' containment reference list.
@@ -168,7 +186,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__CONFIG_HASHES = 4;
+	int TECH_LEAF__CONFIG_HASHES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Tech Leafs</b></em>' containment reference list.
@@ -177,7 +195,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__TECH_LEAFS = 5;
+	int TECH_LEAF__TECH_LEAFS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Tech Leaf</em>' class.
@@ -186,7 +204,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF_FEATURE_COUNT = 6;
+	int TECH_LEAF_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -208,13 +226,22 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__NAME = 1;
+	int ARTIFACT__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -223,7 +250,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DESCRIPTION = 2;
+	int ARTIFACT__DESCRIPTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Config Variables</b></em>' containment reference list.
@@ -232,7 +259,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__CONFIG_VARIABLES = 3;
+	int ARTIFACT__CONFIG_VARIABLES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config Hashes</b></em>' containment reference list.
@@ -241,7 +268,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__CONFIG_HASHES = 4;
+	int ARTIFACT__CONFIG_HASHES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Model Query</b></em>' containment reference list.
@@ -250,7 +277,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__MODEL_QUERY = 5;
+	int ARTIFACT__MODEL_QUERY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
@@ -259,7 +286,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__TECHNOLOGIES = 6;
+	int ARTIFACT__TECHNOLOGIES = 7;
 
 	/**
 	 * The feature id for the '<em><b>Hints</b></em>' containment reference list.
@@ -268,7 +295,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__HINTS = 7;
+	int ARTIFACT__HINTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Template</b></em>' attribute.
@@ -277,7 +304,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__TEMPLATE = 8;
+	int ARTIFACT__TEMPLATE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -286,7 +313,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_FEATURE_COUNT = 9;
+	int ARTIFACT_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.GenerationHintWithNickNameImpl <em>Generation Hint With Nick Name</em>}' class.
@@ -308,13 +335,22 @@ public interface ArtifactPackage extends EPackage {
 	int GENERATION_HINT_WITH_NICK_NAME__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATION_HINT_WITH_NICK_NAME__NAME = 1;
+	int GENERATION_HINT_WITH_NICK_NAME__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Hint</b></em>' reference.
@@ -323,7 +359,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATION_HINT_WITH_NICK_NAME__HINT = 2;
+	int GENERATION_HINT_WITH_NICK_NAME__HINT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Generation Hint With Nick Name</em>' class.
@@ -332,7 +368,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATION_HINT_WITH_NICK_NAME_FEATURE_COUNT = 3;
+	int GENERATION_HINT_WITH_NICK_NAME_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ConfigVariableWithNickNameImpl <em>Config Variable With Nick Name</em>}' class.
@@ -354,22 +390,31 @@ public interface ArtifactPackage extends EPackage {
 	int CONFIG_VARIABLE_WITH_NICK_NAME__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_VARIABLE_WITH_NICK_NAME__NAME = 1;
+	int CONFIG_VARIABLE_WITH_NICK_NAME__NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Var</b></em>' reference.
+	 * The feature id for the '<em><b>Var Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_VARIABLE_WITH_NICK_NAME__VAR = 2;
+	int CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF = 3;
 
 	/**
 	 * The number of structural features of the '<em>Config Variable With Nick Name</em>' class.
@@ -378,7 +423,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_VARIABLE_WITH_NICK_NAME_FEATURE_COUNT = 3;
+	int CONFIG_VARIABLE_WITH_NICK_NAME_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ConfigHashWithNickNameImpl <em>Config Hash With Nick Name</em>}' class.
@@ -400,13 +445,22 @@ public interface ArtifactPackage extends EPackage {
 	int CONFIG_HASH_WITH_NICK_NAME__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_HASH_WITH_NICK_NAME__NAME = 1;
+	int CONFIG_HASH_WITH_NICK_NAME__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Hash</b></em>' reference.
@@ -415,7 +469,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_HASH_WITH_NICK_NAME__HASH = 2;
+	int CONFIG_HASH_WITH_NICK_NAME__HASH = 3;
 
 	/**
 	 * The number of structural features of the '<em>Config Hash With Nick Name</em>' class.
@@ -424,7 +478,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_HASH_WITH_NICK_NAME_FEATURE_COUNT = 3;
+	int CONFIG_HASH_WITH_NICK_NAME_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.GenerationHintImpl <em>Generation Hint</em>}' class.
@@ -446,13 +500,22 @@ public interface ArtifactPackage extends EPackage {
 	int GENERATION_HINT__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATION_HINT__NAME = 1;
+	int GENERATION_HINT__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Generation Hint</em>' class.
@@ -461,7 +524,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATION_HINT_FEATURE_COUNT = 2;
+	int GENERATION_HINT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ConfigVariableImpl <em>Config Variable</em>}' class.
@@ -483,13 +546,22 @@ public interface ArtifactPackage extends EPackage {
 	int CONFIG_VARIABLE__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_VARIABLE__NAME = 1;
+	int CONFIG_VARIABLE__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Config Variable</em>' class.
@@ -498,7 +570,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_VARIABLE_FEATURE_COUNT = 2;
+	int CONFIG_VARIABLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ConfigHashImpl <em>Config Hash</em>}' class.
@@ -520,13 +592,22 @@ public interface ArtifactPackage extends EPackage {
 	int CONFIG_HASH__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_HASH__NAME = 1;
+	int CONFIG_HASH__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Config Hash</em>' class.
@@ -535,7 +616,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_HASH_FEATURE_COUNT = 2;
+	int CONFIG_HASH_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ModelQueryImpl <em>Model Query</em>}' class.
@@ -557,13 +638,22 @@ public interface ArtifactPackage extends EPackage {
 	int MODEL_QUERY__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_QUERY__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_QUERY__NAME = 1;
+	int MODEL_QUERY__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' attribute.
@@ -572,7 +662,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_QUERY__QUERY = 2;
+	int MODEL_QUERY__QUERY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -581,7 +671,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_QUERY__PARAMETERS = 3;
+	int MODEL_QUERY__PARAMETERS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Model Query</em>' class.
@@ -590,7 +680,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_QUERY_FEATURE_COUNT = 4;
+	int MODEL_QUERY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.QueryParameterImpl <em>Query Parameter</em>}' class.
@@ -612,13 +702,22 @@ public interface ArtifactPackage extends EPackage {
 	int QUERY_PARAMETER__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_PARAMETER__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__NAME = 1;
+	int QUERY_PARAMETER__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Query Parameter</em>' class.
@@ -627,7 +726,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER_FEATURE_COUNT = 2;
+	int QUERY_PARAMETER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.TechnologyImpl <em>Technology</em>}' class.
@@ -649,13 +748,22 @@ public interface ArtifactPackage extends EPackage {
 	int TECHNOLOGY__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TECHNOLOGY__NAME = 1;
+	int TECHNOLOGY__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -664,7 +772,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECHNOLOGY__OPTIONS = 2;
+	int TECHNOLOGY__OPTIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Technology</em>' class.
@@ -673,7 +781,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECHNOLOGY_FEATURE_COUNT = 3;
+	int TECHNOLOGY_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.OptionImpl <em>Option</em>}' class.
@@ -695,13 +803,22 @@ public interface ArtifactPackage extends EPackage {
 	int OPTION__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION__VALUE = 1;
+	int OPTION__VALUE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Option</em>' class.
@@ -710,7 +827,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_FEATURE_COUNT = 2;
+	int OPTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.CategorizedImpl <em>Categorized</em>}' class.
@@ -760,13 +877,22 @@ public interface ArtifactPackage extends EPackage {
 	int CLASSIFIER__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Hint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER__HINT = 1;
+	int CLASSIFIER__HINT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Details</b></em>' attribute.
@@ -775,7 +901,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER__DETAILS = 2;
+	int CLASSIFIER__DETAILS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Classifier</em>' class.
@@ -784,7 +910,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_FEATURE_COUNT = 3;
+	int CLASSIFIER_FEATURE_COUNT = 4;
 
 
 	/**
@@ -807,6 +933,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getArtifactGroup_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ArtifactGroup#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ArtifactGroup#getKeyId()
+	 * @see #getArtifactGroup()
+	 * @generated
+	 */
+	EAttribute getArtifactGroup_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.ArtifactGroup#getName <em>Name</em>}'.
@@ -850,6 +987,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTechLeaf_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.TechLeaf#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.TechLeaf#getKeyId()
+	 * @see #getTechLeaf()
+	 * @generated
+	 */
+	EAttribute getTechLeaf_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.TechLeaf#getName <em>Name</em>}'.
@@ -926,6 +1074,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getArtifact_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Artifact#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.Artifact#getKeyId()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EAttribute getArtifact_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.Artifact#getName <em>Name</em>}'.
@@ -1037,6 +1196,17 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getGenerationHintWithNickName_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link artifact.GenerationHintWithNickName#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.GenerationHintWithNickName#getKeyId()
+	 * @see #getGenerationHintWithNickName()
+	 * @generated
+	 */
+	EAttribute getGenerationHintWithNickName_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link artifact.GenerationHintWithNickName#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,6 +1250,17 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getConfigVariableWithNickName_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigVariableWithNickName#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ConfigVariableWithNickName#getKeyId()
+	 * @see #getConfigVariableWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigVariableWithNickName_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link artifact.ConfigVariableWithNickName#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,15 +1272,15 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getConfigVariableWithNickName_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link artifact.ConfigVariableWithNickName#getVar <em>Var</em>}'.
+	 * Returns the meta object for the reference '{@link artifact.ConfigVariableWithNickName#getVarRef <em>Var Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Var</em>'.
-	 * @see artifact.ConfigVariableWithNickName#getVar()
+	 * @return the meta object for the reference '<em>Var Ref</em>'.
+	 * @see artifact.ConfigVariableWithNickName#getVarRef()
 	 * @see #getConfigVariableWithNickName()
 	 * @generated
 	 */
-	EReference getConfigVariableWithNickName_Var();
+	EReference getConfigVariableWithNickName_VarRef();
 
 	/**
 	 * Returns the meta object for class '{@link artifact.ConfigHashWithNickName <em>Config Hash With Nick Name</em>}'.
@@ -1121,6 +1302,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConfigHashWithNickName_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigHashWithNickName#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ConfigHashWithNickName#getKeyId()
+	 * @see #getConfigHashWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigHashWithNickName_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.ConfigHashWithNickName#getName <em>Name</em>}'.
@@ -1166,6 +1358,17 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getGenerationHint_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link artifact.GenerationHint#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.GenerationHint#getKeyId()
+	 * @see #getGenerationHint()
+	 * @generated
+	 */
+	EAttribute getGenerationHint_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link artifact.GenerationHint#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,6 +1399,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConfigVariable_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigVariable#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ConfigVariable#getKeyId()
+	 * @see #getConfigVariable()
+	 * @generated
+	 */
+	EAttribute getConfigVariable_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.ConfigVariable#getName <em>Name</em>}'.
@@ -1230,6 +1444,17 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getConfigHash_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigHash#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ConfigHash#getKeyId()
+	 * @see #getConfigHash()
+	 * @generated
+	 */
+	EAttribute getConfigHash_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link artifact.ConfigHash#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1260,6 +1485,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModelQuery_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ModelQuery#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.ModelQuery#getKeyId()
+	 * @see #getModelQuery()
+	 * @generated
+	 */
+	EAttribute getModelQuery_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.ModelQuery#getName <em>Name</em>}'.
@@ -1316,6 +1552,17 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getQueryParameter_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link artifact.QueryParameter#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.QueryParameter#getKeyId()
+	 * @see #getQueryParameter()
+	 * @generated
+	 */
+	EAttribute getQueryParameter_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link artifact.QueryParameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1346,6 +1593,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTechnology_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Technology#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.Technology#getKeyId()
+	 * @see #getTechnology()
+	 * @generated
+	 */
+	EAttribute getTechnology_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link artifact.Technology#getName <em>Name</em>}'.
@@ -1389,6 +1647,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOption_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Option#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.Option#getKeyId()
+	 * @see #getOption()
+	 * @generated
+	 */
+	EAttribute getOption_KeyId();
 
 	/**
 	 * Returns the meta object for the reference '{@link artifact.Option#getValue <em>Value</em>}'.
@@ -1442,6 +1711,17 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClassifier_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Classifier#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see artifact.Classifier#getKeyId()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EAttribute getClassifier_KeyId();
 
 	/**
 	 * Returns the meta object for the reference '{@link artifact.Classifier#getHint <em>Hint</em>}'.
@@ -1506,6 +1786,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute ARTIFACT_GROUP__UID = eINSTANCE.getArtifactGroup_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARTIFACT_GROUP__KEY_ID = eINSTANCE.getArtifactGroup_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1538,6 +1826,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TECH_LEAF__UID = eINSTANCE.getTechLeaf_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TECH_LEAF__KEY_ID = eINSTANCE.getTechLeaf_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1596,6 +1892,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ARTIFACT__UID = eINSTANCE.getArtifact_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARTIFACT__KEY_ID = eINSTANCE.getArtifact_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1680,6 +1984,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute GENERATION_HINT_WITH_NICK_NAME__UID = eINSTANCE.getGenerationHintWithNickName_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATION_HINT_WITH_NICK_NAME__KEY_ID = eINSTANCE.getGenerationHintWithNickName_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1714,6 +2026,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute CONFIG_VARIABLE_WITH_NICK_NAME__UID = eINSTANCE.getConfigVariableWithNickName_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID = eINSTANCE.getConfigVariableWithNickName_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1722,12 +2042,12 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute CONFIG_VARIABLE_WITH_NICK_NAME__NAME = eINSTANCE.getConfigVariableWithNickName_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Var Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIG_VARIABLE_WITH_NICK_NAME__VAR = eINSTANCE.getConfigVariableWithNickName_Var();
+		EReference CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF = eINSTANCE.getConfigVariableWithNickName_VarRef();
 
 		/**
 		 * The meta object literal for the '{@link artifact.impl.ConfigHashWithNickNameImpl <em>Config Hash With Nick Name</em>}' class.
@@ -1746,6 +2066,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIG_HASH_WITH_NICK_NAME__UID = eINSTANCE.getConfigHashWithNickName_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_HASH_WITH_NICK_NAME__KEY_ID = eINSTANCE.getConfigHashWithNickName_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1782,6 +2110,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute GENERATION_HINT__UID = eINSTANCE.getGenerationHint_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATION_HINT__KEY_ID = eINSTANCE.getGenerationHint_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1806,6 +2142,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIG_VARIABLE__UID = eINSTANCE.getConfigVariable_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_VARIABLE__KEY_ID = eINSTANCE.getConfigVariable_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1834,6 +2178,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute CONFIG_HASH__UID = eINSTANCE.getConfigHash_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_HASH__KEY_ID = eINSTANCE.getConfigHash_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1858,6 +2210,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_QUERY__UID = eINSTANCE.getModelQuery_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL_QUERY__KEY_ID = eINSTANCE.getModelQuery_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1902,6 +2262,14 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute QUERY_PARAMETER__UID = eINSTANCE.getQueryParameter_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY_PARAMETER__KEY_ID = eINSTANCE.getQueryParameter_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1926,6 +2294,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TECHNOLOGY__UID = eINSTANCE.getTechnology_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TECHNOLOGY__KEY_ID = eINSTANCE.getTechnology_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1960,6 +2336,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPTION__UID = eINSTANCE.getOption_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPTION__KEY_ID = eINSTANCE.getOption_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
@@ -2004,6 +2388,14 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLASSIFIER__UID = eINSTANCE.getClassifier_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFIER__KEY_ID = eINSTANCE.getClassifier_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Hint</b></em>' reference feature.

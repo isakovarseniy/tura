@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -89,13 +89,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Domain Artifacts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN__DOMAIN_ARTIFACTS = 1;
+	int DOMAIN__DOMAIN_ARTIFACTS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Domain Types</b></em>' containment reference.
@@ -104,7 +113,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN__DOMAIN_TYPES = 2;
+	int DOMAIN__DOMAIN_TYPES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Domain Applications</b></em>' containment reference.
@@ -113,7 +122,16 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN__DOMAIN_APPLICATIONS = 3;
+	int DOMAIN__DOMAIN_APPLICATIONS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Domain Mappers</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN__DOMAIN_MAPPERS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -122,7 +140,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_FEATURE_COUNT = 4;
+	int DOMAIN_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -144,13 +162,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_ARTIFACTS__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ARTIFACTS__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACTS__NAME = 1;
+	int DOMAIN_ARTIFACTS__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Domain Artifact</b></em>' containment reference list.
@@ -159,7 +186,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 2;
+	int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tech Leafs</b></em>' containment reference list.
@@ -168,7 +195,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACTS__TECH_LEAFS = 3;
+	int DOMAIN_ARTIFACTS__TECH_LEAFS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Artifacts</em>' class.
@@ -177,7 +204,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACTS_FEATURE_COUNT = 4;
+	int DOMAIN_ARTIFACTS_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.
@@ -199,13 +226,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_ARTIFACT__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ARTIFACT__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACT__NAME = 1;
+	int DOMAIN_ARTIFACT__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Packages</b></em>' containment reference list.
@@ -214,7 +250,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACT__ARTIFACT_PACKAGES = 2;
+	int DOMAIN_ARTIFACT__ARTIFACT_PACKAGES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -223,7 +259,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACT_FEATURE_COUNT = 3;
+	int DOMAIN_ARTIFACT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainTypesImpl <em>Types</em>}' class.
@@ -245,13 +281,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_TYPES__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TYPES__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES__NAME = 1;
+	int DOMAIN_TYPES__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Types Repository</b></em>' containment reference list.
@@ -260,7 +305,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES__TYPES_REPOSITORY = 2;
+	int DOMAIN_TYPES__TYPES_REPOSITORY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Primitives</b></em>' containment reference.
@@ -269,7 +314,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES__PRIMITIVES = 3;
+	int DOMAIN_TYPES__PRIMITIVES = 4;
 
 	/**
 	 * The number of structural features of the '<em>Types</em>' class.
@@ -278,7 +323,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_FEATURE_COUNT = 4;
+	int DOMAIN_TYPES_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainTypesRepositoryImpl <em>Types Repository</em>}' class.
@@ -300,13 +345,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_TYPES_REPOSITORY__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TYPES_REPOSITORY__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_REPOSITORY__NAME = 1;
+	int DOMAIN_TYPES_REPOSITORY__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Repository Packages</b></em>' containment reference list.
@@ -315,7 +369,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES = 2;
+	int DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Types Repository</em>' class.
@@ -324,7 +378,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_REPOSITORY_FEATURE_COUNT = 3;
+	int DOMAIN_TYPES_REPOSITORY_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainApplicationsImpl <em>Applications</em>}' class.
@@ -346,13 +400,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_APPLICATIONS__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_APPLICATIONS__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATIONS__NAME = 1;
+	int DOMAIN_APPLICATIONS__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -361,7 +424,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATIONS__APPLICATIONS = 2;
+	int DOMAIN_APPLICATIONS__APPLICATIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Applications</em>' class.
@@ -370,7 +433,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATIONS_FEATURE_COUNT = 3;
+	int DOMAIN_APPLICATIONS_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainApplicationImpl <em>Application</em>}' class.
@@ -392,13 +455,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_APPLICATION__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_APPLICATION__KEY_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATION__NAME = 1;
+	int DOMAIN_APPLICATION__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Application Packages</b></em>' containment reference list.
@@ -407,7 +479,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATION__APPLICATION_PACKAGES = 2;
+	int DOMAIN_APPLICATION__APPLICATION_PACKAGES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -416,7 +488,119 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
+	int DOMAIN_APPLICATION_FEATURE_COUNT = 4;
+
+
+	/**
+	 * The meta object id for the '{@link domain.impl.DomainMappersImpl <em>Mappers</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.DomainMappersImpl
+	 * @see domain.impl.DomainPackageImpl#getDomainMappers()
+	 * @generated
+	 */
+	int DOMAIN_MAPPERS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPERS__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPERS__KEY_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPERS__NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPERS__MAPPERS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Mappers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPERS_FEATURE_COUNT = 4;
+
+
+	/**
+	 * The meta object id for the '{@link domain.impl.DomainMapperImpl <em>Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.DomainMapperImpl
+	 * @see domain.impl.DomainPackageImpl#getDomainMapper()
+	 * @generated
+	 */
+	int DOMAIN_MAPPER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPER__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPER__KEY_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPER__NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Object Mapper Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPER__OBJECT_MAPPER_PACKAGES = 3;
+
+	/**
+	 * The number of structural features of the '<em>Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MAPPER_FEATURE_COUNT = 4;
 
 
 	/**
@@ -439,6 +623,17 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDomain_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.Domain#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.Domain#getKeyId()
+	 * @see #getDomain()
+	 * @generated
+	 */
+	EAttribute getDomain_KeyId();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link domain.Domain#getDomainArtifacts <em>Domain Artifacts</em>}'.
@@ -474,6 +669,17 @@ public interface DomainPackage extends EPackage {
 	EReference getDomain_DomainApplications();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link domain.Domain#getDomainMappers <em>Domain Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Domain Mappers</em>'.
+	 * @see domain.Domain#getDomainMappers()
+	 * @see #getDomain()
+	 * @generated
+	 */
+	EReference getDomain_DomainMappers();
+
+	/**
 	 * Returns the meta object for class '{@link domain.DomainArtifacts <em>Artifacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -493,6 +699,17 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDomainArtifacts_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainArtifacts#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainArtifacts#getKeyId()
+	 * @see #getDomainArtifacts()
+	 * @generated
+	 */
+	EAttribute getDomainArtifacts_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainArtifacts#getName <em>Name</em>}'.
@@ -549,6 +766,17 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainArtifact_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainArtifact#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainArtifact#getKeyId()
+	 * @see #getDomainArtifact()
+	 * @generated
+	 */
+	EAttribute getDomainArtifact_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainArtifact#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,6 +818,17 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDomainTypes_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainTypes#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainTypes#getKeyId()
+	 * @see #getDomainTypes()
+	 * @generated
+	 */
+	EAttribute getDomainTypes_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainTypes#getName <em>Name</em>}'.
@@ -646,6 +885,17 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainTypesRepository_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainTypesRepository#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainTypesRepository#getKeyId()
+	 * @see #getDomainTypesRepository()
+	 * @generated
+	 */
+	EAttribute getDomainTypesRepository_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainTypesRepository#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,6 +937,17 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDomainApplications_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainApplications#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainApplications#getKeyId()
+	 * @see #getDomainApplications()
+	 * @generated
+	 */
+	EAttribute getDomainApplications_KeyId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainApplications#getName <em>Name</em>}'.
@@ -732,6 +993,17 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainApplication_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainApplication#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainApplication#getKeyId()
+	 * @see #getDomainApplication()
+	 * @generated
+	 */
+	EAttribute getDomainApplication_KeyId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link domain.DomainApplication#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,6 +1024,114 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDomainApplication_ApplicationPackages();
+
+	/**
+	 * Returns the meta object for class '{@link domain.DomainMappers <em>Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mappers</em>'.
+	 * @see domain.DomainMappers
+	 * @generated
+	 */
+	EClass getDomainMappers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMappers#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.DomainMappers#getUid()
+	 * @see #getDomainMappers()
+	 * @generated
+	 */
+	EAttribute getDomainMappers_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMappers#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainMappers#getKeyId()
+	 * @see #getDomainMappers()
+	 * @generated
+	 */
+	EAttribute getDomainMappers_KeyId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMappers#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see domain.DomainMappers#getName()
+	 * @see #getDomainMappers()
+	 * @generated
+	 */
+	EAttribute getDomainMappers_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link domain.DomainMappers#getMappers <em>Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mappers</em>'.
+	 * @see domain.DomainMappers#getMappers()
+	 * @see #getDomainMappers()
+	 * @generated
+	 */
+	EReference getDomainMappers_Mappers();
+
+	/**
+	 * Returns the meta object for class '{@link domain.DomainMapper <em>Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mapper</em>'.
+	 * @see domain.DomainMapper
+	 * @generated
+	 */
+	EClass getDomainMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.DomainMapper#getUid()
+	 * @see #getDomainMapper()
+	 * @generated
+	 */
+	EAttribute getDomainMapper_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMapper#getKeyId <em>Key Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Id</em>'.
+	 * @see domain.DomainMapper#getKeyId()
+	 * @see #getDomainMapper()
+	 * @generated
+	 */
+	EAttribute getDomainMapper_KeyId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.DomainMapper#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see domain.DomainMapper#getName()
+	 * @see #getDomainMapper()
+	 * @generated
+	 */
+	EAttribute getDomainMapper_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link domain.DomainMapper#getObjectMapperPackages <em>Object Mapper Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Object Mapper Packages</em>'.
+	 * @see domain.DomainMapper#getObjectMapperPackages()
+	 * @see #getDomainMapper()
+	 * @generated
+	 */
+	EReference getDomainMapper_ObjectMapperPackages();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -794,6 +1174,14 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN__UID = eINSTANCE.getDomain_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN__KEY_ID = eINSTANCE.getDomain_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Domain Artifacts</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -818,6 +1206,14 @@ public interface DomainPackage extends EPackage {
 		EReference DOMAIN__DOMAIN_APPLICATIONS = eINSTANCE.getDomain_DomainApplications();
 
 		/**
+		 * The meta object literal for the '<em><b>Domain Mappers</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN__DOMAIN_MAPPERS = eINSTANCE.getDomain_DomainMappers();
+
+		/**
 		 * The meta object literal for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -834,6 +1230,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOMAIN_ARTIFACTS__UID = eINSTANCE.getDomainArtifacts_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_ARTIFACTS__KEY_ID = eINSTANCE.getDomainArtifacts_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -878,6 +1282,14 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_ARTIFACT__UID = eINSTANCE.getDomainArtifact_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_ARTIFACT__KEY_ID = eINSTANCE.getDomainArtifact_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -910,6 +1322,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOMAIN_TYPES__UID = eINSTANCE.getDomainTypes_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_TYPES__KEY_ID = eINSTANCE.getDomainTypes_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -954,6 +1374,14 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_TYPES_REPOSITORY__UID = eINSTANCE.getDomainTypesRepository_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_TYPES_REPOSITORY__KEY_ID = eINSTANCE.getDomainTypesRepository_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -986,6 +1414,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOMAIN_APPLICATIONS__UID = eINSTANCE.getDomainApplications_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_APPLICATIONS__KEY_ID = eINSTANCE.getDomainApplications_KeyId();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1022,6 +1458,14 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_APPLICATION__UID = eINSTANCE.getDomainApplication_Uid();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_APPLICATION__KEY_ID = eINSTANCE.getDomainApplication_KeyId();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1036,6 +1480,90 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN_APPLICATION__APPLICATION_PACKAGES = eINSTANCE.getDomainApplication_ApplicationPackages();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.DomainMappersImpl <em>Mappers</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.DomainMappersImpl
+		 * @see domain.impl.DomainPackageImpl#getDomainMappers()
+		 * @generated
+		 */
+		EClass DOMAIN_MAPPERS = eINSTANCE.getDomainMappers();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPERS__UID = eINSTANCE.getDomainMappers_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPERS__KEY_ID = eINSTANCE.getDomainMappers_KeyId();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPERS__NAME = eINSTANCE.getDomainMappers_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MAPPERS__MAPPERS = eINSTANCE.getDomainMappers_Mappers();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.DomainMapperImpl <em>Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.DomainMapperImpl
+		 * @see domain.impl.DomainPackageImpl#getDomainMapper()
+		 * @generated
+		 */
+		EClass DOMAIN_MAPPER = eINSTANCE.getDomainMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPER__UID = eINSTANCE.getDomainMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPER__KEY_ID = eINSTANCE.getDomainMapper_KeyId();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_MAPPER__NAME = eINSTANCE.getDomainMapper_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Object Mapper Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MAPPER__OBJECT_MAPPER_PACKAGES = eINSTANCE.getDomainMapper_ObjectMapperPackages();
 
 	}
 

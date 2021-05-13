@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -193,6 +193,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -202,6 +203,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -214,6 +216,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -223,6 +226,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -235,6 +239,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -244,6 +249,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -256,6 +262,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSkip() {
 		return skip;
 	}
@@ -265,6 +272,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSkip(boolean newSkip) {
 		boolean oldSkip = skip;
 		skip = newSkip;
@@ -277,6 +285,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ModelMapper> getMappers() {
 		if (mappers == null) {
 			mappers = new EObjectContainmentEList<ModelMapper>(ModelMapper.class, this, RecipePackage.COMPONENT__MAPPERS);
@@ -289,6 +298,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getComponentRoot() {
 		return componentRoot;
 	}
@@ -298,6 +308,7 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComponentRoot(String newComponentRoot) {
 		String oldComponentRoot = componentRoot;
 		componentRoot = newComponentRoot;

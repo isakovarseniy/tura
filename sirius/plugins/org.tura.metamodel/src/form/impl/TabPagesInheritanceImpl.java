@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -109,6 +109,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -118,6 +119,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -130,6 +132,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TabCanvas getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
@@ -156,6 +159,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(TabCanvas newSource) {
 		TabCanvas oldSource = source;
 		source = newSource;
@@ -168,6 +172,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TabPage getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -194,6 +199,7 @@ public class TabPagesInheritanceImpl extends EObjectImpl implements TabPagesInhe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(TabPage newTarget) {
 		TabPage oldTarget = target;
 		target = newTarget;

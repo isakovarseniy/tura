@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -48,6 +48,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -309,6 +311,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
@@ -330,6 +334,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -344,6 +349,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -365,6 +371,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRecipes() {
 		return recipesEClass;
 	}
@@ -374,6 +381,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRecipes_Uid() {
 		return (EAttribute)recipesEClass.getEStructuralFeatures().get(0);
 	}
@@ -383,6 +391,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRecipes_Name() {
 		return (EAttribute)recipesEClass.getEStructuralFeatures().get(1);
 	}
@@ -392,6 +401,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_Recipe() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(2);
 	}
@@ -401,6 +411,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_Configurations() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(3);
 	}
@@ -410,6 +421,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_Infrastructures() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(4);
 	}
@@ -419,6 +431,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_ConfigExtensions() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(5);
 	}
@@ -428,6 +441,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_Recipe2Infrastructures() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(6);
 	}
@@ -437,6 +451,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipes_Infrastructure2Configurations() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(7);
 	}
@@ -446,6 +461,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRecipe() {
 		return recipeEClass;
 	}
@@ -455,6 +471,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRecipe_Uid() {
 		return (EAttribute)recipeEClass.getEStructuralFeatures().get(0);
 	}
@@ -464,6 +481,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRecipe_Name() {
 		return (EAttribute)recipeEClass.getEStructuralFeatures().get(1);
 	}
@@ -473,6 +491,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipe_Ingredients() {
 		return (EReference)recipeEClass.getEStructuralFeatures().get(2);
 	}
@@ -482,6 +501,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipe_DeplymentStep() {
 		return (EReference)recipeEClass.getEStructuralFeatures().get(3);
 	}
@@ -491,6 +511,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipe_StartSeq() {
 		return (EReference)recipeEClass.getEStructuralFeatures().get(4);
 	}
@@ -500,6 +521,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConfigExtension() {
 		return configExtensionEClass;
 	}
@@ -509,6 +531,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfigExtension_Uid() {
 		return (EAttribute)configExtensionEClass.getEStructuralFeatures().get(0);
 	}
@@ -518,6 +541,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConfigExtension_Source() {
 		return (EReference)configExtensionEClass.getEStructuralFeatures().get(1);
 	}
@@ -527,6 +551,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConfigExtension_Target() {
 		return (EReference)configExtensionEClass.getEStructuralFeatures().get(2);
 	}
@@ -536,6 +561,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRecipe2Infrastructure() {
 		return recipe2InfrastructureEClass;
 	}
@@ -545,6 +571,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRecipe2Infrastructure_Uid() {
 		return (EAttribute)recipe2InfrastructureEClass.getEStructuralFeatures().get(0);
 	}
@@ -554,6 +581,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipe2Infrastructure_Source() {
 		return (EReference)recipe2InfrastructureEClass.getEStructuralFeatures().get(1);
 	}
@@ -563,6 +591,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRecipe2Infrastructure_Target() {
 		return (EReference)recipe2InfrastructureEClass.getEStructuralFeatures().get(2);
 	}
@@ -572,6 +601,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfrastructure2Configuration() {
 		return infrastructure2ConfigurationEClass;
 	}
@@ -581,6 +611,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructure2Configuration_Uid() {
 		return (EAttribute)infrastructure2ConfigurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -590,6 +621,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfrastructure2Configuration_Source() {
 		return (EReference)infrastructure2ConfigurationEClass.getEStructuralFeatures().get(1);
 	}
@@ -599,6 +631,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfrastructure2Configuration_Target() {
 		return (EReference)infrastructure2ConfigurationEClass.getEStructuralFeatures().get(2);
 	}
@@ -608,6 +641,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDeploymentComponent() {
 		return deploymentComponentEClass;
 	}
@@ -617,6 +651,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeploymentComponent_Uid() {
 		return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -626,6 +661,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeploymentComponent_Name() {
 		return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(1);
 	}
@@ -635,6 +671,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDeploymentComponent_Mapper() {
 		return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(2);
 	}
@@ -644,6 +681,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeploymentComponent_Skip() {
 		return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(3);
 	}
@@ -653,6 +691,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDeploymentComponent_DeploymentComponentLink() {
 		return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(4);
 	}
@@ -662,6 +701,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDeploymentStarStep() {
 		return deploymentStarStepEClass;
 	}
@@ -671,6 +711,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeploymentStarStep_Uid() {
 		return (EAttribute)deploymentStarStepEClass.getEStructuralFeatures().get(0);
 	}
@@ -680,6 +721,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDeploymentStarStep_Name() {
 		return (EAttribute)deploymentStarStepEClass.getEStructuralFeatures().get(1);
 	}
@@ -689,6 +731,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDeploymentStarStep_FirstStep() {
 		return (EReference)deploymentStarStepEClass.getEStructuralFeatures().get(2);
 	}
@@ -698,6 +741,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUsingMappers() {
 		return usingMappersEClass;
 	}
@@ -707,6 +751,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUsingMappers_Mappers() {
 		return (EReference)usingMappersEClass.getEStructuralFeatures().get(0);
 	}
@@ -716,6 +761,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIngredient() {
 		return ingredientEClass;
 	}
@@ -725,6 +771,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIngredient_Uid() {
 		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(0);
 	}
@@ -734,6 +781,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIngredient_Name() {
 		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(1);
 	}
@@ -743,6 +791,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIngredient_Components() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(2);
 	}
@@ -752,6 +801,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIngredient_Skip() {
 		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(3);
 	}
@@ -761,6 +811,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIngredient_VewLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(4);
 	}
@@ -770,6 +821,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIngredient_ModelLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(5);
 	}
@@ -779,6 +831,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIngredient_ControllerLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(6);
 	}
@@ -788,6 +841,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -797,6 +851,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Uid() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(0);
 	}
@@ -806,6 +861,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Name() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(1);
 	}
@@ -815,6 +871,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Skip() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(2);
 	}
@@ -824,6 +881,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Mappers() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(3);
 	}
@@ -833,6 +891,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_ComponentRoot() {
 		return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
 	}
@@ -842,6 +901,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaComponent() {
 		return javaComponentEClass;
 	}
@@ -851,6 +911,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaComponent_ArtifactId() {
 		return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -860,6 +921,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaComponent_GroupId() {
 		return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(1);
 	}
@@ -869,6 +931,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaComponent_BasePackage() {
 		return (EAttribute)javaComponentEClass.getEStructuralFeatures().get(2);
 	}
@@ -878,6 +941,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getJavaComponent_MapperRef() {
 		return (EReference)javaComponentEClass.getEStructuralFeatures().get(3);
 	}
@@ -887,6 +951,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaScriptComponent() {
 		return javaScriptComponentEClass;
 	}
@@ -896,6 +961,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJavaScriptComponent_PackageName() {
 		return (EAttribute)javaScriptComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -905,6 +971,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getJavaScriptComponent_MapperRef() {
 		return (EReference)javaScriptComponentEClass.getEStructuralFeatures().get(1);
 	}
@@ -914,6 +981,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfrastructure() {
 		return infrastructureEClass;
 	}
@@ -923,6 +991,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructure_Uid() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(0);
 	}
@@ -932,6 +1001,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfrastructure_Name() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(1);
 	}
@@ -941,6 +1011,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConfiguration() {
 		return configurationEClass;
 	}
@@ -950,6 +1021,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfiguration_Uid() {
 		return (EAttribute)configurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -959,6 +1031,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConfiguration_Name() {
 		return (EAttribute)configurationEClass.getEStructuralFeatures().get(1);
 	}
@@ -968,6 +1041,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConfiguration_Properties() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(2);
 	}
@@ -977,6 +1051,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConfiguration_HashProperties() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(3);
 	}
@@ -986,6 +1061,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModelMapper() {
 		return modelMapperEClass;
 	}
@@ -995,6 +1071,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelMapper_Name() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(0);
 	}
@@ -1004,6 +1081,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelMapper_ArtifactRoot() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(1);
 	}
@@ -1013,6 +1091,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModelMapper_Technologies() {
 		return (EReference)modelMapperEClass.getEStructuralFeatures().get(2);
 	}
@@ -1022,6 +1101,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModelMapper_Queries() {
 		return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
 	}
@@ -1031,6 +1111,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelMapper_Skip() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(4);
 	}
@@ -1040,6 +1121,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelMapper_ArtifactExtension() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(5);
 	}
@@ -1049,6 +1131,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -1058,6 +1141,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Uid() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1067,6 +1151,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProperty_ConfVarRef() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1076,6 +1161,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Value() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1085,6 +1171,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHashProperty() {
 		return hashPropertyEClass;
 	}
@@ -1094,6 +1181,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getHashProperty_Uid() {
 		return (EAttribute)hashPropertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1103,6 +1191,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getHashProperty_ConfHashRef() {
 		return (EReference)hashPropertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1112,6 +1201,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getHashProperty_Hash() {
 		return (EReference)hashPropertyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1121,6 +1211,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getKeyValuePair() {
 		return keyValuePairEClass;
 	}
@@ -1130,6 +1221,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getKeyValuePair_Uid() {
 		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(0);
 	}
@@ -1139,6 +1231,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getKeyValuePair_Key() {
 		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(1);
 	}
@@ -1148,6 +1241,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getKeyValuePair_Value() {
 		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(2);
 	}
@@ -1157,6 +1251,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMappingTecnologiy() {
 		return mappingTecnologiyEClass;
 	}
@@ -1166,6 +1261,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingTecnologiy_Uid() {
 		return (EAttribute)mappingTecnologiyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1175,6 +1271,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMappingTecnologiy_TechRef() {
 		return (EReference)mappingTecnologiyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1184,6 +1281,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMappingTecnologiy_ValueRef() {
 		return (EReference)mappingTecnologiyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1193,6 +1291,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getQuery() {
 		return queryEClass;
 	}
@@ -1202,6 +1301,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuery_Uid() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1211,6 +1311,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuery_Name() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(1);
 	}
@@ -1220,6 +1321,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQuery_QueryRef() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(2);
 	}
@@ -1229,6 +1331,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQuery_Variables() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(3);
 	}
@@ -1238,6 +1341,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getQueryVariable() {
 		return queryVariableEClass;
 	}
@@ -1247,6 +1351,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQueryVariable_Uid() {
 		return (EAttribute)queryVariableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1256,6 +1361,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQueryVariable_QueryParamRef() {
 		return (EReference)queryVariableEClass.getEStructuralFeatures().get(1);
 	}
@@ -1265,6 +1371,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQueryVariable_Value() {
 		return (EAttribute)queryVariableEClass.getEStructuralFeatures().get(2);
 	}
@@ -1274,6 +1381,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactRef() {
 		return artifactRefEClass;
 	}
@@ -1283,6 +1391,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtifactRef_Uid() {
 		return (EAttribute)artifactRefEClass.getEStructuralFeatures().get(0);
 	}
@@ -1292,6 +1401,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactRef_ArtifactRef() {
 		return (EReference)artifactRefEClass.getEStructuralFeatures().get(1);
 	}
@@ -1301,6 +1411,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RecipeFactory getRecipeFactory() {
 		return (RecipeFactory)getEFactoryInstance();
 	}

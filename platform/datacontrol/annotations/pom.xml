@@ -23,7 +23,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>datacontrol</artifactId>
-		<version>5.0.5</version>
+		<version>5.1.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.datacontrol</groupId>
@@ -31,7 +31,6 @@
 
 
 	<name>Tura :: Platform :: DataControl :: Annotations</name>
-	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
 

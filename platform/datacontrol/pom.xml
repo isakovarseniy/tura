@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.0.5</version>
+     <version>5.1.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -30,7 +30,6 @@
   <packaging>pom</packaging>
 
   <name>Tura :: Platform :: DataControl</name>
-  <url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 
   <modules>

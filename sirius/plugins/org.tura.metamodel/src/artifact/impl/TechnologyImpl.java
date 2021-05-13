@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.TechnologyImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.TechnologyImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.TechnologyImpl#getName <em>Name</em>}</li>
  *   <li>{@link artifact.impl.TechnologyImpl#getOptions <em>Options</em>}</li>
  * </ul>
@@ -71,6 +72,26 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -126,6 +147,7 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -135,6 +157,7 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -147,6 +170,30 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.TECHNOLOGY__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -156,6 +203,7 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -168,6 +216,7 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Option> getOptions() {
 		if (options == null) {
 			options = new EObjectContainmentEList<Option>(Option.class, this, ArtifactPackage.TECHNOLOGY__OPTIONS);
@@ -199,6 +248,8 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 		switch (featureID) {
 			case ArtifactPackage.TECHNOLOGY__UID:
 				return getUid();
+			case ArtifactPackage.TECHNOLOGY__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.TECHNOLOGY__NAME:
 				return getName();
 			case ArtifactPackage.TECHNOLOGY__OPTIONS:
@@ -218,6 +269,9 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 		switch (featureID) {
 			case ArtifactPackage.TECHNOLOGY__UID:
 				setUid((String)newValue);
+				return;
+			case ArtifactPackage.TECHNOLOGY__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case ArtifactPackage.TECHNOLOGY__NAME:
 				setName((String)newValue);
@@ -241,6 +295,9 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 			case ArtifactPackage.TECHNOLOGY__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.TECHNOLOGY__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.TECHNOLOGY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -261,6 +318,8 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 		switch (featureID) {
 			case ArtifactPackage.TECHNOLOGY__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.TECHNOLOGY__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.TECHNOLOGY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ArtifactPackage.TECHNOLOGY__OPTIONS:
@@ -281,6 +340,8 @@ public class TechnologyImpl extends EObjectImpl implements Technology {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

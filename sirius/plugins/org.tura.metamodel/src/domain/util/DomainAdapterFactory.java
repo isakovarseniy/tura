@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -108,6 +108,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDomainApplication(DomainApplication object) {
 				return createDomainApplicationAdapter();
+			}
+			@Override
+			public Adapter caseDomainMappers(DomainMappers object) {
+				return createDomainMappersAdapter();
+			}
+			@Override
+			public Adapter caseDomainMapper(DomainMapper object) {
+				return createDomainMapperAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -224,6 +232,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.DomainMappers <em>Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.DomainMappers
+	 * @generated
+	 */
+	public Adapter createDomainMappersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.DomainMapper <em>Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.DomainMapper
+	 * @generated
+	 */
+	public Adapter createDomainMapperAdapter() {
 		return null;
 	}
 

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.Collection;
@@ -166,7 +167,34 @@ public class Util {
 		return false;
 
 	}
+	
+	
+	public String[] splitTech( String tech ) {
+		String h[] = tech.split("\\.");
+		for ( int i =0; i< h.length; i++) {
+			h[i] = h[i].replace(";;", ".");
+		}
+		return h;
+	}
 
+	public EObject findTech(EObject obj, List<String> h, Integer depth) {
+		QueryHelper helper = new QueryHelper();
+		String r[] = new String[depth+1];
+		if ( depth> h.size()) {
+			throw new RuntimeException(  String.format("Wrong depth %s for %s", depth, obj));
+		}
+		
+		System.arraycopy(h.toArray(),0,r,0,depth+1);
+		
+		return helper.findTech(obj, 0, r );
+	}	
+	
+	public EObject findTech(EObject obj,  String tech) {
+		String h[] = splitTech(tech);
+		return findTech(obj, Arrays.asList(h), h.length-1 );
+	}	
+	
+	
 	public static boolean ifDataControlIsTreeRoot(DataControl dc) throws Exception {
 		QueryHelper helper = new QueryHelper();
 		Form frm = helper.getForm(dc);

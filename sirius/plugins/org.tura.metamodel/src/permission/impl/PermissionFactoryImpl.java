@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -89,6 +89,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Roles createRoles() {
 		RolesImpl roles = new RolesImpl();
 		return roles;
@@ -99,6 +100,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityEntity createSecurityEntity() {
 		SecurityEntityImpl securityEntity = new SecurityEntityImpl();
 		return securityEntity;
@@ -109,6 +111,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Role createRole() {
 		RoleImpl role = new RoleImpl();
 		return role;
@@ -119,6 +122,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Group createGroup() {
 		GroupImpl group = new GroupImpl();
 		return group;
@@ -129,6 +133,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Group2Group createGroup2Group() {
 		Group2GroupImpl group2Group = new Group2GroupImpl();
 		return group2Group;
@@ -139,6 +144,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Group2Role createGroup2Role() {
 		Group2RoleImpl group2Role = new Group2RoleImpl();
 		return group2Role;
@@ -149,6 +155,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Secured createSecured() {
 		SecuredImpl secured = new SecuredImpl();
 		return secured;
@@ -159,6 +166,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GrantAccess createGrantAccess() {
 		GrantAccessImpl grantAccess = new GrantAccessImpl();
 		return grantAccess;
@@ -169,6 +177,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityEntityPointer createSecurityEntityPointer() {
 		SecurityEntityPointerImpl securityEntityPointer = new SecurityEntityPointerImpl();
 		return securityEntityPointer;
@@ -179,6 +188,7 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PermissionPackage getPermissionPackage() {
 		return (PermissionPackage)getEPackage();
 	}

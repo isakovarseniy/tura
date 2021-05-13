@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -29,8 +29,11 @@ import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainApplicati
 import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainApplicationsConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainArtifactConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainArtifactsConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainMapperConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainTypesConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.domain.DomainTypesRepositoryConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.items.domain.ObjectMapperGroupConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.message.MessageConfiguration;
 import org.tura.sirius.diagram.producer.tura.config.items.message.TranclationConfiguration;
 import org.tura.sirius.diagram.producer.tura.config.items.style.StyleLibraryConfigurator;
@@ -118,6 +121,9 @@ public class TuraDiagram {
         treeNavigatorDiagram = viewPoint.addJavaExtension("org.tura.metamodel.sirius.diagram.designer.service.DiagramService").addTreeDiagram("Domain tree", "domain.Domain");
         treeNavigatorDiagram.addChild(DomainArtifactsConfigurator.create().addCreationTreeNavigation("Technologies diagram", "Domain tree").addChild(DomainArtifactConfigurator.create().addChildren(() -> new TuraArtifact().getConfig())));
         treeNavigatorDiagram.addChild(DomainApplicationsConfigurator.create().addChild(DomainApplicationConfigurator.create().addChildren(() -> new TuraApplicaton().getConfig())));
+        viewPoint.addDiagram("ObjectMapper diagram", "objectmapper.ObjectMapperGroup").addDefaultLayer().addChildren(new ObjectMapperDiagram().getChildrens());
+        treeNavigatorDiagram.addChild(DomainMappersConfigurator.create().addChild(DomainMapperConfigurator.create().addChild(ObjectMapperGroupConfigurator.create().addCreationDiagramNavigation("ObjectMapper diagram",
+				"Domain tree"))));
         treeNavigatorDiagram.addChild(DomainTypesConfigurator.create().addChild(DomainTypesRepositoryConfigurator.create().addChildren(() -> new TuraTypeRepository().getConfig())).addChild(PrimitivesGroupConfigurator.create().addChild(PrimitiveConfigurator.create())));
         root.save("tura");
     }

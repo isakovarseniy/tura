@@ -7,9 +7,10 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	
 class TypeGroup{
     id attr EString uid;
-   attr EString name;
-   val TypeElement[*]  types;
-   val Relationship[*] relationships;
+    attr EString keyId;
+    attr EString name;
+    val TypeElement[*]  types;
+    val Relationship[*] relationships;
 }
 
 
@@ -19,11 +20,13 @@ class PrimitivesGroup{
 
 class TypeElement{
     id attr EString uid;
+    attr EString keyId;
    attr EString name; 
 }
 
 class Relationship  extends artifact.Categorized{
     id attr EString uid;
+    attr EString keyId;
     ref TypeElement source;
     ref TypeElement target;
 }
@@ -68,12 +71,14 @@ class Assosiation extends Relationship{
 
 class Link{
     id attr EString uid;
+    attr EString keyId;
     ref Attribute masterField;
     ref Attribute detailField;
 }	
 
 class Attribute extends  TypePointer, artifact.Categorized{
     id attr EString uid;
+    attr EString keyId;
    attr EString name;
    attr EBoolean pk;
    attr EBoolean uk;
@@ -81,9 +86,10 @@ class Attribute extends  TypePointer, artifact.Categorized{
 
 class Operation extends permission.Secured, artifact.Categorized{
     id attr EString uid;
-   attr EString name;
-   val Parameter[*]  parameters;
-   val ReturnValue returnValue;
+    attr EString keyId;
+    attr EString name;
+    val Parameter[*]  parameters;
+    val ReturnValue returnValue;
 } 
 
 class Primitive extends TypeElement{
@@ -101,12 +107,14 @@ class TypeReference extends TypeElement , TypePointer{
 
 class Parameter extends  TypePointer{
     id attr EString uid;
-   attr EString name;
-   attr EInt order;
+    attr EString keyId;
+    attr EString name;
+    attr EInt order;
 }
 
 class ReturnValue extends TypePointer{
     id attr EString uid;
+    attr EString keyId;
 }
 
 class Enumerator extends TypeElement, artifact.Categorized{
@@ -115,8 +123,9 @@ class Enumerator extends TypeElement, artifact.Categorized{
 
 class EnumAttribute extends  artifact.Categorized{
     id attr EString uid;
-   attr EString name;
-   attr EString  value;
+    attr EString keyId;
+    attr EString name;
+    attr EString  value;
 }
 
 class MethodPointer {
@@ -124,6 +133,7 @@ class MethodPointer {
 }	
 
 class AttributePointer {
+    id attr EString uid;
     ref Attribute attributeRef;
 }	
 

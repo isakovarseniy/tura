@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -125,6 +125,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Mappers createMappers() {
 		MappersImpl mappers = new MappersImpl();
 		return mappers;
@@ -135,6 +136,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Mapper createMapper() {
 		MapperImpl mapper = new MapperImpl();
 		return mapper;
@@ -145,6 +147,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Version createVersion() {
 		VersionImpl version = new VersionImpl();
 		return version;
@@ -155,6 +158,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VersionRef createVersionRef() {
 		VersionRefImpl versionRef = new VersionRefImpl();
 		return versionRef;
@@ -165,6 +169,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MappingLayer createMappingLayer() {
 		MappingLayerImpl mappingLayer = new MappingLayerImpl();
 		return mappingLayer;
@@ -175,6 +180,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeMapper createTypeMapper() {
 		TypeMapperImpl typeMapper = new TypeMapperImpl();
 		return typeMapper;
@@ -185,6 +191,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PackageMapper createPackageMapper() {
 		PackageMapperImpl packageMapper = new PackageMapperImpl();
 		return packageMapper;
@@ -195,6 +202,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavaMapper createJavaMapper() {
 		JavaMapperImpl javaMapper = new JavaMapperImpl();
 		return javaMapper;
@@ -205,6 +213,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavaPackageMapper createJavaPackageMapper() {
 		JavaPackageMapperImpl javaPackageMapper = new JavaPackageMapperImpl();
 		return javaPackageMapper;
@@ -215,6 +224,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavaScriptMapper createJavaScriptMapper() {
 		JavaScriptMapperImpl javaScriptMapper = new JavaScriptMapperImpl();
 		return javaScriptMapper;
@@ -225,6 +235,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CSSMapper createCSSMapper() {
 		CSSMapperImpl cssMapper = new CSSMapperImpl();
 		return cssMapper;
@@ -235,6 +246,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RoleMapper createRoleMapper() {
 		RoleMapperImpl roleMapper = new RoleMapperImpl();
 		return roleMapper;
@@ -245,6 +257,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public XMLPackageMapper createXMLPackageMapper() {
 		XMLPackageMapperImpl xmlPackageMapper = new XMLPackageMapperImpl();
 		return xmlPackageMapper;
@@ -255,6 +268,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public XMLTypeMapper createXMLTypeMapper() {
 		XMLTypeMapperImpl xmlTypeMapper = new XMLTypeMapperImpl();
 		return xmlTypeMapper;
@@ -285,6 +299,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MapperPackage getMapperPackage() {
 		return (MapperPackage)getEPackage();
 	}

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -191,6 +191,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -200,6 +201,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -212,6 +214,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -221,6 +224,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -233,6 +237,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRecipes getApplicationRecipes() {
 		return applicationRecipes;
 	}
@@ -257,6 +262,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationRecipes(ApplicationRecipes newApplicationRecipes) {
 		if (newApplicationRecipes != applicationRecipes) {
 			NotificationChain msgs = null;
@@ -276,6 +282,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMappers getApplicationMappers() {
 		return applicationMappers;
 	}
@@ -300,6 +307,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationMappers(ApplicationMappers newApplicationMappers) {
 		if (newApplicationMappers != applicationMappers) {
 			NotificationChain msgs = null;
@@ -319,6 +327,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationUILayer getApplicationUILayer() {
 		return applicationUILayer;
 	}
@@ -343,6 +352,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationUILayer(ApplicationUILayer newApplicationUILayer) {
 		if (newApplicationUILayer != applicationUILayer) {
 			NotificationChain msgs = null;
@@ -362,6 +372,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationInfrastructureLayers getApplicationInfrastructureLayer() {
 		return applicationInfrastructureLayer;
 	}
@@ -386,6 +397,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationInfrastructureLayer(ApplicationInfrastructureLayers newApplicationInfrastructureLayer) {
 		if (newApplicationInfrastructureLayer != applicationInfrastructureLayer) {
 			NotificationChain msgs = null;
@@ -405,6 +417,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationStyleLibraries getApplicationStyle() {
 		return applicationStyle;
 	}
@@ -429,6 +442,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationStyle(ApplicationStyleLibraries newApplicationStyle) {
 		if (newApplicationStyle != applicationStyle) {
 			NotificationChain msgs = null;
@@ -448,6 +462,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRealms getApplicationRole() {
 		return applicationRole;
 	}
@@ -472,6 +487,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationRole(ApplicationRealms newApplicationRole) {
 		if (newApplicationRole != applicationRole) {
 			NotificationChain msgs = null;
@@ -491,6 +507,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMessageLibraries getApplicationMessages() {
 		return applicationMessages;
 	}
@@ -515,6 +532,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationMessages(ApplicationMessageLibraries newApplicationMessages) {
 		if (newApplicationMessages != applicationMessages) {
 			NotificationChain msgs = null;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -51,6 +51,8 @@ import message.MessageLibrary;
 import message.MessagePackage;
 import message.Translation;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -165,6 +167,8 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(registeredPackage instanceof PermissionPackageImpl ? registeredPackage : PermissionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
@@ -186,6 +190,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theStylePackage.createPackageContents();
@@ -200,6 +205,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theStylePackage.initializePackageContents();
@@ -221,6 +227,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMessageLibrary() {
 		return messageLibraryEClass;
 	}
@@ -230,6 +237,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMessageLibrary_Uid() {
 		return (EAttribute)messageLibraryEClass.getEStructuralFeatures().get(0);
 	}
@@ -239,6 +247,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMessageLibrary_Name() {
 		return (EAttribute)messageLibraryEClass.getEStructuralFeatures().get(1);
 	}
@@ -248,6 +257,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMessageLibrary_Messages() {
 		return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
 	}
@@ -257,6 +267,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMessage() {
 		return messageEClass;
 	}
@@ -266,6 +277,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMessage_Uid() {
 		return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
 	}
@@ -275,6 +287,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMessage_Name() {
 		return (EAttribute)messageEClass.getEStructuralFeatures().get(1);
 	}
@@ -284,6 +297,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMessage_Translatioins() {
 		return (EReference)messageEClass.getEStructuralFeatures().get(2);
 	}
@@ -293,6 +307,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTranslation() {
 		return translationEClass;
 	}
@@ -302,6 +317,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTranslation_Uid() {
 		return (EAttribute)translationEClass.getEStructuralFeatures().get(0);
 	}
@@ -311,6 +327,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTranslation_Translation() {
 		return (EAttribute)translationEClass.getEStructuralFeatures().get(1);
 	}
@@ -320,6 +337,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTranslation_Lang() {
 		return (EReference)translationEClass.getEStructuralFeatures().get(2);
 	}
@@ -329,6 +347,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLanguage() {
 		return languageEClass;
 	}
@@ -338,6 +357,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLanguage_Uid() {
 		return (EAttribute)languageEClass.getEStructuralFeatures().get(0);
 	}
@@ -347,6 +367,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLanguage_Lang() {
 		return (EAttribute)languageEClass.getEStructuralFeatures().get(1);
 	}
@@ -356,6 +377,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLanguage_Code() {
 		return (EAttribute)languageEClass.getEStructuralFeatures().get(2);
 	}
@@ -365,6 +387,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLanguage_DefaultLang() {
 		return (EAttribute)languageEClass.getEStructuralFeatures().get(3);
 	}
@@ -374,6 +397,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MessageFactory getMessageFactory() {
 		return (MessageFactory)getEFactoryInstance();
 	}

@@ -1,0 +1,414 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+ import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+import "tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/commonObjectMapper.egl";
+import "tura:/generation-templates/template/commons/buildExpression.eol";
+import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.eol";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+	  var hash = new Native('java.util.HashMap');
+	  hash.put("recipe",recipe);
+	  hash.put("ingredient",ingredient);
+	  hash.put("component",component);
+	  hash.put("model_mapper",model_mapper);
+	  hash.put("configuration",configuration);
+ %]
+ 
+ package [%=type.~package%].[%=packageExt%].cursors;
+ 
+ 
+ public class [%=cursorName%]Cursor extends org.tura.platform.adapter.engine.api.Cursor<[%=type.~fullName%]> {
+ 
+     private [%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory bf;
+ 
+	  public [%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory getBeanFactory() {
+		return bf;
+	}
+	
+	public void setBeanFactory([%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory bf) {
+		this.bf = bf;
+	}
+ 
+	public void sendNotificationChangeCurrentRow() throws Exception{
+	    super.sendNotificationChangeCurrentRow();
+		bf.sendEvent(new org.tura.platform.adapter.engine.events.ChangeRurrentRowEvent(this));
+	}
+ 
+  [%
+      for ( aggr in objectMapper.aggrigations){
+        var type = aggr.typeRef;
+	     type.mappingType2Java(recipe,ingredient);
+ %]
+      private  [%=type.~fullName%] [%=util.mergeAndUnCapitalize(aggr.getName())%];
+      public void set[%=util.mergeAndCapitalize(aggr.getName())%]( [%=type.~fullName%] [%=util.mergeAndUnCapitalize(aggr.getName())%]){
+            this.[%=util.mergeAndUnCapitalize(aggr.getName())%] = [%=util.mergeAndUnCapitalize(aggr.getName())%];
+      }
+
+      public [%=type.~fullName%]  get[%=util.mergeAndCapitalize(aggr.getName())%](){
+            return this.[%=util.mergeAndUnCapitalize(aggr.getName())%];
+      
+      }      
+      
+  [%
+      }
+ 	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.objectMapperRef<> null and  q.objectMapperRef.uid = objectMapper.uid);
+
+ 	  if (omRelations.size == 0){
+ 	  
+%]
+	java.util.List<[%=type.~fullName%]> array = new java.util.ArrayList<>();
+
+	public [%=cursorName%]Cursor ([%=type.~fullName%] object,[%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory bf) {
+	    this.bf = bf;
+		if (object != null) {
+			this.array.add(object);
+		}
+	}
+	@Override
+	public java.util.List<[%=type.~fullName%] > getCursor() {
+		return array;
+	}
+
+	@Override
+	public void add([%=type.~fullName%]  t) throws Exception {
+		java.util.Collection<[%=type.~fullName%] >  c = add(array, currentPosition, t);
+	    array = new java.util.ArrayList<>();
+	    array.addAll(c);
+        sendNotificationChangeCurrentRow();		
+	}	
+
+	@Override
+	public void reset() throws Exception {
+	     array = new java.util.ArrayList<>();
+         super.reset();
+	}	
+
+
+[% 	  
+ 	 }else {
+ 	  var parent = omRelations.first().eContainer();
+ 	  var rel = omRelations.first().assosiationRef;
+ 	  var parentType = parent.baseType.typeRef;
+ 	  parentType.mappingType2Java(recipe,ingredient);
+ 	  
+%] 	  
+	private org.tura.platform.adapter.engine.api.Cursor<[%=parentType.~fullName%]> parent;
+	public [%=cursorName%]Cursor (org.tura.platform.adapter.engine.api.Cursor<[%=parentType.~fullName%]> parent,[%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory bf) {
+	   this.parent = parent;
+	   this.bf = bf;
+	   this.parent.addChangeCurrentRowListener(this);
+	}
+	
+	
+[%
+    if ( rel.source.uid == type.uid){
+         var hash = rel.sourceSideNamesCalculation();
+%]
+	@Override
+	public java.util.List<[%=type.~fullName%] > getCursor() {
+		[%=parentType.~fullName%] obj = parent.getCurrentObject();
+		[%if (rel.type.toString().equals("One2Many" )){%]
+		   [%=rel.one2ManySourceGetCursor(hash,type,parentType)%]
+		[%}%]
+		[%if (rel.type.toString().equals("One2One" )){%]
+		   [%=rel.one2OneSourceGetCursor(hash,type,parentType)%]
+		[%}%]
+		}
+		
+	@Override
+	public void add([%=type.~fullName%] t) {
+		[%=parentType.~fullName%] obj = parent.getCurrentObject();
+		[%if (rel.type.toString().equals("One2Many" )){%]
+		   [%=rel.one2ManySourceAddObject(hash,type,parentType)%]
+		[%}%]
+		[%if (rel.type.toString().equals("One2One" )){%]
+		   [%=rel.one2OneSourceAddObject(hash,type,parentType)%]
+		[%}%]
+	}
+		
+  [%         
+    }else{
+         var hash = rel.targetSideNamesCalculation();
+%]
+	@Override
+	public java.util.List<[%=type.~fullName%] > getCursor() {
+		[%=parentType.~fullName%] obj = parent.getCurrentObject();
+		[%if (rel.type.toString().equals("One2Many" )){%]
+		   [%=rel.one2ManyTargetGetCursor(hash,type,parentType)%]
+		[%}%]
+		[%if (rel.type.toString().equals("One2One" )){%]
+		   [%=rel.one2OneTargetGetCursor(hash,type,parentType)%]
+		[%}%]
+	}
+	
+	@Override
+	public void add([%=type.~fullName%] t) throws Exception {
+		[%=parentType.~fullName%] obj = parent.getCurrentObject();
+		[%if (rel.type.toString().equals("One2Many" )){%]
+		   [%=rel.one2ManyTargetAddObject(hash,type,parentType,model_mapper)%]
+		[%}%]
+		[%if (rel.type.toString().equals("One2One" )){%]
+		   [%=rel.one2OneTargetAddObject(hash,type,parentType,model_mapper)%]
+		[%}%]
+	}
+	
+[%         
+         
+     }    
+%]	
+
+[%
+    } 
+ 
+ %]    
+     
+     public void load() throws Exception{
+                   if ( !isEnableToLoad ()){
+                      return;
+                   } 
+		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnLoadStartEvent(this));
+                  [%=objectMapper.load(cursorsNames,transformGroup,recipe,ingredient,hash)%]
+		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnLoadEndEvent(this));
+                  
+     }
+     
+      [%=objectMapper.copy(cursorsNames,transformGroup,recipe,ingredient,hash)%]
+     
+     
+     public java.util.List<[%=type.~fullName%]> findBy (
+[%
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and q.target.eContainer().uid = objectMapper.uid and q.mergeAttr);
+            if ( attrMergeConnections.size() <> 0){
+
+                      var first = true; 
+                      for( attrCon in attrMergeConnections){
+                          var ha = attrCon.details(cursorsNames);
+                          var tp = attrCon.source.getType();
+	                      tp.mappingType2Java(recipe,ingredient);
+                          
+%]                     
+                         [%if (not first) {%],[%}%] [%=tp.~fullName%] [%=util.mergeAndUnCapitalize(attrCon.source.getFieldName())%]
+[%
+                         first = false;
+                      }
+           }
+%]) throws Exception{[%     
+            var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and q.target.eContainer().uid = objectMapper.uid and q.mergeAttr);
+            if ( attrMergeConnections.size() <> 0){
+%]
+                   org.tura.platform.datacontrol.commons.SearchCriteria sc = null;
+                   java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> search = new java.util.ArrayList<>();
+[%
+                      var first = true; 
+                      for( attrCon in attrMergeConnections){
+                          var ha = attrCon.details(cursorsNames);
+%]                
+                         sc = new org.tura.platform.datacontrol.commons.SearchCriteria ();
+                         sc.setName("[%=util.mergeAndUnCapitalize(attrCon.target.getFieldName())%]");
+                         sc.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+                         sc.setValue(bf.get[%=ha.get("sourceCursorName")%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(attrCon.source.getFieldName())%]());
+                         search.add(sc);
+[%
+                      }
+%]
+              return this.findBy(search);
+[%                
+       }else{
+%]                     
+                  return new java.util.ArrayList<[%=type.~fullName%]>();
+[%
+       
+       }
+%]
+     
+     }
+     
+[%
+ 	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.eContainer().uid = objectMapper.uid and q.objectMapperRef<> null);
+
+ 	  if (omRelations.size <> 0){
+ 	      for ( omRel in omRelations){
+ 	          
+  	         var refMapper = omRel.objectMapperRef;
+	         var refCursorName = cursorsNames.get(refMapper.uid);
+	         var refType = refMapper.baseType.typeRef;
+    	     var sourceMapper = objectMapper;
+	         var sourceCursorName = cursorsNames.get(sourceMapper.uid);
+	         
+%]
+		        public void add[%=refCursorName%] (java.util.List<[%=refType.~fullName%]> array)throws Exception{
+		             for ([%=refType.~fullName%] a : array ){
+		                 bf.get[%=refCursorName%]Cursor().add(a);
+		             }
+		        }     
+[%	         
+	         
+ 	      }
+ 	  
+ 	  }
+
+%]     
+     
+ 
+     
+	@Override
+	protected Class<[%=type.~fullName%]> getType() {
+		return [%=type.~fullName%].class;
+	}
+}
+[%
+@template
+operation type::Assosiation one2ManyTargetGetCursor(hash,type,parentType){
+%]
+		java.util.List<[%=type.~fullName%]> array = new  java.util.ArrayList<[%=type.~fullName%]>();
+
+		if ( obj != null) {
+			 if (  obj.get[%=hash.get("sourceMethodName")%]() == null) {
+				 obj.set[%=hash.get("sourceMethodName")%](new java.util.ArrayList<[%=type.~fullName%]>());
+			 }
+			 
+			array.addAll(obj.get[%=hash.get("sourceMethodName")%]()); 
+			return array;
+		}
+		return null;
+
+[%
+}
+
+@template
+operation type::Assosiation one2OneTargetGetCursor(hash,type,parentType){
+%]
+		java.util.List<[%=type.~fullName%]> array = new  java.util.ArrayList<[%=type.~fullName%]>();
+		if ( obj != null) {
+		    array.add(obj.get[%=hash.get("sourceMethodName")%]());
+			return array;
+		}
+[%
+}
+
+
+@template
+operation type::Assosiation one2ManySourceGetCursor(hash,type,parentType){
+%]
+		java.util.List<[%=type.~fullName%]> array = new  java.util.ArrayList<[%=type.~fullName%]>();
+
+		if ( obj != null) {
+			 if (  obj.get[%=hash.get("targetMethodName")%]() == null) {
+				 obj.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<[%=type.~fullName%]>());
+			 }
+			 
+			array.addAll(obj.get[%=hash.get("targetMethodName")%]()); 
+			return array;
+		}
+		return null;
+[%
+}
+
+@template
+operation type::Assosiation one2OneSourceGetCursor(hash,type,parentType){
+%]
+		java.util.List<[%=type.~fullName%]> array = new  java.util.ArrayList<[%=type.~fullName%]>();
+		if ( obj != null) {
+		    array.add(obj.get[%=hash.get("targetMethodName")%]());
+			return array;
+		}
+[%
+}
+
+@template
+operation type::Assosiation one2OneSourceAddObject(hash,type,parentType){
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+		obj.set[%=hash.get("targetMethodName")%](t);
+[%
+         if ( not self.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+%]
+         t.set[%=hash.get("sourceMethodName")%](obj);
+[%         
+         }
+%]
+       sendNotificationChangeCurrentRow();
+[%         
+}
+
+@template
+operation type::Assosiation one2ManySourceAddObject(hash,type,parentType){
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+       if ( obj != 0){
+          if ( obj.get[%=hash.get("targetMethodName")%]() == null){
+             obj.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<>());
+          }
+		obj.set[%=hash.get("targetMethodName")%](add(obj.get[%=hash.get("targetMethodName")%](), currentPosition,t));
+		
+		
+[%
+         if ( not self.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+%]
+         t.set[%=hash.get("sourceMethodName")%](obj);
+[%         
+         }
+%]
+        sendNotificationChangeCurrentRow();
+    }[%         
+}
+
+@template
+operation type::Assosiation one2OneTargetAddObject(hash,type,parentType,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+		obj.set[%=hash.get("sourceMethodName")%](t);
+[%
+         if ( not self.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+%]
+         t.set[%=hash.get("targetMethodName")%](obj);
+[%         
+         }
+%]
+       sendNotificationChangeCurrentRow();
+[%         
+}
+
+@template
+operation type::Assosiation one2ManyTargetAddObject(hash,type,parentType,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+      if(obj != null ){
+        if ( obj.get[%=hash.get("sourceMethodName")%]() == null){
+           obj.set[%=hash.get("sourceMethodName")%](new java.util.ArrayList<>()); 
+        }
+        
+		obj.set[%=hash.get("sourceMethodName")%](add(obj.get[%=hash.get("sourceMethodName")%](), currentPosition,t));
+[%
+         if ( not self.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+%]
+         t.set[%=hash.get("targetMethodName")%](obj);
+[%         
+         }
+%]
+       sendNotificationChangeCurrentRow();
+}[%
+}
+%]

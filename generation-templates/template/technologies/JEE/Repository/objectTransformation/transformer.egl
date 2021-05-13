@@ -1,0 +1,74 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+import "tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/commonObjectMapper.egl";
+
+ ${percent}${end}
+ 
+ 
+  [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+  %]   
+  package [%=component.basePackage%].[%=packageExt%];
+  public class [%=util.mergeAndCapitalize(transformGroup.name)%]{
+
+     private [%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory bf = new  [%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory();
+     
+	public [%=component.basePackage%].[%=packageExt%].[%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory getBeanFactory() {
+		return bf;
+	}
+  
+  
+[%
+    var proccessedStages = new Native('java.util.ArrayList');
+    for ( stage in transformGroup.stages){
+       if( stage.nextStage <> null ){
+             var ln = stage.uid+"/"+ stage.nextStage.uid;
+             if ( not proccessedStages.contains(ln)){
+                 var startStage = stage;
+                 var endStage = stage.nextStage;
+%]
+   public void  [%=util.mergeAndUnCapitalize(startStage.name)%]2[%=util.mergeAndUnCapitalize(endStage.name)%]() throws Exception{
+   
+		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStageStartEvent("[%=util.mergeAndUnCapitalize(startStage.name)%]","[%=util.mergeAndUnCapitalize(endStage.name)%]"));
+[%                 
+                 var mappers = transformGroup.objectMappers->select(q|q.stage <> null and q.stage.uid=endStage.uid);
+                 for ( objectMapper in mappers){
+                 
+                 var cursorName = cursorsNames.get(objectMapper.uid);
+                 
+%]                 
+                  bf.get[%=cursorName%]Cursor().load(); 
+[%                  
+                 }
+%]
+		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStageEndEvent("[%=util.mergeAndUnCapitalize(startStage.name)%]","[%=util.mergeAndUnCapitalize(endStage.name)%]"));
+
+}
+[%                 
+             }
+       }
+    }    
+%]
+  }
+ 

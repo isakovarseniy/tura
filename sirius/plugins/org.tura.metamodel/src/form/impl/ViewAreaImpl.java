@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -186,6 +186,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -195,6 +196,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -207,6 +209,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.VIEW_AREA__FIELDS);
@@ -219,6 +222,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -228,6 +232,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -240,6 +245,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -249,6 +255,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -261,6 +268,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LayerHolder getBaseCanvas() {
 		return baseCanvas;
 	}
@@ -285,6 +293,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBaseCanvas(LayerHolder newBaseCanvas) {
 		if (newBaseCanvas != baseCanvas) {
 			NotificationChain msgs = null;
@@ -304,6 +313,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LinkToLabel> getLinkToLabels() {
 		if (linkToLabels == null) {
 			linkToLabels = new EObjectContainmentEList<LinkToLabel>(LinkToLabel.class, this, FormPackage.VIEW_AREA__LINK_TO_LABELS);
@@ -316,6 +326,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LinkToMessage> getLinkToMessages() {
 		if (linkToMessages == null) {
 			linkToMessages = new EObjectContainmentEList<LinkToMessage>(LinkToMessage.class, this, FormPackage.VIEW_AREA__LINK_TO_MESSAGES);

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -28,13 +28,15 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link domain.Domain#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.Domain#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link domain.Domain#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link domain.Domain#getDomainTypes <em>Domain Types</em>}</li>
  *   <li>{@link domain.Domain#getDomainApplications <em>Domain Applications</em>}</li>
+ *   <li>{@link domain.Domain#getDomainMappers <em>Domain Mappers</em>}</li>
  * </ul>
  *
  * @see domain.DomainPackage#getDomain()
- * @model
+ * @model annotation="gmf.diagram"
  * @generated
  */
 public interface Domain extends EObject {
@@ -63,6 +65,28 @@ public interface Domain extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key Id</em>' attribute.
+	 * @see #setKeyId(String)
+	 * @see domain.DomainPackage#getDomain_KeyId()
+	 * @model
+	 * @generated
+	 */
+	String getKeyId();
+
+	/**
+	 * Sets the value of the '{@link domain.Domain#getKeyId <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key Id</em>' attribute.
+	 * @see #getKeyId()
+	 * @generated
+	 */
+	void setKeyId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Domain Artifacts</b></em>' containment reference.
@@ -141,5 +165,27 @@ public interface Domain extends EObject {
 	 * @generated
 	 */
 	void setDomainApplications(DomainApplications value);
+
+	/**
+	 * Returns the value of the '<em><b>Domain Mappers</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain Mappers</em>' containment reference.
+	 * @see #setDomainMappers(DomainMappers)
+	 * @see domain.DomainPackage#getDomain_DomainMappers()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	DomainMappers getDomainMappers();
+
+	/**
+	 * Sets the value of the '{@link domain.Domain#getDomainMappers <em>Domain Mappers</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain Mappers</em>' containment reference.
+	 * @see #getDomainMappers()
+	 * @generated
+	 */
+	void setDomainMappers(DomainMappers value);
 
 } // Domain

@@ -25,14 +25,13 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>5.0.5</version>
+		<version>5.1.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
 	<artifactId>test-of-generated-domain-objects</artifactId>
 
 	<name>Tura :: Platform :: Test :: Generated code :: Domain object</name>
-	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
 

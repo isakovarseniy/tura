@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -62,6 +62,7 @@ import form.Window;
 import mapper.Mapper;
 import message.Message;
 import message.MessageLibrary;
+import objectmapper.Variable;
 import permission.Group;
 import permission.Role;
 import permission.Roles;
@@ -132,6 +133,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationMapperProvider applicationMapperProvider;
 	private MapperProvider mapperProvider;
 	private MapperRootProvider mapperRootProvider;
+	private ObjectMapperVariableProvider objectMapperVariableProvider;
 
 	
 
@@ -250,10 +252,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getMapperProvider();
 			if (adaptableObject instanceof MappersRoot)
 				return getMapperRootProvider();
-
-		
-					
-		
+			if (adaptableObject instanceof Variable)
+				return getObjectMapperVariableProvider();
 		}
 		return null;
 	}
@@ -575,4 +575,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return mapperRootProvider;		
 	}
 
+	protected ObjectMapperVariableProvider getObjectMapperVariableProvider() {
+		if (objectMapperVariableProvider == null)
+			objectMapperVariableProvider = new ObjectMapperVariableProvider();
+		return objectMapperVariableProvider;		
+	}
+	
 }

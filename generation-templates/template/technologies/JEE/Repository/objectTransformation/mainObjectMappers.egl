@@ -1,0 +1,117 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+
+ ${percent}${end}
+ 
+ 
+  [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var allGroups = new Native('java.util.ArrayList');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     
+     var transformGroup = util.runQuery(model_mapper,"Query transformation group",model_mapper);
+
+      if (transformGroup <> null and transformGroup.size <> 0 ){
+      
+        allGroups.addAll(transformGroup);
+      
+        var resourcePath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";  
+
+        var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";
+        
+        var hash = new Native('java.util.HashMap');
+     	hash.put("recipe",recipe);
+	    hash.put("ingredient",ingredient);
+	    hash.put("component",component);
+	    hash.put("model_mapper",model_mapper);
+	    hash.put("configuration",configuration);
+	    hash.put("path",path);
+	    hash.put("resourcePath",resourcePath);
+
+	     for ( omGroup in  allGroups){
+	         var packageExt = util.mergeAndUnCapitalize(omGroup.name);
+	         hash.put("transformGroup",omGroup);
+	         hash.put("packageExt",packageExt);
+	     
+	          var names = new Native('java.util.HashMap');
+	          var namesArrary = new Native('java.util.ArrayList');
+	          var uniqueId = 0;
+	          
+	          for ( objectMapper in omGroup.objectMappers ){
+			        var type = objectMapper.baseType.typeRef;
+			        if ( type == null){
+			           continue;
+			        }
+			        
+	                type.mappingType2Java(recipe,ingredient);
+	
+			        var cursorName = objectMapper.name;
+			        if ( namesArrary.contains(cursorName)){
+			            cursorName = cursorName + uniqueId;
+			            uniqueId++;
+			        }
+			        namesArrary.add(cursorName);
+			        
+			        cursorName = util.mergeAndCapitalize(cursorName);
+			        names.put(objectMapper.uid, cursorName);
+              }	  
+                    hash.put( "cursorsNames", names);
+	          for ( objectMapper in omGroup.objectMappers ){
+	          	                
+			        var type = objectMapper.baseType.typeRef;
+			        if ( type == null){
+			           continue;
+			        }
+			        hash.put("objectMapper",objectMapper);
+			        hash.put("type",type);
+	          	                
+	                var cursorName = names.get(objectMapper.uid);
+			        hash.put("cursorName",cursorName);
+
+				    var objectMapperBuilder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/cursors.egl",hash,TemplateFactory);
+				    objectMapperBuilder.setFormatter(f);
+				    var buffer = objectMapperBuilder.process();
+		            util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/"+packageExt+"/cursors", cursorName+"Cursor.java",buffer);   
+            }
+            
+            
+				    var transformerBuilder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/beanFactory.egl",hash,TemplateFactory);
+				    transformerBuilder.setFormatter(f);
+				    var buffer = transformerBuilder.process();
+				    var tPath = path+component.basePackage;
+				    var tName = util.mergeAndCapitalize(omGroup.name)+"BeanFactory";
+		            util.saveFile( tPath.replaceAll("\\.","\\/")+"/"+packageExt+"/", tName+".java",buffer);   
+            
+				    var transformerBuilder : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/transformer.egl",hash,TemplateFactory);
+				    transformerBuilder.setFormatter(f);
+				    var buffer = transformerBuilder.process();
+				    var tPath = path+component.basePackage;
+				    var tName = util.mergeAndCapitalize(omGroup.name);
+		            util.saveFile( tPath.replaceAll("\\.","\\/")+"/"+packageExt+"/", tName+".java",buffer);   
+				    
+         }
+
+      }
+%]

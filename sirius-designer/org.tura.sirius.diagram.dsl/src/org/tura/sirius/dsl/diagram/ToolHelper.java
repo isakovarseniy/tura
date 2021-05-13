@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -23,6 +23,7 @@ import org.eclipse.sirius.viewpoint.description.tool.Case;
 import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
 import org.eclipse.sirius.viewpoint.description.tool.ContainerViewVariable;
 import org.eclipse.sirius.viewpoint.description.tool.CreateInstance;
+import org.eclipse.sirius.viewpoint.description.tool.Default;
 import org.eclipse.sirius.viewpoint.description.tool.DropContainerVariable;
 import org.eclipse.sirius.viewpoint.description.tool.EditMaskVariables;
 import org.eclipse.sirius.viewpoint.description.tool.ElementDeleteVariable;
@@ -172,6 +173,12 @@ public class ToolHelper {
 		return var;
 	}
 
+	public static Default createDefault() {
+		Default var = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createDefault();
+		return var;
+	}
+	
+	
 	public static Switch createSwitch() {
 		Switch var = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createSwitch();
 		return var;

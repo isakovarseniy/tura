@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -125,6 +125,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -134,6 +135,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -146,6 +148,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNamespace() {
 		return namespace;
 	}
@@ -155,6 +158,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNamespace(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;
@@ -167,6 +171,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTypename() {
 		return typename;
 	}
@@ -176,6 +181,7 @@ public class XMLTypeMapperImpl extends TypeMapperImpl implements XMLTypeMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypename(String newTypename) {
 		String oldTypename = typename;
 		typename = newTypename;

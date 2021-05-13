@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link artifact.TechLeaf#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.TechLeaf#getName <em>Name</em>}</li>
  *   <li>{@link artifact.TechLeaf#getHints <em>Hints</em>}</li>
  *   <li>{@link artifact.TechLeaf#getConfigVariables <em>Config Variables</em>}</li>
@@ -67,6 +68,28 @@ public interface TechLeaf extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Key Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key Id</em>' attribute.
+	 * @see #setKeyId(String)
+	 * @see artifact.ArtifactPackage#getTechLeaf_KeyId()
+	 * @model
+	 * @generated
+	 */
+	String getKeyId();
+
+	/**
+	 * Sets the value of the '{@link artifact.TechLeaf#getKeyId <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key Id</em>' attribute.
+	 * @see #getKeyId()
+	 * @generated
+	 */
+	void setKeyId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

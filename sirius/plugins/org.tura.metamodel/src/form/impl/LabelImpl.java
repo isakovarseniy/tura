@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -98,6 +98,7 @@ public class LabelImpl extends UielementImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -122,6 +123,7 @@ public class LabelImpl extends UielementImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -141,6 +143,7 @@ public class LabelImpl extends UielementImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -150,6 +153,7 @@ public class LabelImpl extends UielementImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;

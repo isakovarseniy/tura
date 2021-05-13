@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -171,6 +171,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -180,6 +181,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -192,6 +194,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -201,6 +204,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -213,6 +217,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getMaster() {
 		if (master != null && master.eIsProxy()) {
 			InternalEObject oldMaster = (InternalEObject)master;
@@ -239,6 +244,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaster(DataControl newMaster) {
 		DataControl oldMaster = master;
 		master = newMaster;
@@ -251,6 +257,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getDetail() {
 		if (detail != null && detail.eIsProxy()) {
 			InternalEObject oldDetail = (InternalEObject)detail;
@@ -277,6 +284,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDetail(DataControl newDetail) {
 		DataControl oldDetail = detail;
 		detail = newDetail;
@@ -289,6 +297,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsTree() {
 		return isTree;
 	}
@@ -298,6 +307,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsTree(boolean newIsTree) {
 		boolean oldIsTree = isTree;
 		isTree = newIsTree;
@@ -310,6 +320,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Link> getLinks() {
 		if (links == null) {
 			links = new EObjectContainmentEList<Link>(Link.class, this, FormPackage.RELATION__LINKS);

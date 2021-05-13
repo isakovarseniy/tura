@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -77,6 +77,7 @@ public class OptionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addKeyIdPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -96,6 +97,28 @@ public class OptionItemProvider
 				 getString("_UI_Option_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Option_uid_feature", "_UI_Option_type"),
 				 ArtifactPackage.Literals.OPTION__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Key Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Option_keyId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Option_keyId_feature", "_UI_Option_type"),
+				 ArtifactPackage.Literals.OPTION__KEY_ID,
 				 true,
 				 false,
 				 false,
@@ -165,6 +188,7 @@ public class OptionItemProvider
 
 		switch (notification.getFeatureID(Option.class)) {
 			case ArtifactPackage.OPTION__UID:
+			case ArtifactPackage.OPTION__KEY_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

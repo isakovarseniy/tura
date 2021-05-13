@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -95,6 +95,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactGroup createArtifactGroup() {
 		ArtifactGroupImpl artifactGroup = new ArtifactGroupImpl();
 		return artifactGroup;
@@ -105,6 +106,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TechLeaf createTechLeaf() {
 		TechLeafImpl techLeaf = new TechLeafImpl();
 		return techLeaf;
@@ -115,6 +117,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Artifact createArtifact() {
 		ArtifactImpl artifact = new ArtifactImpl();
 		return artifact;
@@ -125,6 +128,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GenerationHintWithNickName createGenerationHintWithNickName() {
 		GenerationHintWithNickNameImpl generationHintWithNickName = new GenerationHintWithNickNameImpl();
 		return generationHintWithNickName;
@@ -135,6 +139,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigVariableWithNickName createConfigVariableWithNickName() {
 		ConfigVariableWithNickNameImpl configVariableWithNickName = new ConfigVariableWithNickNameImpl();
 		return configVariableWithNickName;
@@ -145,6 +150,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigHashWithNickName createConfigHashWithNickName() {
 		ConfigHashWithNickNameImpl configHashWithNickName = new ConfigHashWithNickNameImpl();
 		return configHashWithNickName;
@@ -155,6 +161,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GenerationHint createGenerationHint() {
 		GenerationHintImpl generationHint = new GenerationHintImpl();
 		return generationHint;
@@ -165,6 +172,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigVariable createConfigVariable() {
 		ConfigVariableImpl configVariable = new ConfigVariableImpl();
 		return configVariable;
@@ -175,6 +183,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigHash createConfigHash() {
 		ConfigHashImpl configHash = new ConfigHashImpl();
 		return configHash;
@@ -185,6 +194,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelQuery createModelQuery() {
 		ModelQueryImpl modelQuery = new ModelQueryImpl();
 		return modelQuery;
@@ -195,6 +205,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QueryParameter createQueryParameter() {
 		QueryParameterImpl queryParameter = new QueryParameterImpl();
 		return queryParameter;
@@ -205,6 +216,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Technology createTechnology() {
 		TechnologyImpl technology = new TechnologyImpl();
 		return technology;
@@ -215,6 +227,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Option createOption() {
 		OptionImpl option = new OptionImpl();
 		return option;
@@ -225,6 +238,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Categorized createCategorized() {
 		CategorizedImpl categorized = new CategorizedImpl();
 		return categorized;
@@ -235,6 +249,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Classifier createClassifier() {
 		ClassifierImpl classifier = new ClassifierImpl();
 		return classifier;
@@ -245,6 +260,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactPackage getArtifactPackage() {
 		return (ArtifactPackage)getEPackage();
 	}

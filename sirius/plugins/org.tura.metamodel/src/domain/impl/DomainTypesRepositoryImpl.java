@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -46,6 +46,7 @@ import type.TypeGroup;
  * </p>
  * <ul>
  *   <li>{@link domain.impl.DomainTypesRepositoryImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.DomainTypesRepositoryImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link domain.impl.DomainTypesRepositoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainTypesRepositoryImpl#getRepositoryPackages <em>Repository Packages</em>}</li>
  * </ul>
@@ -72,6 +73,26 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -127,6 +148,7 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -136,6 +158,7 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -148,6 +171,30 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_TYPES_REPOSITORY__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -157,6 +204,7 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -169,6 +217,7 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TypeGroup> getRepositoryPackages() {
 		if (repositoryPackages == null) {
 			repositoryPackages = new EObjectContainmentEList<TypeGroup>(TypeGroup.class, this, DomainPackage.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES);
@@ -200,6 +249,8 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 		switch (featureID) {
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__UID:
 				return getUid();
+			case DomainPackage.DOMAIN_TYPES_REPOSITORY__KEY_ID:
+				return getKeyId();
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__NAME:
 				return getName();
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES:
@@ -219,6 +270,9 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 		switch (featureID) {
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__UID:
 				setUid((String)newValue);
+				return;
+			case DomainPackage.DOMAIN_TYPES_REPOSITORY__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__NAME:
 				setName((String)newValue);
@@ -242,6 +296,9 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case DomainPackage.DOMAIN_TYPES_REPOSITORY__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -262,6 +319,8 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 		switch (featureID) {
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case DomainPackage.DOMAIN_TYPES_REPOSITORY__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES:
@@ -282,6 +341,8 @@ public class DomainTypesRepositoryImpl extends EObjectImpl implements DomainType
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -36,12 +36,31 @@ import type.TypePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link type.impl.AttributePointerImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.AttributePointerImpl#getAttributeRef <em>Attribute Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class AttributePointerImpl extends EObjectImpl implements AttributePointer {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getAttributeRef() <em>Attribute Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -76,6 +95,30 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ATTRIBUTE_POINTER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Attribute getAttributeRef() {
 		if (attributeRef != null && attributeRef.eIsProxy()) {
 			InternalEObject oldAttributeRef = (InternalEObject)attributeRef;
@@ -102,6 +145,7 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAttributeRef(Attribute newAttributeRef) {
 		Attribute oldAttributeRef = attributeRef;
 		attributeRef = newAttributeRef;
@@ -117,6 +161,8 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case TypePackage.ATTRIBUTE_POINTER__UID:
+				return getUid();
 			case TypePackage.ATTRIBUTE_POINTER__ATTRIBUTE_REF:
 				if (resolve) return getAttributeRef();
 				return basicGetAttributeRef();
@@ -132,6 +178,9 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TypePackage.ATTRIBUTE_POINTER__UID:
+				setUid((String)newValue);
+				return;
 			case TypePackage.ATTRIBUTE_POINTER__ATTRIBUTE_REF:
 				setAttributeRef((Attribute)newValue);
 				return;
@@ -147,6 +196,9 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TypePackage.ATTRIBUTE_POINTER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case TypePackage.ATTRIBUTE_POINTER__ATTRIBUTE_REF:
 				setAttributeRef((Attribute)null);
 				return;
@@ -162,10 +214,28 @@ public class AttributePointerImpl extends EObjectImpl implements AttributePointe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case TypePackage.ATTRIBUTE_POINTER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case TypePackage.ATTRIBUTE_POINTER__ATTRIBUTE_REF:
 				return attributeRef != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AttributePointerImpl

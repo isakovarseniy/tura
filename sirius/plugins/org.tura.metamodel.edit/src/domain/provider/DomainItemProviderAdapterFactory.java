@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -247,11 +247,58 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.DomainMappers} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainMappersItemProvider domainMappersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.DomainMappers}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainMappersAdapter() {
+		if (domainMappersItemProvider == null) {
+			domainMappersItemProvider = new DomainMappersItemProvider(this);
+		}
+
+		return domainMappersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.DomainMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainMapperItemProvider domainMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.DomainMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainMapperAdapter() {
+		if (domainMapperItemProvider == null) {
+			domainMapperItemProvider = new DomainMapperItemProvider(this);
+		}
+
+		return domainMapperItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -262,6 +309,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -310,6 +358,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -320,6 +369,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -330,6 +380,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -344,6 +395,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (domainItemProvider != null) domainItemProvider.dispose();
 		if (domainArtifactsItemProvider != null) domainArtifactsItemProvider.dispose();
@@ -352,6 +404,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (domainTypesRepositoryItemProvider != null) domainTypesRepositoryItemProvider.dispose();
 		if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();
 		if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();
+		if (domainMappersItemProvider != null) domainMappersItemProvider.dispose();
+		if (domainMapperItemProvider != null) domainMapperItemProvider.dispose();
 	}
 
 }

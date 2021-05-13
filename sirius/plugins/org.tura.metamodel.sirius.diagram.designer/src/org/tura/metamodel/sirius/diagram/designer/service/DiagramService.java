@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypeGro
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypePointerTypeName;
 
 import application.Application;
+import application.ApplicationFactory;
 import application.ApplicationGroup;
 import application.ApplicationInfrastructureLayer;
 import application.ApplicationInfrastructureLayers;
@@ -54,6 +55,7 @@ import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
+import domain.DomainMapper;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
@@ -101,6 +103,10 @@ import message.Language;
 import message.Message;
 import message.MessageLibrary;
 import message.Translation;
+import objectmapper.ObjectMapper;
+import objectmapper.ObjectMapperGroup;
+import objectmapper.OmRelation;
+import objectmapper.ProcessingStage;
 import recipe.Component;
 import recipe.Configuration;
 import recipe.Infrastructure;
@@ -108,10 +114,12 @@ import recipe.Ingredient;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
+import recipe.Recipe;
 import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.Assosiation;
+import type.Attribute;
 import type.Containment;
 import type.Link;
 import type.Primitive;
@@ -121,9 +129,15 @@ import type.TypeElement;
 import type.TypeGroup;
 import type.TypePointer;
 import type.TypeReference;
+import domain.DomainMappers;
 
 public class DiagramService {
 
+	
+	public Object createApp(EObject qqq) {
+		return ApplicationFactory.eINSTANCE.createApplication();
+	}
+	
 	public String getTypeReferenceName(TypeReference typeRef) {
 		if (typeRef.getTypeRef() != null) {
 			return (String) new TypePointerTypeName().getFeatureValue(typeRef, null);
@@ -140,6 +154,22 @@ public class DiagramService {
 		}
 	}
 
+	public boolean enableContextMenuForRecipe(EObject eobject) {
+		if (eobject instanceof Recipe) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean enableContextMenuForMapperRefresh(EObject eobject) {
+		if (eobject instanceof ObjectMapper) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+	
 	public boolean enableContextMenuForConfiguration(EObject eobject) {
 		if (eobject instanceof Configuration) {
 			return true;
@@ -238,6 +268,23 @@ public class DiagramService {
 		return "Domain Application" + ((DomainApplications) (domainApplication.eContainer())).getApplications().size();
 	}
 
+	
+	public String generateName(ProcessingStage processingStage) {
+		return "Processing Stage" + ((ObjectMapperGroup) (processingStage.eContainer())).getStages().size();
+	}
+
+	
+
+	public String generateName(DomainMapper domainMapper) {
+		return "Domain Mapper" + ((DomainMappers) (domainMapper.eContainer())).getMappers().size();
+	}
+	
+
+	public String generateName(ObjectMapperGroup objectMapperPackage) {
+		return "Object Mapper" + ((DomainMapper) (objectMapperPackage.eContainer())).getObjectMapperPackages().size();
+	}
+
+	
 	public String generateName(ApplicationGroup applicationGroup) {
 		return "Application package"
 				+ ((DomainApplication) (applicationGroup.eContainer())).getApplicationPackages().size();
@@ -470,6 +517,21 @@ public class DiagramService {
 		
 	}
 	
+	public String generateName(OmRelation omrelation) {
+		if (omrelation.getTypeRef()== null) {
+			return "relatioin  -  n/a";
+		}
+		if (omrelation.getTypeRef() instanceof Type){
+			return "relatioin - " + omrelation.getTypeRef().getName();
+		}
+		if (omrelation.getTypeRef() instanceof TypeReference){
+			TypeReference ref = (TypeReference) omrelation.getTypeRef();
+			return "relatioin - " + ref.getTypeRef().getName();
+		}
+		return "null";
+		
+	}	
+	
 	
 	public String generateName(XMLPackageMapper pkg) {
 		if (pkg.getPackageRef() == null) {
@@ -659,6 +721,18 @@ public class DiagramService {
 		}
 	}
 
+	public boolean checkOmRelationDropDown(OmRelation omrelation){
+		if (omrelation.getTypeRef() instanceof Primitive){
+			return false;
+		}
+
+		if (omrelation.getObjectMapperRef() == null){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+	
 	
 	public boolean checkRelationMapperSefDropDown(RelationMapper relationMapper){
 		if (relationMapper.getTypeRef() instanceof Primitive){
@@ -698,13 +772,33 @@ public class DiagramService {
 		}
 	}	
 	
+	public boolean showOmRelation(OmRelation omrelation){
+		if (omrelation.getObjectMapperRef() == null){
+			ObjectMapper srcDC = (ObjectMapper) omrelation.eContainer();
+			
+			Type tp = null;
+			if (omrelation.getTypeRef() instanceof Type){
+				tp = (Type) omrelation.getTypeRef();
+			}
+			if (omrelation.getTypeRef() instanceof TypeReference){
+				tp = (Type) ((TypeReference) omrelation.getTypeRef()).getTypeRef();
+			}
+			
+			Assosiation assosiation =  new QueryHelper().getAssosiation((Type)srcDC.getBaseType().getTypeRef(), tp );
+			return !checkIfNOAssosiatioin(assosiation);
+			
+		}else{
+			return false;
+		}
+	}	
+	
+	
 
 	public DataControl findDataControlForRelation(DataControl dataControl){
 		return new QueryHelper().findDataControlForRelation(dataControl);
 	}
 	
 	public DataControl findDataControlForRelation(Object dataControl){
-		System.out.println(dataControl.getClass().getName());
 		return null;
 	}
 
@@ -714,6 +808,12 @@ public class DiagramService {
 		new Helper1().populateObjectMapper(datacontrol, datacontrol);
 		return generateUID(datacontrol);
 	}
+
+	public String generateUIDForObjectMapper(ObjectMapper mapper){
+		new Helper1().populateObjectMapper(mapper, mapper);
+		return generateUID(mapper);
+	}
+
 	
 	public boolean checkIfSourcetContainment(Assosiation assosiation){
 		if (assosiation.isInternal() ){
@@ -764,6 +864,26 @@ public class DiagramService {
 	}	
 	
 	
+   public List<OmRelation> getOmRelation(ObjectMapperGroup group) {
+	   return new QueryHelper().getOmRelation(group);
+   }
+	
+
+   public List<ProcessingStage> getProcessingStage2ProcessingStageRelationship(ObjectMapperGroup group) {
+	   return new QueryHelper().getProcessingStage2ProcessingStageRelationship(group);
+   }
+
+   
+   public List<ObjectMapper> getProcessingStage2ObjectMapperRelationship(ObjectMapperGroup group){
+	   return new QueryHelper().getProcessingStage2ObjectMapperRelationship(group);
+   }
+   
+   public List<Attribute> getAttributes(ObjectMapper objectMapper) {
+	   Type type = (Type) objectMapper.getBaseType().getTypeRef();
+	   return new QueryHelper().getAttributesForType(type);
+  }
+
+   
 	public boolean checkIfNOAssosiatioin(Assosiation assosiation){
 //		for ( Classifier c : assosiation.getClassifiers()){
 //			if ( c.getHint().getName().equals("No Assosiation")){
@@ -814,7 +934,31 @@ public class DiagramService {
 		return null;
 	}
 	
+	public TypeElement getBaseType( TypePointer pointer, OmRelation element){
+		TypeElement e = element.getTypeRef();
+		if (e instanceof Type){
+			return e;
+		}
+		if (e instanceof TypeReference){
+			return  ((TypeReference)e).getTypeRef();
+		}
+		return null;
+	}	
+	
+	
 	public String getBaseTypeName( DataControl dc, RelationMapper element){
+		TypeElement e = element.getTypeRef();
+		if (e instanceof Type){
+			return e.getName();
+		}
+		if (e instanceof TypeReference){
+			return  ((TypeReference)e).getTypeRef().getName();
+		}
+		return null;
+	}	
+	
+	
+	public String getBaseTypeName( ObjectMapper dc, OmRelation element){
 		TypeElement e = element.getTypeRef();
 		if (e instanceof Type){
 			return e.getName();

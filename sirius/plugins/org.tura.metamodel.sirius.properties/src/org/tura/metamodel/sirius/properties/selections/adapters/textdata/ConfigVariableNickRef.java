@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -28,21 +28,21 @@ public class ConfigVariableNickRef  implements TextDataAdapter {
 		if (eObject == null)
 			return "";
 		ConfigVariableWithNickName opt = (ConfigVariableWithNickName) eObject;
-		if (opt.getVar() == null || opt.getVar().getName() == null)
+		if (opt.getVarRef() == null || opt.getVarRef().getName() == null)
 			return "";
 		return getName(opt);
 	}
 
 	@Override
 	public EStructuralFeature getFeature() {
-		return ArtifactPackage.eINSTANCE.getConfigVariableWithNickName_Var();
+		return ArtifactPackage.eINSTANCE.getConfigVariableWithNickName_VarRef();
 	}
 
 	private String getName(ConfigVariableWithNickName opt){
-		  if (opt.getVar().eContainer() instanceof TechLeaf){
-				return ((TechLeaf) (opt.getVar().eContainer())).getName() + ":" + opt.getVar().getName();
+		  if (opt.getVarRef().eContainer() instanceof TechLeaf){
+				return ((TechLeaf) (opt.getVarRef().eContainer())).getName() + ":" + opt.getVarRef().getName();
 		  }else{
-				return  opt.getVar().getName();
+				return  opt.getVarRef().getName();
 		  }
 	}
 			

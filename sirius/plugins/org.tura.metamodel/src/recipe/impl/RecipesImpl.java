@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -186,6 +186,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -195,6 +196,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -207,6 +209,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -216,6 +219,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -228,6 +232,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Recipe getRecipe() {
 		return recipe;
 	}
@@ -252,6 +257,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRecipe(Recipe newRecipe) {
 		if (newRecipe != recipe) {
 			NotificationChain msgs = null;
@@ -271,6 +277,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Configuration> getConfigurations() {
 		if (configurations == null) {
 			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this, RecipePackage.RECIPES__CONFIGURATIONS);
@@ -283,6 +290,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Infrastructure> getInfrastructures() {
 		if (infrastructures == null) {
 			infrastructures = new EObjectContainmentEList<Infrastructure>(Infrastructure.class, this, RecipePackage.RECIPES__INFRASTRUCTURES);
@@ -295,6 +303,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ConfigExtension> getConfigExtensions() {
 		if (configExtensions == null) {
 			configExtensions = new EObjectContainmentEList<ConfigExtension>(ConfigExtension.class, this, RecipePackage.RECIPES__CONFIG_EXTENSIONS);
@@ -307,6 +316,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Recipe2Infrastructure> getRecipe2Infrastructures() {
 		if (recipe2Infrastructures == null) {
 			recipe2Infrastructures = new EObjectContainmentEList<Recipe2Infrastructure>(Recipe2Infrastructure.class, this, RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES);
@@ -319,6 +329,7 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Infrastructure2Configuration> getInfrastructure2Configurations() {
 		if (infrastructure2Configurations == null) {
 			infrastructure2Configurations = new EObjectContainmentEList<Infrastructure2Configuration>(Infrastructure2Configuration.class, this, RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS);

@@ -23,14 +23,13 @@
 	<parent>
 		<groupId>org.tura</groupId>
 		<artifactId>platform</artifactId>
-		<version>5.0.5</version>
+		<version>5.1.0</version>
 	</parent>
 
 	<groupId>org.tura.platform</groupId>
 	<artifactId>commons-selenium</artifactId>
 
 	<name>Tura :: Platform :: Commons :: Selenium</name>
-	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
 		<dependency>

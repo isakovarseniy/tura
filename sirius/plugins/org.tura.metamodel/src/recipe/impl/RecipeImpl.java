@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -173,6 +173,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -182,6 +183,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -194,6 +196,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -203,6 +206,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -215,6 +219,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -224,6 +229,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -236,6 +242,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Ingredient> getIngredients() {
 		if (ingredients == null) {
 			ingredients = new EObjectContainmentEList<Ingredient>(Ingredient.class, this, RecipePackage.RECIPE__INGREDIENTS);
@@ -248,6 +255,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DeploymentComponent> getDeplymentStep() {
 		if (deplymentStep == null) {
 			deplymentStep = new EObjectContainmentEList<DeploymentComponent>(DeploymentComponent.class, this, RecipePackage.RECIPE__DEPLYMENT_STEP);
@@ -260,6 +268,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeploymentStarStep getStartSeq() {
 		return startSeq;
 	}
@@ -284,6 +293,7 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartSeq(DeploymentStarStep newStartSeq) {
 		if (newStartSeq != startSeq) {
 			NotificationChain msgs = null;

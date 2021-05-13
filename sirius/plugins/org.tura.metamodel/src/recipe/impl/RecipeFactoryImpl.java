@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -102,6 +102,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Recipes createRecipes() {
 		RecipesImpl recipes = new RecipesImpl();
 		return recipes;
@@ -112,6 +113,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Recipe createRecipe() {
 		RecipeImpl recipe = new RecipeImpl();
 		return recipe;
@@ -122,6 +124,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConfigExtension createConfigExtension() {
 		ConfigExtensionImpl configExtension = new ConfigExtensionImpl();
 		return configExtension;
@@ -132,6 +135,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Recipe2Infrastructure createRecipe2Infrastructure() {
 		Recipe2InfrastructureImpl recipe2Infrastructure = new Recipe2InfrastructureImpl();
 		return recipe2Infrastructure;
@@ -142,6 +146,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Infrastructure2Configuration createInfrastructure2Configuration() {
 		Infrastructure2ConfigurationImpl infrastructure2Configuration = new Infrastructure2ConfigurationImpl();
 		return infrastructure2Configuration;
@@ -152,6 +157,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeploymentComponent createDeploymentComponent() {
 		DeploymentComponentImpl deploymentComponent = new DeploymentComponentImpl();
 		return deploymentComponent;
@@ -162,6 +168,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DeploymentStarStep createDeploymentStarStep() {
 		DeploymentStarStepImpl deploymentStarStep = new DeploymentStarStepImpl();
 		return deploymentStarStep;
@@ -172,6 +179,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UsingMappers createUsingMappers() {
 		UsingMappersImpl usingMappers = new UsingMappersImpl();
 		return usingMappers;
@@ -182,6 +190,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Ingredient createIngredient() {
 		IngredientImpl ingredient = new IngredientImpl();
 		return ingredient;
@@ -192,6 +201,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Component createComponent() {
 		ComponentImpl component = new ComponentImpl();
 		return component;
@@ -202,6 +212,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavaComponent createJavaComponent() {
 		JavaComponentImpl javaComponent = new JavaComponentImpl();
 		return javaComponent;
@@ -212,6 +223,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JavaScriptComponent createJavaScriptComponent() {
 		JavaScriptComponentImpl javaScriptComponent = new JavaScriptComponentImpl();
 		return javaScriptComponent;
@@ -222,6 +234,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Infrastructure createInfrastructure() {
 		InfrastructureImpl infrastructure = new InfrastructureImpl();
 		return infrastructure;
@@ -232,6 +245,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
@@ -242,6 +256,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelMapper createModelMapper() {
 		ModelMapperImpl modelMapper = new ModelMapperImpl();
 		return modelMapper;
@@ -252,6 +267,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
@@ -262,6 +278,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HashProperty createHashProperty() {
 		HashPropertyImpl hashProperty = new HashPropertyImpl();
 		return hashProperty;
@@ -272,6 +289,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public KeyValuePair createKeyValuePair() {
 		KeyValuePairImpl keyValuePair = new KeyValuePairImpl();
 		return keyValuePair;
@@ -282,6 +300,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MappingTecnologiy createMappingTecnologiy() {
 		MappingTecnologiyImpl mappingTecnologiy = new MappingTecnologiyImpl();
 		return mappingTecnologiy;
@@ -292,6 +311,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Query createQuery() {
 		QueryImpl query = new QueryImpl();
 		return query;
@@ -302,6 +322,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QueryVariable createQueryVariable() {
 		QueryVariableImpl queryVariable = new QueryVariableImpl();
 		return queryVariable;
@@ -312,6 +333,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactRef createArtifactRef() {
 		ArtifactRefImpl artifactRef = new ArtifactRefImpl();
 		return artifactRef;
@@ -322,6 +344,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RecipePackage getRecipePackage() {
 		return (RecipePackage)getEPackage();
 	}

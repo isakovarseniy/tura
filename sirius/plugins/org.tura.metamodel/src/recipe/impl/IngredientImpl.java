@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -228,6 +228,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -237,6 +238,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -249,6 +251,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -258,6 +261,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -270,6 +274,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -279,6 +284,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -291,6 +297,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -300,6 +307,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -312,6 +320,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
 			components = new EObjectContainmentEList<Component>(Component.class, this, RecipePackage.INGREDIENT__COMPONENTS);
@@ -324,6 +333,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSkip() {
 		return skip;
 	}
@@ -333,6 +343,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSkip(boolean newSkip) {
 		boolean oldSkip = skip;
 		skip = newSkip;
@@ -345,6 +356,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MappingLayer> getVewLayer() {
 		if (vewLayer == null) {
 			vewLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__VEW_LAYER);
@@ -357,6 +369,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MappingLayer> getModelLayer() {
 		if (modelLayer == null) {
 			modelLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__MODEL_LAYER);
@@ -369,6 +382,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MappingLayer getControllerLayer() {
 		if (controllerLayer != null && controllerLayer.eIsProxy()) {
 			InternalEObject oldControllerLayer = (InternalEObject)controllerLayer;
@@ -395,6 +409,7 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setControllerLayer(MappingLayer newControllerLayer) {
 		MappingLayer oldControllerLayer = controllerLayer;
 		controllerLayer = newControllerLayer;

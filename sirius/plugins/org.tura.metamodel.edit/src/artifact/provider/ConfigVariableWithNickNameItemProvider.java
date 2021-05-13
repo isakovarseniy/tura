@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -77,8 +77,9 @@ public class ConfigVariableWithNickNameItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addKeyIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addVarPropertyDescriptor(object);
+			addVarRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,28 @@ public class ConfigVariableWithNickNameItemProvider
 				 getString("_UI_ConfigVariableWithNickName_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_uid_feature", "_UI_ConfigVariableWithNickName_type"),
 				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Key Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConfigVariableWithNickName_keyId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_keyId_feature", "_UI_ConfigVariableWithNickName_type"),
+				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID,
 				 true,
 				 false,
 				 false,
@@ -128,19 +151,19 @@ public class ConfigVariableWithNickNameItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Var feature.
+	 * This adds a property descriptor for the Var Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVarPropertyDescriptor(Object object) {
+	protected void addVarRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConfigVariableWithNickName_var_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_var_feature", "_UI_ConfigVariableWithNickName_type"),
-				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__VAR,
+				 getString("_UI_ConfigVariableWithNickName_varRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_varRef_feature", "_UI_ConfigVariableWithNickName_type"),
+				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__VAR_REF,
 				 true,
 				 false,
 				 true,
@@ -188,6 +211,7 @@ public class ConfigVariableWithNickNameItemProvider
 
 		switch (notification.getFeatureID(ConfigVariableWithNickName.class)) {
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__KEY_ID:
 			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

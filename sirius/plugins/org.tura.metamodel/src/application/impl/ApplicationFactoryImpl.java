@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -97,6 +97,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationGroup createApplicationGroup() {
 		ApplicationGroupImpl applicationGroup = new ApplicationGroupImpl();
 		return applicationGroup;
@@ -107,6 +108,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Application createApplication() {
 		ApplicationImpl application = new ApplicationImpl();
 		return application;
@@ -117,6 +119,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationInfrastructureLayers createApplicationInfrastructureLayers() {
 		ApplicationInfrastructureLayersImpl applicationInfrastructureLayers = new ApplicationInfrastructureLayersImpl();
 		return applicationInfrastructureLayers;
@@ -127,6 +130,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationInfrastructureLayer createApplicationInfrastructureLayer() {
 		ApplicationInfrastructureLayerImpl applicationInfrastructureLayer = new ApplicationInfrastructureLayerImpl();
 		return applicationInfrastructureLayer;
@@ -137,6 +141,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMessageLibraries createApplicationMessageLibraries() {
 		ApplicationMessageLibrariesImpl applicationMessageLibraries = new ApplicationMessageLibrariesImpl();
 		return applicationMessageLibraries;
@@ -147,6 +152,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationLanguages createApplicationLanguages() {
 		ApplicationLanguagesImpl applicationLanguages = new ApplicationLanguagesImpl();
 		return applicationLanguages;
@@ -157,6 +163,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMessageLibrary createApplicationMessageLibrary() {
 		ApplicationMessageLibraryImpl applicationMessageLibrary = new ApplicationMessageLibraryImpl();
 		return applicationMessageLibrary;
@@ -167,6 +174,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRealms createApplicationRealms() {
 		ApplicationRealmsImpl applicationRealms = new ApplicationRealmsImpl();
 		return applicationRealms;
@@ -177,6 +185,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRealm createApplicationRealm() {
 		ApplicationRealmImpl applicationRealm = new ApplicationRealmImpl();
 		return applicationRealm;
@@ -187,6 +196,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationStyleLibraries createApplicationStyleLibraries() {
 		ApplicationStyleLibrariesImpl applicationStyleLibraries = new ApplicationStyleLibrariesImpl();
 		return applicationStyleLibraries;
@@ -197,6 +207,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationStyle createApplicationStyle() {
 		ApplicationStyleImpl applicationStyle = new ApplicationStyleImpl();
 		return applicationStyle;
@@ -207,6 +218,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationUILayer createApplicationUILayer() {
 		ApplicationUILayerImpl applicationUILayer = new ApplicationUILayerImpl();
 		return applicationUILayer;
@@ -217,6 +229,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationUIPackage createApplicationUIPackage() {
 		ApplicationUIPackageImpl applicationUIPackage = new ApplicationUIPackageImpl();
 		return applicationUIPackage;
@@ -227,6 +240,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRecipes createApplicationRecipes() {
 		ApplicationRecipesImpl applicationRecipes = new ApplicationRecipesImpl();
 		return applicationRecipes;
@@ -237,6 +251,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationRecipe createApplicationRecipe() {
 		ApplicationRecipeImpl applicationRecipe = new ApplicationRecipeImpl();
 		return applicationRecipe;
@@ -247,6 +262,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMappers createApplicationMappers() {
 		ApplicationMappersImpl applicationMappers = new ApplicationMappersImpl();
 		return applicationMappers;
@@ -257,6 +273,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMapper createApplicationMapper() {
 		ApplicationMapperImpl applicationMapper = new ApplicationMapperImpl();
 		return applicationMapper;
@@ -267,6 +284,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationPackage getApplicationPackage() {
 		return (ApplicationPackage)getEPackage();
 	}

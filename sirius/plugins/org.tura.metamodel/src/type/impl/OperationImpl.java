@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -52,6 +52,7 @@ import type.TypePackage;
  * <ul>
  *   <li>{@link type.impl.OperationImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.OperationImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
@@ -89,6 +90,26 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -154,6 +175,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, TypePackage.OPERATION__CLASSIFIERS);
@@ -166,6 +188,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -175,6 +198,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -187,6 +211,30 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.OPERATION__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -196,6 +244,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -208,6 +257,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, TypePackage.OPERATION__PARAMETERS);
@@ -220,6 +270,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReturnValue getReturnValue() {
 		return returnValue;
 	}
@@ -244,6 +295,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReturnValue(ReturnValue newReturnValue) {
 		if (newReturnValue != returnValue) {
 			NotificationChain msgs = null;
@@ -288,6 +340,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return getClassifiers();
 			case TypePackage.OPERATION__UID:
 				return getUid();
+			case TypePackage.OPERATION__KEY_ID:
+				return getKeyId();
 			case TypePackage.OPERATION__NAME:
 				return getName();
 			case TypePackage.OPERATION__PARAMETERS:
@@ -313,6 +367,9 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return;
 			case TypePackage.OPERATION__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.OPERATION__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.OPERATION__NAME:
 				setName((String)newValue);
@@ -342,6 +399,9 @@ public class OperationImpl extends SecuredImpl implements Operation {
 			case TypePackage.OPERATION__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.OPERATION__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.OPERATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -367,6 +427,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return classifiers != null && !classifiers.isEmpty();
 			case TypePackage.OPERATION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.OPERATION__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.OPERATION__PARAMETERS:
@@ -421,6 +483,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

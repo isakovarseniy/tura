@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -151,6 +151,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -160,6 +161,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -172,6 +174,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -181,6 +184,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -193,6 +197,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ApplicationMapper> getMappers() {
 		if (mappers == null) {
 			mappers = new EObjectContainmentEList<ApplicationMapper>(ApplicationMapper.class, this, ApplicationPackage.APPLICATION_MAPPERS__MAPPERS);
@@ -205,6 +210,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MappingLayer> getAppLayers() {
 		if (appLayers == null) {
 			appLayers = new EObjectContainmentEList<MappingLayer>(MappingLayer.class, this, ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS);
@@ -217,6 +223,7 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Version> getVersions() {
 		if (versions == null) {
 			versions = new EObjectContainmentEList<Version>(Version.class, this, ApplicationPackage.APPLICATION_MAPPERS__VERSIONS);

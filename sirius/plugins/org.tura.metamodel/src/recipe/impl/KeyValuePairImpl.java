@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -126,6 +126,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -135,6 +136,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -147,6 +149,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return key;
 	}
@@ -156,6 +159,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
@@ -168,6 +172,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -177,6 +182,7 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -82,6 +82,7 @@ public class ViewPortHolderImpl extends HTMLLayerHolderImpl implements ViewPortH
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ViewElement> getViewElement() {
 		if (viewElement == null) {
 			viewElement = new EObjectContainmentEList<ViewElement>(ViewElement.class, this, FormPackage.VIEW_PORT_HOLDER__VIEW_ELEMENT);

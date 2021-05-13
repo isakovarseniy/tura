@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -110,6 +110,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -119,6 +120,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -131,6 +133,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Technology getTechRef() {
 		if (techRef != null && techRef.eIsProxy()) {
 			InternalEObject oldTechRef = (InternalEObject)techRef;
@@ -157,6 +160,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTechRef(Technology newTechRef) {
 		Technology oldTechRef = techRef;
 		techRef = newTechRef;
@@ -169,6 +173,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Option getValueRef() {
 		if (valueRef != null && valueRef.eIsProxy()) {
 			InternalEObject oldValueRef = (InternalEObject)valueRef;
@@ -195,6 +200,7 @@ public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnolo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValueRef(Option newValueRef) {
 		Option oldValueRef = valueRef;
 		valueRef = newValueRef;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -108,6 +108,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -117,6 +118,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -129,6 +131,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Group getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
@@ -155,6 +158,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(Group newSource) {
 		Group oldSource = source;
 		source = newSource;
@@ -167,6 +171,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Group getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
@@ -193,6 +198,7 @@ public class Group2GroupImpl extends EObjectImpl implements Group2Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(Group newTarget) {
 		Group oldTarget = target;
 		target = newTarget;

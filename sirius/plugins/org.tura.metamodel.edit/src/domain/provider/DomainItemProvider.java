@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -78,6 +78,7 @@ public class DomainItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addKeyIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +106,28 @@ public class DomainItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Key Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Domain_keyId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Domain_keyId_feature", "_UI_Domain_type"),
+				 DomainPackage.Literals.DOMAIN__KEY_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -119,6 +142,7 @@ public class DomainItemProvider
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_ARTIFACTS);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_TYPES);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_APPLICATIONS);
+			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_MAPPERS);
 		}
 		return childrenFeatures;
 	}
@@ -175,11 +199,13 @@ public class DomainItemProvider
 
 		switch (notification.getFeatureID(Domain.class)) {
 			case DomainPackage.DOMAIN__UID:
+			case DomainPackage.DOMAIN__KEY_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
+			case DomainPackage.DOMAIN__DOMAIN_MAPPERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -211,6 +237,11 @@ public class DomainItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__DOMAIN_APPLICATIONS,
 				 DomainFactory.eINSTANCE.createDomainApplications()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__DOMAIN_MAPPERS,
+				 DomainFactory.eINSTANCE.createDomainMappers()));
 	}
 
 	/**

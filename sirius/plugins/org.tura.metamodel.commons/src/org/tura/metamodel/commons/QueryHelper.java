@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -64,6 +64,12 @@ import form.Views;
 import mapper.Mapper;
 import mapper.MappingLayer;
 import mapper.Version;
+import objectmapper.AttributeConnector;
+import objectmapper.ObjectMapper;
+import objectmapper.ObjectMapperGroup;
+import objectmapper.OmRelation;
+import objectmapper.OperationConnector;
+import objectmapper.ProcessingStage;
 import recipe.Component;
 import recipe.ConfigExtension;
 import recipe.Configuration;
@@ -77,12 +83,14 @@ import recipe.Recipe;
 import recipe.Recipe2Infrastructure;
 import recipe.impl.Infrastructure2ConfigurationImpl;
 import type.Assosiation;
+import type.Attribute;
 import type.Generalization;
 import type.Primitive;
 import type.PrimitivesGroup;
 import type.Type;
 import type.TypeElement;
 import type.TypePackage;
+import type.TypeReference;
 
 public class QueryHelper {
 
@@ -181,7 +189,8 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Infrastructure getInfrastructure(Recipe recipe) throws Exception {
-		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.source.uid ='" + recipe.getUid() + "')";
+		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.source.uid ='" + recipe.getUid()
+				+ "')";
 
 		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(recipe, query);
 		if ((map != null) && (map.size() != 0))
@@ -1078,6 +1087,48 @@ public class QueryHelper {
 
 	}
 
+	public TechLeaf findTech(EObject obj, int level, String... hints) {
+		try {
+			if (hints.length == 0)
+				return null;
+
+			if (level == hints.length) {
+				return (TechLeaf) obj;
+			}
+
+			String query = null;
+			if (level == 0) {
+				query = "domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='" + hints[level] + "')";
+			} else {
+				query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+						+ "').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='" + hints[level] + "')";
+			}
+
+			@SuppressWarnings("unchecked")
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate(obj, query);
+			if (list == null || list.size() == 0) {
+				return null;
+			}
+			if (level == hints.length - 1) {
+				TechLeaf leaf = (TechLeaf) list.iterator().next();
+				return leaf;
+			}
+
+			for (Iterator<EObject> itr = list.iterator(); itr.hasNext();) {
+				EObject obj1 = itr.next();
+				TechLeaf leaf = findTech(obj1, ++level, hints);
+				if (leaf != null) {
+					return leaf;
+				}
+			}
+			return null;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+
+	}
+
 	private String findHint(EObject obj, int level, String... hints) {
 		try {
 			if (hints.length == 0)
@@ -1202,6 +1253,91 @@ public class QueryHelper {
 		relations.addAll(list2);
 
 		return relations;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<OmRelation> findRelation(ObjectMapper objectMapper) throws Exception {
+		String query = "objectmapper::Relation.allInstances()->select(r|r.master.uid ='" + objectMapper.getUid() + "')";
+		Collection<OmRelation> list1 = (Collection<OmRelation>) internalEvaluate((EObject) objectMapper, query);
+
+		query = "objectmapper::Relation.allInstances()->select(r|r.detail.uid ='" + objectMapper.getUid()
+				+ "'  and r.detail.uid <> r.master.uid )";
+		Collection<OmRelation> list2 = (Collection<OmRelation>) internalEvaluate((EObject) objectMapper, query);
+
+		ArrayList<OmRelation> relations = new ArrayList<OmRelation>();
+		relations.addAll(list1);
+		relations.addAll(list2);
+
+		return relations;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<OperationConnector> findOperationConnectorByTarget(AttributeConnector attributeConnector) {
+		ObjectMapper mp = (ObjectMapper) attributeConnector.getTarget().eContainer();
+
+		try {
+			String query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
+					+ "')";
+			Collection<OperationConnector> list1 = (Collection<OperationConnector>) internalEvaluate(
+					(EObject) attributeConnector, query);
+
+			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
+			relations.addAll(list1);
+
+			return relations;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+
+	}
+
+	public List<OmRelation> getOmRelation(ObjectMapperGroup group) {
+		List<OmRelation> array = new ArrayList<>();
+		for (ObjectMapper mp : group.getObjectMappers()) {
+			array.addAll(mp.getRelations());
+		}
+		return array;
+
+	}
+
+	public List<ProcessingStage> getProcessingStage2ProcessingStageRelationship(ObjectMapperGroup group) {
+		List<ProcessingStage> array = new ArrayList<>();
+		for (ProcessingStage ps : group.getStages()) {
+			if (ps.getNextStage() != null) {
+				array.add(ps);
+			}
+		}
+		return array;
+	}
+
+	public List<ObjectMapper> getProcessingStage2ObjectMapperRelationship(ObjectMapperGroup group) {
+		List<ObjectMapper> array = new ArrayList<>();
+		for (ObjectMapper ps : group.getObjectMappers()) {
+			if (ps.getStage() != null) {
+				array.add(ps);
+			}
+		}
+		return array;
+	}
+
+	public List<Attribute> getAttributesForType(Type type) {
+		List<Attribute> attrs = new ArrayList<>();
+
+		Collection<Generalization> ls = new QueryHelper().getTypeExtension(type);
+
+		if (ls.size() != 0) {
+			for (Generalization ext : ls) {
+				TypeElement typeElement = ext.getTarget();
+				if (typeElement instanceof Type)
+					attrs.addAll(getAttributesForType((Type) typeElement));
+
+				if (typeElement instanceof TypeReference)
+					attrs.addAll(getAttributesForType((Type) ((TypeReference) typeElement).getTypeRef()));
+			}
+		}
+		attrs.addAll(type.getAttributes());
+		return attrs;
 	}
 
 	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -190,6 +190,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getStyle() {
 		return style;
 	}
@@ -214,6 +215,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(Context newStyle) {
 		if (newStyle != style) {
 			NotificationChain msgs = null;
@@ -233,6 +235,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.MENU_ELEMENT__CLASSIFIERS);
@@ -245,6 +248,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getEnabled() {
 		return enabled;
 	}
@@ -269,6 +273,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(Context newEnabled) {
 		if (newEnabled != enabled) {
 			NotificationChain msgs = null;
@@ -288,6 +293,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -297,6 +303,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -309,6 +316,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.MENU_ELEMENT__FIELDS);
@@ -321,6 +329,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -330,6 +339,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -342,6 +352,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -351,6 +362,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;

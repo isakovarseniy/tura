@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -147,6 +147,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -156,6 +157,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -168,6 +170,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isConstant() {
 		return constant;
 	}
@@ -177,6 +180,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConstant(boolean newConstant) {
 		boolean oldConstant = constant;
 		constant = newConstant;
@@ -189,6 +193,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -198,6 +203,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
@@ -210,6 +216,7 @@ public class ContextValueImpl extends EObjectImpl implements ContextValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ExpressionPart> getExpression() {
 		if (expression == null) {
 			expression = new EObjectContainmentEList<ExpressionPart>(ExpressionPart.class, this, FormPackage.CONTEXT_VALUE__EXPRESSION);

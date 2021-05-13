@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -93,6 +93,7 @@ public class EnumeratorImpl extends TypeElementImpl implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, TypePackage.ENUMERATOR__CLASSIFIERS);
@@ -105,6 +106,7 @@ public class EnumeratorImpl extends TypeElementImpl implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EnumAttribute> getValues() {
 		if (values == null) {
 			values = new EObjectContainmentEList<EnumAttribute>(EnumAttribute.class, this, TypePackage.ENUMERATOR__VALUES);

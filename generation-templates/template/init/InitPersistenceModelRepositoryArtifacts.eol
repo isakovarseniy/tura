@@ -1,0 +1,194 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+operation domain::DomainArtifact InitPersistenceModelRepositoryArtifacts(){
+            var artifactGroup = self.createArtifactGroup("Persistence model repository");
+
+            artifactGroup.initPersistenceModelGenerator();
+            artifactGroup.initPersistenceXml();
+            artifactGroup.initPersistenceModelRepository();
+            artifactGroup.initRepositoryProfile();
+            artifactGroup.initEnumeratorConverters();
+            artifactGroup.initCassadraArtifacts();
+            
+}
+
+
+operation artifact::ArtifactGroup initCassadraArtifacts(  ){
+           var artifact = self.createArtifact("Cassadra Artifacts");
+           artifact.template = "tura:/generation-templates/template/technologies/JEE/Repository/SPA/Cassandra/mainCassandraArtifacts.egl";
+           
+           artifact.addConfigVariable("OS","Generation path");
+           artifact.addHint("JEE.Repository","SPA Object");
+           
+           var modeQuery = artifact.createQuery(
+                  "Query model classes",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{SPA Object}')->size()>0)"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           
+           
+}
+
+
+
+operation artifact::ArtifactGroup initEnumeratorConverters(  ){
+           var artifact = self.createArtifact("EnumeratorConverters");
+           artifact.template = "tura:/generation-templates/template/technologies/JEE/Repository/mainEnumeratorConveter.egl";
+           
+           artifact.addHint("JEE.RepositoryProxy","Serializable Object");
+           
+           var modeQuery = artifact.createQuery(
+                  "Query model classes",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           
+           
+}
+
+operation artifact::ArtifactGroup initRepositoryProfile(  ){
+           var artifact = self.createArtifact("Repository profile");
+           artifact.template = "tura:/generation-templates/template/technologies/JEE/Repository/mainProfile.egl";
+           
+           artifact.addConfigVariable("OS","Generation path");
+           
+           var modeQuery = artifact.createQuery(
+                  "Query form",
+                  "domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms"
+           );
+           modeQuery.addParameter("Domain Application");
+           modeQuery.addParameter("Group");
+           modeQuery.addParameter("Application");
+           modeQuery.addParameter("Package");
+           
+           
+}
+
+
+operation artifact::ArtifactGroup initPersistenceModelRepository(  ){
+           var artifact = self.createArtifact("Persistence model repository");
+           artifact.template = "tura:/generation-templates/template/technologies/JEE/Repository/mainRepository.egl";
+
+           var tech = artifact.addTechnology("REPO_TYPE");
+           tech.addOption("JEE.Repository.JPA");
+           tech.addOption("JEE.Repository.SPA");
+
+           artifact.addConfigVariable("OS","Generation path");
+
+           artifact.addHint("JEE.RepositoryProxy","Serializable Object");
+           artifact.addHint("JEE.JPA","Entity Object");
+           artifact.addHint("JEE.Domain_model","Domain Object");
+           artifact.addHint("JEE.Repository","OneWayAssociation");
+           artifact.addHint("JEE.Repository","Adapter");
+           artifact.addHint("JEE.Repository","SPA Object");
+           artifact.addHint("JEE.Repository","SignalField");
+           artifact.addHint("JEE.Repository","DoNotNil");
+           
+           var modeQuery = artifact.createQuery(
+                  "Query model classes",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           
+
+}
+operation artifact::ArtifactGroup initPersistenceXml(  ){
+           var artifact = self.createArtifact("persistence.xml");
+           artifact.template = "tura:/generation-templates/template/technologies/JEE/JPA/mainPersistence-xml.egl";
+
+           var tech = artifact.addTechnology("Database type");
+           tech.addOption("Database.MySQL");
+           tech.addOption("Database.PostgresSQL");
+           tech.addOption("Database.Oracle");
+           tech.addOption("Database.HSQL");
+           tech.addOption("Database.H2");
+           
+           var tech = artifact.addTechnology("Transaction");
+           tech.addOption("JEE.Transaction.JTA");
+           tech.addOption("JEE.Transaction.LOCAL");
+           
+           var tech = artifact.addTechnology("Connection");
+           tech.addOption("JEE.DataSource.JNDI");
+           tech.addOption("JEE.DataSource.JDBC");
+           
+           var tech = artifact.addTechnology("JPA implementation");
+           tech.addOption("JEE.JPA.Hibernate");
+           tech.addOption("JEE.JPA.EclipseLink");
+           tech.addOption("JEE.JPA.Hibernate5");
+           
+           var tech = artifact.addTechnology("JPA Schema update");
+           tech.addOption("JEE.JPA.Hibernate.Update Schema");
+           tech.addOption("JEE.JPA.Hibernate.Use existing schema");
+          
+           artifact.addConfigVariable("OS","Generation path");
+           artifact.addConfigVariable("JEE.JPA","DataBase IP");
+           artifact.addConfigVariable("JEE.JPA","DataBase socket");
+           artifact.addConfigVariable("JEE.JPA","DataBase socket");
+           artifact.addConfigVariable("JEE.JPA","DataBase user");
+           artifact.addConfigVariable("JEE.JPA","DataBase user");
+           artifact.addConfigVariable("JEE.JPA","DataBase password");
+           artifact.addConfigVariable("JEE.JPA","DataBase schema");
+           artifact.addConfigVariable("JEE.JPA","jndi access string");
+           artifact.addConfigVariable("JEE.JPA","DataBase jdbc driver");
+           artifact.addConfigVariable("JEE.JPA","DataBase jdbc url");
+           artifact.addConfigVariable("JEE.JPA","persistence_unit");
+           
+           
+           var modeQuery = artifact.createQuery(
+                  "Query persistance classes",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           
+           var modeQuery = artifact.createQuery(
+                  "Query type",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           modeQuery.addParameter("Type");
+
+}
+
+operation artifact::ArtifactGroup initPersistenceModelGenerator(  ){
+           var artifact = self.createArtifact("Persistence model generator");
+           
+           artifact.template = "tura:/generation-templates/template/pit/ORM/mainEntity.egl";
+           artifact.addConfigVariable("OS","Generation path");
+           
+           artifact.addHint("JEE.JPA","Entity Object");
+           artifact.addHint("JEE","Bean validation");
+           artifact.addHint("JEE.JPA","Sequence");
+           artifact.addHint("JEE.JPA","Many2ManyTable");
+           artifact.addHint("JEE.JPA","Table");
+           artifact.addHint("JEE.Repository","SignalField");
+           artifact.addHint("JSE","Implements", "obj.Implements");
+           
+           var tech = artifact.addTechnology("Entity implementation");
+           tech.addOption("JEE.JPA");
+
+           
+           var modeQuery = artifact.createQuery(
+                  "Query Entity Objects",
+                  "domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)"
+           );
+           modeQuery.addParameter("Repository");
+           modeQuery.addParameter("Package");
+           
+}

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -202,6 +202,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RelationType getType() {
 		return type;
 	}
@@ -211,6 +212,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(RelationType newType) {
 		RelationType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -223,6 +225,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Containment getContainment() {
 		return containment;
 	}
@@ -232,6 +235,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContainment(Containment newContainment) {
 		Containment oldContainment = containment;
 		containment = newContainment == null ? CONTAINMENT_EDEFAULT : newContainment;
@@ -244,6 +248,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isInternal() {
 		return internal;
 	}
@@ -253,6 +258,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInternal(boolean newInternal) {
 		boolean oldInternal = internal;
 		internal = newInternal;
@@ -265,6 +271,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Link> getLinks() {
 		if (links == null) {
 			links = new EObjectContainmentEList<Link>(Link.class, this, TypePackage.ASSOSIATION__LINKS);
@@ -277,6 +284,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSourceOperation() {
 		return sourceOperation;
 	}
@@ -286,6 +294,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourceOperation(String newSourceOperation) {
 		String oldSourceOperation = sourceOperation;
 		sourceOperation = newSourceOperation;
@@ -298,6 +307,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTargetOperation() {
 		return targetOperation;
 	}
@@ -307,6 +317,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTargetOperation(String newTargetOperation) {
 		String oldTargetOperation = targetOperation;
 		targetOperation = newTargetOperation;
@@ -319,6 +330,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypePointer getMany2manyHelper() {
 		return many2manyHelper;
 	}
@@ -343,6 +355,7 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMany2manyHelper(TypePointer newMany2manyHelper) {
 		if (newMany2manyHelper != many2manyHelper) {
 			NotificationChain msgs = null;

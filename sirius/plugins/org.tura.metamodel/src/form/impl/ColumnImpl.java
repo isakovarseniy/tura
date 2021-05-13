@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -255,6 +255,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -279,6 +280,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -298,6 +300,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.COLUMN__CLASSIFIERS);
@@ -310,6 +313,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -319,6 +323,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -331,6 +336,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -340,6 +346,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -352,6 +359,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.COLUMN__FIELDS);
@@ -364,6 +372,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -373,6 +382,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -385,6 +395,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -394,6 +405,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
@@ -406,6 +418,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sortable getSortable() {
 		return sortable;
 	}
@@ -415,6 +428,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSortable(Sortable newSortable) {
 		Sortable oldSortable = sortable;
 		sortable = newSortable == null ? SORTABLE_EDEFAULT : newSortable;
@@ -427,6 +441,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Uielement getElement() {
 		return element;
 	}
@@ -451,6 +466,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setElement(Uielement newElement) {
 		if (newElement != element) {
 			NotificationChain msgs = null;
@@ -470,6 +486,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getPriority() {
 		return priority;
 	}
@@ -479,6 +496,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPriority(int newPriority) {
 		int oldPriority = priority;
 		priority = newPriority;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -136,6 +136,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeGroup createTypeGroup() {
 		TypeGroupImpl typeGroup = new TypeGroupImpl();
 		return typeGroup;
@@ -146,6 +147,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PrimitivesGroup createPrimitivesGroup() {
 		PrimitivesGroupImpl primitivesGroup = new PrimitivesGroupImpl();
 		return primitivesGroup;
@@ -156,6 +158,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeElement createTypeElement() {
 		TypeElementImpl typeElement = new TypeElementImpl();
 		return typeElement;
@@ -166,6 +169,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Relationship createRelationship() {
 		RelationshipImpl relationship = new RelationshipImpl();
 		return relationship;
@@ -176,6 +180,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public References createReferences() {
 		ReferencesImpl references = new ReferencesImpl();
 		return references;
@@ -186,6 +191,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Generalization createGeneralization() {
 		GeneralizationImpl generalization = new GeneralizationImpl();
 		return generalization;
@@ -196,6 +202,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypePointer createTypePointer() {
 		TypePointerImpl typePointer = new TypePointerImpl();
 		return typePointer;
@@ -206,6 +213,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PackagePointer createPackagePointer() {
 		PackagePointerImpl packagePointer = new PackagePointerImpl();
 		return packagePointer;
@@ -216,6 +224,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Assosiation createAssosiation() {
 		AssosiationImpl assosiation = new AssosiationImpl();
 		return assosiation;
@@ -226,6 +235,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Link createLink() {
 		LinkImpl link = new LinkImpl();
 		return link;
@@ -236,6 +246,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
@@ -246,6 +257,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation createOperation() {
 		OperationImpl operation = new OperationImpl();
 		return operation;
@@ -256,6 +268,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Primitive createPrimitive() {
 		PrimitiveImpl primitive = new PrimitiveImpl();
 		return primitive;
@@ -266,6 +279,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Type createType() {
 		TypeImpl type = new TypeImpl();
 		return type;
@@ -276,6 +290,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeReference createTypeReference() {
 		TypeReferenceImpl typeReference = new TypeReferenceImpl();
 		return typeReference;
@@ -286,6 +301,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -296,6 +312,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReturnValue createReturnValue() {
 		ReturnValueImpl returnValue = new ReturnValueImpl();
 		return returnValue;
@@ -306,6 +323,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Enumerator createEnumerator() {
 		EnumeratorImpl enumerator = new EnumeratorImpl();
 		return enumerator;
@@ -316,6 +334,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnumAttribute createEnumAttribute() {
 		EnumAttributeImpl enumAttribute = new EnumAttributeImpl();
 		return enumAttribute;
@@ -326,6 +345,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MethodPointer createMethodPointer() {
 		MethodPointerImpl methodPointer = new MethodPointerImpl();
 		return methodPointer;
@@ -336,6 +356,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AttributePointer createAttributePointer() {
 		AttributePointerImpl attributePointer = new AttributePointerImpl();
 		return attributePointer;
@@ -386,6 +407,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypePackage getTypePackage() {
 		return (TypePackage)getEPackage();
 	}

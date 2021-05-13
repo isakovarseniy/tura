@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -107,6 +107,7 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, TypePackage.TYPE__CLASSIFIERS);
@@ -119,6 +120,7 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
 			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, TypePackage.TYPE__ATTRIBUTES);
@@ -131,6 +133,7 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Operation> getOperations() {
 		if (operations == null) {
 			operations = new EObjectContainmentEList<Operation>(Operation.class, this, TypePackage.TYPE__OPERATIONS);

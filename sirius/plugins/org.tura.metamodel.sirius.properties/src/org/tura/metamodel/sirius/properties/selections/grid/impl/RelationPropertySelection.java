@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -15,7 +15,6 @@
 package org.tura.metamodel.sirius.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -43,11 +42,8 @@ import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 import form.DataControl;
 import form.Relation;
 import type.Attribute;
-import type.Generalization;
 import type.Link;
 import type.Type;
-import type.TypeElement;
-import type.TypeReference;
 
 public class RelationPropertySelection extends GridProperty {
 
@@ -182,22 +178,7 @@ public class RelationPropertySelection extends GridProperty {
 	}
 
 	public List<Attribute> initOptions(Type type) {
-		List<Attribute> attrs = new ArrayList<>();
-
-		Collection<Generalization> ls =  new QueryHelper().getTypeExtension(type);
-
-		if (ls.size() != 0) {
-			for (Generalization ext : ls ) {
-				TypeElement typeElement = ext.getTarget();
-				if (typeElement instanceof Type)
-					attrs.addAll(initOptions((Type) typeElement));
-
-				if (typeElement instanceof TypeReference)
-					attrs.addAll(initOptions((Type) ((TypeReference) typeElement).getTypeRef()));
-			}
-		}
-		attrs.addAll(type.getAttributes());
-		return attrs;
+		return  new QueryHelper().getAttributesForType(type);
 	}
 
 }

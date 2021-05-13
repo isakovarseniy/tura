@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -333,6 +333,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getStyle() {
 		return style;
 	}
@@ -357,6 +358,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(Context newStyle) {
 		if (newStyle != style) {
 			NotificationChain msgs = null;
@@ -376,6 +378,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNickname() {
 		return nickname;
 	}
@@ -385,6 +388,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNickname(String newNickname) {
 		String oldNickname = nickname;
 		nickname = newNickname;
@@ -397,6 +401,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.RADIO_SELECTION__CLASSIFIERS);
@@ -409,6 +414,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -418,6 +424,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -430,6 +437,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getEnabled() {
 		return enabled;
 	}
@@ -454,6 +462,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(Context newEnabled) {
 		if (newEnabled != enabled) {
 			NotificationChain msgs = null;
@@ -473,6 +482,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.RADIO_SELECTION__FIELDS);
@@ -485,6 +495,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MenuFolder getMenu() {
 		if (menu != null && menu.eIsProxy()) {
 			InternalEObject oldMenu = (InternalEObject)menu;
@@ -511,6 +522,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMenu(MenuFolder newMenu) {
 		MenuFolder oldMenu = menu;
 		menu = newMenu;
@@ -523,6 +535,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -532,6 +545,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -544,6 +558,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getRequired() {
 		return required;
 	}
@@ -568,6 +583,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequired(Context newRequired) {
 		if (newRequired != required) {
 			NotificationChain msgs = null;
@@ -587,6 +603,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getReadOnly() {
 		return readOnly;
 	}
@@ -611,6 +628,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReadOnly(Context newReadOnly) {
 		if (newReadOnly != readOnly) {
 			NotificationChain msgs = null;
@@ -630,6 +648,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AreaRef> getRefreshAreas() {
 		if (refreshAreas == null) {
 			refreshAreas = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, FormPackage.RADIO_SELECTION__REFRESH_AREAS);
@@ -642,6 +661,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getSourcePointer() {
 		if (sourcePointer != null && sourcePointer.eIsProxy()) {
 			InternalEObject oldSourcePointer = (InternalEObject)sourcePointer;
@@ -668,6 +688,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourcePointer(DataControl newSourcePointer) {
 		DataControl oldSourcePointer = sourcePointer;
 		sourcePointer = newSourcePointer;
@@ -680,6 +701,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getValuePointer() {
 		if (valuePointer != null && valuePointer.eIsProxy()) {
 			InternalEObject oldValuePointer = (InternalEObject)valuePointer;
@@ -706,6 +728,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValuePointer(EObject newValuePointer) {
 		EObject oldValuePointer = valuePointer;
 		valuePointer = newValuePointer;
@@ -718,6 +741,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Type getSourceCast() {
 		if (sourceCast != null && sourceCast.eIsProxy()) {
 			InternalEObject oldSourceCast = (InternalEObject)sourceCast;
@@ -744,6 +768,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourceCast(Type newSourceCast) {
 		Type oldSourceCast = sourceCast;
 		sourceCast = newSourceCast;
@@ -756,6 +781,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getSourceCastDataControl() {
 		if (sourceCastDataControl != null && sourceCastDataControl.eIsProxy()) {
 			InternalEObject oldSourceCastDataControl = (InternalEObject)sourceCastDataControl;
@@ -782,6 +808,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourceCastDataControl(DataControl newSourceCastDataControl) {
 		DataControl oldSourceCastDataControl = sourceCastDataControl;
 		sourceCastDataControl = newSourceCastDataControl;
@@ -794,6 +821,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RadioLayout getLayout() {
 		return layout;
 	}
@@ -803,6 +831,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLayout(RadioLayout newLayout) {
 		RadioLayout oldLayout = layout;
 		layout = newLayout == null ? LAYOUT_EDEFAULT : newLayout;
@@ -815,6 +844,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -824,6 +854,7 @@ public class RadioSelectionImpl extends OptionSelectionImpl implements RadioSele
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;

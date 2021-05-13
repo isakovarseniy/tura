@@ -23,11 +23,10 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>platform</artifactId>
-	<version>5.0.5</version>
+	<version>5.1.0</version>
 	<packaging>pom</packaging>
 
 	<name>Tura :: Platform</name>
-	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,6 +84,13 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>transformation</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>io.swagger</groupId>

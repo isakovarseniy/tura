@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -76,6 +76,7 @@ public class MethodPointerImpl extends EObjectImpl implements MethodPointer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getMethodRef() {
 		if (methodRef != null && methodRef.eIsProxy()) {
 			InternalEObject oldMethodRef = (InternalEObject)methodRef;
@@ -102,6 +103,7 @@ public class MethodPointerImpl extends EObjectImpl implements MethodPointer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMethodRef(Operation newMethodRef) {
 		Operation oldMethodRef = methodRef;
 		methodRef = newMethodRef;

@@ -1,0 +1,84 @@
+@namespace(uri="http://tura.org/2016/v2/objectmapper", prefix="tura.objectmapper")
+package objectmapper;
+
+import "platform:/resource/org.tura.metamodel/model/type.ecore";
+import "platform:/resource/org.tura.metamodel/model/form.ecore";
+
+
+
+class ProcessingStage{
+    id attr EString uid;
+    attr EString name;
+	ref ProcessingStage nextStage;
+}
+
+class ObjectMapperGroup{
+    id attr EString uid;
+    attr EString name;
+    val ObjectMapper[*] objectMappers;
+    val ProcessingStage[*] stages; 
+    val AttributeConnector[*] attributesConnector;
+    val OperationConnector[*] operationsConnector;
+    val Variable[*] variables;
+}
+
+
+class ObjectMapper{
+    id attr EString uid;
+    attr EString name;
+	ref ProcessingStage stage;
+    val type.TypePointer baseType;
+    val OmRelation[*] relations;
+    val CalculatedField[*] calculations;
+    val Aggregation [*] aggrigations;
+    val type.AttributePointer[*] attributes;
+}
+
+
+class Variable extends CalculatedField{
+    attr EString value;
+}
+
+class Aggregation extends CalculatedField{
+}
+
+
+class OmRelation{
+   id attr EString uid;
+   attr EString name;
+   ref ObjectMapper objectMapperRef;
+   ref type.TypeElement typeRef;
+   ref type.Assosiation assosiationRef;
+}
+
+
+
+class AttributeConnector {
+	   id attr EString uid;
+	   ref EObject source;
+	   ref EObject target;
+	   attr EBoolean mergeAttr;
+	   ref OperationConnector operationRef;
+	   
+}	
+	
+class OperationConnector {
+	   id attr EString uid;
+	   attr EString name;
+	   ref ObjectMapper source;
+	   ref ObjectMapper target;
+	   attr OperationType operationType;
+       val form.ContextParameters defaultSearch;
+	   
+}	
+
+enum OperationType{
+     mergeOrAdd;
+	 add;
+	 delete;
+}
+
+class CalculatedField extends type.TypePointer{
+    id attr EString uid;
+   attr EString name;
+}

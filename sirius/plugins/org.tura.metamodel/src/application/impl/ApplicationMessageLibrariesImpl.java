@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -131,6 +131,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -140,6 +141,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -152,6 +154,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -161,6 +164,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -173,6 +177,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationMessageLibrary getMessageLibraries() {
 		return messageLibraries;
 	}
@@ -197,6 +202,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMessageLibraries(ApplicationMessageLibrary newMessageLibraries) {
 		if (newMessageLibraries != messageLibraries) {
 			NotificationChain msgs = null;
@@ -216,6 +222,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ApplicationLanguages getApplicationLanguages() {
 		return applicationLanguages;
 	}
@@ -240,6 +247,7 @@ public class ApplicationMessageLibrariesImpl extends EObjectImpl implements Appl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApplicationLanguages(ApplicationLanguages newApplicationLanguages) {
 		if (newApplicationLanguages != applicationLanguages) {
 			NotificationChain msgs = null;

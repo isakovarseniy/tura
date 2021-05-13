@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -141,6 +141,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -150,6 +151,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -162,6 +164,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Role> getRoles() {
 		if (roles == null) {
 			roles = new EObjectContainmentEList<Role>(Role.class, this, PermissionPackage.ROLES__ROLES);
@@ -174,6 +177,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Group> getGroups() {
 		if (groups == null) {
 			groups = new EObjectContainmentEList<Group>(Group.class, this, PermissionPackage.ROLES__GROUPS);
@@ -186,6 +190,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Group2Group> getGroup2Groups() {
 		if (group2Groups == null) {
 			group2Groups = new EObjectContainmentEList<Group2Group>(Group2Group.class, this, PermissionPackage.ROLES__GROUP2_GROUPS);
@@ -198,6 +203,7 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Group2Role> getGroup2Roles() {
 		if (group2Roles == null) {
 			group2Roles = new EObjectContainmentEList<Group2Role>(Group2Role.class, this, PermissionPackage.ROLES__GROUP2_ROLES);

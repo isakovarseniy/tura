@@ -9,6 +9,10 @@ echo Generate HR model generation recipe
 tura:generate --build --recipeId 80a7bd65-32b9-4094-9edf-534c7bdc5d3b --infraId 30c7d8fe-161c-416a-a9e1-d7e6ba28a746 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 
+echo Generate Object mapper generation recipe
+
+tura:generate --build --recipeId 75ab8bf7-af40-4e05-91e9-f3e4d892fef8 --infraId b9696cd4-7a5f-42cf-8df3-dacedc0b080c --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
+
 
 echo Generate Test model generation recipe
 

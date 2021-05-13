@@ -1,0 +1,130 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+import "tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/commonObjectMapper.egl";
+
+ ${percent}${end}
+ 
+ 
+  [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+  %]   
+  package [%=component.basePackage%].[%=packageExt%];
+  public class [%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory extends org.tura.platform.adapter.engine.api.Bus{
+
+[%
+    for ( variable in transformGroup.variables){
+      var varType = variable.typeRef;
+      varType.mappingType2Java(recipe,ingredient);
+%]
+    private  [%=varType.~fullName%] [%=util.mergeAndUnCapitalize(variable.name)%];
+    
+    public [%=varType.~fullName%] get[%=util.mergeAndCapitalize(variable.name)%](){
+              return [%=util.mergeAndUnCapitalize(variable.name)%];
+    }
+
+
+    public void set[%=util.mergeAndCapitalize(variable.name)%]([%=varType.~fullName%]  [%=util.mergeAndUnCapitalize(variable.name)%] ){
+              this.[%=util.mergeAndUnCapitalize(variable.name)%] = [%=util.mergeAndUnCapitalize(variable.name)%];
+    }
+
+
+[%    
+}
+%]
+public void init(){
+
+[%
+    for ( variable in transformGroup.variables){
+      if ( variable.value == null or "".equals(variable.value)){
+         continue;
+      }
+      var varType = variable.typeRef;
+%]
+{
+       org.tura.platform.adapter.engine.api.Deserializer deserializer = this.repository.findDeserializer([%=variable.typeRef.~fullName%].class); 
+       if (deserializer != null){
+           [%=util.mergeAndUnCapitalize(variable.name)%] = ([%=variable.typeRef.~fullName%])deserializer.deserialize("[%=variable.value%]");
+       }
+}
+[%    
+}
+%]
+
+
+}
+[%
+
+    for ( objectMapper in transformGroup.objectMappers){
+      var cursorName = cursorsNames.get(objectMapper.uid);
+      var type = objectMapper.baseType.typeRef;
+%]
+     private   [%=type.~package%].[%=packageExt%].cursors.[%=cursorName%]Cursor [%=util.mergeAndUnCapitalize(cursorName)%]Cursor;
+[%      
+    }
+    for ( objectMapper in transformGroup.objectMappers){
+      var cursorName = cursorsNames.get(objectMapper.uid);
+      var type = objectMapper.baseType.typeRef;
+ 	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.objectMapperRef<> null and  q.objectMapperRef.uid = objectMapper.uid);
+
+ 	  if (omRelations.size == 0){
+ %]    
+        private [%=type.~fullName%] [%=util.mergeAndUnCapitalize(cursorName)%];
+        
+        public void set[%=util.mergeAndCapitalize(cursorName)%] ( [%=type.~fullName%] [%=util.mergeAndUnCapitalize(cursorName)%]){
+            this.[%=util.mergeAndUnCapitalize(cursorName)%] = [%=util.mergeAndUnCapitalize(cursorName)%];
+        }
+  [%    
+      }
+    }
+%]
+
+[%
+    for ( objectMapper in transformGroup.objectMappers){
+      var cursorName = cursorsNames.get(objectMapper.uid);
+      var type = objectMapper.baseType.typeRef;
+ 	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.objectMapperRef<> null and q.objectMapperRef.uid = objectMapper.uid);
+      
+%]
+     public [%=type.~package%].[%=packageExt%].cursors.[%=cursorName%]Cursor get[%=cursorName%]Cursor(){
+        if ( this.[%=util.mergeAndUnCapitalize(cursorName)%]Cursor == null){
+ [%
+ 	  if (omRelations.size == 0){
+ %]    
+        this.[%=util.mergeAndUnCapitalize(cursorName)%]Cursor  = new [%=type.~package%].[%=packageExt%].cursors.[%=cursorName%]Cursor([%=util.mergeAndUnCapitalize(cursorName)%],this);
+  [%    
+      }else{
+ 	    var parent = omRelations.first().eContainer();
+        var parentCursorName = cursorsNames.get(parent.uid);
+ %]    
+        this.[%=util.mergeAndUnCapitalize(cursorName)%]Cursor  = new [%=type.~package%].[%=packageExt%].cursors.[%=cursorName%]Cursor(get[%=parentCursorName%]Cursor(),this);
+  [%    
+      } 
+ %]    
+        }
+        return this.[%=util.mergeAndUnCapitalize(cursorName)%]Cursor ;
+     }
+[%      
+    }
+%]
+}

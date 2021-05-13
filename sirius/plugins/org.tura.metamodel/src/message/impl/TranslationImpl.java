@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -118,6 +118,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -127,6 +128,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -139,6 +141,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTranslation() {
 		return translation;
 	}
@@ -148,6 +151,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTranslation(String newTranslation) {
 		String oldTranslation = translation;
 		translation = newTranslation;
@@ -160,6 +164,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Language getLang() {
 		if (lang != null && lang.eIsProxy()) {
 			InternalEObject oldLang = (InternalEObject)lang;
@@ -186,6 +191,7 @@ public class TranslationImpl extends EObjectImpl implements Translation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLang(Language newLang) {
 		Language oldLang = lang;
 		lang = newLang;

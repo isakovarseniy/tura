@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -146,6 +146,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getOptionPointer() {
 		if (optionPointer != null && optionPointer.eIsProxy()) {
 			InternalEObject oldOptionPointer = (InternalEObject)optionPointer;
@@ -172,6 +173,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOptionPointer(DataControl newOptionPointer) {
 		DataControl oldOptionPointer = optionPointer;
 		optionPointer = newOptionPointer;
@@ -184,6 +186,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Type getOptionCast() {
 		if (optionCast != null && optionCast.eIsProxy()) {
 			InternalEObject oldOptionCast = (InternalEObject)optionCast;
@@ -210,6 +213,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOptionCast(Type newOptionCast) {
 		Type oldOptionCast = optionCast;
 		optionCast = newOptionCast;
@@ -222,6 +226,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getOptionCastDataControl() {
 		if (optionCastDataControl != null && optionCastDataControl.eIsProxy()) {
 			InternalEObject oldOptionCastDataControl = (InternalEObject)optionCastDataControl;
@@ -248,6 +253,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOptionCastDataControl(DataControl newOptionCastDataControl) {
 		DataControl oldOptionCastDataControl = optionCastDataControl;
 		optionCastDataControl = newOptionCastDataControl;
@@ -260,6 +266,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Selection getSelection() {
 		return selection;
 	}
@@ -284,6 +291,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(Selection newSelection) {
 		if (newSelection != selection) {
 			NotificationChain msgs = null;
@@ -303,6 +311,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getInitialOptionMessage() {
 		return initialOptionMessage;
 	}
@@ -327,6 +336,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInitialOptionMessage(Context newInitialOptionMessage) {
 		if (newInitialOptionMessage != initialOptionMessage) {
 			NotificationChain msgs = null;
@@ -346,6 +356,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getInitialOptionValue() {
 		return initialOptionValue;
 	}
@@ -355,6 +366,7 @@ public class OptionSelectionImpl extends EObjectImpl implements OptionSelection 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInitialOptionValue(String newInitialOptionValue) {
 		String oldInitialOptionValue = initialOptionValue;
 		initialOptionValue = newInitialOptionValue;

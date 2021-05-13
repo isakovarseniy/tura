@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -119,6 +119,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -128,6 +129,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -140,6 +142,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getRefObj() {
 		if (refObj != null && refObj.eIsProxy()) {
 			InternalEObject oldRefObj = (InternalEObject)refObj;
@@ -166,6 +169,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRefObj(EObject newRefObj) {
 		EObject oldRefObj = refObj;
 		refObj = newRefObj;
@@ -178,6 +182,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Order getOrder() {
 		return order;
 	}
@@ -187,6 +192,7 @@ public class OrderByImpl extends EObjectImpl implements OrderBy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(Order newOrder) {
 		Order oldOrder = order;
 		order = newOrder == null ? ORDER_EDEFAULT : newOrder;

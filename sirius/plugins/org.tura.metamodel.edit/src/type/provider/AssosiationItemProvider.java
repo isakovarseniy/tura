@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import java.util.List;
 
 import mapper.MapperFactory;
 
+import objectmapper.ObjectmapperFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -309,6 +310,21 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			(createChildParameter
 				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 ObjectmapperFactory.eINSTANCE.createCalculatedField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 ObjectmapperFactory.eINSTANCE.createVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 ObjectmapperFactory.eINSTANCE.createAggregation()));
 
 		newChildDescriptors.add
 			(createChildParameter

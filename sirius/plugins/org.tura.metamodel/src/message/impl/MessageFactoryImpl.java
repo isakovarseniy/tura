@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -84,6 +84,7 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MessageLibrary createMessageLibrary() {
 		MessageLibraryImpl messageLibrary = new MessageLibraryImpl();
 		return messageLibrary;
@@ -94,6 +95,7 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Message createMessage() {
 		MessageImpl message = new MessageImpl();
 		return message;
@@ -104,6 +106,7 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Translation createTranslation() {
 		TranslationImpl translation = new TranslationImpl();
 		return translation;
@@ -114,6 +117,7 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Language createLanguage() {
 		LanguageImpl language = new LanguageImpl();
 		return language;
@@ -124,6 +128,7 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MessagePackage getMessagePackage() {
 		return (MessagePackage)getEPackage();
 	}

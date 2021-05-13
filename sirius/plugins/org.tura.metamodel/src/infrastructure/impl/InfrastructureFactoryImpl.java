@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -91,6 +91,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnterpriseInfrastructure createEnterpriseInfrastructure() {
 		EnterpriseInfrastructureImpl enterpriseInfrastructure = new EnterpriseInfrastructureImpl();
 		return enterpriseInfrastructure;
@@ -101,6 +102,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Datacenter createDatacenter() {
 		DatacenterImpl datacenter = new DatacenterImpl();
 		return datacenter;
@@ -111,6 +113,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Subsystem createSubsystem() {
 		SubsystemImpl subsystem = new SubsystemImpl();
 		return subsystem;
@@ -121,6 +124,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InfrastructureLayer createInfrastructureLayer() {
 		InfrastructureLayerImpl infrastructureLayer = new InfrastructureLayerImpl();
 		return infrastructureLayer;
@@ -131,6 +135,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InfrastructureConnection createInfrastructureConnection() {
 		InfrastructureConnectionImpl infrastructureConnection = new InfrastructureConnectionImpl();
 		return infrastructureConnection;
@@ -141,6 +146,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InfrastructureComponent createInfrastructureComponent() {
 		InfrastructureComponentImpl infrastructureComponent = new InfrastructureComponentImpl();
 		return infrastructureComponent;
@@ -151,6 +157,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Server createServer() {
 		ServerImpl server = new ServerImpl();
 		return server;
@@ -161,6 +168,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Router createRouter() {
 		RouterImpl router = new RouterImpl();
 		return router;
@@ -171,6 +179,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Hub createHub() {
 		HubImpl hub = new HubImpl();
 		return hub;
@@ -181,6 +190,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Storage createStorage() {
 		StorageImpl storage = new StorageImpl();
 		return storage;
@@ -191,6 +201,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ServerClaster createServerClaster() {
 		ServerClasterImpl serverClaster = new ServerClasterImpl();
 		return serverClaster;
@@ -201,6 +212,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InfrastructurePackage getInfrastructurePackage() {
 		return (InfrastructurePackage)getEPackage();
 	}

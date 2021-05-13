@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -97,6 +97,24 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	DomainApplication createDomainApplication();
+
+	/**
+	 * Returns a new object of class '<em>Mappers</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mappers</em>'.
+	 * @generated
+	 */
+	DomainMappers createDomainMappers();
+
+	/**
+	 * Returns a new object of class '<em>Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mapper</em>'.
+	 * @generated
+	 */
+	DomainMapper createDomainMapper();
 
 	/**
 	 * Returns the package supported by this factory.

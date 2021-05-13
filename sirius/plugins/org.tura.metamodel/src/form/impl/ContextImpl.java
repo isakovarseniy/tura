@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -81,6 +81,7 @@ public class ContextImpl extends ContextValueImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContextParameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectContainmentEList<ContextParameter>(ContextParameter.class, this, FormPackage.CONTEXT__PARAMETERS);

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -82,6 +82,7 @@ public class SecuredImpl extends EObjectImpl implements Secured {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<GrantAccess> getGrants() {
 		if (grants == null) {
 			grants = new EObjectContainmentEList<GrantAccess>(GrantAccess.class, this, PermissionPackage.SECURED__GRANTS);

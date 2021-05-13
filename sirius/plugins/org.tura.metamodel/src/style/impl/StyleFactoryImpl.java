@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -83,6 +83,7 @@ public class StyleFactoryImpl extends EFactoryImpl implements StyleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StyleLibrary createStyleLibrary() {
 		StyleLibraryImpl styleLibrary = new StyleLibraryImpl();
 		return styleLibrary;
@@ -93,6 +94,7 @@ public class StyleFactoryImpl extends EFactoryImpl implements StyleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StyleSet createStyleSet() {
 		StyleSetImpl styleSet = new StyleSetImpl();
 		return styleSet;
@@ -103,6 +105,7 @@ public class StyleFactoryImpl extends EFactoryImpl implements StyleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StylePointer createStylePointer() {
 		StylePointerImpl stylePointer = new StylePointerImpl();
 		return stylePointer;
@@ -113,6 +116,7 @@ public class StyleFactoryImpl extends EFactoryImpl implements StyleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StylePackage getStylePackage() {
 		return (StylePackage)getEPackage();
 	}

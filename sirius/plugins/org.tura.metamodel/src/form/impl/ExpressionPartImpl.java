@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -139,6 +139,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -148,6 +149,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -160,6 +162,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getObjRef() {
 		if (objRef != null && objRef.eIsProxy()) {
 			InternalEObject oldObjRef = (InternalEObject)objRef;
@@ -186,6 +189,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObjRef(EObject newObjRef) {
 		EObject oldObjRef = objRef;
 		objRef = newObjRef;
@@ -198,6 +202,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOrder() {
 		return order;
 	}
@@ -207,6 +212,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrder(int newOrder) {
 		int oldOrder = order;
 		order = newOrder;
@@ -219,6 +225,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExpressionType() {
 		return expressionType;
 	}
@@ -228,6 +235,7 @@ public class ExpressionPartImpl extends EObjectImpl implements ExpressionPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExpressionType(String newExpressionType) {
 		String oldExpressionType = expressionType;
 		expressionType = newExpressionType;

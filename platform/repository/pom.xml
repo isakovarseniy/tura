@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.0.5</version>
+     <version>5.1.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -30,11 +30,11 @@
   <packaging>pom</packaging>
 
   <name>Tura :: Platform :: Repository</name>
-  <url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 
   <modules>
     <module>core</module>
+    <module>transformation</module>
     <module>spa</module>
     <module>cpa</module>
     <module>cdi</module>

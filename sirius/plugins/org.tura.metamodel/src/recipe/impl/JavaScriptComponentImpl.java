@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -111,6 +111,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Version getVersionRef() {
 		if (versionRef != null && versionRef.eIsProxy()) {
 			InternalEObject oldVersionRef = (InternalEObject)versionRef;
@@ -137,6 +138,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersionRef(Version newVersionRef) {
 		Version oldVersionRef = versionRef;
 		versionRef = newVersionRef;
@@ -149,6 +151,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPackageName() {
 		return packageName;
 	}
@@ -158,6 +161,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPackageName(String newPackageName) {
 		String oldPackageName = packageName;
 		packageName = newPackageName;
@@ -170,6 +174,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Mapper getMapperRef() {
 		if (mapperRef != null && mapperRef.eIsProxy()) {
 			InternalEObject oldMapperRef = (InternalEObject)mapperRef;
@@ -196,6 +201,7 @@ public class JavaScriptComponentImpl extends ComponentImpl implements JavaScript
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMapperRef(Mapper newMapperRef) {
 		Mapper oldMapperRef = mapperRef;
 		mapperRef = newMapperRef;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -266,6 +266,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Version getVersionRef() {
 		if (versionRef != null && versionRef.eIsProxy()) {
 			InternalEObject oldVersionRef = (InternalEObject)versionRef;
@@ -292,6 +293,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersionRef(Version newVersionRef) {
 		Version oldVersionRef = versionRef;
 		versionRef = newVersionRef;
@@ -304,6 +306,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -313,6 +316,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -325,6 +329,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLibraryUrl() {
 		return libraryUrl;
 	}
@@ -334,6 +339,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLibraryUrl(String newLibraryUrl) {
 		String oldLibraryUrl = libraryUrl;
 		libraryUrl = newLibraryUrl;
@@ -346,6 +352,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -355,6 +362,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
@@ -367,6 +375,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
@@ -376,6 +385,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
@@ -388,6 +398,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMappedToInternalLocation() {
 		return mappedToInternalLocation;
 	}
@@ -397,6 +408,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappedToInternalLocation(String newMappedToInternalLocation) {
 		String oldMappedToInternalLocation = mappedToInternalLocation;
 		mappedToInternalLocation = newMappedToInternalLocation;
@@ -409,6 +421,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMappedToClassName() {
 		return mappedToClassName;
 	}
@@ -418,6 +431,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappedToClassName(String newMappedToClassName) {
 		String oldMappedToClassName = mappedToClassName;
 		mappedToClassName = newMappedToClassName;
@@ -430,6 +444,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getJsPackageName() {
 		return jsPackageName;
 	}
@@ -439,6 +454,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJsPackageName(String newJsPackageName) {
 		String oldJsPackageName = jsPackageName;
 		jsPackageName = newJsPackageName;
@@ -451,6 +467,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isLocal() {
 		return local;
 	}
@@ -460,6 +477,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLocal(boolean newLocal) {
 		boolean oldLocal = local;
 		local = newLocal;
@@ -472,6 +490,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactType getArtifactType() {
 		return artifactType;
 	}
@@ -481,6 +500,7 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactType(ArtifactType newArtifactType) {
 		ArtifactType oldArtifactType = artifactType;
 		artifactType = newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT : newArtifactType;

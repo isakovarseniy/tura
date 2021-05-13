@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -80,6 +80,7 @@ public class ArtifactItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addKeyIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addTemplatePropertyDescriptor(object);
@@ -101,6 +102,28 @@ public class ArtifactItemProvider
 				 getString("_UI_Artifact_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_uid_feature", "_UI_Artifact_type"),
 				 ArtifactPackage.Literals.ARTIFACT__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Key Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Artifact_keyId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_keyId_feature", "_UI_Artifact_type"),
+				 ArtifactPackage.Literals.ARTIFACT__KEY_ID,
 				 true,
 				 false,
 				 false,
@@ -248,6 +271,7 @@ public class ArtifactItemProvider
 
 		switch (notification.getFeatureID(Artifact.class)) {
 			case ArtifactPackage.ARTIFACT__UID:
+			case ArtifactPackage.ARTIFACT__KEY_ID:
 			case ArtifactPackage.ARTIFACT__NAME:
 			case ArtifactPackage.ARTIFACT__DESCRIPTION:
 			case ArtifactPackage.ARTIFACT__TEMPLATE:

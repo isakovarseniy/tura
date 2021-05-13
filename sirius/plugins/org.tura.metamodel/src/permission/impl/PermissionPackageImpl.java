@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -48,6 +48,8 @@ import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
 
+import objectmapper.ObjectmapperPackage;
+import objectmapper.impl.ObjectmapperPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -205,6 +207,8 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		TypePackageImpl theTypePackage = (TypePackageImpl)(registeredPackage instanceof TypePackageImpl ? registeredPackage : TypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(registeredPackage instanceof ApplicationPackageImpl ? registeredPackage : ApplicationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ObjectmapperPackage.eNS_URI);
+		ObjectmapperPackageImpl theObjectmapperPackage = (ObjectmapperPackageImpl)(registeredPackage instanceof ObjectmapperPackageImpl ? registeredPackage : ObjectmapperPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI);
 		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(registeredPackage instanceof InfrastructurePackageImpl ? registeredPackage : InfrastructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI);
@@ -226,6 +230,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theObjectmapperPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
 		theStylePackage.createPackageContents();
@@ -240,6 +245,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theObjectmapperPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
 		theStylePackage.initializePackageContents();
@@ -261,6 +267,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoles() {
 		return rolesEClass;
 	}
@@ -270,6 +277,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoles_Uid() {
 		return (EAttribute)rolesEClass.getEStructuralFeatures().get(0);
 	}
@@ -279,6 +287,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoles_Roles() {
 		return (EReference)rolesEClass.getEStructuralFeatures().get(1);
 	}
@@ -288,6 +297,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoles_Groups() {
 		return (EReference)rolesEClass.getEStructuralFeatures().get(2);
 	}
@@ -297,6 +307,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoles_Group2Groups() {
 		return (EReference)rolesEClass.getEStructuralFeatures().get(3);
 	}
@@ -306,6 +317,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoles_Group2Roles() {
 		return (EReference)rolesEClass.getEStructuralFeatures().get(4);
 	}
@@ -315,6 +327,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityEntity() {
 		return securityEntityEClass;
 	}
@@ -324,6 +337,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityEntity_Name() {
 		return (EAttribute)securityEntityEClass.getEStructuralFeatures().get(0);
 	}
@@ -333,6 +347,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRole() {
 		return roleEClass;
 	}
@@ -342,6 +357,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRole_Uid() {
 		return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
 	}
@@ -351,6 +367,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -360,6 +377,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGroup_Uid() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
 	}
@@ -369,6 +387,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGroup2Group() {
 		return group2GroupEClass;
 	}
@@ -378,6 +397,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGroup2Group_Uid() {
 		return (EAttribute)group2GroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -387,6 +407,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGroup2Group_Source() {
 		return (EReference)group2GroupEClass.getEStructuralFeatures().get(1);
 	}
@@ -396,6 +417,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGroup2Group_Target() {
 		return (EReference)group2GroupEClass.getEStructuralFeatures().get(2);
 	}
@@ -405,6 +427,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGroup2Role() {
 		return group2RoleEClass;
 	}
@@ -414,6 +437,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGroup2Role_Uid() {
 		return (EAttribute)group2RoleEClass.getEStructuralFeatures().get(0);
 	}
@@ -423,6 +447,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGroup2Role_Source() {
 		return (EReference)group2RoleEClass.getEStructuralFeatures().get(1);
 	}
@@ -432,6 +457,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGroup2Role_Target() {
 		return (EReference)group2RoleEClass.getEStructuralFeatures().get(2);
 	}
@@ -441,6 +467,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecured() {
 		return securedEClass;
 	}
@@ -450,6 +477,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecured_Grants() {
 		return (EReference)securedEClass.getEStructuralFeatures().get(0);
 	}
@@ -459,6 +487,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGrantAccess() {
 		return grantAccessEClass;
 	}
@@ -468,6 +497,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGrantAccess_Uid() {
 		return (EAttribute)grantAccessEClass.getEStructuralFeatures().get(0);
 	}
@@ -477,6 +507,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityEntityPointer() {
 		return securityEntityPointerEClass;
 	}
@@ -486,6 +517,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityEntityPointer_SecurityEntity() {
 		return (EReference)securityEntityPointerEClass.getEStructuralFeatures().get(0);
 	}
@@ -495,6 +527,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PermissionFactory getPermissionFactory() {
 		return (PermissionFactory)getEFactoryInstance();
 	}

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.tests;singleton:=true
 Automatic-Module-Name: org.tura.metamodel.tests
-Bundle-Version: 5.0.5
+Bundle-Version: 5.1.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -16,6 +16,7 @@ Export-Package: application.tests,
  infrastructure.tests,
  mapper.tests,
  message.tests,
+ objectmapper.tests,
  permission.tests,
  recipe.tests,
  style.tests,

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -141,6 +141,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -150,6 +151,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -162,6 +164,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Root getRoot() {
 		return root;
 	}
@@ -186,6 +189,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRoot(Root newRoot) {
 		if (newRoot != root) {
 			NotificationChain msgs = null;
@@ -205,6 +209,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DataControl> getControls() {
 		if (controls == null) {
 			controls = new EObjectContainmentEList<DataControl>(DataControl.class, this, FormPackage.CONTROLS__CONTROLS);
@@ -217,6 +222,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Relation> getRelations() {
 		if (relations == null) {
 			relations = new EObjectContainmentEList<Relation>(Relation.class, this, FormPackage.CONTROLS__RELATIONS);
@@ -229,6 +235,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Dependency> getDependencies() {
 		if (dependencies == null) {
 			dependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, FormPackage.CONTROLS__DEPENDENCIES);

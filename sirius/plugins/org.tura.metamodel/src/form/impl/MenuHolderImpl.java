@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -76,6 +76,7 @@ public class MenuHolderImpl extends EObjectImpl implements MenuHolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MenuFolder getMenu() {
 		if (menu != null && menu.eIsProxy()) {
 			InternalEObject oldMenu = (InternalEObject)menu;
@@ -102,6 +103,7 @@ public class MenuHolderImpl extends EObjectImpl implements MenuHolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMenu(MenuFolder newMenu) {
 		MenuFolder oldMenu = menu;
 		menu = newMenu;

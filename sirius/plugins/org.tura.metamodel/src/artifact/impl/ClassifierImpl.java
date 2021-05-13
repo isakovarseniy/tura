@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link artifact.impl.ClassifierImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.ClassifierImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link artifact.impl.ClassifierImpl#getHint <em>Hint</em>}</li>
  *   <li>{@link artifact.impl.ClassifierImpl#getDetails <em>Details</em>}</li>
  * </ul>
@@ -63,6 +64,26 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getHint() <em>Hint</em>}' reference.
@@ -118,6 +139,7 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -127,6 +149,7 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -139,6 +162,30 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CLASSIFIER__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GenerationHint getHint() {
 		if (hint != null && hint.eIsProxy()) {
 			InternalEObject oldHint = (InternalEObject)hint;
@@ -165,6 +212,7 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHint(GenerationHint newHint) {
 		GenerationHint oldHint = hint;
 		hint = newHint;
@@ -177,6 +225,7 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDetails() {
 		return details;
 	}
@@ -186,6 +235,7 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDetails(String newDetails) {
 		String oldDetails = details;
 		details = newDetails;
@@ -203,6 +253,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 		switch (featureID) {
 			case ArtifactPackage.CLASSIFIER__UID:
 				return getUid();
+			case ArtifactPackage.CLASSIFIER__KEY_ID:
+				return getKeyId();
 			case ArtifactPackage.CLASSIFIER__HINT:
 				if (resolve) return getHint();
 				return basicGetHint();
@@ -222,6 +274,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 		switch (featureID) {
 			case ArtifactPackage.CLASSIFIER__UID:
 				setUid((String)newValue);
+				return;
+			case ArtifactPackage.CLASSIFIER__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case ArtifactPackage.CLASSIFIER__HINT:
 				setHint((GenerationHint)newValue);
@@ -244,6 +299,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 			case ArtifactPackage.CLASSIFIER__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case ArtifactPackage.CLASSIFIER__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case ArtifactPackage.CLASSIFIER__HINT:
 				setHint((GenerationHint)null);
 				return;
@@ -264,6 +322,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 		switch (featureID) {
 			case ArtifactPackage.CLASSIFIER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case ArtifactPackage.CLASSIFIER__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case ArtifactPackage.CLASSIFIER__HINT:
 				return hint != null;
 			case ArtifactPackage.CLASSIFIER__DETAILS:
@@ -284,6 +344,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", details: ");
 		result.append(details);
 		result.append(')');

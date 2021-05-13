@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -112,6 +112,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getSourcePointer() {
 		if (sourcePointer != null && sourcePointer.eIsProxy()) {
 			InternalEObject oldSourcePointer = (InternalEObject)sourcePointer;
@@ -138,6 +139,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourcePointer(DataControl newSourcePointer) {
 		DataControl oldSourcePointer = sourcePointer;
 		sourcePointer = newSourcePointer;
@@ -150,6 +152,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getValuePointer() {
 		if (valuePointer != null && valuePointer.eIsProxy()) {
 			InternalEObject oldValuePointer = (InternalEObject)valuePointer;
@@ -176,6 +179,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValuePointer(EObject newValuePointer) {
 		EObject oldValuePointer = valuePointer;
 		valuePointer = newValuePointer;
@@ -188,6 +192,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Type getSourceCast() {
 		if (sourceCast != null && sourceCast.eIsProxy()) {
 			InternalEObject oldSourceCast = (InternalEObject)sourceCast;
@@ -214,6 +219,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourceCast(Type newSourceCast) {
 		Type oldSourceCast = sourceCast;
 		sourceCast = newSourceCast;
@@ -226,6 +232,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataControl getSourceCastDataControl() {
 		if (sourceCastDataControl != null && sourceCastDataControl.eIsProxy()) {
 			InternalEObject oldSourceCastDataControl = (InternalEObject)sourceCastDataControl;
@@ -252,6 +259,7 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSourceCastDataControl(DataControl newSourceCastDataControl) {
 		DataControl oldSourceCastDataControl = sourceCastDataControl;
 		sourceCastDataControl = newSourceCastDataControl;

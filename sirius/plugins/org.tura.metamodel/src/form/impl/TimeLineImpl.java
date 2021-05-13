@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -165,6 +165,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Uielement> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentEList<Uielement>(Uielement.class, this, FormPackage.TIME_LINE__CHILDREN);
@@ -177,6 +178,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -201,6 +203,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiLangLabel(Context newMultiLangLabel) {
 		if (newMultiLangLabel != multiLangLabel) {
 			NotificationChain msgs = null;
@@ -220,6 +223,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -229,6 +233,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -241,6 +246,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TimeLineLayout getLayout() {
 		return layout;
 	}
@@ -250,6 +256,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLayout(TimeLineLayout newLayout) {
 		TimeLineLayout oldLayout = layout;
 		layout = newLayout == null ? LAYOUT_EDEFAULT : newLayout;
@@ -262,6 +269,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TimeLineAlign getAlign() {
 		return align;
 	}
@@ -271,6 +279,7 @@ public class TimeLineImpl extends SourcesPointerImpl implements TimeLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAlign(TimeLineAlign newAlign) {
 		TimeLineAlign oldAlign = align;
 		align = newAlign == null ? ALIGN_EDEFAULT : newAlign;

@@ -5,7 +5,7 @@
  *
  *
  *   This project includes software developed by Arseniy Isakov
- *   http://sourceforge.net/p/tura/wiki/Home/
+ *   https://github.com/isakovarseniy/tura
  *   All rights reserved. This program and the accompanying materials
  *   are made available under the terms of the Eclipse Public License v2.0
  *   which accompanies this distribution, and is available at
@@ -46,6 +46,7 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.TypeGroupImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link type.impl.TypeGroupImpl#getKeyId <em>Key Id</em>}</li>
  *   <li>{@link type.impl.TypeGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.TypeGroupImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link type.impl.TypeGroupImpl#getRelationships <em>Relationships</em>}</li>
@@ -73,6 +74,26 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyId = KEY_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -138,6 +159,7 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUid() {
 		return uid;
 	}
@@ -147,6 +169,7 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUid(String newUid) {
 		String oldUid = uid;
 		uid = newUid;
@@ -159,6 +182,30 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getKeyId() {
+		return keyId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKeyId(String newKeyId) {
+		String oldKeyId = keyId;
+		keyId = newKeyId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.TYPE_GROUP__KEY_ID, oldKeyId, keyId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -168,6 +215,7 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -180,6 +228,7 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TypeElement> getTypes() {
 		if (types == null) {
 			types = new EObjectContainmentEList<TypeElement>(TypeElement.class, this, TypePackage.TYPE_GROUP__TYPES);
@@ -192,6 +241,7 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Relationship> getRelationships() {
 		if (relationships == null) {
 			relationships = new EObjectContainmentEList<Relationship>(Relationship.class, this, TypePackage.TYPE_GROUP__RELATIONSHIPS);
@@ -225,6 +275,8 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 		switch (featureID) {
 			case TypePackage.TYPE_GROUP__UID:
 				return getUid();
+			case TypePackage.TYPE_GROUP__KEY_ID:
+				return getKeyId();
 			case TypePackage.TYPE_GROUP__NAME:
 				return getName();
 			case TypePackage.TYPE_GROUP__TYPES:
@@ -246,6 +298,9 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 		switch (featureID) {
 			case TypePackage.TYPE_GROUP__UID:
 				setUid((String)newValue);
+				return;
+			case TypePackage.TYPE_GROUP__KEY_ID:
+				setKeyId((String)newValue);
 				return;
 			case TypePackage.TYPE_GROUP__NAME:
 				setName((String)newValue);
@@ -273,6 +328,9 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 			case TypePackage.TYPE_GROUP__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case TypePackage.TYPE_GROUP__KEY_ID:
+				setKeyId(KEY_ID_EDEFAULT);
+				return;
 			case TypePackage.TYPE_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -296,6 +354,8 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 		switch (featureID) {
 			case TypePackage.TYPE_GROUP__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case TypePackage.TYPE_GROUP__KEY_ID:
+				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 			case TypePackage.TYPE_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.TYPE_GROUP__TYPES:
@@ -318,6 +378,8 @@ public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", keyId: ");
+		result.append(keyId);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');
