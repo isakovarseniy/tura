@@ -977,14 +977,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1005,7 +1005,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1027,14 +1027,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1056,7 +1056,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1078,14 +1078,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1107,7 +1107,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1129,14 +1129,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1261,7 +1261,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
@@ -1283,14 +1283,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class*='pi-check']")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
 			}
 		}.repeat(10);
 
