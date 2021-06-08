@@ -37,7 +37,13 @@ public class OperationConnectorPropertySelection extends AbstractEnumerationProp
 
 		if (values == null) {
 			values = new LinkedHashMap<String, Object>();
-			List<OperationConnector> ls = new QueryHelper().findOperationConnectorByTarget((AttributeConnector) getModel()) ;
+			List<OperationConnector> ls = null;
+			if ( getModel() instanceof AttributeConnector) {
+			   ls = new QueryHelper().findOperationConnectorByTarget((AttributeConnector) getModel()) ;
+			}
+			if ( getModel() instanceof OperationConnector) {
+				   ls = new QueryHelper().findOperationConnectorByTarget((OperationConnector) getModel()) ;
+				}
 			if ( ls != null) {
 				for ( OperationConnector op : ls) {
 					  String key = op.getUid();

@@ -3,6 +3,7 @@ package objectmapper;
 
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/form.ecore";
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 
 
 
@@ -23,7 +24,7 @@ class ObjectMapperGroup{
 }
 
 
-class ObjectMapper{
+class ObjectMapper extends artifact.Categorized{
     id attr EString uid;
     attr EString name;
 	ref ProcessingStage stage;
@@ -53,16 +54,20 @@ class OmRelation{
 
 
 
-class AttributeConnector {
+
+class OperationConnectorRef{
+      ref OperationConnector operationRef;
+}
+
+class AttributeConnector extends OperationConnectorRef{
 	   id attr EString uid;
 	   ref EObject source;
 	   ref EObject target;
 	   attr EBoolean mergeAttr;
-	   ref OperationConnector operationRef;
 	   
 }	
 	
-class OperationConnector {
+class OperationConnector extends OperationConnectorRef{
 	   id attr EString uid;
 	   attr EString name;
 	   ref ObjectMapper source;

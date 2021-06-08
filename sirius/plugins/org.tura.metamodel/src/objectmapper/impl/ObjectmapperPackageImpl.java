@@ -51,18 +51,17 @@ import message.impl.MessagePackageImpl;
 import objectmapper.Aggregation;
 import objectmapper.AttributeConnector;
 import objectmapper.CalculatedField;
-import objectmapper.Connector;
-import objectmapper.GraphRoot;
 import objectmapper.ObjectMapper;
 import objectmapper.ObjectMapperGroup;
 import objectmapper.ObjectmapperFactory;
 import objectmapper.ObjectmapperPackage;
 import objectmapper.OmRelation;
-
 import objectmapper.OperationConnector;
+import objectmapper.OperationConnectorRef;
 import objectmapper.OperationType;
 import objectmapper.ProcessingStage;
 import objectmapper.Variable;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -135,6 +134,13 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 	 * @generated
 	 */
 	private EClass omRelationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationConnectorRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -581,6 +587,26 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 	 * @generated
 	 */
 	@Override
+	public EClass getOperationConnectorRef() {
+		return operationConnectorRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOperationConnectorRef_OperationRef() {
+		return (EReference)operationConnectorRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAttributeConnector() {
 		return attributeConnectorEClass;
 	}
@@ -623,16 +649,6 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 	@Override
 	public EAttribute getAttributeConnector_MergeAttr() {
 		return (EAttribute)attributeConnectorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAttributeConnector_OperationRef() {
-		return (EReference)attributeConnectorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -810,12 +826,14 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		createEReference(omRelationEClass, OM_RELATION__TYPE_REF);
 		createEReference(omRelationEClass, OM_RELATION__ASSOSIATION_REF);
 
+		operationConnectorRefEClass = createEClass(OPERATION_CONNECTOR_REF);
+		createEReference(operationConnectorRefEClass, OPERATION_CONNECTOR_REF__OPERATION_REF);
+
 		attributeConnectorEClass = createEClass(ATTRIBUTE_CONNECTOR);
 		createEAttribute(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__UID);
 		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__SOURCE);
 		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__TARGET);
 		createEAttribute(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__MERGE_ATTR);
-		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__OPERATION_REF);
 
 		operationConnectorEClass = createEClass(OPERATION_CONNECTOR);
 		createEAttribute(operationConnectorEClass, OPERATION_CONNECTOR__UID);
@@ -857,6 +875,7 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 		TypePackage theTypePackage = (TypePackage)EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI);
 		FormPackage theFormPackage = (FormPackage)EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI);
 
@@ -865,8 +884,11 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		objectMapperEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		variableEClass.getESuperTypes().add(this.getCalculatedField());
 		aggregationEClass.getESuperTypes().add(this.getCalculatedField());
+		attributeConnectorEClass.getESuperTypes().add(this.getOperationConnectorRef());
+		operationConnectorEClass.getESuperTypes().add(this.getOperationConnectorRef());
 		calculatedFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 
 		// Initialize classes and features; add operations and parameters
@@ -906,12 +928,14 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		initEReference(getOmRelation_TypeRef(), theTypePackage.getTypeElement(), null, "typeRef", null, 0, 1, OmRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOmRelation_AssosiationRef(), theTypePackage.getAssosiation(), null, "assosiationRef", null, 0, 1, OmRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(operationConnectorRefEClass, OperationConnectorRef.class, "OperationConnectorRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationConnectorRef_OperationRef(), this.getOperationConnector(), null, "operationRef", null, 0, 1, OperationConnectorRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(attributeConnectorEClass, AttributeConnector.class, "AttributeConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttributeConnector_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributeConnector_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributeConnector_Target(), ecorePackage.getEObject(), null, "target", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeConnector_MergeAttr(), ecorePackage.getEBoolean(), "mergeAttr", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttributeConnector_OperationRef(), this.getOperationConnector(), null, "operationRef", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationConnectorEClass, OperationConnector.class, "OperationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperationConnector_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, OperationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

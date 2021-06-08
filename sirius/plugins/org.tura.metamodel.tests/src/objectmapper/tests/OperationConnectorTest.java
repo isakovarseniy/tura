@@ -29,15 +29,7 @@ import objectmapper.OperationConnector;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationConnectorTest extends TestCase {
-
-	/**
-	 * The fixture for this Operation Connector test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OperationConnector fixture = null;
+public class OperationConnectorTest extends OperationConnectorRefTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,23 +51,14 @@ public class OperationConnectorTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Operation Connector test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(OperationConnector fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Operation Connector test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected OperationConnector getFixture() {
-		return fixture;
+		return (OperationConnector)fixture;
 	}
 
 	/**

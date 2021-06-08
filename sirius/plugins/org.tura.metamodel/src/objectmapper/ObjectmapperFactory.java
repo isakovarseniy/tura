@@ -90,6 +90,15 @@ public interface ObjectmapperFactory extends EFactory {
 	OmRelation createOmRelation();
 
 	/**
+	 * Returns a new object of class '<em>Operation Connector Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation Connector Ref</em>'.
+	 * @generated
+	 */
+	OperationConnectorRef createOperationConnectorRef();
+
+	/**
 	 * Returns a new object of class '<em>Attribute Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

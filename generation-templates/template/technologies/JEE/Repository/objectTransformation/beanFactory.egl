@@ -31,6 +31,26 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/objectTr
   %]   
   package [%=component.basePackage%].[%=packageExt%];
   public class [%=util.mergeAndCapitalize(transformGroup.name)%]BeanFactory extends org.tura.platform.adapter.engine.api.Bus{
+  
+  private java.util.Stack<String> context = new java.util.Stack<>();
+  
+  public void cleanContext() {
+	  context = new java.util.Stack<>();
+  }
+
+  public void pushContext(String ctn) {
+	  context.push(ctn);
+  }
+
+  public void popContext() {
+	  context.pop();
+  }
+  
+  public boolean checkContext(String ctn) {
+	  return context.contains(ctn);
+  }  
+  
+  
 
 [%
     for ( variable in transformGroup.variables){

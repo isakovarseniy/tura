@@ -74,7 +74,7 @@ public abstract class Cursor<T> implements ChangeCurrentRowListener {
 	}
 
 	
-	public  Collection<T> add( Collection<T> ls, int index, T t){
+	public  List<T> add( Collection<T> ls, int index, T t){
 		Stack<T> stack  = new Stack<>();
 		stack.addAll(ls);
 		stack.add(index,t);

@@ -17,6 +17,7 @@
 package objectmapper.provider;
 
 
+import artifact.provider.CategorizedItemProvider;
 import domain.provider.DomainEditPlugin;
 
 import form.FormFactory;
@@ -57,13 +58,7 @@ import type.TypeFactory;
  * @generated
  */
 public class ObjectMapperItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CategorizedItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

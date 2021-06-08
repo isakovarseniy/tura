@@ -189,7 +189,7 @@ import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.
                       return;
                    } 
 		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnLoadStartEvent(this));
-                  [%=objectMapper.load(cursorsNames,transformGroup,recipe,ingredient,hash)%]
+                  [%=objectMapper.load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper)%]
 		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnLoadEndEvent(this));
                   
      }
@@ -305,6 +305,8 @@ operation type::Assosiation one2OneTargetGetCursor(hash,type,parentType){
 		    array.add(obj.get[%=hash.get("sourceMethodName")%]());
 			return array;
 		}
+		return null;
+		
 [%
 }
 
@@ -334,6 +336,7 @@ operation type::Assosiation one2OneSourceGetCursor(hash,type,parentType){
 		    array.add(obj.get[%=hash.get("targetMethodName")%]());
 			return array;
 		}
+		return null;
 [%
 }
 

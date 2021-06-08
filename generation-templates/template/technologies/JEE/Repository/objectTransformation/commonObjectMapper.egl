@@ -112,7 +112,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
   
   
   @template
-  operation objectmapper::ObjectMapper  load(cursorsNames,transformGroup,recipe,ingredient,hash){
+  operation objectmapper::ObjectMapper  load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper){
          var util = new Native('org.tura.metamodel.commons.Util');
          var operations = transformGroup.operationsConnector->select(q|q.target.uid = self.uid );
          if (operations.size() <> 0 ){
@@ -126,8 +126,26 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
 [%	                   
 	               }
 	            } 
-	            
-	%]
+
+                if(  oper.name <> null ){
+ %]
+                bf.pushContext("[%=oper.name%]"); 
+ [%               
+                }
+
+                if ( oper.operationRef <> null){
+%]                      
+                    if ( bf.checkContext("[%=oper.operationRef.name%]")){
+ [%               
+                }
+                
+                if ( h.get("sourceMapper").findClassifier(util.getHint(model_mapper,"ResetBeforeLoad"))  ){
+ %]
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().reset();
+ [%               
+                }
+%]
+	             
 	             bf.get[%=h.get("sourceCursorName")%]Cursor().load();
 	             bf.get[%=h.get("sourceCursorName")%]Cursor().setPosition(0);
 			     [%=h.get("sourceType").~fullName%] currentt[%=h.get("sourceCursorName")%] = bf.get[%=h.get("sourceCursorName")%]Cursor().getCurrentObject();
@@ -139,20 +157,19 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
 [%    
     }
 %]
-
-
 		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
-
-			     [%=startTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
+		         
+			     [%=startTag(oper.operationType.toString(),transformGroup,h,cursorsNames,model_mapper)%]
 
                  copyFrom[%=h.get("sourceCursorName")%]();
-                 [%=h.get("targetMapper").loadChildren(cursorsNames)%]
+                 [%=h.get("targetMapper").loadChildren(cursorsNames,model_mapper)%]
 
 			     [%=endTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
 			     
 		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnEndRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
 
-[%	 
+
+[%
     if (oper.defaultSearch <> null) {
 %]
 		      }
@@ -167,7 +184,18 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
 						currentt[%=h.get("sourceCursorName")%] = null;
 					}			     
 			     }
-	[%             
+			     
+[%
+                if ( oper.operationRef <> null){
+%]
+                  }                      
+ [%               
+                }
+                if(  oper.name <> null ){
+ %]
+                bf.popContext(); 
+ [%               
+                }			     
 	         }
          }else{
             var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and  not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = self.uid);
@@ -184,9 +212,17 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
                    var h = attrMergeConnections.first().details(cursorsNames);
 %]
 {
+[%
+                    if ( self.findClassifier(util.getHint(model_mapper,"ObjectMapperLoadChildren"))  ){
+%]
+                         bf.get[%=h.get("sourceCursorName")%]Cursor().reset();                                             
+                         bf.get[%=h.get("sourceCursorName")%]Cursor().load();                                             
+[%                    
+		            }
+%]
 		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
 
-			     [%=addOperationStartTag(transformGroup,h,cursorsNames)%]
+			     [%=addOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%]
 
                   copyFrom[%=h.get("sourceCursorName")%]();
                   
@@ -197,7 +233,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
 [%                      
                  }
 %]
-                 [%=self.loadChildren(cursorsNames)%]
+                 [%=self.loadChildren(cursorsNames,model_mapper)%]
 [%                      
                  
             }         
@@ -293,17 +329,17 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
   
   
   @template
-  operation startTag (operationType,transformGroup,h,cursorsNames){
+  operation startTag (operationType,transformGroup,h,cursorsNames,model_mapper){
          if ( operationType.equals("delete")){
-               %][%=deleteOperationStartTag(transformGroup,h,cursorsNames)%][%
+               %][%=deleteOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
                return;
          }
          if ( operationType.equals("add")){
-               %][%=addOperationStartTag(transformGroup,h,cursorsNames)%][%
+               %][%=addOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
                return;
          }
          if ( operationType.equals("mergeOrAdd")){
-               %][%=mergeOrAddOperationStartTag(transformGroup,h,cursorsNames)%][%
+               %][%=mergeOrAddOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
                return;
          }
   }
@@ -399,7 +435,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
   
   
   @template
-    operation deleteOperationStartTag (transformGroup,h,cursorsNames){
+    operation deleteOperationStartTag (transformGroup,h,cursorsNames,model_mapper){
             var util = new Native('org.tura.metamodel.commons.Util');
             var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
             if ( attrMergeConnections.size() <> 0){
@@ -435,7 +471,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
     }
   
     @template
-    operation addOperationStartTag (transformGroup,h,cursorsNames){
+    operation addOperationStartTag (transformGroup,h,cursorsNames,model_mapper){
                  var util = new Native('org.tura.metamodel.commons.Util');
 %]
           [%=h.get("targetType").~fullName%] obj = new  [%=h.get("targetType").~fullName%]();
@@ -447,7 +483,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
     operation addOperationEndTag (transformGroup,h,cursorsNames){
     }
   @template
-    operation mergeOrAddOperationStartTag (transformGroup,h,cursorsNames){
+    operation mergeOrAddOperationStartTag (transformGroup,h,cursorsNames,model_mapper){
                  var util = new Native('org.tura.metamodel.commons.Util');
                  var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = h.get("targetMapper").uid and q.mergeAttr);
                  if ( attrMergeConnections.size() <> 0){
@@ -468,14 +504,14 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
              [%=h.get("targetType").~fullName%] obj = new  [%=h.get("targetType").~fullName%]();
              bf.get[%=h.get("targetCursorName")%]Cursor().add(obj);    
              copyFrom[%=h.get("sourceCursorName")%]();   
-             [%=h.get("targetMapper").loadChildren(cursorsNames)%]
+             [%=h.get("targetMapper").loadChildren(cursorsNames,model_mapper)%]
              
           }else{
           for ([%=h.get("targetType").~fullName%]  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]Obj:  [%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]List ){
           bf.get[%=h.get("targetCursorName")%]Cursor().setPosition([%=util.mergeAndUnCapitalize(h.get("targetCursorName"))%]Obj);  
 [%       
        }else{
-        %][%=self.addOperationStartTag(transformGroup,h,cursorsNames)%][%
+        %][%=self.addOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
        }
     }
     
@@ -491,7 +527,8 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
     }
   
   @template
-  operation objectmapper::ObjectMapper loadChildren(cursorsNames){
+  operation objectmapper::ObjectMapper loadChildren(cursorsNames,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
    	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.eContainer().uid = self.uid and q.objectMapperRef <> null);
 
  	  if (omRelations.size <> 0){
@@ -502,7 +539,12 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
     	     var sourceMapper = self;
 	         var sourceCursorName = cursorsNames.get(sourceMapper.uid);
 	         
-%]
+              if ( self.findClassifier(util.getHint(model_mapper,"ResetBeforeLoad"))  ){
+ %]
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().reset();
+ [%               
+                }
+%]	         
 	             bf.get[%=refCursorName%]Cursor().load();
 [%	         
 	         

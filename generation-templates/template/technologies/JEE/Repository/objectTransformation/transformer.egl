@@ -50,6 +50,7 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/objectTr
 %]
    public void  [%=util.mergeAndUnCapitalize(startStage.name)%]2[%=util.mergeAndUnCapitalize(endStage.name)%]() throws Exception{
    
+                   bf.cleanContext();
 		           bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStageStartEvent("[%=util.mergeAndUnCapitalize(startStage.name)%]","[%=util.mergeAndUnCapitalize(endStage.name)%]"));
 [%                 
                  var mappers = transformGroup.objectMappers->select(q|q.stage <> null and q.stage.uid=endStage.uid);

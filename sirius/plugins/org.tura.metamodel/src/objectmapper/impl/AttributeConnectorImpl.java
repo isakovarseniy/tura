@@ -43,12 +43,11 @@ import type.Attribute;
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#isMergeAttr <em>Merge Attr</em>}</li>
- *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getOperationRef <em>Operation Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeConnectorImpl extends EObjectImpl implements AttributeConnector {
+public class AttributeConnectorImpl extends OperationConnectorRefImpl implements AttributeConnector {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,16 +107,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 	 * @ordered
 	 */
 	protected boolean mergeAttr = MERGE_ATTR_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOperationRef() <em>Operation Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperationRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected OperationConnector operationRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,46 +259,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 	 * @generated
 	 */
 	@Override
-	public OperationConnector getOperationRef() {
-		if (operationRef != null && operationRef.eIsProxy()) {
-			InternalEObject oldOperationRef = (InternalEObject)operationRef;
-			operationRef = (OperationConnector)eResolveProxy(oldOperationRef);
-			if (operationRef != oldOperationRef) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF, oldOperationRef, operationRef));
-			}
-		}
-		return operationRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OperationConnector basicGetOperationRef() {
-		return operationRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOperationRef(OperationConnector newOperationRef) {
-		OperationConnector oldOperationRef = operationRef;
-		operationRef = newOperationRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF, oldOperationRef, operationRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__UID:
@@ -322,9 +271,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 				return basicGetTarget();
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				return isMergeAttr();
-			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF:
-				if (resolve) return getOperationRef();
-				return basicGetOperationRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,9 +294,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 				return;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				setMergeAttr((Boolean)newValue);
-				return;
-			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF:
-				setOperationRef((OperationConnector)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -376,9 +319,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				setMergeAttr(MERGE_ATTR_EDEFAULT);
 				return;
-			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF:
-				setOperationRef((OperationConnector)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -399,8 +339,6 @@ public class AttributeConnectorImpl extends EObjectImpl implements AttributeConn
 				return target != null;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				return mergeAttr != MERGE_ATTR_EDEFAULT;
-			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__OPERATION_REF:
-				return operationRef != null;
 		}
 		return super.eIsSet(featureID);
 	}

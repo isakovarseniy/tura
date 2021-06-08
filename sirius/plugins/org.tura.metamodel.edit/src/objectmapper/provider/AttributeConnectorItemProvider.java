@@ -48,13 +48,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class AttributeConnectorItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends OperationConnectorRefItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,7 +74,6 @@ public class AttributeConnectorItemProvider
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 			addMergeAttrPropertyDescriptor(object);
-			addOperationRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -174,28 +167,6 @@ public class AttributeConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Operation Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOperationRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AttributeConnector_operationRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeConnector_operationRef_feature", "_UI_AttributeConnector_type"),
-				 ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__OPERATION_REF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns AttributeConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,17 +222,6 @@ public class AttributeConnectorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DomainEditPlugin.INSTANCE;
 	}
 
 }

@@ -49,7 +49,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class OperationConnectorImpl extends EObjectImpl implements OperationConnector {
+public class OperationConnectorImpl extends OperationConnectorRefImpl implements OperationConnector {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

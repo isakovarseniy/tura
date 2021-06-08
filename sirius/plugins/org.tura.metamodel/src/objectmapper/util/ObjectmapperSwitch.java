@@ -98,6 +98,7 @@ public class ObjectmapperSwitch<T> extends Switch<T> {
 			case ObjectmapperPackage.OBJECT_MAPPER: {
 				ObjectMapper objectMapper = (ObjectMapper)theEObject;
 				T result = caseObjectMapper(objectMapper);
+				if (result == null) result = caseCategorized(objectMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,15 +124,23 @@ public class ObjectmapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ObjectmapperPackage.OPERATION_CONNECTOR_REF: {
+				OperationConnectorRef operationConnectorRef = (OperationConnectorRef)theEObject;
+				T result = caseOperationConnectorRef(operationConnectorRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR: {
 				AttributeConnector attributeConnector = (AttributeConnector)theEObject;
 				T result = caseAttributeConnector(attributeConnector);
+				if (result == null) result = caseOperationConnectorRef(attributeConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ObjectmapperPackage.OPERATION_CONNECTOR: {
 				OperationConnector operationConnector = (OperationConnector)theEObject;
 				T result = caseOperationConnector(operationConnector);
+				if (result == null) result = caseOperationConnectorRef(operationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -237,6 +246,21 @@ public class ObjectmapperSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Connector Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Connector Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationConnectorRef(OperationConnectorRef object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Attribute Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -278,6 +302,21 @@ public class ObjectmapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCalculatedField(CalculatedField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorized</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorized</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorized(Categorized object) {
 		return null;
 	}
 

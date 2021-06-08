@@ -29,15 +29,7 @@ import objectmapper.ObjectmapperFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeConnectorTest extends TestCase {
-
-	/**
-	 * The fixture for this Attribute Connector test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeConnector fixture = null;
+public class AttributeConnectorTest extends OperationConnectorRefTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,23 +51,14 @@ public class AttributeConnectorTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Attribute Connector test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(AttributeConnector fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Attribute Connector test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected AttributeConnector getFixture() {
-		return fixture;
+		return (AttributeConnector)fixture;
 	}
 
 	/**

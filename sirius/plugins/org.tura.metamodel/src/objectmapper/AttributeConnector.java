@@ -33,14 +33,13 @@ import type.Attribute;
  *   <li>{@link objectmapper.AttributeConnector#getSource <em>Source</em>}</li>
  *   <li>{@link objectmapper.AttributeConnector#getTarget <em>Target</em>}</li>
  *   <li>{@link objectmapper.AttributeConnector#isMergeAttr <em>Merge Attr</em>}</li>
- *   <li>{@link objectmapper.AttributeConnector#getOperationRef <em>Operation Ref</em>}</li>
  * </ul>
  *
  * @see objectmapper.ObjectmapperPackage#getAttributeConnector()
  * @model
  * @generated
  */
-public interface AttributeConnector extends EObject {
+public interface AttributeConnector extends OperationConnectorRef {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -128,27 +127,5 @@ public interface AttributeConnector extends EObject {
 	 * @generated
 	 */
 	void setMergeAttr(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Operation Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation Ref</em>' reference.
-	 * @see #setOperationRef(OperationConnector)
-	 * @see objectmapper.ObjectmapperPackage#getAttributeConnector_OperationRef()
-	 * @model
-	 * @generated
-	 */
-	OperationConnector getOperationRef();
-
-	/**
-	 * Sets the value of the '{@link objectmapper.AttributeConnector#getOperationRef <em>Operation Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operation Ref</em>' reference.
-	 * @see #getOperationRef()
-	 * @generated
-	 */
-	void setOperationRef(OperationConnector value);
 
 } // AttributeConnector

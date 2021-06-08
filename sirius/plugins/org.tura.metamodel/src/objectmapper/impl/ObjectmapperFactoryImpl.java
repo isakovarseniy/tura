@@ -77,6 +77,7 @@ public class ObjectmapperFactoryImpl extends EFactoryImpl implements Objectmappe
 			case ObjectmapperPackage.VARIABLE: return createVariable();
 			case ObjectmapperPackage.AGGREGATION: return createAggregation();
 			case ObjectmapperPackage.OM_RELATION: return createOmRelation();
+			case ObjectmapperPackage.OPERATION_CONNECTOR_REF: return createOperationConnectorRef();
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR: return createAttributeConnector();
 			case ObjectmapperPackage.OPERATION_CONNECTOR: return createOperationConnector();
 			case ObjectmapperPackage.CALCULATED_FIELD: return createCalculatedField();
@@ -179,6 +180,17 @@ public class ObjectmapperFactoryImpl extends EFactoryImpl implements Objectmappe
 	public OmRelation createOmRelation() {
 		OmRelationImpl omRelation = new OmRelationImpl();
 		return omRelation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OperationConnectorRef createOperationConnectorRef() {
+		OperationConnectorRefImpl operationConnectorRef = new OperationConnectorRefImpl();
+		return operationConnectorRef;
 	}
 
 	/**

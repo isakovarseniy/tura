@@ -99,7 +99,7 @@ public class ApplicationLayerDS extends DataSource {
 
 		for ( int k = rowList.size()-1,  j = 0 ; k >= 0; k-- ,j++){
 			editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, rowList.get(j),
-					MapperPackage.eINSTANCE.getMappingLayer_Order(), k));
+					MapperPackage.eINSTANCE.getMappingLayer_Order(), k+1));
 		}
 		
 	}
@@ -119,9 +119,9 @@ public class ApplicationLayerDS extends DataSource {
 		Session session = SessionManager.INSTANCE.getSession(this.property.getModel());
 		EditingDomain editingDomain = session.getTransactionalEditingDomain();
 
-		for ( int k = rowList.size()-1,  j = 0 ; k > 0; k-- ,j++){
+		for ( int k = rowList.size()-1,  j = 0 ; k >= 0; k-- ,j++){
 			editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, rowList.get(j),
-					MapperPackage.eINSTANCE.getMappingLayer_Order(), k));
+					MapperPackage.eINSTANCE.getMappingLayer_Order(), k+1));
 		}
 		
 	}

@@ -16,6 +16,7 @@
  */
 package objectmapper.impl;
 
+import artifact.impl.CategorizedImpl;
 import java.util.Collection;
 
 import objectmapper.Aggregation;
@@ -62,7 +63,7 @@ import type.TypePointer;
  *
  * @generated
  */
-public class ObjectMapperImpl extends EObjectImpl implements ObjectMapper {
+public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

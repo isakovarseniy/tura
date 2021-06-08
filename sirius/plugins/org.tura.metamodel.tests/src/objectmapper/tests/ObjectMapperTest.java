@@ -16,6 +16,7 @@
  */
 package objectmapper.tests;
 
+import artifact.tests.CategorizedTest;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -29,15 +30,7 @@ import objectmapper.ObjectmapperFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ObjectMapperTest extends TestCase {
-
-	/**
-	 * The fixture for this Object Mapper test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ObjectMapper fixture = null;
+public class ObjectMapperTest extends CategorizedTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,23 +52,14 @@ public class ObjectMapperTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Object Mapper test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(ObjectMapper fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Object Mapper test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected ObjectMapper getFixture() {
-		return fixture;
+		return (ObjectMapper)fixture;
 	}
 
 	/**

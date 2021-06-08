@@ -562,7 +562,7 @@
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.dropdown.OperationConnectorPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.AttributeConnectorSectionFilter"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.OperationConnectorRefSectionFilter"
 	            id="objectmapper.AttributeConnector.Operation"
 	            tab="tab.objectmapper.AttributeConnector.Operation">
 	      </propertySection>

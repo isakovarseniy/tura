@@ -223,6 +223,29 @@ public class ObjectmapperItemProviderAdapterFactory extends ObjectmapperAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link objectmapper.OperationConnectorRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationConnectorRefItemProvider operationConnectorRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link objectmapper.OperationConnectorRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationConnectorRefAdapter() {
+		if (operationConnectorRefItemProvider == null) {
+			operationConnectorRefItemProvider = new OperationConnectorRefItemProvider(this);
+		}
+
+		return operationConnectorRefItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link objectmapper.AttributeConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -109,6 +109,10 @@ public class ObjectmapperAdapterFactory extends AdapterFactoryImpl {
 				return createOmRelationAdapter();
 			}
 			@Override
+			public Adapter caseOperationConnectorRef(OperationConnectorRef object) {
+				return createOperationConnectorRefAdapter();
+			}
+			@Override
 			public Adapter caseAttributeConnector(AttributeConnector object) {
 				return createAttributeConnectorAdapter();
 			}
@@ -119,6 +123,10 @@ public class ObjectmapperAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCalculatedField(CalculatedField object) {
 				return createCalculatedFieldAdapter();
+			}
+			@Override
+			public Adapter caseCategorized(Categorized object) {
+				return createCategorizedAdapter();
 			}
 			@Override
 			public Adapter caseTypePointer(TypePointer object) {
@@ -229,6 +237,20 @@ public class ObjectmapperAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link objectmapper.OperationConnectorRef <em>Operation Connector Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see objectmapper.OperationConnectorRef
+	 * @generated
+	 */
+	public Adapter createOperationConnectorRefAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link objectmapper.AttributeConnector <em>Attribute Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -267,6 +289,20 @@ public class ObjectmapperAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCalculatedFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Categorized <em>Categorized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Categorized
+	 * @generated
+	 */
+	public Adapter createCategorizedAdapter() {
 		return null;
 	}
 

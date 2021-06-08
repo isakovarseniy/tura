@@ -144,6 +144,8 @@
               <parameters uid="77d9dae3-fca2-4dfb-b4b3-881e2f8f35b3" name="Group"/>
             </modelQuery>
             <hints uid="3e86812c-630b-4b3d-a282-dd91e2347a9c" name="OneWayAssociation" hint="092db6fe-1f0f-4f02-9ed8-c355d477f214"/>
+            <hints uid="ef94b8ca-95d8-4664-94eb-98d4d8041ddb" name="ObjectMapperLoadChildren" hint="f327bff9-b588-4ee9-b966-8bc694731ed5"/>
+            <hints uid="03fb8493-abed-4fb9-bef0-2dff1c053f60" name="ResetBeforeLoad" hint="d16c104f-40ba-4c5f-b280-1dbc2849f49f"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
@@ -647,6 +649,8 @@
           <hints uid="a33bf8db-5036-434d-9670-c89e8aa7ef73" name="SPA Object"/>
           <hints uid="b85caaed-4c99-4983-b88e-7c707b725e99" name="SignalField"/>
           <hints uid="a2eb633a-530b-4c82-96d2-7e61703bbadb" name="DoNotNil"/>
+          <hints uid="f327bff9-b588-4ee9-b966-8bc694731ed5" name="ObjectMapperLoadChildren"/>
+          <hints uid="d16c104f-40ba-4c5f-b280-1dbc2849f49f" name="ResetBeforeLoad"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
         </techLeafs>
@@ -3471,6 +3475,10 @@
                           <queries uid="76e0fdcc-c7ce-43a8-8474-0a6847f3b4d6" name="Query Union transformation" queryRef="5e1704e0-6f3e-45d6-ad4e-d66c0e61a549">
                             <variables queryParamRef="c4b6d0e9-71c1-454c-8490-6b967ec0f533" value="Test model transformation"/>
                             <variables queryParamRef="77d9dae3-fca2-4dfb-b4b3-881e2f8f35b3" value="Union test"/>
+                          </queries>
+                          <queries uid="b5f6b1b7-cf57-4b44-a98a-80bcde0bb833" name="Query Join transformation" queryRef="5e1704e0-6f3e-45d6-ad4e-d66c0e61a549">
+                            <variables queryParamRef="c4b6d0e9-71c1-454c-8490-6b967ec0f533" value="Test model transformation"/>
+                            <variables queryParamRef="77d9dae3-fca2-4dfb-b4b3-881e2f8f35b3" value="Join transformation"/>
                           </queries>
                         </mappers>
                         <mappers uid="7a77801f-da06-4676-b1aa-880332ba7ace" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Object transformation builder">
@@ -18135,14 +18143,14 @@
           <stages uid="809f0d92-c52e-443c-b0fd-8decf6c7d2da" name="Processing Stage1" nextStage="cb0e7c5d-10f7-4fd3-8609-fbd4f21af832"/>
           <stages uid="cb0e7c5d-10f7-4fd3-8609-fbd4f21af832" name="Processing Stage2" nextStage="21d1ef16-35f3-4722-a782-ae839b56afec"/>
           <stages uid="21d1ef16-35f3-4722-a782-ae839b56afec" name="Processing Stage3"/>
-          <attributesConnector uid="eb9ac5db-224e-4785-9434-e4746f98d0a1" source="6600dd7a-903a-491c-a4d1-41cd0375a59e" target="434a3ac6-3325-4c36-b5dc-9452b68841d3" operationRef="da499e15-fb39-4540-818e-0f95020d4fe5"/>
-          <attributesConnector uid="bf4c11df-84fb-4fdc-bf5e-b919a0346f41" source="b7281b58-4a68-4558-8b14-1a47dc52e640" target="71421322-10d8-4649-85ac-3bf87799d885" operationRef="da499e15-fb39-4540-818e-0f95020d4fe5"/>
-          <attributesConnector uid="055680da-79f1-454f-be0d-a1561c7b3ab3" source="1fda47ae-d44d-4796-ba27-d64180c711d5" target="6ca3c69d-0021-46bd-96b2-f3ca90d642ba" operationRef="da499e15-fb39-4540-818e-0f95020d4fe5"/>
-          <attributesConnector uid="9c4c0cbb-07f4-4795-81ef-96b24303f1ee" source="97aeacb0-c2a6-41b4-b84e-29f569ebf43c" target="2d64c718-797e-4d28-b67b-876135500a93" operationRef="da499e15-fb39-4540-818e-0f95020d4fe5"/>
-          <attributesConnector uid="4077d8f9-c861-4b81-8712-d69e5d01bcbc" source="b5e87fdd-052b-4373-ab70-53f7264cf5f5" target="434a3ac6-3325-4c36-b5dc-9452b68841d3" operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4"/>
-          <attributesConnector uid="d9f3af31-cb90-4450-a323-6e33fd87c70e" source="d6743c7d-5f4c-4dcd-8ab4-0469c6387e46" target="71421322-10d8-4649-85ac-3bf87799d885" operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4"/>
-          <attributesConnector uid="6424bc7a-29e6-4705-bbb7-60b8d7159118" source="678d48c4-7702-4a8f-ba35-dfea82156157" target="2d64c718-797e-4d28-b67b-876135500a93" operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4"/>
-          <attributesConnector uid="29a03b11-3156-4ed1-8c32-c3239db18469" source="ea715f8c-da17-426f-9e2b-9a850d7bba84" target="6ca3c69d-0021-46bd-96b2-f3ca90d642ba" operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4"/>
+          <attributesConnector operationRef="da499e15-fb39-4540-818e-0f95020d4fe5" uid="eb9ac5db-224e-4785-9434-e4746f98d0a1" source="6600dd7a-903a-491c-a4d1-41cd0375a59e" target="434a3ac6-3325-4c36-b5dc-9452b68841d3"/>
+          <attributesConnector operationRef="da499e15-fb39-4540-818e-0f95020d4fe5" uid="bf4c11df-84fb-4fdc-bf5e-b919a0346f41" source="b7281b58-4a68-4558-8b14-1a47dc52e640" target="71421322-10d8-4649-85ac-3bf87799d885"/>
+          <attributesConnector operationRef="da499e15-fb39-4540-818e-0f95020d4fe5" uid="055680da-79f1-454f-be0d-a1561c7b3ab3" source="1fda47ae-d44d-4796-ba27-d64180c711d5" target="6ca3c69d-0021-46bd-96b2-f3ca90d642ba"/>
+          <attributesConnector operationRef="da499e15-fb39-4540-818e-0f95020d4fe5" uid="9c4c0cbb-07f4-4795-81ef-96b24303f1ee" source="97aeacb0-c2a6-41b4-b84e-29f569ebf43c" target="2d64c718-797e-4d28-b67b-876135500a93"/>
+          <attributesConnector operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4" uid="4077d8f9-c861-4b81-8712-d69e5d01bcbc" source="b5e87fdd-052b-4373-ab70-53f7264cf5f5" target="434a3ac6-3325-4c36-b5dc-9452b68841d3"/>
+          <attributesConnector operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4" uid="d9f3af31-cb90-4450-a323-6e33fd87c70e" source="d6743c7d-5f4c-4dcd-8ab4-0469c6387e46" target="71421322-10d8-4649-85ac-3bf87799d885"/>
+          <attributesConnector operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4" uid="6424bc7a-29e6-4705-bbb7-60b8d7159118" source="678d48c4-7702-4a8f-ba35-dfea82156157" target="2d64c718-797e-4d28-b67b-876135500a93"/>
+          <attributesConnector operationRef="8c467b19-5d7b-42ac-83ac-16fa640a7aa4" uid="29a03b11-3156-4ed1-8c32-c3239db18469" source="ea715f8c-da17-426f-9e2b-9a850d7bba84" target="6ca3c69d-0021-46bd-96b2-f3ca90d642ba"/>
           <attributesConnector uid="4817c3a3-6b47-48b4-ae18-1f58a83c96ab" source="71421322-10d8-4649-85ac-3bf87799d885" target="be2ef263-8119-496e-aba5-0214b4182efe"/>
           <attributesConnector uid="95ce2fd5-30aa-4dd6-be26-e2f398c5337f" source="6ca3c69d-0021-46bd-96b2-f3ca90d642ba" target="f0a2663b-a938-4cf8-9bff-7c0d7338a54c"/>
           <operationsConnector uid="da499e15-fb39-4540-818e-0f95020d4fe5" name="Adjustment" source="ff273a55-8754-40a1-944c-5736f1bcb1b7" target="c22e9abe-f916-4faf-a8f0-ccfb3ed02a8c"/>
@@ -18164,6 +18172,82 @@
           <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ea715f8c-da17-426f-9e2b-9a850d7bba84" name="Transaction" value="Transaction"/>
           <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1fda47ae-d44d-4796-ba27-d64180c711d5" name="Adjustments" value="Adjustments"/>
           <variables typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="0d31f7a0-7460-4777-9024-6ce3f09099ae" name="amountFltr" value="500"/>
+        </objectMapperPackages>
+        <objectMapperPackages uid="d198b911-371a-472a-a154-dd6d569d2838" name="Join transformation">
+          <objectMappers uid="4230d1be-ec89-454a-a90c-2a220c4e5f22" name="OperationResponse" stage="11f2dffe-51e5-4ede-963d-a62d5becd271">
+            <baseType typeRef="66439d70-ab4f-4c57-adb3-8b03d4f8c9ea"/>
+            <relations uid="542dd1ce-b483-49f4-9eb4-87c7c8fd6e83" objectMapperRef="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" typeRef="e8efca23-07eb-44ba-b7d9-d2799564a752" assosiationRef="b7197a52-b353-40d9-bca8-8d786a8b7950"/>
+            <relations uid="89b9f202-e134-442a-892c-7f22b3a00849" objectMapperRef="60e353c1-6844-4f88-b922-a31141ec4eee" typeRef="2d5bf5bf-a9fc-45ce-8732-eaa6df46da6b" assosiationRef="22a82d2d-c6bf-4f96-9a5f-69c4c87d2047"/>
+          </objectMappers>
+          <objectMappers uid="53262142-53d5-452e-8652-26448cac3ce3" name="CustomerCharge" stage="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5">
+            <baseType typeRef="f4c3546a-0ad3-473d-a9b0-1d374a583e4c"/>
+            <relations uid="2a5a68b1-5874-4443-9f11-15dccdc99fa8" typeRef="eebb2926-28c5-4cdc-b0ea-a60ed376fffc" assosiationRef="8667113e-3212-4509-9178-58c0329f9496"/>
+            <relations uid="99e9b8f1-e2d6-473e-a472-d1f57e997f24" typeRef="a44ef253-4716-4aa8-9a1b-8a1ad7a9294a" assosiationRef="8f164222-fd7b-4bc9-8a8f-7ee5c3424bac"/>
+            <relations uid="8cc3a502-447d-4d41-aac4-d4500cae5be5" objectMapperRef="bca2e7f8-b317-4d5b-8418-30761aeb6dad" typeRef="fb2a7814-d2e2-43db-9dce-bb5bd0dee702" assosiationRef="5ff59786-2d87-44b5-8fbf-5df728bfedbe"/>
+            <attributes uid="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3" attributeRef="19c61063-63ab-4196-ac20-188ef70da8ca"/>
+            <attributes uid="603d8826-d561-415d-9094-b5683ba1c5c2" attributeRef="5bf7254a-4574-4486-a93c-58d112a5a792"/>
+            <attributes uid="df91c3fc-505e-44ff-a223-723579112f28" attributeRef="c644cba6-7c01-41e4-9df8-6104091fb02b"/>
+            <attributes uid="139cd213-a60c-4756-9109-4ec1617fd0a7" attributeRef="f9b8be27-0a69-4042-a2b8-c8daf622ddd7"/>
+            <attributes uid="127588e7-2711-4d9f-acd5-6d9a0da5488c" attributeRef="98fb439f-6220-4660-be47-487d6665f81c"/>
+            <attributes uid="ec32d801-d125-4c54-aa91-c3b5b39245a6" attributeRef="83f962f0-fdf5-4752-8ce4-8c67224c333a"/>
+          </objectMappers>
+          <objectMappers uid="60e353c1-6844-4f88-b922-a31141ec4eee" name="Adjustment">
+            <baseType typeRef="2d5bf5bf-a9fc-45ce-8732-eaa6df46da6b"/>
+            <attributes uid="c2662a7f-d111-4da6-b47c-1b9c41324640" attributeRef="a0044ccc-e881-4605-82cd-e042939d7f38"/>
+            <attributes uid="fec4f6c8-6c7e-4bdc-844f-3b6258bd74a5" attributeRef="a02344e3-37a3-461c-bac1-34aa9add474e"/>
+            <attributes uid="80a31fcf-5cd3-4d2e-9e5e-4208cacdea74" attributeRef="d9762009-670d-47aa-9965-e6c5b2d26953"/>
+            <attributes uid="19ba61f8-0154-4749-8e2c-ffb50f4d9198" attributeRef="25638daa-8caa-4b9c-ac22-2ce3040f56b6"/>
+            <attributes uid="5f68e22e-9dd9-4a75-814b-542cd21646b6" attributeRef="43ee35f2-c726-4cb6-b93c-d71eca3f60cf"/>
+            <attributes uid="7f6e3738-cf0d-4eef-bcd7-2e94b53a3651" attributeRef="31177235-7d7d-40a5-b35f-cb030bba4ba8"/>
+            <attributes uid="1dbb535c-e242-4536-b466-5b1e139cab5c" attributeRef="dda34a02-3955-4f31-9e7e-715f02ccaf4e"/>
+          </objectMappers>
+          <objectMappers uid="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" name="Transactions">
+            <baseType typeRef="e8efca23-07eb-44ba-b7d9-d2799564a752"/>
+            <attributes uid="8b8c61c9-376c-4bd7-957a-466ec77ebd17" attributeRef="5dc105ac-2d44-4259-9c3b-e0c0d1bb3951"/>
+            <attributes uid="8560d75b-bc58-4356-9e46-33d4c5b515c1" attributeRef="cea87b07-a413-4ff8-97c5-0117148d1919"/>
+            <attributes uid="ba1d845c-1b20-40ca-b71c-9e8477bf7a82" attributeRef="6a76fb60-01f4-47d2-b825-f4fe756f93e4"/>
+            <attributes uid="ba56c439-a283-4bbe-9e02-dd418ce0833a" attributeRef="3ea8740e-b6ef-420b-a887-3a1fe3d92791"/>
+            <attributes uid="dd4e7b4c-8cfd-40b8-a67c-20d2d72a6945" attributeRef="a8e79c08-64a5-4d6a-9ca3-eb14c490a801"/>
+            <attributes uid="bb53f7de-dd48-4dcf-ae3d-2421f56f4b28" attributeRef="1e4e0b5f-102e-4b56-bc98-940477564b7b"/>
+            <attributes uid="de5239e7-59f3-48ba-a183-53e009ea050e" attributeRef="60c2f50b-cec3-495c-8005-c2be4e6b9fc2"/>
+            <attributes uid="576b2fcb-bff2-4450-8333-a2647dd96f4a" attributeRef="1d0afb6a-4419-45e8-b44e-68f1da168522"/>
+            <attributes uid="80ec7f89-29b9-4c7d-bbee-f30d56c8b8fb" attributeRef="20eae0a4-4afe-4c24-84c6-6e08fff8a6e2"/>
+          </objectMappers>
+          <objectMappers uid="bca2e7f8-b317-4d5b-8418-30761aeb6dad" name="Tax">
+            <baseType typeRef="fb2a7814-d2e2-43db-9dce-bb5bd0dee702"/>
+            <attributes uid="80821723-6efb-454a-843a-3cb7ea8efc04" attributeRef="36ffacf8-8c8b-4cfe-aff6-b6d278824b37"/>
+            <attributes uid="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1" attributeRef="87534b92-f30d-4a92-99be-6d8dfd568909"/>
+          </objectMappers>
+          <objectMappers uid="dc6cc84b-65b9-481a-9cec-313f24cec471" name="AdjTax">
+            <classifiers uid="df6d46a3-23cc-4d76-9ae8-0ec011c74679" hint="d16c104f-40ba-4c5f-b280-1dbc2849f49f"/>
+            <baseType typeRef="aabf4a80-13cb-4cf1-aea7-1bcd6f4df86b"/>
+            <attributes uid="a3326549-0c4d-466f-b3ae-8e713ad6da12" attributeRef="3a790e95-893b-4bcf-a4be-305d9dfeff80"/>
+            <attributes uid="ab1657f5-7f00-4056-b361-e424d5633fec" attributeRef="4e3d0e02-7a83-4fa2-ac64-4dedd75e4189"/>
+          </objectMappers>
+          <objectMappers uid="e9c1254a-c7f0-4136-9fb0-425dbb5dc635" name="TrnTax">
+            <classifiers uid="a53a8e0f-5895-49a9-b129-8654dccfc862" hint="d16c104f-40ba-4c5f-b280-1dbc2849f49f"/>
+            <baseType typeRef="aabf4a80-13cb-4cf1-aea7-1bcd6f4df86b"/>
+            <attributes uid="fd24fc90-cca5-4ca0-b19a-279a98f65af2" attributeRef="3a790e95-893b-4bcf-a4be-305d9dfeff80"/>
+            <attributes uid="72b1e254-b05f-44fe-b029-ebc28848ffa2" attributeRef="4e3d0e02-7a83-4fa2-ac64-4dedd75e4189"/>
+          </objectMappers>
+          <stages uid="11f2dffe-51e5-4ede-963d-a62d5becd271" name="Processing Stage1" nextStage="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5"/>
+          <stages uid="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5" name="Processing Stage2"/>
+          <attributesConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="d1ce7920-f0f9-4a07-954b-fcb64f1d0503" source="80a31fcf-5cd3-4d2e-9e5e-4208cacdea74" target="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3"/>
+          <attributesConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="8077a103-6125-4ec1-8d3f-48e60a748c82" source="8b8c61c9-376c-4bd7-957a-466ec77ebd17" target="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3"/>
+          <attributesConnector uid="b0061249-1476-4fd0-bca5-d12aa55b548a" source="5f68e22e-9dd9-4a75-814b-542cd21646b6" target="ab1657f5-7f00-4056-b361-e424d5633fec"/>
+          <attributesConnector uid="f5dafcc3-9f06-4550-8386-c86b0708ceaa" source="dd4e7b4c-8cfd-40b8-a67c-20d2d72a6945" target="72b1e254-b05f-44fe-b029-ebc28848ffa2"/>
+          <attributesConnector uid="786c7ee2-9c3f-4986-949a-a70d38667969" source="06e05d61-d391-4a05-b65d-8c130e7a7877" target="a3326549-0c4d-466f-b3ae-8e713ad6da12"/>
+          <attributesConnector uid="72826a96-87aa-4087-8ef2-ee30c711cb33" source="d5b81723-315d-4340-ad7e-226d7fe9fdf5" target="fd24fc90-cca5-4ca0-b19a-279a98f65af2"/>
+          <attributesConnector operationRef="8308b66f-27b7-4571-8051-b63f0b86ce7d" uid="cf025040-7208-4d7e-afa4-63359a99f1d3" source="a3326549-0c4d-466f-b3ae-8e713ad6da12" target="80821723-6efb-454a-843a-3cb7ea8efc04"/>
+          <attributesConnector operationRef="8308b66f-27b7-4571-8051-b63f0b86ce7d" uid="2824d45b-f059-436e-a169-c1c055bc9ea9" source="ab1657f5-7f00-4056-b361-e424d5633fec" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
+          <attributesConnector operationRef="293c4d46-1497-406c-9e35-3b93eda0594b" uid="1c6d0cff-5110-43c0-b72a-88f27d7bbe84" source="fd24fc90-cca5-4ca0-b19a-279a98f65af2" target="80821723-6efb-454a-843a-3cb7ea8efc04"/>
+          <attributesConnector operationRef="293c4d46-1497-406c-9e35-3b93eda0594b" uid="a8adc7ad-0b69-4111-b1ff-6db820a32193" source="72b1e254-b05f-44fe-b029-ebc28848ffa2" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
+          <operationsConnector uid="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" name="Adjastment" source="60e353c1-6844-4f88-b922-a31141ec4eee" target="53262142-53d5-452e-8652-26448cac3ce3"/>
+          <operationsConnector uid="0846283f-981a-4220-9197-d56c657ee198" name="Transaction" source="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" target="53262142-53d5-452e-8652-26448cac3ce3"/>
+          <operationsConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="8308b66f-27b7-4571-8051-b63f0b86ce7d" name="AdjTax" source="dc6cc84b-65b9-481a-9cec-313f24cec471" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
+          <operationsConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="293c4d46-1497-406c-9e35-3b93eda0594b" name="TrTax" source="e9c1254a-c7f0-4136-9fb0-425dbb5dc635" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="06e05d61-d391-4a05-b65d-8c130e7a7877" name="AdjTaxVar" value="AdjTax"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d5b81723-315d-4340-ad7e-226d7fe9fdf5" name="TrxTaxVar" value="TrxTax"/>
         </objectMapperPackages>
       </mappers>
     </domainMappers>

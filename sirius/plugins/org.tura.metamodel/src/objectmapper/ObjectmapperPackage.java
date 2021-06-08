@@ -16,6 +16,7 @@
  */
 package objectmapper;
 
+import artifact.ArtifactPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -210,13 +211,22 @@ public interface ObjectmapperPackage extends EPackage {
 	int OBJECT_MAPPER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAPPER__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__UID = 0;
+	int OBJECT_MAPPER__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -225,7 +235,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__NAME = 1;
+	int OBJECT_MAPPER__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Stage</b></em>' reference.
@@ -234,7 +244,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__STAGE = 2;
+	int OBJECT_MAPPER__STAGE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' containment reference.
@@ -243,7 +253,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__BASE_TYPE = 3;
+	int OBJECT_MAPPER__BASE_TYPE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -252,7 +262,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__RELATIONS = 4;
+	int OBJECT_MAPPER__RELATIONS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Calculations</b></em>' containment reference list.
@@ -261,7 +271,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__CALCULATIONS = 5;
+	int OBJECT_MAPPER__CALCULATIONS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Aggrigations</b></em>' containment reference list.
@@ -270,7 +280,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__AGGRIGATIONS = 6;
+	int OBJECT_MAPPER__AGGRIGATIONS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -279,7 +289,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__ATTRIBUTES = 7;
+	int OBJECT_MAPPER__ATTRIBUTES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Object Mapper</em>' class.
@@ -288,7 +298,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER_FEATURE_COUNT = 8;
+	int OBJECT_MAPPER_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link objectmapper.impl.OmRelationImpl <em>Om Relation</em>}' class.
@@ -308,7 +318,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @see objectmapper.impl.ObjectmapperPackageImpl#getAttributeConnector()
 	 * @generated
 	 */
-	int ATTRIBUTE_CONNECTOR = 6;
+	int ATTRIBUTE_CONNECTOR = 7;
 
 	/**
 	 * The meta object id for the '{@link objectmapper.impl.OperationConnectorImpl <em>Operation Connector</em>}' class.
@@ -318,7 +328,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @see objectmapper.impl.ObjectmapperPackageImpl#getOperationConnector()
 	 * @generated
 	 */
-	int OPERATION_CONNECTOR = 7;
+	int OPERATION_CONNECTOR = 8;
 
 	/**
 	 * The meta object id for the '{@link objectmapper.impl.CalculatedFieldImpl <em>Calculated Field</em>}' class.
@@ -328,7 +338,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @see objectmapper.impl.ObjectmapperPackageImpl#getCalculatedField()
 	 * @generated
 	 */
-	int CALCULATED_FIELD = 8;
+	int CALCULATED_FIELD = 9;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -523,40 +533,14 @@ public interface ObjectmapperPackage extends EPackage {
 	int OM_RELATION_FEATURE_COUNT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * The meta object id for the '{@link objectmapper.impl.OperationConnectorRefImpl <em>Operation Connector Ref</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see objectmapper.impl.OperationConnectorRefImpl
+	 * @see objectmapper.impl.ObjectmapperPackageImpl#getOperationConnectorRef()
 	 * @generated
-	 * @ordered
 	 */
-	int ATTRIBUTE_CONNECTOR__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_CONNECTOR__SOURCE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_CONNECTOR__TARGET = 2;
-
-	/**
-	 * The feature id for the '<em><b>Merge Attr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_CONNECTOR__MERGE_ATTR = 3;
+	int OPERATION_CONNECTOR_REF = 6;
 
 	/**
 	 * The feature id for the '<em><b>Operation Ref</b></em>' reference.
@@ -565,16 +549,25 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONNECTOR__OPERATION_REF = 4;
+	int OPERATION_CONNECTOR_REF__OPERATION_REF = 0;
 
 	/**
-	 * The number of structural features of the '<em>Attribute Connector</em>' class.
+	 * The number of structural features of the '<em>Operation Connector Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONNECTOR_FEATURE_COUNT = 5;
+	int OPERATION_CONNECTOR_REF_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Operation Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTOR__OPERATION_REF = OPERATION_CONNECTOR_REF__OPERATION_REF;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -583,16 +576,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION_CONNECTOR__NAME = 1;
+	int ATTRIBUTE_CONNECTOR__UID = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -601,7 +585,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR__SOURCE = 2;
+	int ATTRIBUTE_CONNECTOR__SOURCE = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -610,7 +594,70 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR__TARGET = 3;
+	int ATTRIBUTE_CONNECTOR__TARGET = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Merge Attr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTOR__MERGE_ATTR = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTOR_FEATURE_COUNT = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Operation Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_CONNECTOR__OPERATION_REF = OPERATION_CONNECTOR_REF__OPERATION_REF;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_CONNECTOR__UID = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_CONNECTOR__NAME = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_CONNECTOR__SOURCE = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_CONNECTOR__TARGET = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Operation Type</b></em>' attribute.
@@ -619,7 +666,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR__OPERATION_TYPE = 4;
+	int OPERATION_CONNECTOR__OPERATION_TYPE = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Default Search</b></em>' containment reference.
@@ -628,7 +675,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR__DEFAULT_SEARCH = 5;
+	int OPERATION_CONNECTOR__DEFAULT_SEARCH = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation Connector</em>' class.
@@ -637,7 +684,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_CONNECTOR_FEATURE_COUNT = 6;
+	int OPERATION_CONNECTOR_FEATURE_COUNT = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link objectmapper.OperationType <em>Operation Type</em>}' enum.
@@ -647,7 +694,7 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @see objectmapper.impl.ObjectmapperPackageImpl#getOperationType()
 	 * @generated
 	 */
-	int OPERATION_TYPE = 9;
+	int OPERATION_TYPE = 10;
 
 
 	/**
@@ -975,6 +1022,27 @@ public interface ObjectmapperPackage extends EPackage {
 	EReference getOmRelation_AssosiationRef();
 
 	/**
+	 * Returns the meta object for class '{@link objectmapper.OperationConnectorRef <em>Operation Connector Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation Connector Ref</em>'.
+	 * @see objectmapper.OperationConnectorRef
+	 * @generated
+	 */
+	EClass getOperationConnectorRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link objectmapper.OperationConnectorRef#getOperationRef <em>Operation Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Operation Ref</em>'.
+	 * @see objectmapper.OperationConnectorRef#getOperationRef()
+	 * @see #getOperationConnectorRef()
+	 * @generated
+	 */
+	EReference getOperationConnectorRef_OperationRef();
+
+	/**
 	 * Returns the meta object for class '{@link objectmapper.AttributeConnector <em>Attribute Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1027,17 +1095,6 @@ public interface ObjectmapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAttributeConnector_MergeAttr();
-
-	/**
-	 * Returns the meta object for the reference '{@link objectmapper.AttributeConnector#getOperationRef <em>Operation Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operation Ref</em>'.
-	 * @see objectmapper.AttributeConnector#getOperationRef()
-	 * @see #getAttributeConnector()
-	 * @generated
-	 */
-	EReference getAttributeConnector_OperationRef();
 
 	/**
 	 * Returns the meta object for class '{@link objectmapper.OperationConnector <em>Operation Connector</em>}'.
@@ -1432,6 +1489,24 @@ public interface ObjectmapperPackage extends EPackage {
 		EReference OM_RELATION__ASSOSIATION_REF = eINSTANCE.getOmRelation_AssosiationRef();
 
 		/**
+		 * The meta object literal for the '{@link objectmapper.impl.OperationConnectorRefImpl <em>Operation Connector Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see objectmapper.impl.OperationConnectorRefImpl
+		 * @see objectmapper.impl.ObjectmapperPackageImpl#getOperationConnectorRef()
+		 * @generated
+		 */
+		EClass OPERATION_CONNECTOR_REF = eINSTANCE.getOperationConnectorRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_CONNECTOR_REF__OPERATION_REF = eINSTANCE.getOperationConnectorRef_OperationRef();
+
+		/**
 		 * The meta object literal for the '{@link objectmapper.impl.AttributeConnectorImpl <em>Attribute Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1472,14 +1547,6 @@ public interface ObjectmapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE_CONNECTOR__MERGE_ATTR = eINSTANCE.getAttributeConnector_MergeAttr();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE_CONNECTOR__OPERATION_REF = eINSTANCE.getAttributeConnector_OperationRef();
 
 		/**
 		 * The meta object literal for the '{@link objectmapper.impl.OperationConnectorImpl <em>Operation Connector</em>}' class.

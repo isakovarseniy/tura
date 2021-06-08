@@ -1292,6 +1292,55 @@ public class QueryHelper {
 
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public List<OperationConnector> findOperationConnectorByTarget(OperationConnector operationConnector) {
+		ObjectMapper mp = (ObjectMapper) operationConnector.getTarget();
+
+		try {
+			String query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
+					+ "')";
+			Collection<OperationConnector> list1 = (Collection<OperationConnector>) internalEvaluate(
+					(EObject) operationConnector, query);
+
+			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
+			relations.addAll(list1);
+			
+			relations.addAll(findOperationConnectorByTarget(mp));
+			relations.removeAll(list1);
+			
+			return relations;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+	}	
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<OperationConnector> findOperationConnectorByTarget(ObjectMapper mp) {
+
+		try {
+			String query = "objectmapper::OmRelation.allInstances()->select(r|r.objectMapperRef <> null and r.objectMapperRef.uid ='" + mp.getUid()
+					+ "')";
+			Collection<OmRelation> list1 = (Collection<OmRelation>) internalEvaluate((EObject) mp, query);
+			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
+			if ( list1.size() != 0 ) {
+				OmRelation or = list1.iterator().next();
+				relations.addAll(findOperationConnectorByTarget((ObjectMapper) or.eContainer() ));
+			}
+			query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()+ "')";
+	        Collection<OperationConnector> list2 = (Collection<OperationConnector>) internalEvaluate((EObject) mp, query);
+	        relations.addAll(list2);
+			return relations;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+
+	}
+	
+	
 	public List<OmRelation> getOmRelation(ObjectMapperGroup group) {
 		List<OmRelation> array = new ArrayList<>();
 		for (ObjectMapper mp : group.getObjectMappers()) {
