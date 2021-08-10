@@ -304,6 +304,14 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/plugin/"  , "StopPollCommand.js",buffer);  
 
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/BlockUIOnCommmand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "BlockUIOnCommmand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/BlockUIOffCommmand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "BlockUIOffCommmand.js",buffer);  
+
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/Registry.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/plugin/"  , "Registry.js",buffer);  
@@ -319,6 +327,11 @@ operation  install_components(hash) {
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/ClientSystem.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/lib/"  , "ClientSystem.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/BlockerSystem.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/lib/"  , "BlockerSystem.js",buffer);  
+
 
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/public/index.html",hash,TemplateFactory);
       var buffer = libTemplate.process();

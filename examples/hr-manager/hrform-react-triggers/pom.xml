@@ -24,7 +24,7 @@
 
 	<groupId>org.tura.example.service.hrform</groupId>
 	<artifactId>hrform-react-triggers</artifactId>
-	<version>5.1.0</version>
+	<version>5.1.1</version>
 	<packaging>jar</packaging>
 
 	<dependencyManagement>

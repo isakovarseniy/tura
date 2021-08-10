@@ -606,13 +606,22 @@ public interface ObjectmapperPackage extends EPackage {
 	int ATTRIBUTE_CONNECTOR__MERGE_ATTR = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Default Search</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Attribute Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONNECTOR_FEATURE_COUNT = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 4;
+	int ATTRIBUTE_CONNECTOR_FEATURE_COUNT = OPERATION_CONNECTOR_REF_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Operation Ref</b></em>' reference.
@@ -1097,6 +1106,17 @@ public interface ObjectmapperPackage extends EPackage {
 	EAttribute getAttributeConnector_MergeAttr();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link objectmapper.AttributeConnector#getDefaultSearch <em>Default Search</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default Search</em>'.
+	 * @see objectmapper.AttributeConnector#getDefaultSearch()
+	 * @see #getAttributeConnector()
+	 * @generated
+	 */
+	EReference getAttributeConnector_DefaultSearch();
+
+	/**
 	 * Returns the meta object for class '{@link objectmapper.OperationConnector <em>Operation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1547,6 +1567,14 @@ public interface ObjectmapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE_CONNECTOR__MERGE_ATTR = eINSTANCE.getAttributeConnector_MergeAttr();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Search</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH = eINSTANCE.getAttributeConnector_DefaultSearch();
 
 		/**
 		 * The meta object literal for the '{@link objectmapper.impl.OperationConnectorImpl <em>Operation Connector</em>}' class.

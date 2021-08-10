@@ -69,7 +69,7 @@
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized #//FlexFields"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized permission.ecore#//Secured #//FlexFields"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized permission.ecore#//Secured #//FlexFields #//Blockable"/>
   <eClassifiers xsi:type="ecore:EClass" name="MenuDefinition" eSuperTypes="#//StyleElement artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -219,7 +219,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Blockable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//AreaRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder #//Blockable"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rows" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -304,10 +308,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Uielement #//MultiLangLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BlockUI" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceTarget" upperBound="-1"
-        eType="#//AreaRef" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockUI" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder"/>
   <eClassifiers xsi:type="ecore:EClass" name="FileUpload" eSuperTypes="#//Uielement"/>
   <eClassifiers xsi:type="ecore:EClass" name="FileDownload" eSuperTypes="#//Uielement #//MultiLangLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataScroller" eSuperTypes="#//SourcesPointer #//ChildrenHolder #//MultiLangLabel common.ecore#//HTMLLayerHolder">

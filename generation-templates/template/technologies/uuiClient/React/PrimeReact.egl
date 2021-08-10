@@ -44,6 +44,8 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/DataScroller.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Tree.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/TimeLine.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/BlockUI.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Blockable.egl";
 
 
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Label.egl";
@@ -73,6 +75,7 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/Menu.egl";
 
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewModel/BlockUI.egl";
 
 import "tura:/generation-templates/template/technologies/uuiClient/React/ViewModelReference.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/React.egl";
@@ -118,6 +121,8 @@ import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeRe
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/DataTemplate.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/FullCalendar.egl";
 import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/TimeLine.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/BlockUI.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/Blockable.egl";
 
 
 %]

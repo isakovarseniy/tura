@@ -28,5 +28,5 @@ import common.HTMLLayerHolder;
  * @model
  * @generated
  */
-public interface LayerHolder extends Uielement, ChildrenHolder, HTMLLayerHolder {
+public interface LayerHolder extends Uielement, ChildrenHolder, HTMLLayerHolder, Blockable {
 } // LayerHolder

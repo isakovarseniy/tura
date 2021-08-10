@@ -16,6 +16,7 @@
  */
 package objectmapper;
 
+import form.ContextParameters;
 import org.eclipse.emf.ecore.EObject;
 
 import type.Attribute;
@@ -33,6 +34,7 @@ import type.Attribute;
  *   <li>{@link objectmapper.AttributeConnector#getSource <em>Source</em>}</li>
  *   <li>{@link objectmapper.AttributeConnector#getTarget <em>Target</em>}</li>
  *   <li>{@link objectmapper.AttributeConnector#isMergeAttr <em>Merge Attr</em>}</li>
+ *   <li>{@link objectmapper.AttributeConnector#getDefaultSearch <em>Default Search</em>}</li>
  * </ul>
  *
  * @see objectmapper.ObjectmapperPackage#getAttributeConnector()
@@ -127,5 +129,27 @@ public interface AttributeConnector extends OperationConnectorRef {
 	 * @generated
 	 */
 	void setMergeAttr(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Search</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Search</em>' containment reference.
+	 * @see #setDefaultSearch(ContextParameters)
+	 * @see objectmapper.ObjectmapperPackage#getAttributeConnector_DefaultSearch()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ContextParameters getDefaultSearch();
+
+	/**
+	 * Sets the value of the '{@link objectmapper.AttributeConnector#getDefaultSearch <em>Default Search</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Search</em>' containment reference.
+	 * @see #getDefaultSearch()
+	 * @generated
+	 */
+	void setDefaultSearch(ContextParameters value);
 
 } // AttributeConnector

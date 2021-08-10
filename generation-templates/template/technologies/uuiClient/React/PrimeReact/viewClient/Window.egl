@@ -71,7 +71,9 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
                ports.add(element);
              }
            }        
-         if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
+         var createBody =   self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout")) or self.isBlocked();
+           
+         if ( createBody){
          %]
             <TWindow_[%=self.mkuid()%] id="[%=self.uid%]" contextManager={this.contextManager}/>
          [%
@@ -92,14 +94,16 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
 }
 
 [%
-     if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
+     if (createBody){
+   populateInclude(hash,"{registry}",  clientLibraryPackage+"/plugin/Registry");
+     
      %]
   export class TWindow_[%=self.mkuid()%] extends TWindow {
         constructor(props) {
          super(props);
          }
          
-         getComponentCildren(){
+         getComponentChildren(){
                var array = [];
  [%
              for (element in self.viewElement.sortBy(q|q.order)){
@@ -134,6 +138,7 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
             return externalLayoutManager.getLayout(lines, this.contextManager, this.state);
         }
         return (
+            [%=self.createBeginTag(hash,true)%]
              <table>
         
 [%
@@ -146,6 +151,7 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
                 }  
 %]
             </table>
+        [%=self.createEndTag(hash)%]
 
          );   
          

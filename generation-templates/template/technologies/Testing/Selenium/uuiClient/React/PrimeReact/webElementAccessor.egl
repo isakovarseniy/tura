@@ -159,7 +159,7 @@ operation  form::InputText accessor(id,methodName,model_mapper)  {
 @template
 operation  form::Password accessor(id,methodName,model_mapper)  {
      var util = new Native('org.tura.metamodel.commons.Util');
-     var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
 
    %]
      public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
@@ -171,7 +171,7 @@ operation  form::Password accessor(id,methodName,model_mapper)  {
             }       
        }.repeat(10); 
      
-       return new org.tura.platform.selenium.primereact.InputTextPrimeReact( element[0],webDriver);
+       return new org.tura.platform.selenium.primereact.PasswordPrimeReact( element[0],webDriver);
      }
       public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
       return [%=s%];
@@ -393,6 +393,30 @@ operation  form::Window accessor(id,methodName,model_mapper)  {
        }.repeat(10); 
      
        return new org.tura.platform.selenium.primereact.TreePrimeReact( element[0],webDriver);
+      }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }             
+      [%   
+}
+
+
+@template
+operation  form::BlockUI accessor(id,methodName,model_mapper)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
+
+   %]
+     public org.openqa.selenium.WebElement get[%=util.mergeAndCapitalize(methodName)%](){
+       org.openqa.selenium.WebElement[] element = {null};
+       new org.tura.platform.selenium.primereact.Repeater(){
+			@Override
+			public void action() {
+			   element[0] = webDriver.findElement([%=s%]);
+            }       
+       }.repeat(10); 
+     
+       return  element[0];
       }
       public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
       return [%=s%];

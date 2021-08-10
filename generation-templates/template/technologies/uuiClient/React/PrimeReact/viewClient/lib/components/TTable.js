@@ -27,6 +27,8 @@ export class TTable extends TuraComponent{
         super(props);
         this.onPage = this.onPage.bind(this);
         this.onSelectionChange = this.onSelectionChange.bind(this);
+        this.onAllRowsSelect = this.onAllRowsSelect.bind(this);
+        this.onAllRowsUnselect = this.onAllRowsUnselect.bind(this);
         this.onSort = this.onSort.bind(this);
         this.loadingText = this.loadingText.bind(this);
         this.onRowEditorValidator = this.onRowEditorValidator.bind(this);
@@ -64,9 +66,18 @@ export class TTable extends TuraComponent{
 
     }
 
+    onAllRowsSelect(e){
+        e.originalEvent.toggeled = true;
+    }
+
+    onAllRowsUnselect(e){
+        e.originalEvent.toggeled = false;
+     }
+
+
     onSelectionChange(e){
         this.setState({selected: e.value})
-        if ( typeof e.checked === "undefined"){
+        if ( typeof e.originalEvent.toggeled === "undefined"){
             let eventonRowSelectionChange = this.getEvent('react.onRowSelectionChange');
             if ( typeof eventonRowSelectionChange !== "undefined" && eventonRowSelectionChange !== null) {
                 let selected = this.getParameter( eventonRowSelectionChange, "selected");
@@ -79,7 +90,7 @@ export class TTable extends TuraComponent{
                 let selected = this.getParameter( eventonToggle, "selected");
                 selected.value = e.value;
                 let toggeled = this.getParameter( eventonToggle, "toggeled");
-                toggeled.value = !e.checked;
+                toggeled.value = e.originalEvent.toggeled;
                 new EventExecuter(eventonToggle, this.contextManager ).run(this);
             }
         }
@@ -202,6 +213,7 @@ export class TTable extends TuraComponent{
                            editMode="row" rowEditorValidator={this.onRowEditorValidator} onRowEditInit={this.onRowEditInit} onRowEditSave={this.onRowEditSave} onRowEditCancel={this.onRowEditCancel}
                            onContextMenu={this.onContextMenu} onContextMenuSelectionChange={this.onSelectionChange}
                            responsive={true} dataKey="key" onRowSelect={this.onRowSelect} onRowUnselect = {this.onRowUnselect}
+                           onAllRowsSelect = {this.onAllRowsSelect} onAllRowsUnselect = {this.onAllRowsUnselect}
                 >
                     {dynamicColumns}
                 </DataTable>

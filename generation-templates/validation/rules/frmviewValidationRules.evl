@@ -1,0 +1,118 @@
+ context form::CanvasFrame {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().canvases.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }
+
+
+
+  constraint ViewPortMultiConnection {
+
+      guard : not self.isKindOf(form::Window) and not self.isKindOf(form::TabPage) and self.satisfies("HasName")
+      check :  self.eContainer().viewInheritances.select(r|r.target.uid=self.uid).size()<2
+      message : 'Canvas ' + self.name + ' cannot be connected to multiple ViewPort'
+
+  }
+
+  constraint ViewPortConnection {
+
+      guard : not self.isKindOf(form::Window) and not self.isKindOf(form::TabPage) and self.satisfies("ViewPortMultiConnection")
+      check :  self.eContainer().viewInheritances.select(r|r.target.uid=self.uid).size()=1
+      message : 'Unabe establish connection between ' + self.name + ' and ViewPort'
+
+  }
+  
+  constraint TabPageMultiConnection {
+
+      guard : self.isKindOf(form::TabPage)  and self.satisfies("HasName")
+      check :  self.eContainer().tabPagesInheritances.select(r|r.target.uid=self.uid).size()<2
+      message : 'Tab page ' + self.name + ' cannot be connected to multiple Tab canvas'
+
+  }
+  
+ 
+  constraint TabPageConnection {
+
+      guard : self.isKindOf(form::TabPage)  and self.satisfies("HasName")
+      check :  self.eContainer().tabPagesInheritances.select(r|r.target.uid=self.uid).size()=1
+      message : 'Unabe establish connection between ' + self.name + ' and Tab canvas'
+
+  }
+ 
+  
+}
+
+
+ context form::ViewPort {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+  
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().eContainer().canvases.select(r|r.isKindOf(form::ViewPortHolder)  and r.viewElement.select(q|q.isKindOf(form::ViewPort) and q.uid <> self.uid  and q.name.isDefined() and q.name=self.name).size()> 0).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }
+  
+}
+
+
+context form::ViewArea {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+  
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().eContainer().canvases.select(r|r.isKindOf(form::ViewPortHolder)  and r.viewElement.select(q|q.isKindOf(form::ViewArea) and q.uid <> self.uid  and q.name.isDefined() and q.name=self.name).size()> 0).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }
+  
+  
+}
+
+ context form::MenuDefinition {
+ 
+    constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+  
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().menus.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }  
+  
+}

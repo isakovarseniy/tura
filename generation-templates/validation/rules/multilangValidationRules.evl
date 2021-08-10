@@ -1,0 +1,118 @@
+context `message`::Language{
+    constraint DefaulLang {
+
+      check :  self.eContainer().languages->select(m|m.defaultLang).size()<>0
+      message : 'There is no default language'
+    }
+    
+    constraint MultipleDefaulLang {
+
+      check :  self.eContainer().languages->select(m|m.defaultLang).size()=1
+      message : 'Cannot be more then 1 default language'
+    }
+    
+    constraint Code {
+      check :  self.code.isDefined()
+      message : 'Code is not defined'
+    }    
+    
+}
+
+
+ context `message`::MessageLibrary {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+   }
+
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().libraries.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+   }
+
+   constraint SupportableLang {
+   
+     guard : self.satisfies("HasName")
+     check: self.eContainer().eContainer().applicationLanguages.languages.isDefined() and self.eContainer().eContainer().applicationLanguages.languages.size()>0
+     message : 'Library  ' + self.name + ' is not support any language'
+     
+  }
+
+   constraint SupportDefaultLang {
+     check{
+          var supported = false;
+          for ( lRef in  self.eContainer().eContainer().applicationLanguages.languages){
+             if (lRef.defaultLang ){
+                supported = true;
+                break;
+             }
+          }
+      return supported; 
+     
+     }
+     message : 'Library  ' + self.name + ' is not support any language'
+     
+  }
+
+}
+  
+  
+ context Message {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+   }
+
+
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().messages.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }
+
+   constraint NoTranslation {
+     guard : self.satisfies("HasName")
+     check: self.translatioins.isDefined() and self.translatioins.size()>0
+     message : 'Message  ' + self.name + ' is not support any language'
+   }
+
+   constraint MissingSomeTranslation {
+     guard : self.satisfies("HasName")
+     check:  self.translatioins.collect(t|t.lang).includesAll(self.eContainer().eContainer().eContainer().applicationLanguages.languages) 
+     message : 'Message ' + self.name+ ' is not translatede to all available languagies'
+    }
+
+   constraint ExtraTranslation {
+     guard : self.satisfies("MissingSomeTranslation")
+     check:  self.translatioins.size()=self.eContainer().eContainer().eContainer().applicationLanguages.languages.size()
+     message : 'Message ' + self.name+ ' has more translation them number of abailable languagies'
+    }
+
+
+}
+
+ context Translation {
+
+   constraint LangCheck{
+     guard : self.eContainer().name.isDefined()
+     check: self.lang.isDefined() and self.lang.lang.isDefined()
+     message : ' Language for translation ' + self.eContainer().name +" / " +self.translation + ' is not define properly'
+   
+   }
+
+}
+
+  

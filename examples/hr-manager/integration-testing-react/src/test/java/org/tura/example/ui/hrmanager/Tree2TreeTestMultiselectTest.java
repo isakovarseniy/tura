@@ -90,27 +90,27 @@ public class Tree2TreeTestMultiselectTest extends AbstractTest {
 		TreeRow tr = (TreeRow) tree.getRow("1");
 		tr.open();
 
-		WebElement el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		WebElement el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Company A", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_1");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Country 1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_1_1");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("State 1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_1_1_1");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("City 1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_1_1_1_1");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Street 1", el.getText());
 
 		tr.click();
@@ -121,21 +121,21 @@ public class Tree2TreeTestMultiselectTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("1");
 		tr.open();
 
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Department 1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_3");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("First Name 1 Last Name 1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_3_1");
 		tr.open();
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Dir1", el.getText());
 
 		tr = (TreeRow) tree.getRow("1_3_1_1");
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("file1", el.getText());
 
 		tree = tree2TreeRelationsPageObject.getTree11();
@@ -182,7 +182,7 @@ public class Tree2TreeTestMultiselectTest extends AbstractTest {
 
 		tree = tree2TreeRelationsPageObject.getTree22();
 		tr = (TreeRow) tree.getRow("1");
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Department 1", el.getText());
 
 	}

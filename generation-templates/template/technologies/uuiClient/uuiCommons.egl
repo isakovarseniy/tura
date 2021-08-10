@@ -225,6 +225,43 @@ operation form::MenuItem  initContextTriggers( hash, eventType , parameters,aggr
 }
 
 
+@template
+operation form::Uielement  initGenerationTriggers( hash, eventType ){
+            %][%=initGenerationTriggers(hash, eventType ,self,"getEvents()")%][%
+}
+
+@template
+operation form::Window  initGenerationTriggers( hash, eventType ){
+            %][%=initGenerationTriggers(hash, eventType ,self,"getEvents()")%][%
+}
+
+@template
+operation initGenerationTriggers( hash, eventType,elslf,aggregator ){
+   var hints = new Native('java.util.HashMap');
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var model_mapper = hash.get('model_mapper');
+   var classifierUUID = util.getHint(model_mapper,eventType);
+
+   var field = elslf.findClassifiedField(classifierUUID);
+   if (field <> null and field.value <> null){
+           var exId =  getExpressionId(elslf,eventType,hints, hash);
+           var mkid = exId.replaceAll("-","_");
+           hints.put("onlyHintName",true); 
+           
+        %]
+           org.tura.platform.uuiclient.rest.EventDescription event_[%=mkid%] = new org.tura.platform.uuiclient.rest.EventDescription("[%=exId%]", "client", null,"[%=eventType%]",null,null);
+           [%=aggregator%].add(event_[%=mkid%] );
+         [%    
+           var trigger = getField(elslf,eventType,hints, hash);
+         
+           if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
+               for (parameter  in trigger.parameters){
+                  %]event_[%=mkid%].addParameters("[%=parameter.mkuid_()%]","[%=parameter.refObj.name%]","[%=buildExpression(parameter.value,hints,hash)%]",[%=parameter.refObj.order%]);[%
+               }
+           }
+   }
+}
+
 
 @template
 operation initContextTriggers( hash, eventType , parameters,elslf,aggregator){

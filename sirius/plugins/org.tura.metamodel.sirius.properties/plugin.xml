@@ -86,6 +86,23 @@
     <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunValidationAction"
+            id="org.tura.metamodel.sirius.properties.actions.RunValidationActionID">
+      </javaActions>
+   </extension>
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunValidationRecipeAction"
+            id="org.tura.metamodel.sirius.properties.actions.RunValidationRecipeActionID">
+      </javaActions>
+   </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
             actionClass="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponent"
             id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponentID">
       </javaActions>
@@ -107,6 +124,33 @@
             id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForIngredientID">
       </javaActions>
    </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunValidationActionForComponent"
+            id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForComponentID">
+      </javaActions>
+   </extension>
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunValidationActionForMapper"
+            id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForMapperID">
+      </javaActions>
+   </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.RunValidationActionForIngredient"
+            id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForIngredientID">
+      </javaActions>
+   </extension>
+
 
     <extension
          point="org.eclipse.sirius.externalJavaAction">
@@ -515,7 +559,7 @@
     <propertyTab
              category="domain"
              id="tab.form.BlockUI.SourceTarget"
-             label="Events source/targets"/>
+             label="Blockers"/>
 
     <propertyTab
              category="domain"
@@ -947,6 +991,19 @@
 	   </propertySections>
 	</extension>
 
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.AttributeConnectorFilterPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.AttributeConnectorSectionFilter"
+	            id="attrcon.objectmapper.filter"
+	            tab="tab.form.DataContorol.DefaultSearch">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
 	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -1307,7 +1364,7 @@
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.BlockUISourcePropertySelection"
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.BlockUIPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.BlockUiSectionFilter"
 	            id="form.BockUI.SourceTarget"
 	            tab="tab.form.BlockUI.SourceTarget">
@@ -1326,18 +1383,6 @@
 	   </propertySections>
 	</extension>	
 	
-	
-
-    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.BlockUITargetPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.BlockUiSectionFilter"
-	            id="form.BockUI.SourceTarget"
-	            tab="tab.form.BlockUI.SourceTarget">
-	      </propertySection>
-	   </propertySections>
-	</extension>	
 
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">

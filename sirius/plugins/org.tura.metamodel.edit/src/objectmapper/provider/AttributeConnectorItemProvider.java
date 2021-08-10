@@ -19,6 +19,7 @@ package objectmapper.provider;
 
 import domain.provider.DomainEditPlugin;
 
+import form.FormFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,6 +31,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -167,6 +169,36 @@ public class AttributeConnectorItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns AttributeConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,6 +240,9 @@ public class AttributeConnectorItemProvider
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -222,6 +257,91 @@ public class AttributeConnectorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createViewPortTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createContextParameters()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPREFormTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPREQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPREInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ObjectmapperPackage.Literals.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH,
+				 FormFactory.eINSTANCE.createSearchTrigger()));
 	}
 
 }

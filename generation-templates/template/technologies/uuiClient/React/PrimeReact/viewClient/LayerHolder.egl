@@ -22,21 +22,29 @@ operation form::LayerHolder createTag(hash) {
      var model_mapper = hash.get('model_mapper');
      
      
-     var layout = "TLayerHolder";
-     if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
-        layout="TLayerHolderResponsive";
-     }
-     if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
+    if (self.isBlocked()){
+		var generateComponents = hash.get("generateComponents");
+		generateComponents.add(self);
+        %]
+        <TLayerHolder_[%=self.mkuid()%] id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]/>
+        [%
+        return;
+    }     
+    if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
         var generateComponents = hash.get("generateComponents");
         generateComponents.add(self);
         %]
           <TLayerHolder_[%=self.mkuid()%] id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]/>
         [%
         return;
-     }
-     populateInclude(hash,"{"+layout+"}",  clientLibraryPackage+"/component/"+layout);
+     }     
      
-
+     var layout = "TLayerHolder";
+     if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
+        layout="TLayerHolderResponsive";
+     }
+     
+     populateInclude(hash,"{"+layout+"}",  clientLibraryPackage+"/component/"+layout);
 %]
        <[%=layout%] id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]>
 [%
@@ -52,8 +60,71 @@ operation form::LayerHolder createTag(hash) {
 [%
 }
 
+
 @template
 operation  form::LayerHolder createComponent(hash) {
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+   
+   if (self.findClassifier(util.getHint(model_mapper,"react.dynamicLayout"))){
+       %][%=self.createComponentDynamicLayout(hash)%][%
+   }
+  if (self.isBlocked()){
+       %][%=self.createComponentBlockLayerHolder(hash)%][%
+  }
+}
+
+@template
+operation  form::LayerHolder createComponentBlockLayerHolder(hash) {
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var model_mapper = hash.get('model_mapper');
+  var clientLibraryPackage = hash.get('clientLibraryPackage');
+  
+  
+     var layout = "TLayerHolder";
+     if (self.findClassifier(util.getHint(model_mapper,"responsive.grid"))){
+        layout="TLayerHolderResponsive";
+     }
+
+     populateInclude(hash,"{"+layout+"}",  clientLibraryPackage+"/component/"+layout);
+  
+  %]
+  
+  export class TLayerHolder_[%=self.mkuid()%] extends [%=layout%] {
+        constructor(props) {
+         super(props);
+         }
+         
+    render() {
+        if ( !this.state.rendered ) {
+            return (
+                <></>
+            );
+        }
+      return (
+        
+        [%=self.createBeginTag(hash,false)%]
+        
+[%
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                    [%=element.createTag(hash)%]
+[%
+                }  
+%]
+        [%=self.createEndTag(hash)%]
+     );   
+    }
+         
+  }       
+[%  
+  
+  }
+
+
+
+@template
+operation  form::LayerHolder createComponentDynamicLayout(hash) {
   var util = new Native('org.tura.metamodel.commons.Util');
   var model_mapper = hash.get('model_mapper');
   var clientLibraryPackage = hash.get('clientLibraryPackage');
@@ -68,7 +139,7 @@ operation  form::LayerHolder createComponent(hash) {
          super(props);
          }
          
-         getComponentCildren(){
+         getComponentChildren(){
                var array = [];
  [%
                 for (element in self.children.sortBy(q|q.order)){
@@ -105,8 +176,8 @@ operation  form::LayerHolder createComponent(hash) {
        
 
         return (
+        [%=self.createBeginTag(hash,false)%]
              <table>
-        
 [%
                 for (element in self.children.sortBy(q|q.order)){
 %]
@@ -117,7 +188,7 @@ operation  form::LayerHolder createComponent(hash) {
                 }  
 %]
             </table>
-
+        [%=self.createEndTag(hash)%]
          );         
       }
      }

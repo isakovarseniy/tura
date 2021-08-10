@@ -52,6 +52,7 @@ public class InitOperationResponse {
 		transaction.setPeriodStartDate( h.get("periodStartDate"));
 		transaction.setPeriodEndDate( h.get("periodEndDate"));
 		transaction.setTaxAmount(2.5f);
+		transaction.setGst(2.2f);
 		transaction.setProduct("Product1");
 		result.setTransactions(new ArrayList<>());
 		result.getTransactions().add(transaction);
@@ -71,6 +72,7 @@ public class InitOperationResponse {
 		transaction.setPeriodStartDate( h.get("periodStartDate"));
 		transaction.setPeriodEndDate( h.get("periodEndDate"));
 		transaction.setTaxAmount(3.5f);
+		transaction.setGst(3.3f);
 		transaction.setProduct("Product2");
 		result.getTransactions().add(transaction);
 
@@ -88,6 +90,7 @@ public class InitOperationResponse {
 		adj.setAdjustmentCreationDate(currentDate);
 		adj.setProduct(product);
 		adj.setTaxAmount(12.6f);
+		adj.setGst(4.4f);
 		adj.setAdjustmentAmount(343434.76f);
 		result.setAdjustment(new ArrayList<>());
 		result.getAdjustment().add(adj);
@@ -105,6 +108,7 @@ public class InitOperationResponse {
 		adj.setAdjustmentCreationDate(currentDate);
 		adj.setProduct(product);
 		adj.setTaxAmount(2.6f);
+		adj.setGst(5.5f);
 		adj.setAdjustmentAmount(642.76f);
 		result.getAdjustment().add(adj);
 

@@ -36,7 +36,6 @@ import org.tura.sirius.diagram.producer.tura.config.items.recipe.PropertyConfigu
 import org.tura.sirius.diagram.producer.tura.config.items.recipe.QueryConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.recipe.Recipe2InfrastructureConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.recipe.RecipeConfigurator;
-import org.tura.sirius.diagram.producer.tura.config.items.recipe.RecipeContextMenu;
 import org.tura.sirius.dsl.diagram.tContainer;
 import org.tura.sirius.dsl.diagram.tNode;
 import org.tura.sirius.dsl.diagram.tToolSection;
@@ -80,7 +79,6 @@ public class RecipeDiagram {
 		nodeToolSection.addChildrens(InfrastructureConfigurator.getTools());
 		nodeToolSection.addChildrens(ConfigurationConfigurator.getTools());
 		nodeToolSection.addChildrens(ConfigurationContextMenu.getMenu());
-		nodeToolSection.addChildrens(RecipeContextMenu.getMenu());
 		nodeToolSection.addChildrens(IngredientContextMenu.getMenu());
 		nodeToolSection.addChildrens(ComponentContextMenu.getMenu());
 		

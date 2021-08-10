@@ -44,7 +44,7 @@ public class TreeRow implements Row {
 		new Repeater() {
 			@Override
 			public void action() {
-				getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")).click();
+				getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")).click();
 			}
 		}.repeat(10);
 	}
@@ -52,7 +52,7 @@ public class TreeRow implements Row {
 	@Override
 	public void doubleClick() {
 		Actions act = new Actions(driver);
-		act.doubleClick(getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")));
+		act.doubleClick(getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")));
 		act.perform();
 	}	
 	
@@ -105,7 +105,7 @@ public class TreeRow implements Row {
 	@Override
 	public void rightClick() {
 		Actions act = new Actions(driver);
-		act.contextClick(getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")));
+		act.contextClick(getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")));
 		act.perform();
 	}
 	

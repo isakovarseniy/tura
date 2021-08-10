@@ -27,7 +27,7 @@ export class TMenutab extends TuraComponent {
 
 
     onTabChange( e ){
-        this.setState({activeItem: e.value});
+        this.setState({activeItem: e.index});
     }
 
 
@@ -38,7 +38,7 @@ export class TMenutab extends TuraComponent {
             );
         }
         return (
-            <TabMenu model={this.state.model.items}  activeItem={this.state.activeItem} onTabChange={this.onTabChange} className = {this.state.className}/>
+            <TabMenu model={this.state.model.items}  activeIndex={this.state.activeIndex} onTabChange={this.onTabChange} className = {this.state.className}/>
         );
     }
 
@@ -52,10 +52,6 @@ export class TMenutab extends TuraComponent {
 
         if (process.env.REACT_APP_ROUTER_BASE){
             new Transformation().menuPreProcessor(obj.model.items,process.env.REACT_APP_ROUTER_BASE);
-        }
-
-        if (typeof obj.activeIndex !== "undefined" && obj.activeIndex !== null){
-            obj.activeItem = obj.model.items[obj.activeIndex];
         }
 
         return obj;

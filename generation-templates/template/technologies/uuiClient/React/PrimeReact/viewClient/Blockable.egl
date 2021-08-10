@@ -1,0 +1,62 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+@template
+operation form::Blockable createBeginTag(hash,isFull) {
+   if (self.isBlocked()){
+     populateInclude(hash,"{BlockUI}",  "primereact/blockui");
+     var attributes = "";
+     if (isFull) {
+         attributes = attributes +" fullScreen";
+     }
+     
+%]
+   <BlockUI  id="blocker_[%=self.uid%]"  blocked={this.state.blocking} loader={<BlockUI_[%=self.mkBlockUIid()%]  [%=attributes%]  contextManager={this.contextManager}/>}>
+[%
+  }
+}
+
+
+
+@template
+operation form::Blockable createEndTag(hash) {
+   if (self.isBlocked()){
+%]
+   </BlockUI>
+[%
+  }
+}
+
+
+operation form::Blockable isBlocked() {
+   var process = self.block->select(r|r.group == 1)->sortBy(q|q.group);
+   if (process.size() <> 0 ){
+      return true;
+   }else{
+      return false;
+   }
+}
+
+operation form::Blockable mkBlockUIid() {
+   var process = self.block->select(r|r.group == 1)->sortBy(q|q.group);
+   if (process.size() <> 0 ){
+      var ref = process.first();
+      return ref.area.mkuid();
+   }
+   return "";
+}
+
+%]

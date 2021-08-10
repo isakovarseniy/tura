@@ -38,6 +38,13 @@ public class ComponentContextMenu {
 		menu.getMenuItemDescription().add(action);
 
 
+		action = ToolFactory.eINSTANCE.createExternalJavaAction();
+		action.setName("Run validation");
+		action.setId("org.tura.metamodel.sirius.properties.actions.RunValidationActionForComponentID");
+
+		menu.getMenuItemDescription().add(action);
+		
+		
 		return tools;
 	}
 }

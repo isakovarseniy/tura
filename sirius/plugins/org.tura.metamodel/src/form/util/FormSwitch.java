@@ -196,6 +196,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(window);
 				if (result == null) result = caseSecured(window);
 				if (result == null) result = caseFlexFields(window);
+				if (result == null) result = caseBlockable(window);
 				if (result == null) result = caseStyleElement(window);
 				if (result == null) result = caseHTMLLayerHolder(window);
 				if (result == null) result = defaultCase(theEObject);
@@ -439,12 +440,19 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.BLOCKABLE: {
+				Blockable blockable = (Blockable)theEObject;
+				T result = caseBlockable(blockable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.LAYER_HOLDER: {
 				LayerHolder layerHolder = (LayerHolder)theEObject;
 				T result = caseLayerHolder(layerHolder);
 				if (result == null) result = caseUielement(layerHolder);
 				if (result == null) result = caseChildrenHolder(layerHolder);
 				if (result == null) result = caseHTMLLayerHolder(layerHolder);
+				if (result == null) result = caseBlockable(layerHolder);
 				if (result == null) result = caseStyleElement(layerHolder);
 				if (result == null) result = caseNickNamed(layerHolder);
 				if (result == null) result = caseCategorized(layerHolder);
@@ -1787,6 +1795,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSelection(Selection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Blockable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Blockable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlockable(Blockable object) {
 		return null;
 	}
 

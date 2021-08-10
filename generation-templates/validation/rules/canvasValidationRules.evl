@@ -1,0 +1,73 @@
+context form::SourcesPointer{
+
+  constraint HasSourcePointer {
+
+      guard: not (new Native('org.tura.metamodel.commons.Util')).ifInternalElement(self) and not self.isKindOf(form::Table) and not self.isKindOf(form::Tree) 
+      check :  self.sourcePointer.isDefined()
+
+      message : 'Undefined data control name for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+  constraint HasValuePointer {
+  
+      guard:   not self.isKindOf(form::Table) and not self.isKindOf(form::Tree) and not self.isKindOf(form::DataScroller) 
+                    and not self.isKindOf(form::TimeLine) and not self.isKindOf(form::FullCalendar)
+      check :  self.valuePointer.isDefined()
+
+      message : 'Undefined attribute reference  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+}
+
+context form::OptionSelection{
+
+  constraint HasSourcePointer {
+
+      check :  self.optionPointer.isDefined()
+      message : 'Undefined data control name for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+}
+
+context Selection{
+
+  constraint HasDisplayOptionPointer {
+
+      check :  self.displayOptionPointer.isDefined()
+      message : 'Undefined display value for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+  constraint HasValueOptionPointer {
+
+      check :  self.valueOptionPointer.isDefined()
+      message : 'Undefined value for option selection for  ' + self.eClass().name + ' is not allowed'
+
+  }
+
+}
+
+context form::Table{
+
+  constraint RowNumberNot0 {
+
+      check :  self.rowNumber <> 0
+      message : 'Number of column cannot be 0  ' + self.label +' table'
+
+  }
+}
+
+
+ context form::Menu {
+ 
+    constraint HasRef {
+
+      check :  self.menu.isDefined()
+
+      message : 'No menu reference ' + self.eClass().name + ' not allowed'
+
+  }
+  
+}

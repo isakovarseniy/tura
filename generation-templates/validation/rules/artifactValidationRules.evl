@@ -1,0 +1,103 @@
+ context artifact::Artifact {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().artifacts.select(r|r.isKindOf(artifact::Artifact) and r.name=self.name).size() = 1
+      message : 'Artifact name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context artifact::ConfigVariable {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().configVariables.select(r|r.isKindOf(artifact::ConfigVariable) and r.name=self.name).size() = 1
+      message : 'ConfigVariable name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+ context artifact::ModelQuery {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().modelQuery.select(r|r.isKindOf(artifact::ModelQuery) and r.name=self.name).size() = 1
+      message : 'ModelQuery name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+ context QueryParameter {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().parameters.select(r|r.isKindOf(artifact::QueryParameter) and r.name=self.name).size() = 1
+      message : 'QueryParameter name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+ context artifact::Option {
+
+  constraint HasName {
+
+      check :  self.value.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().options.select(r|r.isKindOf(artifact::Option) and r.value=self.value).size() = 1
+      message : 'Option name  ' + self.value + ' is not unique'
+   
+   } 
+
+}
+

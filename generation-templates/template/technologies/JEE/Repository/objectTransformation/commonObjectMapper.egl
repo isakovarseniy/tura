@@ -22,7 +22,7 @@
          if (operations.size() <> 0 ){
            %][%=self.copyOperation(cursorsNames,transformGroup,recipe,ingredient,hash)%][%
          }else{
-           %][%=self.copyAttributes(cursorsNames,transformGroup,recipe,ingredient)%][%
+           %][%=self.copyAttributes(cursorsNames,transformGroup,recipe,ingredient,hash)%][%
          }
   }
   
@@ -36,14 +36,17 @@
 	            var h = oper.details(cursorsNames);
 %]
 		public void copyFrom[%=h.get("sourceCursorName")%]() {
-			     [%=body(oper,transformGroup,h,cursorsNames,recipe,ingredient)%]
+			     [%=body(oper,transformGroup,h,cursorsNames,recipe,ingredient,hash)%]
 		}
 [%	 
 
     if (oper.defaultSearch <> null) {
 %]
-		public boolean filterFrom[%=h.get("sourceCursorName")%]([%=h.get("sourceType").~fullName%] t) throws Exception{
 
+        public class   FilterFrom[%=h.get("sourceCursorName")%]  implements org.tura.platform.adapter.engine.api.CursorFilter< [%=h.get("sourceType").~fullName%]> {
+		public java.util.List< [%=h.get("sourceType").~fullName%]> filter( java.util.List< [%=h.get("sourceType").~fullName%]> array , org.tura.platform.adapter.engine.api.Cursor< [%=h.get("sourceType").~fullName%]> c)  {
+
+        try{ 
          org.tura.platform.datacontrol.commons.SearchCriteria sc = null;
          java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> search = new java.util.ArrayList<>();
 		
@@ -63,21 +66,20 @@
 [%
     }
 %]
-    List<[%=h.get("sourceType").~fullName%]> array = new ArrayList<>();
-    array.add(t);
     
-    if ( this.findBy(search, array,[%=h.get("sourceType").~fullName%].class).size() == 0 ) {
-    	return true;
-    }else {
-    	return false;
+    return c.findBy(search, array,[%=h.get("sourceType").~fullName%].class);
+    }catch( Exception e){
+        throw new RuntimeException(e);
     }
+    
+  }  
 }[%    
                 } 
   	         }
   	    }
   }  
   
-    operation objectmapper::ObjectMapper  copyAttributes(cursorsNames,transformGroup,recipe,ingredient){
+    operation objectmapper::ObjectMapper  copyAttributes(cursorsNames,transformGroup,recipe,ingredient,hash){
             var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and not q.source.isTypeOf(objectmapper::Variable)  and q.target.eContainer().uid = self.uid);
             if ( attrMergeConnections.size() <> 0){
                  var sourcesMap = new Native('java.util.HashMap');
@@ -99,7 +101,7 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
                  for (attrCon in attrMergeConnections ){
                    var h = attrCon.details(cursorsNames);
 %]
-                  [%=attrCon.set(transformGroup,h,cursorsNames,recipe,ingredient)%]
+                  [%=attrCon.set(transformGroup,h,cursorsNames,recipe,ingredient,hash)%]
 [%                 
                   }
 %]
@@ -110,6 +112,101 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
   }  
   
   
+    @template
+  operation objectmapper::OperationConnector  load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper,operations){
+        if  (self.~processed.isDefined()){
+           return;
+        } 
+         self.~processed = true;
+         
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var oper = self;
+         var h = oper.details(cursorsNames);
+
+         if ( h.get("sourceMapper").aggrigations.size() <> 0){
+           for(  agr in h.get("sourceMapper").aggrigations ){
+%]
+                       bf.get[%=h.get("sourceCursorName")%]Cursor().set[%=util.mergeAndCapitalize(agr.getName())%](null);
+[%	                   
+	           }
+	      } 
+
+          if(  oper.name <> null ){
+ %]
+                bf.pushContext("[%=oper.name%]"); 
+ [%               
+          }
+
+          if ( oper.operationRef <> null){
+%]                      
+                    if ( bf.checkContext("[%=oper.operationRef.name%]")){
+ [%               
+          }
+                
+          if ( h.get("sourceMapper").findClassifier(util.getHint(model_mapper,"ResetBeforeLoad"))  ){
+ %]
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().reset();
+ [%               
+          }
+%]
+	             
+	        bf.get[%=h.get("sourceCursorName")%]Cursor().load();
+	             
+[%	 
+    if (oper.defaultSearch <> null) {
+%]
+              bf.get[%=h.get("sourceCursorName")%]Cursor().setCursorFilter( new FilterFrom[%=h.get("sourceCursorName")%]());
+[%    
+    }
+
+     if ( not oper.operationType.toString().equals("oneTimes") )  {
+     
+     %]
+			     for  (  [%=h.get("sourceType").~fullName%] currentt[%=h.get("sourceCursorName")%] : bf.get[%=h.get("sourceCursorName")%]Cursor().getFilteredResult() ){
+	             bf.get[%=h.get("sourceCursorName")%]Cursor().setPosition(currentt[%=h.get("sourceCursorName")%]);
+     [%
+     }
+%]	             
+
+     bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
+     
+     [%=startTag(oper.operationType.toString(),transformGroup,h,cursorsNames,model_mapper)%]
+
+     copyFrom[%=h.get("sourceCursorName")%]();
+     [%=h.get("targetMapper").loadChildren(cursorsNames,model_mapper)%]
+
+     [%=endTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
+		     
+[%
+     var listOper = operations->select(q|q.operationRef <> null  and  q.operationRef.uid = oper.uid );
+     if (listOper.size() <> 0 ){
+	      for ( op in listOper){
+       %][%=op.load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper,listOper)%][%    
+	      }
+     }
+
+     if ( not oper.operationType.toString().equals("oneTimes") )  {
+     %]
+			     }
+     [%
+     }
+
+     if ( oper.operationRef <> null){
+%]
+                  }                      
+ [%               
+     }
+
+        if(  oper.name <> null ){
+ %]
+            bf.popContext(); 
+ [%               
+       }		
+                
+                	     
+  }
+  
+  
   
   @template
   operation objectmapper::ObjectMapper  load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper){
@@ -117,87 +214,11 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
          var operations = transformGroup.operationsConnector->select(q|q.target.uid = self.uid );
          if (operations.size() <> 0 ){
 	         for ( oper in operations){
-	            var h = oper.details(cursorsNames);
-
-	            if ( h.get("sourceMapper").aggrigations.size() <> 0){
-	               for(  agr in h.get("sourceMapper").aggrigations ){
-%]
-                       bf.get[%=h.get("sourceCursorName")%]Cursor().set[%=util.mergeAndCapitalize(agr.getName())%](null);
-[%	                   
-	               }
-	            } 
-
-                if(  oper.name <> null ){
- %]
-                bf.pushContext("[%=oper.name%]"); 
- [%               
-                }
-
-                if ( oper.operationRef <> null){
-%]                      
-                    if ( bf.checkContext("[%=oper.operationRef.name%]")){
- [%               
-                }
-                
-                if ( h.get("sourceMapper").findClassifier(util.getHint(model_mapper,"ResetBeforeLoad"))  ){
- %]
-	             bf.get[%=h.get("sourceCursorName")%]Cursor().reset();
- [%               
-                }
-%]
-	             
-	             bf.get[%=h.get("sourceCursorName")%]Cursor().load();
-	             bf.get[%=h.get("sourceCursorName")%]Cursor().setPosition(0);
-			     [%=h.get("sourceType").~fullName%] currentt[%=h.get("sourceCursorName")%] = bf.get[%=h.get("sourceCursorName")%]Cursor().getCurrentObject();
-			     while (  currentt[%=h.get("sourceCursorName")%]  !=  null){
-[%	 
-    if (oper.defaultSearch <> null) {
-%]
-		      if ( !filterFrom[%=h.get("sourceCursorName")%](currentt[%=h.get("sourceCursorName")%])){
-[%    
-    }
-%]
-		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnStartRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
-		         
-			     [%=startTag(oper.operationType.toString(),transformGroup,h,cursorsNames,model_mapper)%]
-
-                 copyFrom[%=h.get("sourceCursorName")%]();
-                 [%=h.get("targetMapper").loadChildren(cursorsNames,model_mapper)%]
-
-			     [%=endTag(oper.operationType.toString(),transformGroup,h,cursorsNames)%]
-			     
-		         bf.sendEvent(new org.tura.platform.adapter.engine.events.OnEndRowEvent(bf.get[%=h.get("targetCursorName")%]Cursor()));
-
-
-[%
-    if (oper.defaultSearch <> null) {
-%]
-		      }
-[%    
-    }
-%]
-
-
-					if (bf.get[%=h.get("sourceCursorName")%]Cursor().hasNext()) {
-			             currentt[%=h.get("sourceCursorName")%] = bf.get[%=h.get("sourceCursorName")%]Cursor().next();
-					} else {
-						currentt[%=h.get("sourceCursorName")%] = null;
-					}			     
-			     }
-			     
-[%
-                if ( oper.operationRef <> null){
-%]
-                  }                      
- [%               
-                }
-                if(  oper.name <> null ){
- %]
-                bf.popContext(); 
- [%               
-                }			     
+       %][%=oper.load(cursorsNames,transformGroup,recipe,ingredient,hash,model_mapper,operations)%][%    
 	         }
-         }else{
+         }
+         
+         else{
             var attrMergeConnections = transformGroup.attributesConnector->select(q|q.target <> null  and  not q.source.isTypeOf(objectmapper::Variable) and q.target.eContainer().uid = self.uid);
             if ( attrMergeConnections.size() <> 0){
                  var sourcesMap = new Native('java.util.HashMap');
@@ -342,6 +363,15 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
                %][%=mergeOrAddOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
                return;
          }
+         if ( operationType.equals("non")){
+               return;
+         }
+         if ( operationType.equals("oneTimes")){
+               %][%=addOperationStartTag(transformGroup,h,cursorsNames,model_mapper)%][%
+               return;
+         }
+         
+         
   }
   @template
     operation endTag (operationType,transformGroup,h,cursorsNames){
@@ -357,41 +387,60 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
                %][%=mergeOrAddOperationEndTag(transformGroup,h,cursorsNames)%][%
                return;
          }
+         if ( operationType.equals("non")){
+               return;
+         }
+         if ( operationType.equals("oneTimes")){
+               %][%=addOperationEndTag(transformGroup,h,cursorsNames)%][%
+               return;
+         }
+         
+         
   }
   
   
   @template
-  operation body (oper,transformGroup,h,cursorsNames,recipe,ingredient){
+  operation body (oper,transformGroup,h,cursorsNames,recipe,ingredient,hash){
          var operationType = oper.operationType.toString();
          if ( operationType.equals("delete")){
-               %][%=deleteOperationBody(transformGroup,h,cursorsNames,recipe,ingredient)%][%
+               %][%=deleteOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,hash)%][%
                return;
          }
          if ( operationType.equals("add")){
-               %][%=addOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper)%][%
+               %][%=addOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper,hash)%][%
                return;
          }
          if ( operationType.equals("mergeOrAdd")){
-               %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper)%][%
+               %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper,hash)%][%
                return;
          }
+         
+         if ( operationType.equals("non")){
+               %][%=addOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper,hash)%][%
+               return;
+         }
+         if ( operationType.equals("oneTimes")){
+               %][%=addOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper,hash)%][%
+               return;
+         }
+         
   }
 
 
   @template
-    operation mergeOrAddOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper){
+    operation mergeOrAddOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper,hash){
          var util = new Native('org.tura.metamodel.commons.Util');
          var attrConnections = transformGroup.attributesConnector->select(q|q.target <> null  and q.target.eContainer().uid = h.get("targetMapper").uid);
          for (attrCon in attrConnections){
              if ( attrCon.operationRef == null or ( attrCon.operationRef<> null and attrCon.operationRef.uid.equals(oper.uid))){
                 var ha = attrCon.details(cursorsNames);
-         %][%=attrCon.set(transformGroup,ha,cursorsNames,recipe,ingredient)%][%
+         %][%=attrCon.set(transformGroup,ha,cursorsNames,recipe,ingredient,hash)%][%
              }
          }    
     }  
   
   @template
-    operation objectmapper::AttributeConnector set (transformGroup,h,cursorsNames,recipe,ingredient){
+    operation objectmapper::AttributeConnector set (transformGroup,h,cursorsNames,recipe,ingredient,hash){
          var util = new Native('org.tura.metamodel.commons.Util');
          var trgAttrType = self.target.getType(); 
 	     trgAttrType.mappingType2Java(recipe,ingredient);
@@ -403,6 +452,25 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
                typeConvertStart = "("+trgAttrType.~fullName +")(";
                typeConvertEnd= ")";
          }
+         
+    if (self.defaultSearch <> null) {
+%]
+	if (
+[%
+    var hints = new Native('java.util.HashMap');
+    var first=true;
+    for (param in self.defaultSearch.parameters){
+        param.~result =  buildExpression(param.value,hints,hash);
+        if ( not first){
+        %]&&[%
+        }
+        %]bf.get[%=util.mergeAndCapitalize(param.~result)%]().equals( bf.get[%=util.mergeAndCapitalize(h.get("sourceCursorName"))%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(param.refObj.name)%]())[%
+        first = false;    
+}
+%]	
+	){
+[%    
+    }
          
         if ( self.source.isTypeOf(objectmapper:: Variable)){
 %]
@@ -420,16 +488,20 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
 %]
            bf.get[%=util.mergeAndCapitalize(h.get("targetCursorName"))%]Cursor().getCurrentObject().set[%=util.mergeAndCapitalize(self.target.attributeRef.getName())%]( [%=typeConvertStart%] bf.get[%=util.mergeAndCapitalize(h.get("sourceCursorName"))%]Cursor().getCurrentObject().get[%=util.mergeAndCapitalize(self.source.attributeRef.getName())%]()  [%=typeConvertEnd%]  );
 [%                     
-                  
+    if (self.defaultSearch <> null) {
+%]
+    }
+[%                  
+       }           
     }  
   
     @template
-    operation addOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper){
-          %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,oper)%][%
+    operation addOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,oper,hash){
+          %][%=mergeOrAddOperationBody(transformGroup,h,cursorsNames,recipe,ingredient,oper,hash)%][%
     }  
     
       @template
-    operation deleteOperationBody (transformGroup,h,cursorsNames,recipe,ingredient){
+    operation deleteOperationBody (transformGroup,h,cursorsNames,recipe,ingredient,hash){
     }  
   
   

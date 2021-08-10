@@ -236,8 +236,6 @@
               <options uid="8281e4d2-2a4d-4f3b-b7f0-7dc4b8ccb3f3" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
             </technologies>
             <technologies uid="a0eabf01-e648-44ca-8be7-bf2779d04f0e" name="MVC application implementation">
-              <options uid="1a2b1010-9329-4acf-9a74-ce8e1f51db82"/>
-              <options uid="ee45886e-8f2e-4541-a13b-7dbdfa01b18d"/>
               <options uid="8cb3b770-8dac-494b-83d7-484e18133996" value="1431ae41-1213-4ecf-a010-e5c23805c7cd"/>
             </technologies>
           </artifacts>
@@ -250,9 +248,7 @@
               <options uid="9c56c069-91b0-413f-95fa-b5056476b0be" value="0ba9fb8e-4b01-47bc-93f2-7c398218105a"/>
               <options uid="2fb87dee-9c6e-4c27-81d2-4d6a07783c9c" value="91ac90a1-ae2f-44f1-8d1a-84e0ebdf6668"/>
             </technologies>
-            <technologies uid="4aff409c-1621-40ea-8607-555c901d6f31" name="MVC application implementation">
-              <options uid="a232c26e-2c1e-4a22-acbf-9d2b57846a16"/>
-            </technologies>
+            <technologies uid="4aff409c-1621-40ea-8607-555c901d6f31" name="MVC application implementation"/>
             <technologies uid="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" name="Deployment environment">
               <options uid="50fa6ec0-fa7e-4eab-8030-a448feaf400b" value="d337ffa2-6a9c-46cd-aa04-72143493a834"/>
               <options uid="cd776e70-0790-4869-8068-bfc861686df9" value="7ffd107f-e3d8-4044-a63c-c17ef51e15f7"/>
@@ -372,6 +368,10 @@
             <hints uid="ebf6736b-799d-4330-aa02-45762a8e9629" name="row number selector" hint="e7ae7098-e6b0-4f32-ab37-ce17d375acd3"/>
             <hints uid="9c95fb57-1580-4ad5-bf5b-230f8b8686a4" name="menu.global" hint="bb77242d-f32d-4821-9b0f-f18cb2641e9a"/>
             <hints uid="fc6634d4-dea3-471c-9eb0-66050b29c73b" name="react.onMenuShow" hint="85efcd26-8ae0-4dfe-8c4a-968f745e8ae4"/>
+            <hints uid="1c5672e9-a18e-4db7-84f6-8806e4faf4db" name="react.BlockUI.On" hint="9fa1a601-7c64-4753-96ff-efac76aea996"/>
+            <hints uid="faff8e01-7015-42cc-8e9d-74fd838d6900" name="react.BlockUI.Off" hint="1efa743b-fa61-4cca-a5f1-cafe9b499b8a"/>
+            <hints uid="171ba313-c043-46f4-a4ee-af0a33fa990e" name="network.started" hint="505b16ee-90f2-4e6d-b347-3809a568c3f2"/>
+            <hints uid="e7925772-da34-4286-a52e-99d57af3580f" name="network.completed" hint="4ae07945-3836-4cf1-90f2-e8c43142d04b"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="tura:/generation-templates/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
@@ -536,7 +536,6 @@
               <parameters uid="1e5354c6-4681-49f7-8612-34e12350c6f3" name="Package"/>
             </modelQuery>
             <technologies uid="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" name="View implementation">
-              <options uid="a1acf69c-3adf-45a6-a515-9353cce02808"/>
               <options uid="7a561ecf-b0d9-45ef-be4d-b92d536f2a9d" value="1431ae41-1213-4ecf-a010-e5c23805c7cd"/>
             </technologies>
             <hints uid="601ab46c-4f8d-47d4-9400-3708169feec7" name="Web element name" hint="bfda8719-98c2-46fe-9788-45a33747d1fc"/>
@@ -731,6 +730,8 @@
       <techLeafs uid="3699ab6c-f6e9-43be-af41-435239045f38" name="uuiClient">
         <hints uid="fac6d9d0-e6b0-4690-97b3-1af5dd21d5b9" name="application.context.root"/>
         <hints uid="7f6d7943-48c0-4d86-955f-4766e5e9da58" name="message.encoding"/>
+        <hints uid="505b16ee-90f2-4e6d-b347-3809a568c3f2" name="network.started"/>
+        <hints uid="4ae07945-3836-4cf1-90f2-e8c43142d04b" name="network.completed"/>
         <techLeafs uid="7100f604-e427-4e3d-b45f-bdeb8b26a364" name="React">
           <hints uid="22d74e82-d81c-441b-93ba-dfbda88542ab" name="react.preClick"/>
           <hints uid="3ac62cf6-88e7-43ad-86b5-2e0e575c82c6" name="react.onClick"/>
@@ -746,6 +747,9 @@
           <hints uid="e7ae7098-e6b0-4f32-ab37-ce17d375acd3" name="row number selector"/>
           <hints uid="85efcd26-8ae0-4dfe-8c4a-968f745e8ae4" name="react.onMenuShow"/>
           <hints uid="7651625d-8753-4686-b599-49940ab028bb" name="react.dynamicLayout"/>
+          <hints uid="4efb93f8-7604-4a77-bfcf-be8e6d7529d4" name="react.onPageEvent"/>
+          <hints uid="9fa1a601-7c64-4753-96ff-efac76aea996" name="react.BlockUI.On"/>
+          <hints uid="1efa743b-fa61-4cca-a5f1-cafe9b499b8a" name="react.BlockUI.Off"/>
           <configVariables uid="00c0e82a-9a3d-461f-bb05-d8e36f746629" name="proxy_server"/>
           <techLeafs uid="1431ae41-1213-4ecf-a010-e5c23805c7cd" name="PrimeReact">
             <hints uid="3ab94d62-967a-405f-9fa0-8a6c222192c5" name="dataScroller.listLayout"/>
@@ -1594,16 +1598,16 @@
               <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
             </operations>
             <operations uid="cfa2dc97-5c11-439a-bb62-c4f30df5df13" name="openOverlay">
-              <parameters uid="5444981b-28f6-4a22-b54a-d1fc0fb6b176" name="overlayName"/>
+              <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5444981b-28f6-4a22-b54a-d1fc0fb6b176" name="overlayName"/>
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="3db2bba5-edf6-4649-8126-caf1f22539dc" name="startPolling">
               <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5df8f127-79b9-4aaf-b9ea-f5ed50e74c38" name="poolName"/>
-              <returnValue/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="ce584056-967f-447d-a854-7718d7f4dea1" name="stopPolling">
               <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c20db9c0-cc3d-4c6b-97ea-78754077fb04" name="poolName"/>
-              <returnValue/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="95fd2c07-a47f-4a57-9948-6388d68c4b7a" name="enableEditModeFotTree">
               <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="3d52bf76-99c7-48d2-96e7-3856c9874a3f" name="uid"/>
@@ -1632,6 +1636,14 @@
           </types>
           <types xsi:type="tura.type:Type" uid="a71e2dea-b819-446b-b367-9c1d46177bf3" name="Any type"/>
           <types xsi:type="tura.type:Type" uid="63263b9d-71c9-4830-b10e-ac1c26351d10" name="Transformation Cursor"/>
+          <types xsi:type="tura.type:Type" uid="ccad580e-9c2a-4198-a877-4cffc9dc0a66" name="Generator functions">
+            <operations uid="d86653e6-e8cd-469c-8a71-79ad1445f4e6" name="interceptEvent">
+              <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="0af9f269-5834-459a-903e-2db83a1d99ab" name="sourceOfEvent"/>
+              <parameters typeRef="f57e774e-ade0-4a8a-bbe8-85ca4d29c55f" uid="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a" name="event" order="1"/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+          </types>
+          <types xsi:type="tura.type:Type" uid="f57e774e-ade0-4a8a-bbe8-85ca4d29c55f" name="Generation hint"/>
           <relationships xsi:type="tura.type:Generalization" uid="34cce173-066e-4d60-8ae5-a0d2651232d3" source="47959024-ed5d-4135-aaf9-a81d05fefc13" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
           <relationships xsi:type="tura.type:Generalization" uid="47b39317-6948-4dc4-9666-1ad1d89c5b30" source="4d408999-e499-4951-9cbe-8e747fbbe1fc" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
           <relationships xsi:type="tura.type:Generalization" uid="bac855b2-52cc-4e25-8fa0-01f6baf395d8" source="ad731dee-d456-4391-8fa2-0f5cd4ce694d" target="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d">
@@ -1903,7 +1915,7 @@
             </operations>
             <operations uid="09a12b17-72fc-4424-ae1e-235af17f4556" name="createChildRow">
               <parameters typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="41bd6eb8-58f6-4e7a-ac07-4ac8a6057f63" name="datacontrol"/>
-              <returnValue/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="1ccce61e-7ac2-481c-a12b-87cb6565119f" name="closeCompanyDetailsPopup">
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
@@ -1920,7 +1932,9 @@
             <operations uid="e706ab6e-575d-49ae-b29d-a07c6169f4d3" name="createCompanyPopup">
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
-            <operations uid="f8ae229f-41f7-40f3-9b78-e326efee14cf" name="nop"/>
+            <operations uid="f8ae229f-41f7-40f3-9b78-e326efee14cf" name="nop">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="b96e1268-0982-4818-b155-59b9d3a3292f" name="TestForm1Action">
             <operations uid="07eaa0e3-4531-40ca-af8b-e860626325b8" name="saveApplication">
@@ -1967,7 +1981,7 @@
           </types>
           <types xsi:type="tura.type:Type" uid="894b90ac-1a04-4ae6-b267-ab50c575a38a" name="SimpleFormActions">
             <operations uid="255accc3-1c56-412e-840a-9582d37e8346" name="nextRecord">
-              <returnValue/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="bce6b2f6-aadc-4a01-b5e5-bc82acbf9602" name="prevRecord">
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
@@ -1982,23 +1996,50 @@
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="7c6f29ec-4eed-406e-96c5-31f376172cf1" name="submitSelection">
-              <returnValue/>
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
-            <operations uid="d1b71ae4-25d4-4371-a44f-f0e76e2e8c48" name="submitOfGridUpdate"/>
-            <operations uid="a4eaed18-8225-4f4c-a4fb-ca8317d19ae8" name="canvase1Switch"/>
-            <operations uid="d0ef8c6b-455d-4886-a8ea-3765dc867c0a" name="canvase2Switch"/>
-            <operations uid="deb8577a-b860-4538-bb36-647904bc0e75" name="initPopup"/>
-            <operations uid="2c345f34-6fa0-4874-a35a-b879a5c84962" name="acceptPopup"/>
-            <operations uid="db62621d-3d0a-4808-a5b8-39f91bdccf1b" name="cancelPopup"/>
-            <operations uid="df7e67af-7e21-481c-b941-b9705bd38266" name="createDepartment"/>
-            <operations uid="e6130143-4b08-4cb6-93c2-e62d63c124f5" name="onFileUpload"/>
-            <operations uid="c8b618b1-ff5d-42f2-80bf-588f56ffe96d" name="onFileDownload"/>
-            <operations uid="76d56ed3-426d-44e5-ad71-45b7fb8deaab" name="errorEmulator"/>
-            <operations uid="addcf37e-ce89-4fe4-9e80-f18ea7cc4702" name="poll"/>
+            <operations uid="d1b71ae4-25d4-4371-a44f-f0e76e2e8c48" name="submitOfGridUpdate">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="a4eaed18-8225-4f4c-a4fb-ca8317d19ae8" name="canvase1Switch">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="d0ef8c6b-455d-4886-a8ea-3765dc867c0a" name="canvase2Switch">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="deb8577a-b860-4538-bb36-647904bc0e75" name="initPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="2c345f34-6fa0-4874-a35a-b879a5c84962" name="acceptPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="db62621d-3d0a-4808-a5b8-39f91bdccf1b" name="cancelPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="df7e67af-7e21-481c-b941-b9705bd38266" name="createDepartment">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e6130143-4b08-4cb6-93c2-e62d63c124f5" name="onFileUpload">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c8b618b1-ff5d-42f2-80bf-588f56ffe96d" name="onFileDownload">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="76d56ed3-426d-44e5-ad71-45b7fb8deaab" name="errorEmulator">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="addcf37e-ce89-4fe4-9e80-f18ea7cc4702" name="poll">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="81eeebca-baca-4b47-b6c4-77d20d4144c3" name="windowBlockUI"/>
           </types>
           <types xsi:type="tura.type:Type" uid="98b8cebd-ac1e-44ce-a8ef-a59511e059ac" name="TestForm2BusinessLogic">
-            <operations uid="d1fd7e08-89fd-4210-8d2e-5d1901d9e93d" name="save"/>
-            <operations uid="8ef9b2d3-018f-4624-8899-2b6a11c9c93b" name="rallback"/>
+            <operations uid="d1fd7e08-89fd-4210-8d2e-5d1901d9e93d" name="save">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="8ef9b2d3-018f-4624-8899-2b6a11c9c93b" name="rallback">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
             <operations uid="cda5faa0-a76c-4430-a8e9-c3682bb82f09" name="createRow">
               <parameters typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="9e65f942-a098-4975-9bf0-1210c6733d9b" name="datacontrol"/>
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
@@ -2144,8 +2185,12 @@
         <repositoryPackages uid="34ea035b-eaa5-4b4c-8ba9-b3520c03ab84" name="HR controller react client business logic">
           <types xsi:type="tura.type:Type" uid="8d0dd554-b41c-44a7-abe7-8e2ed9da33b4" name="Client business logic"/>
           <types xsi:type="tura.type:Type" uid="02ee647b-7a27-4c1e-8a30-a60e0099e3b0" name="Actions">
-            <operations uid="9a2231d3-9baa-42f7-aa65-1abe6ed04614" name="showParam"/>
-            <operations uid="7b1fe638-1464-4c7c-bd67-6afdcaa09512" name="processMenu"/>
+            <operations uid="9a2231d3-9baa-42f7-aa65-1abe6ed04614" name="showParam">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="7b1fe638-1464-4c7c-bd67-6afdcaa09512" name="processMenu">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
         </repositoryPackages>
       </typesRepository>
@@ -2448,91 +2493,239 @@
             <operations uid="4aae3cf0-529b-4fd6-9790-51ecacf3aa89" name="createRolePopup">
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
-            <operations uid="f4490310-3f4d-419f-8ce2-f75ef4939a7a" name="applyChanges"/>
-            <operations uid="0ba93d4a-094c-4d27-baa1-06a77c34088d" name="rallbackChanges"/>
-            <operations uid="76c4491c-8809-4126-9050-9ee83e09e41c" name="openRolePopup"/>
-            <operations uid="b4e3f978-8fd6-454e-84d4-0a76fe0d018a" name="deleteRole"/>
-            <operations uid="7928c7aa-a32d-4059-8594-ea1909b98fb6" name="modifyPermissions"/>
-            <operations uid="2708cf6c-5f8e-4e56-a83c-3d7141151c51" name="openPermissionPopup"/>
-            <operations uid="e922e155-d9ad-4269-baea-ea9c191cc17b" name="applyPermissionsModification"/>
-            <operations uid="0238250d-5adc-4f09-b2ed-c70233b3bc2b" name="rallbackPermissionsModification"/>
-            <operations uid="548cd408-2ceb-4124-84af-e6ed1bfde8fe" name="saveApplication"/>
-            <operations uid="c5d7b436-a0f2-4228-bf9f-0770046764d9" name="rallbackApplication"/>
-            <operations uid="14267b41-c7d0-4614-ac62-71e5e2388095" name="clearAllUserPreferences"/>
-            <operations uid="205ebf01-deb0-42b6-a268-d8f5f7638868" name="logout"/>
+            <operations uid="f4490310-3f4d-419f-8ce2-f75ef4939a7a" name="applyChanges">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="0ba93d4a-094c-4d27-baa1-06a77c34088d" name="rallbackChanges">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="76c4491c-8809-4126-9050-9ee83e09e41c" name="openRolePopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="b4e3f978-8fd6-454e-84d4-0a76fe0d018a" name="deleteRole">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="7928c7aa-a32d-4059-8594-ea1909b98fb6" name="modifyPermissions">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="2708cf6c-5f8e-4e56-a83c-3d7141151c51" name="openPermissionPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e922e155-d9ad-4269-baea-ea9c191cc17b" name="applyPermissionsModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="0238250d-5adc-4f09-b2ed-c70233b3bc2b" name="rallbackPermissionsModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="548cd408-2ceb-4124-84af-e6ed1bfde8fe" name="saveApplication">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c5d7b436-a0f2-4228-bf9f-0770046764d9" name="rallbackApplication">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="14267b41-c7d0-4614-ac62-71e5e2388095" name="clearAllUserPreferences">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="205ebf01-deb0-42b6-a268-d8f5f7638868" name="logout">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="5f9070b4-43ea-49e2-940e-d679db847b57" name="SA Admin users">
-            <operations uid="8f47eedc-7c94-4b24-a546-4298e942eae9" name="openUserPopup"/>
-            <operations uid="e2be12bb-d77a-4a3e-9eba-3555d2af855a" name="deleteUser"/>
-            <operations uid="7e24f9ab-dbc6-48e4-8337-3c618c99e48e" name="createUserPopup"/>
-            <operations uid="e458b5d0-8c4d-434d-8659-0408d9d3d312" name="openRoleSelectorPopup"/>
-            <operations uid="c048955e-0e6f-4042-bf56-c214bbe0c69e" name="applyUserChanges"/>
-            <operations uid="dd3bf31b-6196-4f4a-9521-5d120ff05d03" name="rallbackUserChanges"/>
-            <operations uid="b8477a7b-063a-48b2-8d1d-91ff966b3a94" name="applyRolesModification"/>
-            <operations uid="d2532eb2-7e66-46cd-8685-750a8d31cb4e" name="rallbackRolessModification"/>
-            <operations uid="98d7cc84-2be8-4db5-a453-d86321e8c2ba" name="modifyRoles"/>
-            <operations uid="9170e148-061c-4055-8203-ed3ffe82865c" name="deleteRoleRef"/>
+            <operations uid="8f47eedc-7c94-4b24-a546-4298e942eae9" name="openUserPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e2be12bb-d77a-4a3e-9eba-3555d2af855a" name="deleteUser">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="7e24f9ab-dbc6-48e4-8337-3c618c99e48e" name="createUserPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e458b5d0-8c4d-434d-8659-0408d9d3d312" name="openRoleSelectorPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c048955e-0e6f-4042-bf56-c214bbe0c69e" name="applyUserChanges">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="dd3bf31b-6196-4f4a-9521-5d120ff05d03" name="rallbackUserChanges">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="b8477a7b-063a-48b2-8d1d-91ff966b3a94" name="applyRolesModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="d2532eb2-7e66-46cd-8685-750a8d31cb4e" name="rallbackRolessModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="98d7cc84-2be8-4db5-a453-d86321e8c2ba" name="modifyRoles">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="9170e148-061c-4055-8203-ed3ffe82865c" name="deleteRoleRef">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="805ba97b-50d0-4eee-8d29-49c0f2cb9c48" name="SA Admin locations">
-            <operations uid="033a52bc-8c09-480a-ac8e-daa8c40fb72a" name="openUserPopup"/>
-            <operations uid="03d043e2-3136-479e-b113-02e4c98d4944" name="applyUserModification"/>
-            <operations uid="5fbf7b85-e1f3-4c07-9d00-997f12f2e1fc" name="rallbackUserModification"/>
-            <operations uid="6facc851-b824-48d6-9f1e-92818d9381f9" name="modifyUsers"/>
-            <operations uid="5c3dbe2e-e8ba-441d-9326-1082aff97edb" name="setAdmin"/>
-            <operations uid="f9941e49-92de-4eb5-80a0-22d9cfaf7263" name="openUserStatePopup"/>
-            <operations uid="91285648-15c1-411c-93d3-995c4946869c" name="openUserCityPopup"/>
+            <operations uid="033a52bc-8c09-480a-ac8e-daa8c40fb72a" name="openUserPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="03d043e2-3136-479e-b113-02e4c98d4944" name="applyUserModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="5fbf7b85-e1f3-4c07-9d00-997f12f2e1fc" name="rallbackUserModification">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="6facc851-b824-48d6-9f1e-92818d9381f9" name="modifyUsers">
+              <returnValue typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04"/>
+            </operations>
+            <operations uid="5c3dbe2e-e8ba-441d-9326-1082aff97edb" name="setAdmin">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="f9941e49-92de-4eb5-80a0-22d9cfaf7263" name="openUserStatePopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="91285648-15c1-411c-93d3-995c4946869c" name="openUserCityPopup">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="6aaac79e-2c9b-46f3-a4f2-d48017afeb78" name="SA Case management">
             <operations uid="21dbd86e-e237-40d2-8ca8-cffb06e2bbb9" name="searchIcon">
               <returnValue typeRef="1f89709f-1e36-477c-9078-89be7546fd21"/>
             </operations>
-            <operations uid="3d2ef82c-1e6e-43a5-af4b-6330ad590419" name="showhidesearch"/>
-            <operations uid="df436a06-c03b-4d84-876c-daac964445d7" name="popupCitySelection"/>
-            <operations uid="57d8b90b-978b-4d1c-9603-1420438c55c7" name="applyCitySelection"/>
-            <operations uid="260ba3fb-81ec-46e2-973e-a9917c9b247c" name="emptyCall"/>
-            <operations uid="6fdece77-065c-44b0-9d55-42c0e824158e" name="cleanOnChange"/>
-            <operations uid="1ff54035-490b-4e7a-976c-3bd691fc7f34" name="selectUserForFilter"/>
-            <operations uid="051673d4-55e6-4f3b-83cc-0423947d48ae" name="assignMyself"/>
-            <operations uid="00d593b6-0f9e-4ff5-bdec-589c9f110507" name="cleanSearch"/>
-            <operations uid="104a6ca0-3281-4e49-878b-527e98947d17" name="search"/>
-            <operations uid="d74204b6-bc9f-47ea-90c2-20cbfb787fc1" name="selectWorkItem"/>
-            <operations uid="e558414e-e280-4c1a-8d73-3b4ad5fbd606" name="openPopupUserForFilter"/>
-            <operations uid="955f4a72-e778-4c5f-a3b1-7f522975fdb7" name="openPopupUserForAssign"/>
-            <operations uid="7601ffd0-e0f7-4d76-a54c-992c421a43e6" name="assignMyselfWI"/>
-            <operations uid="c2c52ea3-51e2-415c-8c60-bf9d6ab63a1a" name="selectUserForAssign"/>
-            <operations uid="4a1e58b2-c016-41e3-961d-e3b8e8292061" name="renderedButtonselectUserForFilter"/>
-            <operations uid="43924330-e5ff-4410-b78e-c8426c1ab5cf" name="renderedButtonselectUserForAssign"/>
-            <operations uid="8e81d5a9-b8d5-4b3b-b97e-b1d26754e8f3" name="closeWF"/>
-            <operations uid="36ae25cc-9a38-422a-9de2-7ebf262b8e69" name="openCase"/>
-            <operations uid="88f5025c-5740-4039-99c6-d6e9174c8845" name="switchToWorkItem"/>
-            <operations uid="6bce2ba6-bb59-48d8-a3e7-9400ce1ff06a" name="renderedButtonselectUserForAssignAnalyst"/>
-            <operations uid="e6b7e02a-d065-460f-873f-c731b52a48b0" name="renderedButtonselectUserForAssignManager"/>
-            <operations uid="26f124cd-27d9-495e-bbee-140cb202bb6d" name="selectUserForAssignAnalyst"/>
-            <operations uid="732176d9-01e0-4660-9cf0-0c474aa70b76" name="selectUserForAssignManager"/>
-            <operations uid="72168f69-fa55-465c-8868-ddc8aee3c298" name="openPopupUserForForAssignAnalyst"/>
-            <operations uid="c22306fa-9aa6-43f1-9acd-81f0ce48910f" name="openPopupUserForForAssignManager"/>
-            <operations uid="b7958f78-c562-423d-a420-3b15e3151618" name="assignMyselfForAnalyst"/>
-            <operations uid="c667db84-6423-4212-928a-ba5b7ad215ce" name="assignMyselfForManager"/>
-            <operations uid="a470f87e-edd3-4045-98be-482d47d0e285" name="saveCase"/>
-            <operations uid="fd780c1d-5a69-48a9-84e8-6a3f18483f4e" name="closeCase"/>
-            <operations uid="6b516c73-a6a2-4e4d-91c1-0bbb5cba00c3" name="closeWindow"/>
-            <operations uid="19069855-0bb4-40cb-b156-0fa953500002" name="completeTask"/>
-            <operations uid="a4a27c94-fb19-41c9-be0e-97dccfda3fb3" name="allowAssign"/>
-            <operations uid="8315d485-1f13-42f8-9c30-6271a436b5b4" name="allowCloseCase"/>
-            <operations uid="7aa98581-050b-4338-b865-31131ebbc1cb" name="allowAssignAnalyst"/>
-            <operations uid="33591552-00d8-4947-a8a5-d5604994fdff" name="allowAssignManager"/>
-            <operations uid="ffd82c61-aecf-4d88-b679-22ee32191067" name="allowSubmitForReview"/>
-            <operations uid="f3f0c347-a02e-40d4-ae39-6582b3ac305a" name="allowApproveCase"/>
-            <operations uid="c988764c-40e5-4d11-bbb6-8d20e7bd8abc" name="allowCompleteTask"/>
-            <operations uid="b029da3c-eee9-4005-a9eb-dd391d066bfd" name="logout"/>
+            <operations uid="3d2ef82c-1e6e-43a5-af4b-6330ad590419" name="showhidesearch">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="df436a06-c03b-4d84-876c-daac964445d7" name="popupCitySelection">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="57d8b90b-978b-4d1c-9603-1420438c55c7" name="applyCitySelection">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="260ba3fb-81ec-46e2-973e-a9917c9b247c" name="emptyCall">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="6fdece77-065c-44b0-9d55-42c0e824158e" name="cleanOnChange">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="1ff54035-490b-4e7a-976c-3bd691fc7f34" name="selectUserForFilter">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="051673d4-55e6-4f3b-83cc-0423947d48ae" name="assignMyself">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="00d593b6-0f9e-4ff5-bdec-589c9f110507" name="cleanSearch">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="104a6ca0-3281-4e49-878b-527e98947d17" name="search">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="d74204b6-bc9f-47ea-90c2-20cbfb787fc1" name="selectWorkItem">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e558414e-e280-4c1a-8d73-3b4ad5fbd606" name="openPopupUserForFilter">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="955f4a72-e778-4c5f-a3b1-7f522975fdb7" name="openPopupUserForAssign">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="7601ffd0-e0f7-4d76-a54c-992c421a43e6" name="assignMyselfWI">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c2c52ea3-51e2-415c-8c60-bf9d6ab63a1a" name="selectUserForAssign">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="4a1e58b2-c016-41e3-961d-e3b8e8292061" name="renderedButtonselectUserForFilter">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="43924330-e5ff-4410-b78e-c8426c1ab5cf" name="renderedButtonselectUserForAssign">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="8e81d5a9-b8d5-4b3b-b97e-b1d26754e8f3" name="closeWF">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="36ae25cc-9a38-422a-9de2-7ebf262b8e69" name="openCase">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="88f5025c-5740-4039-99c6-d6e9174c8845" name="switchToWorkItem">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="6bce2ba6-bb59-48d8-a3e7-9400ce1ff06a" name="renderedButtonselectUserForAssignAnalyst">
+              <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
+            </operations>
+            <operations uid="e6b7e02a-d065-460f-873f-c731b52a48b0" name="renderedButtonselectUserForAssignManager">
+              <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
+            </operations>
+            <operations uid="26f124cd-27d9-495e-bbee-140cb202bb6d" name="selectUserForAssignAnalyst">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="732176d9-01e0-4660-9cf0-0c474aa70b76" name="selectUserForAssignManager">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="72168f69-fa55-465c-8868-ddc8aee3c298" name="openPopupUserForForAssignAnalyst">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c22306fa-9aa6-43f1-9acd-81f0ce48910f" name="openPopupUserForForAssignManager">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="b7958f78-c562-423d-a420-3b15e3151618" name="assignMyselfForAnalyst">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c667db84-6423-4212-928a-ba5b7ad215ce" name="assignMyselfForManager">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="a470f87e-edd3-4045-98be-482d47d0e285" name="saveCase">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="fd780c1d-5a69-48a9-84e8-6a3f18483f4e" name="closeCase">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="6b516c73-a6a2-4e4d-91c1-0bbb5cba00c3" name="closeWindow">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="19069855-0bb4-40cb-b156-0fa953500002" name="completeTask">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="a4a27c94-fb19-41c9-be0e-97dccfda3fb3" name="allowAssign">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="8315d485-1f13-42f8-9c30-6271a436b5b4" name="allowCloseCase">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="7aa98581-050b-4338-b865-31131ebbc1cb" name="allowAssignAnalyst">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="33591552-00d8-4947-a8a5-d5604994fdff" name="allowAssignManager">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="ffd82c61-aecf-4d88-b679-22ee32191067" name="allowSubmitForReview">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="f3f0c347-a02e-40d4-ae39-6582b3ac305a" name="allowApproveCase">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c988764c-40e5-4d11-bbb6-8d20e7bd8abc" name="allowCompleteTask">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="b029da3c-eee9-4005-a9eb-dd391d066bfd" name="logout">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="3cbccbab-da94-48ba-95fd-976cf2709774" name="SA ETL controller">
-            <operations uid="72e9bf15-00a7-481a-9e1a-1291b796e946" name="openProcess"/>
-            <operations uid="e530e8f6-024d-4310-a35d-fe9dff60c1e0" name="logout"/>
-            <operations uid="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" name="createMonthlyLoadingProcess"/>
-            <operations uid="8257b056-ead9-4b53-980a-7dd4b1cdd155" name="prevStep"/>
-            <operations uid="44ed1bf9-6134-4f03-b58c-53e9b8a8b962" name="nextStep"/>
-            <operations uid="b9da27e5-049e-48dc-970d-793e0202a063" name="poll"/>
+            <operations uid="72e9bf15-00a7-481a-9e1a-1291b796e946" name="openProcess">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="e530e8f6-024d-4310-a35d-fe9dff60c1e0" name="logout">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="c04c71b9-4a81-4f9d-b950-a8335e5a99c7" name="createMonthlyLoadingProcess">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="8257b056-ead9-4b53-980a-7dd4b1cdd155" name="prevStep">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="44ed1bf9-6134-4f03-b58c-53e9b8a8b962" name="nextStep">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
+            <operations uid="b9da27e5-049e-48dc-970d-793e0202a063" name="poll">
+              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+            </operations>
           </types>
         </repositoryPackages>
         <repositoryPackages uid="d7d710b5-9874-4b1b-b916-fe53bf69a3c7" name="client business logic">
@@ -2596,6 +2789,7 @@
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="60c2f50b-cec3-495c-8005-c2be4e6b9fc2" name="billDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1d0afb6a-4419-45e8-b44e-68f1da168522" name="periodStartDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="20eae0a4-4afe-4c24-84c6-6e08fff8a6e2" name="periodEndDate"/>
+            <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="96b3e5f7-93c8-495c-adaf-e0d62dd309e7" name="gst"/>
           </types>
           <types xsi:type="tura.type:Type" uid="2d5bf5bf-a9fc-45ce-8732-eaa6df46da6b" name="Adjustment">
             <classifiers uid="a49b09bd-9815-462d-95aa-ae6dcd440f9a" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -2606,6 +2800,7 @@
             <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="43ee35f2-c726-4cb6-b93c-d71eca3f60cf" name="taxAmount"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="31177235-7d7d-40a5-b35f-cb030bba4ba8" name="adjustmentCreationDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="dda34a02-3955-4f31-9e7e-715f02ccaf4e" name="billDate"/>
+            <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="d7f04868-026e-483e-aa70-00487d0195c8" name="gst"/>
           </types>
           <types xsi:type="tura.type:Type" uid="aabf4a80-13cb-4cf1-aea7-1bcd6f4df86b" name="KeyValue">
             <classifiers uid="ca28f284-c05a-46c8-8af7-de986253085e" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -3375,7 +3570,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="402096e8-4cd5-4373-a7cc-5b1dec1dbfcd" name="Rest service war file for JPA test model" componentRoot="${Generation path}/serviceLayer" versionRef="d167b2e4-01ea-43de-88b1-9832a4c92246" artifactId="test-objects-restservice-repository" groupId="org.tura.platform.test.generated-code">
                         <mappers uid="b4c1475f-92bc-4590-9747-7c4ed440fa82" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
@@ -3833,7 +4028,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients columns="2" order="1" uid="0f2a7b6e-63f1-48c9-a35c-fbe616eed964" name="External Archives">
+                    <ingredients columns="2" order="1" uid="0f2a7b6e-63f1-48c9-a35c-fbe616eed964" name="External Archives" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
                       <components xsi:type="tura.recipe:JavaComponent" uid="d5ff0d82-d68a-4389-847d-33d38cd66937" name="Server triggers" componentRoot="${External path 1}/hr-manager" artifactId="hrform-react-triggers">
                         <mappers uid="8b00345b-58f8-460f-aa4b-e3116f79f520" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner" artifactRoot="" artifactExtension="">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -4056,7 +4251,7 @@
               <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
               <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
               <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
-              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.1.0"/>
+              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.1.1"/>
               <versions uid="8bc8fa64-01a7-4ff2-a383-11765e47ab34" name="selenium.version" version="2.47.1"/>
               <versions uid="25576813-abe7-42bb-9316-854dee17e93f" name="junit.version" version="4.11"/>
               <versions uid="be26186b-9783-4472-a6cf-5834f1a98491" name="cdi.version" version="2.1.1.Final"/>
@@ -8705,6 +8900,156 @@
                       </viewElement>
                       <classifiers uid="02429f75-a927-45c0-a784-d0f28976eb49" hint="7651625d-8753-4686-b599-49940ab028bb"/>
                     </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="0855f64c-8465-405c-a9d0-b91645eddd23" name="BlockUIView">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="433f1ef4-9506-4ade-8c7a-5c3fd0df348b" name="BlockUIAria">
+                        <baseCanvas uid="d000321b-bf96-41f7-9f12-2daeae653e43">
+                          <children xsi:type="tura.form:LayerHolder" uid="bb62e53a-d0ba-49f8-a808-34f3059307ec">
+                            <fields uid="a0390b9f-a1a4-4794-9d9f-6a7e905e4a37" value="Types repository.Base Repository.Model types.Model types::Generator functions.interceptEvent()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="ccad580e-9c2a-4198-a877-4cffc9dc0a66" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="d86653e6-e8cd-469c-8a71-79ad1445f4e6" order="4" expressionType="OperationImpl"/>
+                              <parameters uid="324ee4d6-4daf-40e9-afee-c811d5cee591" refObj="0af9f269-5834-459a-903e-2db83a1d99ab">
+                                <value uid="e543449a-d4ee-4e09-8604-338d9025eaf2" constant="true" value="40168847-ab03-4c12-a73b-a8c9e2a2abb4"/>
+                              </parameters>
+                              <parameters uid="fdcdcb8d-c506-487e-a767-f16cf45f4783" refObj="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a">
+                                <value uid="9ce14be2-4dcf-452b-a77d-264cc7821486" value="Root.uuiClient.React.Generation Hints.react.onPageEvent">
+                                  <expression objRef="72fc6370-15cf-4600-b0c4-26f14e4b2609" expressionType="DomainArtifactsImpl"/>
+                                  <expression objRef="3699ab6c-f6e9-43be-af41-435239045f38" order="1" expressionType="TechLeafImpl"/>
+                                  <expression objRef="7100f604-e427-4e3d-b45f-bdeb8b26a364" order="2" expressionType="TechLeafImpl"/>
+                                  <expression order="3" expressionType="GenerationHintsHolder"/>
+                                  <expression objRef="4efb93f8-7604-4a77-bfcf-be8e6d7529d4" order="4" expressionType="GenerationHintImpl"/>
+                                </value>
+                              </parameters>
+                              <classifiers uid="f00978e7-984a-4520-9e56-2e1c2d66c1cb" hint="9fa1a601-7c64-4753-96ff-efac76aea996"/>
+                            </fields>
+                            <fields uid="5efe50f5-f9ab-4147-b808-a8fd4e88ae95" value="Types repository.Base Repository.Model types.Model types::Generator functions.interceptEvent()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="ccad580e-9c2a-4198-a877-4cffc9dc0a66" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="d86653e6-e8cd-469c-8a71-79ad1445f4e6" order="4" expressionType="OperationImpl"/>
+                              <parameters uid="aac4dec8-8ee4-4e20-949f-76fa3cb4663b" refObj="0af9f269-5834-459a-903e-2db83a1d99ab">
+                                <value uid="a2c2d5a1-47f8-4587-a3d3-6d8c0781cb19" constant="true" value="40168847-ab03-4c12-a73b-a8c9e2a2abb4"/>
+                              </parameters>
+                              <parameters uid="a02d3cab-ef0e-4dc9-8af6-174233100815" refObj="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a">
+                                <value uid="8a3bfdbc-d537-4e29-8224-e49b4f8de116" value="Root.uuiClient.Generation Hints.network.completed">
+                                  <expression objRef="72fc6370-15cf-4600-b0c4-26f14e4b2609" expressionType="DomainArtifactsImpl"/>
+                                  <expression objRef="3699ab6c-f6e9-43be-af41-435239045f38" order="1" expressionType="TechLeafImpl"/>
+                                  <expression order="2" expressionType="GenerationHintsHolder"/>
+                                  <expression objRef="4ae07945-3836-4cf1-90f2-e8c43142d04b" order="3" expressionType="GenerationHintImpl"/>
+                                </value>
+                              </parameters>
+                              <classifiers uid="d9c91853-669f-46a8-9d46-705d0d47fb2c" hint="1efa743b-fa61-4cca-a5f1-cafe9b499b8a"/>
+                            </fields>
+                            <children xsi:type="tura.form:Table" uid="40168847-ab03-4c12-a73b-a8c9e2a2abb4" sourcePointer="126653b7-36ef-4e87-8a54-a2ff17c8c78f" columns="2" rowNumber="5">
+                              <style uid="82b27953-6922-4061-a044-7e8227ed186d"/>
+                              <refreshAreas area="28f510c2-dac9-47b8-9113-a912fd3352f6" group="2"/>
+                              <cols order="1" uid="5d691832-27f5-422b-8c85-756043ee04c4">
+                                <element xsi:type="tura.form:InputText" uid="3a65bc83-4bcd-4d3a-8642-7b08d60ba443" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
+                              </cols>
+                              <cols uid="be090859-4b6a-4116-a0e2-94ca0ac07fdb">
+                                <element xsi:type="tura.form:InputText" uid="0f26f5b1-4126-470a-ab41-3fd4c0eaecd9" valuePointer="f90b4097-09f1-4bb7-9219-d3ae1b23b3da"/>
+                              </cols>
+                            </children>
+                            <block area="cde2259b-1261-4ad7-9035-eaa0d17278c3" group="1"/>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="c64a4668-340e-4fd1-8ccf-bbc6ceaa1d39">
+                            <fields uid="5ce7ae68-99e9-45bc-b3a3-152864a37af2" value="Types repository.Base Repository.Model types.Model types::Generator functions.interceptEvent()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="ccad580e-9c2a-4198-a877-4cffc9dc0a66" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="d86653e6-e8cd-469c-8a71-79ad1445f4e6" order="4" expressionType="OperationImpl"/>
+                              <parameters uid="40348d89-f80d-4498-b958-d1450c78e968" refObj="0af9f269-5834-459a-903e-2db83a1d99ab">
+                                <value uid="fa29370a-4152-4aa4-b848-00a42e9760a3"/>
+                              </parameters>
+                              <parameters uid="6fe182ac-f674-4fd6-8a8c-3695c13f6b84" refObj="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a">
+                                <value uid="d40a9cc0-9003-4fa6-94ea-45ba00fb022a" value="Root.uuiClient.Generation Hints.network.started">
+                                  <expression objRef="72fc6370-15cf-4600-b0c4-26f14e4b2609" expressionType="DomainArtifactsImpl"/>
+                                  <expression objRef="3699ab6c-f6e9-43be-af41-435239045f38" order="1" expressionType="TechLeafImpl"/>
+                                  <expression order="2" expressionType="GenerationHintsHolder"/>
+                                  <expression objRef="505b16ee-90f2-4e6d-b347-3809a568c3f2" order="3" expressionType="GenerationHintImpl"/>
+                                </value>
+                              </parameters>
+                              <classifiers uid="b771824d-be0f-4a94-9485-57c7001e908e" hint="9fa1a601-7c64-4753-96ff-efac76aea996"/>
+                            </fields>
+                            <fields uid="3049a50e-e620-4f9f-b4bf-e4ab84e8704a" value="Types repository.Base Repository.Model types.Model types::Generator functions.interceptEvent()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="ccad580e-9c2a-4198-a877-4cffc9dc0a66" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="d86653e6-e8cd-469c-8a71-79ad1445f4e6" order="4" expressionType="OperationImpl"/>
+                              <parameters uid="f9dca4e6-e60e-4d23-b07d-36efe4ba96d2" refObj="0af9f269-5834-459a-903e-2db83a1d99ab">
+                                <value uid="52c9393c-7ae8-4ad0-ba47-93672dda9b0a"/>
+                              </parameters>
+                              <parameters uid="3ac80484-2678-4428-90c9-6985ef86a3fd" refObj="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a">
+                                <value uid="64aa7844-f3fa-41cc-88e5-08e61f7529df" value="Root.uuiClient.Generation Hints.network.completed">
+                                  <expression objRef="72fc6370-15cf-4600-b0c4-26f14e4b2609" expressionType="DomainArtifactsImpl"/>
+                                  <expression objRef="3699ab6c-f6e9-43be-af41-435239045f38" order="1" expressionType="TechLeafImpl"/>
+                                  <expression order="2" expressionType="GenerationHintsHolder"/>
+                                  <expression objRef="4ae07945-3836-4cf1-90f2-e8c43142d04b" order="3" expressionType="GenerationHintImpl"/>
+                                </value>
+                              </parameters>
+                              <classifiers uid="7a993096-db40-48f0-ab3b-19cb7523c388" hint="1efa743b-fa61-4cca-a5f1-cafe9b499b8a" details=""/>
+                            </fields>
+                            <children xsi:type="tura.form:Table" nickname="BlockedEmpTable" uid="28f510c2-dac9-47b8-9113-a912fd3352f6" sourcePointer="d62c0e98-0427-433a-9c69-a46c162057a9" columns="2" rowNumber="5">
+                              <cols uid="f339a2ba-5bde-4ea9-b4e7-5568b9ebb2dd">
+                                <element xsi:type="tura.form:InputText" uid="6a383762-27a8-4f5f-ad50-418ef21133c6" valuePointer="234f30f1-a5f1-4ee6-9e20-f7f0ac88cd9e"/>
+                              </cols>
+                              <cols order="1" uid="3df8760a-3653-40b7-a208-643a8a92ff31">
+                                <element xsi:type="tura.form:InputText" uid="1adf40a5-cf8a-4a33-ade0-b2c3a3601183" valuePointer="b0b7031f-8f86-4a22-8fad-44d326c634fb"/>
+                              </cols>
+                            </children>
+                            <block area="cde2259b-1261-4ad7-9035-eaa0d17278c3" group="1"/>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewArea" order="1" uid="37706789-94b0-43b3-abff-af4127c78203" name="BlockerAria">
+                        <baseCanvas uid="574d7eb6-ef85-458d-b59e-69072fee0fd9">
+                          <children xsi:type="tura.form:BlockUI" nickname="BlockerDepGreed" uid="cde2259b-1261-4ad7-9035-eaa0d17278c3"/>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Window" uid="16b843eb-160f-4be2-bdc3-cd4896a94412" name="BlockUIWindowView">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="5eda6230-4e6d-411f-9339-4446d508c1ff" name="BlockUIWindowAria">
+                        <baseCanvas uid="05535e77-25d4-4b47-9fda-69bbbf961114">
+                          <children xsi:type="tura.form:Button" uid="55c6bc14-6d4f-4596-a9c1-84aba74c9f9d">
+                            <fields uid="d717a7de-0f12-4cbf-814c-fc6094535be1" value="Types repository.HR domain.HR controller business logic.HR controller business logic::SimpleFormActions.windowBlockUI()">
+                              <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                              <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                              <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
+                              <expression objRef="894b90ac-1a04-4ae6-b267-ab50c575a38a" order="3" expressionType="TypeImpl"/>
+                              <expression objRef="81eeebca-baca-4b47-b6c4-77d20d4144c3" order="4" expressionType="OperationImpl"/>
+                              <classifiers uid="affa06d0-39ed-4635-aa01-b8e1ead1028f" hint="3ac62cf6-88e7-43ad-86b5-2e0e575c82c6"/>
+                            </fields>
+                          </children>
+                          <children xsi:type="tura.form:BlockUI" nickname="WindBlocker" order="1" uid="6fed6280-c249-4408-9e08-f28bcbbae413"/>
+                        </baseCanvas>
+                      </viewElement>
+                      <fields uid="185c0657-5b54-46cc-834b-19d91e46a2cd" value="Types repository.Base Repository.Model types.Model types::Generator functions.interceptEvent()">
+                        <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                        <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                        <expression objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                        <expression objRef="ccad580e-9c2a-4198-a877-4cffc9dc0a66" order="3" expressionType="TypeImpl"/>
+                        <expression objRef="d86653e6-e8cd-469c-8a71-79ad1445f4e6" order="4" expressionType="OperationImpl"/>
+                        <parameters uid="271e259b-30d6-41f5-b20a-90702dd7e4a6" refObj="0af9f269-5834-459a-903e-2db83a1d99ab">
+                          <value uid="5678cbe4-5a05-47ed-be9f-f1a490586222" constant="true" value="55c6bc14-6d4f-4596-a9c1-84aba74c9f9d"/>
+                        </parameters>
+                        <parameters uid="54def716-043e-40f9-991d-f1a3fac1416a" refObj="0fc9caa3-cdfc-44a7-b58a-154c48c4ef8a">
+                          <value uid="cd2c0fca-4053-4039-ba27-c30f04b6c547" value="Root.uuiClient.React.Generation Hints.react.onClick">
+                            <expression objRef="72fc6370-15cf-4600-b0c4-26f14e4b2609" expressionType="DomainArtifactsImpl"/>
+                            <expression objRef="3699ab6c-f6e9-43be-af41-435239045f38" order="1" expressionType="TechLeafImpl"/>
+                            <expression objRef="7100f604-e427-4e3d-b45f-bdeb8b26a364" order="2" expressionType="TechLeafImpl"/>
+                            <expression order="3" expressionType="GenerationHintsHolder"/>
+                            <expression objRef="3ac62cf6-88e7-43ad-86b5-2e0e575c82c6" order="4" expressionType="GenerationHintImpl"/>
+                          </value>
+                        </parameters>
+                        <classifiers uid="85455564-2808-4e1c-8378-b4def53daaaa" hint="9fa1a601-7c64-4753-96ff-efac76aea996"/>
+                      </fields>
+                      <block area="6fed6280-c249-4408-9e08-f28bcbbae413" group="1"/>
+                    </canvases>
                     <viewInheritances uid="16ca74eb-11d4-4385-959b-0fba9c615a1a" source="b8f25367-5d71-40f9-8d35-6dacc99374cc" target="09e38a50-1a45-4250-a632-dd6e9a9ac1e4"/>
                     <viewInheritances uid="b73e0324-f3d2-4bcc-8314-4a8c604c8d18" source="b8f25367-5d71-40f9-8d35-6dacc99374cc" target="3d9a67f8-6e0c-4c7b-836f-988e707b1fcb"/>
                     <viewInheritances uid="f4e35427-8d2c-485b-970d-3d29d6468506" source="042862dc-b5d3-4233-b170-caab53b9ab6c" target="c6e2bc9f-606a-44f4-ad15-138226bbfcdf"/>
@@ -11175,12 +11520,15 @@
                   </messages>
                   <messages uid="19a1bca0-6df2-43b0-b828-da3955a594aa" name="B1">
                     <translatioins uid="5cc97049-b405-483b-aa8b-aca273a9c1f9" translation="B1" lang="67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
+                    <translatioins uid="71c6c5f2-eb07-420c-a12c-dde101639183" translation="Б1" lang="feb191aa-7a09-4d02-8102-d628390d4fd5"/>
                   </messages>
                   <messages uid="01d3db95-571f-4526-a28a-563f8a4b0738" name="B2">
                     <translatioins uid="f65a4403-99a4-415c-b553-1680cd7c0b28" translation="B2" lang="67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
+                    <translatioins uid="90e1d714-9f9d-40ce-af59-db283ae39405" translation="Б2" lang="feb191aa-7a09-4d02-8102-d628390d4fd5"/>
                   </messages>
                   <messages uid="ecb9b9e8-9460-44a6-b21c-54aef8d75066" name="B3">
                     <translatioins uid="b131a632-f366-4e76-ab34-015ca740ad18" translation="B3" lang="67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
+                    <translatioins uid="e6d2c108-8fc0-4d2e-8815-a6fcdf173a79" translation="Б3" lang="feb191aa-7a09-4d02-8102-d628390d4fd5"/>
                   </messages>
                 </libraries>
               </messageLibraries>
@@ -11577,7 +11925,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients columns="3" order="8" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives">
+                    <ingredients columns="3" order="8" uid="4ceeb50b-0fb4-4171-a454-17441a04871e" name="External Archives" controllerLayer="b41e6434-00a6-4270-aa59-7fd561bc47bc">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="2" uid="f4d79cf9-a880-4bc0-a8ec-1c6e2a6e7058" name="Triggers etc" componentRoot="${External path 1}/sales-analyzer/sales-analyzer">
                         <mappers uid="acc75f4c-2302-412a-8f7b-1b7dcf3816cd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="KieServer artifact">
                           <classifiers uid="36b92519-effa-448e-bd88-e06adf21b529" hint="2017c09b-af3d-4746-9a18-a435ef5031fb" details="KieServer"/>
@@ -12131,7 +12479,7 @@
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
               <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
-              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.1.0"/>
+              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.1.1"/>
               <versions uid="c031121a-0df4-49df-ab47-5a69d10814dd" name="selenium.version" version="2.47.1"/>
               <versions uid="23484b46-6301-41f7-a371-733785a56a4b" name="keycloak.version" version="3.2.0.Final"/>
             </applicationMappers>
@@ -17627,7 +17975,7 @@
                   </messages>
                   <messages uid="bb4f350a-9c0f-47d1-ac5f-137e3d218cc9" name="STATES">
                     <translatioins uid="07fb43c7-0be7-4150-9b5f-6236cae4b9ac" translation="Provinces" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="c71835d8-6e40-4d82-9762-c7d6685b1adc" translation="Провинции"/>
+                    <translatioins uid="c71835d8-6e40-4d82-9762-c7d6685b1adc" translation="Провинции" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="5bf7bca3-d0da-4c1d-be97-29fd0fdf353c" name="CITIES">
                     <translatioins uid="378b7858-1c03-4ce2-a3b8-850495958ad3" translation="Cities" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17691,7 +18039,7 @@
                   </messages>
                   <messages uid="4d40d697-5a81-4c37-b4ea-0ad8877254aa" name="OK_BUTTON">
                     <translatioins uid="39b4430b-eaab-49c8-94e6-be77c64bdc57" translation="Ok" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="19e12ec5-ea25-4367-90f7-9c94c08cc124" translation="Принять" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="19e12ec5-ea25-4367-90f7-9c94c08cc124" translation="Принять" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="e4a221d2-db58-43cb-8003-aefd224c0f56" name="CANCEL_BUTTON">
                     <translatioins uid="9c880269-9713-408d-90af-5eb8ff0cc1d6" translation="Cancel" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17811,7 +18159,7 @@
                   </messages>
                   <messages uid="5fd4bc93-8c86-40db-9546-b827fe1bcfcb" name="RESOLUTION">
                     <translatioins uid="dd2f58e3-8a01-4fb0-b0ac-f44c839ad78e" translation="Resolution" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="74bd4556-df5e-4f58-997a-fb8965fde9b5" translation="решение"/>
+                    <translatioins uid="74bd4556-df5e-4f58-997a-fb8965fde9b5" translation="решение" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="a7e5cf90-8467-4802-8d1b-d0c819cdd7e8" name="APPROVED_STATUS">
                     <translatioins uid="5bfb2d1c-ca9a-4659-8fa2-aaa9c19f99e2" translation="Approved status" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17823,7 +18171,7 @@
                   </messages>
                   <messages uid="58a6a48b-0de6-4311-8321-fae20f70fda8" name="WRITE_OUTCOME">
                     <translatioins uid="b9f8b487-b8cd-4e1d-9baf-41fa108bf449" translation="Write outcome" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="8db82230-62b5-4aaa-b968-998bbdb91a37" translation="Решение" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
+                    <translatioins uid="8db82230-62b5-4aaa-b968-998bbdb91a37" translation="Решение" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="02012855-bc2a-4dfe-a64e-c456481bef04" name="OPTION_SELECT_VALUE">
                     <translatioins uid="c7aea70a-9d41-4b5c-b47f-72524a9daa64" translation="Select value" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17907,7 +18255,7 @@
                 <libraries uid="4ae7aa3a-d4c7-421f-a4a3-5ec7f53801b1" name="ETLController">
                   <messages uid="7acf7ab0-cdcb-4e0c-aecb-49d40e200dc2" name="RUNNING_PROCESSES">
                     <translatioins uid="34ad1191-2f32-4561-b824-9be72034669a" translation="Data loading processes" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="71d7f766-f4a6-4257-a5e4-598a26e8bdc6" translation="Процессы загрузки данных"/>
+                    <translatioins uid="71d7f766-f4a6-4257-a5e4-598a26e8bdc6" translation="Процессы загрузки данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="7abdb09a-bc08-4739-9c40-8e27b9618d99" name="PROCESS_CODE">
                     <translatioins uid="f53825fa-fe24-428f-87f5-6ff18aa21165" translation="Process ID" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17923,7 +18271,7 @@
                   </messages>
                   <messages uid="fbe43ead-65c3-4f72-ab32-0d78f85c0214" name="STEP_1">
                     <translatioins uid="514f6aba-716a-4de2-909f-9314f8be4a26" translation="Select date of loading file" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="b4f08035-c631-40e1-9c22-ee62a397c75a" translation="Выберите дату файла данных"/>
+                    <translatioins uid="b4f08035-c631-40e1-9c22-ee62a397c75a" translation="Выберите дату файла данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="03106985-2bb0-4947-b9ba-e4c96d34096b" name="STEP_2">
                     <translatioins uid="ee12069f-0061-4b56-8813-5656c9137c50" translation="File uploading" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17943,7 +18291,7 @@
                   </messages>
                   <messages uid="7f0a99a6-c306-4ece-86f5-741c4f0d37aa" name="STEP_6">
                     <translatioins uid="ce05c991-3e98-4e9b-80db-232e4b8d73d6" translation="Review result of business rules processing" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="36054455-2cf1-490f-9c6b-79283f72b89d" translation="Обзор результата обработки. данных"/>
+                    <translatioins uid="36054455-2cf1-490f-9c6b-79283f72b89d" translation="Обзор результата обработки. данных" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="4a0015bd-f049-4ba7-9235-4f852f7b41e7" name="STEP_7">
                     <translatioins uid="081ad91f-eeaa-41ac-8842-c937dd738ec2" translation="Insert monthly data" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -17955,7 +18303,7 @@
                   </messages>
                   <messages uid="056e464b-b670-4c53-a030-ff17ffbd54c4" name="STEP_9">
                     <translatioins uid="0be40191-9f11-40d4-9935-633425809da7" translation="Review case generation" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
-                    <translatioins uid="faee1108-9d5a-453d-ac57-4c57702326cf" translation="Обзоре результатов генерации"/>
+                    <translatioins uid="faee1108-9d5a-453d-ac57-4c57702326cf" translation="Обзоре результатов генерации" lang="69ee764b-677e-4e70-be9f-c96550e6e076"/>
                   </messages>
                   <messages uid="7d2bd9c4-e357-44f9-aa1f-6a62a15092be" name="BUTTON_NEXT">
                     <translatioins uid="1b4a3b5a-e8c5-405b-975b-52d72e269d5a" translation="Next" lang="ce610caf-d5b9-4192-aa5c-22db4dc6bf0f"/>
@@ -18200,6 +18548,7 @@
             <attributes uid="5f68e22e-9dd9-4a75-814b-542cd21646b6" attributeRef="43ee35f2-c726-4cb6-b93c-d71eca3f60cf"/>
             <attributes uid="7f6e3738-cf0d-4eef-bcd7-2e94b53a3651" attributeRef="31177235-7d7d-40a5-b35f-cb030bba4ba8"/>
             <attributes uid="1dbb535c-e242-4536-b466-5b1e139cab5c" attributeRef="dda34a02-3955-4f31-9e7e-715f02ccaf4e"/>
+            <attributes uid="fd22b1c0-38f9-4e43-af57-636e97785362" attributeRef="d7f04868-026e-483e-aa70-00487d0195c8"/>
           </objectMappers>
           <objectMappers uid="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" name="Transactions">
             <baseType typeRef="e8efca23-07eb-44ba-b7d9-d2799564a752"/>
@@ -18212,6 +18561,7 @@
             <attributes uid="de5239e7-59f3-48ba-a183-53e009ea050e" attributeRef="60c2f50b-cec3-495c-8005-c2be4e6b9fc2"/>
             <attributes uid="576b2fcb-bff2-4450-8333-a2647dd96f4a" attributeRef="1d0afb6a-4419-45e8-b44e-68f1da168522"/>
             <attributes uid="80ec7f89-29b9-4c7d-bbee-f30d56c8b8fb" attributeRef="20eae0a4-4afe-4c24-84c6-6e08fff8a6e2"/>
+            <attributes uid="2ddc8c3d-17c9-45f5-a050-b7311387744b" attributeRef="96b3e5f7-93c8-495c-adaf-e0d62dd309e7"/>
           </objectMappers>
           <objectMappers uid="bca2e7f8-b317-4d5b-8418-30761aeb6dad" name="Tax">
             <baseType typeRef="fb2a7814-d2e2-43db-9dce-bb5bd0dee702"/>
@@ -18230,8 +18580,50 @@
             <attributes uid="fd24fc90-cca5-4ca0-b19a-279a98f65af2" attributeRef="3a790e95-893b-4bcf-a4be-305d9dfeff80"/>
             <attributes uid="72b1e254-b05f-44fe-b029-ebc28848ffa2" attributeRef="4e3d0e02-7a83-4fa2-ac64-4dedd75e4189"/>
           </objectMappers>
+          <objectMappers uid="b1402d92-2ab7-43b5-bce5-700cd2b24ff4" name="OperationResponse" stage="0c934409-52f4-46cd-85c5-0b53aee06a4d">
+            <baseType typeRef="66439d70-ab4f-4c57-adb3-8b03d4f8c9ea"/>
+            <relations uid="ef2c8bae-b49d-4386-b06d-8faf2cd42b6a" objectMapperRef="3a706fac-5baf-4b9f-8553-4a7307251c18" typeRef="e8efca23-07eb-44ba-b7d9-d2799564a752" assosiationRef="b7197a52-b353-40d9-bca8-8d786a8b7950"/>
+            <relations uid="3a15d5fb-3bcd-4d44-bac0-d25f05a594aa" objectMapperRef="85c56098-2b1e-4e4a-ab7c-92a2c52311a5" typeRef="2d5bf5bf-a9fc-45ce-8732-eaa6df46da6b" assosiationRef="22a82d2d-c6bf-4f96-9a5f-69c4c87d2047"/>
+          </objectMappers>
+          <objectMappers uid="3a706fac-5baf-4b9f-8553-4a7307251c18" name="Transactions">
+            <baseType typeRef="e8efca23-07eb-44ba-b7d9-d2799564a752"/>
+            <attributes uid="14c53a17-50af-4a48-b0c3-06fd9c55de80" attributeRef="5dc105ac-2d44-4259-9c3b-e0c0d1bb3951"/>
+            <attributes uid="014ae2d7-6530-4446-8ec3-49fca0dba37d" attributeRef="cea87b07-a413-4ff8-97c5-0117148d1919"/>
+            <attributes uid="e32ccd31-7de6-4327-a82b-fd5c7e43b85d" attributeRef="6a76fb60-01f4-47d2-b825-f4fe756f93e4"/>
+            <attributes uid="30eb9cdd-6cef-4bf6-a14d-6efe514a779c" attributeRef="3ea8740e-b6ef-420b-a887-3a1fe3d92791"/>
+            <attributes uid="aa3d281b-303e-4c35-a24b-177465eb76f6" attributeRef="a8e79c08-64a5-4d6a-9ca3-eb14c490a801"/>
+            <attributes uid="e6f529a6-7b03-412e-b4ee-249982b924b1" attributeRef="1e4e0b5f-102e-4b56-bc98-940477564b7b"/>
+            <attributes uid="b1022bf1-9d10-48cf-b842-7d0ae2a06665" attributeRef="60c2f50b-cec3-495c-8005-c2be4e6b9fc2"/>
+            <attributes uid="2b3e4079-0fb9-47d4-aa41-d02d1bbc0a95" attributeRef="1d0afb6a-4419-45e8-b44e-68f1da168522"/>
+            <attributes uid="6445cef9-6207-43c6-8d35-a488852bcabd" attributeRef="20eae0a4-4afe-4c24-84c6-6e08fff8a6e2"/>
+            <attributes uid="da2a2b6e-d01e-4953-b4a3-e74f0358ed98" attributeRef="96b3e5f7-93c8-495c-adaf-e0d62dd309e7"/>
+          </objectMappers>
+          <objectMappers uid="85c56098-2b1e-4e4a-ab7c-92a2c52311a5" name="Adjustment">
+            <baseType typeRef="2d5bf5bf-a9fc-45ce-8732-eaa6df46da6b"/>
+            <attributes uid="ffa5c019-53f6-4d07-b340-0ded6ccaf79e" attributeRef="a0044ccc-e881-4605-82cd-e042939d7f38"/>
+            <attributes uid="36585294-d469-488c-8eb2-37d13c8bbf42" attributeRef="a02344e3-37a3-461c-bac1-34aa9add474e"/>
+            <attributes uid="752bf492-42f9-4e54-b789-d2287b83c9b1" attributeRef="d9762009-670d-47aa-9965-e6c5b2d26953"/>
+            <attributes uid="45c4ef69-d46a-431c-8fdb-dc47658c6420" attributeRef="25638daa-8caa-4b9c-ac22-2ce3040f56b6"/>
+            <attributes uid="9d808873-1c71-4072-a1b0-9660eb27030c" attributeRef="43ee35f2-c726-4cb6-b93c-d71eca3f60cf"/>
+            <attributes uid="32717c8d-4a2a-464a-a90f-ea9e7a3c1984" attributeRef="31177235-7d7d-40a5-b35f-cb030bba4ba8"/>
+            <attributes uid="b56b58f9-782f-438e-9278-b25989aff06e" attributeRef="dda34a02-3955-4f31-9e7e-715f02ccaf4e"/>
+            <attributes uid="2a696cee-6ecc-4d27-94c3-738ab583d6d2" attributeRef="d7f04868-026e-483e-aa70-00487d0195c8"/>
+          </objectMappers>
+          <objectMappers uid="6ce4a11b-580e-4479-9c9d-1cd88476bde1" name="TrxGSTTax">
+            <classifiers uid="ce1f35e4-5424-4f46-b60f-68b6929245e5" hint="d16c104f-40ba-4c5f-b280-1dbc2849f49f"/>
+            <baseType typeRef="aabf4a80-13cb-4cf1-aea7-1bcd6f4df86b"/>
+            <attributes uid="172fb61a-406f-448e-bc4e-95a9d4e2522b" attributeRef="3a790e95-893b-4bcf-a4be-305d9dfeff80"/>
+            <attributes uid="449c43b4-9546-4343-addb-5d49f202775b" attributeRef="4e3d0e02-7a83-4fa2-ac64-4dedd75e4189"/>
+          </objectMappers>
+          <objectMappers uid="882a803b-b3ae-4644-a4eb-8bdd8aa53a63" name="AdjGSTTax">
+            <classifiers uid="90c8db4d-3a9b-4aaf-b8aa-0d514f913252" hint="d16c104f-40ba-4c5f-b280-1dbc2849f49f"/>
+            <baseType typeRef="aabf4a80-13cb-4cf1-aea7-1bcd6f4df86b"/>
+            <attributes uid="3cdfad21-35b7-4f27-96f3-6ebb8a039112" attributeRef="3a790e95-893b-4bcf-a4be-305d9dfeff80"/>
+            <attributes uid="9ea4856e-ad2d-4138-906d-afc2f8104b98" attributeRef="4e3d0e02-7a83-4fa2-ac64-4dedd75e4189"/>
+          </objectMappers>
           <stages uid="11f2dffe-51e5-4ede-963d-a62d5becd271" name="Processing Stage1" nextStage="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5"/>
-          <stages uid="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5" name="Processing Stage2"/>
+          <stages uid="f2b3a7aa-06e3-4fbe-afa8-91b31a43ebe5" name="Processing Stage2" nextStage="0c934409-52f4-46cd-85c5-0b53aee06a4d"/>
+          <stages uid="0c934409-52f4-46cd-85c5-0b53aee06a4d" name="Processing Stage3"/>
           <attributesConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="d1ce7920-f0f9-4a07-954b-fcb64f1d0503" source="80a31fcf-5cd3-4d2e-9e5e-4208cacdea74" target="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3"/>
           <attributesConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="8077a103-6125-4ec1-8d3f-48e60a748c82" source="8b8c61c9-376c-4bd7-957a-466ec77ebd17" target="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3"/>
           <attributesConnector uid="b0061249-1476-4fd0-bca5-d12aa55b548a" source="5f68e22e-9dd9-4a75-814b-542cd21646b6" target="ab1657f5-7f00-4056-b361-e424d5633fec"/>
@@ -18242,12 +18634,95 @@
           <attributesConnector operationRef="8308b66f-27b7-4571-8051-b63f0b86ce7d" uid="2824d45b-f059-436e-a169-c1c055bc9ea9" source="ab1657f5-7f00-4056-b361-e424d5633fec" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
           <attributesConnector operationRef="293c4d46-1497-406c-9e35-3b93eda0594b" uid="1c6d0cff-5110-43c0-b72a-88f27d7bbe84" source="fd24fc90-cca5-4ca0-b19a-279a98f65af2" target="80821723-6efb-454a-843a-3cb7ea8efc04"/>
           <attributesConnector operationRef="293c4d46-1497-406c-9e35-3b93eda0594b" uid="a8adc7ad-0b69-4111-b1ff-6db820a32193" source="72b1e254-b05f-44fe-b029-ebc28848ffa2" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
-          <operationsConnector uid="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" name="Adjastment" source="60e353c1-6844-4f88-b922-a31141ec4eee" target="53262142-53d5-452e-8652-26448cac3ce3"/>
-          <operationsConnector uid="0846283f-981a-4220-9197-d56c657ee198" name="Transaction" source="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" target="53262142-53d5-452e-8652-26448cac3ce3"/>
+          <attributesConnector uid="903151e2-21f3-4abb-a3d2-b4ffd6316bd9" source="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3" target="752bf492-42f9-4e54-b789-d2287b83c9b1"/>
+          <attributesConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="fee2e707-1118-47ac-b6f6-5fcd738e128e" source="5950c51a-7fbe-41bb-9de0-c0ec0ac838a1" target="127588e7-2711-4d9f-acd5-6d9a0da5488c"/>
+          <attributesConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="c61565f8-79e3-4336-9df0-662b2cc45d53" source="5a9d6bc4-ca7c-40d0-9c84-88cee0226220" target="127588e7-2711-4d9f-acd5-6d9a0da5488c"/>
+          <attributesConnector operationRef="2a22253a-4a21-4436-bef2-f5d45c6c89b9" uid="02386f6a-9d62-4340-9e5f-a4e57337b33c" source="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1" target="9d808873-1c71-4072-a1b0-9660eb27030c">
+            <defaultSearch>
+              <parameters uid="a2c9aae0-b486-4816-a6c2-f32d361a7088" refObj="36ffacf8-8c8b-4cfe-aff6-b6d278824b37">
+                <value uid="0888edeb-1725-43eb-bae8-1b44f9f867b8" value="AdjTaxVar">
+                  <expression objRef="06e05d61-d391-4a05-b65d-8c130e7a7877" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </attributesConnector>
+          <attributesConnector operationRef="bdc1b6e0-c43a-497c-bf6e-105a36ce4fca" uid="aaea8f89-a852-4b76-9868-88cdb2f5b82b" source="c4adf1ff-c8a7-4d54-bd17-5fb23464ccd3" target="14c53a17-50af-4a48-b0c3-06fd9c55de80"/>
+          <attributesConnector operationRef="57e0a8cf-fd8b-4b98-8400-77ca46176159" uid="5d96732b-d950-4f21-8be3-36c75f7fc9fe" source="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1" target="aa3d281b-303e-4c35-a24b-177465eb76f6">
+            <defaultSearch>
+              <parameters uid="2d7fca26-9bfc-458a-a643-92c66308a5c0" refObj="36ffacf8-8c8b-4cfe-aff6-b6d278824b37">
+                <value uid="ab892091-8d04-47c0-8e51-0cc95b77bff9" value="TrxTaxVar">
+                  <expression objRef="d5b81723-315d-4340-ad7e-226d7fe9fdf5" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </attributesConnector>
+          <attributesConnector uid="cde6a387-5165-48c1-9a33-502f06361203" source="2ddc8c3d-17c9-45f5-a050-b7311387744b" target="449c43b4-9546-4343-addb-5d49f202775b"/>
+          <attributesConnector uid="2246e117-c841-4e40-b084-eb5d3171452f" source="c2633672-9ba6-452f-bb72-08418666bb9c" target="172fb61a-406f-448e-bc4e-95a9d4e2522b"/>
+          <attributesConnector operationRef="b1d2e4dc-868b-4477-8cec-22e5f2617189" uid="c31e6882-701c-47f3-a4f7-852a07e7e5b8" source="172fb61a-406f-448e-bc4e-95a9d4e2522b" target="80821723-6efb-454a-843a-3cb7ea8efc04"/>
+          <attributesConnector operationRef="b1d2e4dc-868b-4477-8cec-22e5f2617189" uid="49dd15d6-fa3c-4ebb-aeb6-2eb1278888dd" source="449c43b4-9546-4343-addb-5d49f202775b" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
+          <attributesConnector uid="2c6e3578-5097-4afd-8564-85cfea61b9f8" source="fd22b1c0-38f9-4e43-af57-636e97785362" target="9ea4856e-ad2d-4138-906d-afc2f8104b98"/>
+          <attributesConnector uid="11dacdf0-1296-434f-ad25-b846b44d010e" source="68865f9b-348c-47e8-8fea-67d325da7e00" target="3cdfad21-35b7-4f27-96f3-6ebb8a039112"/>
+          <attributesConnector operationRef="0e02820b-3bb0-4d12-b1f3-e7787c01aca8" uid="874ba401-31b3-4fae-817d-bb95ba0bf7c0" source="3cdfad21-35b7-4f27-96f3-6ebb8a039112" target="80821723-6efb-454a-843a-3cb7ea8efc04"/>
+          <attributesConnector operationRef="0e02820b-3bb0-4d12-b1f3-e7787c01aca8" uid="498a53d8-f810-4591-878b-5c63c2475de7" source="9ea4856e-ad2d-4138-906d-afc2f8104b98" target="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1"/>
+          <attributesConnector operationRef="57e0a8cf-fd8b-4b98-8400-77ca46176159" uid="3afcff80-86ff-4c31-81c9-e4d178c5db4c" source="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1" target="da2a2b6e-d01e-4953-b4a3-e74f0358ed98">
+            <defaultSearch>
+              <parameters uid="5ed85ba5-1a3e-43b5-a6ba-1c1f41c63d66" refObj="36ffacf8-8c8b-4cfe-aff6-b6d278824b37">
+                <value uid="cb400650-d8ce-4985-b211-d6e70e06677d" value="TrxGSTTaxVar">
+                  <expression objRef="c2633672-9ba6-452f-bb72-08418666bb9c" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </attributesConnector>
+          <attributesConnector operationRef="2a22253a-4a21-4436-bef2-f5d45c6c89b9" uid="972b406f-a975-4856-971d-52aef5a60f72" source="a24e9cb4-a8b4-49b9-84f6-6a24eabe0ce1" target="2a696cee-6ecc-4d27-94c3-738ab583d6d2">
+            <defaultSearch>
+              <parameters uid="31c887c4-8b82-46f1-8901-6e47d6ec09f2" refObj="36ffacf8-8c8b-4cfe-aff6-b6d278824b37">
+                <value uid="5e18036b-8d07-4464-8b66-4bedd022cb13" value="AdjGSTTaxVar">
+                  <expression objRef="68865f9b-348c-47e8-8fea-67d325da7e00" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </attributesConnector>
+          <operationsConnector uid="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" name="Adjastment" source="60e353c1-6844-4f88-b922-a31141ec4eee" target="53262142-53d5-452e-8652-26448cac3ce3">
+            <defaultSearch/>
+          </operationsConnector>
+          <operationsConnector uid="0846283f-981a-4220-9197-d56c657ee198" name="Transaction" source="352e3e1a-35c1-4755-a1ee-ff8cb3c3dcbc" target="53262142-53d5-452e-8652-26448cac3ce3">
+            <defaultSearch/>
+          </operationsConnector>
           <operationsConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="8308b66f-27b7-4571-8051-b63f0b86ce7d" name="AdjTax" source="dc6cc84b-65b9-481a-9cec-313f24cec471" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
           <operationsConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="293c4d46-1497-406c-9e35-3b93eda0594b" name="TrTax" source="e9c1254a-c7f0-4136-9fb0-425dbb5dc635" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
+          <operationsConnector uid="8dcd8b07-c3a8-4e78-8520-5003f6767b55" name="CopyAdjustmentChargess" source="53262142-53d5-452e-8652-26448cac3ce3" target="85c56098-2b1e-4e4a-ab7c-92a2c52311a5">
+            <defaultSearch>
+              <parameters uid="4679d405-ba50-470d-8f26-67eb50aaefd8" refObj="98fb439f-6220-4660-be47-487d6665f81c">
+                <value uid="e091786d-67e2-480f-885e-ceb875300cbe" value="AdjustementChargeTypeVar">
+                  <expression objRef="5a9d6bc4-ca7c-40d0-9c84-88cee0226220" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </operationsConnector>
+          <operationsConnector operationRef="8dcd8b07-c3a8-4e78-8520-5003f6767b55" uid="2a22253a-4a21-4436-bef2-f5d45c6c89b9" name="AdjustTaxSet" source="bca2e7f8-b317-4d5b-8418-30761aeb6dad" target="85c56098-2b1e-4e4a-ab7c-92a2c52311a5" operationType="non">
+            <defaultSearch/>
+          </operationsConnector>
+          <operationsConnector uid="bdc1b6e0-c43a-497c-bf6e-105a36ce4fca" name="CopyTransactionChargess" source="53262142-53d5-452e-8652-26448cac3ce3" target="3a706fac-5baf-4b9f-8553-4a7307251c18">
+            <defaultSearch>
+              <parameters uid="710f9ddc-3615-49b7-8d8d-84c720189ad3" refObj="98fb439f-6220-4660-be47-487d6665f81c">
+                <value uid="df08dcf7-0179-4f97-852f-13499f88d001" value="TransactionChargeTypeVar">
+                  <expression objRef="5950c51a-7fbe-41bb-9de0-c0ec0ac838a1" expressionType="VariableImpl"/>
+                </value>
+              </parameters>
+            </defaultSearch>
+          </operationsConnector>
+          <operationsConnector operationRef="bdc1b6e0-c43a-497c-bf6e-105a36ce4fca" uid="57e0a8cf-fd8b-4b98-8400-77ca46176159" name="TransTaxSet" source="bca2e7f8-b317-4d5b-8418-30761aeb6dad" target="3a706fac-5baf-4b9f-8553-4a7307251c18" operationType="non">
+            <defaultSearch/>
+          </operationsConnector>
+          <operationsConnector uid="c331b76d-31c0-4c30-bd0d-6ab663cf884a" source="53262142-53d5-452e-8652-26448cac3ce3" target="b1402d92-2ab7-43b5-bce5-700cd2b24ff4" operationType="oneTimes"/>
+          <operationsConnector operationRef="0846283f-981a-4220-9197-d56c657ee198" uid="b1d2e4dc-868b-4477-8cec-22e5f2617189" name="TrxGSTTax" source="6ce4a11b-580e-4479-9c9d-1cd88476bde1" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
+          <operationsConnector operationRef="531d0f15-8bb0-4734-b335-b48ff1c2b4ad" uid="0e02820b-3bb0-4d12-b1f3-e7787c01aca8" name="AdjGSTTax" source="882a803b-b3ae-4644-a4eb-8bdd8aa53a63" target="bca2e7f8-b317-4d5b-8418-30761aeb6dad"/>
           <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="06e05d61-d391-4a05-b65d-8c130e7a7877" name="AdjTaxVar" value="AdjTax"/>
           <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d5b81723-315d-4340-ad7e-226d7fe9fdf5" name="TrxTaxVar" value="TrxTax"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5a9d6bc4-ca7c-40d0-9c84-88cee0226220" name="AdjustementChargeTypeVar" value="AdjustementChargeType"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5950c51a-7fbe-41bb-9de0-c0ec0ac838a1" name="TransactionChargeTypeVar" value="TransactionChargeType"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c2633672-9ba6-452f-bb72-08418666bb9c" name="TrxGSTTaxVar" value="TrxGSTTax"/>
+          <variables typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="68865f9b-348c-47e8-8fea-67d325da7e00" name="AdjGSTTaxVar" value="AdjGSTTax"/>
         </objectMapperPackages>
       </mappers>
     </domainMappers>

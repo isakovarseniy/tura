@@ -95,5 +95,79 @@ public class RecipeGeneration {
 		
 	}	
 	
+	public void validation(Infrastructure infrastructure,Recipe recipe) {
 
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelValidationJob job = new MetamodelValidationJob("Validation");
+		
+
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+		job.setRecipe(recipe);
+
+		job.schedule();
+
+	}
+
+	
+	public void validationRecipeOnly(Infrastructure infrastructure,Recipe recipe) {
+
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelValidationJob job = new MetamodelValidationJob("Validation");
+		
+
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+		job.setRecipe(recipe);
+		job.setRecipeOnly(true);
+
+		job.schedule();
+
+	}
+	
+	
+	public void validation(Infrastructure infrastructure, Recipe recipe, Ingredient ingredient ) {
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelValidationJob job = new MetamodelValidationJob("Validation");
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+		job.setIngredient(ingredient);
+
+		job.schedule();
+
+	}	
+	
+	public void validation(Infrastructure infrastructure, Recipe recipe, Ingredient ingredient,  Component component ) {
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelValidationJob job = new MetamodelValidationJob("Validation");
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+		job.setComponent(component);
+
+		job.schedule();
+
+	}	
+
+	public void validation(Infrastructure infrastructure, Recipe recipe, Ingredient ingredient,  Component component , ModelMapper mapper) {
+		IEditorPart editorPart = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+		MetamodelValidationJob job = new MetamodelValidationJob("Validation");
+		job.setEditorPart(editorPart);
+		job.setInfrastructure(infrastructure);
+		job.setMapper(mapper);
+
+		job.schedule();
+
+	}	
+
+	
 }

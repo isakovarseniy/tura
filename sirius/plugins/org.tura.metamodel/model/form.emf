@@ -82,7 +82,7 @@ class OverlayCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLa
 class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized,FlexFields {
 }
 
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized ,permission.Secured,FlexFields{
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized ,permission.Secured,FlexFields, Blockable{
 }
 
 class MenuDefinition extends StyleElement,artifact.Categorized {
@@ -259,7 +259,11 @@ class Selection extends StyleElement{
 }
 
 
-class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
+class Blockable {
+	val AreaRef[*]  block;	 
+}
+
+class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder, Blockable{
    
 }
 
@@ -391,7 +395,6 @@ class Menu extends Uielement,MultiLangLabel{
 
 
 class BlockUI  extends Uielement,  ChildrenHolder, common.HTMLLayerHolder {
-     val AreaRef[*]  sourceTarget;	 
 }
 
 class FileUpload extends Uielement{

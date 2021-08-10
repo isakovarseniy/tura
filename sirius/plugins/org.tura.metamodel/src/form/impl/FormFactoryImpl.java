@@ -112,6 +112,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.SOURCES_POINTER: return createSourcesPointer();
 			case FormPackage.INPUT_ELEMENT: return createInputElement();
 			case FormPackage.SELECTION: return createSelection();
+			case FormPackage.BLOCKABLE: return createBlockable();
 			case FormPackage.LAYER_HOLDER: return createLayerHolder();
 			case FormPackage.INPUT_TEXT: return createInputText();
 			case FormPackage.PASSWORD: return createPassword();
@@ -689,6 +690,17 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Selection createSelection() {
 		SelectionImpl selection = new SelectionImpl();
 		return selection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Blockable createBlockable() {
+		BlockableImpl blockable = new BlockableImpl();
+		return blockable;
 	}
 
 	/**

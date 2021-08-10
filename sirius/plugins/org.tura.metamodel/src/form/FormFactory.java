@@ -405,6 +405,15 @@ public interface FormFactory extends EFactory {
 	Selection createSelection();
 
 	/**
+	 * Returns a new object of class '<em>Blockable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Blockable</em>'.
+	 * @generated
+	 */
+	Blockable createBlockable();
+
+	/**
 	 * Returns a new object of class '<em>Layer Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

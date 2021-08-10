@@ -16,7 +16,7 @@ package org.tura.metamodel.sirius.properties.selections.grid.impl;
 
 import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 
-public class BlockUISourcesDS extends BlockUIDS{
+public class BlockUISourcesDS extends BlockableDS{
 
 	public BlockUISourcesDS(GridProperty property) {
 		super(property);

@@ -1,0 +1,39 @@
+ context form::MenuFolder {
+ 
+   constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().menuFolders.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }
+ 
+}
+
+ context form::MenuElement {
+ 
+    constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+  
+   constraint UniqueName {
+
+      guard : self.satisfies("HasName")
+      check :  self.eContainer().menuElements.select(r|r.uid <> self.uid  and r.name.isDefined() and r.name=self.name).size()=0
+      message : 'Name  ' + self.name + ' is not unique'
+
+  }  
+  
+ }

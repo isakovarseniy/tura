@@ -50,7 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link form.impl.BlockUIImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link form.impl.BlockUIImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link form.impl.BlockUIImpl#getSourceTarget <em>Source Target</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,16 +84,6 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSourceTarget() <em>Source Target</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceTarget()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<AreaRef> sourceTarget;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,25 +146,10 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 	 * @generated
 	 */
 	@Override
-	public EList<AreaRef> getSourceTarget() {
-		if (sourceTarget == null) {
-			sourceTarget = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, FormPackage.BLOCK_UI__SOURCE_TARGET);
-		}
-		return sourceTarget;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormPackage.BLOCK_UI__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
-				return ((InternalEList<?>)getSourceTarget()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -192,8 +166,6 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 				return getChildren();
 			case FormPackage.BLOCK_UI__COLUMNS:
 				return getColumns();
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
-				return getSourceTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,10 +186,6 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 			case FormPackage.BLOCK_UI__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
-				getSourceTarget().clear();
-				getSourceTarget().addAll((Collection<? extends AreaRef>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -236,9 +204,6 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 			case FormPackage.BLOCK_UI__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
-				getSourceTarget().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,8 +220,6 @@ public class BlockUIImpl extends UielementImpl implements BlockUI {
 				return children != null && !children.isEmpty();
 			case FormPackage.BLOCK_UI__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
-			case FormPackage.BLOCK_UI__SOURCE_TARGET:
-				return sourceTarget != null && !sourceTarget.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -60,7 +60,23 @@ public enum OperationType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE(2, "delete", "delete");
+	DELETE(2, "delete", "delete"), /**
+	 * The '<em><b>Non</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NON_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NON(3, "non", "non"), /**
+	 * The '<em><b>One Times</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE_TIMES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ONE_TIMES(4, "oneTimes", "oneTimes");
 
 	/**
 	 * The '<em><b>Merge Or Add</b></em>' literal value.
@@ -96,6 +112,28 @@ public enum OperationType implements Enumerator {
 	public static final int DELETE_VALUE = 2;
 
 	/**
+	 * The '<em><b>Non</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NON
+	 * @model name="non"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NON_VALUE = 3;
+
+	/**
+	 * The '<em><b>One Times</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE_TIMES
+	 * @model name="oneTimes"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ONE_TIMES_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Operation Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,6 +144,8 @@ public enum OperationType implements Enumerator {
 			MERGE_OR_ADD,
 			ADD,
 			DELETE,
+			NON,
+			ONE_TIMES,
 		};
 
 	/**
@@ -165,6 +205,8 @@ public enum OperationType implements Enumerator {
 			case MERGE_OR_ADD_VALUE: return MERGE_OR_ADD;
 			case ADD_VALUE: return ADD;
 			case DELETE_VALUE: return DELETE;
+			case NON_VALUE: return NON;
+			case ONE_TIMES_VALUE: return ONE_TIMES;
 		}
 		return null;
 	}

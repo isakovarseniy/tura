@@ -46,10 +46,30 @@ public abstract class Cursor<T> implements ChangeCurrentRowListener {
 	public abstract void add(T t) throws Exception;
 
 	protected abstract Class<T> getType();
+	
+	protected CursorFilter<T> cursorFilter;
 
+	
+	public List<T> getFilteredResult(){
+		if (cursorFilter != null) {
+			return cursorFilter.filter(getCursor(), this);
+		}else {
+			return getCursor();
+		}
+	}
+	
 	public void notifyChangeCurrentRow() throws Exception {
 		currentPosition = 0;
 		sendNotificationChangeCurrentRow();
+	}
+	
+
+	public CursorFilter<T> getCursorFilter() {
+		return cursorFilter;
+	}
+
+	public void setCursorFilter(CursorFilter<T> cursorFilter) {
+		this.cursorFilter = cursorFilter;
 	}
 
 	public void addChangeCurrentRowListener(ChangeCurrentRowListener listener) {

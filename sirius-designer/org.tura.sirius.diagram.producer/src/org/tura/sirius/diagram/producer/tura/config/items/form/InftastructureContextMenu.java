@@ -42,6 +42,19 @@ public class InftastructureContextMenu {
 		action.setId("org.tura.metamodel.sirius.properties.actions.RunDeploymentActionID");
 
 		menu.getMenuItemDescription().add(action);
+		
+		action = ToolFactory.eINSTANCE.createExternalJavaAction();
+		action.setName("Run validation");
+		action.setId("org.tura.metamodel.sirius.properties.actions.RunValidationActionID");
+
+		menu.getMenuItemDescription().add(action);
+		
+		action = ToolFactory.eINSTANCE.createExternalJavaAction();
+		action.setName("Run recipe  validation");
+		action.setId("org.tura.metamodel.sirius.properties.actions.RunValidationRecipeActionID");
+
+		menu.getMenuItemDescription().add(action);
+		
 
 		return tools;
 	}

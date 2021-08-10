@@ -61,6 +61,7 @@ import form.Relation;
 import form.Uielement;
 import form.ViewArea;
 import form.Views;
+import form.Window;
 import mapper.Mapper;
 import mapper.MappingLayer;
 import mapper.Version;
@@ -105,6 +106,8 @@ public class QueryHelper {
 	private static String ICON_TYPE = "Icon";
 	private static String BASE_TYPE = "Base type";
 	private static String ANY_TYPE = "Any type";
+	private static String GENERATION_HINT_TYPE = "Generation hint";
+	
 
 	private HintHelper hintHelper = new HintHelper();
 
@@ -770,6 +773,15 @@ public class QueryHelper {
 		return null;
 	}
 
+	public TypeElement findGenerationHintType(Object obj) {
+		try {
+			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, GENERATION_HINT_TYPE);
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
+	}	
+	
 	public TypeElement findTreeDataControlType(Object obj) {
 		try {
 			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, TREE_DATA_CONTROL);
@@ -800,6 +812,17 @@ public class QueryHelper {
 		return findRefreshedAeas(views, obj);
 
 	}
+	
+	
+	public Object[] findRefreshedAeas(Window obj) throws Exception {
+
+		EObject root = obj;
+		Views views = (Views) ((Window) root).eContainer();
+
+		return findRefreshedAeas(views, obj);
+
+	}
+	
 
 	public Object[] findRefreshedAeas(Uielement obj) throws Exception {
 
@@ -1293,21 +1316,20 @@ public class QueryHelper {
 	}
 
 	
-	@SuppressWarnings("unchecked")
 	public List<OperationConnector> findOperationConnectorByTarget(OperationConnector operationConnector) {
 		ObjectMapper mp = (ObjectMapper) operationConnector.getTarget();
 
 		try {
-			String query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
-					+ "')";
-			Collection<OperationConnector> list1 = (Collection<OperationConnector>) internalEvaluate(
-					(EObject) operationConnector, query);
-
+//			String query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
+//					+ "')";
+//			Collection<OperationConnector> list1 = (Collection<OperationConnector>) internalEvaluate(
+//					(EObject) operationConnector, query);
+//
 			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
-			relations.addAll(list1);
+//			relations.addAll(list1);
 			
 			relations.addAll(findOperationConnectorByTarget(mp));
-			relations.removeAll(list1);
+			relations.remove(operationConnector);
 			
 			return relations;
 		} catch (Exception e) {

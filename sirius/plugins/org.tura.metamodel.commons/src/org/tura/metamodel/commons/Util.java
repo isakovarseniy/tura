@@ -61,6 +61,7 @@ import form.ArtificialField;
 import form.DataControl;
 import form.DataScroller;
 import form.Form;
+import form.FullCalendar;
 import form.Table;
 import form.TimeLine;
 import form.Tree;
@@ -217,7 +218,11 @@ public class Util {
 			return true;
 		if (top instanceof DataScroller)
 			return true;
-
+		if (top instanceof TimeLine)
+			return true;
+		if (top instanceof FullCalendar)
+			return true;
+		
 		return ifInternalElement(top);
 
 	}
@@ -699,6 +704,30 @@ public class Util {
 
 		return dialog.open();
 	}
+	
+	
+	public static String loadTemplate(  String templateFile, HashMap<String, Object> parameters  ) throws Exception{
+		
+		/* Create and adjust the configuration */
+		Configuration cfg = new Configuration();
+
+		cfg.setObjectWrapper(new DefaultObjectWrapper());
+		cfg.setDefaultEncoding("UTF-8");
+		cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
+		cfg.setTemplateLoader(new FreeMarkeResourceLoader());
+		cfg.setLocalizedLookup(false);
+
+		Template t = cfg.getTemplate(templateFile);
+
+		StringWriter writer = new StringWriter();
+		t.process(parameters, writer);
+
+		if (GeneratotPreferences.logTemlates) {
+			GeneratotPreferences.wrapper.logInfo("Template" + templateFile + " : \n" + writer.toString());
+		}
+		return writer.toString();
+	}
+	
 
 	public static EglTemplate loadTemplate(String templateFile, HashMap<String, Object> parameters,
 			EglTemplateFactory factory, HashMap<String, Object> templateStore) throws Exception {

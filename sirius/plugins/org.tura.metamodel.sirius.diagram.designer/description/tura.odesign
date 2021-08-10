@@ -1514,18 +1514,13 @@
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Config variables" id="org.tura.metamodel.sirius.diagram.actions.ConfigVariablesActionID"/>
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Config hash variables" id="org.tura.metamodel.sirius.diagram.actions.ConfigHashVariablesActionID"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Add deployment step" precondition="service:enableContextMenuForModelMapper">
-            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Add deployment step" id="org.tura.metamodel.sirius.diagram.actions.AddDeploymentStepActionID"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Recipe processing" precondition="service:enableContextMenuForModelMapper"/>
-          <ownedTools xsi:type="tool:PopupMenu" name="Repository recipe" precondition="service:enableContextMenuForRecipe">
-            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForMapperID"/>
-          </ownedTools>
           <ownedTools xsi:type="tool:PopupMenu" name="Recipe processing" precondition="service:enableContextMenuForIngredient">
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForIngredientID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run validation" id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForIngredientID"/>
           </ownedTools>
           <ownedTools xsi:type="tool:PopupMenu" name="Recipe processing" precondition="service:enableContextMenuForComponent">
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponentID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run validation" id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForComponentID"/>
           </ownedTools>
           <ownedTools xsi:type="tool_1:DiagramCreationDescription" name="Create Deployment sequence" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']">
             <initialOperation/>
@@ -1660,6 +1655,8 @@
           <ownedTools xsi:type="tool:PopupMenu" name="Recipe processing" precondition="service:enableContextMenuForInfrastructure">
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionID"/>
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run deployment" id="org.tura.metamodel.sirius.properties.actions.RunDeploymentActionID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run validation" id="org.tura.metamodel.sirius.properties.actions.RunValidationActionID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run recipe  validation" id="org.tura.metamodel.sirius.properties.actions.RunValidationRecipeActionID"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

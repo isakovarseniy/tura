@@ -16,12 +16,14 @@
  */
 package objectmapper.impl;
 
+import form.ContextParameters;
 import objectmapper.AttributeConnector;
 import objectmapper.ObjectmapperPackage;
 
 import objectmapper.OperationConnector;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -43,6 +45,7 @@ import type.Attribute;
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link objectmapper.impl.AttributeConnectorImpl#isMergeAttr <em>Merge Attr</em>}</li>
+ *   <li>{@link objectmapper.impl.AttributeConnectorImpl#getDefaultSearch <em>Default Search</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +110,16 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * @ordered
 	 */
 	protected boolean mergeAttr = MERGE_ATTR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDefaultSearch() <em>Default Search</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContextParameters defaultSearch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +272,65 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 */
 	@Override
+	public ContextParameters getDefaultSearch() {
+		return defaultSearch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs) {
+		ContextParameters oldDefaultSearch = defaultSearch;
+		defaultSearch = newDefaultSearch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH, oldDefaultSearch, newDefaultSearch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDefaultSearch(ContextParameters newDefaultSearch) {
+		if (newDefaultSearch != defaultSearch) {
+			NotificationChain msgs = null;
+			if (defaultSearch != null)
+				msgs = ((InternalEObject)defaultSearch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH, null, msgs);
+			if (newDefaultSearch != null)
+				msgs = ((InternalEObject)newDefaultSearch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH, null, msgs);
+			msgs = basicSetDefaultSearch(newDefaultSearch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH, newDefaultSearch, newDefaultSearch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				return basicSetDefaultSearch(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__UID:
@@ -271,6 +343,8 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 				return basicGetTarget();
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				return isMergeAttr();
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				return getDefaultSearch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +368,9 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 				return;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				setMergeAttr((Boolean)newValue);
+				return;
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				setDefaultSearch((ContextParameters)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -319,6 +396,9 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				setMergeAttr(MERGE_ATTR_EDEFAULT);
 				return;
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				setDefaultSearch((ContextParameters)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +419,8 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 				return target != null;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__MERGE_ATTR:
 				return mergeAttr != MERGE_ATTR_EDEFAULT;
+			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
+				return defaultSearch != null;
 		}
 		return super.eIsSet(featureID);
 	}

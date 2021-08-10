@@ -64,6 +64,7 @@ class AttributeConnector extends OperationConnectorRef{
 	   ref EObject source;
 	   ref EObject target;
 	   attr EBoolean mergeAttr;
+       val form.ContextParameters defaultSearch;
 	   
 }	
 	
@@ -81,6 +82,8 @@ enum OperationType{
      mergeOrAdd;
 	 add;
 	 delete;
+	 non;
+	 oneTimes;
 }
 
 class CalculatedField extends type.TypePointer{

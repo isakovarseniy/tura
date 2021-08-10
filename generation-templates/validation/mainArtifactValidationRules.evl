@@ -1,0 +1,1 @@
+import "tura:/generation-templates/validation/rules/artifactValidationRules.evl";

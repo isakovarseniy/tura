@@ -23,6 +23,8 @@ import artifact.Classifier;
 import common.CommonPackage;
 import common.HTMLLayerHolder;
 
+import form.AreaRef;
+import form.Blockable;
 import form.Context;
 import form.FlexField;
 import form.FlexFields;
@@ -65,6 +67,7 @@ import permission.Secured;
  *   <li>{@link form.impl.WindowImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.WindowImpl#getGrants <em>Grants</em>}</li>
  *   <li>{@link form.impl.WindowImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link form.impl.WindowImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -139,6 +142,16 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * @ordered
 	 */
 	protected EList<FlexField> fields;
+
+	/**
+	 * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AreaRef> block;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -285,6 +298,19 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * @generated
 	 */
 	@Override
+	public EList<AreaRef> getBlock() {
+		if (block == null) {
+			block = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, FormPackage.WINDOW__BLOCK);
+		}
+		return block;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormPackage.WINDOW__VIEW_ELEMENT:
@@ -297,6 +323,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return ((InternalEList<?>)getGrants()).basicRemove(otherEnd, msgs);
 			case FormPackage.WINDOW__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+			case FormPackage.WINDOW__BLOCK:
+				return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -321,6 +349,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return getGrants();
 			case FormPackage.WINDOW__FIELDS:
 				return getFields();
+			case FormPackage.WINDOW__BLOCK:
+				return getBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +386,10 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				getFields().clear();
 				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
+			case FormPackage.WINDOW__BLOCK:
+				getBlock().clear();
+				getBlock().addAll((Collection<? extends AreaRef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -386,6 +420,9 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 			case FormPackage.WINDOW__FIELDS:
 				getFields().clear();
 				return;
+			case FormPackage.WINDOW__BLOCK:
+				getBlock().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,6 +447,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return grants != null && !grants.isEmpty();
 			case FormPackage.WINDOW__FIELDS:
 				return fields != null && !fields.isEmpty();
+			case FormPackage.WINDOW__BLOCK:
+				return block != null && !block.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -457,6 +496,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == Blockable.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.WINDOW__BLOCK: return FormPackage.BLOCKABLE__BLOCK;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -500,6 +545,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 		if (baseClass == FlexFields.class) {
 			switch (baseFeatureID) {
 				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.WINDOW__FIELDS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Blockable.class) {
+			switch (baseFeatureID) {
+				case FormPackage.BLOCKABLE__BLOCK: return FormPackage.WINDOW__BLOCK;
 				default: return -1;
 			}
 		}

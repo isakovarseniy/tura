@@ -182,7 +182,7 @@ public class HrControllerTest extends AbstractTest {
 				public void action() {
 					Tree tree = hrControllerPage.getLocationTree();
 					TreeRow tr = (TreeRow) tree.getRow("1");
-					WebElement el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+					WebElement el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 					assertEquals("Country 1", el.getText());
 				}
 			}.repeat(10);
@@ -205,7 +205,7 @@ public class HrControllerTest extends AbstractTest {
 					Tree tree = hrControllerPage.getLocationTree();
 					tree = hrControllerPage.getLocationTree();
 					TreeRow tr = (TreeRow) tree.getRow("1");
-					WebElement el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+					WebElement el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 					assertEquals("Country 2", el.getText());
 				}
 			}.repeat(5);
@@ -710,7 +710,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			@Override
 			public void action() {
-				WebElement el = tr1.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+				WebElement el = tr1.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 				assertEquals("Country 1", el.getText());
 			}
 		}.repeat(10);
@@ -737,7 +737,7 @@ public class HrControllerTest extends AbstractTest {
 		new Repeater() {
 			@Override
 			public void action() {
-				WebElement el = tr2.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+				WebElement el = tr2.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 				assertEquals("State 1", el.getText());
 			}
 		}.repeat(10);
@@ -759,7 +759,7 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		WebElement el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		WebElement el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("City 1", el.getText());
 		CityDetailsPageObject cityDetails = new CityDetailsPageObject(driver);
 		assertEquals("City 1", cityDetails.getCityDetails().getValue());
@@ -777,7 +777,7 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		el = tr3.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr3.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertEquals("Street 1", el.getText());
 
 		DepartmentsDetailsPageObject departmentsDetails = new DepartmentsDetailsPageObject(driver);
@@ -975,16 +975,17 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 		
+		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 
@@ -1005,7 +1006,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1027,14 +1028,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1056,7 +1057,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 
@@ -1078,14 +1079,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1107,7 +1108,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 
@@ -1129,14 +1130,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 		
@@ -1261,7 +1262,7 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 
@@ -1283,14 +1284,14 @@ public class HrControllerTest extends AbstractTest {
 		
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 				button.click();
 			}
 		}.repeat(10);
 		
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='pi pi-check p-c']")), driver);
+				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
 			}
 		}.repeat(10);
 
@@ -1333,7 +1334,7 @@ public class HrControllerTest extends AbstractTest {
 		TreeRow tr = (TreeRow) tree.getRow("1");
 		tr.open();
 
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertNotEquals(-1, el.getText().contains("Country_3"));
 
 		CountryDetailsPageObject countryDetails = new CountryDetailsPageObject(driver);
@@ -1353,7 +1354,7 @@ public class HrControllerTest extends AbstractTest {
 		tree = hrControllerPage.getLocationTree();
 		tr = (TreeRow) tree.getRow("1_1");
 
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertNotEquals(-1, el.getText().indexOf("State_3"));
 		StateDetailsPageObject stateDetails = new StateDetailsPageObject(driver);
 		value = stateDetails.getStateDeteails().getValue();
@@ -1372,7 +1373,7 @@ public class HrControllerTest extends AbstractTest {
 		tree = hrControllerPage.getLocationTree();
 		tr = (TreeRow) tree.getRow("1_1_1");
 
-		el = tr.getCell(1).findElement(By.cssSelector("span[class*='p-treenode-label']"));
+		el = tr.getCell(1).findElement(By.cssSelector("div[class*='p-treenode-content']"));
 		assertNotEquals(-1, el.getText().indexOf("City_3"));
 		CityDetailsPageObject cityDetails = new CityDetailsPageObject(driver);
 		value = cityDetails.getCityDetails().getValue();

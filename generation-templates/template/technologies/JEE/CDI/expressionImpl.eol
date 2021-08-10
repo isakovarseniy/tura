@@ -182,6 +182,7 @@ operation MessageImpl(expression:String, contextValue , paramId: Integer , array
 }
 
 operation DomainArtifactsImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
+    return "<holder>";
 }
 
 operation DomainArtifactImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
@@ -192,9 +193,23 @@ operation ArtifactImpl(expression:String, contextValue , paramId: Integer , arra
 }
 
 
-operation  GeneratioinHintImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
+operation  TechLeafImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
    return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
 }
+
+operation  GenerationHintsHolder(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
+   return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+}
+
+operation  GenerationHintImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
+   var objref  = contextValue.expression.get(paramId).objRef;
+    if (hints.get("onlyHintName") <> null  ){
+       return objref.name+".<holder>";
+    }
+   
+   return expression.replaceAll("<holder>", objref.name+".<holder>");
+}
+
 
 operation DataControlFakeAttribute(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
       var util = new Native('org.tura.metamodel.commons.Util');

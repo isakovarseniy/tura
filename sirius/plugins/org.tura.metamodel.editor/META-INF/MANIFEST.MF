@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.editor;singleton:=true
 Automatic-Module-Name: org.tura.metamodel.editor
-Bundle-Version: 5.1.0
+Bundle-Version: 5.1.1
 Bundle-ClassPath: .
 Bundle-Activator: domain.presentation.DomainEditorPlugin$Implementation
 Bundle-Vendor: %providerName

@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,7 @@ import org.tura.platform.uuiclient.model.Options;
 import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
+import org.tura.platform.uuiclient.rest.client.commands.BlockUIOffCommmand;
 import org.tura.platform.uuiclient.rest.client.commands.ClearForm;
 import org.tura.platform.uuiclient.rest.client.commands.ClientCommand;
 import org.tura.platform.uuiclient.rest.client.commands.DownloadFile;
@@ -68,6 +70,21 @@ public class SimpleFormActions implements EventAware {
 	IViewPortHolder viewPort;
 
 	EventDescription event;
+
+	public void windowBlockUI() {
+		try {
+
+			Thread.sleep(1000L);
+
+			BlockUIOffCommmand cmd = new BlockUIOffCommmand();
+			cmd.setTarget("16b843eb-160f-4be2-bdc3-cd4896a94412".replaceAll("tura", "").replaceAll("_", "\\-"));
+			responseState.addCommand(cmd);
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
 
 	public void nextRecord() {
 		try {
@@ -169,13 +186,13 @@ public class SimpleFormActions implements EventAware {
 
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerSimpleForm}");
 			EventParameter param = event.findParameter("newValue");
-			
+
 			Integer prm = null;
-			if ( param.getValue() instanceof Integer) {
+			if (param.getValue() instanceof Integer) {
 				prm = (Integer) param.getValue();
 			}
-			if (param.getValue() instanceof String ) {
-				prm = Integer.parseInt( ( String)(param.getValue()));
+			if (param.getValue() instanceof String) {
+				prm = Integer.parseInt((String) (param.getValue()));
 			}
 
 			bf.setDeptId(prm.longValue());
@@ -293,7 +310,7 @@ public class SimpleFormActions implements EventAware {
 			HolderObject oh = (HolderObject) bf.getHolderObject().getCurrentObject();
 			HolderObjectArtifitialFieldsAdapter adapter = new HolderObjectArtifitialFieldsAdapter((ObjectControl) oh);
 
-			adapter.setMultiselectDisplay( Integer.valueOf(files.size()).toString());
+			adapter.setMultiselectDisplay(Integer.valueOf(files.size()).toString());
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -307,7 +324,7 @@ public class SimpleFormActions implements EventAware {
 			DownloadFile cmd = new DownloadFile();
 			cmd.setTarget("https://picsum.photos/id/252/200/300");
 			responseState.addCommand(cmd);
-			
+
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -315,10 +332,9 @@ public class SimpleFormActions implements EventAware {
 
 	public void errorEmulator() throws Exception {
 		throw new Exception("Exception emulator");
-		
+
 	}
-	
-	
+
 	public void poll() {
 		try {
 
@@ -330,8 +346,7 @@ public class SimpleFormActions implements EventAware {
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
-		
+
 	}
-	
-	
+
 }

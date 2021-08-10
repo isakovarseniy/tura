@@ -19,6 +19,8 @@ package form.impl;
 import common.CommonPackage;
 import common.HTMLLayerHolder;
 
+import form.AreaRef;
+import form.Blockable;
 import form.ChildrenHolder;
 import form.FormPackage;
 import form.LayerHolder;
@@ -49,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link form.impl.LayerHolderImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link form.impl.LayerHolderImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.impl.LayerHolderImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +86,16 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AreaRef> block;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,10 +158,25 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 	 * @generated
 	 */
 	@Override
+	public EList<AreaRef> getBlock() {
+		if (block == null) {
+			block = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, FormPackage.LAYER_HOLDER__BLOCK);
+		}
+		return block;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormPackage.LAYER_HOLDER__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case FormPackage.LAYER_HOLDER__BLOCK:
+				return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -165,6 +193,8 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 				return getChildren();
 			case FormPackage.LAYER_HOLDER__COLUMNS:
 				return getColumns();
+			case FormPackage.LAYER_HOLDER__BLOCK:
+				return getBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +215,10 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 			case FormPackage.LAYER_HOLDER__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
+			case FormPackage.LAYER_HOLDER__BLOCK:
+				getBlock().clear();
+				getBlock().addAll((Collection<? extends AreaRef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -203,6 +237,9 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 			case FormPackage.LAYER_HOLDER__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
+			case FormPackage.LAYER_HOLDER__BLOCK:
+				getBlock().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,6 +256,8 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 				return children != null && !children.isEmpty();
 			case FormPackage.LAYER_HOLDER__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
+			case FormPackage.LAYER_HOLDER__BLOCK:
+				return block != null && !block.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -242,6 +281,12 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 				default: return -1;
 			}
 		}
+		if (baseClass == Blockable.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.LAYER_HOLDER__BLOCK: return FormPackage.BLOCKABLE__BLOCK;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -261,6 +306,12 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.LAYER_HOLDER__COLUMNS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Blockable.class) {
+			switch (baseFeatureID) {
+				case FormPackage.BLOCKABLE__BLOCK: return FormPackage.LAYER_HOLDER__BLOCK;
 				default: return -1;
 			}
 		}

@@ -114,6 +114,7 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(PermissionPackage.Literals.SECURED__GRANTS);
 			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
+			childrenFeatures.add(FormPackage.Literals.BLOCKABLE__BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -177,6 +178,7 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			case FormPackage.WINDOW__CLASSIFIERS:
 			case FormPackage.WINDOW__GRANTS:
 			case FormPackage.WINDOW__FIELDS:
+			case FormPackage.WINDOW__BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -233,6 +235,11 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
 				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.BLOCKABLE__BLOCK,
+				 FormFactory.eINSTANCE.createAreaRef()));
 	}
 
 	/**

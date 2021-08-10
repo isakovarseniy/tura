@@ -104,6 +104,7 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN);
+			childrenFeatures.add(FormPackage.Literals.BLOCKABLE__BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -163,6 +164,7 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.LAYER_HOLDER__CHILDREN:
+			case FormPackage.LAYER_HOLDER__BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -324,6 +326,11 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 FormFactory.eINSTANCE.createTree()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.BLOCKABLE__BLOCK,
+				 FormFactory.eINSTANCE.createAreaRef()));
 	}
 
 	/**
@@ -342,7 +349,9 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == FormPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == FormPackage.Literals.UIELEMENT__READ_ONLY ||
-			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS ||
+			childFeature == FormPackage.Literals.UIELEMENT__REFRESH_AREAS ||
+			childFeature == FormPackage.Literals.BLOCKABLE__BLOCK;
 
 		if (qualify) {
 			return getString

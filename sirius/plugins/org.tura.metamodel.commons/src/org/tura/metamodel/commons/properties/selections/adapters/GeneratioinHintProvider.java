@@ -16,6 +16,7 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.QueryHelper;
 
 import artifact.GenerationHint;
 
@@ -28,7 +29,7 @@ public class GeneratioinHintProvider  implements IWorkbenchAdapter ,IReturnTypeP
 
 	@Override
 	public Object getApplicationType(Object o) {
-		return null;
+		return new QueryHelper().findGenerationHintType(o);
 	}	
 	
 	@Override

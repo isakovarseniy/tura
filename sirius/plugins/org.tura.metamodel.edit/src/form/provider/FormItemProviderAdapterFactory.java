@@ -1028,6 +1028,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.Blockable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BlockableItemProvider blockableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.Blockable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBlockableAdapter() {
+		if (blockableItemProvider == null) {
+			blockableItemProvider = new BlockableItemProvider(this);
+		}
+
+		return blockableItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.LayerHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

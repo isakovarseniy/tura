@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
-import form.BlockUI;
+import form.Blockable;
 
 public class BlockUiSectionFilter implements IFilter{
 
@@ -33,7 +33,7 @@ public class BlockUiSectionFilter implements IFilter{
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof BlockUI) {
+			if (element instanceof Blockable) {
 				return true;
 			}
 		}

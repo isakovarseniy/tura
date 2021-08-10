@@ -13,6 +13,7 @@
  */
 
 import {registry} from "../plugin/Registry";
+import {BlockerSystem} from "../lib/BlockerSystem";
 
 export class EventExecuter{
 
@@ -21,6 +22,17 @@ export class EventExecuter{
         this.contextManager = contextManager;
     }
     run(_THIS_, ...args) {
+
+        let blockerSystem = new BlockerSystem();
+        blockerSystem.setContextManager(this.contextManager);
+
+        var onEventBlockUI = this.contextManager.getBlockable( _THIS_.id ,  this.eventState.event, "react.BlockUI.On" );
+        blockerSystem.blockOn(onEventBlockUI);
+
+        var offEventBlockUI = this.contextManager.getBlockable( _THIS_.id ,  this.eventState.event, "react.BlockUI.Off" );
+        blockerSystem.blockOff(offEventBlockUI);
+
+
         if ( this.eventState.executionSide ==='client' ){
             return this.runLocal(_THIS_,...args);
         }

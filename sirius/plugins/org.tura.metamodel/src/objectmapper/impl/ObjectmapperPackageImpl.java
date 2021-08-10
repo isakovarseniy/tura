@@ -657,6 +657,16 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 	 * @generated
 	 */
 	@Override
+	public EReference getAttributeConnector_DefaultSearch() {
+		return (EReference)attributeConnectorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperationConnector() {
 		return operationConnectorEClass;
 	}
@@ -834,6 +844,7 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__SOURCE);
 		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__TARGET);
 		createEAttribute(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__MERGE_ATTR);
+		createEReference(attributeConnectorEClass, ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH);
 
 		operationConnectorEClass = createEClass(OPERATION_CONNECTOR);
 		createEAttribute(operationConnectorEClass, OPERATION_CONNECTOR__UID);
@@ -936,6 +947,7 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		initEReference(getAttributeConnector_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributeConnector_Target(), ecorePackage.getEObject(), null, "target", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeConnector_MergeAttr(), ecorePackage.getEBoolean(), "mergeAttr", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributeConnector_DefaultSearch(), theFormPackage.getContextParameters(), null, "defaultSearch", null, 0, 1, AttributeConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationConnectorEClass, OperationConnector.class, "OperationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperationConnector_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, OperationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -954,6 +966,8 @@ public class ObjectmapperPackageImpl extends EPackageImpl implements Objectmappe
 		addEEnumLiteral(operationTypeEEnum, OperationType.MERGE_OR_ADD);
 		addEEnumLiteral(operationTypeEEnum, OperationType.ADD);
 		addEEnumLiteral(operationTypeEEnum, OperationType.DELETE);
+		addEEnumLiteral(operationTypeEEnum, OperationType.NON);
+		addEEnumLiteral(operationTypeEEnum, OperationType.ONE_TIMES);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -1,0 +1,39 @@
+ context domain::DomainApplication {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().applications.select(r|r.isKindOf(domain::DomainApplication) and r.name=self.name).size() = 1
+      message : 'DomainApplication name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context domain::DomainArtifact {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().domainArtifact.select(r|r.isKindOf(domain::DomainArtifact) and r.name=self.name).size() = 1
+      message : 'DomainArtifact name  ' + self.name + ' is not unique'
+   
+   } 
+
+}

@@ -59,6 +59,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mergeAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="ecore:EClass form.ecore#//ContextParameters"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationConnector" eSuperTypes="#//OperationConnectorRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -74,6 +76,8 @@
     <eLiterals name="mergeOrAdd"/>
     <eLiterals name="add" value="1"/>
     <eLiterals name="delete" value="2"/>
+    <eLiterals name="non" value="3"/>
+    <eLiterals name="oneTimes" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalculatedField" eSuperTypes="type.ecore#//TypePointer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

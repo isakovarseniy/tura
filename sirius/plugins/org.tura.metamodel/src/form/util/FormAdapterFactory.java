@@ -256,6 +256,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createSelectionAdapter();
 			}
 			@Override
+			public Adapter caseBlockable(Blockable object) {
+				return createBlockableAdapter();
+			}
+			@Override
 			public Adapter caseLayerHolder(LayerHolder object) {
 				return createLayerHolderAdapter();
 			}
@@ -1114,6 +1118,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSelectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.Blockable <em>Blockable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.Blockable
+	 * @generated
+	 */
+	public Adapter createBlockableAdapter() {
 		return null;
 	}
 

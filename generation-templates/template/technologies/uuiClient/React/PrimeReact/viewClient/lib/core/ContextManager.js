@@ -17,6 +17,7 @@ import {DataUpdateRequest} from "./DataUpdateRequest";
 import React from "react";
 import {registry} from "../plugin/Registry";
 import {EventExecuter} from "./EventExecutor";
+import {BlockerSystem} from "../lib/BlockerSystem";
 
 export class ContextManager{
 
@@ -27,17 +28,77 @@ export class ContextManager{
     initSession = false
     queue = [];
     criticalSection = 0;
-
+    blocker = new Map();
 
     constructor(serverUrl,formSelector, sessionId){
         this.serverUrl = serverUrl;
         this.formSelector = formSelector;
         this.applayResponse = this.applayResponse.bind(this);
         this.comunicationError = this.comunicationError.bind(this);
+        this.processNetworkStartBlockers = this.processNetworkStartBlockers.bind(this);
+        this.processNetworkCompletedBlockers = this.processNetworkCompletedBlockers.bind(this);
         this.externalConnectorCallback = null;
         this.sessionId=sessionId;
 
     }
+
+    addBlockingInterceptor( blockable, blockingEvent ){
+
+        let interceptedEventTypePrm = blockable.getParameter( blockingEvent, "event");
+        let sourceOfEventPrm = blockable.getParameter( blockingEvent, "sourceOfEvent");
+        let eventType = blockingEvent.event;
+
+        var key = this.getBlockerKey( sourceOfEventPrm.value ,  interceptedEventTypePrm.value, eventType);
+        var blockablArray = this.blocker.get(key);
+
+        if ( blockablArray === null ||  typeof blockablArray === "undefined"){
+            blockablArray = [];
+            this.blocker.set(key,blockablArray);
+        }
+        if ( blockablArray.indexOf(blockable.id) === -1){
+            blockablArray.push(blockable.id);
+        }
+    }
+
+    removeBlockingInterceptor( blockable, blockingEvent ){
+
+        let interceptedEventTypePrm = blockable.getParameter( blockingEvent, "event");
+        let sourceOfEventPrm = blockable.getParameter( blockingEvent, "sourceOfEvent");
+        let eventType = blockingEvent.event;
+
+        var key = this.getBlockerKey( sourceOfEventPrm.value ,  interceptedEventTypePrm.value, eventType);
+        var blockablArray = this.blocker.get(key);
+
+        if ( blockablArray === null || typeof blockablArray === "undefined"){
+            this.blocker.delete(key);
+            return;
+        }
+        var i = blockablArray.indexOf(blockable.id);
+        if (i > -1) {
+            blockablArray.splice(i, 1);
+        }
+    }
+
+    getBlockable( eventSource ,  interceptedEventType, eventType ){
+        var key = this.getBlockerKey( eventSource ,  interceptedEventType, eventType);
+        var blockablArray = this.blocker.get(key);
+        return blockablArray;
+    }
+
+    getBlockerKey( eventSource ,  interceptedEvent,eventType){
+
+        var key = eventType+"_"+interceptedEvent;
+        if ( typeof key !== "undefined" && key !== "network.started" && key !== "network.completed"){
+            return key;
+        }
+
+        if ( typeof eventSource !== "undefined" && eventSource !== null){
+            var key = key+"_"+ eventSource;
+        }
+
+        return key;
+    }
+
 
     startCriticalSection(){
         this.criticalSection++;
@@ -171,23 +232,45 @@ export class ContextManager{
 
 
         if ( this.externalConnectorCallback === null){
-            this.internalConnector(req,this.applayResponse);
+            this.internalConnector(req,this.applayResponse,this);
         }else{
-            this.externalConnectorCallback(req,this.applayResponse);
+            this.externalConnectorCallback(req,this.applayResponse,this);
         }
 
     }
 
-    internalConnector(req, responseProcessor){
+
+
+    processNetworkStartBlockers(){
+        let blockerSystem = new BlockerSystem();
+        blockerSystem.setContextManager(this);
+
+        var onEventBlockUI = this.getBlockable( '' ,  'network.started', "react.BlockUI.On" );
+        blockerSystem.blockOn(onEventBlockUI);
+
+    }
+
+    processNetworkCompletedBlockers(){
+        let blockerSystem = new BlockerSystem();
+        blockerSystem.setContextManager(this);
+
+        var offEventBlockUI = this.getBlockable( '' ,  'network.completed', "react.BlockUI.Off" );
+        blockerSystem.blockOff(offEventBlockUI);
+    }
+
+
+    internalConnector(req, responseProcessor,procBlockers){
         let trigger = registry.getConnectionConfigurationTrigger(this.formSelector);
         let config = {};
         if ( typeof trigger !== "undefined" && trigger !== null){
             config =trigger.execute("internalConnector");
         }
 
+        procBlockers.processNetworkStartBlockers();
         axios.post(this.serverUrl,
             req,config).then(
             function (response) {
+                procBlockers.processNetworkCompletedBlockers();
                 let res = response.data['response'];
                 if ( typeof res === "undefined"){
                     let data = unescape(response.data);
@@ -201,6 +284,7 @@ export class ContextManager{
             }
         ).catch(
             function (error) {
+                procBlockers.processNetworkCompletedBlockers();
                 console.log(error);
                 this.endtCriticalSection();
                 this.clearQueue();
@@ -262,10 +346,10 @@ export class ContextManager{
         clonedState.childrens=[];
 
         let children = null;
-        if ( typeof component.getComponentCildren === "undefined"){
+        if ( typeof component.getComponentChildren === "undefined"){
             children =  React.Children.toArray(component.props.children);
         }else{
-            children = component.getComponentCildren();
+            children = component.getComponentChildren();
         }
         for ( let i = 0 ; i < children.length ; i++) {
             let child = children[i];

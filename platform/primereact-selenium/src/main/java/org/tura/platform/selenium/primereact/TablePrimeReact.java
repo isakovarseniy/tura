@@ -43,7 +43,7 @@ public class TablePrimeReact implements Table {
 	@Override
 	public Row getRow(int index) {
 		WebElement el = element.findElement(By.cssSelector("div[class*='p-datatable-wrapper']"));
-		List<WebElement> list = el.findElements(By.xpath("./table/tbody/tr"));
+		List<WebElement> list = el.findElements(By.xpath("./table/tbody/tr[not (@class='p-datatable-emptymessage') ]"));
 		return  new TableRow ( list.get(index),driver);
 	}
 
@@ -55,8 +55,8 @@ public class TablePrimeReact implements Table {
 	@Override
 	public boolean isEmpty() {
 		WebElement el = element.findElement(By.cssSelector("div[class*='p-datatable-wrapper']"));
-		List<WebElement> list = el.findElements(By.xpath("./table/tbody/tr"));
-		return list.size() == 0;
+		List<WebElement> list = el.findElements(By.xpath("./table/tbody/tr[@class='p-datatable-emptymessage']"));
+		return list.size() == 1;
 	}
 
 	@Override

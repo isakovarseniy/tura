@@ -1,0 +1,210 @@
+ context type::Type {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().types->select(r|r.isKindOf(type::Type) and r.name=self.name)->size() = 1
+      message : 'Type name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context type::Primitive {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().primitives.select(r|r.isKindOf(Primitive) and r.name=self.name).size() = 1
+      message : 'Type name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+
+
+
+ context type::Attribute {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().attributes.select(r|r.name=self.name).size() = 1
+      message : 'Attribute name  ' + self.name + ' is not unique'
+   
+   } 
+}
+
+
+ context type::Parameter {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().parameters.select(r|r.name=self.name).size() = 1
+      message : 'Parameter name  ' + self.name + ' is not unique'
+   
+   } 
+}
+
+
+ context type::Operation {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+   
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().operations.select(r|r.name=self.name).size() = 1
+      message : 'Operation name  ' + self.name + ' is not unique'
+   
+   } 
+
+  constraint ReturnType {
+
+      guard : self.satisfies("UniqueName")
+      check :  self.returnValue.isDefined()
+
+      message : 'Undefine return type ' + self.name + ' not allowed'
+
+  }
+
+
+
+
+}
+
+ context type::Enumerator {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().types.select(r|r.name=self.name).size() = 1
+      message : 'Enumarator name  ' + self.name + ' is not unique'
+   
+   } 
+
+}
+
+ context type::EnumAttribute {
+
+  constraint HasName {
+
+      check :  self.name.isDefined()
+
+      message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+  }
+
+  constraint HasValue {
+
+      check :  self.value.isDefined()
+
+      message : 'Empty value for EnumAttribute ' + self.name + ' not allowed'
+
+  }
+
+   constraint UniqueName{
+
+      guard : self.satisfies("HasName")
+      check : self.eContainer().values.select(r|r.name=self.name).size() = 1
+      message : 'EnumAttribute name  ' + self.name + ' is not unique'
+   
+   } 
+}
+
+ context type::TypePointer {
+
+  constraint TypeRef {
+
+      check :  self.typeRef.isDefined()
+
+      message : 'Undefined  type name ' + self.eClass().name + ' not allowed'
+
+  }
+
+}
+
+ context type::PackagePointer {
+ 
+  constraint PackageRef {
+
+      check :  self.packageRef.isDefined()
+
+      message : 'Undefined  package name ' + self.eClass().name + ' not allowed'
+
+  }
+ 
+}
+
+
+ context type::MethodPointer{
+ 
+   constraint HasName {
+      check :  self.methodRef.isDefined()
+      message : 'Undefined method name ' + self.eClass().name + ' not allowed'
+
+  }
+}
+
+
+ context type::Assosiation{
+ 
+   constraint ConnectionAttributes  {
+      check :  self.source <> null  and  self.target<> null
+      message : 'Undefined source and target attributes ' + self.eClass().name + ' not allowed'
+
+  }
+}
+
+
+
+
+

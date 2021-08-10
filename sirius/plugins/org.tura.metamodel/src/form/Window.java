@@ -30,5 +30,5 @@ import permission.Secured;
  * @model
  * @generated
  */
-public interface Window extends CanvasFrame, ViewPortHolder, MultiLangLabel, Categorized, Secured, FlexFields {
+public interface Window extends CanvasFrame, ViewPortHolder, MultiLangLabel, Categorized, Secured, FlexFields, Blockable {
 } // Window

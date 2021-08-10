@@ -28,6 +28,9 @@ public class TuraCommandsInit {
 		processor.addCommand("tura", new BuildOperation(), "build");
 		processor.addCommand("tura", new BuildOperation(), "__build_picocliCompleter");
 
+		processor.addCommand("tura", new ValidateOperation(), "validate");
+		processor.addCommand("tura", new ValidateOperation(), "__validate_picocliCompleter");
+		
 		processor.addCommand("tura", new MavenOperation(), "mvn");
 		processor.addCommand("tura", new MavenOperation(), "__mvn_picocliCompleter");
 

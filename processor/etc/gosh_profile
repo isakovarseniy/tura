@@ -33,6 +33,11 @@ complete -c tura:build -e
 complete -c tura:build -d "Build recipe" 
 complete -c tura:build -a '__build_picocliCompleter'
 
+complete -c tura:validate -e
+complete -c tura:validate -d "Validate recipe" 
+complete -c tura:validate -a '__validate_picocliCompleter'
+
+
 complete -c tura:mvn -e
 complete -c tura:mvn -d "Build maven project" 
 complete -c tura:mvn -a '__mvn_picocliCompleter'
@@ -120,6 +125,8 @@ hrUrlList = {
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/testform2/testForm1Window'
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/fullCalendar'
     echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/timeLine'
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/blockUIView'    
+    echo 'http://localhost:8080/hr-form-react-client/hrmanager/simpleform/blockUIWindowView'
 }
 addClosure "hrUrlList";
 

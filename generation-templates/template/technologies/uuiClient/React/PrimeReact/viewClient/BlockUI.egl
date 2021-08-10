@@ -1,0 +1,67 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation form::BlockUI createTag(hash) {
+
+     var generateComponents = hash.get("generateComponents");
+     generateComponents.add(self);
+     
+}
+
+@template
+operation  form::BlockUI createComponent(hash) {
+     
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var model_mapper = hash.get('model_mapper');
+
+     util.traceIfDebug("React UI element","BlockUI start: "+self.uid);     
+
+     var key = getKey(hash);
+     var clientLibraryPackage = hash.get('clientLibraryPackage');
+
+     
+    populateInclude(hash,"{TLayerHolderResponsive}",  clientLibraryPackage+"/component/TLayerHolderResponsive");
+    populateInclude(hash,"{TuraComponent}",  clientLibraryPackage+"/core/TuraComponent");
+%]
+
+export class BlockUI_[%=self.mkuid()%] extends TuraComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+       <TLayerHolderResponsive id="[%=self.uid%]" contextManager={this.contextManager}  [%=key%]>
+        
+[%
+                for (element in self.children.sortBy(q|q.order)){
+%]                
+                    [%=element.createTag(hash)%]
+[%
+                }  
+%]
+       </TLayerHolderResponsive>
+
+        );
+    }
+}
+
+[%
+     util.traceIfDebug("React UI element","BlockUI end: "+self.uid);     
+}
+
+
+%]

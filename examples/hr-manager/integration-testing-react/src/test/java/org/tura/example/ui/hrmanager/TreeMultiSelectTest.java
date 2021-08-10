@@ -178,7 +178,7 @@ public class TreeMultiSelectTest extends AbstractTest {
 			} catch (InterruptedException e) {
 			}
 			tr = (TreeRow) tree.getRow("1");
-			String text = tr.getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")).getText();
+			String text = tr.getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")).getText();
 			assertEquals("Company A", text);
 		}
 	}
@@ -215,11 +215,11 @@ public class TreeMultiSelectTest extends AbstractTest {
 		}.repeat(10);
 
 		tr = (TreeRow) tree.getRow("1");
-		String text = tr.getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")).getText();
+		String text = tr.getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")).getText();
 		assertEquals("Company A", text);
 	
 		tr = (TreeRow) tree.getRow("2");
-		text = tr.getCell(0).findElement(By.cssSelector("span[class*='p-treenode-label']")).getText();
+		text = tr.getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")).getText();
 		assertEquals("Company B", text);
 		
 		

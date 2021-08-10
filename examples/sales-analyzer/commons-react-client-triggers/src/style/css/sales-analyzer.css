@@ -30,14 +30,31 @@ body .p-button{
     vertical-align:top;
 }
 
+.ui-output-text{
+    border-width: 1px  ;
+    border-style: solid;
+    border-color: #c8c8c8;
+
+}
 
 .ui-tabs-vertical {
     width: 100em;
 }
+
+.ui-tabs-vertical.p-tabmenu {
+    padding: 1em;
+    float: right;
+    width: 40em;
+}
+
+
 .ui-tabs-vertical .p-tabmenu-nav {
     padding: .2em .1em .2em .2em;
     float: left; width: 17.1em;
+    flex-wrap: wrap;
 }
+
+
 .ui-tabs-vertical .p-tabmenu-nav li {
     clear: left;
     width: 280px;
@@ -53,11 +70,6 @@ body .p-button{
     padding-right: 3em;
     border-right-width: 1px;
 }
-.ui-tabs-vertical.p-tabmenu {
-    padding: 1em;
-    float: right;
-    width: 40em;
-}
 
 .ui-tabs-vertical .p-tabmenu-nav .p-tabmenuitem{
     padding-right: 3em;
@@ -71,15 +83,15 @@ body .p-button{
 
 }
 
+.ui-tabs-vertical .p-menuitem-text {
+    margin-left: 1em  ;
+}
+
+
 .ui-tabs-vertical .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
     float: right;
     width: 18em;
     margin-top: 3px;
 }
 
-.ui-output-text{
-    border-width: 1px  ;
-    border-style: solid;
-    border-color: #c8c8c8;
 
-}

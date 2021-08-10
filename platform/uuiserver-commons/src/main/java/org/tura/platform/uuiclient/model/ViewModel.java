@@ -71,9 +71,9 @@ public class ViewModel implements Serializable {
         if ("multiSelectOptions".equals(modelType)) {
             model = getMultiSelectOptionsModel((DataControl) obj,callback,modelId);
         }
-
-        if ("fullCalendar".equals(modelType)) {
-            model = getFullCalendarModel((DataControl) obj,callback,modelId);
+        
+        if ("uielement".equals(modelType)) {
+            model = getUielementModel(callback,modelId);
         }
 
         if ("timeLine".equals(modelType)) {
@@ -84,10 +84,9 @@ public class ViewModel implements Serializable {
         return model;
 
     }
-    
-	@SuppressWarnings("rawtypes")
-	private Object getFullCalendarModel(DataControl dc, Object callback,String modelId) {
-        return new FullCalendarModel(dc, callback,modelId);
+
+	private Object getUielementModel(Object callback, String modelId) {
+		return new UIElementModel();
 	}
     
 

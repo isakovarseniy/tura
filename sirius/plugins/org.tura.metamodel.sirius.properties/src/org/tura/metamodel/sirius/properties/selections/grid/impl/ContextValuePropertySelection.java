@@ -230,7 +230,12 @@ public abstract class ContextValuePropertySelection extends GridProperty {
             for (Object obj : new QueryHelper1().getControlsList(root))
                 rootOfTree.addChild(obj);
 
-            Object obj = new QueryHelper().getTypesRepository(getModel());
+            Object obj = new QueryHelper().getDomainArtifact(getModel());
+            if (obj != null)
+                rootOfTree.addChild(obj);
+            
+            
+             obj = new QueryHelper().getTypesRepository(getModel());
             if (obj != null)
                 rootOfTree.addChild(obj);
 

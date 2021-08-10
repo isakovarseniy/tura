@@ -35,6 +35,7 @@ import domain.impl.DomainPackageImpl;
 import form.AreaRef;
 import form.ArtificialField;
 import form.BlockUI;
+import form.Blockable;
 import form.Button;
 import form.Canvas;
 import form.CanvasFrame;
@@ -477,6 +478,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass selectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blockableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2285,6 +2293,26 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getBlockable() {
+		return blockableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBlockable_Block() {
+		return (EReference)blockableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLayerHolder() {
 		return layerHolderEClass;
 	}
@@ -2737,16 +2765,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	@Override
 	public EClass getBlockUI() {
 		return blockUIEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBlockUI_SourceTarget() {
-		return (EReference)blockUIEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4289,6 +4307,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(selectionEClass, SELECTION__DISPLAY_OPTION_POINTER);
 		createEReference(selectionEClass, SELECTION__VALUE_OPTION_POINTER);
 
+		blockableEClass = createEClass(BLOCKABLE);
+		createEReference(blockableEClass, BLOCKABLE__BLOCK);
+
 		layerHolderEClass = createEClass(LAYER_HOLDER);
 
 		inputTextEClass = createEClass(INPUT_TEXT);
@@ -4353,7 +4374,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		menuEClass = createEClass(MENU);
 
 		blockUIEClass = createEClass(BLOCK_UI);
-		createEReference(blockUIEClass, BLOCK_UI__SOURCE_TARGET);
 
 		fileUploadEClass = createEClass(FILE_UPLOAD);
 
@@ -4600,6 +4620,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		windowEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		windowEClass.getESuperTypes().add(thePermissionPackage.getSecured());
 		windowEClass.getESuperTypes().add(this.getFlexFields());
+		windowEClass.getESuperTypes().add(this.getBlockable());
 		menuDefinitionEClass.getESuperTypes().add(this.getStyleElement());
 		menuDefinitionEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
@@ -4638,6 +4659,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		layerHolderEClass.getESuperTypes().add(this.getUielement());
 		layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
 		layerHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		layerHolderEClass.getESuperTypes().add(this.getBlockable());
 		inputTextEClass.getESuperTypes().add(this.getInputElement());
 		inputTextEClass.getESuperTypes().add(this.getFormatable());
 		passwordEClass.getESuperTypes().add(this.getInputElement());
@@ -4896,6 +4918,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getSelection_DisplayOptionPointer(), ecorePackage.getEObject(), null, "displayOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSelection_ValueOptionPointer(), ecorePackage.getEObject(), null, "valueOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(blockableEClass, Blockable.class, "Blockable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBlockable_Block(), this.getAreaRef(), null, "block", null, 0, -1, Blockable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(layerHolderEClass, LayerHolder.class, "LayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4960,7 +4985,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(blockUIEClass, BlockUI.class, "BlockUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBlockUI_SourceTarget(), this.getAreaRef(), null, "sourceTarget", null, 0, -1, BlockUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileUploadEClass, FileUpload.class, "FileUpload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

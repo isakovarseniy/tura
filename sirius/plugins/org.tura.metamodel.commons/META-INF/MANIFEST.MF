@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
-Bundle-Version: 5.1.0
+Bundle-Version: 5.1.1
 Export-Package: 
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.properties.selections.adapters,

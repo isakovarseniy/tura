@@ -38,7 +38,8 @@ export class TuraComponent extends  React.Component {
             this.state = this.preProcessSate(newState);
         }else{
             this.state = {
-                rendered:false
+                rendered:false,
+                blocking: false
             };
         }
     }
@@ -48,11 +49,11 @@ export class TuraComponent extends  React.Component {
         var newState = this.props.contextManager.getState(this.props.id,this.dependId) ;
         if ( typeof newState !== "undefined" && newState != null){
             this.setState(this.preProcessSate(newState));
+            this.addBlocking();
         }
-
     }
 
-    componentWillReceiveProps(nextProps){
+    UNSAFE_componentWillReceiveProps(nextProps){
         let updateState = false;
         if ( this.id !== nextProps.id){
             updateState = true;
@@ -76,7 +77,8 @@ export class TuraComponent extends  React.Component {
                 this.setState(this.preProcessSate(newState));
             }else{
                 this.setState({
-                    rendered:false
+                    rendered:false,
+                    blocking: false
                 });
             }
             this.contextManager.addRegistercontext(this.id,this.dependId,this);
@@ -86,12 +88,14 @@ export class TuraComponent extends  React.Component {
 
     componentWillUnmount(){
         this.contextManager.removeRegistercontext(this.id,this.dependId);
+        this.removeBlocking();
     }
 
     initializeMainState(obj,uuid){
         this.dataObject = obj;
         if ( typeof this.state.uuid === "undefined" || this.state.uuid !== uuid){
             this.setState(this.preProcessSate(this.dataObject));
+            this.addBlocking();
         }
 
     }
@@ -192,8 +196,45 @@ export class TuraComponent extends  React.Component {
 
     }
 
-    getComponentCildren(){
+    getComponentChildren(){
         return React.Children.toArray(this.props.children);
+    }
+
+   addBlocking(){
+       let event = this.getEvent('react.BlockUI.On');
+       if ( typeof event !== "undefined" && event !== null) {
+           this.contextManager.addBlockingInterceptor(this,event);
+       }
+
+       event = this.getEvent('react.BlockUI.Off');
+       if ( typeof event !== "undefined" && event !== null) {
+           this.contextManager.addBlockingInterceptor(this,event);
+       }
+   }
+
+    removeBlocking(){
+        let event = this.getEvent('react.BlockUI.On');
+        if ( typeof event !== "undefined" && event !== null) {
+            this.contextManager.removeBlockingInterceptor(this,event);
+        }
+
+        event = this.getEvent('react.BlockUI.Off');
+        if ( typeof event !== "undefined" && event !== null) {
+            this.contextManager.removeBlockingInterceptor(this,event);
+        }
+    }
+
+
+    blockOn (){
+        this.setState({
+            blocking: true
+        });
+    }
+
+    blockOff (){
+        this.setState({
+            blocking: false
+        });
     }
 
 

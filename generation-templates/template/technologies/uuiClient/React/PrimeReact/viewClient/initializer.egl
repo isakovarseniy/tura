@@ -32,6 +32,8 @@ import {SwitchWindowCommand} from "[%=clientLibraryPackage%]/plugin/SwitchWindow
 import {ClearFormCommand} from "[%=clientLibraryPackage%]/plugin/ClearFormCommand";
 import {StartPollCommand} from "[%=clientLibraryPackage%]/plugin/StartPollCommand";
 import {StopPollCommand} from "[%=clientLibraryPackage%]/plugin/StopPollCommand";
+import {BlockUIOnCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOnCommmand";
+import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCommmand";
 
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -80,6 +82,8 @@ import {StopPollCommand} from "[%=clientLibraryPackage%]/plugin/StopPollCommand"
 		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.ClearForm",new ClearFormCommand());
 		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.StartPoll",new StartPollCommand());
 		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.StopPoll",new StopPollCommand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.BlockUIOffCommmand",new BlockUIOffCommmand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.BlockUIOnCommmand",new BlockUIOnCommmand());
 
 [%
     for ( trigger in scriptTriggersAll)    {

@@ -37,6 +37,7 @@ public class DefaultSeparator extends UuiElement implements Separator, Serializa
     private String style;
     private String styleClass;
     private boolean rendered = true;
+	private boolean separator = true;
 	private String clazz = DefaultSeparator.class.getName();
 
     
@@ -44,7 +45,7 @@ public class DefaultSeparator extends UuiElement implements Separator, Serializa
         return id;
     }
 
-    public void setId(String id) {
+	public void setId(String id) {
         this.id = id;
     }
 
@@ -88,6 +89,15 @@ public class DefaultSeparator extends UuiElement implements Separator, Serializa
         this.rendered = rendered;
     }
 
+    public boolean isSeparator() {
+		return separator;
+	}
+
+	public void setSeparator(boolean separator) {
+		this.separator = separator;
+	}
+    
+    
 	@Override
 	public void initContext(ELResolver elResolver, ResponseState responseState) throws Exception {
 		

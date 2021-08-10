@@ -1,0 +1,41 @@
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ 
+ context type::Type {
+
+   constraint Type{
+      check : self.getAllRecipeMappers()
+      message : 'Mapping constraint ' + self.name
+  } 
+
+}
+
+operation type::Type getAllRecipeMappers() : Boolean { 
+
+    var type = self;
+
+    if ( component.isKindOf(recipe::JavaScriptComponent)){
+        return false;
+    }
+    if ( component.isKindOf(recipe::JavaComponent)){
+          if ( ingredient.controllerLayer == null){
+             type.mappingType2Java(recipe,ingredient,'MODEL');
+             if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  ( type.isKindOf(type::Primitive) or  ( not type.isKindOf(type::Primitive) and  type.~library <> null ) )){
+                return true;
+             }else{
+                     type.mappingType2Java(recipe,ingredient,'VIEW');
+                     if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  ( type.isKindOf(type::Primitive) or  ( not type.isKindOf(type::Primitive) and  type.~library <> null ) )){
+                         return true;
+                     }
+               return false;
+             }
+          }else{
+             type.mappingType2Java(recipe,ingredient);
+            if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  ( type.isKindOf(type::Primitive) or  ( not type.isKindOf(type::Primitive) and  type.~library <> null ) )){
+                  return true;
+             }
+             return false;
+          }
+    }    
+    return false;
+    
+}

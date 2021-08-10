@@ -1,0 +1,10 @@
+import "tura:/generation-templates/validation/rules/canvasValidationRules.evl";
+import "tura:/generation-templates/validation/rules/controlValidationRules.evl";
+import "tura:/generation-templates/validation/rules/domainValidationRules.evl";
+import "tura:/generation-templates/validation/rules/frmviewValidationRules.evl";
+import "tura:/generation-templates/validation/rules/mapperValidationRules.evl";
+import "tura:/generation-templates/validation/rules/menuValidationRules.evl";
+import "tura:/generation-templates/validation/rules/multilangValidationRules.evl";
+import "tura:/generation-templates/validation/rules/roleValidationRules.evl";
+import "tura:/generation-templates/validation/rules/styleValidationRules.evl";
+import "tura:/generation-templates/validation/rules/typedefinitionValidationRules.evl";

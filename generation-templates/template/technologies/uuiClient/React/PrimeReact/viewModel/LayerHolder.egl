@@ -50,7 +50,8 @@ operation  form::LayerHolder createModel(hash) {
 		  private String[]  columnStyleClass;
        
 		  private boolean rendered = true;
-       
+
+		  private boolean blocking = false;
        
 	    public String getClazz() {
 			return clazz;
@@ -68,6 +69,14 @@ operation  form::LayerHolder createModel(hash) {
 		  public void setRendered(boolean rendered) {
 				this.rendered = rendered;
 		  }
+       
+		public boolean isBlocking() {
+			return blocking;
+		}
+		
+		public void setBlocking(boolean blocking) {
+			this.blocking = blocking;
+		}       
        
        
 			public String getId() {
@@ -114,6 +123,12 @@ operation  form::LayerHolder createModel(hash) {
 			    [%=self.rendered(hash)%]
 			    this.columnStyleClass = new String[]{ [%=self.columnStyleClass(hash)%] };
 			    
+			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','uielement', null)}";
+			    org.tura.platform.uuiclient.model.UIElementModel model =  (org.tura.platform.uuiclient.model.UIElementModel) elResolver.getValue(modelExpression);
+			    if (model.getAttribute("blocking") != null){
+			         this.blocking = (Boolean )model.getAttribute("blocking");
+			    } 
+			    
 [%
                 for (element in self.children.sortBy(q|q.order)){
                 
@@ -123,11 +138,11 @@ operation  form::LayerHolder createModel(hash) {
                [%=className%]_[%=element.mkuid_()%] [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] = new [%=className%]_[%=element.mkuid_()%] ();
                [%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%] .initContext(elResolver,responseState);
                getChildrens().add([%=util.mergeAndUnCapitalize(className)%]_[%=element.mkuid_()%]);
-               
            
 [%
                 }  
 %]                    
+			     [%=self.createCall()%]
 			    
 			}
 
@@ -144,6 +159,12 @@ operation  form::LayerHolder createModel(hash) {
 			    	   UuiElement uie = chClass.newInstance();
 			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
 			       }
+			       
+			       if ( map.get("blocking") != null){
+			          this.blocking = (boolean) map.get("blocking");
+			       }
+			       
+			       
 			       return this;
 			   }
 			
@@ -152,6 +173,11 @@ operation  form::LayerHolder createModel(hash) {
 		        	UuiElement el = (UuiElement) child;
 		        	el.applyContext(elResolver,responseState);
 		       }
+			   String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','uielement', null)}";
+			   org.tura.platform.uuiclient.model.UIElementModel model =  (org.tura.platform.uuiclient.model.UIElementModel) elResolver.getValue(modelExpression);
+			   model.setAttribute("blocking",this.blocking);
+			   
+		       
             } 			
 
 
@@ -169,6 +195,7 @@ operation  form::LayerHolder createModel(hash) {
                 } 
 			}
 			
+			[%=self.createBlockableModel(hash)%]
 			
        }
      
