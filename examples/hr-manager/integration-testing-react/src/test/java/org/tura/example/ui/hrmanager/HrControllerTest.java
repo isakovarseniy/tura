@@ -952,8 +952,12 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr1 = (TreeRow) tree.getRow("1");
 		tr1.rightClick();
 		
-		Menu menu = hrControllerPage.getLocationTreeContextMenu();
-		menu.clickOnItem("Update");
+		final Menu m = hrControllerPage.getLocationTreeContextMenu();
+		new Repeater() {
+			public void action() {
+				m.clickOnItem("Update");
+			}
+		}.repeat(10);
 		
 		new Repeater() {
 			public void action() {
@@ -996,10 +1000,10 @@ public class HrControllerTest extends AbstractTest {
 		tr2.rightClick();
 
 		
-		final Menu m = hrControllerPage.getLocationTreeContextMenu();
+		final Menu m1= hrControllerPage.getLocationTreeContextMenu();
 		new Repeater() {
 			public void action() {
-				m.clickOnItem("Update");
+				m1.clickOnItem("Update");
 			}
 		}.repeat(10);
 
@@ -1098,10 +1102,10 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr4 = (TreeRow) tree.getRow("1_1_1_1");
 		tr4.rightClick();
 
-		final Menu m1 = hrControllerPage.getLocationTreeContextMenu();
+		final Menu m3 = hrControllerPage.getLocationTreeContextMenu();
 		new Repeater() {
 			public void action() {
-				m1.clickOnItem("Update");
+				m3.clickOnItem("Update");
 			}
 		}.repeat(10);
 
