@@ -298,10 +298,14 @@ public class SpaRepositoryInternalRelationTest {
 	}
 
 	@Test
+	@SuppressWarnings("rawtypes")
 	public void t0000_oneWayObject() {
 		try {
 			SearchBase.base.clear();
 			ProxyRepository repository = getRepository();
+			ClientSearchProvider searchProvider = new ClientSearchProvider();
+			ClientObjectProcessor processor = new ClientObjectProcessor(searchProvider);
+			
 
 			OneWay1A ow1 = (OneWay1A) repository.create(OneWay1A.class.getName());
 
@@ -313,7 +317,9 @@ public class SpaRepositoryInternalRelationTest {
 
 			repository.insert(ow1, OneWay1A.class.getName());
 
-			repository.applyChanges(null);
+			searchProvider.addKnownObject((ObjectControl) ow1);
+			List commands =  repository.applyChanges(null);
+			processor.process(commands);
 
 			List<SearchCriteria> search = new ArrayList<SearchCriteria>();
 			SearchCriteria sc = new SearchCriteria();
