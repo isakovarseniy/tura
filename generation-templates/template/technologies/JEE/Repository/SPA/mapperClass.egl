@@ -37,6 +37,16 @@ ${start}${percent}
  
  
             private org.tura.platform.repository.core.AdapterLoader loader;
+		    private org.tura.platform.repository.core.ProxyFactory proxyFactory;
+			  
+			
+			public org.tura.platform.repository.core.ProxyFactory getProxyFactory() {
+				return proxyFactory;
+			}
+			
+			public void setProxyFactory(org.tura.platform.repository.core.ProxyFactory proxyFactory) {
+				this.proxyFactory = proxyFactory;
+			}
             
             public void setAdapterLoader(org.tura.platform.repository.core.AdapterLoader loader){
                this.loader=loader;
@@ -108,6 +118,10 @@ ${start}${percent}
 
 	    [%=t2model.get(type).get("fullName")%] jpa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
 	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+	     
+	    if ( obj instanceof org.tura.platform.repository.core.ObjectControl ){
+     	  ((org.tura.platform.repository.core.ObjectControl) obj).setForcePKupdate(true);
+	    }
 	    
 	    [%
 	       var tp = type;
@@ -125,6 +139,53 @@ ${start}${percent}
 	    %]
 	    
 	    }        
+	    
+	   public void differentiator(Object persistenceObject, Object repositoryObject ,  java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException{
+         [%=t2model.get(type).get("fullName")%] spa = ([%=t2model.get(type).get("fullName")%]) persistenceObject;
+         [%=t2view.get(type).get("fullName")%] obj = ([%=t2view.get(type).get("fullName")%] )repositoryObject;
+
+     	  ((org.tura.platform.repository.core.ObjectControl) obj).setForcePKupdate(true);
+
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializer(tp,type.~skipAttributes,"spa","obj",model_mapper,recipe,ingredient)%]
+	          [%=saveLink(tp,type.~skipAttributes,"spa","obj")%]
+	          [%
+	           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and  t.internal );
+	           for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneSrcDifferentiator(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "One2Many" : %][%=rel.one2ManySrcDifferentiator(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+	          
+	           var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and  t.internal );
+	           for ( rel in assosiations  ){
+                   if ( rel.findClassifier(util.getHint(model_mapper,"OneWayAssociation"))  ){
+                      continue;
+				   }
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneTrgDifferentiator(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "One2Many" : %][%=rel.one2ManyTrgDifferentiator(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+	          %]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    
+	    %]
+	       }	    
+	    
         
 	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject, java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException{
 	    
@@ -251,8 +312,8 @@ ${start}${percent}
 	    }
 	    
 
-
-    private void put( java.util.Map<Object,Object> context, Object pk, Object type ){
+  @SuppressWarnings("unchecked")
+    public void put( java.util.Map<Object,Object> context, Object pk, Object type ){
          String key = type.getClass().getName();
          java.util.List<Object> loadedObjects = (java.util.List<Object>) context.get(key);
 		if (loadedObjects == null) {
@@ -266,7 +327,8 @@ ${start}${percent}
 			return;
 		}
     }
-    private Object get( java.util.Map<Object,Object> context, Object pk, Object type ){
+   @SuppressWarnings("unchecked")
+    public Object get( java.util.Map<Object,Object> context, Object pk, Object type ){
          String key = type.getClass().getName();
          java.util.List<Object> loadedObjects = (java.util.List<Object>) context.get(key);
 		if (loadedObjects == null) {
@@ -499,8 +561,127 @@ operation type::Assosiation one2ManyTrgReposit2Persist(recipe,ingredient,model_m
            }
      [%
 } 
+@template
+operation type::Assosiation one2oneSrcDifferentiator(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+           [%=t2view.get(self.targetFn()).get("fullName")%] obj[%=t2view.get(self.targetFn()).get("class")%] =  [%=trg%].get[%=hash.get("sourceMethodName")%]();
+           [%=t2model.get(self.targetFn()).get("fullName")%] spa[%=t2model.get(self.targetFn()).get("class")%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
+           org.tura.platform.repository.core.Mapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]Mapper();
+           maper[%=t2view.get(self.targetFn()).get("class")%] .setProxyFactory(proxyFactory);
+           
+           if (spa[%=t2model.get(self.targetFn()).get("class")%] != null){
+	           boolean isSetObject = false;
+	           Object pk[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKey(spa[%=t2model.get(self.targetFn()).get("class")%]);
+                
+                if ( get(context,pk[%=t2model.get(self.targetFn()).get("class")%]  , spa[%=t2model.get(self.targetFn()).get("class")%]) == null ){
+
+                   put(context, pk[%=t2model.get(self.targetFn()).get("class")%], spa[%=t2model.get(self.targetFn()).get("class")%]);
+
+	                if (obj[%=t2view.get(self.targetFn()).get("class")%] == null){
+	                          isSetObject = true;
+	                }else{
+	                   Object pkRep[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKeyFromRepositoryObject(obj[%=t2model.get(self.targetFn()).get("class")%]);
+	                   if (  !pkRep[%=t2model.get(self.targetFn()).get("class")%].equals(pk[%=t2model.get(self.targetFn()).get("class")%])){
+	                          isSetObject = true;
+	                   }
+	                } 
+	                if (isSetObject){
+	                          obj[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("fullName")%]();
+	                          maper[%=t2view.get(self.targetFn()).get("class")%].copyPKFromPersistence2Repository(spa[%=t2model.get(self.targetFn()).get("class")%],obj[%=t2view.get(self.targetFn()).get("class")%]);
+                              obj[%=t2view.get(self.targetFn()).get("class")%] = ([%=t2view.get(self.targetFn()).get("fullName")%]) proxyFactory.factory(obj[%=t2view.get(self.targetFn()).get("class")%], [%=t2view.get(self.targetFn()).get("fullName")%].class.getName());
+	                          [%=trg%].set[%=hash.get("sourceMethodName")%](obj[%=t2view.get(self.targetFn()).get("class")%]);
+	                } 
+	                
+	                ((org.tura.platform.repository.core.ObjectControl) obj[%=t2view.get(self.targetFn()).get("class")%]).setForcePKupdate(true);
+		            maper[%=t2view.get(self.targetFn()).get("class")%].differentiator(spa[%=t2model.get(self.targetFn()).get("class")%],obj[%=t2view.get(self.targetFn()).get("class")%],context);
+	           }
+           }else{
+                if (obj[%=t2view.get(self.targetFn()).get("class")%]   !=  null ){
+	                          [%=trg%].set[%=hash.get("sourceMethodName")%](null);
+                }
+           }
+           
+     [%
 
 
+}
+
+@template
+operation type::Assosiation one2ManySrcDifferentiator(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+           org.tura.platform.repository.core.Mapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]Mapper();
+           maper[%=t2view.get(self.targetFn()).get("class")%].setProxyFactory(proxyFactory);
+           
+           java.util.HashMap<Object,  [%=t2view.get(self.targetFn()).get("fullName")%] > objPkHash[%=t2view.get(self.targetFn()).get("class")%]  =  new java.util.HashMap<>();
+
+           java.util.Collection<[%=t2model.get(self.targetFn()).get("fullName")%]> spa[%=t2model.get(self.targetFn()).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
+           java.util.Collection<[%=t2view.get(self.targetFn()).get("fullName")%]>obj[%=t2view.get(self.targetFn()).get("class")%]List = [%=trg%].get[%=hash.get("sourceMethodName")%]();
+		   if (obj[%=t2view.get(self.targetFn()).get("class")%]List != null ){
+		         for (  [%=t2view.get(self.targetFn()).get("fullName")%]  obj[%=t2view.get(self.targetFn()).get("class")%] : obj[%=t2view.get(self.targetFn()).get("class")%]List ){
+			          Object pkRep[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKeyFromRepositoryObject(obj[%=t2view.get(self.targetFn()).get("class")%]);
+			          objPkHash[%=t2view.get(self.targetFn()).get("class")%] .put(pkRep[%=t2model.get(self.targetFn()).get("class")%],  obj[%=t2view.get(self.targetFn()).get("class")%] );
+		         }
+		   }
+
+           java.util.ArrayList<Object> spaPkArray[%=t2view.get(self.targetFn()).get("class")%]  =  new java.util.ArrayList<>();
+           if (spa[%=t2model.get(self.targetFn()).get("class")%]List != null ){
+	           for (   [%=t2model.get(self.targetFn()).get("fullName")%]  spa[%=t2model.get(self.targetFn()).get("class")%] : spa[%=t2model.get(self.targetFn()).get("class")%]List ){
+		           boolean isSetObject = false;
+		           Object pk[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKey(spa[%=t2model.get(self.targetFn()).get("class")%]);
+	               spaPkArray[%=t2view.get(self.targetFn()).get("class")%].add(pk[%=t2model.get(self.targetFn()).get("class")%]); 
+	                
+	                if ( get(context,pk[%=t2model.get(self.targetFn()).get("class")%]  , spa[%=t2model.get(self.targetFn()).get("class")%]) == null ){
+	
+	                   put(context, pk[%=t2model.get(self.targetFn()).get("class")%], spa[%=t2model.get(self.targetFn()).get("class")%]);
+	                   [%=t2view.get(self.targetFn()).get("fullName")%]  obj[%=t2view.get(self.targetFn()).get("class")%] =   objPkHash[%=t2view.get(self.targetFn()).get("class")%].get(pk[%=t2model.get(self.targetFn()).get("class")%]);    
+	               
+		                if (obj[%=t2view.get(self.targetFn()).get("class")%] == null){
+		                          isSetObject = true;
+		                }else{
+		                   Object pkRep[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKeyFromRepositoryObject(obj[%=t2view.get(self.targetFn()).get("class")%]);
+		                   if (  !pkRep[%=t2model.get(self.targetFn()).get("class")%].equals(pk[%=t2model.get(self.targetFn()).get("class")%])){
+		                          isSetObject = true;
+			                      [%=trg%].get[%=hash.get("sourceMethodName")%]().remove(obj[%=t2view.get(self.targetFn()).get("class")%] );
+		                   }
+		                } 
+			           if (isSetObject){
+		                  obj[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("fullName")%]();
+		                  maper[%=t2view.get(self.targetFn()).get("class")%].copyPKFromPersistence2Repository(spa[%=t2model.get(self.targetFn()).get("class")%], obj[%=t2view.get(self.targetFn()).get("class")%]);
+		                  obj[%=t2view.get(self.targetFn()).get("class")%]  = ([%=t2view.get(self.targetFn()).get("fullName")%])proxyFactory.factory(obj[%=t2view.get(self.targetFn()).get("class")%],[%=t2view.get(self.targetFn()).get("fullName")%].class.getName());
+			              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(obj[%=t2view.get(self.targetFn()).get("class")%] );
+			           }
+	                   ((org.tura.platform.repository.core.ObjectControl) obj[%=t2view.get(self.targetFn()).get("class")%]).setForcePKupdate(true);
+			           maper[%=t2view.get(self.targetFn()).get("class")%].differentiator(spa[%=t2model.get(self.targetFn()).get("class")%],obj[%=t2view.get(self.targetFn()).get("class")%],context);
+	           }
+           }
+         }
+         java.util.Collection<[%=t2view.get(self.targetFn()).get("fullName")%]>remove[%=t2view.get(self.targetFn()).get("class")%]List = new java.util.ArrayList<>();
+         
+	     if (obj[%=t2view.get(self.targetFn()).get("class")%]List != null ){
+	         for (  [%=t2view.get(self.targetFn()).get("fullName")%]  obj[%=t2view.get(self.targetFn()).get("class")%] : obj[%=t2view.get(self.targetFn()).get("class")%]List ){
+		            Object pkRep[%=t2model.get(self.targetFn()).get("class")%] =  maper[%=t2view.get(self.targetFn()).get("class")%].getPrimaryKeyFromRepositoryObject(obj[%=t2view.get(self.targetFn()).get("class")%]);
+		            if ( !spaPkArray[%=t2view.get(self.targetFn()).get("class")%].contains (pkRep[%=t2model.get(self.targetFn()).get("class")%])){
+		               remove[%=t2view.get(self.targetFn()).get("class")%]List.add(obj[%=t2view.get(self.targetFn()).get("class")%]);
+		            }
+	         }
+	         for (  [%=t2view.get(self.targetFn()).get("fullName")%]  obj[%=t2view.get(self.targetFn()).get("class")%] : remove[%=t2view.get(self.targetFn()).get("class")%]List ){
+			              [%=trg%].get[%=hash.get("sourceMethodName")%]().remove(obj[%=t2view.get(self.targetFn()).get("class")%] );
+	         }
+	     }
+     [%
+
+}
+
+
+@template
+operation type::Assosiation one2oneTrgDifferentiator(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+}
+
+@template
+operation type::Assosiation one2ManyTrgDifferentiator(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+}
 
 
  %]

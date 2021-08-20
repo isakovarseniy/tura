@@ -21,6 +21,7 @@ package org.tura.platform.repository.cpa.operation;
 import java.lang.reflect.Method;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.KeyTracker;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
@@ -45,6 +46,7 @@ public class CpaUpdateOperation extends CpaRepositoryCommand {
 	public void prepare() throws RepositoryException {
 		try{
 
+			String originalPk = getPrimaryKey(pk);
 			Object persistanceObject = searchProvider.find( getPrimaryKey(pk),persistanceType);
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
@@ -54,6 +56,11 @@ public class CpaUpdateOperation extends CpaRepositoryCommand {
 			String methodName = "set"+WordUtils.capitalize(property);
 			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, value.getClass());
 			m.invoke(extendedPersistanceMasterObject, value);
+			
+			String updatedPK =  getPrimaryKey(findRepoObjectKey(persistanceObject));
+			if ( !originalPk.equals(updatedPK) && searchProvider instanceof KeyTracker ) {
+				((KeyTracker)searchProvider).keyUpdated(updatedPK, originalPk, persistanceObject);
+			}
 
 		}catch(Exception e){
 			throw new RepositoryException(e);

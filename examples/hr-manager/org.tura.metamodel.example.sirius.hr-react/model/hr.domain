@@ -1298,6 +1298,7 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="b3cfce30-92fb-47c4-8f3a-61c8d19b80ed" name="objId" pk="true">
               <classifiers uid="54c5febd-5eaf-4006-ade2-08bab2e07f09" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
             </attributes>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="dcf238f0-1c67-4fee-93f3-a54af2f8cf29" name="type"/>
           </types>
           <types xsi:type="tura.type:Type" uid="921ad0df-6fe4-4bb1-ba90-65ea71cf6dc4" name="OneWay2A">
             <classifiers uid="74bd595f-00a1-4118-934e-689d6b4400a5" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -1305,6 +1306,7 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="dda7fe0f-7a43-494a-adab-4ca435771ecd" name="objId" pk="true">
               <classifiers uid="0efaf002-d217-44de-9191-8fe0c2831f83" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
             </attributes>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="632448f3-64d5-4da3-aa0f-1c499312d3ee" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="22070fe0-cfa9-41e8-80e3-0333c0474dde" name="OneWay3A">
             <classifiers uid="1eac96ab-3b31-4000-bf9f-f673971d2949" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -1312,6 +1314,7 @@
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="6cd36b20-698c-4222-b92e-4c9726dd11b1" name="objId" pk="true">
               <classifiers uid="64f057e8-71ff-4e49-abd4-45cac18592e5" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
             </attributes>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="314e9de6-abfd-4d3b-8426-cd423d004f6a" name="name"/>
           </types>
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
@@ -4251,7 +4254,7 @@
               <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
               <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
               <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
-              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.1.1"/>
+              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="5.1.2"/>
               <versions uid="8bc8fa64-01a7-4ff2-a383-11765e47ab34" name="selenium.version" version="2.47.1"/>
               <versions uid="25576813-abe7-42bb-9316-854dee17e93f" name="junit.version" version="4.11"/>
               <versions uid="be26186b-9783-4472-a6cf-5834f1a98491" name="cdi.version" version="2.1.1.Final"/>
@@ -12479,7 +12482,7 @@
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Proxy layer" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
               <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
-              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.1.1"/>
+              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="5.1.2"/>
               <versions uid="c031121a-0df4-49df-ab47-5a69d10814dd" name="selenium.version" version="2.47.1"/>
               <versions uid="23484b46-6301-41f7-a371-733785a56a4b" name="keycloak.version" version="3.2.0.Final"/>
             </applicationMappers>

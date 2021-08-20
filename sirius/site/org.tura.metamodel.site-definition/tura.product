@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="5.1.1.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="5.1.2.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="eclipse_lg.png"/>
@@ -16,8 +16,6 @@
    <launcherArgs>
       <programArgs>-consoleLog
       </programArgs>
-      <programArgsMac>-nosplash
-      </programArgsMac>
       <vmArgs>-XX:MaxPermSize=256m -Xms256m -Xmx4096m
       </vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.internal.carbon.smallFonts
@@ -39,8 +37,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="ch.qos.logback.classic"/>

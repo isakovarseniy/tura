@@ -183,22 +183,24 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 
 		ObjectControl oc = null;
 		if (control.getLevel().equals(OperationLevel.INSERT) && repositoryClass != null) {
-
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), new HashMap<>(), registry);
 			Object object = control.getObject();
 			object = loader.loader(object, control.getKey(), repositoryClass, new ObjectGraph(), null);
 			oc = (ObjectControl) factory.factory(object, repositoryClass.getName());
-
 		}
 
 		provider.setFactory(factory);
 		provider.execute(control);
 
 		if (control.getLevel().equals(OperationLevel.INSERT) && repositoryClass != null) {
-			oc.setForcePKupdate(true);
 			Mapper mapper = helper.findMapper(repositoryClass);
-			mapper.copyPKFromPersistence2Repository(control.getObject(), oc);
+	        mapper.setProxyFactory(factory);
+			mapper.copyPKFromPersistence2Repository(control.getObject(), oc );
+			Object objPk =  mapper.getPrimaryKeyFromRepositoryObject(oc);
+		    Map<Object, Object> context = new HashMap<>();
+			mapper.put(context, objPk, control.getObject());
+			mapper.differentiator(control.getObject(), oc, context);			
 		}
 
 	}

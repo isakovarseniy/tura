@@ -22,7 +22,7 @@
 	<parent>
 		<groupId>sales-analyzer</groupId>
 		<artifactId>sales-analyzer-parent</artifactId>
-		<version>5.1.1</version>
+		<version>5.1.2</version>
 	</parent>
 
 	<artifactId>web-app-commons</artifactId>

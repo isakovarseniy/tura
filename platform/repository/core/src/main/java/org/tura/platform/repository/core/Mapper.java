@@ -29,5 +29,10 @@ public interface Mapper extends Serializable {
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,Map<Object, Object> context) throws RepositoryException;
 	void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
+	void differentiator(Object persistenceObject, Object repositoryObject,Map<Object, Object> context) throws RepositoryException;
+	void put(Map<Object, Object> context, Object pk, Object type);
+	Object get(Map<Object, Object> context, Object pk, Object type);
+	public void setProxyFactory(ProxyFactory proxyFactory);
+	
 }
 

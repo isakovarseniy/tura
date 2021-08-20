@@ -19,7 +19,7 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>processor</artifactId>
-	<version>5.1.1</version>
+	<version>5.1.2</version>
 	<packaging>jar</packaging>
 
 	<name>Tura :: Platform :: Processor</name>

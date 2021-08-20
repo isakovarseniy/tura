@@ -25,18 +25,19 @@ import java.util.Map;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.AdapterLoader;
+import org.tura.platform.repository.core.KeyTracker;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
 
-public class ClientSearchProvider  implements SearchProvider{
+public class ClientSearchProvider  implements SearchProvider, KeyTracker{
 
-	private Map<String, ObjectControl> hash = new HashMap<>();
+	private Map<String, Object> hash = new HashMap<>();
 	
 	
 	public void addKnownObject(ObjectControl oc) {
-		hash.put(oc.getKey(), oc);
+		hash.put(oc.getKey(), oc.getWrappedObject());
 	}
 	
 	@Override
@@ -50,12 +51,17 @@ public class ClientSearchProvider  implements SearchProvider{
 		if ( hash.get(pk) == null) {
 			throw new RepositoryException(" Unknown pk   " + pk);
 		}
-		return hash.get(pk).getWrappedObject();
+		return hash.get(pk);
 	}
 
 	@Override
 	public void setAdapterLoader(AdapterLoader loader) {
 		
+	}
+
+	@Override
+	public void keyUpdated(Object updaredPk, Object originalpK, Object obj) {
+		hash.put((String)updaredPk, obj);
 	}
 
 }

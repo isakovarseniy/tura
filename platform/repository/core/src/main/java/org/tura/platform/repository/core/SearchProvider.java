@@ -29,7 +29,7 @@ public interface SearchProvider extends AdapterLoaderAware {
 			Integer endIndex, String objectClass) throws RepositoryException ;
 
 	Object find(Object pk, String objectClass) throws RepositoryException ;
-
+	
 	
 }
 
