@@ -23,7 +23,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -33,11 +32,11 @@ import org.junit.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.ProxyFactory;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
-import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
 
 import sales.analyzer.api.model.impl.FileEntity;
@@ -152,6 +151,28 @@ public class FileSearchServiceTest {
 		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
 				throws RepositoryException {
 			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
 			
 		}
 

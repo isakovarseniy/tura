@@ -24,6 +24,8 @@ import org.tura.platform.repository.core.ObjectGraphProfile;
 
 public class AllowEverythingProfile  extends ObjectGraphProfile {
 
+	private static final long serialVersionUID = 1L;
+
 	public boolean skipRelation(Object repositoryObject, Method method) {
 		return false;
 	}

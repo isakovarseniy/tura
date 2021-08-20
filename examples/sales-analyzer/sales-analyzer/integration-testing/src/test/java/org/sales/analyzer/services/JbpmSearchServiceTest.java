@@ -41,6 +41,7 @@ import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.ProxyFactory;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
@@ -466,6 +467,27 @@ public class JbpmSearchServiceTest {
 			
 		}
 
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
+			
+		}
+
     }
 
     class ProcessMapper implements Mapper {
@@ -501,7 +523,27 @@ public class JbpmSearchServiceTest {
 		@Override
 		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
 				throws RepositoryException {
-			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
 			
 		}
 
@@ -543,6 +585,27 @@ public class JbpmSearchServiceTest {
 		     throw new UnsupportedOperationException();
 		}
 
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
+			
+		}
+
     }
 
     class TaskMapper implements Mapper {
@@ -582,6 +645,27 @@ public class JbpmSearchServiceTest {
 		     throw new UnsupportedOperationException();
 		}
 
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
+			
+		}
+
     }
 
     class ETLTaskMapper implements Mapper {
@@ -617,7 +701,27 @@ public class JbpmSearchServiceTest {
 		@Override
 		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
 				throws RepositoryException {
-			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+			
+		}
+
+		@Override
+		public void put(Map<Object, Object> context, Object pk, Object type) {
+			
+		}
+
+		@Override
+		public Object get(Map<Object, Object> context, Object pk, Object type) {
+			return null;
+		}
+
+		@Override
+		public void setProxyFactory(ProxyFactory proxyFactory) {
 			
 		}
 
