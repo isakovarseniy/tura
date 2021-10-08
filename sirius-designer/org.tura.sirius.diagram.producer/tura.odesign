@@ -1522,6 +1522,9 @@
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionForComponentID"/>
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run validation" id="org.tura.metamodel.sirius.properties.actions.RunValidationActionForComponentID"/>
           </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Add deployment step" precondition="service:enableContextMenuForModelMapper">
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Add deployment step" id="org.tura.metamodel.sirius.diagram.actions.AddDeploymentStepActionID"/>
+          </ownedTools>
           <ownedTools xsi:type="tool_1:DiagramCreationDescription" name="Create Deployment sequence" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']">
             <initialOperation/>
             <containerViewVariable name="containerView"/>

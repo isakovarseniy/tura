@@ -19,10 +19,10 @@
   <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
   <semanticResources>model/objectmapper.emf</semanticResources>
   <semanticResources>model/domain.trace</semanticResources>
-  <semanticResources>model/objectmapper.ecore</semanticResources>
   <semanticResources>model/domain.genmodel</semanticResources>
   <semanticResources>model/domain.gmfgraph</semanticResources>
   <semanticResources>model/domain.gmfmap</semanticResources>
   <semanticResources>model/domain.gmftool</semanticResources>
   <semanticResources>model/domain.gmfgen</semanticResources>
+  <semanticResources>model/objectmapper.ecore</semanticResources>
 </viewpoint:DAnalysis>
