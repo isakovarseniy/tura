@@ -48,7 +48,7 @@
 		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
 		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
 		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
-		<postgres.jdbc.version>42.1.1</postgres.jdbc.version>
+		<postgres.jdbc.version>42.4.1</postgres.jdbc.version>
 		<version.postgresql>2.9</version.postgresql>
 		<version.deltaspike>1.6.1</version.deltaspike>
 		<version.jaxb>2.3.0</version.jaxb>
