@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -71,6 +71,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
            %]<xs:sequence>[%
               %]<xs:element name="attached" type="xs:boolean"/>[%
               %]<xs:element name="serializationid" type="xs:string"/>[%
+              %]<xs:element name="cpaid" type="xs:string"/>[%
 
           var tp = type;
           while (1 == 1){
@@ -80,16 +81,6 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 		
 		     if (type.~skipAttributes.contains(field) and not type.~bindedAttribute.contains(field)){
 		    %] <xs:element name="transient[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=getNamespace(field.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=field.typeRef.~class%]"> [%
-            %]
-	          <xs:annotation>
-				 <xs:appinfo>
-					<annox:annotate>@javax.xml.bind.annotation.XmlTransient</annox:annotate>
-				</xs:appinfo>
-				 <xs:appinfo>
-					<annox:annotate>@com.fasterxml.jackson.annotation.JsonIgnore</annox:annotate>
-				</xs:appinfo>
-			  </xs:annotation>
-              [%
 		     %]</xs:element>[%
 
 		        continue; 
@@ -105,13 +96,21 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	         if (rel_uid == null){
 	             rel_uid = rel.uid;
 	         } 
-
+            var hash = rel.findTypeOfAssosiation(model_mapper);
+            var masterType =   hash.get("masterType");
+            var direction = ",direction=org.tura.platform.datacontrol.commons.RelationType.Direct";
+            if (masterType.uid <> rel.source.uid ){
+               direction = " ,direction=org.tura.platform.datacontrol.commons.RelationType.Opposite";
+            }
 
             var hash = rel.sourceSideNamesCalculation();
             
             var annotation = "Association";
+            var lazy = ",lazy="+rel.lazy;
             if (rel.internal){
               annotation = "Internal";
+              direction = "";
+              lazy = "";
 	         }
 	  	     switch  (rel.type.toString()){
 	         case "One2One" : %]    <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]">[%
@@ -124,7 +123,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 				 [%
 				 hash.get("target").mappingType2Java(recipe,ingredient);
 				 %]
-					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](  id="[%=rel_uid%]", mappedBy=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](  id="[%=rel_uid%]", mappedBy=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" [%=lazy%] [%=direction%] )</annox:annotate>
 				</xs:appinfo>
 				[%=rel.connectionAnnotation(model_mapper,"src")%]
 			  </xs:annotation>
@@ -139,12 +138,23 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
          if (rel_uid == null){
              rel_uid = rel.uid;
          } 
-      
+         var hash = rel.findTypeOfAssosiation(model_mapper);
+         var masterType =   hash.get("masterType");
+         var direction = " ,direction=org.tura.platform.datacontrol.commons.RelationType.Direct";
+         if (masterType.uid <> rel.target.uid ){
+              direction = " ,direction=org.tura.platform.datacontrol.commons.RelationType.Opposite";
+         }
+         if (masterType.uid == rel.target.uid and rel.target.uid == rel.source.uid){
+              direction = " ,direction=org.tura.platform.datacontrol.commons.RelationType.Opposite";
+         }
       
          var hash = rel.targetSideNamesCalculation();
             var annotation = "Association";
+            var lazy = ",lazy="+rel.lazy;
             if (rel.internal){
               annotation = "Internal";
+              lazy = "";
+              direction = "";
 	         }
       
   	     switch  (rel.type.toString()){
@@ -158,7 +168,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 			 	[%
 				 hash.get("source").mappingType2Java(recipe,ingredient);
 				 %]
-				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](id="[%=rel_uid%]", mappedBy=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](id="[%=rel_uid%]", mappedBy=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" [%=lazy%]  [%=direction%])</annox:annotate>
 			</xs:appinfo>
 				[%=rel.connectionAnnotation(model_mapper,"trg")%]
 		  </xs:annotation>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public abstract class TreeObjectExtractor {
 		if (!(node.isRoot())) {
 			ObjectControl oc = (ObjectControl) data;
 			hashNode = (Map<String, Object>) extract(elResolver, oc);
-			String type = oc.getWrappedObject().getClass().getName();
+			String type = oc.getProxyClazz().getName();
 			String key = model.stringify(node.getPath());
 			hashNode.put("key", key);
 			hashNode.put("type", type);

@@ -1,7 +1,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 
 	<groupId>sales-analyzer</groupId>
 	<artifactId>sales-analyzer-parent</artifactId>
-	<version>5.1.2</version>
+	<version>6.0.0</version>
 
 	<packaging>pom</packaging>
 
@@ -162,6 +162,12 @@
 			<dependency>
 				<groupId>org.tura</groupId>
 				<artifactId>processor</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>cdi-persistence-repo-starter-jee</artifactId>
 				<version>${tura.platform.version}</version>
 			</dependency>
 

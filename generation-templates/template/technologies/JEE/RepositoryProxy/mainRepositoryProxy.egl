@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,6 +30,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
      var hash = new Native('java.util.HashMap');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
      var templateStore = new Native('java.util.HashMap');
+     var mhash = new Native('java.util.HashMap');
 
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
  
@@ -52,7 +53,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
         var interfaces = new Native('java.util.ArrayList');
         var general = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
         for ( rel in general ){
-	        if ( rel.findClassifier(util.getHint(model_mapper,"Domain Interface"))){
+	        if ( rel.findClassifier(util.getHint(model_mapper,"obj.Implements"))){
 	           var i = rel.target;
 	           if (i.isKindOf(type::TypeReference)){
 	              i = i.typeRef;
@@ -70,6 +71,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	    hash.put("model_mapper",model_mapper);
 	    hash.put("path",path);
 	    hash.put("interfaces",interfaces);
+	    hash.put("mhash",mhash);
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
@@ -84,6 +86,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	    hash.remove("type");
 	    hash.put("typeCollection",typeCollection);
 	    
+	    
 	    util.populateTechnologies(hash,model_mapper);
 		
 	    var repository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/proxyRepository.egl",hash,TemplateFactory);
@@ -96,6 +99,11 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	    var buffer = repository.process();
 	    util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ProxyRepositoryInstantiator.java",buffer);   
 	    
+	    hash.put("configuration",configuration);
+	    hash.remove("tp");
+	    
+	    var cparepository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/CPA/repository.egl",hash,TemplateFactory);
+	    var buffer = cparepository.process();
 	    
 	       
     }

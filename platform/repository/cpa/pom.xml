@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -18,18 +18,19 @@
 -->
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>repository</artifactId>
-		<version>5.1.2</version>
+		<version>6.0.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.repository</groupId>
 	<artifactId>cpa</artifactId>
 
-	<name>Tura :: Platform :: Repository :: CPA</name>
+	<name>Tura :: Platform :: Repository :: Cpa</name>
 
 	<dependencies>
 
@@ -37,6 +38,22 @@
 			<groupId>org.tura.platform.repository</groupId>
 			<artifactId>core</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>uk.com.robust-it</groupId>
+			<artifactId>cloning</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.josql</groupId>
+			<artifactId>josql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>commons-platform</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>

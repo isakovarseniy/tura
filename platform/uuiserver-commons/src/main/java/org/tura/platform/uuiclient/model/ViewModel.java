@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,6 +72,10 @@ public class ViewModel implements Serializable {
             model = getMultiSelectOptionsModel((DataControl) obj,callback,modelId);
         }
         
+        if ("fullCalendar".equals(modelType)) {
+            model = getFullCalendarModel((DataControl) obj,callback,modelId);
+        }
+        
         if ("uielement".equals(modelType)) {
             model = getUielementModel(callback,modelId);
         }
@@ -119,10 +123,14 @@ public class ViewModel implements Serializable {
         return new OptionsModel( dc, callback ,modelId);
     }
 
+	@SuppressWarnings("rawtypes")
+	private Object getFullCalendarModel(DataControl dc, Object callback,String modelId) {
+        return new FullCalendarModel(dc, callback,modelId);
+	} 
+    
     private TimeLineModel getTimeLineModel(DataControl<?> dc,Object callback,String modelId) {
         return new TimeLineModel( dc, callback ,modelId);
     }
-
     
     
     public boolean checkIfModelExists(String modelId) {

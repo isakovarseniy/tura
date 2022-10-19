@@ -14,9 +14,14 @@ echo Generate Object mapper generation recipe
 tura:generate --build --recipeId 75ab8bf7-af40-4e05-91e9-f3e4d892fef8 --infraId b9696cd4-7a5f-42cf-8df3-dacedc0b080c --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 
-echo Generate Test model generation recipe
+echo Generate Test Lazy domain and persistence model
 
 tura:generate --build --recipeId 8d9145b8-4528-4cde-b96c-ded8331c2011 --infraId 5d633cff-2139-490a-9bfc-64b5c3d2cf5b --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
+
+
+echo Generate Test Non Lazy domain and persistence model
+
+tura:generate --build --recipeId 70f0e0f3-fba8-42a5-a54b-791f9360af8e --infraId bccf72ea-0b51-4146-b77b-7fb7dcc338b9 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain
 
 
 echo Generate REST service generatioin recipe

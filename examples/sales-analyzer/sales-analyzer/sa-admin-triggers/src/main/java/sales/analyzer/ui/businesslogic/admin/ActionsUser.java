@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,10 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
 import org.tura.platform.uuiclient.rest.client.commands.ClearForm;
@@ -41,256 +39,219 @@ import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactor
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
 
-import com.octo.java.sql.exp.Operator;
-
 public class ActionsUser implements EventAware {
 
 	EventDescription event;
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
 
-    @Inject
-    ELResolver elResolver;
+	@Inject
+	ELResolver elResolver;
 
-    @Inject
-    @Named("admin.administration")
-    CommandStack commandStack;
-
-    @Inject
-    Repository repository;
+	@Inject
+	@ClientProxyRepo("admin.administration")
+	private CpaRepository repository;
 
 	@Inject
 	ResponseState responseState;
-    
-    
-    @SuppressWarnings("rawtypes")
-    public void openUserPopup() {
-        try {
-        	
+	
+	
+	@Inject
+	@Named("beanFactoryAdminAdministration")
+	IBeanFactory bf;
+
+	@SuppressWarnings("rawtypes")
+	public void openUserPopup() {
+		try {
+
 			EventParameter param = event.findParameter("rowkey");
 			String username = (String) param.getValue();
-        	
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
 
-            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            bf.setUserId(username);
-            dc.forceRefresh();
+			DataControl dc = (DataControl) bf.getPopupUser();
 
-            dc.getCommandStack().savePoint();
+			bf.setUserId(username);
+			dc.forceRefresh();
 
-    		ClearForm cmd = new ClearForm();
+			repository.getStackProvider().get().savePoint();
+
+			ClearForm cmd = new ClearForm();
 			cmd.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 			responseState.addCommand(cmd);
 
-            
 			OpenPopup cmd1 = new OpenPopup();
 			cmd1.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 			responseState.addCommand(cmd1);
 
-        
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-    }
-    
-    @SuppressWarnings("rawtypes")
-    public void openUserSelectorPopup() {
-        try {
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.user}");
-            User user = (User) dc.getCurrentObject();
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
 
-            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            if (user != null) {
-                bf.setUserId(user.getUsername());
-            } else {
-                bf.setUserId(null);
-            }
-            dc = (DataControl) bf.getPopupUser();
-            dc.forceRefresh();
+	@SuppressWarnings("rawtypes")
+	public void openUserSelectorPopup() {
+		try {
+			DataControl dc = (DataControl) bf.getUser();
+			
+			User user = (User) dc.getCurrentObject();
 
-            dc.getCommandStack().savePoint();
-            dc.islolate();
+			if (user != null) {
+				bf.setUserId(user.getUsername());
+			} else {
+				bf.setUserId(null);
+			}
+			dc = (DataControl) bf.getPopupUser();
+			dc.forceRefresh();
 
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-        
-    }
+			repository.getStackProvider().get().savePoint();
 
-    @SuppressWarnings("rawtypes")
-    public void createUserPopup() {
-        try {
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
+	}
 
-            dc.getCommandStack().savePoint();
-            dc.islolate();
+	@SuppressWarnings("rawtypes")
+	public void createUserPopup() {
+		try {
 
-            dc.createObject();
+			DataControl dc  =  (DataControl) bf.getPopupUser();
 
-    		ClearForm cmd = new ClearForm();
+			repository.getStackProvider().get().savePoint();
+			
+			dc.createObject();
+
+			ClearForm cmd = new ClearForm();
 			cmd.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 			responseState.addCommand(cmd);
-            
+
 			OpenPopup cmd1 = new OpenPopup();
 			cmd1.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 			responseState.addCommand(cmd1);
 
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
+	}
 
-    }
-    
-    @SuppressWarnings("rawtypes")
-    public void applyUserChanges() {
-        DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
-        try {
-            dc.flush();
+	public void applyUserChanges() {
+		try {
+			HidePopup cmd = new HidePopup();
+			cmd.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 
-            HidePopup cmd = new HidePopup();
+			bf.setUserGridUpdated(true);
+
+			responseState.addCommand(cmd);
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
+	public void rallbackUserChanges() {
+
+		try {
+			repository.getStackProvider().get().rallbackSavePoint();
+			HidePopup cmd = new HidePopup();
 			cmd.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
 
 			responseState.addCommand(cmd);
-            
-        } catch (TuraException e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-    }
 
-    @SuppressWarnings("rawtypes")
-    public void rallbackUserChanges() {
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 
-        try {
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
-            dc.getCommandStack().rallbackSavePoint();
+	}
 
-            HidePopup cmd = new HidePopup();
-			cmd.setTarget("7488ec14-1cff-4352-98de-0612597e7ccc");
+	public void applyRolesModification() {
 
-			responseState.addCommand(cmd);
-        	
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-
-    }
-
-    
-    public void applyRolesModification() {
-    	
-        HidePopup cmd = new HidePopup();
+		HidePopup cmd = new HidePopup();
 		cmd.setTarget("c31bf961-55f2-4daf-80be-a5cb69b0abee");
 		responseState.addCommand(cmd);
-    	
-    }
 
-    @SuppressWarnings("rawtypes")
-    public void rallbackRolessModification() {
-        try {
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.roleReference}");
-            dc.getCommandStack().rallbackSavePoint();
+	}
 
-	        HidePopup cmd = new HidePopup();
+	public void rallbackRolessModification() {
+		try {
+			repository.getStackProvider().get().rallbackSavePoint();
+
+			HidePopup cmd = new HidePopup();
 			cmd.setTarget("c31bf961-55f2-4daf-80be-a5cb69b0abee");
 			responseState.addCommand(cmd);
-            
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
 
-    }
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 
-    
-    
-    @SuppressWarnings("rawtypes")
-    public void deleteUser() {
-        try {
-        	
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void deleteUser() {
+		try {
+
 			EventParameter param = event.findParameter("rowkey");
 			String username = (String) param.getValue();
-        	
 
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupUser}");
-            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            bf.setUserId(username);
-            dc.forceRefresh();
-            dc.removeObject();
+			DataControl dc = (DataControl) bf.getPopupUser();
+			bf.setUserId(username);
+			dc.forceRefresh();
+			dc.removeObject();
 
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-    }
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
 
-    
-    @SuppressWarnings("rawtypes")
-    public void openRoleSelectorPopup() {
-        try {
+	@SuppressWarnings("rawtypes")
+	public void openRoleSelectorPopup() {
+		try {
 
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.roleSelector}");
-            dc.forceRefresh();
+			DataControl dc = (DataControl) bf.getRoleSelector();
+			dc.forceRefresh();
 
-            dc.getCommandStack().savePoint();
-            
+			repository.getStackProvider().get().savePoint();
+
 			OpenPopup cmd = new OpenPopup();
 			cmd.setTarget("c31bf961-55f2-4daf-80be-a5cb69b0abee");
 			responseState.addCommand(cmd);
-            
 
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-    }
-    
-    @SuppressWarnings("rawtypes")
-    public void deleteRoleRef() {
-        try {
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void deleteRoleRef() {
+		try {
 			EventParameter param = event.findParameter("rowkey");
 			String rolename = (String) param.getValue();
-        	
-            IBeanFactory bfHelper = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            DataControl dcHelper = (DataControl) bfHelper.getUserHelper();
-            DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.user}");
-            User user = (User) dc.getCurrentObject();
 
-            dcHelper.getDefaultSearchCriteria().clear();
+			User user = (User) bf.getUser().getCurrentObject();
 
-            SearchCriteria sc = new SearchCriteria();
-            sc.setName("username");
-            sc.setComparator(Operator.EQ.name());
-            sc.setValue(user.getUsername());
-            dcHelper.getDefaultSearchCriteria().add(sc);
+			int i = 0;
+			boolean found = false;
+			for (RoleReference roleRef : user.getRoleReference()) {
+				if (roleRef.getRole().getName(). equals(rolename)) {
+					found = true;
+					break;
+				}
+				i++;
+			}
+			if (found) {
+				user.getRoleReference().remove(i);
+			}
+			DataControl dc =    (DataControl) bf.getRoleReference();
+			dc.forceRefresh();
+			
 
-            dcHelper.forceRefresh();
-
-            dcHelper.getCurrentObject();
-            DataControl roleRefHelper = (DataControl) bfHelper.getRoleReferenceHelper();
-            roleRefHelper.getCurrentObject();
-            int i = 0;
-            boolean found = false;
-            for ( Object o : roleRefHelper.getScroller()) {
-                RoleReference roleRef = (RoleReference) o;
-                if ( roleRef.getRole() != null &&  roleRef.getRole().getName().equals(rolename)) {
-                    found = true;
-                    break;
-                }
-                i++;
-            }
-            if (found) {
-                roleRefHelper.setCurrentPosition(i);
-                roleRefHelper.removeObject();
-            }
-            
-        } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
-        }
-    }
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+	}
 
 	@Override
 	public void setEvent(EventDescription event) {
 		this.event = event;
-		
+
 	}
 
-    
 }

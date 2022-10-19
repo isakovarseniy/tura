@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,18 +25,16 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.tura.example.ui.hrmanager.testform2.datacontrol.IBeanFactory;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.TreePath;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.hr.objects.serialization.ProxyRepository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.model.TreeModel;
 import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.platform.uuiclient.model.tree.TreeNode;
@@ -58,24 +56,15 @@ public class TestForm2Actions implements EventAware {
 	ViewModel viewModel;
 
 	@Inject
-	@Named("hrmanager.testform2")
-	CommandStack commandStack;
-
-	@Inject
-	Repository repository;
+	@ClientProxyRepo("hrmanager.testform2")
+	private CpaRepository repository;
 
 	@Inject
 	ResponseState responseState;
 
 	public void save() {
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
+			repository.getStackProvider().get().commit();
 
 			addInfomessage("DATA_PERSISTED");
 		} catch (Exception e) {
@@ -85,7 +74,7 @@ public class TestForm2Actions implements EventAware {
 
 	public void rallback() {
 		try {
-			commandStack.rallbackCommand();
+			repository.getStackProvider().get().rallbackCommand();
 			addInfomessage("DATA_ROLLEDBACK");
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -138,8 +127,8 @@ public class TestForm2Actions implements EventAware {
 				TreeDataControl tdc = (TreeDataControl) datacontrol;
 				TreePath[] path = node.getPath().toArray(new TreePath[node.getPath().size()] );
 				if ( tdc.setCurrentPosition(path)) {
-					Object obj = tdc.getCurrentObject();
-					tdc.removeObject();;
+					tdc.getCurrentObject();
+					tdc.removeObject();
 				}else {
 					throw new TuraException("Cannot set position for removing");
 				}

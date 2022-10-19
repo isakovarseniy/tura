@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,27 +27,32 @@ import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Association;
+import org.tura.platform.repository.core.annotation.Internal;
+import org.tura.platform.repository.core.navigation.NavigationRuleTypes;
 import org.tura.platform.repository.core.relatioin.ConnectObjectRule;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
+import org.tura.platform.repository.spa.SpaRepositoryData;
 
-public class RepositoryObjectInstaller extends RepositoryHelper {
+public class RepositoryObjectInstaller extends RepositoryHelper  {
 
 	private static final long serialVersionUID = 8975647016005674754L;
 	Map<String, Object> context = new HashMap<>();
 	static String ADDED_OBJECTS = "ADDED_OBJECTS";
+	private SpaRepositoryData spaRepositoryData;
 
 	
-	public RepositoryObjectInstaller(Registry registry){
+	public RepositoryObjectInstaller(Registry registry,SpaRepositoryData spaRepositoryData){
 		super(registry);
+		this.spaRepositoryData = spaRepositoryData;
 	}
 	
 	public void add(AddTopObjectData data) throws RepositoryException {
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject,null);
-			addObject(repositoryObject);
+			walker(repositoryObject,null,data.getParams(), findPk(repositoryObject));
+			addObject(repositoryObject,data.getParams());
 			processRules();
 
 		} catch (Exception e) {
@@ -59,16 +64,17 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject,null);
+			RepoKeyPath clonedPath = walkerPath(data.getMasterPk(), repositoryObject, data.getDetailProperty(), data.getMasterProperty());
+			walker(repositoryObject,data.getDetailProperty(),data.getParams(), clonedPath);
 
 			Annotation annotation = getMasterAnnotation(data.getMasterPk(), data.getMasterProperty());
 			if (annotation instanceof Association) {
 				RepoKeyPath detailPk = findPk(data.getObject());
-				addObject(repositoryObject);
-				connect(data.getMasterPk(), data.getMasterProperty(), detailPk, data.getDetailProperty());
+				addObject(repositoryObject, data.getParams());
+				connect(data.getMasterPk(), data.getMasterProperty(), detailPk, data.getDetailProperty(),data.getParams());
 			} else {
 				updateInternal(data.getMasterPk(), data.getMasterProperty(), repositoryObject,
-						data.getDetailProperty());
+						data.getDetailProperty(),data.getParams());
 			}
 
 			processRules();
@@ -80,26 +86,26 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 	public void add(AddObjectData data) throws RepositoryException {
 		try {
-			connect(data.getMasterPk(), data.getMasterProperty(), data.getDetailPk(), data.getDetailProperty());
+			connect(data.getMasterPk(), data.getMasterProperty(), data.getDetailPk(), data.getDetailProperty(),data.getParams());
 			processRules();
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
 	}
 
-	private void addObject(Object repositoryObject) throws Exception {
-		Repository pr = findProvider(repositoryObject.getClass().getName());
-		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName());
+	private void addObject(Object repositoryObject, Map<String,Object> params) throws Exception {
+		Repository pr = findProvider(repositoryObject.getClass().getName(),spaRepositoryData);
+		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName(),params,spaRepositoryData);
 		List<Object> commands = cmp.addObject(repositoryObject);
 		pr.applyChanges(commands);
 	}
 
-	private void walker(Object repositoryObject, String parentProperty) throws Exception {
+	private void walker(Object repositoryObject, String toParentProperty, Map<String,Object> params, RepoKeyPath currentPath) throws Exception {
 		Class<?> repositoryClass = repositoryObject.getClass();
 		List<Method> methods = getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
-			if (parentProperty != null){
-				String methodName= "get"+WordUtils.capitalize(parentProperty);
+			if (toParentProperty != null){
+				String methodName= "get"+WordUtils.capitalize(toParentProperty);
 				if (methodName.equals(m.getName())){
 					continue;
 				}
@@ -107,35 +113,55 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 			Association assosiaton = m.getAnnotation(Association.class);
 			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
 			if (children !=null && children.size() != 0 ){
-				if (assosiaton.containment()) {
+				Rule rule = findRule(NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), assosiaton, params);
+				if (rule.validate(assosiaton, params)) {
 					String property = assosiaton.property();
-					goDeeper(repositoryObject, children,property);
-					addChildren(children);
-					connect(m, repositoryObject, children);
+					String toMasterProperty =  WordUtils.uncapitalize( m.getName().substring(3));
+					goDeeper(repositoryObject, children,property, toMasterProperty ,params,currentPath);
+					addChildren(children,params);
+					connect(m, repositoryObject, children,params,currentPath);
 				} else {
-					connect(m, repositoryObject, children);
+					connect(m, repositoryObject, children,params,currentPath);
 				}
+			}
+		}
+		methods = getMethodsAnnotatedWith(repositoryClass, Internal.class);
+		for (Method m : methods) {
+			if (toParentProperty != null){
+				String methodName= "get"+WordUtils.capitalize(toParentProperty);
+				if (methodName.equals(m.getName())){
+					continue;
+				}
+			}
+			Internal assosiaton = m.getAnnotation(Internal.class);
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
+			List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+			if (children !=null && children.size() != 0 ){
+				String property = assosiaton.property();
+				String toMasterProperty =  WordUtils.uncapitalize( m.getName().substring(3));
+				goDeeper(repositoryObject, children,property, toMasterProperty ,params,currentPath);
 			}
 		}
 	}
 
-	private void addChildren(List<Object> children) throws Exception {
+	private void addChildren(List<Object> children, Map<String,Object> params) throws Exception {
 		for (Object obj : children) {
-			addObject(obj);
+			addObject(obj,params);
 		}
 	}
 
-	private void goDeeper(Object repositoryObject, List<Object> children, String parentProperty) throws Exception {
-		for (Object obj : children) {
-			walker(obj,parentProperty);
+	private void goDeeper(Object repositoryObject, List<Object> children, String toParentProperty, String toMasterProperty , Map<String,Object> params,RepoKeyPath masterPath) throws Exception {
+	for (Object obj : children) {
+		RepoKeyPath nKeyPath = walkerPath(masterPath, obj, toParentProperty,  toMasterProperty );
+		walker(obj,toParentProperty,params,nKeyPath);
 		}
 	}
 
-	private void updateInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty)
+	private void updateInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty, Map<String,Object> params)
 			throws Exception {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		Repository pr = findProvider(masterClassName);
-		CommandProducer cmp = findCommandProducer(masterClassName);
+		Repository pr = findProvider(masterClassName,spaRepositoryData);
+		CommandProducer cmp = findCommandProducer(masterClassName,params,spaRepositoryData);
 		List<Object> commands = cmp.addInternal(masterPk, masterProperty, detailObject, detailProperty);
 		pr.applyChanges(commands);
 	}
@@ -151,19 +177,19 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void connect(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty)
+	private void connect(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty, Map<String,Object> params)
 			throws Exception {
 
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		Repository masterProvider = findProvider(masterClassName);
-		CommandProducer cmpMaster = findCommandProducer(masterClassName);
+		Repository masterProvider = findProvider(masterClassName,spaRepositoryData);
+		CommandProducer cmpMaster = findCommandProducer(masterClassName,params,spaRepositoryData);
 		
 		List<Object> masterChanges = cmpMaster.connectMasterToDetail(masterPk, masterProperty, detailPk,
 				detailProperty);
 
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
-		Repository detailProvider = findProvider(detailClassName);
-		CommandProducer cmpDetail = findCommandProducer(detailClassName);
+		Repository detailProvider = findProvider(detailClassName,spaRepositoryData);
+		CommandProducer cmpDetail = findCommandProducer(detailClassName,params,spaRepositoryData);
 		List<Object> detailChanges = cmpDetail.connectDetailToMaster(masterPk, masterProperty, detailPk,
 				detailProperty);
 
@@ -189,13 +215,12 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 	}
 
-	private void connect(Method m, Object repositoryObject, List<Object> children) throws Exception {
-		RepoKeyPath masterPk = findPk(repositoryObject);
+	private void connect(Method m, Object repositoryObject, List<Object> children, Map<String,Object> params, RepoKeyPath masterPk) throws Exception {
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
 		for (Object obj : children) {
 			RepoKeyPath detailPk = findPk(obj);
 			connect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk,
-					processor.getDetailProperty(repositoryObject, obj));
+					processor.getDetailProperty(repositoryObject, obj),params);
 		}
 	}
 

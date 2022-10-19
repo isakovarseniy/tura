@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,18 +26,17 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public interface Repository extends Serializable{
 
-	public Object create(String objectClass) throws RepositoryException ;
+	public <T> T create(Class<T> objectClass) throws RepositoryException ;
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException ;
+	public <T> SearchResult<T>  find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, Class<T> objectClass) throws RepositoryException ;
 
-	public Object find(Object pk, String objectClass) throws RepositoryException ;
+	public <T> T find(Object pk, Class<T> objectClass) throws RepositoryException ;
 
-	public void insert( Object obj , String objectClass) throws RepositoryException;
+	public <T> void insert( Object obj , Class<T> objectClass) throws RepositoryException;
 	
-	public void remove( Object obj , String objectClass) throws RepositoryException;
+	public <T> void remove( Object obj , Class<T> objectClass) throws RepositoryException;
 	
-    @SuppressWarnings("rawtypes")
-	public List applyChanges(List changes) throws RepositoryException;
+	public List<Object> applyChanges(List<Object> changes) throws RepositoryException;
 	
 }

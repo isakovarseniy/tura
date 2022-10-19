@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.ProxyFactory;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
@@ -54,11 +56,10 @@ public class FileSearchServiceTest {
 		registry = new Registry();
 		spaRegistry = new SpaObjectRegistry();
 		
-		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry, new LocalRepositoryDataProducer());
+		InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
-		
 		
 		new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/").mkdirs();
 		FileUtils.touch(new File(System.getProperty("user.home") + "/.tura/resources/sa/jobs/MonthlyData_2017-02-01.csv"));
@@ -86,7 +87,7 @@ public class FileSearchServiceTest {
 	public void search_test0() {
 		try {
 			FileSearchService service = new FileSearchService(System.getProperty("user.home") + "/.tura/resources/sa/jobs", spaRegistry, "spa-persistence-repository", registry);
-			FileEntity entry = (FileEntity) service.find("MonthlyData_2017-08-01.csv", FileEntity.class.getName());
+			FileEntity entry = (FileEntity) service.find("MonthlyData_2017-08-01.csv", FileEntity.class);
 			assertNotNull(entry);
 
 		} catch (Exception e) {
@@ -108,8 +109,8 @@ public class FileSearchServiceTest {
 			sc.setValue("**/MonthlyData_2017-11-01*.csv");
 			array.add(sc);
 
-			SearchResult result = service.find(array, new ArrayList<OrderCriteria>(), 0, 100,
-					FileEntity.class.getName());
+			SearchResult<FileEntity> result = service.find(array, new ArrayList<OrderCriteria>(), 0, 100,
+					FileEntity.class);
 			assertTrue ( result.getSearchResult().size() >= 1);
 
 		} catch (Exception e) {
@@ -150,14 +151,12 @@ public class FileSearchServiceTest {
 		@Override
 		public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject)
 				throws RepositoryException {
-			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
 		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
 				throws RepositoryException {
-			// TODO Auto-generated method stub
 			
 		}
 
@@ -174,6 +173,16 @@ public class FileSearchServiceTest {
 		@Override
 		public void setProxyFactory(ProxyFactory proxyFactory) {
 			
+		}
+
+		@Override
+		public RepoKeyPath getPath(Object object) throws Exception {
+			return null;
+		}
+
+		@Override
+		public RepoObjectKey getRepoObjectKey(Object object) throws Exception {
+			return null;
 		}
 
 	}

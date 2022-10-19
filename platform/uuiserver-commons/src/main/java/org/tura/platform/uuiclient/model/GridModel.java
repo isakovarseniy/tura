@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,20 +29,22 @@ import java.util.logging.Logger;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
+import org.tura.platform.datacontrol.event.RowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
-import org.tura.platform.repository.core.FieldValue;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
 
-import com.octo.java.sql.exp.Operator;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GridModel implements AbstractGridModel, Serializable {
 	private static final long serialVersionUID = -1772274126836681014L;
@@ -271,43 +273,30 @@ public class GridModel implements AbstractGridModel, Serializable {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	public RepoKeyPath findPath(Map<String, Object> map) throws Exception{
+		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
+		String json = (String) map.get("path");
+		return mapper.readValue(json, new TypeReference<RepoKeyPath>() {});
+	}
+
 	public Object decodeSingleSelection(Map<String, Object> obj) {
 		if (obj == null) {
 			return null;
 		}
 		try {
-			String key = (String) obj.get("key");
-			Integer index =  (Integer) obj.get("index");
-			
-			List<SearchCriteria> search = buildSearchCriteria(dc.getPrimaryKeyFields(), obj);
-			ObjectControl oc = (ObjectControl) dc.findObject(search, key,index);
-			if (oc != null ) {
+			RepoKeyPath key = findPath(obj);
+			Integer index = (Integer) obj.get("index");
+
+			ObjectControl oc = (ObjectControl) dc.findObject(key);
+			if (oc != null) {
 				oc.setViewModelId1(index);
 			}
 			return oc;
-			
+
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 			return null;
 		}
-	}
-
-	private List<SearchCriteria> buildSearchCriteria(List<FieldValue> primaryKeyFields, Map<String, Object> obj) {
-
-		ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
-		if (primaryKeyFields != null) {
-			for (FieldValue field : primaryKeyFields) {
-				SearchCriteria sc = new SearchCriteria();
-				sc.setComparator(Operator.EQ.name());
-				sc.setName(field.getName());
-				sc.setClassName(field.getType());
-				sc.setValue(obj.get(field.getName()));
-
-				search.add(sc);
-			}
-		}
-		return search;
 	}
 
 	private List<Object> decodeMultiSelection(List<Map<String, Object>> array) {
@@ -355,8 +344,9 @@ public class GridModel implements AbstractGridModel, Serializable {
 						obj = (ObjectControl) getSelected();
 						obj.setViewModelId1(index);
 					}
+				}else {
+					setSelected(null);
 				}
-
 			}
 
 			if (event instanceof MasterRowChangedEvent) {
@@ -367,6 +357,15 @@ public class GridModel implements AbstractGridModel, Serializable {
 				}
 				setSelected(obj);
 			}
+			if (event instanceof RowChangedEvent) {
+				ObjectControl obj = (ObjectControl) event.getSource().getCurrentObject();
+				if (obj != null) {
+					int index = (int) event.getSource().getCurrentPosition();
+					obj.setViewModelId1(index);
+				}
+				setSelected(obj);
+			}
+			
 			if (event instanceof RowCreatedEvent) {
 				ObjectControl obj = (ObjectControl) event.getSource().getCurrentObject();
 				if (obj != null) {

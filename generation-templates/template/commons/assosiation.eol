@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -336,31 +336,86 @@ operation type::Assosiation merge(hash){
     var source = self.source;
     var isRef = false;
     
+    var assosiations  = null;
     if (source.isKindOf(type::TypeReference )){
          source = source.typeRef;
          isRef = true;
+		 assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = source.uid);
     }
     var target = self.target;
      if (target.isKindOf(type::TypeReference )){
          target = target.typeRef;
          isRef = true;
+	     assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = target.uid);
      }
      if (isRef){
-	     var obj = hash.get(source.uid+"  +  "+target.uid );
-	     if ( obj == null){
-	        obj = hash.get(target.uid+"  +  "+source.uid );
-	     }
-	     if ( obj == null){
-	        hash.put(source.uid+"  +  "+target.uid , self.uid);
-	        hash.put(target.uid+"  +  "+source.uid , self.uid );
-	     }
-	     return obj;
+        var obj = null;
+        var  mergedAssosiations = null;
+        for (rel in assosiations){
+            var result = true;
+            for ( lnk in rel.links){
+              var slink = self.links->select(t| t.masterField.uid  =  lnk.masterField.uid and  t.detailField.uid = lnk.detailField.uid );
+              if  (slink.size() == 0){
+                  result =  false;
+                  break;
+              }
+            }
+            if (result){
+              mergedAssosiations =  rel;
+              break;
+            }
+        }
+        if (mergedAssosiations  <> null){
+	        var  r1 = mergedAssosiations.uid.hashCode();
+	        var  r2  = self.uid.hashCode();
+	        
+	        if (r1 > r2){
+	            obj  = mergedAssosiations.uid;
+	        }else{
+	            obj  = self.uid;
+	        }
+        }
+	    return obj;
      }else{
         return null;
      }
-     
-    
-    
+}
 
+operation type::Assosiation internalType(){
+      if (self.isInternal()){
+         return "Internal";
+      }
+      return "";
+}
+
+operation type::Assosiation accessorType(lazy){
+      if (lazy){
+         return "Lazy";
+      }
+      return "Eager";
+}
+
+
+operation type::Assosiation accessorType(){
+      if (self.isLazy()){
+         return "Lazy";
+      }
+      return "Eager";
+}
+
+operation type::Assosiation isLazy(){
+     if ( self.lazy and not self.internal ){
+        return true;
+     }else{
+        return false;
+     }
+}
+
+operation type::Assosiation isInternal(){
+     if ( self.internal ){
+        return true;
+     }else{
+        return false;
+     }
 }
 

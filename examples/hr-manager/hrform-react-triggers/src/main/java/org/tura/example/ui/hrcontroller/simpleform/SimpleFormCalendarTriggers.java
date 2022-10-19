@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,10 +34,8 @@ import org.tura.platform.uuiclient.model.FullCalendarTriggers;
 public class SimpleFormCalendarTriggers implements FullCalendarTriggers , Serializable{
 
 	private static final long serialVersionUID = -8471313564395077931L;
-	private ELResolver elResolver;
 	
 	public SimpleFormCalendarTriggers(ELResolver elResolver){
-		this.elResolver = elResolver;
 	}
 	
 	

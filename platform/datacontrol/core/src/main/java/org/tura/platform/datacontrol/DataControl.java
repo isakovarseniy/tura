@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.commons.lang.StringUtils;
-import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
@@ -35,36 +32,28 @@ import org.tura.platform.datacontrol.event.RowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
-import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.datacontrol.shift.ShiftControl;
-import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.operation.AddLinkOperation;
+import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 
-
-public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {
+public abstract class DataControl<T> extends MetaInfoHolder<T> implements IDataControl {
 
 	private static final long serialVersionUID = 5969220022228857404L;
 	private String id = UUID.randomUUID().toString();
-	private Object stateObject;
 
-	protected boolean blocked = false;
 	private TreeDataControl treeDataControl;
 
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
 
 	protected List<SearchCriteria> searchCriteria;
 	protected List<OrderCriteria> orderCriteria;
+	protected CpaStorageProvider cpaStorageProvider;
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
+	private boolean isoleted;
 
-	private Scroller<T> scroller;
-
-	protected Object comandResultHolder;
-
-	protected CommandStack commandStack;
-
+	protected Object commandResultHolder;
 
 	public void addEventLiteners(EventListener listener) {
 		eventLiteners.add(listener);
@@ -77,34 +66,23 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
 
-	public void handleChangeMusterCurrentRecordNotification(
-			Object newCurrentObject) throws TuraException {
-		if (newCurrentObject == null) {
-			blocked = true;
-			pager.cleanPager();
-			notifyLiteners(new MasterRowChangedEvent(this, null));
-			notifyChageRecordAll(null);
-			return;
-		}
-
-		blocked = false;
+	@SuppressWarnings("unchecked")
+	public void handleChangeMusterCurrentRecordNotification(Object newMastertObject) throws TuraException {
 		pager.cleanPager();
 		currentPosition = 0;
+		Object  newCurrentObject  = pager.getObject(currentPosition);
 		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
-		notifyChageRecordAll(pager.getObject(currentPosition));
+		notifyChageRecordAll((T) newCurrentObject);
 	}
 
-	protected void notifyChageRecordAll(T newCurrentObject)
-			throws TuraException {
+	protected void notifyChageRecordAll(T newCurrentObject) throws TuraException {
 		notifyChildrenDataControlsChangeCurrentRecord(newCurrentObject);
 		notifyDependencyListeners(newCurrentObject);
 	}
 
-	private void notifyDependencyListeners(Object newCurrentObject)
-			throws TuraException {
+	private void notifyDependencyListeners(Object newCurrentObject) throws TuraException {
 		for (DependecyProperty dep : dependency) {
-			ChangeRecordListener listener = (ChangeRecordListener) getElResolver()
-					.getValue(dep.getExpression());
+			ChangeRecordListener listener = (ChangeRecordListener) getElResolver().getValue(dep.getExpression());
 			listener.handleChangeRecord(this, newCurrentObject);
 		}
 	}
@@ -116,13 +94,20 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		}
 	}
 
-	private void notifyChildrenDataControlsChangeCurrentRecord(
-			T newCurrentObject) throws TuraException {
+	private void notifyChildrenDataControlsChangeCurrentRecord(T newCurrentObject) throws TuraException {
+		boolean isChildrenUpdated = false;
 		for (Relation relation : children.values()) {
-			relation.setMasterCurrentObject(newCurrentObject);
-			if (relation.getChild() != null)
-				((IDataControl) relation.getChild())
-						.handleChangeMusterCurrentRecordNotification(newCurrentObject);
+			boolean isNew = Helper.isNewObject(newCurrentObject, relation.getMasterCurrentObject());
+			if (isNew) {
+				isChildrenUpdated = true;
+				relation.setMasterCurrentObject(newCurrentObject);
+				if (relation.getChild() != null) {
+					((IDataControl) relation.getChild()).handleChangeMusterCurrentRecordNotification(newCurrentObject);
+				}
+			}
+		}
+		if  ( !isChildrenUpdated && treeDataControl !=  null  &&  treeDataControl.getScanerSection() == 0) {
+			treeDataControl.lastControlUpdate();
 		}
 	}
 
@@ -131,26 +116,31 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public T getCurrentObject() throws TuraException {
-		if (blocked)
-			return null;
-
-		T t =  pager.getObject(currentPosition);
-		if ( t == null && autoCreateObjectRule != null) {
+		T t = null;
+		long beforeSize = pager.size();
+		long afterSize = beforeSize;
+		if (currentPosition < beforeSize) {
+			t = pager.getObject(currentPosition);
+			afterSize = pager.size();
+			if ( currentPosition >= afterSize && afterSize > 0) {
+				currentPosition = (int) (afterSize-1);
+				t = pager.getObject(currentPosition);
+			}
+		}
+		if (t == null && autoCreateObjectRule != null &&  currentPosition ==  0) {
 			if (autoCreateObjectRule.execute(this)) {
 				return createObject();
 			}
+		}
+		if (beforeSize != afterSize) {
+			notifyLiteners(new RowChangedEvent(this));
+			notifyChageRecordAll(t);
 		}
 		return t;
 	}
 
 	public boolean hasNext() throws TuraException {
-		if (blocked)
-			return false;
-
-		if (pager.listSize() == -1)
-			pager.queryDS(0, pager.getLoadStep());
-
-		if (currentPosition + 1 < pager.actualListSize())
+		if (currentPosition + 1 < pager.size())
 			return true;
 		else
 			return false;
@@ -158,13 +148,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public void nextObject() throws TuraException {
-		if (blocked)
-			return;
 
-		if (pager.listSize() == -1)
-			pager.queryDS(0, pager.getLoadStep());
-
-		if (currentPosition + 1 < pager.actualListSize()) {
+		if (currentPosition + 1 < pager.size()) {
 			currentPosition++;
 			T newRecord = pager.getObject(currentPosition);
 			notifyLiteners(new RowChangedEvent(this));
@@ -173,9 +158,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public boolean hasPrev() {
-		if (blocked)
-			return false;
-
 		if (currentPosition > 0)
 			return true;
 		else
@@ -184,9 +166,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public void prevObject() throws TuraException {
-		if (blocked)
-			return;
-
 		if (currentPosition > 0) {
 			currentPosition--;
 			T newRecord = pager.getObject(currentPosition);
@@ -196,9 +175,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public void removeObject() throws Exception {
-		if (blocked)
-			return;
-
 		for (String relName : getRelationsName()) {
 			Relation rel = this.getChild(relName);
 
@@ -206,77 +182,40 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 				createChild(relName);
 			}
 
-			if ((rel.isCascade()) && (rel.getChild() != null)
-					&& (rel.getChild().getCurrentObject() != null))
+			if ((rel.isCascade()) && (rel.getChild() != null) && (rel.getChild().getCurrentObject() != null))
 				rel.getChild().removeAll();
 		}
-		RowRemovedEvent event = new RowRemovedEvent(this,
-				pager.getObject(currentPosition));
+		RowRemovedEvent event = new RowRemovedEvent(this, pager.getObject(currentPosition));
 		this.pager.remove(currentPosition);
-		if (currentPosition == pager.actualListSize() && currentPosition != 0)
+		if (currentPosition == pager.size() && currentPosition != 0)
 			currentPosition--;
 
 		notifyLiteners(event);
 		notifyChageRecordAll(getCurrentObject());
 	}
 
-
 	public void removeAll() throws Exception {
-		if (blocked)
-			return;
-
 		T obj = null;
 		do {
 			obj = getCurrentObject();
-			if (obj != null)
+			if (obj != null) {
 				removeObject();
+			}
 		} while (obj != null);
 	}
 
 	public T createObject() throws TuraException {
-		if (blocked)
-			return null;
-
-		// Refresh tree
+		// Bring all new object in datacontrol
 		pager.getObject(currentPosition);
 
 		// Create a new object
-		T obj = pager.createObject(currentPosition);
+		pager.createObject(currentPosition);
+
+		// Bring created object in datacontrol
+		T obj = pager.getObject(currentPosition);
 
 		try {
-			if (obj != null ) {
-				if (getParent() != null){
-					
-					List<SearchCriteria> ls = getParent().getChildSearchCriteria();
-					ObjectControl cnt = (ObjectControl) obj;
-					Object wobj = cnt.getWrappedObject();
-
-					Relation rel = getParent();
-					AddLinkOperation lo = new AddLinkOperation();
-					for( PropertyLink lnk : rel.getLinks()) {
-						lo.addLink(lnk.getParent(), lnk.getChild());
-					}
-					lo.setMaster((ObjectControl) rel.getMasterCurrentObject());
-					lo.setDetail(cnt);
-					cnt.setLinkOperation(lo);
-					
-					for (SearchCriteria sc : ls ) {
-
-						String name = sc.getName();
-						String className = sc.getClassName();
-						Object value = sc.getValue();
-						if (!value.equals(Constants.UNDEFINED_PARAMETER)) {
-
-							String method = "set"
-									+ StringUtils.capitalize(name);
-
-							Reflection.callTyped(wobj, method,
-									Class.forName(className), value);
-						}
-					}
-					
-					
-				}	
+			if (obj != null) {
 				notifyLiteners(new RowCreatedEvent(this, getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());
 			}
@@ -287,21 +226,18 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public Integer getCurrentPosition() {
-		if (blocked)
-			return -1;
-
 		return currentPosition;
 	}
 
 	@Override
 	public boolean setCurrentPosition(Object crtPosition) throws TuraException {
-		if (blocked)
+		Object obj = null;
+		try {
+			obj = pager.getObject((int) crtPosition);
+		} catch (Exception IndexOutOfBoundsException) {
 			return false;
+		}
 
-		if (pager.listSize() == -1)
-			pager.queryDS(0, pager.getLoadStep());
-
-		Object obj = pager.getObject((int) crtPosition);
 		if (obj != null) {
 			this.currentPosition = (int) crtPosition;
 			notifyLiteners(new RowChangedEvent(this));
@@ -309,15 +245,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 			return true;
 		} else
 			return false;
-
-	}
-
-	public CommandStack getCommandStack() {
-		return commandStack;
-	}
-
-	public void setCommandStack(CommandStack commandStack) {
-		this.commandStack = commandStack;
 	}
 
 	public void setPageSize(int page) {
@@ -332,21 +259,16 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		return pager.getEndIndex();
 	}
 
-	public void cleanShifter() throws TuraException {
-		pager.cleanShifter();
-	}
-
-	public ShiftControl getShifter() throws TuraException {
-		return pager.getShifter();
-
-	}
-
 	public String getId() {
 		return id;
 	}
 
-	public boolean isBlocked() {
-		return blocked;
+	public boolean isIsoleted() {
+		return isoleted;
+	}
+
+	public void setIsoleted(boolean isoleted) {
+		this.isoleted = isoleted;
 	}
 
 	public TreeDataControl getTreeContext() {
@@ -359,75 +281,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		this.addEventLiteners(treeDataControl);
 	}
 
-	public List<T> getScroller() {
-		if (scroller == null){
-			scroller = new Scroller<T>(pager);
-		}
-		return scroller;
-	}
-
-	
-	public void islolate( ){
-		pager.isolate();
-	}
-	
-	public boolean isIsolated(){
-		return pager.isIsolateed();
-	}	
-	
-	public void flush() throws TuraException {
-
-		for (IDataControl dc : commandStack.getPoolFlushAware()) {
-			  dc.saveState();
-		}
-
-		pager.flush();
-
-        //Awoid java.util.ConcurrentModificationException 
-		List<IDataControl> pool = new ArrayList<>();
-		pool.addAll(commandStack.getPoolFlushAware());
-		for (IDataControl dc : pool) {
-			if (dc.getParent() == null && !(dc instanceof ChangeRecordListener) && dc.getTreeContext() == null)
-				dc.onPoolUpdate();
-		}
-	}
-	
-	public void saveState()  throws TuraException {
-		stateObject = getCurrentObject();
-	}
-
-	
-	public void onPoolUpdate() throws TuraException {
-		T newObject = getCurrentObject();
-		String newObjectKey = null;
-		String stateObjectKey = null;
-		
-		if (newObject != null )
-		   newObjectKey = ((ObjectControl) newObject).getKey();
-		if (stateObject != null )
-		   stateObjectKey = ((ObjectControl) stateObject).getKey();
-
-		if (((newObject == null) && (stateObject != null))
-				|| ((newObject != null) && (stateObject == null))
-				|| ( (newObjectKey != null) && (stateObjectKey != null) &&  !(newObjectKey.equals(stateObjectKey)))  ) {
-
-			notifyLiteners(new RowChangedEvent(this));
-			notifyChageRecordAll(newObject);
-
-		} else {
-			for (Relation relation : children.values()) {
-				if (relation.getChild() != null)
-					((IDataControl) relation.getChild()).onPoolUpdate();
-			}
-
-			for (DependecyProperty dep : dependency) {
-				Object o = getElResolver().getValue(dep.getExpression());
-				if ( o instanceof IDataControl)
-					((IDataControl)o).onPoolUpdate();
-			}
-
-		}
-
+	public List<T> getScroller() throws TuraException {
+		return pager.getScroller();
 	}
 
 	public List<SearchCriteria> getSearchCriteria() {
@@ -454,16 +309,17 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		return this.pager;
 	}
 
-	
-    @Override
-	public Object findObject(List<SearchCriteria> search, Object key ) throws TuraException {
-		return pager.findObject(search, key,null);
+	public CpaStorageProvider getCpaStorageProvider() {
+		return cpaStorageProvider;
 	}
 
-    @Override
-	public Object findObject(List<SearchCriteria> search, Object key, Integer index ) throws TuraException {
-		return pager.findObject(search, key,index);
+	public void setCpaStorageProvider(CpaStorageProvider cpaStorageProvider) {
+		this.cpaStorageProvider = cpaStorageProvider;
 	}
 
-	
+	@Override
+	public Object findObject(RepoKeyPath key) throws TuraException {
+		return pager.findObject(key);
+	}
+
 }

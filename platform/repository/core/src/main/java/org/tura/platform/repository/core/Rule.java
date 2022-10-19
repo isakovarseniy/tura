@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,5 +19,15 @@
 package org.tura.platform.repository.core;
 
 public interface Rule {
+      
+  	  public  boolean guard( String ruleType,  Object ...args) throws Exception;
+
+  	  public  boolean check(  String ruleType, Object ...args) throws Exception;
+
+  	  public  boolean validate(  Object ...args) throws Exception;
+  	  
       public void execute() throws Exception;
+
+      public boolean isDefault() throws Exception;;
+      
 }

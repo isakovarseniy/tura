@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -212,7 +212,7 @@ public class TreeMultiSelectTest extends AbstractTest {
 			public void action() {
 				 tree.getRow("1_1");
 			}
-		}.repeat(10);
+		}.repeat(20);
 
 		tr = (TreeRow) tree.getRow("1");
 		String text = tr.getCell(0).findElement(By.cssSelector("div[class*='p-treenode-content']")).getText();

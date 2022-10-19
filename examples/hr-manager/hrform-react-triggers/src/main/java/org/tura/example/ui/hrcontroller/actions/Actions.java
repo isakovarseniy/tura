@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,18 +25,15 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.objects.serialization.Company;
-import org.tura.platform.hr.objects.serialization.ProxyRepository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
 import org.tura.platform.uuiclient.rest.client.commands.HidePopup;
@@ -45,7 +42,7 @@ import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
 import org.tura.platform.uuiclient.rest.client.commands.UpdateMessage;
 import org.tura.platform.uuiclient.rest.events.EventAware;
 
-public class Actions  implements EventAware {
+public class Actions implements EventAware {
 	EventDescription event;
 
 	private transient Logger logger = Logger.getLogger(Actions.class.getName());
@@ -54,40 +51,35 @@ public class Actions  implements EventAware {
 	ELResolver elResolver;
 
 	@Inject
-	@Named("hrmanager.hrcontroller")
-	CommandStack commandStack;
-
+	@ClientProxyRepo("hrmanager.hrcontroller")
+	private CpaRepository repository;
+	
 	@Inject
-	Repository repository;
+	@Named("beanFactoryHrManagerHRController")
+	private  IBeanFactory bf;
 
 	@Inject
 	ResponseState responseState;
 
-
-	
 	@SuppressWarnings("rawtypes")
 	public void openCompanyDetailsPopup() {
 		try {
 			EventParameter param = event.findParameter("rowkey");
 			String key = (String) param.getValue();
-			String id = key.substring(0,key.indexOf("org.tura.platform.hr.objects.serialization.Company"));
-			Long cmpId =  Long.parseLong (id);
-			
-			DataControl dc = (DataControl) elResolver
-					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
+			String id = key.substring(0, key.indexOf("org.tura.platform.hr.objects.serialization.Company"));
+			Long cmpId = Long.parseLong(id);
 
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+			DataControl dc = (DataControl) bf.getPopupCompanyDCProvider();
+			
 			bf.setCmpId(cmpId);
 			dc.forceRefresh();
 
-			dc.getCommandStack().savePoint();
+			repository.getStackProvider().get().savePoint();
 
 			OpenPopup cmd = new OpenPopup();
 			cmd.setTarget("a6e67023-511b-4630-8a98-6de2246eaea0");
 			responseState.addCommand(cmd);
 
-			
-			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -97,13 +89,9 @@ public class Actions  implements EventAware {
 	public void createCompanyPopup() {
 		try {
 
-			DataControl dc = (DataControl) elResolver
-					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
+			DataControl dc = (DataControl) bf.getPopupCompanyDCProvider();
 
-			dc.getCommandStack().savePoint();
-			dc.islolate();
-
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
+			repository.getStackProvider().get().savePoint();
 
 			Company cmp = (Company) dc.createObject();
 
@@ -121,14 +109,8 @@ public class Actions  implements EventAware {
 
 	public void saveApplication() {
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
+			repository.getStackProvider().get().commit();
 
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
-			
 			addInfomessage("DATA_PERSISTED");
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
@@ -137,7 +119,7 @@ public class Actions  implements EventAware {
 
 	public void rallbackApplication() {
 		try {
-			commandStack.rallbackCommand();
+			repository.getStackProvider().get().rallbackCommand();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -159,50 +141,32 @@ public class Actions  implements EventAware {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void applyChanges() {
-		DataControl dc = (DataControl) elResolver
-				.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
-		try {
-			dc.flush();
-			
-			HidePopup cmd = new HidePopup();
-			cmd.setTarget("a6e67023-511b-4630-8a98-6de2246eaea0");
+		HidePopup cmd = new HidePopup();
+		cmd.setTarget("a6e67023-511b-4630-8a98-6de2246eaea0");
 
-			responseState.addCommand(cmd);
+		responseState.addCommand(cmd);
 
-			
-		} catch (TuraException e) {
-			logger.log(Level.INFO, e.getMessage(), e);
-		}
-		
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void rallbackChanges() {
 
 		try {
-			DataControl dc = (DataControl) elResolver
-					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
-			dc.getCommandStack().rallbackSavePoint();
-
+			repository.getStackProvider().get().rallbackSavePoint();
 			HidePopup cmd = new HidePopup();
 			cmd.setTarget("a6e67023-511b-4630-8a98-6de2246eaea0");
 
 			responseState.addCommand(cmd);
-
-			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
 	}
 
-
 	@SuppressWarnings("rawtypes")
 	public boolean empDetailsEnable() {
 		try {
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryHrManagerHRController.employee}");
+			DataControl dc = (DataControl) bf.getEmployee();
 
 			dc.getCurrentObject();
 			if (dc.getScroller().size() != 0)
@@ -218,10 +182,9 @@ public class Actions  implements EventAware {
 	@Override
 	public void setEvent(EventDescription event) {
 		this.event = event;
-		
+
 	}
-	
-	
+
 	private void addInfomessage(String key) {
 		UpdateMessage cmd = new UpdateMessage();
 		cmd.setTarget(IBeanFactory.MESSAGES.replaceAll("tura", "").replaceAll("_", "\\-"));
@@ -241,8 +204,7 @@ public class Actions  implements EventAware {
 		responseState.addCommand(cmd);
 	}
 
-	
 	public void nop() {
-		
+
 	}
 }

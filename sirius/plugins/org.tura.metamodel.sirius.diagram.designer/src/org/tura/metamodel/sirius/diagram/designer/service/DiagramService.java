@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -819,21 +819,21 @@ public class DiagramService {
 		if (assosiation.isInternal() ){
 			return false;
 		}
-		return Containment.SOURCE.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
+		return Containment.SOURCE.equals(assosiation.getContainment())&checkIfLazyAssosiation(assosiation);  
 	}
 
 	public boolean checkIfTargetContainment(Assosiation assosiation){
 		if (assosiation.isInternal() ){
 			return false;
 		}
-		return Containment.TARGET.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
+		return Containment.TARGET.equals(assosiation.getContainment())&checkIfLazyAssosiation(assosiation);  
 	}
 	
 	public boolean checkIfNONContainment(Assosiation assosiation){
 		if (assosiation.isInternal() ){
 			return false;
 		}
-		return Containment.NON.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
+		return Containment.NON.equals(assosiation.getContainment())&checkIfLazyAssosiation(assosiation);  
 	}
 	
 	
@@ -859,9 +859,31 @@ public class DiagramService {
 	}	
 	
 
+	public boolean checkIfSourcetContainmentLazy(Assosiation assosiation){
+		return Containment.SOURCE.equals(assosiation.getContainment())&!checkIfLazyAssosiation(assosiation);  
+	}
+
+	public boolean checkIfTargetContainmentLazy(Assosiation assosiation){
+		return Containment.TARGET.equals(assosiation.getContainment())&!checkIfLazyAssosiation(assosiation);  
+	}
+	
+	public boolean checkIfNONContainmentLazy(Assosiation assosiation){
+		return Containment.NON.equals(assosiation.getContainment())&!checkIfLazyAssosiation(assosiation);  
+	}	
+
+	
+	
 	public boolean checkIfInternalAssosiation(Assosiation assosiation){
 		return assosiation.isInternal();  
 	}	
+	
+	public boolean checkIfLazyAssosiation(Assosiation assosiation){
+		if (  !assosiation.isInternal()) {
+			return assosiation.isLazy();
+		}
+		return false;
+	}	
+
 	
 	
    public List<OmRelation> getOmRelation(ObjectMapperGroup group) {

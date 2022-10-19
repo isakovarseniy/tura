@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,50 +23,60 @@ import java.util.Map;
 
 import org.tura.platform.repository.operation.AddLinkOperation;
 import org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider;
-import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
 
-public interface ObjectControl extends Serializable{
-	
+public interface ObjectControl extends Serializable {
+
 	Boolean getAttached();
 
 	void setAttached(Boolean attached);
 
-	Object getWrappedObject();
-	
 	String getKey();
-	
-    RepoObjectKey getPrimaryKey() throws Exception;
 
-    RepoKeyPath getPath() throws Exception;
+	RepoObjectKey getPrimaryKey() throws Exception;
 
-	Map<String,Object> getAttributes();
-	
-	void addListener( ProxyObjectUpdateListener listener);
-	
-	void addArtificialFieldWrapperProvider( ArtificialFieldWrapperProvider wapper );
+	RepoKeyPath getPath() throws Exception;
 
-	ArtificialFieldWrapperProvider getArtificialFieldWrapperProvider(  );
+	RepoKeyPath getCpaPath() throws Exception;
 
+	String getCpaid();
+
+	Map<String, Object> getAttributes();
+
+	void addListener(ProxyObjectUpdateListener listener);
+
+	void addArtificialFieldWrapperProvider(ArtificialFieldWrapperProvider wapper);
+
+	ArtificialFieldWrapperProvider getArtificialFieldWrapperProvider();
+
+	Object clone();
+
+	Object deepClone();
+
+	Object deepClone(Map<Object, Object> context);
+
+	Object getArtificialFieldWrapper();
+
+	void setForcePKupdate(boolean forcePKupdate);
+
+	void setLinkOperation(AddLinkOperation operation);
+
+	AddLinkOperation getLinkOperation();
+
+	boolean isRemoved();
+
+	Class<?> getProxyClazz();
+
+	public Object inMemory();
+
+	public void add2Boundaries(Map<Object, Object> context);
+
+	public void setViewModelId1(Integer id);
 	
-    void setStackProvider(ProxyCommadStackProvider stackProvider);
+	public Integer getViewModelId1();
+	
+    public void set_SrcId( String _sourceId);
     
-    ObjectControl clone(); 
+    public String get_SrcId();
     
-    Object getArtificialFieldWrapper ( );
-
-   void  setViewModelId1(Object viewModelId1);    
-   
-   Object getViewModelId1();    
-
-   void  setViewModelId2(Object viewModelId2);    
-   
-   Object getViewModelId2();    
-   
-   void setForcePKupdate(boolean forcePKupdate);
-   
-   void setLinkOperation(AddLinkOperation operation);
-   
-    AddLinkOperation getLinkOperation();
-
 }

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,8 +59,9 @@ public class FileSearchService extends AbstaractSearchService {
 	
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	protected Object serviceCall(Object pk, String objectClass) throws RepositoryException {
+	protected  <T>  T serviceCall(Object pk, Class<T> objectClass) throws RepositoryException{
 		String fileName = (String) pk;
 		String pathname = baseDir + File.separator + fileName;
 		if (!new File(pathname).exists()) {
@@ -70,12 +71,12 @@ public class FileSearchService extends AbstaractSearchService {
 		entry.setName(fileName);
 		entry.setFullPath(pathname);
 		entry.setLines(lineCounter(pathname));
-		return entry;
+		return (T) entry;
 	}
 
 	@Override
-	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
-			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
+	protected  <T>SearchResult<T> serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
+			Integer startIndex, Integer endIndex, Class<T> objectClass) throws RepositoryException{
 
 		RepositoryHelper helper = new RepositoryHelper(null);
 		SearchCriteria sc = helper.checkSearchParam(Constants.PARAMETER_FILE_TEMPLATE, searchCriteria);

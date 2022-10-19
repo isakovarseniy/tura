@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.testform2.pageobject.TestFormWindowPageObject;
 import org.tura.platform.selenium.Tree;
+import org.tura.platform.selenium.primereact.Repeater;
 import org.tura.platform.selenium.primereact.TreeRow;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -101,8 +102,17 @@ public class TreeCheckboxMultiselectTest extends AbstractTest {
 		tr = (TreeRow) tree.getRow("1_1_1");
 		tr.close();
         
-		assertTrue(tr.isSelected());
-		assertFalse(tr.isPartialSelected());
+		
+		new Repeater() {
+			@Override
+			public void action() {
+				Tree tree = testFormWindowPageObject.getTreeCheckBox();
+				TreeRow tr = (TreeRow) tree.getRow("1_1_1");
+				assertTrue(tr.isSelected());
+				assertFalse(tr.isPartialSelected());
+			}
+		}.repeat(3);
+		
 		
 	}
 }

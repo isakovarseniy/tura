@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,8 +103,8 @@ public class JpaDisconnectMasterFromDetailOperation extends SpaRepositoryCommand
 		try{
 			SearchProvider sp = this.providerHash.get(getMasterClassName());
 			
-			Object master = sp.find(getMasterPk(),getMasterClassName() );
-			Object detail = sp.find(getDetailPk(),getDetailClassName() );
+			Object master = sp.find(getMasterPk(),Class.forName(getMasterClassName()) );
+			Object detail = sp.find(getDetailPk(),Class.forName(getDetailClassName()) );
 
 			if (master == null || detail == null) {
 				// Seems objects already disconnected and removed previosly

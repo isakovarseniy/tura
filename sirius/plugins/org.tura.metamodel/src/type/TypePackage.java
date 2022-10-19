@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -543,13 +543,22 @@ public interface TypePackage extends EPackage {
 	int ASSOSIATION__INTERNAL = RELATIONSHIP_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Lazy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOSIATION__LAZY = RELATIONSHIP_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 3;
+	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Source Operation</b></em>' attribute.
@@ -558,7 +567,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 4;
+	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Target Operation</b></em>' attribute.
@@ -567,7 +576,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 5;
+	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Many2many Helper</b></em>' containment reference.
@@ -576,7 +585,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 6;
+	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Assosiation</em>' class.
@@ -585,7 +594,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 7;
+	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link type.impl.LinkImpl <em>Link</em>}' class.
@@ -1593,6 +1602,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getAssosiation_Internal();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.Assosiation#isLazy <em>Lazy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lazy</em>'.
+	 * @see type.Assosiation#isLazy()
+	 * @see #getAssosiation()
+	 * @generated
+	 */
+	EAttribute getAssosiation_Lazy();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link type.Assosiation#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2361,6 +2381,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSOSIATION__INTERNAL = eINSTANCE.getAssosiation_Internal();
+
+		/**
+		 * The meta object literal for the '<em><b>Lazy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSOSIATION__LAZY = eINSTANCE.getAssosiation_Lazy();
 
 		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,30 +57,31 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
-	protected Object serviceCall(Object pk, String objectClass) {
-		if (User.class.getName().equals(objectClass)) {
+	protected  <T>  T serviceCall(Object pk, Class<T> objectClass) throws RepositoryException{
+		if (User.class.getName().equals(objectClass.getName())) {
 			String objPk = (String) pk;
 			UserRepresentation ls = null;
 			try {
 				ls = realmResource.users().get(objPk).toRepresentation();
-				return ls;
+				return (T) ls;
 			} catch (javax.ws.rs.NotFoundException e) {
 				return null;
 
 			}
 		}
-		if (RoleRepresentation.class.getName().equals(objectClass)) {
+		if (RoleRepresentation.class.getName().equals(objectClass.getName())) {
 			String objPK = (String) pk;
-			return realmResource.rolesById().getRole(objPK);
+			return (T) realmResource.rolesById().getRole(objPK);
 		}
-		throw new RuntimeException("Unknown object" + objectClass);
+		throw new RuntimeException("Unknown object" + objectClass.getName());
 	}
 
 	@Override
-	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
-			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
-		if (User.class.getName().equals(objectClass)) {
+	protected  <T>SearchResult<T> serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
+			Integer startIndex, Integer endIndex, Class<T> objectClass) throws RepositoryException{
+		if (User.class.getName().equals(objectClass.getName())) {
 			RepositoryHelper helper = new RepositoryHelper(null);
 			boolean criteria = false;
 
@@ -128,7 +129,7 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 			}
 
 		}
-		if (RoleRepresentation.class.getName().equals(objectClass)) {
+		if (RoleRepresentation.class.getName().equals(objectClass.getName())) {
 			RepositoryHelper helper = new RepositoryHelper(null);
 			List<RoleRepresentation> ls = null;
 
@@ -157,7 +158,7 @@ public class KeyCloakSearchService extends AbstaractSearchService {
 			ls = realmResource.roles().list();
 			return new SearchResult(ls, ls.size());
 		}
-		throw new RuntimeException("Unknown object" + objectClass);
+		throw new RuntimeException("Unknown object" + objectClass.getName());
 	}
 
 	@Override

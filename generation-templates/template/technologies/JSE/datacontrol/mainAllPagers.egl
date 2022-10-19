@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -64,13 +64,11 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 			        var detailType = hash.get("detailType");
 			        var property =  hash.get("property");
 		            var containment = hash.get("containment");
-
-			        if (detailType.uid == type.uid  and   rel.type.toString() <> "Many2Many"  and containment){
+		            if (  detailType.uid ==  type.uid and  rel.type.toString() <> "Many2Many"){
 			           topObject = false;
-			        }else{
-			           continue;
-			        }
-				    makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f);
+				       makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f);
+		            }
+
 			        
 	             }
 	             if (topObject  ){
@@ -87,12 +85,10 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 				        var property =  hash.get("property");
 			            var containment = hash.get("containment");
 	
-			           if (detailType.uid == type.uid  and   rel.type.toString() <> "Many2Many"  and containment){
-				           topObject = false;
-				        }else{
-				           continue;
-				        }
-				        makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f);
+		            if (  detailType.uid ==  type.uid and rel.type.toString() <> "Many2Many"){
+			           topObject = false;
+				        makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f);
+		            }
          
 	              }
 	             }
@@ -114,7 +110,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	       }  
       }
 
-operation  makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f) {
+operation  makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f) {
        var util = new Native('org.tura.metamodel.commons.Util');
 
 	   hash.put("parent",masterType);
@@ -123,7 +119,7 @@ operation  makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f
 	   hash.put("objPackage",detailType.~package+".pager");
 	   hash.put("primaryKey", masterType.~primaryKey);
 	   
-	   if (masterType.uid.equals(rel.source.uid)   and  not masterType.uid.equals(detailType.uid)  ){
+	   if (masterType.uid.equals(rel.sourceFn().uid)   and  not masterType.uid.equals(detailType.uid)  ){
 	        var h= rel.sourceSideNamesCalculation();
 	        
 	        hash.put("sourceMethodName",h.get("sourceMethodName"));
@@ -134,7 +130,7 @@ operation  makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f
 	    
 		}
 
-	    if (masterType.uid.equals(rel.target.uid)  and  not masterType.uid.equals(detailType.uid)){
+	    if (masterType.uid.equals(rel.targetFn().uid)  and  not masterType.uid.equals(detailType.uid)){
 	    
 	        var h= rel.targetSideNamesCalculation();
 	
@@ -159,7 +155,7 @@ operation  makeInternalPager(hash,masterType,detailType,rel,path,templateStore,f
 	    }
 
    
-	   var pager : Template =   util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
+	   var pager : Template =   util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl",hash,TemplateFactory,templateStore);
 	   pager.setFormatter(f);
 	   var buffer = pager.process();
 	   util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",buffer);   

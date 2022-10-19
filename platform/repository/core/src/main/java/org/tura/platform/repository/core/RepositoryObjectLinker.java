@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,21 +21,24 @@ package org.tura.platform.repository.core;
 import java.util.List;
 
 import org.tura.platform.repository.data.AddLinkData;
+import org.tura.platform.repository.spa.SpaRepositoryData;
 
-public class RepositoryObjectLinker extends RepositoryHelper {
+public class RepositoryObjectLinker extends RepositoryHelper{
 
 	private static final long serialVersionUID = 5515414536724378541L;
+	private SpaRepositoryData spaRepositoryData	;
 
-	public RepositoryObjectLinker(Registry registry) {
+	public RepositoryObjectLinker(Registry registry,SpaRepositoryData spaRepositoryData) {
 		super(registry);
+		this.spaRepositoryData = spaRepositoryData;
 	}
 
 	public void linkObjects(AddLinkData data) throws RepositoryException {
 		try {
 			String repositoryClassName = data.getMasterPk().getPath().get(data.getMasterPk().getPath().size() - 1).getType();
 
-			Repository pr = findProvider(repositoryClassName);
-			CommandProducer cmp = findCommandProducer(repositoryClassName);
+			Repository pr = findProvider(repositoryClassName,spaRepositoryData);
+			CommandProducer cmp = findCommandProducer(repositoryClassName,data.getParams(),spaRepositoryData);
 			List<Object> commands = cmp.link(data.getMasterPk(), data.getDetailPk(), data.getLinks());
 			pr.applyChanges(commands);
 		} catch (Exception e) {

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -20,24 +20,28 @@ import java.util.Arrays;
 import org.tura.platform.repository.core.Instantiator;
 
 public class ProxyRepositoryInstantiator implements Instantiator{
-
+   
+   private org.tura.platform.repository.core.ProxyRepositoryProvider provider; 
 
 	private static String[] knownObjects = new String[] { 
-			"proxy-repository"
+			 org.tura.platform.repository.core.ProxyFactory.class.getName()
 			};
 	
 	
+	public ProxyRepositoryInstantiator(org.tura.platform.repository.core.ProxyRepositoryProvider provider ){
+	    this.provider = provider;
+	}
+	
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
-		
-		throw new RuntimeException("Unknown class " + clazz);
+        return newInstance(clazz.getName());
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T newInstance(String className) {
-		if ("proxy-repository".equals(className)){
-			ProxyRepository  repository = new ProxyRepository(null,null);
+		if ( org.tura.platform.repository.core.ProxyFactory.class.getName().equals(className)){
+			org.tura.platform.repository.core.ProxyFactory  repository = provider.get();
 		    return (T) repository;
 		}else {
 			try {

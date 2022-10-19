@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,8 @@ import java.util.List;
 
 import org.junit.Test;
 import org.tura.platform.repository.core.ObjectGraph;
-import org.tura.platform.repository.priority.PriorityManager;
-import org.tura.platform.repository.priority.RelationNode;
+import org.tura.platform.repository.spa.priority.PriorityManager;
+import org.tura.platform.repository.spa.priority.RelationNode;
 
 public class PriorityTest {
 	

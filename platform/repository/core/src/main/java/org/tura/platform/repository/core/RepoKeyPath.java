@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,34 +22,67 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepoKeyPath implements Serializable{
+public class RepoKeyPath implements Serializable {
 
 	private static final long serialVersionUID = -3032337403865330881L;
-	private List<RepoObjectKey>  path = new ArrayList<>();
-	
-	
-	public void addRepoObjectKey (String relation , RepoObjectKey key){
+	private List<RepoObjectKey> path = new ArrayList<>();
+
+	public void addRepoObjectKey(String relation, RepoObjectKey key) {
 		key.setRelation(relation);
 		path.add(key);
 	}
-
 
 	public List<RepoObjectKey> getPath() {
 		return path;
 	}
 
-
 	public void setPath(List<RepoObjectKey> path) {
 		this.path = path;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();
-		for ( RepoObjectKey k : path) {
+		for (RepoObjectKey k : path) {
 			buffer.append(k.toString());
 		}
 		return buffer.toString();
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof RepoKeyPath)) {
+			return false;
+		}
+		RepoKeyPath r = (RepoKeyPath) o;
+		if (this.path == null || r.path == null) {
+			return false;
+		}
+
+		if (this.path.size() != r.path.size()) {
+			return false;
+		}
+		for (int i = 0; i < r.path.size(); i++) {
+			if (!this.path.get(i).equals(r.path.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public RepoKeyPath clone() {
+		RepoKeyPath p = new RepoKeyPath();
+		p.getPath().addAll(path);
+		return p;
+	}
+
+	public RepoKeyPath parent() {
+		RepoKeyPath p = new RepoKeyPath();
+		for ( int i = 0  ; i+1  < this.getPath().size() ;  i ++ ) {
+			p.getPath().add(this.path.get(i));
+		}
+		return p;
+	}
+
+	
 }

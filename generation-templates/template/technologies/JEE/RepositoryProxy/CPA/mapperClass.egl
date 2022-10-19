@@ -1,0 +1,975 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+ import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+ 
+ package [%=t2view.get(type).get("package")%].mapper;
+ 
+ 
+ public class [%=t2view.get(type).get("class")%]ProxyMapper implements org.tura.platform.repository.cpa.storage.CpaMapper, org.tura.platform.repository.persistence.PersistanceMapper, org.tura.platform.repository.core.AdapterLoaderAware{
+ 
+           private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+ 
+ 
+            private org.tura.platform.repository.core.AdapterLoader loader;
+		    private org.tura.platform.repository.core.ProxyFactory proxyFactory;
+			  
+			
+			public org.tura.platform.repository.core.ProxyFactory getProxyFactory() {
+				return proxyFactory;
+			}
+			
+			public void setProxyFactory(org.tura.platform.repository.core.ProxyFactory proxyFactory) {
+				this.proxyFactory = proxyFactory;
+			}
+            
+            public void setAdapterLoader(org.tura.platform.repository.core.AdapterLoader loader){
+               this.loader=loader;
+            }
+
+		    public org.tura.platform.repository.core.AdapterLoader getAdapterLoader() {
+		        return this.loader;
+		    }
+ 
+        	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws org.tura.platform.repository.core.RepositoryException {
+	    	try{
+		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+		      	return pk;
+	    	}catch(Exception e){
+	    		throw new org.tura.platform.repository.core.RepositoryException(e);
+	    	}
+      	
+        }
+        
+        public void flattenObject(Object repositoryObject, List<Object> loadedObjects){
+	         [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+              if (loadedObjects.contains(obj) ){
+                 return;
+              }
+              loadedObjects.add(obj);
+        
+    [%
+    var tp = type;
+    while (1 == 1){
+         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and not t.internal and  not t.lazy );
+          for ( rel in assosiations  ){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneSrcFlatten(recipe,ingredient,model_mapper,t2view)%][%
+                 case "One2Many" : %][%=rel.one2manySrcFlatten(recipe,ingredient,model_mapper,t2view)%][%
+                 case "Many2Many" : %][%=rel.many2manySrcFlatten(recipe,ingredient,model_mapper,t2view)%][%
+             }
+             
+         }            
+          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and not t.internal and  not t.lazy  );
+          for (rel in assosiations){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneTrgFlatten(recipe,ingredient,model_mapper,t2view)%][%
+                 case "One2Many" : %][%=rel.one2manyTrgFlatten(recipe,ingredient,model_mapper,t2view)%][%
+                 case "Many2Many" : %][%=rel.many2manyTrgFlatten(recipe,ingredient,model_mapper,t2view)%][%
+             }
+          }        
+          
+        if (tp.~extension.isDefined()){
+           tp = tp.~extension;
+        }else{
+           break;
+        }
+  }
+%]
+        }
+        
+ 
+        public org.tura.platform.repository.core.RepoObjectKey getRepoObjectKey(Object object) throws Exception{
+          [%=t2view.get(type).get("fullName")%]  obj = ( [%=t2view.get(type).get("fullName")%])object;
+          org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
+          key.setType("[%=t2view.get(type).get("fullName")%]");
+          [%for ( field in type.~primaryKey){
+		            field.typeRef.mappingType2Java(recipe,ingredient);
+          %]
+            if (obj.get[%=util.mergeAndCapitalize(field.name)%]() == null){
+                throw new Exception("Object primary key [%=field.name%]  is null");
+            }else{
+           [%
+             field.typeRef.mappingType2Java(recipe,ingredient);
+           %]
+            org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("[%=util.mergeAndCapitalize(field.name)%]","[%=field.typeRef.~fullName%]",obj.get[%=util.mergeAndCapitalize(field.name)%]().toString());
+           key.addValue(value);
+           }
+           [%}%]
+
+          return key;
+      }
+ 
+        public org.tura.platform.repository.core.RepoObjectKey getCpaPrimaryKey( [%=t2view.get(type).get("fullName")%]  spa) throws org.tura.platform.repository.core.RepositoryException{
+          org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
+          key.setType("[%=t2view.get(type).get("fullName")%]");
+          org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("cpaid",String.class.getName(),spa.getCpaid());
+          key.addValue(value);
+
+          return key;
+      }         
+ 
+ 
+       public org.tura.platform.repository.core.RepoKeyPath getPath(Object object) throws Exception{
+          [%=t2view.get(type).get("fullName")%]  obj = ( [%=t2view.get(type).get("fullName")%])object;
+      [%
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+         if (assosiations.size() <> 0){
+              for (rel in assosiations){
+                 var hash = rel.targetSideNamesCalculation();
+                 %]
+                  if (obj.get[%=hash.get("targetMethodName")%]() != null){
+                     org.tura.platform.repository.core.Mapper maper[%=t2view.get(rel.sourceFn()).get("class")%] = new [%=t2view.get(rel.sourceFn()).get("package")%].mapper.[%=t2view.get(rel.sourceFn()).get("class")%]ProxyMapper();
+                     org.tura.platform.repository.core.RepoKeyPath path = maper[%=t2view.get(rel.sourceFn()).get("class")%].getPath(obj.get[%=hash.get("targetMethodName")%]());   
+                     path.addRepoObjectKey("[%=hash.get("sourceMethodName")%]" ,getRepoObjectKey(obj));
+                     return path;
+                  } else{
+			          org.tura.platform.repository.core.RepoKeyPath path = new org.tura.platform.repository.core.RepoKeyPath ();
+			          path.addRepoObjectKey(null,getRepoObjectKey(obj));
+			          return path;
+                  }            
+                 [%
+             }
+         }else{
+         %]
+           org.tura.platform.repository.core.RepoKeyPath path = new org.tura.platform.repository.core.RepoKeyPath ();
+           path.addRepoObjectKey(null,getRepoObjectKey(obj));
+           return path;
+         [%
+         }
+      %]
+      }
+ 
+ 
+ 
+       private Object find(String field, java.util.List<org.tura.platform.repository.core.FieldValue> list) throws Exception {
+		for (org.tura.platform.repository.core.FieldValue f : list) {
+			if (f.getName().equals(field)) {
+			    Class<?> clazz = Class.forName(f.getType());
+				try {
+					java.lang.reflect.Constructor<?> c = clazz.getConstructor(String.class);
+					return c.newInstance(f.getValue());
+		        }catch( NoSuchMethodException e) {
+		        	return org.tura.platform.datacontrol.commons.Parser.parse(f.getValue(),clazz);
+		        }
+			}
+		}
+		throw new org.tura.platform.repository.core.RepositoryException("Could not find a field " + field);
+	}
+ 
+      	public Object getPrimaryKey(Object persistenceObject){
+
+	    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
+      	
+      	[%=PK(type,"pk","spa",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+      	return pk;
+      	}
+      	
+      	public void nillPrimaryKey(Object persistenceObject){
+      	}
+      	
+      	
+      	public String getCpaId(Object persistenceObject){
+	       [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
+	       return spa.getCpaid();
+      	}
+      	
+      	public Boolean getAttached(Object persistenceObject){
+	       [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
+	       return spa.getAttached();
+      	}
+      	
+      	
+		@Override
+		public void differentiator(Object persistenceObject, Object repositoryObject, Map<Object, Object> context)
+				throws RepositoryException {
+		
+		}
+      	
+		@Override
+        public boolean isComplex(){
+        [%
+		    var outcoming = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and ( t.containment.toString().equals("Source") and t.internal) );
+		    var incoming = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and ( t.containment.toString().equals("Source") and t.internal) );
+            if ( outcoming.size() <> 0 or  incoming.size() <> 0 ){
+              %]return true;[%
+            }else{
+              %]return false;[%
+            }
+        %]
+        }
+      	
+      	
+      	public Object getPrimaryKeyFromRepositoryObject(Object repositoryObject){
+
+	    [%=t2view.get(type).get("fullName")%] obj = ( [%=t2view.get(type).get("fullName")%]) repositoryObject;
+      	
+      	[%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+      	return pk;
+      	}      	
+      	
+	
+      
+      public void buildRepPathTree(org.tura.platform.repository.core.RepoKeyPath topCpaPath, Object persistenceObject, java.util.Map<String, org.tura.platform.repository.core.RepoKeyPath> keyMap, String relation, List<String> register) throws org.tura.platform.repository.core.RepositoryException {
+	       [%=t2model.get(type).get("fullName")%] spa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
+	    org.tura.platform.repository.core.RepoKeyPath mypath = topCpaPath.clone();
+	    mypath.addRepoObjectKey(relation, getCpaPrimaryKey(spa));
+	    keyMap.put(spa.getCpaid(), mypath);
+	    register.add(spa.getCpaid());
+	    
+    [%
+    
+//For internal only Source -> Target connection     
+		    var tp = type;
+		    while (1 == 1){
+		         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and ( t.containment.toString().equals("Source") and t.internal) );
+		          for ( rel in assosiations  ){
+		               switch  (rel.type.toString()){
+		                 case "One2One" :  %][%=rel.one2oneSrcBuildRepPathTree(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "One2Many" : %][%=rel.one2manySrcBuildRepPathTree(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "Many2Many" : %][%
+		             }
+		         }    
+		                 
+		        if (tp.~extension.isDefined()){
+		           tp = tp.~extension;
+		        }else{
+		           break;
+		        }
+		  }
+%]        
+	    
+	    
+     }      
+      	
+      	
+        public void collectCpaIds( Object persistenceObject, Map<Object, String> keyMap){
+	       [%=t2model.get(type).get("fullName")%] spa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
+	       Object pk = this.getPrimaryKey(spa);
+           keyMap.put(pk,spa.getCpaid());
+        
+    [%
+    
+//For internal only Source -> Target connection     
+		    var tp = type;
+		    while (1 == 1){
+		         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and ( t.containment.toString().equals("Source") and t.internal) );
+		          for ( rel in assosiations  ){
+		               switch  (rel.type.toString()){
+		                 case "One2One" :  %][%=rel.one2oneSrcCollectCpaIds(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "One2Many" : %][%=rel.one2manySrcCollectCpaIds(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "Many2Many" : %][%
+		             }
+		         }    
+		                 
+		        if (tp.~extension.isDefined()){
+		           tp = tp.~extension;
+		        }else{
+		           break;
+		        }
+		  }
+%]        
+        
+        
+        }
+	      	
+        public void replaceCpaIds( Object persistenceObject, Map<Object, String> keyMap){
+	       [%=t2model.get(type).get("fullName")%] spa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
+	       Object pk = this.getPrimaryKey(spa);
+           String cpaId = keyMap.get(pk);
+           if ( cpaId != null){
+              spa.setCpaid(cpaId);
+           }
+        
+    [%
+    
+//For internal only Source -> Target connection     
+		    var tp = type;
+		    while (1 == 1){
+		         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and ( t.containment.toString().equals("Source") and t.internal) );
+		          for ( rel in assosiations  ){
+		               switch  (rel.type.toString()){
+		                 case "One2One" :  %][%=rel.one2oneSrcReplaceCpaIds(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "One2Many" : %][%=rel.one2manySrcReplaceCpaIds(recipe,ingredient,model_mapper,t2view,t2model,"spa")%][%
+		                 case "Many2Many" : %][%
+		             }
+		         }    
+		                 
+		        if (tp.~extension.isDefined()){
+		           tp = tp.~extension;
+		        }else{
+		           break;
+		        }
+		  }
+%]        
+        }
+      	
+      	
+	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws org.tura.platform.repository.core.RepositoryException{
+	               java.util.Map<Object, Object> context = new java.util.HashMap<Object, Object>();
+	               put(context, this.getPrimaryKey(persistenceObject ),persistenceObject );
+	               return copyFromPersistence2Repository(persistenceObject,repositoryObject,context);
+	               
+        }      	
+        
+	    public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject){
+
+	    [%=t2model.get(type).get("fullName")%] jpa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
+	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+	     
+	    if ( obj instanceof org.tura.platform.repository.core.ObjectControl ){
+     	  ((org.tura.platform.repository.core.ObjectControl) obj).setForcePKupdate(true);
+	    }
+	    
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializerPK(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient,true)%]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    %]
+	    
+	    }        
+	    
+	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject, java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException{
+	    
+	    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
+	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+	    
+	    
+
+          if ( spa != null){
+	    
+	    [%=stringPK(type,"key","spa",t2model.get(type).get("fullName"))%]
+	    
+	      obj.setAttached(true);
+          obj.setSerializationid(key.toString());
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializer(tp,type.~skipAttributes,"spa","obj",model_mapper,recipe,ingredient,true)%]
+	          [%=saveLinkCpa(tp,type.~skipAttributes,"spa","obj")%]
+
+	          [%
+	           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and  t.internal );
+	           for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneSrcPersist2Reposit(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "One2Many" : %][%=rel.one2ManySrcPersist2Reposit(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+	          
+	           var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and  t.internal );
+	           for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneTrgPersist2Reposit(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "One2Many" : %][%=rel.one2ManyTrgPersist2Reposit(recipe,ingredient,model_mapper,"spa","obj",t2view,t2model)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+	          
+	          
+	          %]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    %]
+	    return obj;
+	    }else{
+	      return null;
+	    }
+	    
+	    }
+
+
+	    public Object copyFromRepository2Persistence( Object repositoryObject) throws org.tura.platform.repository.core.RepositoryException{
+	               java.util.Map<Object, Object> context = new java.util.HashMap<Object, Object>();
+	               put(context, this.getPrimaryKeyFromRepositoryObject(repositoryObject ),repositoryObject );
+	               return copyFromRepository2Persistence(repositoryObject,context);
+	               
+        }      	
+	    
+	    public Object copyFromRepository2Persistence( Object repositoryObject, java.util.Map<Object, Object> context)  throws org.tura.platform.repository.core.RepositoryException {
+            [%=copyObject(t2model, t2view, type,model_mapper,recipe,ingredient,false)%]
+	    }
+	    
+
+	    public Object deepCopyFromRepository2Persistence( Object repositoryObject) throws org.tura.platform.repository.core.RepositoryException{
+	               java.util.Map<Object, Object> context = new java.util.HashMap<Object, Object>();
+	               put(context, this.getPrimaryKeyFromRepositoryObject(repositoryObject ),repositoryObject );
+	               return deepCopyFromRepository2Persistence(repositoryObject,context);
+	               
+        }      	
+	    
+	    public Object deepCopyFromRepository2Persistence( Object repositoryObject, java.util.Map<Object, Object> context)  throws org.tura.platform.repository.core.RepositoryException {
+            [%=copyObject(t2model, t2view, type,model_mapper,recipe,ingredient,true)%]
+	    }
+	    
+
+
+  @SuppressWarnings("unchecked")
+    public void put( java.util.Map<Object,Object> context, Object pk, Object type ){
+         String key = type.getClass().getName();
+         java.util.List<Object> loadedObjects = (java.util.List<Object>) context.get(key);
+		if (loadedObjects == null) {
+			loadedObjects = new java.util.ArrayList<Object>();
+			context.put(key, loadedObjects);
+		}
+		if (loadedObjects.contains(pk)) {
+			return;
+		} else {
+			loadedObjects.add(pk);
+			return;
+		}
+    }
+   @SuppressWarnings("unchecked")
+    public Object get( java.util.Map<Object,Object> context, Object pk, Object type ){
+         String key = type.getClass().getName();
+         java.util.List<Object> loadedObjects = (java.util.List<Object>) context.get(key);
+		if (loadedObjects == null) {
+		   return null;
+		}else{
+		   if (loadedObjects.contains(pk)) {
+		      return pk; 
+           }else{
+              return null;
+           }		
+		}
+    }    
+    
+}	    
+    
+ [%
+
+@template
+operation type::Assosiation one2oneSrcFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("sourceMethodName");
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     
+     if ((obj.get[%=hash.get("sourceMethodName")%]()) !=null ){
+        [%=mapper_var%].flattenObject(obj.get[%=hash.get("sourceMethodName")%](), loadedObjects  );
+      }
+     [%
+} 
+
+@template
+operation type::Assosiation one2manySrcFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("sourceMethodName");
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.source.uid ){
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("target").~fullName%] t : obj.get[%=hash.get("sourceMethodName")%]() ){
+           [%=mapper_var%].flattenObject( t, loadedObjects  );
+     }
+     [%}else{%]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     if ((obj.get[%=hash.get("sourceMethodName")%]()) !=null ){
+        [%=mapper_var%].flattenObject(obj.get[%=hash.get("sourceMethodName")%](), loadedObjects  );
+     }
+     [%
+     }
+
+} 
+
+@template
+operation type::Assosiation many2manySrcFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("sourceMethodName");
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("target").~fullName%] t : obj.get[%=hash.get("sourceMethodName")%]() ){
+            [%=mapper_var%].flattenObject(t , loadedObjects  );
+     }
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2oneTrgFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("targetMethodName");
+     
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+     if (obj.get[%=hash.get("targetMethodName")%]() != null){
+           [%=mapper_var%].flattenObject(obj.get[%=hash.get("targetMethodName")%](), loadedObjects  );
+     }
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2manyTrgFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("targetMethodName");
+     
+     if (masterType.uid == self.target.uid ){
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("source").~fullName%] t : obj.get[%=hash.get("targetMethodName")%]() ){
+           [%=mapper_var%].flattenObject(  t  , loadedObjects  );
+     }
+     [%}else{%]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+     if (obj.get[%=hash.get("targetMethodName")%]() != null){
+          [%=mapper_var%].flattenObject(obj.get[%=hash.get("targetMethodName")%](), loadedObjects  );
+     }
+     [%
+     }
+} 
+
+@template
+operation type::Assosiation many2manyTrgFlatten(recipe,ingredient,model_mapper,t2view){
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var =  "mapper"+hash.get("targetMethodName");
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("source").~fullName%] t : obj.get[%=hash.get("targetMethodName")%]() ){
+           [%=mapper_var%].flattenObject(  t , loadedObjects  );
+     }
+     [%
+} 
+
+@template
+operation type::Assosiation one2oneSrcPersist2Reposit(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var  =  "mapper"+ hash.get("sourceMethodName");
+     var obj_var  =  "obj"+hash.get("sourceMethodName");
+     var pk_var  = "pk"+hash.get("sourceMethodName");
+     var spa_var = "spa"+hash.get("sourceMethodName");
+     
+     %]
+           org.tura.platform.repository.core.Mapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           [%=t2view.get(self.targetFn()).get("fullName")%] [%=obj_var%] = new [%=t2view.get(self.targetFn()).get("fullName")%]();
+           [%=t2model.get(self.targetFn()).get("fullName")%] [%=spa_var%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
+           
+           if ([%=spa_var%] != null){
+                Object [%=pk_var%] =  [%=mapper_var%].getPrimaryKey([%=spa_var%]);
+                if ( get(context,[%=pk_var%]  , [%=spa_var%]) == null ){
+                   put(context, [%=pk_var%], [%=spa_var%]);
+                    
+		           [%=mapper_var%].copyFromPersistence2Repository([%=spa_var%],[%=obj_var%],context);
+		           
+		           [%=trg%].set[%=hash.get("sourceMethodName")%]([%=obj_var%] );
+		           [%=obj_var%] .set[%=hash.get("targetMethodName")%](obj);
+	           }
+           }
+           
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2oneTrgPersist2Reposit(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var  =  "mapper"+ hash.get("targetMethodName");
+     var obj_var  =  "obj"+hash.get("targetMethodName");
+     var pk_var  = "pk"+hash.get("targetMethodName");
+     var spa_var = "spa"+hash.get("targetMethodName");
+     
+     %]
+           org.tura.platform.repository.core.Mapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+           [%=t2view.get(self.sourceFn()).get("fullName")%] [%=obj_var%] = new [%=t2view.get(self.sourceFn()).get("fullName")%]();
+           [%=t2model.get(self.sourceFn()).get("fullName")%] [%=spa_var%] = [%=src%].get[%=hash.get("targetMethodName")%]();
+           
+           if ([%=spa_var%] != null){
+                Object [%=pk_var%] =  [%=mapper_var%].getPrimaryKey([%=spa_var%]);
+                if ( get(context,[%=pk_var%],[%=spa_var%]) == null ){
+                   put(context,[%=pk_var%], [%=spa_var%]);
+                    
+		           [%=mapper_var%].copyFromPersistence2Repository([%=spa_var%],[%=obj_var%],context);
+		           
+		           [%=trg%].set[%=hash.get("targetMethodName")%]([%=obj_var%] );
+		           [%=obj_var%] .set[%=hash.get("sourceMethodName")%](obj);
+	           }
+           }
+           
+     [%
+} 
+
+
+
+@template
+operation type::Assosiation one2oneSrcReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model,prefix){
+     var hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var mapper_var  = "mapper"+hash.get("sourceMethodName");
+     var obj_var = "obj"+hash.get("sourceMethodName");
+     var pk_var = "pk" + hash.get("sourceMethodName");
+     var spa_var  =  "spa"+hash.get("sourceMethodName"); 
+     
+     %]
+           [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper [%=mapper_var%]= new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           ((org.tura.platform.repository.core.AdapterLoaderAware) [%=mapper_var%]).setAdapterLoader(loader);
+           [%=t2view.get(self.targetFn()).get("fullName")%] [%=obj_var%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
+           
+           
+           if ([%=obj_var%]  != null ){
+	           Object [%=pk_var%] = [%=mapper_var%].getPrimaryKeyFromRepositoryObject([%=obj_var%] );
+	           if (get(context,[%=pk_var%],[%=obj_var%]) == null){
+	               put(context,[%=pk_var%],[%=obj_var%]  );
+	               
+                   [%=t2model.get(self.targetFn()).get("fullName")%] [%=spa_var%] =( [%=t2model.get(self.targetFn()).get("fullName")%] ) [%=mapper_var%].[%=prefix%]FromRepository2Persistence([%=obj_var%],context);
+	               
+		           [%=trg%].set[%=hash.get("sourceMethodName")%]([%=spa_var%] );
+		           [%=spa_var%] .set[%=hash.get("targetMethodName")%](spa);
+           		}
+           }
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2oneTrgReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model,prefix){
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var  = "mapper"+hash.get("targetMethodName");
+     var obj_var = "obj"+hash.get("targetMethodName");
+     var pk_var =  "pk"+hash.get("targetMethodName");
+     var spa_var  = "spa"+hash.get("targetMethodName");
+     
+     
+     %]
+           [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+           ((org.tura.platform.repository.core.AdapterLoaderAware) [%=mapper_var%]).setAdapterLoader(loader);
+           [%=t2view.get(self.sourceFn()).get("fullName")%] [%=obj_var%] = [%=src%].get[%=hash.get("targetMethodName")%]();
+           
+           
+           
+           if ([%=obj_var%]  != null ){
+	           Object [%=pk_var%] = [%=mapper_var%].getPrimaryKeyFromRepositoryObject([%=obj_var%] );
+	           if (get(context,[%=pk_var%],[%=obj_var%]) == null){
+	               put(context,[%=pk_var%],[%=obj_var%]  );
+
+                   [%=t2model.get(self.sourceFn()).get("fullName")%] [%=spa_var%] =( [%=t2model.get(self.sourceFn()).get("fullName")%] ) [%=mapper_var%].[%=prefix%]FromRepository2Persistence([%=obj_var%],context);
+
+		           [%=trg%].set[%=hash.get("targetMethodName")%]([%=spa_var%] );
+		           [%=spa_var%] .set[%=hash.get("sourceMethodName")%](spa);
+           		}
+           }
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2ManySrcPersist2Reposit(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var  = "mapper"+hash.get("sourceMethodName");
+     var obj_var = "obj"+hash.get("sourceMethodName");
+     var pk_var =  "pk"+hash.get("sourceMethodName");
+     var spa_var  = "spa"+hash.get("sourceMethodName");
+     
+     %]
+           org.tura.platform.repository.core.Mapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           java.util.Collection<[%=t2model.get(self.targetFn()).get("fullName")%]> [%=spa_var%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
+
+           if ([%=spa_var%]List != null ){
+	           for (   [%=t2model.get(self.targetFn()).get("fullName")%]  [%=spa_var%] : [%=spa_var%]List ){
+	           
+	              Object [%=pk_var%] =  [%=mapper_var%].getPrimaryKey([%=spa_var%]);
+                if ( get(context,[%=pk_var%], [%=spa_var%]) == null ){
+                      put(context,[%=pk_var%], [%=spa_var%]);
+	
+		              [%=t2view.get(self.targetFn()).get("fullName")%] [%=obj_var%] = new [%=t2view.get(self.targetFn()).get("fullName")%]();
+		              [%=mapper_var%].copyFromPersistence2Repository([%=spa_var%],[%=obj_var%],context);
+		              [%=trg%].get[%=hash.get("sourceMethodName")%]().add([%=obj_var%] );
+		              [%=obj_var%] .set[%=hash.get("targetMethodName")%](obj);
+	              }
+	           }
+           }
+     [%
+           }
+
+
+@template
+operation type::Assosiation one2ManyTrgPersist2Reposit(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.targetSideNamesCalculation();
+     var mapper_var  = "mapper"+hash.get("targetMethodName");
+     var obj_var = "obj"+hash.get("targetMethodName");
+     var pk_var =  "pk"+hash.get("targetMethodName");
+     var spa_var  = "spa"+hash.get("targetMethodName");
+     
+     %]
+           org.tura.platform.repository.core.Mapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+           [%=t2view.get(self.sourceFn()).get("fullName")%] [%=obj_var%] = new [%=t2view.get(self.sourceFn()).get("fullName")%]();
+           [%=t2model.get(self.sourceFn()).get("fullName")%] [%=spa_var%] = [%=src%].get[%=hash.get("targetMethodName")%]();
+           
+           if ([%=spa_var%] != null){
+                Object [%=pk_var%] =  [%=mapper_var%].getPrimaryKey([%=spa_var%]);
+                if ( get(context,[%=pk_var%], [%=spa_var%]) == null ){
+                   put(context,[%=pk_var%], [%=spa_var%]);
+                    
+		           [%=mapper_var%].copyFromPersistence2Repository([%=spa_var%],[%=obj_var%],context);
+		           
+		           [%=trg%].set[%=hash.get("targetMethodName")%]([%=obj_var%] );
+		           [%=obj_var%] .get[%=hash.get("sourceMethodName")%]().add(obj);
+	           }
+           }
+           
+     [%
+} 
+
+
+
+@template
+operation type::Assosiation one2ManySrcReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model,prefix){
+     var hash = self.sourceSideNamesCalculation();
+     var mapper_var  = "mapper"+hash.get("sourceMethodName");
+     var obj_var = "obj"+hash.get("sourceMethodName");
+     var pk_var =  "pk"+hash.get("sourceMethodName");
+     var spa_var  = "spa"+hash.get("sourceMethodName");
+     
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     %]
+            [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper [%=mapper_var%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           ((org.tura.platform.repository.core.AdapterLoaderAware) [%=mapper_var%]).setAdapterLoader(loader);
+           java.util.Collection<[%=t2view.get(self.targetFn()).get("fullName")%]> [%=obj_var%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
+
+           if( [%=obj_var%]List != null ){
+	           for (   [%=t2view.get(self.targetFn()).get("fullName")%]  [%=obj_var%] : [%=obj_var%]List ){
+		           Object [%=pk_var%] = [%=mapper_var%].getPrimaryKeyFromRepositoryObject([%=obj_var%] );
+		           if (get(context,[%=pk_var%],[%=obj_var%] ) == null){
+		               put(context,[%=pk_var%],[%=obj_var%] );
+	
+	              [%=t2model.get(self.targetFn()).get("fullName")%] [%=spa_var%] = ([%=t2model.get(self.targetFn()).get("fullName")%])[%=mapper_var%].[%=prefix%]FromRepository2Persistence([%=obj_var%],context);
+	             
+	              [%=trg%].get[%=hash.get("sourceMethodName")%]().add([%=spa_var%] );
+	               [%=spa_var%].set[%=hash.get("targetMethodName")%](spa);
+	              }
+	           }
+           }
+     [%
+} 
+
+@template
+operation type::Assosiation one2ManyTrgReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model, prefix){
+     var hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var mapper_var  = "mapper"+hash.get("targetMethodName");
+     var obj_var = "obj"+hash.get("targetMethodName");
+     var pk_var =  "pk"+hash.get("targetMethodName");
+     var spa_var  = "spa"+hash.get("targetMethodName");
+     
+     
+     %]
+           [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper [%=mapper_var%] = new [%=t2view.get(self.sourceFn()).get("package")%].mapper.[%=t2view.get(self.sourceFn()).get("class")%]ProxyMapper();
+           ((org.tura.platform.repository.core.AdapterLoaderAware) [%=mapper_var%]).setAdapterLoader(loader);
+           [%=t2view.get(self.sourceFn()).get("fullName")%] [%=obj_var%] = [%=src%].get[%=hash.get("targetMethodName")%]();
+           
+           
+           if ([%=obj_var%] != null ){
+	           Object [%=pk_var%] = [%=mapper_var%].getPrimaryKeyFromRepositoryObject([%=obj_var%] );
+	           if (get(context,[%=pk_var%],[%=obj_var%]) == null){
+	               put(context,[%=pk_var%],[%=obj_var%] );
+
+                   [%=t2model.get(self.sourceFn()).get("fullName")%] [%=spa_var%] =( [%=t2model.get(self.sourceFn()).get("fullName")%] ) [%=mapper_var%].[%=prefix%]FromRepository2Persistence([%=obj_var%],context);
+
+		           [%=trg%].set[%=hash.get("targetMethodName")%]([%=spa_var%] );
+	           
+		           [%=spa_var%] .get[%=hash.get("sourceMethodName")%]().add(spa);
+           		}
+           }
+     [%
+} 
+
+@template
+operation type::Assosiation one2oneSrcCollectCpaIds(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+     if ([%=spa_name%].get[%=hash.get("sourceMethodName")%]() !=null ){
+           org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           maper[%=t2view.get(self.targetFn()).get("class")%] .collectCpaIds([%=spa_name%].get[%=hash.get("sourceMethodName")%](),keyMap);
+      }
+     [%
+} 
+
+@template
+operation type::Assosiation one2manySrcCollectCpaIds(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("target").~fullName%] t : [%=spa_name%].get[%=hash.get("sourceMethodName")%]() ){
+           maper[%=t2view.get(self.targetFn()).get("class")%] .collectCpaIds(t,keyMap);
+     }
+     [%
+
+} 
+
+
+@template
+operation type::Assosiation one2oneSrcBuildRepPathTree(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+     if ([%=spa_name%].get[%=hash.get("sourceMethodName")%]() !=null ){
+           org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           maper[%=t2view.get(self.targetFn()).get("class")%] .buildRepPathTree(mypath,  [%=spa_name%].get[%=hash.get("sourceMethodName")%](),keyMap,"[%=hash.get("sourceMethodName")%]",register);
+      }
+     [%
+} 
+
+@template
+operation type::Assosiation one2manySrcBuildRepPathTree(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("target").~fullName%] t : [%=spa_name%].get[%=hash.get("sourceMethodName")%]() ){
+           maper[%=t2view.get(self.targetFn()).get("class")%] .buildRepPathTree(mypath,  t ,keyMap,"[%=hash.get("sourceMethodName")%]",register);
+     }
+     [%
+} 
+
+
+@template
+operation type::Assosiation one2oneSrcReplaceCpaIds(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+     if ([%=spa_name%].get[%=hash.get("sourceMethodName")%]() !=null ){
+           org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+           maper[%=t2view.get(self.targetFn()).get("class")%] .replaceCpaIds([%=spa_name%].get[%=hash.get("sourceMethodName")%](),keyMap);
+      }
+     [%
+} 
+
+@template
+operation type::Assosiation one2manySrcReplaceCpaIds(recipe,ingredient,model_mapper,t2view,t2model,spa_name){
+     var hash = self.sourceSideNamesCalculation();
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     
+     %]
+     org.tura.platform.repository.cpa.storage.CpaMapper maper[%=t2view.get(self.targetFn()).get("class")%] = new [%=t2view.get(self.targetFn()).get("package")%].mapper.[%=t2view.get(self.targetFn()).get("class")%]ProxyMapper();
+     for ( [%=hash.get("target").~fullName%] t : [%=spa_name%].get[%=hash.get("sourceMethodName")%]() ){
+           maper[%=t2view.get(self.targetFn()).get("class")%] .replaceCpaIds(t,keyMap);
+     }
+     [%
+
+} 
+
+@template
+operation copyObject(t2model, t2view, type,model_mapper,recipe,ingredient,deepCopy){
+%]
+		    [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
+		    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+		    if ( obj instanceof ObjectControl) {
+		    	obj = ([%=t2view.get(type).get("fullName")%] ) ((ObjectControl)obj).inMemory();
+		    }
+		    
+		    if ( obj != null){
+				String cpaid = obj.getCpaid();
+				if ( cpaid == null) {
+					cpaid = java.util.UUID.randomUUID().toString();
+				}
+				spa.setCpaid(cpaid);
+				spa.setAttached(obj.getAttached());
+	             spa.setSerializationid( java.util.UUID.randomUUID().toString());
+ 	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializer(tp, type.~skipAttributes,"obj","spa",model_mapper,recipe,ingredient,true)%]
+	          [%=saveLinkCpa(tp,type.~skipAttributes,"obj","spa")%]
+	          [%
+	          
+	          var assosiations =  null;
+	          var prefix = "";
+	          if ( deepCopy ){
+	            assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid   );
+	            prefix = "deepCopy";
+	          }else{
+	            assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and  t.internal );
+	            prefix = "copy";
+	          }
+	          for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneSrcReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model,prefix)%][%
+			         case "One2Many" : %][%=rel.one2ManySrcReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model,prefix)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+
+	          var assosiations =  null;
+	          if ( deepCopy ){
+	              assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.target <> t.source );
+	              prefix = "deepCopy";
+	          }else{
+	              assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and  t.internal  );
+	              prefix = "copy";
+	          }
+	          for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneTrgReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model,prefix)%][%
+			         case "One2Many" : %][%=rel.one2ManyTrgReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model,prefix)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+
+	          %]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    %]
+	    return spa;
+	    }else{
+	      return null;
+	    }
+[%
+}
+ %]

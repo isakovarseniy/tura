@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,13 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.annotation.InternalClass;
+import org.tura.platform.repository.spa.SpaRepositoryData;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.exp.Operator;
 
-public class RepositoryObjectLoader extends RepositoryHelper {
+public class RepositoryObjectLoader extends RepositoryHelper{
 
 	private static final long serialVersionUID = -5153791669669658662L;
 	static int MAX_ROW_NUMBER = 50;
@@ -49,15 +50,30 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 	private List<SearchCriteria> search;
 	private List<OrderCriteria> order;
 	private Map<String, Object> context;
+	private SpaRepositoryData spaRepositoryData	;
 
-	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context,
-			Registry registry) {
+	public RepositoryObjectLoader(Registry registry,SpaRepositoryData spaRepositoryData) {
 		super(registry);
-		this.search = search;
-		this.order = order;
-		this.context = context;
+        this.spaRepositoryData = spaRepositoryData;
 	}
 
+	public void setSearchCriteria(List<SearchCriteria> search) {
+		this.search = search;
+	}
+
+
+	public void setOrderCriteria(List<OrderCriteria> order) {
+		this.order = order;
+	}
+
+
+
+	public void setContext(Map<String, Object> context) {
+		this.context = context;
+		
+	}
+	
+	
 	private void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
 		String persistanceType = persistenceObject.getClass().getName();
 		if (persistenceObject instanceof Adapter) {
@@ -72,7 +88,7 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 		mapper.copyFromPersistence2Repository(persistenceObject, repositoryObject);
 	}
 
-	private Object instantiateObject(Class<?> repositoryClass) throws Exception {
+	private <T> T instantiateObject(Class<T> repositoryClass) throws Exception {
 		return repositoryClass.getDeclaredConstructor().newInstance();
 	}
 
@@ -87,7 +103,10 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 			}
 
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), method, context);
-			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order, context, registry);
+			RepositoryObjectLoader loader = new RepositoryObjectLoader(registry,spaRepositoryData);
+			loader.setOrderCriteria(order);
+			loader.setSearchCriteria(search);
+			loader.setContext(context);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
 				loader.internalLoader(object, getPersistancePrimaryKeyFromRepositoryObject(object), true, graph,
@@ -118,7 +137,7 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 		}
 	}
 
-	public Object loader(Object persistenceObject, Object persistenceObjectPK, Class<?> repositoryClass,
+	public <T> T loader(Object persistenceObject, Object persistenceObjectPK, Class<T> repositoryClass,
 			ObjectGraph graph, ObjectGraphProfile grapfProfile) throws RepositoryException {
 		String key = LOADED_OBJECTS + repositoryClass.getName();
 
@@ -136,10 +155,10 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 		}
 	}
 
-	private Object loader(Object persistenceObject, Class<?> repositoryClass, ObjectGraph graph,
+	private <T> T loader(Object persistenceObject, Class<T> repositoryClass, ObjectGraph graph,
 			ObjectGraphProfile grapfProfile) throws RepositoryException {
 		try {
-			Object repositoryObject = instantiateObject(repositoryClass);
+			T repositoryObject = instantiateObject(repositoryClass);
 			populate(persistenceObject, repositoryObject);
 			internalLoader(repositoryObject, false, graph, grapfProfile);
 			query(repositoryObject, persistenceObject, graph, grapfProfile);
@@ -165,10 +184,16 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 			}
 
 			Association assosiation = method.getAnnotation(Association.class);
+			
+			if ( assosiation.lazy()) {
+				continue;
+			}
+			
 			String id = assosiation.id();
 			if (!graph.addBranch(id)) {
 				continue;
 			}
+			
 
 			InternalClass ic = assosiation.mappedBy().getAnnotation(InternalClass.class);
 			if (ic != null) {
@@ -178,7 +203,7 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), method, context);
 
-			Repository provider = findProvider(assosiation.mappedBy().getName());
+			Repository provider = findProvider(assosiation.mappedBy().getName(),spaRepositoryData);
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject, assosiation,
@@ -197,10 +222,14 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 				continue;
 			}
 
-			SearchResult result = provider.find(newSearch, newOrder, 0, MAX_ROW_NUMBER, persistanceClass.getName());
+			SearchResult<?> result = provider.find(newSearch, newOrder, 0, MAX_ROW_NUMBER, persistanceClass);
 
 			for (Object object : result.getSearchResult()) {
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order, context, registry);
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(registry,spaRepositoryData);
+				loader.setOrderCriteria(order);
+				loader.setSearchCriteria(search);
+				loader.setContext(context);
+				
 				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object), assosiation.mappedBy(),
 						graph, grapfProfile);
 				if (loadedObject != null) {
@@ -269,5 +298,8 @@ public class RepositoryObjectLoader extends RepositoryHelper {
 		return newSearch;
 
 	}
+
+
+
 
 }

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,16 +19,17 @@
 package org.tura.platform.repository.data;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProxyData implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5093832246017157053L;
 	String relationType;
 	String masterProperty;
 	String detailProperty;
+	private Map<String,Object> params = new HashMap<>();
+	
 	
 	public String getRelationType() {
 		return relationType;
@@ -47,6 +48,9 @@ public class ProxyData implements Serializable{
 	}
 	public void setDetailProperty(String detailProperty) {
 		this.detailProperty = detailProperty;
+	}
+	public Map<String, Object> getParams() {
+		return params;
 	}
 
 	

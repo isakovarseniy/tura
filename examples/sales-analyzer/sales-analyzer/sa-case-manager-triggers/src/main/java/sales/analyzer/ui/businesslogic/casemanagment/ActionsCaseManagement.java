@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,19 +25,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.cdi.BeansLocal;
 import org.tura.platform.uuiclient.menu.DefaultMenuItem;
 import org.tura.platform.uuiclient.menu.MenuElement;
@@ -59,11 +57,10 @@ import org.tura.salesanalyzer.serialized.db.WriteupOutcome;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.jbpm.Task;
 import org.tura.salesanalyzer.serialized.keycloak.User;
-import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.octo.java.sql.exp.Operator;
 
-import sales.analyzer.commons.CDIUserPeferencesProviderImpl;
+import sales.analyzer.commons.CdiUserPeferencesProviderImpl;
 import sales.analyzer.commons.PrefConstants;
 import sales.analyzer.process.commons.Constants;
 import sales.analyzer.service.jbpm.commands.AssignActorCommand;
@@ -86,11 +83,9 @@ public class ActionsCaseManagement implements EventAware {
 	ELResolver elResolver;
 
 	@Inject
-	@Named("analysis.casemanager")
-	CommandStack commandStack;
+	@ClientProxyRepo("analysis.casemanager")
+	private CpaRepository repository;
 
-	@Inject
-	Repository repository;
 
 	@Inject
 	WorkItemMenuDynamic workItemMenu;
@@ -318,14 +313,7 @@ public class ActionsCaseManagement implements EventAware {
 		}
 
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
-
+			repository.getStackProvider().get().commit();
 			model.setSelected(new ArrayList<Object>());
 			
 		} catch (Exception e) {
@@ -334,7 +322,7 @@ public class ActionsCaseManagement implements EventAware {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void closeWF() {
 		ViewModel viewmodel = (ViewModel) elResolver.getValue("#{viewmodelCaseManager}");
 		GridModel model = (GridModel) viewmodel.getModel(CASE_TABLE, null, null);
@@ -345,17 +333,11 @@ public class ActionsCaseManagement implements EventAware {
 		}
 
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
-			
+			repository.getStackProvider().get().commit();
 			model.setSelected(new ArrayList<Object>());
-
-
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
+			DataControl dc = (DataControl) bf.getTask();
+			dc.forceRefresh();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -459,13 +441,7 @@ public class ActionsCaseManagement implements EventAware {
 	}
 
 	private void saveCaseOperation() throws Exception {
-		CommandStackProvider sp = new CommandStackProvider();
-		sp.setCommandStack(commandStack);
-
-		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-		proxyRepository.applyChanges(null);
-		commandStack.commitSavePoint();
+		repository.getStackProvider().get().commit();
 	}
 
 	public void closeCase() {
@@ -564,7 +540,7 @@ public class ActionsCaseManagement implements EventAware {
 
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void search() {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAnalysisCaseManager}");
@@ -867,7 +843,7 @@ public class ActionsCaseManagement implements EventAware {
 		HttpServletRequest request = BeansLocal.getReference(BeansLocal.getManager(), HttpServletRequest.class);
 		KeycloakPrincipal p = (KeycloakPrincipal<KeycloakSecurityContext>) request.getUserPrincipal();
 		String username = p.getName();
-		return new CDIUserPeferencesProviderImpl().getUserPreferences(username);
+		return new CdiUserPeferencesProviderImpl().getUserPreferences(username);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

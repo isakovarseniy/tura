@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -652,8 +652,18 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAssosiation_Lazy() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAssosiation_Links() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(3);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -663,16 +673,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 */
 	@Override
 	public EAttribute getAssosiation_SourceOperation() {
-		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAssosiation_TargetOperation() {
 		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -682,8 +682,18 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAssosiation_TargetOperation() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAssosiation_Many2manyHelper() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(6);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1190,6 +1200,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
 		createEAttribute(assosiationEClass, ASSOSIATION__CONTAINMENT);
 		createEAttribute(assosiationEClass, ASSOSIATION__INTERNAL);
+		createEAttribute(assosiationEClass, ASSOSIATION__LAZY);
 		createEReference(assosiationEClass, ASSOSIATION__LINKS);
 		createEAttribute(assosiationEClass, ASSOSIATION__SOURCE_OPERATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TARGET_OPERATION);
@@ -1341,6 +1352,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_Containment(), this.getContainment(), "containment", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_Internal(), ecorePackage.getEBoolean(), "internal", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssosiation_Lazy(), ecorePackage.getEBoolean(), "lazy", "true", 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_SourceOperation(), ecorePackage.getEString(), "sourceOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_TargetOperation(), ecorePackage.getEString(), "targetOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

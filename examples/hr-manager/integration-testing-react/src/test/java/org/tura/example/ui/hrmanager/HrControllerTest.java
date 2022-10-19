@@ -49,15 +49,15 @@ public class HrControllerTest extends AbstractTest {
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "/hrmanager/hrcontroller/hrController?param1=qwerty2";
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"
+			+ getChromeDriverName();
 
 	@BeforeClass
 	public static void beforeClass() {
 		try {
 
-			service = new ChromeDriverService.Builder()
-					.usingDriverExecutable(new File(driver_location)).usingAnyFreePort()
-					.build();
+			service = new ChromeDriverService.Builder().usingDriverExecutable(new File(driver_location))
+					.usingAnyFreePort().build();
 
 			service.start();
 		} catch (Exception e) {
@@ -105,19 +105,19 @@ public class HrControllerTest extends AbstractTest {
 
 		inputText.setValue("111");
 		t.getRow(0).acceptRowChange();
-		
+
 		new Repeater() {
 			public void action() {
 				hrControllerPage.getSaveButton().click();
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			@Override
 			public void action() {
 				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Messages msg = hrControllerPage.getMessages();
-				assertEquals(  "Data persisted", msg.getValue());
+				assertEquals("Data persisted", msg.getValue());
 			}
 		}.repeat(5);
 		;
@@ -153,17 +153,17 @@ public class HrControllerTest extends AbstractTest {
 			public void action() {
 				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				Messages msg = hrControllerPage.getMessages();
-				assertEquals("Data persisted" , msg.getValue());
+				assertEquals("Data persisted", msg.getValue());
 			}
 		}.repeat(5);
-		;
+
+		checkifFatalErrorPage(driver);
 
 	}
 
 	@Test
 	public void t001_validateSwitchingSelectionCurrentRow() {
 		try {
-			// Go to the Google Suggest home page
 			driver.get(getUrl(app_url));
 			login();
 
@@ -209,7 +209,8 @@ public class HrControllerTest extends AbstractTest {
 					assertEquals("Country 2", el.getText());
 				}
 			}.repeat(5);
-			;
+
+			checkifFatalErrorPage(driver);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -220,7 +221,6 @@ public class HrControllerTest extends AbstractTest {
 	@Test
 	public void t002_gridTwoClickBehavor() {
 		try {
-			// Go to the Google Suggest home page
 			driver.get(getUrl(app_url));
 			login();
 
@@ -247,6 +247,8 @@ public class HrControllerTest extends AbstractTest {
 			tree = hrControllerPage.getLocationTree();
 			tr = (TreeRow) tree.getRow("1_2");
 
+			checkifFatalErrorPage(driver);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -255,7 +257,6 @@ public class HrControllerTest extends AbstractTest {
 
 	@Test
 	public void t002_removeTreeNode() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -268,13 +269,16 @@ public class HrControllerTest extends AbstractTest {
 			tree.getRow("0");
 			fail("Tree should not to exists");
 		} catch (Exception e) {
-
 		}
+
+		checkifFatalErrorPage(driver);
+
 	}
+
+
 
 	@Test
 	public void t003_langSwitch() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -312,11 +316,12 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t004_parallelModification() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -393,11 +398,12 @@ public class HrControllerTest extends AbstractTest {
 		el = t.getRow(0).getCell(1);
 		assertEquals("", el.getText());
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t005_parallelModification() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -460,11 +466,12 @@ public class HrControllerTest extends AbstractTest {
 		el = t.getRow(0).getCell(1);
 		assertEquals("", el.getText());
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t006_commitUpdate() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -520,11 +527,12 @@ public class HrControllerTest extends AbstractTest {
 		el = t.getRow(1).getCell(1);
 		assertEquals("t6_456", el.getText());
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t007_checkSelectionWithRallback() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -597,11 +605,13 @@ public class HrControllerTest extends AbstractTest {
 
 		t = hrControllerPage.getCompanies();
 		assertEquals(true, t.getRow(1).isSelected());
+		
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t008_checkSelectionWithRemove() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -656,11 +666,13 @@ public class HrControllerTest extends AbstractTest {
 
 		t = hrControllerPage.getCompanies();
 		assertEquals(true, t.getRow(1).isSelected());
+		
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t009_removeRow() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -690,21 +702,23 @@ public class HrControllerTest extends AbstractTest {
 				assertEquals("Country 1", el.getText());
 			}
 		};
+		
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t010_genericTest() {
 
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
 		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
-		
+
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr1 = (TreeRow) tree.getRow("1");
 		assertTrue(tr1.isSelected());
-		
+
 		tr1.open();
 
 		new Repeater() {
@@ -857,7 +871,6 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(5);
 
-
 		tree = filesPageObject.getContentTable();
 		tr = (TreeRow) tree.getRow("1");
 		tr.open();
@@ -896,11 +909,12 @@ public class HrControllerTest extends AbstractTest {
 		row = (TableRow) employees.getVehicleTable().getRow(0);
 		assertEquals("Ford", row.getCell(0).getText());
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t011_addCompany() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -947,49 +961,53 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		
 		Tree tree = (Tree) hrControllerPage.getLocationTree();
 		final TreeRow tr1 = (TreeRow) tree.getRow("1");
 		tr1.rightClick();
-		
+
 		final Menu m = hrControllerPage.getLocationTreeContextMenu();
 		new Repeater() {
 			public void action() {
 				m.clickOnItem("Update");
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
 				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("button")), driver);
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")), driver);
+				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")),
+						driver);
 				inputText.setValue("Country_3");
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("Country_3"));
+				InputText inputText = new InputTextPrimeReact(tr1.getCell(1).findElement(By.cssSelector("input")),
+						driver);
+				assertNotEquals(-1, inputText.getValue().indexOf("Country_3"));
 			}
 		}.repeat(10);
-		
-		
+
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(
+						tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 				button.click();
 			}
 		}.repeat(10);
-		
+
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr1.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
 
@@ -999,50 +1017,53 @@ public class HrControllerTest extends AbstractTest {
 		final TreeRow tr2 = (TreeRow) tree.getRow("1_1");
 		tr2.rightClick();
 
-		
-		final Menu m1= hrControllerPage.getLocationTreeContextMenu();
+		final Menu m1 = hrControllerPage.getLocationTreeContextMenu();
 		new Repeater() {
 			public void action() {
 				m1.clickOnItem("Update");
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
-		
-		
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")), driver);
+				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")),
+						driver);
 				inputText.setValue("State_3");
 			}
-		}.repeat(10);		
-		
-		
+		}.repeat(10);
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("State_3"));
+				InputText inputText = new InputTextPrimeReact(tr2.getCell(1).findElement(By.cssSelector("input")),
+						driver);
+				assertNotEquals(-1, inputText.getValue().indexOf("State_3"));
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(
+						tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 				button.click();
 			}
 		}.repeat(10);
-		
+
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr2.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
-		
 
 		hrControllerPage.getAddChildToTree().click();
 
@@ -1057,47 +1078,49 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		
-		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")), driver);
+				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")),
+						driver);
 				inputText.setValue("City_3");
 			}
-		}.repeat(10);		
-		
-		
+		}.repeat(10);
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("City_3"));
+				InputText inputText = new InputTextPrimeReact(tr3.getCell(1).findElement(By.cssSelector("input")),
+						driver);
+				assertNotEquals(-1, inputText.getValue().indexOf("City_3"));
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(
+						tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 				button.click();
 			}
 		}.repeat(10);
-		
+
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr3.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
-		
- 
+
 		hrControllerPage.getAddChildToTree().click();
-		
-		
+
 		tree = (Tree) hrControllerPage.getLocationTree();
 		final TreeRow tr4 = (TreeRow) tree.getRow("1_1_1_1");
 		tr4.rightClick();
@@ -1109,57 +1132,57 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")), driver);
+				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")),
+						driver);
 				inputText.setValue("Street_3");
 			}
-		}.repeat(10);		
-		
-		
+		}.repeat(10);
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("Street_3"));
+				InputText inputText = new InputTextPrimeReact(tr4.getCell(1).findElement(By.cssSelector("input")),
+						driver);
+				assertNotEquals(-1, inputText.getValue().indexOf("Street_3"));
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(
+						tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 				button.click();
 			}
 		}.repeat(10);
-		
+
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr4.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
-		
-		
-		
-		
 
 		DepartmentsDetailsPageObject departmentsDetailsPage = new DepartmentsDetailsPageObject(driver);
 		Table deptTable = (Table) departmentsDetailsPage.getDepartmentTable();
 
-		
 		new Repeater() {
 
 			@Override
 			public void action() {
 				departmentsDetailsPage.getAddDepartment().click();
 			}
-		}.repeat(10);	
+		}.repeat(10);
 
 		new Repeater() {
 
@@ -1187,8 +1210,7 @@ public class HrControllerTest extends AbstractTest {
 				employeesPage.getAddEmployee().click();
 			}
 		}.repeat(10);
-		
-		
+
 		EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
 
 		Table empTable = (Table) employeesPage.getEmployeeTable();
@@ -1217,7 +1239,6 @@ public class HrControllerTest extends AbstractTest {
 				employeesPage.getAddVehicle().click();
 			}
 		}.repeat(10);
-
 
 		new Repeater() {
 			public void action() {
@@ -1263,42 +1284,46 @@ public class HrControllerTest extends AbstractTest {
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
 
-		
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr5.getCell(1).findElement(By.cssSelector("input")), driver);
+				InputText inputText = new InputTextPrimeReact(tr5.getCell(1).findElement(By.cssSelector("input")),
+						driver);
 				inputText.setValue("Dir5");
 			}
-		}.repeat(10);		
-		
-		
+		}.repeat(10);
+
 		new Repeater() {
 			public void action() {
-				InputText inputText = new InputTextPrimeReact(tr5.getCell(1).findElement(By.cssSelector("input")), driver);
-				assertNotEquals( -1,inputText.getValue().indexOf("Dir5"));
+				InputText inputText = new InputTextPrimeReact(tr5.getCell(1).findElement(By.cssSelector("input")),
+						driver);
+				assertNotEquals(-1, inputText.getValue().indexOf("Dir5"));
 			}
 		}.repeat(10);
-		
+
 		new Repeater() {
 			public void action() {
-				ButtonPrimeReact button = new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				ButtonPrimeReact button = new ButtonPrimeReact(
+						tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 				button.click();
 			}
 		}.repeat(10);
-		
+
 		new FalseRepeater() {
 			public void action() {
-				new ButtonPrimeReact(tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")), driver);
+				new ButtonPrimeReact(
+						tr5.getCell(1).findElement(By.cssSelector("span[class='p-button-icon p-c pi pi-check']")),
+						driver);
 			}
 		}.repeat(10);
-
 
 		new Repeater() {
 
@@ -1307,8 +1332,7 @@ public class HrControllerTest extends AbstractTest {
 				HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
 				hrControllerPage.getSaveButton().click();
 			}
-		}.repeat(10);	
-		
+		}.repeat(10);
 
 		new Repeater() {
 			@Override
@@ -1381,7 +1405,7 @@ public class HrControllerTest extends AbstractTest {
 		assertNotEquals(-1, el.getText().indexOf("City_3"));
 		CityDetailsPageObject cityDetails = new CityDetailsPageObject(driver);
 		value = cityDetails.getCityDetails().getValue();
-		assertNotEquals(-1 , value.indexOf("City_3"));
+		assertNotEquals(-1, value.indexOf("City_3"));
 
 		new Repeater() {
 			public void action() {
@@ -1444,11 +1468,12 @@ public class HrControllerTest extends AbstractTest {
 		}.repeat(5);
 		;
 
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t012_Validations() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -1497,11 +1522,16 @@ public class HrControllerTest extends AbstractTest {
 
 		}
 
+		t = hrControllerPage.getCompanies();
+		assertEquals(true, t.getRow(0).isSelected());
+		
+		
+		checkifFatalErrorPage(driver);
+		
 	}
 
 	@Test
 	public void t013_Validations() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
@@ -1544,20 +1574,21 @@ public class HrControllerTest extends AbstractTest {
 
 		}
 
+		checkifFatalErrorPage(driver);
+		
 	}
-	
+
 	@Test
 	public void t014_Popup() {
-		// Go to the Google Suggest home page
 		driver.get(getUrl(app_url));
 		login();
 
 		HrControllerPageObject hrControllerPage = new HrControllerPageObject(driver);
-		
+
 		hrControllerPage.getAddCompany().click();
-		
+
 		hrControllerPage.getRollbackButton().click();
-		
+
 		Table t = hrControllerPage.getCompanies();
 
 		Button button = new ButtonPrimeReact(t.getRow(1).getCell(2).findElement(By.cssSelector("button")), driver);
@@ -1572,9 +1603,9 @@ public class HrControllerTest extends AbstractTest {
 
 		}.repeat(10);
 		
-		
+		checkifFatalErrorPage(driver);
 
 	}
-	
 
+	
 }

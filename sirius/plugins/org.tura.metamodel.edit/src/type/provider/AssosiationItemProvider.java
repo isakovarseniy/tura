@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -70,6 +70,7 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			addTypePropertyDescriptor(object);
 			addContainmentPropertyDescriptor(object);
 			addInternalPropertyDescriptor(object);
+			addLazyPropertyDescriptor(object);
 			addSourceOperationPropertyDescriptor(object);
 			addTargetOperationPropertyDescriptor(object);
 		}
@@ -134,6 +135,28 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 				 getString("_UI_Assosiation_internal_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_internal_feature", "_UI_Assosiation_type"),
 				 TypePackage.Literals.ASSOSIATION__INTERNAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Lazy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLazyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Assosiation_lazy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_lazy_feature", "_UI_Assosiation_type"),
+				 TypePackage.Literals.ASSOSIATION__LAZY,
 				 true,
 				 false,
 				 false,
@@ -258,6 +281,7 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			case TypePackage.ASSOSIATION__TYPE:
 			case TypePackage.ASSOSIATION__CONTAINMENT:
 			case TypePackage.ASSOSIATION__INTERNAL:
+			case TypePackage.ASSOSIATION__LAZY:
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
 			case TypePackage.ASSOSIATION__TARGET_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

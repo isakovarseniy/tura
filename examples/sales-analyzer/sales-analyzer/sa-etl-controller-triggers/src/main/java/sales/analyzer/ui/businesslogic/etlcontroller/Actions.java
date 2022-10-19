@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,12 +30,11 @@ import javax.inject.Named;
 
 import org.josql.Query;
 import org.josql.QueryResults;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
 import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
@@ -47,7 +46,6 @@ import org.tura.salesanalyzer.etlcontroller.dataloader.etlcontroller.viewmodel.I
 import org.tura.salesanalyzer.serialized.db.HolderObject;
 import org.tura.salesanalyzer.serialized.jbpm.EtlProcess;
 import org.tura.salesanalyzer.serialized.jbpm.EtlTask;
-import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -66,15 +64,13 @@ public class Actions implements EventAware {
 	ELResolver elResolver;
 
 	@Inject
-	@Named("dataloader.etlcontroller")
-	CommandStack commandStack;
-
-	@Inject
 	@Named("viewPortHolderDataLoaderETLController")
 	IViewPortHolder vp;
 
 	@Inject
-	Repository repository;
+	@ClientProxyRepo("dataloader.etlcontroller")
+	private CpaRepository repository;
+
 
 	@Inject
 	CachedUserPreferences userPref;
@@ -126,13 +122,7 @@ public class Actions implements EventAware {
 	}
 
 	private void applyChanges() throws Exception {
-		CommandStackProvider sp = new CommandStackProvider();
-		sp.setCommandStack(commandStack);
-
-		ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-		proxyRepository.applyChanges(null);
-		commandStack.commitSavePoint();
+		repository.getStackProvider().get().commit();
 	}
 
 	public void logout() {

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,19 +23,16 @@ import org.tura.platform.repository.jpa.operation.JpaCommandProducer;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.core.StorageCommandProcessor;
-import org.tura.platform.repository.spa.StorageUpdater;
-import org.tura.platform.repository.spa.RequestDataProducer;
+import org.tura.platform.repository.StorageUpdater;
 
 public class JPARepositoryInstantiator implements Instantiator{
 
 	private Registry registry;
 	private SpaObjectRegistry spaRegistry;
-    private RequestDataProducer requestDataProducer;
 
-	public JPARepositoryInstantiator(Registry registry, SpaObjectRegistry spaRegistry,RequestDataProducer requestDataProducer) {
+	public JPARepositoryInstantiator(Registry registry, SpaObjectRegistry spaRegistry) {
 		this.spaRegistry = spaRegistry;
 		this.registry = registry;
-		this.requestDataProducer = requestDataProducer;
 	}
 
 	private static String[] knownObjects = new String[] { 
@@ -51,7 +48,7 @@ public class JPARepositoryInstantiator implements Instantiator{
 	public <T> T newInstance(Class<T> clazz) {
 		if (StorageCommandProcessor.class.equals(clazz)){
 		    StorageUpdater updater = new StorageUpdater();
-		    updater.setRegistry(spaRegistry,  registry,requestDataProducer);
+		    updater.setRegistry(spaRegistry,  registry);
 		    return (T) updater;
 		}
 		
@@ -63,7 +60,7 @@ public class JPARepositoryInstantiator implements Instantiator{
 	public <T> T newInstance(String className) {
 		if ("[%=component.artifactId%]".equals(className)){
 			SpaRepository  repository = new SpaRepository();
-			repository.setRegistry(spaRegistry,"[%=component.artifactId%]",registry,requestDataProducer);
+			repository.setRegistry(spaRegistry,"[%=component.artifactId%]",registry);
 		    return (T) repository;
 		}
 		if ("[%=component.artifactId%].CommandProducer".equals(className)){

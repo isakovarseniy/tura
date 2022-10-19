@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,11 @@
 
 package org.tura.platform.repository.operation;
 
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-
-import com.rits.cloning.Cloner;
 
 public class AddContainmentObjectOperation extends ProxyOperation{
 	
@@ -66,13 +65,12 @@ public class AddContainmentObjectOperation extends ProxyOperation{
     	populate(data);
 
         data.setMasterPk(master.getPath());
-        
 
-        Cloner c = new Cloner();
-        Object cloned = c.deepClone(detail.getWrappedObject());
+        Object cloned = detail.deepClone();
         data.setObject(cloned);
+        data.getParams().put(Constants.CPA_MODIFICATION_SOURCE, detail.get_SrcId());
 
-        stackProvider.addCommand(data);
+        stackProvider.get().addCommand(data);
         
         if (detail.getLinkOperation() != null) {
         	AddLinkOperation lo = detail.getLinkOperation();
@@ -80,11 +78,6 @@ public class AddContainmentObjectOperation extends ProxyOperation{
         	lo.prepare();
         }
 
-        detail.setAttached(true);
 
     }
-	
-	
-	
-
 }

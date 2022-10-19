@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,6 @@ import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.Extension;
 import javax.enterprise.inject.spi.ProcessBean;
 
-import org.tura.platform.datacontrol.CommandStackSupplier;
 import org.tura.platform.datacontrol.annotations.StackSupplier;
 import org.tura.platform.uuiclient.annotations.ElementByIdConverter;
 import org.tura.platform.uuiclient.annotations.ElementByIdValidator;
@@ -224,22 +223,6 @@ public class LifeCycleRegistry  implements Extension{
     	return contextRef;
     		
     }
-    
-	public CommandStackSupplier getCommandStacks(String selector) {
-    	Bean<?> bean = stackSupplier.get(selector);
-    	if ( bean == null) {
-    		return null;
-    	}
-
-    	BeanManager bm = CDI.current().getBeanManager();
-	   	
-    	CreationalContext<?> ctx = bm.createCreationalContext(bean);
-    	CommandStackSupplier commandStackSupplier = (CommandStackSupplier) bm.getReference(bean, CommandStackSupplier.class, ctx);   	
-
-    	return commandStackSupplier;
-	}
-
-
     
 }
 

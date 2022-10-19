@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,19 +14,28 @@
 */
 %]
 [%
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+
 @template
  operation serializer (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient){
+     %][%=serializer(type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient,false)%][%
+  }
+
+
+@template
+ operation serializer (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient,isCpa){
         var util = new Native('org.tura.metamodel.commons.Util');
 		for ( field in type.attributes){
 		     if (skipAttributes.contains(field) ){
 		        continue; 
 		     }   
-		    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+		     
+		    if ( not isCpa and field.findClassifier(util.getHint(model_mapper,"SignalField"))){
 		        continue; 
 		    }
             var startConverter="";
             var endConverter="";
-            if (field.typeRef.isKindOf(type::Enumerator )){
+            if (not isCpa and field.typeRef.isKindOf(type::Enumerator )){
                 var enum = field.typeRef; 
                 enum.mappingType2Java(recipe,ingredient,'VIEW');
                 startConverter = enum.~package+".converter."+enum.~class+"Converter" +".convert(";   
@@ -38,14 +47,19 @@
  }
  
  
-@template
+ @template
  operation serializerPK (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient){
+     %][%=serializerPK(type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient,false)%][%
+ }
+ 
+@template
+ operation serializerPK (type,skipAttributes, inObj, outObj,model_mapper,recipe,ingredient,isCpa){
         var util = new Native('org.tura.metamodel.commons.Util');
 		for ( field in type.attributes){
 		     if (skipAttributes.contains(field) ){
 		        continue; 
 		     }   
-		    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+		    if ( not isCpa and field.findClassifier(util.getHint(model_mapper,"SignalField"))){
 		        continue; 
 		    }
 		    if (not field.pk){
@@ -53,7 +67,7 @@
 		    }
             var startConverter="";
             var endConverter="";
-            if (field.typeRef.isKindOf(type::Enumerator )){
+            if (not isCpa and field.typeRef.isKindOf(type::Enumerator )){
                 var enum = field.typeRef; 
                 enum.mappingType2Java(recipe,ingredient,'VIEW');
                 startConverter = enum.~package+".converter."+enum.~class+"Converter" +".convert(";   
@@ -63,6 +77,54 @@
             %][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%]( [%=startConverter%] [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]() [%=endConverter%] );
  			[%}
  } 
+ 
+  @template
+ operation copyLink (type, alltypes, inObj, outObj,model_mapper,recipe,ingredient){
+      var util = new Native('org.tura.metamodel.commons.Util');
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+      for (rel in assosiations){
+         if( "Many2Many".equals(rel.type.toString() )  ){
+           continue;
+         }
+      
+		if( not alltypes.contains(rel.source.unwrap())){
+               %][%=rel.copyLink(recipe,ingredient,inObj, outObj)%][%
+               continue;
+		}
+		      
+         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               %][%=rel.copyLink(recipe,ingredient,inObj, outObj)%][%
+               continue;
+         }
+            %][%=rel.copyLinkJpa(recipe,ingredient,inObj, outObj)%][%
+      }       
+ }
+ 
+ 
+   @template
+ operation type::Assosiation copyLink (recipe,ingredient,inObj, outObj){
+      var util = new Native('org.tura.metamodel.commons.Util');
+       for ( lnk in  self.links){
+        	%][%=outObj%].setTransient[%=util.mergeAndUnCapitalize(lnk.detailField.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(lnk.detailField.name)%]()  );[%
+       }
+ }
+ 
+   @template
+ operation type::Assosiation copyLinkJpa (recipe,ingredient,inObj, outObj){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var hash = self.targetSideNamesCalculation();
+      %]
+         if ( [%=inObj%].get[%=hash.get("targetMethodName")%]() != null){
+      [%
+       for ( lnk in  self.links){
+        	%][%=outObj%].setTransient[%=util.mergeAndUnCapitalize(lnk.detailField.name)%](  [%=inObj%].get[%=hash.get("targetMethodName")%]().get[%=util.mergeAndCapitalize(lnk.masterField.name)%]()  );[%
+       }
+      %]
+      }
+      [%
+       
+ }
+ 
  
  @template
  operation saveLink (type,skipAttributes, inObj, outObj){
@@ -76,6 +138,17 @@
         }
  }
  
+  @template
+ operation saveLinkCpa (type,skipAttributes, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+        	%][%=outObj%].setTransient[%=util.mergeAndUnCapitalize(field.name)%](  [%=inObj%].getTransient[%=util.mergeAndUnCapitalize(field.name)%]()  );[%
+		     }else{
+		        continue; 
+		     }   
+        }
+ }
  
 @template
  operation serializerDetails (rel, inObj, outObj){
@@ -139,6 +212,31 @@
         [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=suffix%][%=util.mergeAndCapitalize(field.name)%]();
        [%}
 }
+
+
+@template
+ operation PKasSearch (type,name,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if(not type.~primaryKey.isDefined() or type.~primaryKey.size()==0){
+         util.traceIfDebug("Error","Object "+type.name+" doesn't have primary key");
+       }
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = ( [%=objFullName%]PK )pk;
+		  [%for ( field in type.~primaryKey){
+            field.typeRef.mappingType2Java(recipe,ingredient);
+		  %]
+		     search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndCapitalize(field.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),[%=name%].get[%=util.mergeAndCapitalize(field.name)%](),[%=field.typeRef.~fullName%].class.getName()));
+		   [%}
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] =  ([%=field.typeRef.~fullName%])pk ;
+		search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndCapitalize(field.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),[%=name%],[%=field.typeRef.~fullName%].class.getName()));
+       [%}
+}
+
+
 
 @template
  operation PKRepoObjectKey(type,name,obj,objFullName,recipe,ingredient){

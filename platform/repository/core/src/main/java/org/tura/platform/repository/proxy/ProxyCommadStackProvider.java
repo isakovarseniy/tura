@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,9 @@
 package org.tura.platform.repository.proxy;
 
 import java.io.Serializable;
-import java.util.List;
+
+import org.tura.platform.repository.core.CommandStack;
 
 public interface ProxyCommadStackProvider extends Serializable{
-	public void addCommand(Object cmd) throws Exception;
-	public List <Object> getListOfCommand() throws Exception;
-	public void clear() throws Exception;;
+	 CommandStack get();
 }

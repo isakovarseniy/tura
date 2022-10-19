@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -366,6 +366,7 @@ operation form::Table createModel(hash) {
 
 
                     map.put("key", org.tura.platform.datacontrol.commons.Reflection.call(obj,"getKey"));
+                    map.put("path", org.tura.platform.uuiclient.model.ModelHelper.serialize(org.tura.platform.datacontrol.commons.Reflection.call(obj, "getPath")));
                     map.put("index", org.tura.platform.datacontrol.commons.Reflection.call(obj,"getViewModelId1"));
 		            this.values.add(map);    
 			    }
@@ -772,6 +773,7 @@ operation form::Table populateSelected(model_mapper,recipe,ingredient,hints,hash
    }  
 %]		        
      selectedMap.put("key", org.tura.platform.datacontrol.commons.Reflection.call(selectedObject,"getKey"));
+     selectedMap.put("path", org.tura.platform.uuiclient.model.ModelHelper.serialize(org.tura.platform.datacontrol.commons.Reflection.call(selectedObject, "getPath")));
      selectedMap.put("index", org.tura.platform.datacontrol.commons.Reflection.call(selectedObject,"getViewModelId1"));
 [%
 }

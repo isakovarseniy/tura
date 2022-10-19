@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,16 +28,18 @@ import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 public class JpaCRUDService extends CRUDProvider {
+	
+	private EntityManagerProvider entityManagerProvider;
 
-
-	public JpaCRUDService(SpaObjectRegistry spaRegistry, String registryName, Registry registry) {
+	public JpaCRUDService(SpaObjectRegistry spaRegistry, String registryName, Registry registry,EntityManagerProvider entityManagerProvider) {
 		super( spaRegistry,  registryName,  registry);
+		this.entityManagerProvider = entityManagerProvider;
 	}
 
 	public EntityManager getEm() {
-		return spaRegistry.getRegistry(registryName).getEntityManagerProvider().getEntityManager();
+		return entityManagerProvider.getEntityManager();
 	}
-
+	
 	@Override
 	public void setAdapterLoader(AdapterLoader loader) {
 

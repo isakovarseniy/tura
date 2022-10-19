@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.1.2</version>
+     <version>6.0.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -37,7 +37,10 @@
     <module>transformation</module>
     <module>spa</module>
     <module>cpa</module>
+	<module>cdi-util</module>
     <module>cdi</module>
+    <module>cdi-persistence-repo-starter-jee</module>
+    <module>cdi-persistence-repo-starter-jse</module>
     <module>cdi-rest</module>
     <module>rest-client</module>
   </modules>

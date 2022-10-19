@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,11 @@ public class UserAdapter extends User {
 	private List<RoleRef> roles = new ArrayList<>();
 	private List<RoleRef> addRoles = new ArrayList<>();
 	private List<RoleRef> removeRoles = new ArrayList<>();
+	
+	
+	public  static String roleId (String  username, String roleName) {
+		return    username+"-"+roleName;
+	}
 
 	public UserAdapter(UserRepresentation userRepresentation, RealmResource realmResource) {
 		this.userRepresentation = userRepresentation;
@@ -42,7 +47,7 @@ public class UserAdapter extends User {
 			String username = userRepresentation.getUsername();
 			if (realRoles != null) {
 				for (RoleRepresentation r : realRoles) {
-					roles.add(new RoleRefAdapter(r.getId(), username+"-"+r.getName()  ));
+					roles.add(new RoleRefAdapter(r.getId(), roleId(username,r.getName())  ));
 				}
 			}
 		}

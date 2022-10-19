@@ -1,0 +1,53 @@
+<!--
+    Tura - Application generation solution
+
+    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="UIComponent" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>org.tura.platform.hr.objects.jpa.Employee</class>
+		<class>org.tura.platform.hr.objects.jpa.State</class>
+		<class>org.tura.platform.hr.objects.jpa.File</class>
+		<class>org.tura.platform.hr.objects.jpa.Street</class>
+		<class>org.tura.platform.hr.objects.jpa.Company</class>
+		<class>org.tura.platform.hr.objects.jpa.Vehicle</class>
+		<class>org.tura.platform.hr.objects.jpa.Country</class>
+		<class>org.tura.platform.hr.objects.jpa.City</class>
+		<class>org.tura.platform.hr.objects.jpa.Department</class>
+		
+		<class>org.tura.platform.hr.objects.jpa.Prospect</class>
+		<class>org.tura.platform.hr.objects.jpa.Regions</class>
+		<class>org.tura.platform.hr.objects.jpa.UserKk</class>
+		<class>org.tura.platform.hr.objects.jpa.PreferenceKk</class>
+		
+      
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/.tura/resources/CDIUnit" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+           <property name = "hibernate.show_sql" value = "false" />			
+		</properties>
+	</persistence-unit>
+
+
+</persistence>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.core.ObjectControl;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -78,8 +81,6 @@ public class Relation implements Serializable{
 	}
 
 	public Object getMasterCurrentObject() throws TuraException {
-		// if (masterCurrentObject == null)
-		// masterCurrentObject = getParent().getCurrentObject();
 		return masterCurrentObject;
 	}
 
@@ -89,7 +90,12 @@ public class Relation implements Serializable{
 
 	public void loadMasterObject() throws TuraException{
 		if (masterCurrentObject == null){
-			masterCurrentObject = getParent().getCurrentObject();
+			if ( getParent() instanceof DataControl) {
+  			     masterCurrentObject = getParent().getCurrentObject();
+			}else {
+				TreeDataControl treeDc = (TreeDataControl) getParent();
+				masterCurrentObject = treeDc.getParent().getParent().getCurrentObject();
+			}
 		}
 	}
 	
@@ -111,7 +117,10 @@ public class Relation implements Serializable{
 						+ StringUtils.capitalize(lnk.getParent());
 				Method m = masterCurrentObject.getClass().getMethod(methodName,
 						new Class[] {});
-				Object value = m.invoke(masterCurrentObject, new Object[] {});
+				 Object value  = null;
+				if ( !((ObjectControl) masterCurrentObject).isRemoved() ) {
+				   value = m.invoke(masterCurrentObject, new Object[] {});
+				}
 				if (value == null)
 					value = Constants.UNDEFINED_PARAMETER;
 				SearchCriteria sc = new SearchCriteria();

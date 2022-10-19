@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang.builder.EqualsBuilder;
 
 public class RepoObjectKey implements Serializable {
 
@@ -48,6 +50,11 @@ public class RepoObjectKey implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	
+//	public Class<?> getTypeClass() throws ClassNotFoundException{
+//		return Class.forName(getType());
+//	}
 
 	public String getRelation() {
 		return relation;
@@ -67,6 +74,29 @@ public class RepoObjectKey implements Serializable {
 			buffer.append(k.toString());
 		}
 		return buffer.toString();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof RepoObjectKey)) {
+			return false;
+		}
+		RepoObjectKey r = (RepoObjectKey) o;
+
+		if (!(new EqualsBuilder().append(relation, r.relation).append(type, r.type).isEquals())) {
+			return false;
+		}
+
+		if (this.key.size() != r.key.size()) {
+			return false;
+		}
+		for (int i = 0; i < this.key.size(); i++) {
+			if (!(this.key.get(i).equals(r.key.get(i)))) {
+				return false;
+			}
+		}
+		return true;
+
 	}
 
 }

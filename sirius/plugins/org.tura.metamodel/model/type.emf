@@ -63,6 +63,7 @@ class Assosiation extends Relationship{
    attr RelationType type;
    attr Containment containment;
    attr EBoolean internal;
+   attr EBoolean lazy = true;
    val Link[*]  links; 
    attr EString sourceOperation;
    attr EString targetOperation;

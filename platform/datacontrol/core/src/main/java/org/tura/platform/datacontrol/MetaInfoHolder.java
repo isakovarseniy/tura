@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.repository.core.FieldValue;
 
-public abstract class MetaInfoHolder implements Serializable{
+public abstract class MetaInfoHolder<T> implements Serializable{
 
 
 	private static final long serialVersionUID = -7390524799258172116L;
@@ -51,8 +51,8 @@ public abstract class MetaInfoHolder implements Serializable{
 	protected List<ArtificialProperty> artificialProperties = new ArrayList<>();
 	protected Class<?> artificialInterface;
 	protected List<String> keys = new ArrayList<>();
-	protected Class<?> baseClass;
-	protected Class<?> proxyClass;
+	protected Class<T> baseClass;
+	protected Class<T> proxyClass;
 	protected List<SearchCriteria> defaultSearchCriteria = new ArrayList<>();
 	protected List<OrderCriteria> defaultOrderCriteria = new ArrayList<>();
 
@@ -83,7 +83,7 @@ public abstract class MetaInfoHolder implements Serializable{
 	public abstract void setCreateObjectParameters(CreateObjectParameters createObjectParameters);
 	public abstract void setSearchObjectParameters(SearchObjectParameters searchObjectParameters);
 	public abstract void setAutoCreateObjectRule(DCRule rule);
-	public abstract List<FieldValue> getPrimaryKeyFields() throws Exception;
+//	public abstract List<FieldValue> getPrimaryKeyFields() throws Exception;
 	public abstract  void setArtificialFieldInterceptor(OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger) ;
 
 	
@@ -163,17 +163,17 @@ public abstract class MetaInfoHolder implements Serializable{
 		return keys;
 	}
 
-	public Class<?> getBaseClass() {
+	public Class<T> getBaseClass() {
 		return baseClass;
 	}
-	public void setBaseClass(Class<?> baseClass) {
+	public void setBaseClass(Class<T> baseClass) {
 		this.baseClass = baseClass;
 	}
 
 	public Class<?> getProxyClass() {
 		return proxyClass;
 	}
-	public void setProxyClass(Class<?> proxyClass) {
+	public void setProxyClass(Class<T> proxyClass) {
 		this.proxyClass = proxyClass;
 	}
 	

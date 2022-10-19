@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -49,6 +49,9 @@ operation  maven_builder(hash) {
     var lib = new Native("java.util.HashMap"); 
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
+     var versions = recipe.eContainer().eContainer().eContainer().eContainer().applicationMappers.versions;
+     var turaVersion = versions->select(t|t.name = "platform.version" ).first.version;
+     
      for (type in alltypes){
         type.mappingType2Java(recipe,ingredient);
         if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
@@ -62,6 +65,7 @@ operation  maven_builder(hash) {
 
 
     hash.put("lib",lib);
+    hash.put("turaVersion", turaVersion);
     util.populateTechnologies(hash,model_mapper);
 
   

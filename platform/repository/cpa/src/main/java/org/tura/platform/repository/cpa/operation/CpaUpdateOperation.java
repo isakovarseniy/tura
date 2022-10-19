@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,62 +19,100 @@
 package org.tura.platform.repository.cpa.operation;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.repository.core.KeyTracker;
+import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
+import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.spa.OperationLevel;
+import org.tura.platform.repository.spa.SpaControl;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
-public class CpaUpdateOperation extends CpaRepositoryCommand {
+public class CpaUpdateOperation extends SpaRepositoryCommand {
 
 	private static final long serialVersionUID = -5703569928798444741L;
-	private RepoObjectKey pk;
-	private RepoKeyPath extendedPk;
-	private String property;
-	private Object value;
-	private String persistanceType;
-	private SearchProvider searchProvider;
+	protected RepoObjectKey pk;
+	protected RepoKeyPath extendedPk;
+	protected String property;
+	protected Object value;
+	protected String objectType;
+	protected String persistanceType;
+	protected Class<?> valueClazz;
 	
-	
-	public CpaUpdateOperation(SearchProvider searchProvider) {
-		this.searchProvider = searchProvider;
+	public CpaUpdateOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry,spaRegistry);
 	}
 	
-	public void prepare() throws RepositoryException {
+	@Override
+	public List<SpaControl> prepare() throws RepositoryException {
 		try{
 
-			String originalPk = getPrimaryKey(pk);
-			Object persistanceObject = searchProvider.find( getPrimaryKey(pk),persistanceType);
+			SearchProvider sp = this.providerHash.get(persistanceType);
+			PersistanceMapper mapper = findPersistanceMapper(Class.forName(objectType));
+			
+			Object cmdPk  = mapper.getPKey(pk);
+			Object realPk = findReversePK(cmdPk, persistanceType);
+			
+			Object persistanceObject = sp.find( realPk,Class.forName(persistanceType));
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedPk,persistanceObject);
 			
 			String methodName = "set"+WordUtils.capitalize(property);
-			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, value.getClass());
+			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, valueClazz);
 			m.invoke(extendedPersistanceMasterObject, value);
-			
-			String updatedPK =  getPrimaryKey(findRepoObjectKey(persistanceObject));
-			if ( !originalPk.equals(updatedPK) && searchProvider instanceof KeyTracker ) {
-				((KeyTracker)searchProvider).keyUpdated(updatedPK, originalPk, persistanceObject);
-			}
 
+  			mapPk(persistanceType, persistanceObject, cmdPk);
+					
+			SpaControl control = new SpaControl(persistanceObject,cmdPk, OperationLevel.UPDATE,registryName);
+			
+			List<SpaControl> list= new ArrayList<>();
+			list.add(control);
+			return list;
+			
 		}catch(Exception e){
 			throw new RepositoryException(e);
 		}
 	}
 
 
+	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		extendedPk = (RepoKeyPath) parameters[0];
 		pk = extendedPk.getPath().get(0);
 		property = (String) parameters[1];
+		if ( Constants.STORAGE_CONTROL_STATUS.equals(property)) {
+			return false;
+		}
 		value = parameters[2];
+		
+		String valueType = (String) parameters[3];
+		String  persistValueType = registry.findPersistanceClassWithoutException(valueType);
+		if (  persistValueType != null ) {
+			valueType = persistValueType;
+		}
+		try {
+			valueClazz = Class.forName(valueType);
+		} catch (ClassNotFoundException e) {
+			throw new  RepositoryException(e);
+		}
+		
+		objectType = pk.getType();
+		persistanceType =  registry.findPersistanceClass(objectType);
+		
+		this.knownObjects.add(persistanceType);
 		return true;
 		
 	}	
 }
+
 

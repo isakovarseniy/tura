@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 
 package sales.analyzer.ui.businesslogic.admin;
 
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.uuiclient.annotations.KeyTransformer;
 import org.tura.platform.uuiclient.rest.client.commands.KeyConverter;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
@@ -29,6 +30,10 @@ public class RoleRefKeyConverter  implements KeyConverter{
 	@Override
 	public String getKey(Object obj) {
 		RoleReference roleRef = (RoleReference) obj;
+		ObjectControl oc =  (ObjectControl) roleRef.getRole();
+		if (oc == null || oc.isRemoved()) {
+			return roleRef.getId();
+		}
 		return roleRef.getRole().getName();
 	}
 

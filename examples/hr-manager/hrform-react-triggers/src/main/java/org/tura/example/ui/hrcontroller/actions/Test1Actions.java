@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,13 @@ package org.tura.example.ui.hrcontroller.actions;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.inject.Inject;
-import javax.inject.Named;
+
 import org.tura.example.ui.hrmanager.testform1.datacontrol.IBeanFactory;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
-import org.tura.platform.hr.objects.serialization.ProxyRepository;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.events.EventAware;
 
@@ -39,23 +38,14 @@ public class Test1Actions implements EventAware {
 	ELResolver elResolver;
 
 	@Inject
-	@Named("hrmanager.testform1")
-	CommandStack commandStack;
-
-	@Inject
-	Repository repository;
+	@ClientProxyRepo("hrmanager.testform1")
+	private CpaRepository repository;
 
 	
 	
 	public void saveApplication() {
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
+			repository.getStackProvider().get().commit();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -63,7 +53,7 @@ public class Test1Actions implements EventAware {
 
 	public void rallbackApplication() {
 		try {
-			commandStack.rallbackCommand();
+			repository.getStackProvider().get().rallbackCommand();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}

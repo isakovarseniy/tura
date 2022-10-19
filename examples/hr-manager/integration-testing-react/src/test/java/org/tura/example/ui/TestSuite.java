@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.tura.example.ui.hrmanager.TestForm2Test;
 import org.tura.example.ui.hrmanager.Tree2TreeTest;
 import org.tura.example.ui.hrmanager.Tree2TreeTestMultiselectTest;
 import org.tura.example.ui.hrmanager.TreeMultiSelectTest;
+import org.tura.example.ui.simpleform.CalendarTest;
 import org.tura.example.ui.simpleform.DatascrollerViewTest;
 import org.tura.example.ui.simpleform.FatalErrorHandelingTest;
 import org.tura.example.ui.simpleform.InputViewTest;
@@ -41,6 +42,7 @@ import org.tura.example.ui.simpleform.PollViewTest;
 import org.tura.example.ui.simpleform.RadioSelectionTest;
 import org.tura.example.ui.simpleform.SimpleViewTest;
 import org.tura.example.ui.simpleform.TableViewTest;
+import org.tura.example.ui.simpleform.TimeLinerTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ 
@@ -58,6 +60,8 @@ import org.tura.example.ui.simpleform.TableViewTest;
 	Tree2TreeTest.class ,
 	Tree2TreeTestMultiselectTest.class,
 	TreeMultiSelectTest.class,
+	TimeLinerTest.class,
+	CalendarTest.class,
 	HrControllerTest.class
 	}
 )

@@ -1,0 +1,371 @@
+pre{
+
+"Start of artifact creation".println();
+
+          var uuid := Native('java.util.UUID');
+          var addType = new Native('java.util.ArrayList');
+          var addEnumerator= new Native('java.util.ArrayList');
+          var addTypeRef= new Native('java.util.ArrayList');
+          var addTypeAttribute = new Native('java.util.ArrayList');
+          var addEnumAttribute = new Native('java.util.ArrayList');
+          var addAssosiation = new Native('java.util.ArrayList');
+          var addGeneralization = new Native('java.util.ArrayList');
+
+}
+
+
+pattern Type2Type
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromType :   mdl!type::Type    
+           from : 
+                  fromTypeGroup.types -> select( q|q.isKindOf(mdl!type::Type) )
+    {
+
+    match : fromType <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addType", fromType = fromType );
+            addType.add (cmd);
+    }
+}
+
+
+pattern TypeAttribute2TypeAttribute
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromType :   mdl!type::Type    
+           from : 
+                  fromTypeGroup.types -> select( q|q.isKindOf(mdl!type::Type) ),
+    fromAttribute :  mdl!type:: Attribute     
+           from :
+              fromType.attributes
+    {
+
+    match : fromAttribute <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addTypeAttribute", fromAttribute = fromAttribute );
+            addTypeAttribute.add (cmd);
+    }
+}
+
+
+pattern Enumerator2Enumerator
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromEnum :   mdl!type::Enumerator    
+           from : 
+                  fromTypeGroup.types -> select( q|q.isKindOf(mdl!type::Enumerator) )
+    {
+
+    match : fromEnum <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addEnumerator", fromEnum = fromEnum );
+            addEnumerator.add (cmd);
+    }
+}
+
+
+pattern EnumAttribute2EnumAttribute
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromType :   mdl!type::Enumerator    
+           from : 
+                  fromTypeGroup.types -> select( q|q.isKindOf(mdl!type::Enumerator) ),
+    fromAttribute :  mdl!type:: EnumAttribute     
+           from :
+              fromType.values
+    {
+
+    match : fromAttribute <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addEnumAttribute", fromAttribute = fromAttribute );
+            addEnumAttribute.add (cmd);
+    }
+}
+
+pattern Assosiation2Assosiation
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromAssosiation :   mdl!type::Assosiation    
+           from : 
+                  fromTypeGroup.relationships -> select( q|q.isKindOf(mdl!type::Assosiation) )
+    {
+
+    match : fromAssosiation <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addAssosiation", fromAssosiation = fromAssosiation );
+            addAssosiation.add (cmd);
+    }
+}
+
+
+pattern Generalization2Generalization
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromGeneralization :   mdl!type::Generalization    
+           from : 
+                  fromTypeGroup.relationships -> select( q|q.isKindOf(mdl!type::Generalization) )
+    {
+
+    match : fromGeneralization <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addGeneralization", fromGeneralization = fromGeneralization );
+            addGeneralization.add (cmd);
+    }
+}
+
+
+
+pattern TypeReference2TypeReference
+   fromTypeGroup : mdl!type::TypeGroup 
+          from :
+            mdl!type::TypeGroup.allinstances()-> select( g | g.name = fromPackage),
+    fromTypeRef :   mdl!type::TypeReference    
+           from : 
+                  fromTypeGroup.types -> select( q|q.isKindOf(mdl!type::TypeReference) )
+    {
+
+    match : fromTypeRef <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addTypeRef", fromTypeRef = fromTypeRef );
+            addTypeRef.add (cmd);
+    }
+}
+
+
+post{
+      processor(addEnumerator); 
+      processor(addType); 
+      processor(addTypeRef);
+      processor( addTypeAttribute);
+      processor(addEnumAttribute);
+      processor(addGeneralization);
+      processor(addAssosiation);
+      
+"End of artifact creation".println();
+      
+}
+
+operation processor (commands){
+  for (cmd in commands){
+        (cmd.command   + " ->  Start").println();
+  
+       switch(cmd.command){
+          case "addType":  addType(cmd);
+          case "addEnumerator": addEnumerator(cmd);
+          case "addTypeRef": addTypeRef(cmd);
+          case "addAssosiation": addAssosiation(cmd);
+          case "addGeneralization": addGeneralization(cmd);
+          case "addTypeAttribute": addTypeAttribute(cmd);
+          case "addEnumAttribute": addEnumAttribute(cmd);
+          
+      }
+        (cmd.command   + " ->  End").println();
+      
+  }
+
+}
+
+
+operation addEnumAttribute(cmd){
+
+    var typeName = cmd.fromAttribute.eContainer().name;
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var type  = typegrp.types -> select(q|q.isKindOf(mdl!type::Enumerator) and q.name = typeName ).first();
+    
+    
+    var turaAttribute = new mdl!type::EnumAttribute;
+    
+    turaAttribute.uid = uuid.randomUUID().toString();
+    turaAttribute.name = cmd.fromAttribute.name;
+    turaAttribute.value = cmd.fromAttribute.value;
+    
+
+    type.values.add(turaAttribute);
+
+   ( typegrp.name+":"+ typeName+"."+cmd.fromAttribute.name).println();
+
+}
+
+operation addTypeAttribute(cmd){
+
+    var typeName = cmd.fromAttribute.eContainer().name;
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var type  = typegrp.types -> select(q|q.isKindOf(mdl!type::Type) and q.name = typeName+suffix ).first();
+    
+    
+    var turaAttribute = new mdl!type::Attribute;
+    
+    turaAttribute.uid = uuid.randomUUID().toString();
+    turaAttribute.typeRef = cmd.fromAttribute.typeRef;
+    turaAttribute.name = cmd.fromAttribute.name;
+    turaAttribute.pk = cmd.fromAttribute.pk;
+    addClassifiers(cmd.fromAttribute,turaAttribute);
+
+    type.attributes.add(turaAttribute);
+
+   ( typegrp.name+":"+ typeName+"."+cmd.fromAttribute.name).println();
+
+}
+
+operation addGeneralization(cmd){
+    var sourceType = cmd.fromGeneralization.source;
+    var trgType = cmd.fromGeneralization.target;
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+
+    var generalization = new mdl!type::Generalization;
+    generalization.uid = uuid.randomUUID().toString();
+    generalization.source = findType(sourceType);
+    generalization.target =  findType(trgType);
+    addClassifiers(cmd.fromGeneralization,generalization);
+    
+    typegrp.relationships.add(generalization);
+}
+
+
+operation addAssosiation(cmd){
+    var srcType = cmd.fromAssosiation.source;
+    var trgType = cmd.fromAssosiation.target;
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+
+    var assosiation = new mdl!type::Assosiation;
+    assosiation.uid = uuid.randomUUID().toString();
+    assosiation.source = findType(srcType);
+    assosiation.target =  findType(trgType);
+    assosiation.sourceOperation = cmd.fromAssosiation.sourceOperation;
+    assosiation.internal = cmd.fromAssosiation.internal;
+    assosiation.type = cmd.fromAssosiation.type;
+    assosiation.containment = cmd.fromAssosiation.containment;
+    addClassifiers(cmd.fromAssosiation,assosiation);
+    
+    if ( not cmd.fromAssosiation.internal ){
+       assosiation.lazy = false;
+    }
+    
+    for ( srcLnk in cmd.fromAssosiation.links){
+        var trgLnk = new mdl!type::Link;
+        trgLnk.uid = uuid.randomUUID().toString();
+        
+        var masterField =  findAttribute(srcType, srcLnk.masterField.name);
+        var detailField =  findAttribute(trgType, srcLnk.detailField.name);
+        
+        if ( masterField = null or detailField = null){
+          throw ("Link is wrong " + cmd.fromAssosiation.uid + " srcName ="+srcLnk.masterField.name + " trgName="+srcLnk.detailField.name);
+        }
+        trgLnk.masterField = masterField;
+        trgLnk.detailField = detailField;
+        assosiation.links.add(trgLnk);
+    }
+    
+    
+    typegrp.relationships.add(assosiation);
+}
+
+
+operation addClassifiers( source , target){
+      for( srcClf in source.classifiers){
+          var trgClf =  new mdl!artifact::Classifier;
+          trgClf.uid = uuid.randomUUID().toString();
+          trgClf.hint = srcClf.hint;
+          trgClf.details = srcClf.details;
+          
+          target.classifiers.add(trgClf);
+       }
+
+}
+
+operation getType(type){
+   if ( type.isKindOf(mdl!type::TypeReference)){
+      return type.typeRef;
+   }
+      return type;
+}
+
+operation findType(tp){
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var type = null;
+    if ( tp.isKindOf(mdl!type::TypeReference)){
+       type = typegrp.types->select(q|q.isKindOf(mdl!type::TypeReference)  and q.typeRef = tp.typeRef ).first();
+    }
+    
+    if ( tp.isKindOf(mdl!type::Type)){
+       type = typegrp.types->select(q|q.isKindOf(mdl!type::Type)  and q.name = tp.name+suffix ).first();
+    }
+    if ( tp.isKindOf(mdl!type::Enumerator)){
+       type = typegrp.types->select(q|q.isKindOf(mdl!type::Enumerator)  and q.name = tp.name+suffix ).first();
+    }
+     
+     if (type = null ){
+        throw "undefined type "+ tp.uid;
+     }
+     
+     return type;
+}
+
+
+operation findAttribute (type, name){
+     var attr = getType(type).attributes->select(q|q.name = name).first();
+     if ( attr = null){
+       var tp = type.eContainer().relationships -> select( q|q.isKindOf(mdl!type::Generalization) and q.source.uid = type.uid).first().target;
+       if (tp <> null ){
+          return findAttribute(tp,name);
+       }
+       return null;
+     }else{
+       return attr;
+     }
+}
+
+operation addType(cmd ){
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var type = new mdl!type::Type;
+    type.uid = uuid.randomUUID().toString();
+    type.name = cmd.fromType.name+suffix;
+    
+    addClassifiers(cmd.fromType,type);
+    
+    var result = typegrp.types.add(type);
+
+    (  typegrp.name +":"  + type.name   + " - "+ result).println();
+
+}
+
+
+operation addTypeRef(cmd ){
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var typeRef = new mdl!type::TypeReference;
+    typeRef.uid = uuid.randomUUID().toString();
+    typeRef.typeRef = cmd.fromTypeRef.typeRef;
+    var result = typegrp.types.add(typeRef);
+
+    (  typegrp.name +":"  + typeRef.typeRef.name   + " - "+ result).println();
+
+}
+
+operation addEnumerator(cmd ){
+    var typegrp =   mdl!type::TypeGroup.allinstances()-> select( g | g.name = toPackage).first();
+    var enum = new mdl!type::Enumerator;
+    enum.uid = uuid.randomUUID().toString();
+    enum.name = cmd.fromEnum.name;
+    addClassifiers(cmd.fromEnum,enum);
+
+    var result = typegrp.types.add(enum);
+    
+    
+
+    (  typegrp.name +":"  + enum.name   + " - "+ result).println();
+
+}

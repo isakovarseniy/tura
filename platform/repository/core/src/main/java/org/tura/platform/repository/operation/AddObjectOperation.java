@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 
 package org.tura.platform.repository.operation;
 
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.ProxyOperation;
@@ -63,8 +64,10 @@ public class AddObjectOperation extends ProxyOperation{
         data.setMasterPk(master.getPath());
 
         data.setDetailPk(detail.getPath());
+        data.getParams().put(Constants.CPA_MODIFICATION_SOURCE, detail.get_SrcId());
 
-        stackProvider.addCommand(data);
+        
+        stackProvider.get().addCommand(data);
 
 
     }

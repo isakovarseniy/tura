@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -49,6 +49,7 @@ import type.TypePointer;
  *   <li>{@link type.impl.AssosiationImpl#getType <em>Type</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getContainment <em>Containment</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#isInternal <em>Internal</em>}</li>
+ *   <li>{@link type.impl.AssosiationImpl#isLazy <em>Lazy</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getTargetOperation <em>Target Operation</em>}</li>
@@ -117,6 +118,26 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * @ordered
 	 */
 	protected boolean internal = INTERNAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isLazy() <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLazy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LAZY_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isLazy() <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLazy()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean lazy = LAZY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getLinks() <em>Links</em>}' containment reference list.
@@ -272,6 +293,29 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * @generated
 	 */
 	@Override
+	public boolean isLazy() {
+		return lazy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLazy(boolean newLazy) {
+		boolean oldLazy = lazy;
+		lazy = newLazy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ASSOSIATION__LAZY, oldLazy, lazy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Link> getLinks() {
 		if (links == null) {
 			links = new EObjectContainmentEList<Link>(Link.class, this, TypePackage.ASSOSIATION__LINKS);
@@ -400,6 +444,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 				return getContainment();
 			case TypePackage.ASSOSIATION__INTERNAL:
 				return isInternal();
+			case TypePackage.ASSOSIATION__LAZY:
+				return isLazy();
 			case TypePackage.ASSOSIATION__LINKS:
 				return getLinks();
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
@@ -429,6 +475,9 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 				return;
 			case TypePackage.ASSOSIATION__INTERNAL:
 				setInternal((Boolean)newValue);
+				return;
+			case TypePackage.ASSOSIATION__LAZY:
+				setLazy((Boolean)newValue);
 				return;
 			case TypePackage.ASSOSIATION__LINKS:
 				getLinks().clear();
@@ -464,6 +513,9 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 			case TypePackage.ASSOSIATION__INTERNAL:
 				setInternal(INTERNAL_EDEFAULT);
 				return;
+			case TypePackage.ASSOSIATION__LAZY:
+				setLazy(LAZY_EDEFAULT);
+				return;
 			case TypePackage.ASSOSIATION__LINKS:
 				getLinks().clear();
 				return;
@@ -494,6 +546,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 				return containment != CONTAINMENT_EDEFAULT;
 			case TypePackage.ASSOSIATION__INTERNAL:
 				return internal != INTERNAL_EDEFAULT;
+			case TypePackage.ASSOSIATION__LAZY:
+				return lazy != LAZY_EDEFAULT;
 			case TypePackage.ASSOSIATION__LINKS:
 				return links != null && !links.isEmpty();
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
@@ -522,6 +576,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		result.append(containment);
 		result.append(", internal: ");
 		result.append(internal);
+		result.append(", lazy: ");
+		result.append(lazy);
 		result.append(", sourceOperation: ");
 		result.append(sourceOperation);
 		result.append(", targetOperation: ");

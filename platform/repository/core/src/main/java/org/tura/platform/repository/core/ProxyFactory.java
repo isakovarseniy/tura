@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,14 @@ package org.tura.platform.repository.core;
 
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-public interface ProxyFactory {
-	  Object factory(Object obj, String objectClass) throws RepositoryException;
-	  void setStackProvider(ProxyCommadStackProvider stackProvider);
-	  
+public interface ProxyFactory extends Repository {
+	Object factory(Object t, String objectClass) throws RepositoryException;
+
+	void setStackProvider(ProxyCommadStackProvider stackProvider);
+
+	ProxyCommadStackProvider getStackProvider();
+
+	public <T> T load(Object obj, Class<T> objectClass) throws RepositoryException;
+
+	
 }

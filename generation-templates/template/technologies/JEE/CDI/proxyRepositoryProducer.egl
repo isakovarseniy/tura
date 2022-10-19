@@ -1,0 +1,103 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+${percent}${end}
+[%
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+    var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+    var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
+    var uipackage = form.eContainer();
+
+    %][%=cpaStrorageProducer(component,uipackage, form,controlSuffix)%][%
+    
+    out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxy" +util.mergeAndCapitalize(controlSuffix) +"Producer.java",out.toString());   
+
+%]
+
+[% @template
+operation  cpaStrorageProducer(component,uipackage,form, suffix) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var dotsuffix = suffix;
+     if ( not "".equals(suffix)  ){
+     dotsuffix = suffix+".";
+     }
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+
+import org.tura.platform.repository.cdi.ClientProxyRepo;
+import org.tura.platform.repository.cdi.ClientRegistry;
+import org.tura.platform.repository.cdi.Transport;
+import org.tura.platform.repository.core.AllowEverythingProfile;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.cpa.CpaTransactionAdapter;
+import org.tura.platform.repository.cpa.ProxyRepositoryInterface;
+import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+
+public class CdiClientProxy[%=suffix%]Producer {
+	
+	@Inject
+	@Transport
+	private Repository transport;
+	
+	@Inject
+    @ClientRegistry("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+    private Registry registry;
+	
+    @Inject
+    private ProxyRepositoryInterface proxyRepository;
+	
+	
+    @Produces
+    [%=commandstack_scope()%]
+    @ClientProxyRepo("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+	public CpaRepository getCpaRepository() {
+
+    CpaStorageProvider cpaStorageProvider = new CdiClientCpaStorage[%=util.mergeAndCapitalize(suffix)%]Provider();
+    ProxyCommadStackProvider stackProvider = new CdiClientCommandStack[%=util.mergeAndCapitalize(suffix)%]Provider();
+    
+    proxyRepository.setStackProvider(stackProvider);
+    proxyRepository.setTransport(transport);
+    proxyRepository.setStorageProvider(cpaStorageProvider);
+    proxyRepository.setRegistry(registry);
+    registry.setTransactrionAdapter(new CpaTransactionAdapter(registry));
+    proxyRepository.setProfile(AllowEverythingProfile.class.getName());
+
+    return (CpaRepository) proxyRepository;
+	}
+
+}
+
+
+[%
+
+}
+%]

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,9 @@ package org.tura.platform.repository.core;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
-public interface CommandProducer  extends Serializable {
+public interface CommandProducer  extends Serializable , SpaRepositoryDataAware{
 
 	List<Object> removeObject( Object repositoryObject) throws RepositoryException;
 	List<Object> removeInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty) throws RepositoryException;
@@ -31,12 +32,13 @@ public interface CommandProducer  extends Serializable {
 	List<Object> disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
 	List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
 	List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
-	List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException;
+	List<Object> update(RepoKeyPath pk, String property, Object value, String valueType) throws RepositoryException;
 	List<Object> link(RepoKeyPath masterPk, RepoKeyPath detailPk,List<List<String>> links) throws RepositoryException;
 	
 	
 	void setMasterProvider(Repository masterProvider);
 	void setDetailProvider(Repository detailProvider);
+	void setCallParams( Map<String,Object> params);
 
 	
 }

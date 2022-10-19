@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,38 +20,44 @@ package org.tura.platform.repository.core;
 
 import java.io.Serializable;
 
-public class FieldValue implements Serializable{
+import org.apache.commons.lang.builder.EqualsBuilder;
+
+public class FieldValue implements Serializable {
 	private static final long serialVersionUID = 3677035298112435943L;
 	private String name;
 	private String type;
 	private String value;
-	
-	
+
 	public FieldValue() {
-		
+
 	}
-	
-	public FieldValue( String name, String type,String value){
+
+	public FieldValue(String name, String type, String value) {
 		this.name = name;
 		this.type = type;
 		this.value = value;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	public String getValue() {
 		return value;
 	}
+
 	public void setValue(String value) {
 		this.value = value;
 	}
@@ -64,5 +70,18 @@ public class FieldValue implements Serializable{
 		buffer.append(value);
 		return buffer.toString();
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof FieldValue)) {
+			return false;
+		}
+		FieldValue f = (FieldValue) o;
+		return new EqualsBuilder()
+				.append(type, f.type)
+				.append(name, f.name)
+				.append(value, f.value)
+				.isEquals();
+	}
+
 }

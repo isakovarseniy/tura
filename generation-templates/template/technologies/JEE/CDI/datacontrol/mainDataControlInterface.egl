@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -31,21 +31,26 @@ import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
           forms.addAll(frm2);
      }
  
+      var hash = new Native("java.util.HashMap"); 
+      hash.put("recipe",recipe);
+      hash.put("ingredient",ingredient);
+      hash.put("component",component);
+      hash.put("model_mapper",model_mapper);
+      hash.put("configuration",configuration);
+ 
+     util.populateTechnologies(hash,model_mapper);
+ 
+ 
     if (forms.size() <> 0 ){
 
        for (form in forms){
        var i = 0;
 
-         var hash = new Native("java.util.HashMap"); 
    
          var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
          var uipackage = form.eContainer();
 
-         hash.put("recipe",recipe);
-         hash.put("ingredient",ingredient);
-         hash.put("component",component);
-         hash.put("model_mapper",model_mapper);
          hash.put("javaPath",javaPath);
          hash.put("resourcePath",resourcePath);
          hash.put("form",form);
@@ -55,6 +60,7 @@ import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
          if (form.datacontrols == null  or form.datacontrols.controls == null){
             continue;
          }
+         
          form.datacontrols.processRootElement(recipe,ingredient);
          var controls =  form.datacontrols.controls;
          
@@ -66,8 +72,9 @@ import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
            control.processTriggers(recipe,ingredient,hash);
            
            //Process relations only ones for all datacontrols;
-           if (i = 0 )
+           if (i = 0 ){
               control.processRelations(recipe,ingredient,hash);
+           }
            
            i=i+1;   
 

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -94,6 +94,7 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
 	    hash.put("component",component);
 	    hash.put("model_mapper",model_mapper);
 	    hash.put("path",path);
+ 	    hash.put("alltypes",types);
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		

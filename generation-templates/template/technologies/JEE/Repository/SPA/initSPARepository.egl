@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -32,22 +32,20 @@ ${start}${percent}
  
  import org.tura.platform.repository.core.Registry;
  import org.tura.platform.repository.spa.SpaObjectRegistry;
- import org.tura.platform.repository.spa.RequestDataProducer;
  
  public class InitSPARepository{
  
      private Registry registry;
      private SpaObjectRegistry spaRegistry;
-     private RequestDataProducer requestDataProducer;
+     public static String SPA_REPOSITORY_NAME = "[%=component.artifactId%]";
      
-     public InitSPARepository(Registry registry,SpaObjectRegistry spaRegistry,RequestDataProducer requestDataProducer){
+     public InitSPARepository(Registry registry,SpaObjectRegistry spaRegistry){
          this.registry = registry;
          this.spaRegistry= spaRegistry;
-		 this.requestDataProducer = requestDataProducer;
      }
  
     public void initProvider(){
-    	registry.addInstantiator(new SPARepositoryInstantiator(registry,spaRegistry,requestDataProducer));  
+    	registry.addInstantiator(new SPARepositoryInstantiator(registry,spaRegistry));  
     
        [%
          for(type in typeCollection){
@@ -177,6 +175,9 @@ ${start}${percent}
      }
  
   
+  public void initRules() {
+	  registry.addRule(org.tura.platform.repository.core.navigation.NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), org.tura.platform.repository.core.navigation.AddObjectsDefaultRule.class);
+  }
  
  
  }

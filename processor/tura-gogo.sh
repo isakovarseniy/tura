@@ -2,7 +2,7 @@
 #
 #   Tura - Application generation solution
 #
-#   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+#   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 #
 #
 #   This project includes software developed by Arseniy Isakov
@@ -12,6 +12,7 @@
 #   which accompanies this distribution, and is available at
 #   http://www.eclipse.org/legal/epl-v20.html
 #
+
 
 realpath() {
   OURPWD=${PWD}
@@ -116,7 +117,7 @@ while [ "${1}" != "" ]; do
             shift
             ;;
         *)
-            cmd="${1}"
+            cmd="${cmd} ${1}"
             shift
             ;;
 

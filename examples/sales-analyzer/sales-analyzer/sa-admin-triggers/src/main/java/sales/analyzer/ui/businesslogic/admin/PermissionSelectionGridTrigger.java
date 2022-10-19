@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,23 +26,17 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.josql.Query;
-import org.josql.QueryResults;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.model.GridModel;
 import org.tura.platform.uuiclient.model.GridModelTriggers;
 import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
-import org.tura.salesanalyzer.admin.admin.administration.datacontrol.PermissionReferencesArtifitialFieldsAdapter;
 import org.tura.salesanalyzer.serialized.db.Permission;
 import org.tura.salesanalyzer.serialized.db.PermissionReferences;
-import org.tura.salesanalyzer.serialized.db.PermissionReferencesProxy;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
-
-import com.octo.java.sql.exp.Operator;
 
 public class PermissionSelectionGridTrigger implements GridModelTriggers, Serializable {
 
@@ -60,34 +54,27 @@ public class PermissionSelectionGridTrigger implements GridModelTriggers, Serial
     }
 
     @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "rawtypes"})
     public void onSelect(Object obj) {
         try {
 
-            Permission p = (Permission) obj;
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+            DataControl dcRole = (DataControl) bf.getRole();
+			CpaRepository repository = dcRole.getPager().getRepository();
 
-            DataControl dcRef = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permissionReferences}");
+			Permission p = (Permission) obj;
+			Role role = (Role) dcRole.getCurrentObject();
 
-            List<Object> list = new ArrayList<>();
-			list.addAll(dcRef.getScroller());
-			Query query = new Query();
-			query.parse(QUERY_PERMISSION);
-			query.setVariable("objId", p.getObjId());
-			QueryResults result = query.execute(list);
-
-			if ( result.getResults() != null && result.getResults().size() == 0) {
-	            PermissionReferencesProxy pf = (PermissionReferencesProxy) dcRef.createObject();
-	            pf.notifyListner();
-	
-	            pf.setPermission(p);
-	            pf.notifyListner();
-	
-	            PermissionReferencesArtifitialFieldsAdapter ad = new PermissionReferencesArtifitialFieldsAdapter(
-	                    (ObjectControl) pf);
-	            ad.setPermissionDescription(p.getDescription());
-	            ad.setPermissionName(p.getName());
-
+			for ( PermissionReferences pr :  role.getPermissionReferences()) {
+				if (pr.getPermission().equals(p)) {
+					return;
+				}
 			}
+			
+			PermissionReferences permRef = repository.create(PermissionReferences.class);
+			role.getPermissionReferences().add(permRef);
+			permRef.setPermission(p);
+			
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
@@ -99,40 +86,26 @@ public class PermissionSelectionGridTrigger implements GridModelTriggers, Serial
     public void onUnselect(Object obj) {
         try {
 
-            Permission p = (Permission) obj;
+			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			Role role = (Role)  bf.getRole().getCurrentObject();
+			Permission p = (Permission) obj;
 
-            IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            DataControl dcHelper = (DataControl) bf.getRoleHelper();
-            DataControl dc = (DataControl) bf.getRole();
-            Role role = (Role) dc.getCurrentObject();
+			int i = 0;
+			boolean found = false;
+			for ( PermissionReferences pr :  role.getPermissionReferences()) {
+				if (pr.getPermission().equals(p)) {
+					found = true;
+					break;
+				}
+				i++;
+			}
+        	
+			if (found) {
+				role.getPermissionReferences().remove(i);
+			}
+			DataControl dc =    (DataControl) bf.getRoleReference();
+			dc.forceRefresh();
 
-            dcHelper.getDefaultSearchCriteria().clear();
-
-            SearchCriteria sc = new SearchCriteria();
-            sc.setName("id");
-            sc.setComparator(Operator.EQ.name());
-            sc.setValue(role.getId());
-            dcHelper.getDefaultSearchCriteria().add(sc);
-
-            dcHelper.forceRefresh();
-
-            dcHelper.getCurrentObject();
-            DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
-            peermRefHelper.getCurrentObject();
-            int i = 0;
-            boolean found = false;
-            for (Object o : peermRefHelper.getScroller()) {
-                PermissionReferences permRef = (PermissionReferences) o;
-                if (permRef.getPermission().equals(p)) {
-                    found = true;
-                    break;
-                }
-                i++;
-            }
-            if (found) {
-                peermRefHelper.setCurrentPosition(i);
-                peermRefHelper.removeObject();
-            }
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
         }
@@ -150,34 +123,17 @@ public class PermissionSelectionGridTrigger implements GridModelTriggers, Serial
 
         List<Object> selected = new ArrayList<>();
         try {
-
             IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-            DataControl dcHelper = (DataControl) bf.getRoleHelper();
             DataControl dc = (DataControl) bf.getRole();
             Role role = (Role) dc.getCurrentObject();
-
-            dcHelper.getDefaultSearchCriteria().clear();
-
-            SearchCriteria sc = new SearchCriteria();
-            sc.setName("id");
-            sc.setComparator(Operator.EQ.name());
-            sc.setValue(role.getId());
-            dcHelper.getDefaultSearchCriteria().add(sc);
-
-            dcHelper.forceRefresh();
-            dcHelper.getCurrentObject();
-            DataControl peermRefHelper = (DataControl) bf.getPermissionReferencesHelper();
-            peermRefHelper.getCurrentObject();
-
-            for (Object o : peermRefHelper.getScroller()) {
-                PermissionReferences permRef = (PermissionReferences) o;
-                if (permRef.getPermission() != null) {
-                    ObjectControl oc = (ObjectControl) permRef.getPermission();
-                    oc = (ObjectControl) map.get(oc.getKey());
-                    if (oc != null) {
+            for (  PermissionReferences  pr  :  role.getPermissionReferences()) {
+            	ObjectControl  oc = (ObjectControl) pr.getPermission();
+				if (oc != null && !oc.isRemoved()) {
+					oc = (ObjectControl) map.get(oc.getKey());
+                    if ( oc != null) {
                         selected.add(oc);
-                    }
-                }
+                    }					
+				}
             }
 
         } catch (Exception e) {

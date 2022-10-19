@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,16 @@ public class UpdateObjectOperation implements Serializable{
     private Object newValue;
     private Object oldValue;
     private String property;
+    private Class<?> propertyType;
+
     
-	
+	public Class<?> getPropertyType() {
+		return propertyType;
+	}
+
+	public void setPropertyType(Class<?> propertyType) {
+		this.propertyType = propertyType;
+	}
 
 	public String getProperty() {
 		return property;
@@ -114,7 +122,8 @@ public class UpdateObjectOperation implements Serializable{
         data.setValue(newValue);
         data.setProperty(property);
         data.setPk(proxy.getPath());
-        stackProvider.addCommand(data);
+        data.setPropertyType(propertyType.getName());
+        stackProvider.get().addCommand(data);
         
         
     }

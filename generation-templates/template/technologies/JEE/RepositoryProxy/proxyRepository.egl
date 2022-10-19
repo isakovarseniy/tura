@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,148 +23,19 @@
 %]
 package [%=component.basePackage%];
 
-public class ProxyRepository implements org.tura.platform.repository.core.Repository,org.tura.platform.repository.core.ProxyFactory , java.io.Serializable {
-	private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
-	private org.tura.platform.repository.core.Repository transport;
-	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
-	private static java.util.List <String> array;
-	private String profile;
-	
+public class ProxyRepository extends org.tura.platform.repository.cpa.CpaRepository {
+
+   private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+
+   private static java.util.List<String> array;
 	
 	public ProxyRepository() {
 
 	}	
 	
-	public ProxyRepository(org.tura.platform.repository.core.Repository transport,org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
-	   this.transport = transport;
-	   this.stackProvider = stackProvider;
-	}
-
-	public ProxyRepository(org.tura.platform.repository.core.Repository transport,org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider, String profile){
-	   this.transport = transport;
-	   this.stackProvider = stackProvider;
-	   this.profile = profile;
-	}
-
-
-  public void setStackProvider(ProxyCommadStackProvider stackProvider) {
-		this.stackProvider = stackProvider;
-	}
-
-    public String getProfile() {
-		return profile;
-	}
-
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
-
-
-
-	@Override
-	public Object create(String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-	    if (org.tura.platform.repository.data.ObjectHolder.class.getName().equals(objectClass)){
-	        	return new org.tura.platform.repository.data.ObjectHolderProxy(new org.tura.platform.repository.data.ObjectHolder(), stackProvider);
-	    }
-        return factory( transport.create(objectClass),objectClass);
-	}
-
-	@Override
-	public void insert(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-	 if (  array.contains(objectClass) ){
-	       try{
-	           org.tura.platform.repository.operation.AddTopObjectOperation cmd = new  org.tura.platform.repository.operation.AddTopObjectOperation();
-               cmd.setStackProvider(stackProvider);
-               cmd.setProxy((org.tura.platform.repository.core.ObjectControl) obj);
-               cmd.prepare();
-               
-		       org.tura.platform.repository.core.ObjectControl oc = (org.tura.platform.repository.core.ObjectControl) obj;
-		       if ( oc.getLinkOperation() != null) {
-		        	org.tura.platform.repository.operation.AddLinkOperation lo = oc.getLinkOperation();
-		        	lo.setStackProvider(stackProvider);
-		        	lo.prepare();
-		       }
-               
-        	}catch(Exception e){
-                throw new org.tura.platform.repository.core.RepositoryException(e);
-        	}
-            return;
-	 }
-	 else{
-        throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
-        }
-    }    
-
-	@Override
-	public void remove(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-	 if (  array.contains(objectClass) ){
-	       try{
-	           org.tura.platform.repository.operation.RemoveTopObjectOperation cmd = new  org.tura.platform.repository.operation.RemoveTopObjectOperation();
-               cmd.setStackProvider(stackProvider);
-               cmd.setProxy((org.tura.platform.repository.core.ObjectControl) obj);
-               cmd.prepare();
-        	}catch(Exception e){
-                throw new org.tura.platform.repository.core.RepositoryException(e);
-        	}
-            return;
-	 }
-	 else{
-        throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
-        }
-		
-	}
-
-
-
-    @SuppressWarnings("unchecked")
-	@Override
-    public org.tura.platform.repository.core.SearchResult  find(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria,
-        java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
-        Integer endIndex, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-    	
-    	
-	    if (org.tura.platform.repository.data.ObjectHolder.class.getName().equals(objectClass)) {
-	        return new org.tura.platform.repository.core.SearchResult(new java.util.ArrayList<Object>(),0);
-	      }
-    	
-    	
-    	java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> search = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> ();
-    	search.addAll(searchCriteria);
-    	if ( profile != null ){
-    	  org.tura.platform.datacontrol.commons.ObjectProfileCriteria sc = new  org.tura.platform.datacontrol.commons.ObjectProfileCriteria(profile);
-    	  search.add(sc);
-    	}
-    	
-    	org.tura.platform.repository.core.SearchResult  result =  transport.find(search, orderCriteria, startIndex,endIndex, objectClass);
-    	
-    	@SuppressWarnings("rawtypes")
-		java.util.List  list = new java.util.ArrayList();
-    	for (Object obj : result.getSearchResult()){
-    		list.add(factory(obj,objectClass));
-    	}
-        return new org.tura.platform.repository.core.SearchResult (list,result.getNumberOfRows());
+	public  java.util.List<String> getArray(){
+	    return array;
     }
-    
-	@Override
-	public Object find(Object pk, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-        return transport.find(pk,objectClass);
-	}
-    
-    
-	@Override
-    @SuppressWarnings("rawtypes")
-	public List applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
-	   try{
-		List response = transport.applyChanges(stackProvider.getListOfCommand());
-		stackProvider.clear();
-		return response;
-		}catch(Exception e){
-		  throw new org.tura.platform.repository.core.RepositoryException(e);
-		}
-		
-	}
-	
-	
 	public Object factory( Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException{
 	
 	switch (objectClass){
@@ -176,7 +47,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
         }
 	
 %] 
-case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj,stackProvider);
+case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj,this,getStorageProvider());
 [%	
 	}
 %]	

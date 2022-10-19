@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,22 +21,22 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.util.List;
 
-public class SearchResult implements Serializable{
+public class SearchResult<T> implements Serializable{
 	private static final long serialVersionUID = 1451767056951539998L;
-	private List<?> searchResult;
+	private List<T> searchResult;
 	private long numberOfRows;
 	
-	public SearchResult( List<?> searchResult,long numberOfRows){
+	public SearchResult( List<T> searchResult,long numberOfRows){
 		this.searchResult=searchResult;
 		this.numberOfRows=numberOfRows;
 		
 	}
 	
-	public List<?> getSearchResult() {
+	public List<T> getSearchResult() {
 		return searchResult;
 	}
 
-	public void setSearchResult(List<?> searchResult) {
+	public void setSearchResult(List<T> searchResult) {
 		this.searchResult = searchResult;
 	}
 

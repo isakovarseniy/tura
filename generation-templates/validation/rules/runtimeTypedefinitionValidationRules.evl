@@ -14,7 +14,24 @@ operation type::Type getAllRecipeMappers() : Boolean {
     var type = self;
 
     if ( component.isKindOf(recipe::JavaScriptComponent)){
-        return false;
+          if ( ingredient.controllerLayer == null){
+             type.mappingType2JavaScript(recipe,ingredient,'MODEL');
+             if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  (    type.~url <> null ) ){
+                return true;
+             }else{
+                     type.mappingType2JavaScript(recipe,ingredient,'VIEW');
+                      if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  (    type.~url <> null ) ){
+                         return true;
+                     }
+               return false;
+             }
+          }else{
+             type.mappingType2JavaScript(recipe,ingredient);
+             if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  (    type.~url <> null ) ){
+                  return true;
+             }
+             return false;
+          }
     }
     if ( component.isKindOf(recipe::JavaComponent)){
           if ( ingredient.controllerLayer == null){

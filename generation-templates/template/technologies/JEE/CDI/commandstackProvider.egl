@@ -1,0 +1,75 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${Environment}.egl";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+${percent}${end}
+[%
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+    var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+    var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
+    var uipackage = form.eContainer();
+
+    %][%=commandstackProvider(component,uipackage, form,controlSuffix)%][%
+    
+    out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(controlSuffix) +"Provider.java",out.toString());   
+
+%]
+
+[% @template
+operation  commandstackProvider(component,uipackage,form, suffix) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var dotsuffix =  suffix;
+     if ( not "".equals(suffix)  ){
+       dotsuffix = suffix+".";
+     }
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+public class CdiClientCommandStack[%=util.mergeAndCapitalize(suffix)%]Provider implements org.tura.platform.repository.proxy.ProxyCommadStackProvider {
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public org.tura.platform.repository.core.CommandStack get() {
+		org.tura.platform.repository.cdi.ClientCommandStack qualifier  = new  org.tura.platform.repository.cdi.ClientCommandStack() {
+			@Override
+			public Class<? extends java.lang.annotation.Annotation> annotationType() {
+				return org.tura.platform.repository.cdi.ClientCommandStack.class;
+			}
+			@Override
+			public String value() {
+[%
+           %]return  "[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]";[%
+%]			
+			}
+			
+		};
+		return org.omnifaces.util.Beans.getReference(org.tura.platform.repository.core.CommandStack.class,qualifier);
+	}
+
+}
+[%
+}
+%]

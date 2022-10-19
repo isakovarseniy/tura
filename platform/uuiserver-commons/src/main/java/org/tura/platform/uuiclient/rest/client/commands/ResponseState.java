@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,6 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import org.tura.platform.datacontrol.CommandStack;
-import org.tura.platform.datacontrol.CommandStackSupplier;
-import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.uuiclient.rest.DataUpdateResponse;
 
 @RequestScoped
@@ -38,7 +35,6 @@ public class ResponseState {
 	private boolean validationError;
 	private boolean applicationError;
 	private boolean rollBack;
-	private List<CommandStack> stacks;
 
 	public Validator findValidatorByType(Class<?> clazz) {
 		return lifeCycleRegistry.findValidatorByType(clazz);
@@ -123,38 +119,6 @@ public class ResponseState {
 
 	public DataUpdateResponse getResponse() {
 		return this.response;
-	}
-
-	public void squezeTransactions() throws TuraException {
-		for (CommandStack stack : stacks) {
-			while (stack.isSavePoint()) {
-				if (stack.getCommandStackData().getTransaction().size() != 0) {
-					break;
-				} else {
-					stack.rallbackSavePoint();
-				}
-			}
-		}
-	}
-
-	public void rollBack() throws TuraException {
-		if (stacks != null) {
-			for (CommandStack stack : stacks) {
-				stack.rallbackSavePoint();
-			}
-		}
-	}
-
-	public void startTransaction(String selector) throws TuraException {
-		CommandStackSupplier suplier = lifeCycleRegistry.getCommandStacks(selector);
-		if (suplier != null) {
-			stacks = suplier.getAvailableStacks();
-			if (stacks != null) {
-				for (CommandStack stack : stacks) {
-					stack.savePoint();
-				}
-			}
-		}
 	}
 
 }

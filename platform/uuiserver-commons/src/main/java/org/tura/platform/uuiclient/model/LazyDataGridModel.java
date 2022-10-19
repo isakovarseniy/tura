@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,11 @@ public class LazyDataGridModel<T> implements Serializable {
 	}
 
 	public int getRowCount() {
-		return datacontrol.getScroller().size();
+		try {
+			return datacontrol.getScroller().size();
+		} catch (TuraException e) {
+			throw new  RuntimeException(e);
+		}
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -134,10 +138,11 @@ public class LazyDataGridModel<T> implements Serializable {
 
 			List<?> scroler = datacontrol.getScroller();
 			int j = first + pageSize;
+			int size = scroler.size();
 
 			for (int i = first; i < j; i++) {
 				try {
-					if (scroler.get(i) != null) {
+					if ( i <  size && scroler.get(i) != null) {
 						// Element could be null in case random delete
 						// Size of scroller will be adjusted only after
 						// scroler.get(i) operation

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -80,7 +80,23 @@ operation  datacontrolgeneration(hash) {
 
 	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
 	    trans.process();
+	    
+	    
+	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/commandstackProvider.egl",hash,TemplateFactory);
+	    trans.process();
 
+	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProducer.egl",hash,TemplateFactory);
+	    trans.process();
+
+	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl",hash,TemplateFactory);
+	     trans.process();
+
+	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cdiClientRegistry.egl",hash,TemplateFactory);
+	     trans.process();
+
+	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/proxyRepositoryProducer.egl",hash,TemplateFactory);
+	     trans.process();
+	    
 
          if (control.~treeRoot <> null){
 
@@ -130,18 +146,13 @@ operation  datacontrolgeneration(hash) {
 	            hash.put("targetProperty",h.get("sourceProperty") );
 	        
 	        }
-            var pager : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory);
+            var pager : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl",hash,TemplateFactory);
             pager.setFormatter(f);
             buffer = pager.process();
             util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , control.~parenType.typeRef.~class+"2"+util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",buffer);   
        } 
        
     }
-
-    hash.put("collectStacks",collectStacks);
-	var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/commandStackCollection.egl",hash,TemplateFactory);
-	trans.process();
-
 
 
     var beansxml : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);

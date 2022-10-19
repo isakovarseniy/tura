@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,12 +38,21 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
     String className;
     String property;
     Object value;
+	Class<?> valueClazz;
 
     public JpaUpdateOperation(Registry registry,SpaObjectRegistry spaRegistry) {
         super(registry,spaRegistry);
     }
+    
+    public Class<?> getValueClazz() {
+		return valueClazz;
+	}
 
-    public Object getPk() {
+	public void setValueClazz(Class<?> valueClazz) {
+		this.valueClazz = valueClazz;
+	}
+
+	public Object getPk() {
         return pk;
     }
 
@@ -79,11 +88,11 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
     public List<SpaControl> prepare() throws RepositoryException {
         try {
             JpaSearchService sp = (JpaSearchService) this.providerHash.get(className);
-            Object object = sp.find(getPk(), getClassName());
+            Object object = sp.find(getPk(), Class.forName(getClassName()));
             String name = "set" + WordUtils.capitalize(getProperty());
             Method m;
             if (getValue() != null) {
-              m = object.getClass().getMethod(name, getValue().getClass());
+              m = object.getClass().getMethod(name, getValueClazz());
             }else {
               m= new RepositoryHelper(null).getMethodsToSetNull(object.getClass(), name);
             }
@@ -103,7 +112,18 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
         RepoKeyPath pk_ = (RepoKeyPath) parameters[0];
         String property_ = (String) parameters[1];
         Object value_ = parameters[2];
-
+        
+		String valueType = (String) parameters[3];
+		String  persistValueType = registry.findPersistanceClassWithoutException(valueType);
+		if (  persistValueType != null ) {
+			valueType = persistValueType;
+		}
+		try {
+			setValueClazz(Class.forName(valueType));
+		} catch (ClassNotFoundException e) {
+			throw new  RepositoryException(e);
+		}
+		
         setProperty(property_);
         setValue(value_);
         setClassName(getJpaPersistanceClassName(pk_));

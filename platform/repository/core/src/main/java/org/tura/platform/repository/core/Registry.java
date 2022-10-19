@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,11 +45,27 @@ public class Registry implements Serializable {
 	private CommandLifecycle commandLifecycle;
 	private Map<String, ObjectGraphProfile> profiles = new HashMap<>();
 	private List<Instantiator> instantiators = new ArrayList<>();
+	private Map<String, List<Class<? extends Rule>>> rules = new HashMap<>();
 
 	public Registry() {
 
 	}
 
+	public void addRule(String ruleType, Class<? extends Rule> clazz) {
+		List<Class<? extends Rule>> array = rules.get(ruleType);
+		if (array == null) {
+			array = new ArrayList<Class<? extends Rule>>();
+			rules.put(ruleType, array);
+		}
+		if (!array.contains(clazz)) {
+			array.add(clazz);
+		}
+	}
+
+	public  Map<String, List<Class<? extends Rule>>> getRules(){
+		return rules;
+	}
+	
 	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy) {
 		this.prImaryKeyStrategy = prImaryKeyStrategy;
 	}
@@ -116,12 +132,11 @@ public class Registry implements Serializable {
 		return instantiateProvider(provider);
 	}
 
-	
 	public StorageCommandProcessor getStorageCommandProcessor() {
 		Instantiator inst = this.findInstantiator(StorageCommandProcessor.class);
-		return  inst.newInstance(StorageCommandProcessor.class);
+		return inst.newInstance(StorageCommandProcessor.class);
 	}
-	
+
 	public String findProviderName(String repositoryClass) throws RepositoryException {
 		String persistanceClass = classMapper.get(repositoryClass);
 		if (persistanceClass == null) {
@@ -146,21 +161,32 @@ public class Registry implements Serializable {
 			throw new RepositoryException("Unsupporable class persistance class for " + repositoryClass);
 		}
 		return persistanceClass;
-
 	}
+	
+	public String findPersistanceClassWithoutException(String repositoryClass) throws RepositoryException {
+		return classMapper.get(repositoryClass);
+	}
+	
 
-	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException {
+	public CommandProducer findCommandProduce(String repositoryClass, Map<String, Object> params)
+			throws RepositoryException {
 		String repositoryName = findProviderName(repositoryClass);
 
-		Instantiator inst = findInstantiator(repositoryName+".CommandProducer");
-		CommandProducer commandProducer = inst.newInstance(repositoryName+".CommandProducer");
+		Instantiator inst = findInstantiator(repositoryName + ".CommandProducer");
+		CommandProducer commandProducer = inst.newInstance(repositoryName + ".CommandProducer");
+		commandProducer.setCallParams(params);
+
 		return commandProducer;
 	}
 
-	public String findRepositoryClass(String persistanceClass) throws RepositoryException {
-		String repositoryClass = classMapper.get(persistanceClass);
+	public String findRepositoryClass(Class<?> persistanceClass) throws RepositoryException {
+		return findRepositoryClass(persistanceClass.getName());
+	}
+
+	public String findRepositoryClass(String persistanceClassName) throws RepositoryException {
+		String repositoryClass = classMapper.get(persistanceClassName);
 		if (repositoryClass == null) {
-			throw new RepositoryException("Unsupporable class repository class for " + persistanceClass);
+			throw new RepositoryException("Unsupporable class repository class for " + persistanceClassName);
 		}
 		return repositoryClass;
 	}

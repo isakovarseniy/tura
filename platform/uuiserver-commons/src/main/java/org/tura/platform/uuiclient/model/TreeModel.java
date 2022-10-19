@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TreeModel implements Serializable {
 	private static final long serialVersionUID = -6622372767066011622L;
 
-private TreeNode root;
+	private TreeNode root;
 	private TreeNode currentNode;
 	private List<List<TreePath>> selectedList;
 	private List<TreePath> currentPath;
@@ -63,40 +63,32 @@ private TreeNode root;
 	private List<String> expandedNodes;
 	private int expandedNodesRefreshIterator;
 
-
-
 	public TreeModel() {
 	}
-	
-	
-	public TreeModel(TreeDataControl dc,  Object callback,String modelId) {
+
+	public TreeModel(TreeDataControl dc, Object callback, String modelId) {
 		this.setModelId(modelId);
 		this.dc = dc;
 		dc.addEventLiteners(new RecordListener());
 		this.callback = callback;
 	}
-	
-	
+
 	public List<String> getExpandedNodes() {
 		return expandedNodes;
 	}
 
-
 	public void setExpandedNodes(List<String> expandedNodes) {
 		this.expandedNodes = expandedNodes;
-		expandedNodesRefreshIterator  = 0;
+		expandedNodesRefreshIterator = 0;
 	}
-	
-	
+
 	public TreeNode getContextSelectedNode() {
 		return contextSelectedNode;
 	}
 
-
 	public void setContextSelectedNode(TreeNode contextSelectedNode) {
 		this.contextSelectedNode = contextSelectedNode;
 	}
-
 
 	public Object getCallback() {
 		return callback;
@@ -105,24 +97,23 @@ private TreeNode root;
 	@SuppressWarnings("rawtypes")
 	public TreeNode getRoot() throws Exception {
 		if (root == null) {
-			root = new TreeNode( null);
+			root = new TreeNode(null);
 
 			dc.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
-			if (!dc.isBlocked()) {
-				List scroler = ((DataControl) dc.getRoot()).getScroller();
-				String relation = "";
-				if (dc.getParent() != null)
-					relation = dc.getParent().getName();
-				for (int i = 0; i < scroler.size(); i++) {
-					
-					root.addChild(relation, new TreeNode(scroler.get(i)) );
-				}
+			List scroler = ((DataControl) dc.getRoot()).getScroller();
+			String relation = "";
+			if (dc.getParent() != null)
+				relation = dc.getParent().getName();
+			for (int i = 0; i < scroler.size(); i++) {
+				root.addChild(relation, new TreeNode(scroler.get(i)));
+			}
 
-				if (root.isExpanded() ) {
-					String r = root.getRelations().iterator().next();
-					setCurrentNode ( root.getChildren(r)[0]);
-				}
+			if (root.isExpanded()) {
+				String r = root.getRelations().iterator().next();
+				setCurrentNode(root.getChildren(r)[0]);
+				TreePath[] p = getPath(currentNode);
+				dc.setCurrentPosition(p);
 			}
 		}
 
@@ -143,18 +134,17 @@ private TreeNode root;
 	}
 
 	public void setMultipleSelectedNode(List<List<TreePath>> selectedList) throws Exception {
-			this.selectedList = selectedList;
+		this.selectedList = selectedList;
 	}
 
 	public void onNodeExpand(EventDescription event) throws Exception {
 		TreeNode expnode = findNode(event);
 		List<TreePath> path = findPath(event);
-		onNodeExpand(expnode,path);
+		onNodeExpand(expnode, path);
 	}
-	
-	
+
 	@SuppressWarnings("rawtypes")
-	public void onNodeExpand(TreeNode expnode,List<TreePath> path) throws Exception {
+	public void onNodeExpand(TreeNode expnode, List<TreePath> path) throws Exception {
 
 		Object[] twoResult = dc.treeScaner(path.toArray(new TreePath[path.size()]));
 		boolean success = (boolean) twoResult[1];
@@ -172,16 +162,15 @@ private TreeNode root;
 
 			List scroler = ((DataControl) chdc).getScroller();
 			for (int i = 0; i < scroler.size(); i++) {
-				expnode.addChild(relationName, new TreeNode(scroler.get(i))); 
+				expnode.addChild(relationName, new TreeNode(scroler.get(i)));
 			}
 		}
 	}
-	
+
 	public String stringify(List<TreePath> path) throws Exception {
 		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 		return mapper.writeValueAsString(path);
 	}
-
 
 	public void onNodeCollapse(EventDescription event) throws Exception {
 		TreeNode collapseNode = findNode(event);
@@ -195,9 +184,6 @@ private TreeNode root;
 
 	public void onNodeUnselect(EventDescription event) {
 	}
-	
-	
-	
 
 	@SuppressWarnings("unchecked")
 	public List<TreePath> findPath(EventDescription event) throws Exception {
@@ -206,32 +192,30 @@ private TreeNode root;
 
 		String json = (String) map.get("key");
 
-		List<TreePath> path = mapper.readValue(json, new TypeReference<ArrayList<TreePath>>() {});
+		List<TreePath> path = mapper.readValue(json, new TypeReference<ArrayList<TreePath>>() {
+		});
 		return path;
 
 	}
-
 
 	public List<TreePath> findPath(String key) throws Exception {
 		ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
-		List<TreePath> path = mapper.readValue(key, new TypeReference<ArrayList<TreePath>>() {});
+		List<TreePath> path = mapper.readValue(key, new TypeReference<ArrayList<TreePath>>() {
+		});
 		return path;
 
 	}
-	
-	
+
 	private TreeNode findNode(EventDescription event) throws Exception {
 		List<TreePath> path = findPath(event);
 		return TreeProcessor.findNode(path, getRoot(), 0, path.size());
 	}
-	
-	
+
 	public TreeNode findNode(String key) throws Exception {
 		List<TreePath> path = findPath(key);
 		return TreeProcessor.findNode(path, getRoot(), 0, path.size());
 	}
-	
 
 	public TreeNode getCurrentNode() {
 		return currentNode;
@@ -242,9 +226,7 @@ private TreeNode root;
 		this.currentPath = this.currentNode.getPath();
 	}
 
-	
-
-	class RecordListener implements EventListener , Serializable{
+	class RecordListener implements EventListener, Serializable {
 		private static final long serialVersionUID = -8314392353882578270L;
 
 		@Override
@@ -255,9 +237,17 @@ private TreeNode root;
 			}
 			if (event instanceof ControlRefreshedEvent && event.getSource() instanceof TreeDataControl) {
 				try {
-						expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
-						root = null;
-				}catch(Exception e) {
+					expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
+					root = null;
+				} catch (Exception e) {
+					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+				}
+			}
+			if (event instanceof ControlRefreshedEvent && event.getSource() instanceof DataControl) {
+				try {
+					expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
+					root = null;
+				} catch (Exception e) {
 					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 			}
@@ -267,36 +257,33 @@ private TreeNode root;
 						expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
 						expandedNodesRefreshIterator++;
 					}
-						root = null;
-				}catch(Exception e) {
+					root = null;
+				} catch (Exception e) {
 					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
-				
+
 			}
 			if (event instanceof RowCreatedEvent && event.getSource() instanceof TreeDataControl) {
 				try {
 					Object newRow = ((RowCreatedEvent) event).getRow();
 
 					TreeDataControl tdc = (TreeDataControl) event.getSource();
-					TreePath[] path =  (TreePath[]) tdc.getCurrentPosition();
+					TreePath[] path = (TreePath[]) tdc.getCurrentPosition();
 					TreeNode newNode = new TreeNode(newRow);
-					
 
-					if (!((RowCreatedEvent)event).isChildObject()) {
+					if (!((RowCreatedEvent) event).isChildObject()) {
 						TreeProcessor.addNodeOnPosition(path, getRoot(), newNode);
-					}
-					else {
+					} else {
 						TreeNode parentNode = TreeProcessor.findNode(path, getRoot(), 0, path.length);
-						if ( parentNode.isExpanded()) {
-							String relation = ((RowCreatedEvent)event).getRelationName();
-							TreeProcessor.addNodeToParent(path, getRoot(), newNode,relation);
-						}else {
+						if (parentNode.isExpanded()) {
+							String relation = ((RowCreatedEvent) event).getRelationName();
+							TreeProcessor.addNodeToParent(path, getRoot(), newNode, relation);
+						} else {
 							onNodeExpand(parentNode, parentNode.getPath());
 						}
 					}
 					setCurrentNode(newNode);
 					setSelected(getCurrentNode());
-
 
 				} catch (Exception e) {
 					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
@@ -305,19 +292,19 @@ private TreeNode root;
 			if (event instanceof RowRemovedEvent && event.getSource() instanceof TreeDataControl) {
 				try {
 
-					TreePath[]  path = (TreePath[]) ((RowRemovedEvent) event).getPosition();
+					TreePath[] path = (TreePath[]) ((RowRemovedEvent) event).getPosition();
 					TreeProcessor.removeNode(path, root);
-					
-					TreeNode node =  TreeProcessor.findNode(path, getRoot(), 0, path.length);
-					if ( node ==  null ) {
-						if ( path.length > 1 ) {
-							node =  TreeProcessor.findNode(path, getRoot(), 0, path.length-1);
+
+					TreeNode node = TreeProcessor.findNode(path, getRoot(), 0, path.length);
+					if (node == null) {
+						if (path.length > 1) {
+							node = TreeProcessor.findNode(path, getRoot(), 0, path.length - 1);
 						}
-						if ( node == null) {
+						if (node == null) {
 							return;
 						}
 					}
-					if ( node.getData()  != null) {
+					if (node.getData() != null && !((ObjectControl) node.getData()).isRemoved()) {
 						setCurrentNode(node);
 					}
 
@@ -346,7 +333,6 @@ private TreeNode root;
 		}
 		return b;
 	}
-
 
 	private void setSelected(TreeNode selectedNode) throws Exception {
 		TreePath[] p = getPath(selectedNode);

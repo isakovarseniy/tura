@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,10 @@ import org.tura.platform.repository.spa.CRUDProvider;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.salesanalyzer.persistence.keycloak.RoleRef;
 import org.tura.salesanalyzer.persistence.keycloak.User;
+
+import sales.analyzer.commons.service.impl.UserAdapter;
 
 public class KeyCloakCRUDService extends CRUDProvider{
 
@@ -111,8 +114,22 @@ public class KeyCloakCRUDService extends CRUDProvider{
 		if ( ls == null || ls.size() == 0) {
 			throw new RepositoryException("Error during user creation");
 		}
+		List<String>addRoles = (List<String>) map.get("addRole");
+		
 		user.setId( ls.get(0).getId());
 		
+		List <RoleRepresentation> add = new ArrayList<>();
+		
+		for ( String role : addRoles) {
+			RoleRepresentation  rr  = realmResource.rolesById().getRole(role);
+			add.add(rr);
+		}
+		realmResource.users().get(user.getId()).roles().realmLevel().add(add);
+		
+		ls = realmResource.users().search(user.getUsername(), null, null, null, 0,1);
+		user  =  ls.get(0);
+		control.setObject(loader.wrapObject(user));
+
 	}
 	
 	private void updateRole(SpaControl control) throws Exception {
@@ -131,7 +148,16 @@ public class KeyCloakCRUDService extends CRUDProvider{
 		
 		List <RoleRepresentation> add = new ArrayList<>();
 		for ( String role : addRoles) {
-			add.add(realmResource.rolesById().getRole(role));
+			RoleRepresentation  rr  = realmResource.rolesById().getRole(role);
+			add.add(rr);
+			User u = (User) control.getObject();
+			for(  RoleRef rf : u.getRoleReference()) {
+				if(rf.getRoleRef().equals(role) ) {
+					rf.setId(UserAdapter.roleId(u.getUsername(), rr.getName()));
+					rf.setRoleId(rr.getId());
+					rf.setRoleRef(rr.getId());
+				}
+			}
 		}
 		
 		List <RoleRepresentation> remove = new ArrayList<>();

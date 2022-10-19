@@ -1,0 +1,215 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign number = "#" >
+package [%=objPackage%];
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+
+
+import java.util.List;
+
+import org.tura.platform.datacontrol.commons.TuraException;
+
+
+public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[%=type.~fullName%]> implements java.io.Serializable{
+   
+    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%]>  list;
+    
+
+    public [%=parent.~class%]2[%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl<[%=type.~fullName%]> datacontrol){
+        this.datacontrol = datacontrol;
+        this.datacontrol .setPager(this);
+        this.internal = [%=rel.internal%];
+    }
+
+	  @Override
+	  public [%=type.~fullName%] create() throws TuraException {
+	  	return createObject(datacontrol.getCurrentPosition());
+	  }  
+  
+	@Override
+	public [%=type.~fullName%] createObject(int i ) throws TuraException {
+		try {
+            [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParentObject();
+		   if ( parent  == null){
+		        return null;
+		   }
+			[%=type.~fullName%] obj = ([%=type.~fullName%]) repository.create(datacontrol.getBaseClass());
+		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
+		if (trigger != null){
+		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
+		}
+        ((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());		
+        [%  if (rel.type.toString() == "One2Many" ){ %]
+	      parent.get[%=sourceMethodName%]().add(i,obj);
+	      [% } %]
+	      [%  if (rel.type.toString() == "One2One" ){ %]
+	      parent.set[%=sourceMethodName%](obj);
+        [% } %]
+		return obj;
+		}catch(Exception e){
+		  throw new TuraException(e);
+		}		
+    }
+
+    @Override
+    public void search() throws TuraException {
+       try{
+            org.tura.platform.datacontrol.command.base.SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
+            prepareParameter(searchObjectParameters.getSearchCriteria());
+            prepareParameter(searchObjectParameters.getOrderByCriteria());
+            prepareParameter(searchObjectParameters.getObjectType());
+        
+            [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParentObject();
+            if (parent == null){
+                list =  new org.tura.platform.repository.proxy.access.ArrayListWithSearch<[%=type.~fullName%] >(); 
+                return;
+            }
+            
+              [%  if (rel.type.toString() == "One2Many" ){ %]
+              org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] >  lob = (org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] > )parent.get[%=sourceMethodName%]();
+              lob.setSearchCriteria((List<org.tura.platform.datacontrol.commons.SearchCriteria>) searchObjectParameters.getSearchCriteria().getObj());
+              lob.setOrderCriteria((List<org.tura.platform.datacontrol.commons.OrderCriteria>) searchObjectParameters.getOrderByCriteria().getObj());
+              list = lob;
+              [% } %]
+              [%  if (rel.type.toString() == "One2One" ){ %]
+              list = new org.tura.platform.repository.proxy.access.ArrayListWithSearch<>();
+              list.add( ([%=type.~fullName%] ) (([%=parent.~fullName%])getParentObject()).get[%=sourceMethodName%]());
+              [% } %]
+            
+         }catch(Exception e){
+           throw new TuraException(e);
+         }
+    }
+
+	@Override
+	public [%=type.~fullName%] delete() throws TuraException {
+	    return remove(datacontrol.getCurrentPosition());
+	}
+
+
+	@Override
+	public Object findObject(org.tura.platform.repository.core.RepoKeyPath key) throws TuraException {
+		try {
+			if (list == null) {
+				return super.findObject(key);
+			}
+			Object obj = list.InternalSearch(key);
+			if (obj == null) {
+				return super.findObject(key);
+			}
+			return obj;
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+    }
+
+
+
+    @Override
+    protected Object getParentObject() throws TuraException{
+        if ( datacontrol.getParent() != null) {
+            if (datacontrol.getParent().getMasterCurrentObject() == null){
+                datacontrol.getParent().loadMasterObject();
+            }
+		    ObjectControl oc = (ObjectControl) datacontrol.getParent().getMasterCurrentObject();
+		    if (  oc != null &&  oc.isRemoved()) {
+		    	  return null;
+		    }
+            return oc;
+       }else{
+          throw new RuntimeException("Parent object canot be null");
+       }
+    }
+    
+
+	@Override
+   public [%=type.~fullName%] remove(int i) throws TuraException {
+        [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParentObject();
+		if ( parent  == null){
+		     return null;
+		}
+	    
+        [%  if (rel.type.toString() == "One2Many" ){ %]
+	      [%=type.~fullName%] obj =  parent.get[%=sourceMethodName%]().get(i);
+	      [% } %]
+	      [%  if (rel.type.toString() == "One2One" ){ %]
+	      [%=type.~fullName%] obj = parent.get[%=sourceMethodName%]();
+        [% } %]
+	    
+	    
+		org.tura.platform.datacontrol.command.base.PreDeleteTrigger trigger = getDataControl().getPreDeleteTrigger(); 
+	    if (trigger != null) {
+	      trigger.execute(datacontrol, obj);
+	    }
+        ((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());    
+        [%  if (rel.type.toString() == "One2Many" ){ %]
+	      parent.get[%=sourceMethodName%]().remove(i);
+	      [% } %]
+	      [%  if (rel.type.toString() == "One2One" ){ %]
+	      parent.set[%=sourceMethodName%](null);
+	      list = null;
+        [% } %]
+	    
+	    return obj;
+	}
+
+
+	@Override
+	protected [%=type.~fullName%] getObject(int index) throws TuraException{
+	    if ( list == null ){
+	       search();
+	    }
+		return new org.tura.platform.datacontrol.ListWrapper<>(list, datacontrol).get(index);
+	}
+
+
+	@Override
+	protected List<[%=type.~fullName%]> getScroller() throws TuraException{
+	    if ( list == null ){
+	       search();
+	    }
+		return new org.tura.platform.datacontrol.ListWrapper<>( list, datacontrol);
+	}
+
+	@Override
+	protected long size() throws TuraException {
+	    if ( list == null ){
+	       search();
+	    }
+		return new org.tura.platform.datacontrol.ListWrapper<>( list, datacontrol).size();
+	}
+    
+	@Override
+	protected void cleanPager() throws TuraException {
+	   try{
+            org.tura.platform.repository.core.Cleanable cleanable =  (org.tura.platform.repository.core.Cleanable ) getParentObject();
+            if ( cleanable != null){
+	            cleanable.clean("[%=sourceProperty%]");
+	        }
+	        list=null;
+	     }catch( java.io.IOException e){
+	         throw  new TuraException(e);
+	     }   
+	}
+
+
+}
+

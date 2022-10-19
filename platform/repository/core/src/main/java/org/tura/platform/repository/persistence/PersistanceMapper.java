@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ import org.tura.platform.repository.core.RepositoryException;
 public interface PersistanceMapper {
 
   	Object getPKey(RepoObjectKey objKey) throws RepositoryException;
+    String getCpaId(Object persistenceObject) ;
 	Object copyFromRepository2Persistence(Object repositoryObject) throws RepositoryException;
 	Object copyFromRepository2Persistence(Object repositoryObject, Map<Object, Object> context) throws RepositoryException;
   	Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException;
-
 	
 }

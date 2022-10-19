@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import org.tura.salesanalyzer.serialized.keycloak.User;
 
 public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 	private static final long serialVersionUID = -8595832443319851130L;
-	public static long id =-100L;
+	public static long id =-50L;
 
 	@Override
 	public void generatePk(Object o) {

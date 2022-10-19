@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -56,6 +56,58 @@ ${start}${percent}
       	
         }
  
+         public org.tura.platform.repository.core.RepoObjectKey getRepoObjectKey(Object object) throws Exception{
+          [%=t2view.get(type).get("fullName")%]  obj = ( [%=t2view.get(type).get("fullName")%])object;
+          org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
+          key.setType("[%=t2view.get(type).get("fullName")%]");
+          [%for ( field in type.~primaryKey){
+		            field.typeRef.mappingType2Java(recipe,ingredient);
+          %]
+            if (obj.get[%=util.mergeAndCapitalize(field.name)%]() == null){
+                throw new Exception("Object primary key [%=field.name%]  is null");
+            }else{
+           [%
+             field.typeRef.mappingType2Java(recipe,ingredient);
+           %]
+            org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("[%=util.mergeAndCapitalize(field.name)%]","[%=field.typeRef.~fullName%]",obj.get[%=util.mergeAndCapitalize(field.name)%]().toString());
+           key.addValue(value);
+           }
+           [%}%]
+
+          return key;
+      }
+ 
+ 
+       public org.tura.platform.repository.core.RepoKeyPath getPath(Object object) throws Exception{
+          [%=t2view.get(type).get("fullName")%]  obj = ( [%=t2view.get(type).get("fullName")%])object;
+      [%
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+         if (assosiations.size() <> 0){
+              for (rel in assosiations){
+                 var hash = rel.targetSideNamesCalculation();
+                 %]
+                  if (obj.get[%=hash.get("targetMethodName")%]() != null){
+                     org.tura.platform.repository.core.Mapper maper[%=t2view.get(rel.sourceFn()).get("class")%] = new [%=t2view.get(rel.sourceFn()).get("package")%].mapper.[%=t2view.get(rel.sourceFn()).get("class")%]Mapper();
+                     org.tura.platform.repository.core.RepoKeyPath path = maper[%=t2view.get(rel.sourceFn()).get("class")%].getPath(obj.get[%=hash.get("targetMethodName")%]());   
+                     path.addRepoObjectKey("[%=hash.get("sourceMethodName")%]" ,getRepoObjectKey(obj));
+                     return path;
+                  }             
+                 [%
+             }
+             %]
+               throw new Exception ("Object is not connected to the parent object");
+             [%
+             
+         }else{
+         %]
+           org.tura.platform.repository.core.RepoKeyPath path = new org.tura.platform.repository.core.RepoKeyPath ();
+           path.addRepoObjectKey(null,getRepoObjectKey(obj));
+           return path;
+         [%
+         }
+      %]
+      }
+ 
  
  
        private Object find(String field, java.util.List<org.tura.platform.repository.core.FieldValue> list) throws Exception {
@@ -73,7 +125,11 @@ ${start}${percent}
 		throw new org.tura.platform.repository.core.RepositoryException("Could not find a field " + field);
 	}
         
- 
+	@Override
+	public String getCpaId(Object persistenceObject) {
+		return null;
+	}
+		
       	public Object getPrimaryKey(Object persistenceObject){
 
 	    [%=t2model.get(type).get("fullName")%] jpa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
@@ -112,6 +168,8 @@ ${start}${percent}
 	        while  (1 == 1) {
 	         %]
 	          [%=serializer(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
+	          [%=copyLink(tp,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
+	          
 	         [%  
 	            if (tp.~extension.isDefined()){
 	               tp = tp.~extension;
@@ -134,6 +192,7 @@ ${start}${percent}
 	        while  (1 == 1) {
 	         %]
 	          [%=serializer(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
+	          [%=copyLink(tp,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
 	         [%  
 	            if (tp.~extension.isDefined()){
 	               tp = tp.~extension;
@@ -205,11 +264,9 @@ ${start}${percent}
 		return null;
 	}
 	    
-  @SuppressWarnings("unchecked")
     public void put( java.util.Map<Object,Object> context, Object pk, Object type ){
 
     }
-   @SuppressWarnings("unchecked")
     public Object get( java.util.Map<Object,Object> context, Object pk, Object type ){
          return null;
     }    

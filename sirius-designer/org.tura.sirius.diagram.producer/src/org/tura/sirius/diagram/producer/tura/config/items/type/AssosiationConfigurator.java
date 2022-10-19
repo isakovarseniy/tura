@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -119,6 +119,22 @@ public class AssosiationConfigurator implements EdgeConfigurator {
 		conditionalInternalAssosiation.setStyle(getStyleInternalAssosiation());
 		
 		
+		ConditionalEdgeStyleDescription conditionalSrcLazy = DescriptionFactory.eINSTANCE
+				.createConditionalEdgeStyleDescription();
+		conditionalSrcLazy.setPredicateExpression("service:checkIfSourcetContainmentLazy");
+		conditionalSrcLazy.setStyle(getStyleSourceContainmentLazy());
+
+		ConditionalEdgeStyleDescription conditionalTrgLazy = DescriptionFactory.eINSTANCE
+				.createConditionalEdgeStyleDescription();
+		conditionalTrgLazy.setPredicateExpression("service:checkIfTargetContainmentLazy");
+		conditionalTrgLazy.setStyle(getStyleTargetContainmentLazy());
+
+		ConditionalEdgeStyleDescription conditionalNANLazy = DescriptionFactory.eINSTANCE
+				.createConditionalEdgeStyleDescription();
+		conditionalNANLazy.setPredicateExpression("service:checkIfNONContainmentLazy");
+		conditionalNANLazy.setStyle(getStyleNonContainmentLazy());
+
+		
 		List<ConditionalEdgeStyleDescription> ls = new ArrayList<>();
 		ls.add(conditionalSrc);
 		ls.add(conditionalTrg);
@@ -128,6 +144,10 @@ public class AssosiationConfigurator implements EdgeConfigurator {
 		ls.add(conditionalNANNoAssosiation);
 		ls.add(conditionalInternalAssosiation);
 
+		ls.add(conditionalSrcLazy);
+	    ls.add(conditionalTrgLazy);
+		ls.add(conditionalNANLazy);
+		
 		return ls;
 	}
 
@@ -160,6 +180,30 @@ public class AssosiationConfigurator implements EdgeConfigurator {
 		return style;
 	}
 
+	private EdgeStyleDescription getStyleSourceContainmentLazy() {
+		EdgeStyleDescription style = getStyleSourceContainment();
+		SystemColor color = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setStrokeColor(color);
+		return style;
+	}
+
+	
+	private EdgeStyleDescription getStyleTargetContainmentLazy() {
+		EdgeStyleDescription style = getStyleTargetContainment();
+		SystemColor color = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setStrokeColor(color);
+		return style;
+	}
+
+	
+	private EdgeStyleDescription getStyleNonContainmentLazy() {
+		EdgeStyleDescription style = getStyleNonContainment();
+		SystemColor color = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setStrokeColor(color);
+		return style;
+	}
+
+	
 	private EdgeStyleDescription getStyleTargetContainment() {
 		EdgeStyleDescription style = StyleFactory.eINSTANCE.createEdgeStyleDescription();
 		style.setSourceArrow(EdgeArrows.NO_DECORATION_LITERAL);

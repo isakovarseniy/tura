@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,14 +25,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.tura.example.ui.hrmanager.testform1.datacontrol.IBeanFactory;
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.objects.serialization.Department;
-import org.tura.platform.hr.objects.serialization.ProxyRepository;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.model.ViewModel;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.events.EventAware;
@@ -50,12 +48,10 @@ public class W5Actions implements EventAware {
 	ViewModel viewModel;
 
 	@Inject
-	@Named("hrmanager.hrcontroller")
-	CommandStack commandStack;
+	@ClientProxyRepo("hrmanager.testform1")
+	private CpaRepository repository;
 
-	@Inject
-	Repository repository;
-
+	
 	@SuppressWarnings("rawtypes")
 	public void openDepartment() {
 		try {
@@ -63,8 +59,8 @@ public class W5Actions implements EventAware {
 			Department dept = (Department) bf.getDepartment().getCurrentObject();
 			DataControl dc = (DataControl) bf.getDepartmentEditor();
 
-			dc.getCommandStack().savePoint();
-			dc.islolate();
+			repository.getStackProvider().get().savePoint();			
+			dc.setIsoleted(true);
 
 			bf.setDepartmentId(dept.getObjId());
 			dc.forceRefresh();
@@ -83,8 +79,8 @@ public class W5Actions implements EventAware {
 
 			DataControl dc = (DataControl) bf.getDepartmentEditor();
 
-			dc.getCommandStack().savePoint();
-			dc.islolate();
+			repository.getStackProvider().get().savePoint();			
+			dc.setIsoleted(true);
 
 			Department cmp = (Department) dc.createObject();
 
@@ -100,13 +96,8 @@ public class W5Actions implements EventAware {
 
 	public void saveApplication() {
 		try {
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
+			repository.getStackProvider().get().commit();			
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -114,7 +105,7 @@ public class W5Actions implements EventAware {
 
 	public void rallbackApplication() {
 		try {
-			commandStack.rallbackCommand();
+			repository.getStackProvider().get().rallbackCommand();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -125,8 +116,7 @@ public class W5Actions implements EventAware {
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerTestForm1}");
 			DataControl dc = (DataControl) bf.getDepartmentEditor();
-			dc.flush();
-
+			dc.setIsoleted(false);
 			bf.setEditMode(false);
 
 		} catch (TuraException e) {
@@ -134,13 +124,11 @@ public class W5Actions implements EventAware {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void rallbackChanges() {
 
 		try {
 			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerTestForm1}");
-			DataControl dc = (DataControl) bf.getDepartmentEditor();
-			dc.getCommandStack().rallbackSavePoint();
+            repository.getStackProvider().get().rallbackCommand();
 			bf.setEditMode(false);
 
 		} catch (Exception e) {

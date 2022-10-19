@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,25 @@ public class One2OneRepositoryRuleObject implements Rule{
 		detailMethod.invoke(detail, master);
 	}
 	
-	
+	@Override
+	public boolean guard(String ruleType, Object... args) throws Exception {
+		return true;
+	}
+
+	@Override
+	public boolean check(String ruleType,Object... args) throws Exception {
+		return false;
+	}
+
+	@Override
+	public boolean validate(Object... args) throws Exception {
+		return false;
+	}
+
+	@Override
+	public boolean isDefault() throws Exception {
+		return false;
+	}
+
 
 }

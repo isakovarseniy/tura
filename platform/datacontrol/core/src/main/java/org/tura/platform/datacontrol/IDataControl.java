@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
+import org.tura.platform.repository.core.RepoKeyPath;
 
 public interface IDataControl extends Serializable{
 	
@@ -64,15 +64,6 @@ public interface IDataControl extends Serializable{
 	
 	public Relation getParent();
 	
-	public void onPoolUpdate() throws TuraException;
-	
-	public void saveState()  throws TuraException;
-	
-	public void flush() throws TuraException;
-	
-	public Object findObject(List<SearchCriteria> search, Object key , Integer index) throws TuraException; 
-	
-	public Object findObject(List<SearchCriteria> search, Object key ) throws TuraException; 
-	
+	public Object findObject(RepoKeyPath key) throws TuraException;
 	
 }

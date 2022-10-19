@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,14 @@
 
 package org.tura.platform.repository.operation;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-
-import com.rits.cloning.Cloner;
 
 public class RemoveContainmentObjectOperation extends ProxyOperation{
 	
@@ -66,12 +68,14 @@ public class RemoveContainmentObjectOperation extends ProxyOperation{
     	populate(data);
 
         data.setMasterPk(master.getPath());
-
-        Cloner c = new Cloner();
-        Object cloned = c.deepClone(detail.getWrappedObject());
+        Map<Object,Object> context = new HashMap<>();
+        master.add2Boundaries(context);
+        Object cloned = detail.deepClone(context);
         data.setObject(cloned);
+        data.getParams().put(Constants.CPA_MODIFICATION_SOURCE, detail.get_SrcId());
 
-        stackProvider.addCommand(data);
+        
+        stackProvider.get().addCommand(data);
 
 
     }

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 package org.tura.platform.datacontrol.event;
 
 import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.repository.core.ObjectControl;
 
 public class RowRemovedEvent  extends Event {
 
@@ -27,7 +28,11 @@ public class RowRemovedEvent  extends Event {
 	
 	public RowRemovedEvent(IDataControl dc , Object obj){
 		super(dc);
-		this.obj=obj;
+		ObjectControl oc = (ObjectControl) obj;
+		if (obj  == null || oc.isRemoved()) {
+			return;
+		}
+		this.obj=oc.clone();
 		
 	}
 

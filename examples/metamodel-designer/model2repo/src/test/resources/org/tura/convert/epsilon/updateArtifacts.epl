@@ -1,0 +1,124 @@
+pre{
+
+"Start of update artifacts".println();
+
+          var updateTypeClassifier = new Native('java.util.ArrayList');
+          
+          var uuid := Native('java.util.UUID');
+
+          var entityObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Entity Object" and r.eContainer().name = "JPA").first();
+          var serialObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Serializable Object" and r.eContainer().name = "RepositoryProxy").first();
+          var implementationObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Domain Interface" and r.eContainer().name = "Domain_model").first();
+}
+
+
+pattern UpdateEntityClassifier
+    turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel").excludingAll(
+                  trg!type::Generalization.allInstances()->select(q | q.eContainer().eContainer().name = "Tura metamodel").target 
+                  ->collect(c|getType(c)) ){
+                  
+       match :   turaType <> null    
+
+       onmatch   {
+            var cmd =  new Tuple(command = "updateEntityTypeClassifier", turaType = turaType);
+            updateTypeClassifier.add (cmd);
+       }          
+
+     }
+            
+pattern UpdateImplementationClassifier
+    turaType : trg!type::Type 
+          from :
+                  trg!type::Generalization.allInstances()->select(q | q.eContainer().eContainer().name = "Tura metamodel").target 
+                  ->collect(c|getType(c)) {
+                  
+       match :   turaType <> null    
+
+       onmatch   {
+            var cmd =  new Tuple(command = "updateImplementationTypeClassifier", turaType = turaType);
+            updateTypeClassifier.add (cmd);
+       }          
+
+     }
+
+
+
+post{
+
+      processor(updateTypeClassifier);
+      
+"End of update artifacts".println();
+      
+}
+
+
+operation processor (commands){
+  for (cmd in commands){
+  
+       switch(cmd.command){
+          case "updateEntityTypeClassifier":  updateEntityTypeClassifier(cmd);
+          case "updateImplementationTypeClassifier" : updateImplementationTypeClassifier(cmd);
+          
+      }
+      
+  }
+}
+
+
+operation updateEntityTypeClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = entityObjectHint).first();
+    if (classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = entityObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add entityObjectHint").println();
+    
+    }
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = serialObjectHint).first();
+    if (classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = serialObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add serialObjectHint").println();
+    
+    }
+
+}
+
+
+operation updateImplementationTypeClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = implementationObjectHint).first();
+    if (classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = implementationObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add implementationObjectHint").println();
+    
+    }
+
+}
+
+
+operation getType(type){
+   if ( type.isKindOf(trg!type::TypeReference)){
+      return type.typeRef;
+   }
+      return type;
+}
+

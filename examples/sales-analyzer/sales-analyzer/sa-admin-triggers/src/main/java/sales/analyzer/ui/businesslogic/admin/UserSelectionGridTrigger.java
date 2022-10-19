@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.model.GridModel;
 import org.tura.platform.uuiclient.model.GridModelTriggers;
 import org.tura.platform.uuiclient.model.ViewModel;
@@ -102,10 +103,12 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
             
             IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
             User p = (User) obj;
-            City city = (City) bf.getCity().getCurrentObject();
-
-            DataControl dcRef = (DataControl) bf.getCityRefeence();
-            CityRefeenceProxy cityRef = (CityRefeenceProxy) dcRef.createObject();
+            
+            DataControl  dc  =  (DataControl) bf.getCity();
+            City city = (City) dc.getCurrentObject();
+			CpaRepository repository = dc.getPager().getRepository();
+            
+            CityRefeenceProxy cityRef = (CityRefeenceProxy) repository.create(CityRefeence.class);
             
             p.getCityRefeence().add(cityRef);
             cityRef.setCityId(city.getObjId());
@@ -114,7 +117,8 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
             af.setLastName(p.getLastName());
             af.setUserName(p.getUsername());
             
-            cityRef.notifyListner();
+            dc = (DataControl) bf.getCityRefeence();
+            dc.forceRefresh();
             
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
@@ -126,10 +130,13 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
         try {
             IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
             User p = (User) obj;
-            State state = (State) bf.getState().getCurrentObject();
+            DataControl  dc  =  (DataControl) bf.getState();
+            
+            State state = (State) dc.getCurrentObject();
+			CpaRepository repository = dc.getPager().getRepository();
 
-            DataControl dcRef = (DataControl) bf.getStateReference();
-            StateReferenceProxy stateRef = (StateReferenceProxy) dcRef.createObject();
+            StateReferenceProxy stateRef = (StateReferenceProxy) repository.create(StateReference.class);
+            
             p.getStateReference().add(stateRef);
             stateRef.setStateId(state.getObjId());
             StateReferenceArtifitialFieldsAdapter af = new StateReferenceArtifitialFieldsAdapter(stateRef);
@@ -137,7 +144,9 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
             af.setLastName(p.getLastName());
             af.setUserName(p.getUsername());
             
-            stateRef.notifyListner();
+            dc = (DataControl) bf.getStateReference();
+            dc.forceRefresh();
+            
             
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
@@ -146,16 +155,14 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
     
     
     @SuppressWarnings("rawtypes")
-    private void onUnSelectCityUsers(Object o) {
+	private void onUnSelectCityUsers(Object o) {
         try {
-            
             IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
             User user = (User) o;
             
-            DataControl dc = (DataControl) bf.getCityRefeenceForSelection();
             int i = 0;
             boolean found = false;
-            for (Object obj : dc.getScroller()) {
+            for (Object obj : user.getCityRefeence()) {
                 CityRefeence cityRef = (CityRefeence) obj;
                 if (cityRef.getUser() != null &&  cityRef.getUser().getId().equals(user.getId()))  {
                     found = true;
@@ -163,8 +170,10 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
                 }
             }
             if (found) {
-                dc.setCurrentPosition(i);
-                dc.removeObject();
+            	user.getCityRefeence().remove(i);
+            	DataControl dc = (DataControl) bf.getCityRefeence();
+                dc.forceRefresh();
+            	
             }
         } catch (Exception e) {
             logger.log(Level.INFO, e.getMessage(), e);
@@ -172,15 +181,14 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
     }
 
     @SuppressWarnings("rawtypes")
-    private void onUnSelectStateUsers(Object o) {
+	private void onUnSelectStateUsers(Object o) {
         try {
             IBeanFactory bf  = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
             User user = (User) o;
             
-            DataControl dc = (DataControl) bf.getStateReferenceForSelection();
             int i = 0;
             boolean found = false;
-            for (Object obj : dc.getScroller()) {
+            for (Object obj : user.getStateReference()) {
                 StateReference stateRef = (StateReference) obj;
                 if (stateRef.getUser() != null && stateRef.getUser().getId().equals(user.getId()))  {
                     found = true;
@@ -189,8 +197,9 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
                 }
             }
             if (found) {
-                dc.setCurrentPosition(i);
-                dc.removeObject();
+            	 user.getStateReference().remove(i);
+            	 DataControl dc = (DataControl) bf.getStateReference();
+                 dc.forceRefresh();
             }
             
         } catch (Exception e) {

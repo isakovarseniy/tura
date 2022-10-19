@@ -1,0 +1,120 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+ import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+ 
+ package [%=savepackage%];
+ 
+ import org.tura.platform.repository.core.Registry;
+ import org.tura.platform.repository.spa.SpaObjectRegistry;
+ 
+ public class InitCPARepository implements  org.tura.platform.repository.cpa.InitCpaRepositoryInterface{
+ 
+     private Registry registry;
+     private SpaObjectRegistry spaRegistry;
+     public static String SPA_REPOSITORY_NAME = "[%=component.artifactId%]";
+     
+     public InitCPARepository(Registry registry,SpaObjectRegistry spaRegistry){
+         this.registry = registry;
+         this.spaRegistry= spaRegistry;
+     }
+ 
+     public InitCPARepository(){
+     }
+ 
+
+	public void  setRegistry (Registry registry){
+         this.registry = registry;
+	}
+	public void setSpaObjectRegistry (SpaObjectRegistry spaRegistry){
+         this.spaRegistry= spaRegistry;
+	}
+
+    public String getName(){
+        return SPA_REPOSITORY_NAME;
+    }
+   
+ 
+ 
+    public void initProvider(){
+    	registry.addInstantiator(new CPARepositoryInstantiator(registry,spaRegistry));  
+    
+       [%
+         for(type in typeCollection){
+		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"Serializable Object"))
+		       ){
+       %] 
+        registry.addProvider("[%=t2model.get(type).get("fullName")%]","[%=component.artifactId%]");
+       [%
+          }
+       }
+       %] 
+    }
+ 
+     public void initClassMapping() throws Exception{
+    
+       [%
+         var triggers = new Native('java.util.ArrayList');
+       
+         for(type in typeCollection){
+		       if ( 
+		             type.findClassifier(util.getHint(model_mapper,"Serializable Object"))
+		       ){
+       %] 
+        registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
+        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper() );
+        spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
+        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper() );
+        
+        spaRegistry.getRegistry("[%=component.artifactId%]").addSearchProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.cpa.storage.CpaSearchService.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addCRUDProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.cpa.storage.CpaCRUDService.class);
+        
+        
+       [%
+        }
+       }
+       %] 
+    
+    }
+
+     public void initCommandProducer(){
+        registry.addCommandProducer("[%=component.artifactId%]", org.tura.platform.repository.cpa.operation.CpaCommandProducer.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new  [%=savepackage%].CPARepositoryInstantiator(registry, spaRegistry));
+	    spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand(org.tura.platform.repository.cpa.operation.CpaStorageControlOperation.class);
+        
+     }
+ 
+  public void initRules() {
+	  registry.addRule(org.tura.platform.repository.core.navigation.NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), org.tura.platform.repository.core.navigation.AddObjectsDefaultRule.class);
+	  registry.addRule(org.tura.platform.repository.core.navigation.NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), org.tura.platform.repository.cpa.navigation.AddObjectsRule.class);
+  }
+ 
+ 
+ }
+ 

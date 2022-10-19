@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>5.1.2</version>
+     <version>6.0.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -33,20 +33,22 @@
 
 
   <modules>
+    <module>commons-test-spa-service</module>
     <module>commons-test</module>
+    <module>commons-object-repository</module>
     <module>emulator</module>
     <module>emulator-control-rest-service</module>
     <module>emulator-control-rest-client</module>    
     <module>emulator-user-rest-service</module>
-    <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-domain-objects</module>
-    <module>test-of-generated-jpa-repository</module>  
+    <module>test-of-generated-object-repository-lazy</module>  
+    <module>test-of-generated-object-repository-non-lazy</module>  
     <module>test-of-generated-jpa-rest-repository</module>  
     <module>test-of-generated-transformation</module>    
-    <module>test-of-generated-pagers-o2m-1</module>
-    <module>test-of-generated-pagers-o2m-2</module>
-    <module>test-of-generated-datacontrol</module>
-    <module>test-of-generated-nested-datacontrols</module>
+    <module>test-of-generated-datacontrols-discon</module>
+    <module>test-of-generated-datacontrols-non-lazy</module>
+    <module>test-of-generated-datacontrols-lazy</module>
+    <module>test-of-generated-datacontrols-admin-sim</module>    
   </modules>
   
   

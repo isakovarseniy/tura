@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link type.Assosiation#getType <em>Type</em>}</li>
  *   <li>{@link type.Assosiation#getContainment <em>Containment</em>}</li>
  *   <li>{@link type.Assosiation#isInternal <em>Internal</em>}</li>
+ *   <li>{@link type.Assosiation#isLazy <em>Lazy</em>}</li>
  *   <li>{@link type.Assosiation#getLinks <em>Links</em>}</li>
  *   <li>{@link type.Assosiation#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link type.Assosiation#getTargetOperation <em>Target Operation</em>}</li>
@@ -124,6 +125,29 @@ public interface Assosiation extends Relationship {
 	 * @generated
 	 */
 	void setInternal(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Lazy</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lazy</em>' attribute.
+	 * @see #setLazy(boolean)
+	 * @see type.TypePackage#getAssosiation_Lazy()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isLazy();
+
+	/**
+	 * Sets the value of the '{@link type.Assosiation#isLazy <em>Lazy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Lazy</em>' attribute.
+	 * @see #isLazy()
+	 * @generated
+	 */
+	void setLazy(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Links</b></em>' containment reference list.

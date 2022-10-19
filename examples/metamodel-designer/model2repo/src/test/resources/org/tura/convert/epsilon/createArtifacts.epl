@@ -1,0 +1,672 @@
+pre{
+
+"Start of artifact creation".println();
+
+          var  addPackage = new Native('java.util.ArrayList');
+          var removePackage = new Native('java.util.ArrayList');
+          var addType = new Native('java.util.ArrayList');
+          var removeType = new Native('java.util.ArrayList');
+          var addEnumerator= new Native('java.util.ArrayList');
+          var removeEnumerator = new Native('java.util.ArrayList');
+          var addTypeAttribute = new Native('java.util.ArrayList');
+          var removeTypeAttribute = new Native('java.util.ArrayList');
+          var addEnumeratorAttribute = new Native('java.util.ArrayList');
+          var removeEnumeratorAttribute = new Native('java.util.ArrayList');
+          var addAssosiation = new Native('java.util.ArrayList');
+          var removeAssosiation = new Native('java.util.ArrayList');
+          var addGeneralization = new Native('java.util.ArrayList');
+          var removeGeneralization = new Native('java.util.ArrayList');
+          
+          var uuid := Native('java.util.UUID');
+          var ctn  := Native('type.Containment');
+          var assosiationType  := Native('type.RelationType');
+          
+          var implHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Implements" and r.eContainer().name = "JSE").first();
+          var entityObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Entity Object" and r.eContainer().name = "JPA").first();
+          var serialObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Serializable Object" and r.eContainer().name = "RepositoryProxy").first();
+}
+
+
+
+
+pattern EPackage2TypeGroup
+     ePackage : src!EPackage,
+    no turaPackage : trg!type::TypeGroup 
+          from :
+            trg!type::TypeGroup.allinstances()-> select( g | g.name = ePackage.name)
+    {
+
+    match : turaPackage <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addPackage", ePackage = ePackage);
+            addPackage.add (cmd);
+    }
+}
+
+pattern TypeGroup2EPackage
+     turaPackage : trg!type::TypeGroup 
+          from :
+            trg!type::TypeGroup.allinstances()->select(r|r.eContainer().name = "Tura metamodel"),
+     no ePackage : src!EPackage
+          from :
+             src!EPackage.allinstances()->select(g | g.name = turaPackage.name)             
+    {
+
+    match : ePackage <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removePackage", turaPackage = turaPackage);
+            removePackage.add (cmd);
+    }
+}
+
+
+pattern EClass2Type
+     eClass : src!EClass,
+    no turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name)
+    {
+
+    match : turaType <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addType", eClass = eClass );
+            addType.add (cmd);
+    }
+}
+
+
+pattern Type2EClass
+    turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel"),
+     no eClass : src!EClass
+          from:
+             src!EClass.allinstances()->select(g | g.name = turaType.name and g.eContainer().name = turaType.eContainer().name)             
+    {
+
+    match : eClass <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removeType", turaType = turaType );
+            removeType.add (cmd);
+    }
+}
+
+
+
+pattern EEnum2Enumerator
+     eEnum : src!EEnum,
+    no turaEnumerator : trg!type::Enumerator 
+          from :
+            trg!type::Enumerator.allinstances()-> select( g | g.name = eEnum.name and g.eContainer().name = eEnum.eContainer().name)
+    {
+
+    match : turaEnumerator <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addEnumerator", eEnum = eEnum );
+            addEnumerator.add (cmd);
+    }
+}
+
+
+pattern Enumerator2EEnum
+    turaEnumerator : trg!type::Enumerator 
+          from :
+            trg!type::Enumerator.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel"),
+     no eEnum : src!EEnum
+          from:
+             src!EEnum.allinstances()->select(g | g.name = turaEnumerator.name and g.eContainer().name = turaEnumerator.eContainer().name)             
+    {
+
+    match : eEnum <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removeEnumerator", turaEnumerator = turaEnumerator );
+            removeEnumerator.add (cmd);
+    }
+}
+
+
+pattern EAttribute2Attribute
+     eClass : src!EClass,
+     eAttribute : src!EAttribute  
+            from : eClass.getEAllAttributes(),
+     turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name),
+     no turaAttribute :   trg!type::Attribute
+          from :    
+            turaType.attributes->select(a|a.name=eAttribute.name)
+    {
+
+    match : turaAttribute <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addTypeAttribute", eClass = eClass , eAttribute=eAttribute , turaType=turaType);
+            addTypeAttribute.add (cmd);
+    }
+}
+
+pattern Attribute2EAttribute
+    turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel"),
+      turaAttribute :   trg!type::Attribute
+          from :    turaType.attributes,
+      eClass : src!EClass
+          from:
+             src!EClass.allinstances()->select(g | g.name = turaType.name and g.eContainer().name = turaType.eContainer().name) ,            
+     no eAttribute : src!EAttribute  
+            from : eClass.getEAllAttributes()->select(a|a.name =  turaAttribute.name)
+    {
+
+    match : eAttribute <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removeTypeAttribute",  turaAttribute=turaAttribute , turaType=turaType);
+            removeTypeAttribute.add (cmd);
+    }
+}
+
+pattern EEnumLiteral2EnumAttribute
+     eEnum : src!EEnum,
+     eEnumLiteral : src!EEnumLiteral 
+            from : eEnum.getELiterals(),
+     turaEnumerator : trg!type::Enumerator 
+          from :
+            trg!type::Enumerator.allinstances()-> select( g | g.name = eEnum.name and g.eContainer().name = eEnum.eContainer().name),
+     no turaEnumAttribute :   trg!type::EnumAttribute
+          from :    
+            turaEnumerator.values->select(a|a.name=eEnumLiteral.name)
+    {
+
+    match : turaEnumAttribute <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addEnumeratorAttribute", eEnum = eEnum , eEnumLiteral=eEnumLiteral , turaEnumerator=turaEnumerator);
+            addEnumeratorAttribute.add (cmd);
+    }
+}
+
+
+pattern EnumAttribute2EEnumLiteral
+    turaEnumerator : trg!type::Enumerator 
+          from :
+            trg!type::Enumerator.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel"),
+      turaEnumAttribute :   trg!type::EnumAttribute
+          from :    turaEnumerator.values,
+      eEnum : src!EEnum
+          from:
+             src!EEnum.allinstances()->select(g | g.name = turaEnumerator.name and g.eContainer().name = turaEnumerator.eContainer().name) ,            
+     no eEnumLiteral : src!EEnumLiteral  
+            from : eEnum.getELiterals()->select(a|a.name =  turaEnumAttribute.name)
+    {
+
+    match : eEnumLiteral <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removeEnumeratorAttribute",  turaEnumAttribute=turaEnumAttribute , turaEnumerator=turaEnumerator);
+            removeEnumeratorAttribute.add (cmd);
+    }
+}
+
+pattern EReference2Assosiation
+     eClass : src!EClass,
+     eReference : src!EReference  
+            from : eClass.getEAllReferences(),
+     turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name),
+     no turaAssosiation : trg!type::Assosiation
+          from :    
+            trg!type::Assosiation.allinstances()->select(a|a.source.uid = turaType.uid 
+                        and a.eContainer().name = turaType.eContainer().name
+                        and getTypeName(a.target) = eReference.getEReferenceType.name 
+                        and getPackageName(a.target) =  eReference.getEReferenceType.eContainer().name)
+    {
+
+    match : turaAssosiation <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addAssosiation",  eReference=eReference , turaType=turaType);
+            addAssosiation.add (cmd);
+    }
+}
+
+pattern Assosiation2EReference
+     eClass : src!EClass,
+     eReference : src!EReference  
+            from : eClass.getEAllReferences(),
+     turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name),
+     turaAssosiation : trg!type::Assosiation
+          from :    
+               trg!type::Assosiation.allinstances()->select(a|a.source.uid = turaType.uid 
+                        and a.eContainer().name = turaType.eContainer().name).excludes(
+				            trg!type::Assosiation.allinstances()->select(a|a.source.uid = turaType.uid 
+				                        and a.eContainer().name = turaType.eContainer().name
+				                        and getTypeName(a.target) = eReference.getEReferenceType.name 
+				                        and getPackageName(a.target) =  eReference.getEReferenceType.eContainer().name)
+                  )
+    {
+
+    match : turaAssosiation <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "removeAssosiation",  turaAssosiation=turaAssosiation);
+            removeAssosiation.add (cmd);
+    }
+}
+
+
+pattern ESuperType2Generalization
+     eClass : src!EClass,
+     eSuperType : src!EClass  
+            from : eClass.getEAllSuperTypes(),
+     turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name),
+     no turaGeneralization : trg!type::Generalization
+          from :    
+            trg!type::Generalization.allinstances()->select(a|a.source.uid = turaType.uid 
+                        and a.eContainer().name = turaType.eContainer().name
+                        and getTypeName(a.target) = eSuperType.name 
+                        and getPackageName(a.target) =  eSuperType.eContainer().name)
+    {
+
+    match : turaGeneralization <> null 
+    
+    onmatch  {
+            var cmd =  new Tuple(command = "addGeneralization",  eSuperType=eSuperType , turaType=turaType);
+            addGeneralization.add (cmd);
+    }
+}
+
+
+//pattern Generalization2ESuperType
+//     eClass : src!EClass,
+//     eSuperType : src!EClass  
+//            from : eClass.getEAllSuperTypes(),
+//     turaType : trg!type::Type 
+//          from :
+//            trg!type::Type.allinstances()-> select( g | g.name = eClass.name and g.eContainer().name = eClass.eContainer().name),
+//     sizeDif : trg!type::Generalization
+//          from :
+//                 trg!type::Generalization.allinstances()->select(a|a.source.uid = turaType.uid 
+//                        and a.eContainer().name = turaType.eContainer().name).size() - 
+//              
+//             trg!type::Generalization.allinstances()->select(a|a.source.uid = turaType.uid 
+//                        and a.eContainer().name = turaType.eContainer().name).excludingAll(
+//				            trg!type::Generalization.allinstances()->select(a|a.source.uid = turaType.uid 
+//				                        and a.eContainer().name = turaType.eContainer().name
+//				                        and getTypeName(a.target) = eSuperType.name 
+//				                        and getPackageName(a.target) =  eSuperType.eContainer().name)).size()
+//                        
+//    {
+//
+//    match : seq2 <> 1
+//    
+//    onmatch  {
+//            var cmd =  new Tuple(command = "removeGeneralization",  turaType=turaType);
+//            removeGeneralization.add (cmd);
+//    }
+//}
+
+
+post{
+      processor(removeAssosiation);
+      processor(removeGeneralization);
+      processor(removeTypeAttribute); 
+      processor(removeType); 
+      processor(removeEnumeratorAttribute);
+      processor(removeEnumerator); 
+      processor(removePackage); 
+
+      processor(addPackage); 
+      processor(addEnumerator); 
+      processor(addEnumeratorAttribute);
+      processor(addType); 
+      processor(addTypeAttribute); 
+      processor(addGeneralization);
+      processor(addAssosiation);
+      
+"End of artifact creation".println();
+      
+}
+
+operation processor (commands){
+  for (cmd in commands){
+        (cmd.command   + " ->  Start").println();
+  
+       switch(cmd.command){
+          case "addPackage":  addPackage(cmd);
+          case "removePackage":  removePackage(cmd);
+          case "addType":  addType(cmd);
+          case "removeType":  removeType(cmd);
+          case "addEnumerator": addEnumerator(cmd);
+          case "removeEnumerator": removeEnumerator(cmd);
+          case "addTypeAttribute" : addTypeAttribute(cmd);
+          case "removeTypeAttribute" :  removeTypeAttribute(cmd);  
+          case "addEnumeratorAttribute": addEnumeratorAttribute(cmd);       
+          case "removeEnumeratorAttribute": removeEnumeratorAttribute(cmd);   
+          case "addAssosiation" : addAssosiation(cmd); 
+          case "removeAssosiation": removeAssosiation(cmd);   
+          case "addGeneralization" : addGeneralization(cmd);
+          case "removeGeneralization" : removeGeneralization(cmd);
+          
+      }
+        (cmd.command   + " ->  End").println();
+      
+  }
+
+}
+operation addPackage( cmd){
+      var domainRep = trg!domain::DomainTypesRepository.allinstances()-> select( g | g.name = 'Tura metamodel').first();
+      var typegrp = new trg!type::TypeGroup;
+      typegrp.uid = uuid.randomUUID().toString();
+      typegrp.name= cmd.ePackage.name;
+      var result  = domainRep.repositoryPackages.add(typegrp);
+
+      (cmd.ePackage.name   + " - "+ result).println();
+}
+
+operation removePackage( cmd){
+      var typegrp = cmd.turaPackage;
+      var result = typegrp.eContainer().repositoryPackages.remove(typegrp);
+      delete typegrp;
+      
+      (cmd.turaPackage.name   + " - "+ result).println();
+}
+
+
+operation addType(cmd ){
+   var typegrp = trg!type::TypeGroup.allinstances()-> select( g | g.name = cmd.eClass.eContainer().name).first();
+   var type = new trg!type::Type;
+   type.uid = uuid.randomUUID().toString();
+   type.name = cmd.eClass.name;
+   var result = typegrp.types.add(type);
+
+   (  typegrp.name +":"  + type.name   + " - "+ result).println();
+
+}
+
+operation removeType(cmd){
+    var grp = trg!type::TypeReference.allinstances()-> select( g |  g.typeRef.uid  = cmd.turaType.uid);
+    removeRelation(grp);
+    
+    for ( tr in grp){
+        delete tr;
+    }
+    
+    grp = new Native('java.util.ArrayList');
+    grp.add(cmd.turaType);
+    removeRelation(grp);
+
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    delete cmd.turaType;
+    
+   ( pkgName+":"+ typeName).println();
+
+}
+
+operation addEnumerator(cmd){
+   var typegrp = trg!type::TypeGroup.allinstances()-> select( g | g.name = cmd.eEnum.eContainer().name).first();
+   var type = new trg!type::Enumerator;
+   type.uid = uuid.randomUUID().toString();
+   type.name = cmd.eEnum.name;
+   var result = typegrp.types.add(type);
+
+   (  typegrp.name +":"  + type.name   + " - "+ result).println();
+
+}
+
+operation removeEnumerator(cmd){
+    var pkgName = cmd.turaEnumerator.eContainer().name;
+    var enumName = cmd.turaEnumerator.name;
+    delete cmd.turaEnumerator;
+    
+   ( pkgName+":"+ enumName).println();
+
+}
+
+operation addTypeAttribute(cmd){
+
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    var eAttribute = cmd.eAttribute.name;
+    
+    var eAttributeType = convertType(cmd.eAttribute.getEAttributeType().name);
+    var turaAttribute = new trg!type::Attribute;
+    turaAttribute.uid = uuid.randomUUID().toString();
+    turaAttribute.typeRef = eAttributeType;
+    turaAttribute.name = eAttribute;
+    if(cmd.eAttribute.isID() ){
+       turaAttribute.pk = true;
+    }
+
+    cmd.turaType.attributes.add(turaAttribute);
+
+   ( pkgName+":"+ typeName+"."+eAttribute).println();
+
+}
+
+operation removeTypeAttribute(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    var turaAttribute = cmd.turaAttribute.name;
+    
+    delete turaAttribute;
+
+   ( pkgName+":"+ typeName+"."+turaAttribute).println();
+}
+
+operation addEnumeratorAttribute(cmd){
+
+    var pkgName = cmd.turaEnumerator.eContainer().name;
+    var enumName = cmd.turaEnumerator.name;
+    var enumAttribute = cmd.eEnumLiteral.name;
+    
+    var enumTuraAttribute = new trg!type::EnumAttribute;
+    enumTuraAttribute.uid = uuid.randomUUID().toString();
+    enumTuraAttribute.name = enumAttribute;
+
+    cmd.turaEnumerator.values.add(enumTuraAttribute);
+
+   ( pkgName+":"+ enumName+"."+enumAttribute).println();
+
+}
+
+operation removeEnumeratorAttribute(cmd){
+    var pkgName = cmd.turaEnumerator.eContainer().name;
+    var enumName = cmd.turaEnumerator.name;
+    var enumAttribute = cmd.turaEnumAttribute.name;
+
+    delete cmd.turaEnumerator;
+         
+   ( pkgName+":"+ enumName+"."+enumAttribute).println();
+         
+}
+
+operation addAssosiation(cmd){
+    var srcPkgName = cmd.turaType.eContainer().name;
+    var sourceTypeName = cmd.turaType.name;
+    
+    var trgPkgName = cmd.eReference.getEReferenceType().eContainer().name;
+    var trgTypeName = cmd.eReference.getEReferenceType().name;
+    
+    var ref = null;
+    if ( not srcPkgName.equals(trgPkgName)){
+       var turaTypeRef = null;
+        if ("ecore".equals(trgPkgName) and "EObject".equals(trgTypeName)){
+             turaTypeRef = convertType(trgTypeName);
+         }else{
+            turaTypeRef =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+         }
+         ref = trg!type::TypeReference.allinstances()->select ( g|g.eContainer().name = srcPkgName and g.typeRef.uid = turaTypeRef.uid).first();
+         if ( ref = null){
+	        ref = new trg!type::TypeReference;
+	        ref.uid = uuid.randomUUID().toString();
+	        ref.typeRef = turaTypeRef;
+            cmd.turaType.eContainer().types.add(ref);
+         }
+    }else{
+        ref =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+    }
+    var assosiation = new trg!type::Assosiation;
+    assosiation.uid = uuid.randomUUID().toString();
+    assosiation.source = cmd.turaType;
+    assosiation.target = ref;
+    assosiation.sourceOperation = cmd.eReference.name;
+    if ( cmd.eReference.isContainment() ){
+       assosiation.containment = ctn.SOURCE;
+    }else{
+       assosiation.containment = ctn.NON;
+    }
+    if ( cmd.eReference.getUpperBound() < 0 ){
+       assosiation.type = assosiationType.ONE2_MANY;
+    }else{
+       assosiation.type = assosiationType.ONE2_ONE;
+    }
+    cmd.turaType.eContainer().relationships.add(assosiation);
+   
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName).println();
+
+}
+
+operation removeAssosiation(cmd){
+    var srcPkgName = cmd.turaAssosiation.source.eContainer().name;
+    var sourceTypeName = cmd.turaAssosiation.source.name;
+    
+    var trgPkgName = getPackageName(cmd.turaAssosiation.target);
+    var trgTypeName = getTypeName(cmd.turaAssosiation.target);
+    
+    delete cmd.turaAssosiation;
+
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName).println();
+
+}
+
+
+operation addGeneralization(cmd){
+    var srcPkgName = cmd.turaType.eContainer().name;
+    var sourceTypeName = cmd.turaType.name;
+    
+    var trgPkgName = cmd.eSuperType.eContainer().name;
+    var trgTypeName = cmd.eSuperType.name;
+    
+    var ref = null;
+    if ( not srcPkgName.equals(trgPkgName)){
+       var turaTypeRef =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+       ref = trg!type::TypeReference.allinstances()->select ( g|g.eContainer().name = srcPkgName and g.typeRef.uid = turaTypeRef.uid).first();
+       if ( ref = null){
+        ref = new trg!type::TypeReference;
+        ref.uid = uuid.randomUUID().toString();
+        ref.typeRef = turaTypeRef;
+        cmd.turaType.eContainer().types.add(ref);
+       }
+    }else{
+        ref =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+    }
+    var generalization = new trg!type::Generalization;
+    generalization.uid = uuid.randomUUID().toString();
+    generalization.source = cmd.turaType;
+    generalization.target = ref;
+    
+    var classifier = new trg!artifact::Classifier;
+    classifier.uid = uuid.randomUUID().toString();
+    classifier.hint = implHint;
+    
+    generalization.classifiers.add(classifier);
+    
+    
+    cmd.turaType.eContainer().relationships.add(generalization);
+   
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName).println();
+
+}
+
+operation removeGeneralization(cmd){
+    var srcPkgName = cmd.turaGeneralization.source.eContainer().name;
+    var sourceTypeName = cmd.turaGeneralization.source.name;
+    
+    var trgPkgName = getPackageName(cmd.turaGeneralization.target);
+    var trgTypeName = getTypeName(cmd.turaGeneralization.target);
+    
+    delete cmd.turaGeneralization;
+
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName).println();
+}
+
+
+operation removeRelation(typegrp){
+
+    var general = trg!type::Generalization.allinstances()->select  (r| typegrp.contains(r.source)   or typegrp.contains( r.target ));
+    for (g in  general){
+        delete g;
+    }
+
+    var general = trg!type::Assosiation.allinstances()->select  (r| typegrp.contains(r.source)   or typegrp.contains( r.target ));
+    for (g in  general){
+        delete g;
+    }
+
+}
+
+operation convertType(typeName){
+    if ("EInt".equals(typeName)){
+          return findPrimitive("Integer");
+    }   
+
+    if ("EString".equals(typeName)){
+          return findPrimitive("String");
+    } 
+    if ("EObject".equals(typeName)){
+          return findPrimitive("Any");
+    } 
+    if ("EBoolean".equals(typeName)){
+          return findPrimitive("Boolean");
+    } 
+    
+    return trg!type::Enumerator.allinstances()-> select( g | g.name = typeName and g.eContainer().eContainer().name = 'Tura metamodel').first();
+}
+
+operation findPrimitive(primitiveName){
+            return trg!type::Primitive.allinstances()-> select( g | g.name = primitiveName).first();
+}
+
+
+operation getType(type){
+   if ( type.isKindOf(trg!type::TypeReference)){
+      return type.typeRef;
+   }
+      return type;
+}
+
+
+operation getTypeName( type){
+   if ( type.isKindOf(trg!type::TypeReference)){
+      if ( "Any".equals(type.typeRef.name)){
+         return "EObject";
+      }
+      return type.typeRef.name;
+   }
+      return type.name;
+}
+
+
+operation getPackageName( type){
+   if ( type.isKindOf(trg!type::TypeReference)){
+      if ( "Any".equals(type.typeRef.name)){
+         return "ecore";
+      }
+      return type.typeRef.eContainer().name;
+   }
+      return type.eContainer().name;
+}
+

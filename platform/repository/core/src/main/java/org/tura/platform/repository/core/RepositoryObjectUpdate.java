@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,24 +21,27 @@ package org.tura.platform.repository.core;
 import java.util.List;
 
 import org.tura.platform.repository.data.UpdateObjectData;
+import org.tura.platform.repository.spa.SpaRepositoryData;
 
 public class RepositoryObjectUpdate extends RepositoryHelper {
 
 	
 	private static final long serialVersionUID = 1971641318733585902L;
+	private SpaRepositoryData spaRepositoryData;
 
-	public RepositoryObjectUpdate(Registry registry){
+	public RepositoryObjectUpdate(Registry registry,SpaRepositoryData spaRepositoryData){
 		super( registry);
+		this.spaRepositoryData = spaRepositoryData;
 	}
 	
 	public void update(UpdateObjectData data) throws RepositoryException {
 		try {
 			String repositoryClassName = data.getPk().getPath().get(data.getPk().getPath().size()-1).getType();
 
-			Repository pr = findProvider(repositoryClassName);
-			CommandProducer cmp = findCommandProducer(repositoryClassName);
+			Repository pr = findProvider(repositoryClassName,spaRepositoryData);
+			CommandProducer cmp = findCommandProducer(repositoryClassName,data.getParams(),spaRepositoryData);
 			
-			List<Object> commands = cmp.update(data.getPk(), data.getProperty() , data.getValue());
+			List<Object> commands = cmp.update(data.getPk(), data.getProperty() , data.getValue(), data.getPropertyType());
 			pr.applyChanges(commands);
 			
 		} catch (Exception e) {

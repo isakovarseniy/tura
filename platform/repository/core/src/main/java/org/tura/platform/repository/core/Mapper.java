@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,15 +21,16 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.util.Map;
 
-public interface Mapper extends Serializable {
+public interface Mapper extends ObjectDifferentiator, Serializable {
 
 	Object getPrimaryKey(Object persistenceObject) throws RepositoryException;
   	Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException;
+    RepoKeyPath getPath(Object object) throws Exception;
+    RepoObjectKey getRepoObjectKey(Object object) throws Exception;
   	void nillPrimaryKey(Object persistenceObject);
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject,Map<Object, Object> context) throws RepositoryException;
 	void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
-	void differentiator(Object persistenceObject, Object repositoryObject,Map<Object, Object> context) throws RepositoryException;
 	void put(Map<Object, Object> context, Object pk, Object type);
 	Object get(Map<Object, Object> context, Object pk, Object type);
 	public void setProxyFactory(ProxyFactory proxyFactory);

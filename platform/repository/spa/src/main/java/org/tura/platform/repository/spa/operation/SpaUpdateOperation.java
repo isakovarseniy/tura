@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 	protected Object value;
 	protected String objectType;
 	protected String persistanceType;
+	protected Class<?> valueClazz;
 	
 	
 	public SpaUpdateOperation(Registry registry, SpaObjectRegistry spaRegistry) {
@@ -57,14 +58,14 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 			SearchProvider sp = this.providerHash.get(persistanceType);
 			PersistanceMapper mapper = findPersistanceMapper(Class.forName(objectType));
 			
-			Object persistanceObject = sp.find( mapper.getPKey(pk),persistanceType);
+			Object persistanceObject = sp.find( mapper.getPKey(pk),Class.forName(persistanceType));
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedPk,persistanceObject);
 			
 			String methodName = "set"+WordUtils.capitalize(property);
-			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, value.getClass());
+			Method m = extendedPersistanceMasterObject.getClass().getMethod(methodName, valueClazz);
 			m.invoke(extendedPersistanceMasterObject, value);
 
 			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk), OperationLevel.UPDATE,registryName);
@@ -86,6 +87,18 @@ public class SpaUpdateOperation extends SpaRepositoryCommand {
 		property = (String) parameters[1];
 		value = parameters[2];
 
+		String valueType = (String) parameters[3];
+		String  persistValueType = registry.findPersistanceClassWithoutException(valueType);
+		if (  persistValueType != null ) {
+			valueType = persistValueType;
+		}
+		try {
+			valueClazz = Class.forName(valueType);
+		} catch (ClassNotFoundException e) {
+			throw new  RepositoryException(e);
+		}
+		
+		
 		objectType = pk.getType();
 		persistanceType =  registry.findPersistanceClass(objectType);
 		

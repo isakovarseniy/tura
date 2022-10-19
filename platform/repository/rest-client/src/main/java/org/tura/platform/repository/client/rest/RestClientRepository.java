@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,16 +62,15 @@ public class RestClientRepository implements Repository {
 
 	
 	@Override
-	public Object create(String objectClass) throws RepositoryException {
+	public <T> T create(Class<T> objectClass) throws RepositoryException {
 		try {
 			client = ClientBuilder.newClient();
-			Class<?> clazz = Class.forName(objectClass);
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 
 			String context = base.getPath();
 			
 			 Invocation.Builder builder = client.target(new URL(base, context + "rest/repository/create").toExternalForm())
-						.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass, "UTF-8"))
+						.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass.getName(), "UTF-8"))
 						.request(MediaType.APPLICATION_JSON);
 			 if ( customizer != null) {
 				 builder = customizer.process(builder);
@@ -81,7 +80,7 @@ public class RestClientRepository implements Repository {
 
 			if (response.getStatus() == Response.Status.OK.getStatusCode()) {
 				String json = response.readEntity(String.class);
-				return mapper.readValue(json,clazz );
+				return mapper.readValue(json,objectClass );
 			} else {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
@@ -92,9 +91,10 @@ public class RestClientRepository implements Repository {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException {
+	public <T> SearchResult<T> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, Class<T> objectClass) throws RepositoryException {
 
 		try {
 			client = ClientBuilder.newClient();
@@ -103,7 +103,7 @@ public class RestClientRepository implements Repository {
 			request.setOrder(orderCriteria);
 			request.setStartIndex(startIndex);
 			request.setEndIndex(endIndex);
-			request.setObjectClass(objectClass);
+			request.setObjectClass(objectClass.getName());
 
 			for( SearchCriteria  sc : searchCriteria ) {
 				if ( sc instanceof ObjectProfileCriteria  ) {
@@ -127,11 +127,10 @@ public class RestClientRepository implements Repository {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
 
-			@SuppressWarnings("unchecked")
 			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
 			
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-		    ArrayList<Object> list = new ArrayList<>();
+		    List<T> list = new ArrayList<>();
 		    
 			for (int i  = 0; ;i++){
 				String key =  Integer.valueOf(i).toString();
@@ -140,11 +139,11 @@ public class RestClientRepository implements Repository {
 				}
 				String className = map.get(key+"_type").get(0);
 				Class<?> clazz = Class.forName(className);
-				list.add( mapper.readValue(map.get(key).get(0),clazz));
+				list.add( (T) mapper.readValue(map.get(key).get(0),clazz));
 			}
             Long size =  mapper.readValue(map.get("size").get(0),Long.class);
 			
-			SearchResult result = new SearchResult(list,size.longValue());
+			SearchResult<T> result = new SearchResult<T>(list,size.longValue());
 			
 			return result;
 		} catch (Exception e) {
@@ -156,20 +155,19 @@ public class RestClientRepository implements Repository {
 	}
 
 	@Override
-	public void insert(Object obj, String objectClass) throws RepositoryException {
+	public <T>  void  insert(Object obj, Class<T> objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public void remove(Object obj, String objectClass) throws RepositoryException {
+	public <T>  void remove(Object obj, Class<T> objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
 
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public List applyChanges( List changes) throws RepositoryException {
+	public List<Object> applyChanges( List<Object> changes) throws RepositoryException {
 		try {
 			client = ClientBuilder.newClient();
 
@@ -222,7 +220,7 @@ public class RestClientRepository implements Repository {
 	}
 
 	@Override
-	public Object find(Object pk, String objectClass) throws RepositoryException {
+	public  <T> T find(Object pk, Class<T> objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
 	}
 

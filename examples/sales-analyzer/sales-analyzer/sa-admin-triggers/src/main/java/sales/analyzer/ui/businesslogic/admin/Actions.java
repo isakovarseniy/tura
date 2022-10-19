@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,16 @@
 
 package sales.analyzer.ui.businesslogic.admin;
 
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
+import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.uuiclient.rest.EventDescription;
 import org.tura.platform.uuiclient.rest.EventParameter;
 import org.tura.platform.uuiclient.rest.client.commands.ClearForm;
@@ -42,7 +39,6 @@ import org.tura.platform.uuiclient.rest.client.commands.UpdateMessage;
 import org.tura.platform.uuiclient.rest.events.EventAware;
 import org.tura.salesanalyzer.admin.admin.administration.datacontrol.IBeanFactory;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
-import org.tura.salesanalyzer.serialized.proxy.ProxyRepository;
 
 import sales.analyzer.commons.CachedUserPreferences;
 
@@ -56,17 +52,19 @@ public class Actions implements EventAware {
 	ELResolver elResolver;
 
 	@Inject
-	@Named("admin.administration")
-	CommandStack commandStack;
-
-	@Inject
-	Repository repository;
+	@ClientProxyRepo("admin.administration")
+	private CpaRepository repository;
 
 	@Inject
 	CachedUserPreferences userPref;
 
 	@Inject
 	ResponseState responseState;
+	
+	@Inject
+	@Named("beanFactoryAdminAdministration")
+	IBeanFactory bf;
+	
 
 	public void clearAllUserPreferences() {
 		userPref.clearAll();
@@ -82,14 +80,11 @@ public class Actions implements EventAware {
 			String key = (String) param.getValue();
 			String roleId = key.substring(0, key.indexOf("org.tura.salesanalyzer.serialized.keycloak.Role"));
 
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
-
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
+			DataControl dc = (DataControl) bf.getPopupRole();
 			bf.setRoleId(roleId);
 			dc.forceRefresh();
 
-			dc.getCommandStack().savePoint();
-			dc.islolate();
+			repository.getStackProvider().get().savePoint();
 
 			ClearForm cmd = new ClearForm();
 			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
@@ -107,10 +102,9 @@ public class Actions implements EventAware {
 	@SuppressWarnings("rawtypes")
 	public void openPermissionPopup() {
 		try {
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.role}");
+			DataControl dc = (DataControl) bf.getRole();
 			Role role = (Role) dc.getCurrentObject();
 
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
 			if (role != null) {
 				bf.setRoleId(role.getId());
 			} else {
@@ -119,7 +113,7 @@ public class Actions implements EventAware {
 			dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
 			dc.forceRefresh();
 
-			dc.getCommandStack().savePoint();
+			repository.getStackProvider().get().savePoint();
 
 			OpenPopup cmd = new OpenPopup();
 			cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
@@ -130,7 +124,6 @@ public class Actions implements EventAware {
 		}
 	}
 
-
 	public void applyPermissionsModification() {
 		HidePopup cmd = new HidePopup();
 		cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
@@ -138,11 +131,9 @@ public class Actions implements EventAware {
 		responseState.addCommand(cmd);
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void rallbackPermissionsModification() {
 		try {
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.permission}");
-			dc.getCommandStack().rallbackSavePoint();
+			repository.getStackProvider().get().rallbackSavePoint();
 
 			HidePopup cmd = new HidePopup();
 			cmd.setTarget("b5254916-ca6b-42d9-83bd-81a94eafc455");
@@ -162,9 +153,8 @@ public class Actions implements EventAware {
 			String key = (String) param.getValue();
 			String roleId = key.substring(0, key.indexOf("org.tura.salesanalyzer.serialized.keycloak.Role"));
 
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
+			DataControl dc = (DataControl) bf.getPopupRole();
 
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
 			bf.setRoleId(roleId);
 			dc.forceRefresh();
 			dc.removeObject();
@@ -178,16 +168,9 @@ public class Actions implements EventAware {
 	public void createRolePopup() {
 		try {
 
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
-
-			dc.getCommandStack().savePoint();
-			dc.islolate();
-
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-			bf.setRoleId("UNDEFINED");
-
-			@SuppressWarnings("unused")
-			Role cmp = (Role) dc.createObject();
+			DataControl dc = (DataControl) bf.getPopupRole();
+			repository.getStackProvider().get().savePoint();
+			dc.createObject();
 
 			ClearForm cmd = new ClearForm();
 			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
@@ -203,27 +186,21 @@ public class Actions implements EventAware {
 
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void applyChanges() {
-		DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
 		try {
-			dc.flush();
-
 			HidePopup cmd = new HidePopup();
 			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
 			responseState.addCommand(cmd);
-
-		} catch (TuraException e) {
+		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
+
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void rallbackChanges() {
 
 		try {
-			DataControl dc = (DataControl) elResolver.getValue("#{beanFactoryAdminAdministration.popupRole}");
-			dc.getCommandStack().rallbackSavePoint();
+			repository.getStackProvider().get().rallbackSavePoint();
 
 			HidePopup cmd = new HidePopup();
 			cmd.setTarget("3fe24463-83f9-4b0e-ac9b-f10bc8bcd373");
@@ -237,37 +214,25 @@ public class Actions implements EventAware {
 
 	public void saveApplication() {
 		try {
-			IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryAdminAdministration}");
-
-			CommandStackProvider sp = new CommandStackProvider();
-			sp.setCommandStack(commandStack);
-
-			@SuppressWarnings("unchecked")
-			HashMap<String, DataControl<?>> h = (HashMap<String, DataControl<?>>) commandStack.getListOfCommand()[1];
-
-			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-			proxyRepository.applyChanges(null);
-			commandStack.commitSavePoint();
-
-			DataControl<?> dc = (DataControl<?>) bf.getRoleHelper();
-
-			if (h.containsKey(dc.getId())) {
-				dc = (DataControl<?>) bf.getRole();
+			repository.getStackProvider().get().commit();
+			if (bf.getUserGridUpdated() != null && bf.getUserGridUpdated()) {
+				DataControl<?> dc = (DataControl<?>) bf.getUser();
 				dc.forceRefresh();
+				bf.setUserGridUpdated(false);
 			}
-
 			addInfomessage("SAVE_DATA_MESSAGE");
-
 		} catch (Exception e) {
 			addErrormessage("ERROR_MESSAGE");
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
+
 	}
 
 	public void rallbackApplication() {
 		try {
-			commandStack.rallbackCommand();
+			repository.getStackProvider().get().rallbackCommand();
+			bf.setUserGridUpdated(false);
+
 			addInfomessage("ROLLBACK_MESSAGE");
 		} catch (Exception e) {
 			addErrormessage("ERROR_MESSAGE");
@@ -295,7 +260,8 @@ public class Actions implements EventAware {
 
 	public void logout() {
 		SwitchWindow cmd = new SwitchWindow();
-		cmd.setTarget("http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-admin-react-client/admin/administration/adminWindow");
+		cmd.setTarget(
+				"http://kc:8080/auth/realms/sales-analyzer/protocol/openid-connect/logout?redirect_uri=http://wf:8081/sa-admin-react-client/admin/administration/adminWindow");
 		responseState.addCommand(cmd);
 
 	}

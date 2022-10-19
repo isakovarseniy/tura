@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -34,7 +35,7 @@ import javax.ws.rs.core.Response;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
 import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.cdi.Repo;
+import org.tura.platform.repository.cdi.ServerRepo;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchRequest;
@@ -45,10 +46,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Path("repository")
+@RequestScoped
 public class RestRepository {
 
 	@Inject
-	@Repo("repository")
+	@ServerRepo
 	private Repository repository;
 
 	@GET
@@ -56,7 +58,7 @@ public class RestRepository {
 	public Response create(@PathParam("id") String objectClass) {
 		try {
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-			Object obj = repository.create(objectClass);
+			Object obj = repository.create(Class.forName(objectClass));
 			return Response.status(Response.Status.OK).entity(mapper.writeValueAsString(obj)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
@@ -76,7 +78,7 @@ public class RestRepository {
 				request.getSearch().add(  new ObjectProfileCriteria(request .getProfile()) );
 			}
 			
-			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());
+			SearchResult <?> result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), Class.forName(  request.getObjectClass()));
 
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
 

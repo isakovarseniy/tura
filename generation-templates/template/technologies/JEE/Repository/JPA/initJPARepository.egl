@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -32,25 +32,21 @@ ${start}${percent}
  
  import org.tura.platform.repository.core.Registry;
  import org.tura.platform.repository.spa.SpaObjectRegistry;
- import org.tura.platform.repository.spa.RequestDataProducer;
  
  public class InitJPARepository{
  
      private Registry registry;
      private SpaObjectRegistry spaRegistry;
-     private RequestDataProducer requestDataProducer;
      
-     public InitJPARepository(Registry registry,SpaObjectRegistry spaRegistry,RequestDataProducer requestDataProducer){
+     public InitJPARepository(Registry registry,SpaObjectRegistry spaRegistry){
          this.registry = registry;
          this.spaRegistry= spaRegistry;
-		 this.requestDataProducer = requestDataProducer;
-         
      }
  
  
     
     public void initProvider(){
-    	registry.addInstantiator(new JPARepositoryInstantiator(registry,spaRegistry,requestDataProducer));  
+    	registry.addInstantiator(new JPARepositoryInstantiator(registry,spaRegistry));  
     
        [%
          for(type in typeCollection){
@@ -155,7 +151,9 @@ ${start}${percent}
     
     }
 
-     public void initCommandProducer(){
+     public void initCommandProducer(org.tura.platform.repository.jpa.operation.EntityManagerProvider emProvider,
+         java.util.Map<String,  org.tura.platform.repository.jpa.operation.ExternalQueryProcessor<?>> queryProcessorRegistry
+     ){
         registry.addCommandProducer("[%=component.artifactId%]",org.tura.platform.repository.jpa.operation.JpaCommandProducer.class);
 
 		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalConnectDetailToMasterOperation.class);
@@ -163,13 +161,17 @@ ${start}${percent}
 		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalDisconnectDetailFromMasterOperation.class);
 		spaRegistry.getRegistry("[%=component.artifactId%]").addExternalCommand( org.tura.platform.repository.jpa.operation.JpaExternalDisconnectMasterFromDetailOperation.class);
         spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new org.tura.platform.repository.jpa.operation.JpaOperationsInstantiator(registry,spaRegistry));
-        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(new org.tura.platform.repository.jpa.operation.JpaServiceInstantiator(spaRegistry,"[%=component.artifactId%]",registry));
+        
+        org.tura.platform.repository.jpa.operation.JpaServiceInstantiator  jpaServiceInstantiator = new org.tura.platform.repository.jpa.operation.JpaServiceInstantiator(spaRegistry,"[%=component.artifactId%]",registry,emProvider);
+        jpaServiceInstantiator.addExternalQueryProcessor(queryProcessorRegistry);
+        
+        spaRegistry.getRegistry("[%=component.artifactId%]").addInstantiator(jpaServiceInstantiator);
      }
  
- 	public void initEntityManagerProvider(org.tura.platform.repository.jpa.operation.EntityManagerProvider emProvider) {
-        spaRegistry.getRegistry("[%=component.artifactId%]").setEntityManagerProvider( emProvider );
-        
-	}
+  public void initRules() {
+	  registry.addRule(org.tura.platform.repository.core.navigation.NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), org.tura.platform.repository.core.navigation.AddObjectsDefaultRule.class);
+  }
+ 
  
   public void initFeldsMapping() throws Exception{
          [%
@@ -189,7 +191,7 @@ ${start}${percent}
 	          while (1 == 1){
 				  for ( field in tp.attributes){
 				 %]
-				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=field.name.toLowerCase()%]","[%=util.splitByCapitalLatterAndCapitalize(field.name)%]");
+				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=util.mergeAndUnCapitalize(field.name).toLowerCase()%]","[%=util.splitByCapitalLatterAndCapitalize(field.name)%]");
 				  [%
 				  }
 				  if (tp.~extension.isDefined()){

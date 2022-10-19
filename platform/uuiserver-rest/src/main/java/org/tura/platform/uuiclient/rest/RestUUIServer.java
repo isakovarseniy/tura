@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
+import org.tura.platform.repository.cpa.storage.ProxyObjectRegistry;
 import org.tura.platform.uuiclient.cdi.Scope;
 import org.tura.platform.uuiclient.cdi.ScopeStorage;
 import org.tura.platform.uuiclient.cdi.StorageNotFountException;
@@ -143,6 +144,8 @@ public class RestUUIServer {
 				elResolver.setValue("#{turaFiles}", files);
 			}
 
+			ProxyObjectRegistry.restoreLock();
+			
 			DataUpdateResponse object = processor.process(dataUpdateRequest);
 			object.setTopUpdateElementIds(dataUpdateRequest.getTopUpdateElementIds());
 

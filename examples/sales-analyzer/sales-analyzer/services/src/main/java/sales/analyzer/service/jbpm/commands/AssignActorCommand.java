@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ public class AssignActorCommand extends SpaRepositoryCommand {
 			SearchProvider sp = this.providerHash.get(persistanceType);
 			PersistanceMapper mapper = findPersistanceMapper(Class.forName(objectType));
 
-			Object persistanceObject = sp.find(mapper.getPKey(pk), persistanceType);
+			Object persistanceObject = sp.find(mapper.getPKey(pk), Class.forName(persistanceType));
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}
@@ -106,7 +106,8 @@ public class AssignActorCommand extends SpaRepositoryCommand {
 				info.setManager((String) value);
 			}
 
-			SpaControl control = new SpaControl(info, UUID.randomUUID().toString(), OperationLevel.OPERATION,registryName);
+			SpaControl control = new SpaControl(info, mapper.getPKey(pk), OperationLevel.OPERATION,registryName);
+			control.setOriginalObject(persistanceObject);
 
 			List<SpaControl> list = new ArrayList<>();
 			list.add(control);

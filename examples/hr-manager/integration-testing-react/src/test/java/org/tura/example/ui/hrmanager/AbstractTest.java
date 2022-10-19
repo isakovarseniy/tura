@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,8 @@
 
 package org.tura.example.ui.hrmanager;
 
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
@@ -25,7 +27,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.openqa.selenium.WebDriver;
 import org.tura.example.ui.TestSuite;
+import org.tura.example.ui.hrmanager.simpleform.pageobject.FatalErrorPagePageObject;
 import org.tura.platform.uuiclient.rest.DataUpdateRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -90,6 +94,21 @@ public class AbstractTest {
 	public void setDebugMode(boolean mode) {
 		debugMode = mode;
 	}
+	
+	
+	public void checkifFatalErrorPage(WebDriver driver ) {
+		FatalErrorPagePageObject errorPage = new FatalErrorPagePageObject(driver);
+		String error = null;
+		try {
+			 error = errorPage.getMessage().getValue();
+		} catch (Throwable t) {
+
+		}
+		if (error != null) {
+			fail("Fatal error");
+		}
+		
+	}	
 	
 
 }

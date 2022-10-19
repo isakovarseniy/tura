@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public interface SearchProvider extends AdapterLoaderAware {
 
-	SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException ;
+	<T> SearchResult<T> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, Class<T> objectClass) throws RepositoryException ;
 
-	Object find(Object pk, String objectClass) throws RepositoryException ;
+	 <T>  T find(Object pk, Class<T>objectClass) throws RepositoryException ;
 	
 	
 }

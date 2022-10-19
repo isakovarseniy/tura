@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,14 +21,19 @@ package org.sales.analyzer.services;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Logger;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.h2.tools.Server;
+import org.hibernate.cfg.Configuration;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger;
 import org.tura.platform.repository.spa.SkipQueryTrigger;
-import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 import org.tura.salesanalyzer.serialized.db.CityRefeence;
 import org.tura.salesanalyzer.serialized.db.CountryReference;
@@ -36,41 +41,46 @@ import org.tura.salesanalyzer.serialized.db.PermissionReferences;
 import org.tura.salesanalyzer.serialized.db.Preferences;
 import org.tura.salesanalyzer.serialized.db.StateReference;
 import org.tura.salesanalyzer.serialized.db.WriteupOutcome;
-import org.tura.salesanalyzer.serialized.db.repo.InitJPARepository;
 import org.tura.salesanalyzer.serialized.jbpm.CaseProcess;
 import org.tura.salesanalyzer.serialized.keycloak.Role;
 import org.tura.salesanalyzer.serialized.keycloak.RoleReference;
 import org.tura.salesanalyzer.serialized.keycloak.User;
-import org.tura.salesanalyzer.serialized.repo.InitSPARepository;
-
-import sales.analyzer.commons.service.impl.UUIPrimaryKeyStrategy;
 
 public class TriggersValidationTest {
 
-	private Registry registry;
-	private SpaObjectRegistry spaRegistry;
+	private static Logger logger;
+	private static Server server;
+	
+	private static RepositoryProducer repositoryProducer;
 
-	@SuppressWarnings({ "rawtypes", "unused" })
-	private static List commandStack;
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		repositoryProducer = new RepositoryProducer();
+
+		server = Server.createTcpServer().start();
+
+		logger = Logger.getLogger("InfoLogging");
+		logger.setUseParentHandlers(false);
+
+		Configuration config = new Configuration();
+		config.addResource("META-INF/persistence.xml");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
+		repositoryProducer.em = emf.createEntityManager();
+
+	}
+	
 	
 	@Test
 	public void triggersTest() {
-		registry = new Registry();
-		spaRegistry = new SpaObjectRegistry();
 		
 		try {
-			registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-			commandStack = new ArrayList<>();
-
-			InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
-			initJpa.initClassMapping();
-			initJpa.initCommandProducer();
-			initJpa.initProvider();
-
-			InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry,new LocalRepositoryDataProducer());
-			initSpa.initClassMapping();
-			initSpa.initCommandProducer();
-			initSpa.initProvider();
+			repositoryProducer.getRepository();
+			Registry registry = repositoryProducer.registry;
 
 			PreQueryTrigger trigger = registry.findPreQueryTrigger(Role.class.getName(), PermissionReferences.class.getName());
 			assertEquals(ExternalConnectionPreQueryTrigger.class.getName(), trigger.getClass().getName());

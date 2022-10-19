@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,12 +24,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
-import java.lang.reflect.Field;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.UUID;
 
 import org.jboss.weld.environment.se.WeldContainer;
@@ -45,35 +42,31 @@ import [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toL
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
-import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.TreePath;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
-import org.tura.platform.datacontrol.pool.PoolCommand;
-import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.objects.serialization.Company;
 import org.tura.platform.hr.objects.serialization.Street;
 import org.tura.platform.hr.objects.serialization.State;
 import org.tura.platform.hr.objects.serialization.Country;
 import org.tura.platform.hr.objects.serialization.Department;
-import org.tura.platform.datacontrol.command.base.CommandStackProvider;
-import org.tura.platform.hr.objects.serialization.ProxyRepository;
+import org.tura.platform.repository.cdi.ClientProxyRepo;
 
 
 import org.tura.platform.uuiclient.model.GridModel;
-import org.tura.platform.uuiclient.model.LazyDataGridModel;
 import org.tura.platform.uuiclient.model.GridType;
 
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
-    protected static Logger logger;
     protected  WeldContainer weld;
 
     private ArrayList<String> delitedRows = new ArrayList<String>();
@@ -91,6 +84,8 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a5_remove() {
         try {
+           CpaRepository repository = getRepository();
+           ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
             ArrayList<String> fact = new ArrayList<String>();
             fact.add("Street_"+cStreet(3L));
@@ -115,8 +110,6 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             
-            Repository repository = weld.instance().select(Repository.class).get();
-
             RemoveObjectTracer tracer = new RemoveObjectTracer();
 
             CompanyDC companyDC = bf.getCompany();
@@ -136,17 +129,12 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             }
             assertEquals(fact.size(), 0);
 
-            CommandStackProvider sp = new CommandStackProvider();
-            sp.setDataControl(companyDC);
-            sp.setCommandStack(companyDC.getCommandStack());
+           stackProvider.get().commit();
 
-            ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
-
-            proxyRepository.applyChanges(null);
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
 
     }
@@ -162,11 +150,11 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 
             Country row = (Country) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cCountry(new Long(1)) );
+            assertEquals(row.getObjId(), cCountry(Long.valueOf(1)) );
 
             companyDC.nextObject();
             row = (Country) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cCountry(new Long(2)));
+            assertEquals(row.getObjId(), cCountry(Long.valueOf(2)));
             companyDC.prevObject();
 
             CompanyArtifitialFieldsAdapter artf = new CompanyArtifitialFieldsAdapter((ObjectControl) company);
@@ -176,7 +164,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
@@ -190,7 +178,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.nextObject();
 
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), cCompany(new Long(2)));
+            assertEquals(company.getObjId(), cCompany(Long.valueOf(2)));
 
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
             boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
@@ -199,11 +187,11 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             State row = (State) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cState(new Long(8)));
+            assertEquals(row.getObjId(), cState(Long.valueOf(8)));
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
@@ -215,10 +203,9 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), cCompany(new Long(2)));
+            assertEquals(company.getObjId(), cCompany(Long.valueOf(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
-            assertEquals(departmentDC.isBlocked(), true);
 
             Department department = (Department) departmentDC.getCurrentObject();
             assertNull(department);
@@ -232,24 +219,22 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cStreet(new Long(12)));
+            assertEquals(row.getObjId(), cStreet(Long.valueOf(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), cDepartment(new Long(200)));
+            assertEquals(department.getObjId(), cDepartment(Long.valueOf(200)));
 
             isSet = locationDC.setCurrentPosition(new TreePath[] {
                     new TreePath(null, 0), new TreePath("country2state", 3),
                     new TreePath("state2city", 1) });
             assertEquals(isSet, true);
 
-            assertEquals(departmentDC.isBlocked(), true);
-
             department = (Department) departmentDC.getCurrentObject();
             assertNull(department);
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
 
     }
@@ -257,6 +242,8 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a4_rallback() {
         try {
+	       CpaRepository repository = getRepository();
+	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
@@ -266,7 +253,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             Company company = (Company) companyDC.getCurrentObject();
             String saveCompanyName = company.getCompanyName();
             company.setCompanyName("New Company Name");
-            assertEquals(company.getObjId(), cCompany(new Long(2)));
+            assertEquals(company.getObjId(), cCompany(Long.valueOf(2)));
 
             TreeRootCountryDC locationDC = bf.getTreeRootCountry();
             boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
@@ -277,9 +264,9 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             State row = (State) locationDC.getCurrentObject();
             String saveStreetName = row.getName();
             row.setName("New Street Name");
-            assertEquals(row.getObjId(), cState(new Long(8)));
+            assertEquals(row.getObjId(), cState(Long.valueOf(8)));
 
-            companyDC.getCommandStack().rallbackCommand();
+            stackProvider.get().rallbackCommand();
 
             companyDC = bf.getCompany();
             companyDC.getCurrentObject();
@@ -298,7 +285,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
 
     }
@@ -319,7 +306,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             dc2.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
             Company obj1 = (Company) dc1.getCurrentObject();
-            assertEquals( cCompany(new Long(1L)), obj1.getObjId());
+            assertEquals( cCompany(Long.valueOf(1L)), obj1.getObjId());
             Department obj2 = (Department) dc2.getCurrentObject();
             assertNull(obj2);
 
@@ -331,11 +318,11 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             obj2 = (Department) dc2.getCurrentObject();
-            assertEquals( cDepartment(new Long(10L)), obj2.getObjId());
+            assertEquals( cDepartment(Long.valueOf(10L)), obj2.getObjId());
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
 
     }
@@ -343,6 +330,10 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a7_pool_rallback() {
         try {
+        
+	       CpaRepository repository = getRepository();
+	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
+        
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             PopupCompanyDCProviderDC popupDC = bf.getPopupCompanyDCProvider();
@@ -352,14 +343,15 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             String name = row.getCompanyName();
 
             Company row2 = (Company) popupDC.getCurrentObject();
-            popupDC.getCommandStack().savePoint();
+            stackProvider.get().savePoint();
             row2 = (Company) popupDC.getCurrentObject();
             row2.setCompanyName("test");
 
             row = (Company) companyDC.getCurrentObject();
             assertEquals("test", row.getCompanyName());
 
-            companyDC.getCommandStack().rallbackCommand();
+            stackProvider.get().rallbackCommand();
+            
             row = (Company) companyDC.getCurrentObject();
             assertEquals(name, row.getCompanyName());
 
@@ -368,14 +360,17 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "rawtypes" })
     @Test
     public void a8_rallbackWithGridModel() {
         try {
+	       CpaRepository repository = getRepository();
+	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
+        
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
@@ -384,14 +379,14 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             model.setPageSize(5);
             model.setFirst(0);
             List ls = model.load();
-            companyDC.getCommandStack().rallbackCommand();
+            stackProvider.get().rallbackCommand();
             ls = model.load();
             if (ls == null || ls.size() == 0)
                 fail("Result is empty");
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
@@ -415,7 +410,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
@@ -439,7 +434,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }    
     
@@ -477,7 +472,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }
 
@@ -486,15 +481,16 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a11_addNewCompanyIsolatedPool() {
         try {
+            CpaRepository repository = getRepository();
+        
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), cCompany(new Long(2)));
+            assertEquals(company.getObjId(), cCompany(Long.valueOf(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
-            assertEquals(departmentDC.isBlocked(), true);
 
             Department department = (Department) departmentDC.getCurrentObject();
             assertNull(department);
@@ -508,35 +504,24 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cStreet(new Long(12)));
+            assertEquals(row.getObjId(), cStreet(Long.valueOf(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), cDepartment(new Long(200)));
+            assertEquals(department.getObjId(), cDepartment(Long.valueOf(200)));
             
             assertNotNull(companyDC.getCurrentObject());
             assertNotNull(locationDC.getCurrentObject());
             assertNotNull(departmentDC.getCurrentObject());
             
-            companyDC.islolate();
+			getNewCompany(repository, 123L);
 
-            Pager<?> pager = getPager(companyDC);
-            
-            Company newrow = getNewCompany(pager);
-            newrow.setObjId(123L);
-
-              
-            PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey() , companyDC.getBaseClass(), PoolCommand.C.name(), "1");
-            pager.addCommand(e);
-
-            companyDC.flush();
-            
             assertNull(locationDC.getCurrentObject());
             assertNull(departmentDC.getCurrentObject());
             
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }    
     
@@ -544,15 +529,16 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a12_addNewCompanyIsolatedPool() {
         try {
+            CpaRepository repository = getRepository();
+        
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
             Company company = (Company) companyDC.getCurrentObject();
-            assertEquals(company.getObjId(), cCompany(new Long(2)));
+            assertEquals(company.getObjId(), cCompany(Long.valueOf(2)));
 
             DepartmentDC departmentDC = bf.getDepartment();
-            assertEquals(departmentDC.isBlocked(), true);
 
             Department department = (Department) departmentDC.getCurrentObject();
             assertNull(department);
@@ -566,10 +552,10 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             assertEquals(isSet, true);
 
             Street row = (Street) locationDC.getCurrentObject();
-            assertEquals(row.getObjId(), cStreet(new Long(12)));
+            assertEquals(row.getObjId(), cStreet(Long.valueOf(12)));
 
             department = (Department) departmentDC.getCurrentObject();
-            assertEquals(department.getObjId(), cDepartment(new Long(200)));
+            assertEquals(department.getObjId(), cDepartment(Long.valueOf(200)));
             
             assertNotNull(companyDC.getCurrentObject());
             assertNotNull(locationDC.getCurrentObject());
@@ -577,28 +563,16 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             
             
             DataControl<?> streetDC = (DataControl<?>) ((ObjectControl)row).getAttributes().get(Constants.DATA_CONTROL);
+            assertNotNull(streetDC);
             
+            Street newrow =  getNewStreet(repository,123L);
             
-            streetDC.islolate();
-
-            Pager<?> pager = getPager(streetDC);
-            
-            Street newrow =  getNewStreet(pager);
-            newrow.setObjId(123L);
-            
-[%  if ( not util.mergeAndCapitalize(uipackage.name).toLowerCase().equals("nestedformpackage") ) {%]            
+[%  if (  util.mergeAndCapitalize(uipackage.name).toLowerCase().equals("datacontroldisconnectedmodel") ) {%]            
             newrow.setParentId(row.getParentId());
 [%}else{%]        
             newrow.setCity(((org.tura.platform.hr.objects.serialization.Street)row).getCity());
-
 [%}
 %]
-              
-            PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey(), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
-            pager.addCommand(e);
-
-            streetDC.flush();
-            
             Street row1 = (Street) locationDC.getCurrentObject();
 
             assertEquals(newrow.getObjId(), row1.getObjId());
@@ -606,7 +580,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
     }    
         
@@ -615,6 +589,9 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a13_removeTree() {
         try {
+	       CpaRepository repository = getRepository();
+	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
+        
             BeanFactory bf = weld.instance().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
@@ -626,7 +603,8 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             
             treeLocation.removeObject();
             
-            companyDC.getCommandStack().rallbackCommand();
+            stackProvider.get().rallbackCommand();
+            
             companyDC.getCurrentObject();
             int i = companyDC.getScroller().size();
 
@@ -635,17 +613,11 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             
         } catch (Exception e) {
             e.printStackTrace();
-            fail(e.getMessage());
+            fail();
         }
 
         
     }        
-    
-    private Pager<?> getPager(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-        Field field = DataControl.class.getDeclaredField("pager");
-        field.setAccessible(true);
-        return (Pager<?>) field.get(dc);    
-    }
     
     class RemoveObjectTracer implements EventListener {
 
@@ -658,7 +630,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
                     String objName = ((RowRemovedEvent) event).getObj()
                             .getClass().getSimpleName();
                     
-                    String key = objName.substring(0, objName.indexOf("Proxy"))
+                    String key = objName
                             + "_"
                             + Reflection.call(
                                     ((RowRemovedEvent) event).getObj(),
@@ -666,28 +638,49 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
                     delitedRows.add(key);
                 }
             } catch (Exception e) {
-                logger.log(Level.INFO, e.getMessage());
+                throw new TuraException(e);
             }
 
         }
 
     }
 
-    public Company getNewCompany(Pager<?> pager) throws Exception {
-        Field field = pager.getClass().getDeclaredField("repository");
-        field.setAccessible(true);
-        Repository repository =  (Repository) field.get(pager);    
+  public CpaRepository  getRepository() {
+	  
+	  ClientProxyRepo  annotation = new ClientProxyRepo() {
 
-        return (Company) repository.create(Company.class.getName());
-    }
+		@Override
+		public Class<? extends Annotation> annotationType() {
+			return ClientProxyRepo.class;
+		}
 
+		@Override
+		public String value() {
+			return "[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]";
+		}
+	  };
+	  return weld.instance().select(CpaRepository.class,annotation).get();
+  }
 
-    public Street getNewStreet(Pager<?> pager) throws Exception {
-        Field field = pager.getClass().getDeclaredField("repository");
-        field.setAccessible(true);
-        Repository repository =  (Repository) field.get(pager);    
+	public Company getNewCompany(CpaRepository repository, Long pk) throws Exception {
+		Company company = repository.create(Company.class);
+		company.setObjId(pk);
+		ObjectControl oc = (ObjectControl) company;
+		oc.set_SrcId(UUID.randomUUID().toString());
+		repository.insert(oc, Company.class);
+		return company;
+	}
 
-        return  (Street) repository.create(Street.class.getName());
-    }
+	public Street getNewStreet(CpaRepository repository, Long pk) throws Exception {
+		Street street = repository.create(Street.class);
+		street.setObjId(pk);
+		ObjectControl oc = (ObjectControl) street;
+		oc.set_SrcId(UUID.randomUUID().toString());
+[%  if (  util.mergeAndCapitalize(uipackage.name).toLowerCase().equals("datacontroldisconnectedmodel") ) {%]            
+		repository.insert(oc, Street.class);
+[%}%]        
+		return street;
+	}
+
 
 }

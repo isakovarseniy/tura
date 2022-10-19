@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.data.RemoveObjectData;
 import org.tura.platform.repository.data.RemoveTopObjectData;
 import org.tura.platform.repository.data.UpdateObjectData;
+import org.tura.platform.repository.spa.SpaRepositoryData;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
@@ -61,17 +62,17 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return ta;
 	}
 
-	public Object create(String repositoryClass) throws RepositoryException {
+	public <T>T create(Class<T> repositoryClass) throws RepositoryException {
 		try {
-			findPersistanceClass(repositoryClass);
-			Object repositoryObject = Class.forName(repositoryClass).getDeclaredConstructor().newInstance();
+			findPersistanceClass(repositoryClass.getName());
+			T repositoryObject =repositoryClass.getDeclaredConstructor().newInstance();
 
 			PrImaryKeyStrategy prImaryKeyStrategy = findPrImaryKeyStrategy();
 			if (prImaryKeyStrategy != null) {
 				prImaryKeyStrategy.generatePk(repositoryObject);
 			}
 
-			PostCreateTrigger trigger = findPostCreateTrigger(repositoryClass);
+			PostCreateTrigger trigger = findPostCreateTrigger(repositoryClass.getName());
 			if (trigger != null) {
 				trigger.postCreate(repositoryObject);
 			}
@@ -86,12 +87,15 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return registry.getPrImaryKeyStrategy();
 	}
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String repositoryClass) throws RepositoryException {
+	public <T> SearchResult<T> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, Class<T> repositoryClass) throws RepositoryException {
 
 		try {
-			Repository provider = findProvider(repositoryClass);
-			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
+			
+			SpaRepositoryData spaRepositoryData = new SpaRepositoryData();
+			
+			Repository provider = findProvider(repositoryClass.getName(),spaRepositoryData);
+			Class<?> persistanceClass = findPersistanceClass(repositoryClass.getName());
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(searchCriteria);
 			List<OrderCriteria> newOrder = prepareOrderCriteria(orderCriteria);
@@ -103,15 +107,17 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				preQueryTrigger.preQueryTrigger(newSearch, newOrder);
 			}
 
-			SearchResult result = provider.find(newSearch, newOrder, startIndex, endIndex, persistanceClass.getName());
+			SearchResult<?> result = provider.find(newSearch, newOrder, startIndex, endIndex, persistanceClass);
 
-			List<Object> records = new ArrayList<>();
+			List<T> records = new ArrayList<>();
 
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context,
-						registry);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass),
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(registry,spaRepositoryData);
+				loader.setOrderCriteria(orderCriteria);
+				loader.setSearchCriteria(searchCriteria);
+				loader.setContext(context);
+				records.add((T) loader.loader(object, getPersistancePrimaryKey(object), repositoryClass,
 						new ObjectGraph(), profile));
 
 				@SuppressWarnings("unchecked")
@@ -122,9 +128,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 					}
 				}
 			}
-			result.setSearchResult(records);
-
-			return result;
+			return new SearchResult<>(records, result.getNumberOfRows());
 
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -170,9 +174,10 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return newOrder;
 	}
 
-	@SuppressWarnings("rawtypes")
-	public List applyChanges(List changes) throws RepositoryException {
+	public List<Object> applyChanges(List<Object> changes) throws RepositoryException {
 		CommandLifecycle cl = getCommandLifecycle();
+		SpaRepositoryData spaRepositoryData = new SpaRepositoryData();
+		
 		try {
 			cl.beforeTransaction();
 			getTransactionAdapter().begin();
@@ -194,42 +199,41 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				try {
 
 					if (change instanceof AddContainmentObjectData) {
-						new RepositoryObjectInstaller(registry).add((AddContainmentObjectData) change);
-						cl.postprocess(change);
+						 new RepositoryObjectInstaller(registry,spaRepositoryData) .add((AddContainmentObjectData) change);
 						continue;
 					}
 					if (change instanceof AddObjectData) {
-						new RepositoryObjectInstaller(registry).add((AddObjectData) change);
+						new RepositoryObjectInstaller(registry,spaRepositoryData).add((AddObjectData) change);
 						continue;
 					}
 
 					if (change instanceof AddTopObjectData) {
-						new RepositoryObjectInstaller(registry).add((AddTopObjectData) change);
+						new RepositoryObjectInstaller(registry,spaRepositoryData).add((AddTopObjectData) change);
 						continue;
 					}
 
 					if (change instanceof RemoveContainmentObjectData) {
-						new RepositoryObjectRemover(registry).remove((RemoveContainmentObjectData) change);
+						new RepositoryObjectRemover(registry,spaRepositoryData).remove((RemoveContainmentObjectData) change);
 						continue;
 					}
 
 					if (change instanceof RemoveObjectData) {
-						new RepositoryObjectRemover(registry).remove((RemoveObjectData) change);
+						new RepositoryObjectRemover(registry,spaRepositoryData).remove((RemoveObjectData) change);
 						continue;
 					}
 
 					if (change instanceof RemoveTopObjectData) {
-						new RepositoryObjectRemover(registry).remove((RemoveTopObjectData) change);
+						new RepositoryObjectRemover(registry,spaRepositoryData).remove((RemoveTopObjectData) change);
 						continue;
 					}
 
 					if (change instanceof UpdateObjectData) {
-						new RepositoryObjectUpdate(registry).update((UpdateObjectData) change);
+						new RepositoryObjectUpdate(registry,spaRepositoryData).update((UpdateObjectData) change);
 						continue;
 					}
 					
 					if (change instanceof AddLinkData) {
-						new RepositoryObjectLinker(registry).linkObjects((AddLinkData) change);
+						new RepositoryObjectLinker(registry,spaRepositoryData).linkObjects((AddLinkData) change);
 						continue;
 					}
 
@@ -245,7 +249,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				}
 
 			}
-			List response = registry.getStorageCommandProcessor().process();
+			List<Object> response = registry.getStorageCommandProcessor().process(spaRepositoryData);
 
 			cl.beforeCommit();
 			getTransactionAdapter().commit();
@@ -265,20 +269,20 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		}
 	}
 
-	@Override
-	public void insert(Object obj, String objectClass) {
-		throw new UnsupportedOperationException();
 
+	@Override
+	public <T> T find(Object pk, Class<T> objectClass) throws RepositoryException {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void remove(Object obj, String objectClass) {
+	public <T> void insert(Object obj, Class<T> objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
-
+		
 	}
 
 	@Override
-	public Object find(Object pk, String objectClass) throws RepositoryException {
+	public <T> void remove(Object obj, Class<T> objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
 	}
 

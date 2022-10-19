@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,11 +30,11 @@ import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.LinkProcessor;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.RelOperation;
-import org.tura.platform.repository.priority.LinkControl;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
+import org.tura.platform.repository.spa.priority.LinkControl;
 
 public class SpaLinkOperation extends SpaRepositoryCommand {
 
@@ -62,14 +62,14 @@ public class SpaLinkOperation extends SpaRepositoryCommand {
 			SearchProvider spMaster = this.providerHash.get(masterPersistanceType);
 			PersistanceMapper masterMapper = findPersistanceMapper(Class.forName(masterType));
 
-			Object persistanceMasterObject = spMaster.find(masterMapper.getPKey(masterPk), masterPersistanceType);
+			Object persistanceMasterObject = spMaster.find(masterMapper.getPKey(masterPk), Class.forName(masterPersistanceType));
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
 
 			SearchProvider spDetail = this.providerHash.get(detailPersistanceType);
 			PersistanceMapper detailMapper = findPersistanceMapper(Class.forName(detailType));
-			Object persistanceDetailObject = spDetail.find(detailMapper.getPKey(detailPk), detailPersistanceType);
+			Object persistanceDetailObject = spDetail.find(detailMapper.getPKey(detailPk), Class.forName(detailPersistanceType));
 			if (persistanceDetailObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + detailPk.toString());
 			}

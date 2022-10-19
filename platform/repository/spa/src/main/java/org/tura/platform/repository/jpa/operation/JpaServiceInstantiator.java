@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,28 +19,34 @@
 package org.tura.platform.repository.jpa.operation;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.tura.platform.repository.core.Instantiator;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
-public class JpaServiceInstantiator implements Instantiator{
+public class JpaServiceInstantiator implements Instantiator {
 
 	private SpaObjectRegistry spaRegistry;
 	private String registryName;
 	private Registry registry;
+	private EntityManagerProvider entityManagerProvider;
+	private Map<String, ExternalQueryProcessor<?>> queryProcessorRegistry = new HashMap<>();
 	
-	private static String[] knownObjects = new String[] {
-			JpaCRUDService.class.getName(),
-			JpaSearchService.class.getName(),
-	};
-	
-	public JpaServiceInstantiator(SpaObjectRegistry spaRegistry,String registryName,Registry registry){
-		this.spaRegistry=spaRegistry;
-		this.registryName=registryName;
-		this.registry=registry;
+
+	private static String[] knownObjects = new String[] { JpaCRUDService.class.getName(),
+			JpaSearchService.class.getName(), };
+
+	public JpaServiceInstantiator(SpaObjectRegistry spaRegistry, String registryName, Registry registry,
+			EntityManagerProvider entityManagerProvider) {
+		this.spaRegistry = spaRegistry;
+		this.registryName = registryName;
+		this.registry = registry;
+		this.entityManagerProvider = entityManagerProvider;
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T newInstance(String className) {
@@ -51,18 +57,19 @@ public class JpaServiceInstantiator implements Instantiator{
 		}
 
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
-		if (JpaSearchService.class.equals(clazz)){
-		    return (T) new JpaSearchService(spaRegistry,registryName,registry);
+		if (JpaSearchService.class.equals(clazz)) {
+			JpaSearchService service =  new JpaSearchService(spaRegistry, registryName, registry, entityManagerProvider);
+			service.addExternalQueryProcessor(queryProcessorRegistry);
+			return (T) service;
 		}
-		if (JpaCRUDService.class.equals(clazz)){
-			return (T) new JpaCRUDService(spaRegistry,registryName,registry);
+		if (JpaCRUDService.class.equals(clazz)) {
+			return (T) new JpaCRUDService(spaRegistry, registryName, registry,entityManagerProvider);
 		}
-		
+
 		throw new RuntimeException("Unknown class " + clazz);
 	}
 
@@ -74,6 +81,17 @@ public class JpaServiceInstantiator implements Instantiator{
 	@Override
 	public boolean check(String clazzName) {
 		return Arrays.asList(knownObjects).contains(clazzName);
+	}
+
+	public <T>void addExternalQueryProcessor(String queryName, ExternalQueryProcessor<T> processor) {
+		this.queryProcessorRegistry.put(queryName, processor);
+	}
+	
+	public <T>void addExternalQueryProcessor(Map<String, ExternalQueryProcessor<?>> queryProcessorRegistry ) {
+		if (queryProcessorRegistry == null ) {
+			return;
+		}
+		this.queryProcessorRegistry.putAll(queryProcessorRegistry);
 	}
 	
 }

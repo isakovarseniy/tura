@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -32,7 +32,7 @@ ${percent}${end}
     %][%=commandstack(component,uipackage, form,controlSuffix)%][%
     
     out.formatWith(f);
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack" +util.mergeAndCapitalize(controlSuffix) +".java",out.toString());   
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(controlSuffix) +".java",out.toString());   
 
 %]
 
@@ -40,18 +40,19 @@ ${percent}${end}
 operation  commandstack(component,uipackage,form, suffix) {
 
      var util = new Native('org.tura.metamodel.commons.Util');
+     var dotsuffix =  suffix;
+     if ( not "".equals(suffix)  ){
+     dotsuffix = suffix+".";
+     }
+     
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 [%=commandstack_scope()%]
 [%
-if ( not "".equals(suffix)  ){
-%]@javax.inject.Named("[%=suffix%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
-}else{
-%]@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
-}
+%]@org.tura.platform.repository.cdi.ClientCommandStack("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
 %]
-public class CDICommandStack[%=util.mergeAndCapitalize(suffix)%] extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
+public class CdiClientCommandStack[%=util.mergeAndCapitalize(suffix)%] extends org.tura.platform.repository.core.CommandStack  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 

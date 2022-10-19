@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2021 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,6 +23,11 @@ ${percent}${end}
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
      var application = uipackage.eContainer();
+     var suffix = "";
+     if ( not "".equals(controlSuffix)  ){
+        suffix = controlSuffix+".";
+     }
+     
      
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
@@ -34,8 +39,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	
 	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(control.name)%]DC.class.getName());;
 	
-
-	private @javax.inject.Inject org.tura.platform.repository.core.Repository repository;
+    @javax.inject.Inject
+    @org.tura.platform.repository.cdi.ClientProxyRepo("[%=suffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+	private  org.tura.platform.repository.cpa.CpaRepository repository;
 
     [%
     if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%]
@@ -73,42 +79,40 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 
 	public  [%=util.mergeAndCapitalize(control.name)%]DC() throws Exception {
 		super();
-    [%
-    if (control.~dependObject.isDefined()){%]
-    blocked=true;
-      [%}%]		
 	}
 	
 	@javax.annotation.PostConstruct
 	public void init() {
      try{
      
-    		org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
-    		sp.setDataControl(this);
-    		sp.setCommandStack(getCommandStack());
-     
-     
      [%
        if (control.~pagerType == "topPager"){
      %]
-		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]> pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]>(this);
+		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.baseType.typeRef.~class%]Pager (this);
 		[%
      
        }else{
      %]
-		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]> pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager <[%=control.baseType.typeRef.~fullName%]>(this);
+		[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager  pager =new [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].pager.[%=control.~parenType.typeRef.~class%]2[%=control.baseType.typeRef.~class%]Pager (this);
 		[%
        }     
      %]
-     setPager(pager);
-	 pager.setCommandStack(getCommandStack());
-	 
-     [%=control.~basepackage%].ProxyRepository proxyRepository =   new [%=control.~basepackage%].ProxyRepository(repository,sp);
-     proxyRepository.setProfile("[%=util.mergeAndUnCapitalize(application.name)%].[%=util.mergeAndUnCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%]");
-     pager.setRepository(proxyRepository);
+     pager.setRepository(repository);
+     pager.addCpaStorageEventListenetr();
+[%
+  if (not control.~dependObject.isDefined()){
+     var relations = form::Relation.allInstances()->select(r|r.detail= control); 
+     if  (relations.size() == 0){
+     %]
+     pager.addCommandStackListener();
+     [%
+     }  
+  }
 
+%]     
+     setPager(pager);
+	 
      setBaseClass([%=control.~basefullName%].class); 
-     setProxyClass([%=control.~basefullName%]Proxy.class); 
     [%
     
      var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
@@ -120,7 +124,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      getSearchObjectParameters().fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
      [%}%]
 
-      getCommandStack().getPoolFlushAware().add(this);
 	  org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
       }catch(Exception e){
          	logger.info(e.getMessage());
@@ -166,21 +169,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setElResolver(org.tura.platform.datacontrol.ELResolver elResolver) {
 		this.elResolver = elResolver;
-	}
-
-
-	@javax.inject.Inject
-	public void setCommandStack(
-	      
-[%
-if ( not "".equals(controlSuffix)  ){
-%]@javax.inject.Named("[%=controlSuffix%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
-}else{
-%]@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
-}
-%]
-	      org.tura.platform.datacontrol.CommandStack commandStack) {
-		this.commandStack = commandStack;
 	}
 
 
@@ -462,10 +450,5 @@ if ( not "".equals(controlSuffix)  ){
 	%]
 	
     }
-	
-	public java.util.ArrayList<org.tura.platform.repository.core.FieldValue> getPrimaryKeyFields() throws Exception{
-	   return [%=control.~basefullName%]Proxy.getPrimaryKeyFields();
-	}
-	
 	
 }
