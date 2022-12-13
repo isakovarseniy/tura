@@ -47,7 +47,7 @@
 		<version.deltaspike>1.6.1</version.deltaspike>
 		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
 		<version.resteasy-jackson-provider>3.0.19.Final</version.resteasy-jackson-provider>
-		<version.jackson-module-jaxb-annotations>2.8.0</version.jackson-module-jaxb-annotations>
+		<version.jackson-module-jaxb-annotations>2.13.0.redhat-00001</version.jackson-module-jaxb-annotations>
 		<version.resteasy-client>3.0.2.Final</version.resteasy-client>
 		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
 		<version.wildfly-arquillian-container-managed>2.1.1.Final</version.wildfly-arquillian-container-managed>
