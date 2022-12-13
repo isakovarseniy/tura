@@ -21,7 +21,7 @@ package org.tura.platform.repository.core;
 public enum RelationType {
 	Direct, Opposite, Any;
 
-	RelationType revert() {
+	public RelationType revert() {
 		if ( this.equals(Direct)) {
 			return Opposite;
 		}

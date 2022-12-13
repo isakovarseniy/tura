@@ -154,10 +154,25 @@ public abstract class EagerInternalList<T> extends AbstractList<T>
 	public void add(int index, T t) {
 		try {
 			List<T> list = this.getList();
-			T obj =list.remove(list.size()-1);
-			list.add(index,obj);
+			T obj = list.remove(list.size() - 1);
+			list.add(index, obj);
 		} catch (Exception e) {
-			throw new  RuntimeException(e);
+			throw new RuntimeException(e);
+		}
+	}
+
+	protected DelStruc isRemovable(T t) {
+		try {
+			DelStruc response = new DelStruc();
+			List<T> list = this.getList();
+			int i = list.indexOf(t);
+			if (i != -1) {
+				response.setRemovable(true);
+				response.setIndex(i);
+			}
+			return response;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 

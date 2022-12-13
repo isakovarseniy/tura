@@ -82,7 +82,23 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 		return [%=util.mergeAndUnCapitalize(field.name)%];
 	}
 	
-[%}%]
+[%}
+    if ( Object_lock.isDefined() and Object_lock.indexOf("OptimisticLocking") <> -1  and not type.~extension.isDefined() ){
+     %]
+     @javax.persistence.Version
+	 @javax.persistence.Column(name = "V_[%=type.~class.toUpperCase()%]")
+     private int v[%=util.mergeAndCapitalize(type.~class)%];
+     
+     public int getV[%=util.mergeAndUnCapitalize(type.~class)%](){
+           return v[%=util.mergeAndCapitalize(type.~class)%];
+     }
+     
+     public void setV[%=util.mergeAndUnCapitalize(type.~class)%](int v[%=util.mergeAndCapitalize(type.~class)%]){
+          this.v[%=util.mergeAndCapitalize(type.~class)%] =  v[%=util.mergeAndCapitalize(type.~class)%];
+     }
+     [%   
+    }
+%]
 
 	[%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);

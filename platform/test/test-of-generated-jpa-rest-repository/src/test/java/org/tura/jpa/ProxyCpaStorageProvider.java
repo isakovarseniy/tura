@@ -26,6 +26,7 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class ProxyCpaStorageProvider implements CpaStorageProvider {
 
+	private static final long serialVersionUID = 520444826411985629L;
 	private CpaStorage cpaStorage;
 
 	public ProxyCpaStorageProvider(ProxyCommadStackProvider stackProvider) {

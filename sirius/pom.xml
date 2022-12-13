@@ -20,7 +20,7 @@
 
 	<groupId>org.tura.metamodel</groupId>
 	<artifactId>parent</artifactId>
-	<version>6.0.0</version>
+	<version>6.1.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -34,7 +34,7 @@
 
 		<!-- Dependency for importing in eclipse to create a new workbanch -->
 		<emfatic-repo.url>http://download.eclipse.org/emfatic/update/</emfatic-repo.url>
-		<epsilon-repo.url>http://download.eclipse.org/epsilon/1.4/updates/</epsilon-repo.url>
+		<epsilon-repo.url>http://download.eclipse.org/epsilon/updates/2.4/</epsilon-repo.url>
 		<sirius-repo.url>http://download.eclipse.org/sirius/updates/releases/6.4.2/2020-06</sirius-repo.url>
 		<!-- Dependency for importing in eclipse to creaye a new workbanch -->
 	</properties>

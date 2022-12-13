@@ -127,7 +127,7 @@ public class JPATest {
 	
 	@Test
 	public void checkClientClass(){
-		assertEquals(10, Client.class.getDeclaredMethods().length);
+		assertEquals(12, Client.class.getDeclaredMethods().length);
 		assertTrue(findMethod( Client.class,"getName" ));
 		assertTrue(findMethod( Client.class,"setName",new Class[]{String.class} ));
 
@@ -142,6 +142,10 @@ public class JPATest {
 		
 		assertTrue(findMethod( Client.class,"getPerson" ));
 		assertTrue(findMethod( Client.class,"setPerson",new Class[]{Person.class} ));
+
+		assertTrue(findMethod( Client.class,"getVclient" ));
+		assertTrue(findMethod( Client.class,"setVclient",new Class[]{int.class} ));
+		
 		
 		Annotation a = findFieldAnnotation(Client.class,Id.class,"objId");
 		assertNotNull(a);
@@ -154,7 +158,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(18, Person.class.getDeclaredMethods().length);
+		assertEquals(20, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));
@@ -182,6 +186,9 @@ public class JPATest {
 		
 		assertTrue(findMethod( Person.class,"getGender" ));
 		assertTrue(findMethod( Person.class,"setGender",new Class[]{PersonType.class} ));
+		
+		assertTrue(findMethod( Person.class,"getVperson" ));
+		assertTrue(findMethod( Person.class,"setVperson",new Class[]{int.class} ));
 		
 		
 		Annotation a = findFieldAnnotation(Person.class,Id.class,"objId");
@@ -214,7 +221,7 @@ public class JPATest {
 	
 	@Test
 	public void checkMailAddressClass(){
-		assertEquals(12, MailAddress.class.getDeclaredMethods().length);
+		assertEquals(14, MailAddress.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( MailAddress.class,"getObjId" ));
 		assertTrue(findMethod( MailAddress.class,"setObjId",new Class[]{Long.class} ));
@@ -233,6 +240,9 @@ public class JPATest {
 		
 		assertTrue(findMethod( MailAddress.class,"getPhoneType" ));
 		assertTrue(findMethod( MailAddress.class,"setPhoneType",new Class[]{PhoneType.class} ));
+		
+		assertTrue(findMethod( MailAddress.class,"getVmailAddress" ));
+		assertTrue(findMethod( MailAddress.class,"setVmailAddress",new Class[]{int.class} ));
 		
 		
 		Annotation a = findFieldAnnotation(MailAddress.class,Id.class,"objId");

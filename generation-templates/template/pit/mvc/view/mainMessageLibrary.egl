@@ -28,10 +28,9 @@ ${percent}${end}
      var util = new Native('org.tura.metamodel.commons.Util');
      var appMsgLibs = util.runQuery(model_mapper,"Query message library",model_mapper);
 
-    if (appMsgLibs.size() <> 0 ){
-       for (appMsg in appMsgLibs){
-
-         for ( library in appMsg.libraries){
+    if (appMsgLibs  <> null  and appMsgLibs. size()  <> 0){
+         for(   applibs  in   appMsgLibs )  {
+            for ( library in applibs.libraries){
 
             var hash = new Native("java.util.HashMap"); 
    

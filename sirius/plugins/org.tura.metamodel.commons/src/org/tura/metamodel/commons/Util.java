@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
@@ -49,7 +50,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
+import org.eclipse.epsilon.egl.EglTemplateFactoryModuleAdapter;
 import org.eclipse.epsilon.egl.output.OutputBuffer;
+import org.eclipse.epsilon.eol.execute.context.ExtendedProperties;
+import org.eclipse.epsilon.eol.models.IModel;
+import org.eclipse.epsilon.eol.models.ModelRepository;
+import org.eclipse.epsilon.eol.types.EolClasspathNativeTypeDelegate;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
@@ -731,22 +737,28 @@ public class Util {
 
 	public static EglTemplate loadTemplate(String templateFile, HashMap<String, Object> parameters,
 			EglTemplateFactory factory, HashMap<String, Object> templateStore) throws Exception {
-		EglTemplate template = (EglTemplate) templateStore.get(templateFile);
-		if (template == null) {
-			template = loadTemplate(templateFile, parameters, factory);
-			templateStore.put(templateFile, template);
-		} else {
-			template.reset();
-			for (String key : parameters.keySet()) {
-				template.populate(key, parameters.get(key));
-			}
-		}
+		EglTemplate template = loadTemplate(templateFile, parameters, factory);
 		return template;
 	}
 
 	public static EglTemplate loadTemplate(String templateFile, HashMap<String, Object> parameters,
 			EglTemplateFactory factory) throws Exception {
+		
+	    ExtendedProperties  exp =  factory.getContext().getExtendedProperties();
+		PrintStream err  = factory.getContext().getErrorStream();
+		PrintStream out  = factory.getContext().getOutputStream();
+		List<IModel> models =  factory.getContext().getModelRepository().getModels();
+	    
+	    
+		EglTemplateFactory newFactory = new EglTemplateFactory();
 
+		ModelRepository modelRepo = newFactory.getContext().getModelRepository();
+		newFactory.getContext().getNativeTypeDelegates().add(new EolClasspathNativeTypeDelegate());
+		newFactory.getContext().setErrorStream(err);
+		newFactory.getContext().setOutputStream(out);
+		modelRepo.addModels(models);
+	    
+		
 		/* Create and adjust the configuration */
 		Configuration cfg = new Configuration();
 
@@ -765,20 +777,21 @@ public class Util {
 			GeneratotPreferences.wrapper.logInfo("Template" + templateFile + " : \n" + writer.toString());
 		}
 
-		EglTemplate egltemplate = factory.prepare(writer.toString());
+		EglTemplateFactoryModuleAdapter module = new EglTemplateFactoryModuleAdapter(newFactory);
+		module.parse(writer.toString());
 
-		if (egltemplate == null || !egltemplate.getParseProblems().isEmpty()) {
-			if (egltemplate != null)
+		if (!module.getParseProblems().isEmpty()) {
 				GeneratotPreferences.wrapper
 						.logInfo("Error during pursing template" + templateFile + " : \n" + writer.toString());
-			throw new Exception(egltemplate.getParseProblems().toString());
+			throw new Exception(module.getParseProblems().toString());
 		}
 
 		for (Iterator<String> itr = parameters.keySet().iterator(); itr.hasNext();) {
 			String key = itr.next();
-			egltemplate.populate(key, parameters.get(key));
+			module.getCurrentTemplate().populate(key, parameters.get(key));
 		}
-		return egltemplate;
+		module.getTemplateFactory().getContext().setExtendedProperties(exp);
+		return module.getCurrentTemplate();
 	}
 
 	public static String getHint(ModelMapper mapper, String hintNickName) throws Exception {

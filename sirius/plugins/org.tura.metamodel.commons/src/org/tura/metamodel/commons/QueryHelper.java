@@ -14,23 +14,24 @@
 
 package org.tura.metamodel.commons;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
-import org.eclipse.ocl.OCL;
-import org.eclipse.ocl.ParserException;
-import org.eclipse.ocl.Query;
-import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.expressions.OCLExpression;
-import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.epsilon.common.parse.problem.ParseProblem;
+import org.eclipse.epsilon.eol.EolModule;
+import org.eclipse.epsilon.eol.IEolModule;
+import org.eclipse.epsilon.eol.execute.context.IEolContext;
+import org.eclipse.epsilon.eol.execute.context.Variable;
+import org.eclipse.epsilon.eol.models.Model;
+import org.eclipse.epsilon.eol.tools.EolSystem;
+import org.eclipse.epsilon.eol.types.AbstractToolNativeTypeDelegate;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
@@ -90,7 +91,6 @@ import type.Primitive;
 import type.PrimitivesGroup;
 import type.Type;
 import type.TypeElement;
-import type.TypePackage;
 import type.TypeReference;
 
 public class QueryHelper {
@@ -107,49 +107,86 @@ public class QueryHelper {
 	private static String BASE_TYPE = "Base type";
 	private static String ANY_TYPE = "Any type";
 	private static String GENERATION_HINT_TYPE = "Generation hint";
-	
 
 	private HintHelper hintHelper = new HintHelper();
 
-	/** The OCL object. */
-	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
+	private IEolModule module;
 
-	/** The OCL helper. */
-	private OCLHelper<EClassifier, ?, ?, Constraint> helper;
+	private IEolModule createModule() throws Exception {
+		return new EolModule();
+	}
 
-	public OCLHelper<EClassifier, ?, ?, Constraint> getOCLHelper() {
-		if (helper == null) {
-			helper = getOCL().createOCLHelper();
+	@SuppressWarnings("unchecked")
+	private void addVariables(IEolContext context, Map<String, ?>... variableMaps) {
+		for (Map<String, ?> variableMap : variableMaps) {
+			for (String key : variableMap.keySet()) {
+				module.getContext().getFrameStack().put(Variable.createReadOnlyVariable(key, variableMap.get(key)));
+			}
 		}
-		return helper;
 	}
 
-	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> getOCL() {
-		if (ocl == null) {
-			ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+	private Model getModel(EObject context) {
+		return new ModelFactory().getModel(context);
+	}
+
+	@SuppressWarnings("unchecked")
+	private AbstractToolNativeTypeDelegate getDeligate() throws Exception {
+		Class<AbstractToolNativeTypeDelegate> clazz = null;
+		try {
+			clazz = (Class<AbstractToolNativeTypeDelegate>) Class
+					.forName("org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate");
+		} catch (Exception e) {
+			clazz = (Class<AbstractToolNativeTypeDelegate>) Class
+					.forName("org.eclipse.epsilon.eol.types.EolClasspathNativeTypeDelegate");
 		}
-		return ocl;
-	}
-
-	private Object internalEvaluate(final EObject context, final String expression) throws ParserException {
-		getOCLHelper().setContext(context.eClass());
-
-		final OCLExpression<EClassifier> query = getOCLHelper().createQuery(expression);
-		final Query<EClassifier, EClass, EObject> eval = getOCL().createQuery(query);
-
-		return eval.evaluate(context);
+		return clazz.getConstructor().newInstance();
 
 	}
 
-	private Object internalEvaluate(final EObject context, final EClass eclass, final String expression)
-			throws ParserException {
-		getOCLHelper().setContext(eclass);
+	@SuppressWarnings("unused")
+	private void parseModule(URI uri) throws Exception {
+		module = createModule();
+		module.parse(uri);
 
-		final OCLExpression<EClassifier> query = getOCLHelper().createQuery(expression);
-		final Query<EClassifier, EClass, EObject> eval = getOCL().createQuery(query);
+		if (module.getParseProblems().size() > 0) {
+			for (ParseProblem problem : module.getParseProblems()) {
+				LogUtil.logInfo(problem);
+			}
+			throw new Exception("Parsing problem");
+		}
+	}
 
-		return eval.evaluate(context);
+	private void parseModule(String expression) throws Exception {
+		module = createModule();
+		module.parse(expression);
 
+		if (module.getParseProblems().size() > 0) {
+			for (ParseProblem problem : module.getParseProblems()) {
+				LogUtil.logInfo(problem);
+			}
+			throw new Exception("Parsing problem");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	protected void configureModule(HashMap<String, Object> variables) throws Exception {
+
+		EolSystem system = new EolSystem();
+		system.setContext(module.getContext());
+		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("System", system));
+		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("null", null));
+		module.getContext().getNativeTypeDelegates().add(getDeligate());
+
+		addVariables(module.getContext(), variables);
+
+	}
+
+	private Object internalEvaluate(final EObject context, final String expression) throws Exception {
+		Model model = getModel(context);
+		parseModule(expression);
+		configureModule(new HashMap<String, Object>());
+		module.getContext().getModelRepository().addModel(model);
+		return module.execute();
 	}
 
 	public Form getForm(DataControl dc) {
@@ -177,8 +214,8 @@ public class QueryHelper {
 
 	@SuppressWarnings({ "unchecked" })
 	public void getTreeLeafs(List<Object> ls, DataControl root) throws Exception {
-		String query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master.uid ='" + root.getUid()
-				+ "')->collect(r|r.detail)";
+		String query = "var r = form::Relation.allInstances()->select(r|r.isTree=true and r.master.uid ='"
+				+ root.getUid() + "')->collect(r|r.detail); return r;";
 
 		ls.add(root);
 		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(root, query);
@@ -192,8 +229,8 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Infrastructure getInfrastructure(Recipe recipe) throws Exception {
-		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.source.uid ='" + recipe.getUid()
-				+ "')";
+		String query = "var r = recipe::Recipe2Infrastructure.allInstances()->select(r|r.source.uid ='"
+				+ recipe.getUid() + "'); return r;";
 
 		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(recipe, query);
 		if ((map != null) && (map.size() != 0))
@@ -205,7 +242,8 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Recipe getRecipe(Infrastructure infra) throws Exception {
-		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid ='" + infra.getUid() + "')";
+		String query = "var r = recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid ='" + infra.getUid()
+				+ "');  return r;";
 
 		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
 		if ((map != null) && (map.size() != 0))
@@ -216,7 +254,7 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Recipe getRecipe(EObject obj, String uid) throws Exception {
-		String query = "recipe::Recipe.allInstances()->select(r|r.uid ='" + uid + "')";
+		String query = "var r =  recipe::Recipe.allInstances()->select(r|r.uid ='" + uid + "');  return r;";
 
 		Collection<Recipe> map = (Collection<Recipe>) internalEvaluate(obj, query);
 		if ((map != null) && (map.size() != 0))
@@ -228,7 +266,7 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Ingredient getIngredient(EObject obj, String uid) throws Exception {
 
-		String query = "recipe::Ingredient.allInstances()->select(r|r.uid ='" + uid + "')";
+		String query = "var r = recipe::Ingredient.allInstances()->select(r|r.uid ='" + uid + "');  return r;";
 
 		Collection<Ingredient> map = (Collection<Ingredient>) internalEvaluate(obj, query);
 		if ((map != null) && (map.size() != 0))
@@ -241,7 +279,7 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Component getComponent(EObject obj, String uid) throws Exception {
 
-		String query = "recipe::Component.allInstances()->select(r|r.uid ='" + uid + "')";
+		String query = "var r = recipe::Component.allInstances()->select(r|r.uid ='" + uid + "'); return r;";
 
 		Collection<Component> map = (Collection<Component>) internalEvaluate(obj, query);
 		if ((map != null) && (map.size() != 0))
@@ -254,7 +292,7 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public ModelMapper getModelMapper(EObject obj, String uid) throws Exception {
 
-		String query = "recipe::ModelMapper.allInstances()->select(r|r.uid ='" + uid + "')";
+		String query = "var r = recipe::ModelMapper.allInstances()->select(r|r.uid ='" + uid + "'); return r;";
 
 		Collection<ModelMapper> map = (Collection<ModelMapper>) internalEvaluate(obj, query);
 		if ((map != null) && (map.size() != 0))
@@ -266,7 +304,7 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Collection<Recipe> getRecipes(EObject obj) throws Exception {
-		String query = "recipe::Recipe.allInstances()";
+		String query = "var r = recipe::Recipe.allInstances(); return r;";
 
 		Collection<Recipe> map = (Collection<Recipe>) internalEvaluate(obj, query);
 		return map;
@@ -274,8 +312,8 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Configuration getConfiguration(Infrastructure infra) throws Exception {
-		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + infra.getUid()
-				+ "')";
+		String query = "var r = recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='"
+				+ infra.getUid() + "'); return r;";
 
 		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
 				infra, query);
@@ -287,7 +325,8 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Configuration getConfiguration(EObject obj, String uid) throws Exception {
-		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid + "')";
+		String query = "var r = recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
+				+ "'); return r;";
 
 		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(obj,
 				query);
@@ -304,7 +343,8 @@ public class QueryHelper {
 			throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
 		}
 
-		String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='" + config.getUid() + "')";
+		String query = "var r = recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='" + config.getUid()
+				+ "'); return r;";
 
 		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
 		if ((map != null) && (map.size() != 0))
@@ -320,7 +360,8 @@ public class QueryHelper {
 			return null;
 		}
 
-		String query = "recipe::ConfigExtension.allInstances()->select(r|r.target.uid ='" + config.getUid() + "')";
+		String query = "var r =  recipe::ConfigExtension.allInstances()->select(r|r.target.uid ='" + config.getUid()
+				+ "'); return r;";
 
 		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
 		if ((map != null) && (map.size() != 0))
@@ -333,7 +374,8 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public boolean getConfigExtensionGard(Configuration config) throws Exception {
 
-		String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid='" + config.getUid() + "')";
+		String query = "var r =recipe::ConfigExtension.allInstances()->select(r|r.source.uid='" + config.getUid()
+				+ "'); return r;";
 
 		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
 		if ((map != null) && (map.size() > 1)) {
@@ -346,8 +388,8 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Infrastructure findInfrastructure(Configuration config) throws Exception {
 
-		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.target.uid='" + config.getUid()
-				+ "')";
+		String query = "var r =recipe::Infrastructure2Configuration.allInstances()->select(r|r.target.uid='"
+				+ config.getUid() + "'); return  r;";
 
 		Collection<Infrastructure2ConfigurationImpl> map = (Collection<Infrastructure2ConfigurationImpl>) internalEvaluate(
 				config, query);
@@ -365,7 +407,8 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Recipe findRecipe(Infrastructure infra) throws Exception {
 
-		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid='" + infra.getUid() + "')";
+		String query = "var r =recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid='" + infra.getUid()
+				+ "'); return r;";
 
 		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
 		if ((map != null) && (map.size() != 0)) {
@@ -395,7 +438,7 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Object getDomainApplications(EObject root) throws Exception {
-		String query = "domain::DomainApplications.allInstances()";
+		String query = "var r = domain::DomainApplications.allInstances(); return r;";
 
 		Collection<DomainApplications> map = (Collection<DomainApplications>) internalEvaluate(root, query);
 		if ((map != null) && (map.size() != 0)) {
@@ -408,10 +451,10 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Collection<TreeDataControl> findTreeRootControls(Form frm) throws Exception {
 
-		String query = "form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		String query = "var r = form::Relation.allInstances()->select(r|r.isTree=true and r.eContainer().uid= '"
 				+ frm.getDatacontrols().getUid()
-				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q))";
+				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.eContainer().uid= '"
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q)); return r;";
 
 		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm, query);
 
@@ -421,10 +464,10 @@ public class QueryHelper {
 			hash.put(dc.getUid(), dc);
 		}
 
-		query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		query = "var r =form::Relation.allInstances()->select(r|r.isTree=true and r.master=r.detail and r.eContainer().uid= '"
 				+ frm.getDatacontrols().getUid()
-				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q))";
+				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.eContainer().uid= '"
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q)); return r;";
 
 		Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm, query);
 
@@ -443,10 +486,10 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findMasterControls(Form frm) throws Exception {
 
-		String query = "form::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		String query = "var r =form::DataControl.allInstances()->select(r|r.eContainer().uid= '"
 				+ frm.getDatacontrols().getUid()
-				+ "')->reject(q|form::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-				+ frm.getDatacontrols().getUid() + "' )->collect(w|w.detail)->includes(q))";
+				+ "')->reject(q|form::Relation.allInstances()->select(r|r.eContainer().uid= '"
+				+ frm.getDatacontrols().getUid() + "' )->collect(w|w.detail)->includes(q)); return r; ";
 
 		Collection<DataControl> map = ((Collection<DataControl>) internalEvaluate(frm, query));
 
@@ -461,8 +504,8 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findDetailAndDependencyControls(Form frm) throws Exception {
 
-		String query = "form::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid = '"
-				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)";
+		String query = "var r = form::Relation.allInstances()->select(r|r.isTree=false and r.eContainer().uid = '"
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail); return r;";
 
 		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm, query);
 
@@ -474,15 +517,15 @@ public class QueryHelper {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object[] findMappingTechnologies(ModelMapper eObject, EObject types) throws Exception {
 
 		Object[] result = new Object[2];
 
 		Collection<MappingTecnologiy> map = eObject.getTechnologies();
-		String query = "artifact::Artifact.allInstances()->select(r|r.uid='" + eObject.getArtifactRef().getUid()
-				+ "').oclAsType(artifact::Artifact).technologies";
+		String query = "var r =artifact::Artifact.allInstances()->select(r|r.uid='" + eObject.getArtifactRef().getUid()
+				+ "').first().technologies; return  r;";
 
-		@SuppressWarnings("unchecked")
 		Collection<Technology> map1 = (Collection<Technology>) internalEvaluate(eObject, query);
 
 		ArrayList<MappingTecnologiy> removeSpecifiers = new ArrayList<MappingTecnologiy>();
@@ -579,7 +622,7 @@ public class QueryHelper {
 	public DomainTypes getTypesRepository(EObject obj) throws Exception {
 
 		Collection<DomainTypes> map = (Collection<DomainTypes>) internalEvaluate(obj,
-				"domain::DomainTypes.allInstances()");
+				"var r  =  domain::DomainTypes.allInstances();  return  r;");
 
 		if ((map != null) && (map.size() != 0)) {
 			DomainTypes domainTypes = ((DomainTypes) (map.iterator().next()));
@@ -604,12 +647,15 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	private TypeElement findModelType(EObject context, String typeRepositoryName, String packageName, String typeName)
 			throws Exception {
-		String query = "domain::DomainTypes.allInstances().typesRepository->select(r|r.name='" + typeRepositoryName
-				+ "').repositoryPackages->select(p|p.name='" + packageName + "').types->select(t|t.name='" + typeName
-				+ "')";
+		
+		
+		
+		String query = "var r =domain::DomainTypes.allInstances().first().typesRepository->select(r|r.name='"
+				+ typeRepositoryName + "').first().repositoryPackages->select(p|p.name='" + packageName
+				+ "').first().types->select(t|t.name='" + typeName + "'); return r;";
 
 		Collection<TypeElement> map = (Collection<TypeElement>) internalEvaluate(context, query);
-
+		
 		if ((map != null) && (map.size() != 0)) {
 			TypeElement type = ((TypeElement) (map.iterator().next()));
 			return type;
@@ -620,13 +666,13 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	private Primitive findPrimitive(EObject context, String typeName) throws Exception {
-		String query = "domain::Domain.allInstances()";
+		String query = "var r =domain::Domain.allInstances();  return r;";
 		Collection<Domain> map = (Collection<Domain>) internalEvaluate(context, query);
 		if ((map != null) && (map.size() != 0)) {
 			Domain domain = ((Domain) (map.iterator().next()));
 			PrimitivesGroup grp = domain.getDomainTypes().getPrimitives();
 
-			query = "type::Primitive.allInstances()->select(r|r.name='" + typeName + "')";
+			query = "var r =type::Primitive.allInstances()->select(r|r.name='" + typeName + "'); return r;";
 
 			Collection<Primitive> map1 = (Collection<Primitive>) internalEvaluate(grp, query);
 
@@ -664,7 +710,7 @@ public class QueryHelper {
 	public DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
 
 		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,
-				"domain::DomainArtifacts.allInstances()");
+				"var r =  domain::DomainArtifacts.allInstances(); return r;");
 
 		if (map != null && map.size() != 0) {
 			return (DomainArtifacts) map.toArray()[0];
@@ -677,14 +723,13 @@ public class QueryHelper {
 	public void getInheritTypes(List<Type> typesTree, Type type) {
 		try {
 
-			String query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).target.oclIsKindOf(type::Type) and "
-					+ "r.oclAsType(type::Generalization).target.uid ='" + type.getUid() + "')";
+			String query = "var r =type::Generalization.allInstances()->select(r|r.target.isKindOf(type::Type) and "
+					+ "r.target.uid ='" + type.getUid() + "'); return  r;";
 
 			Collection<Generalization> map = (Collection<Generalization>) internalEvaluate(type, query);
 
-			query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).target.oclIsKindOf(type::TypeReference)"
-					+ " and r.oclAsType(type::Generalization).target.oclAsType(type::TypeReference).typeRef.uid= '"
-					+ type.getUid() + "')";
+			query = "var r = type::Generalization.allInstances()->select(r|r.target.isKindOf(type::TypeReference)"
+					+ " and r.target.typeRef.uid= '" + type.getUid() + "'); return  r;";
 
 			Collection<Generalization> map1 = (Collection<Generalization>) internalEvaluate(type, query);
 
@@ -780,8 +825,8 @@ public class QueryHelper {
 			LogUtil.log(e);
 		}
 		return null;
-	}	
-	
+	}
+
 	public TypeElement findTreeDataControlType(Object obj) {
 		try {
 			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, TREE_DATA_CONTROL);
@@ -812,8 +857,7 @@ public class QueryHelper {
 		return findRefreshedAeas(views, obj);
 
 	}
-	
-	
+
 	public Object[] findRefreshedAeas(Window obj) throws Exception {
 
 		EObject root = obj;
@@ -822,7 +866,6 @@ public class QueryHelper {
 		return findRefreshedAeas(views, obj);
 
 	}
-	
 
 	public Object[] findRefreshedAeas(Uielement obj) throws Exception {
 
@@ -843,14 +886,14 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Object[] findRefreshedAeas(Views views, EObject obj) throws Exception {
 		try {
-			String query = "form::Views.allInstances()->select(r|r.oclAsType(form::Views).uid = '" + views.getUid()
-					+ "').canvases->select(c|c.oclIsKindOf(form::ViewPortHolder))->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(form::ViewArea))";
+			String query = "var r =form::Views.allInstances()->select(r|r.uid = '" + views.getUid()
+					+ "').first().canvases->select(c|c.isKindOf(form::ViewPortHolder))->collect(v|v.viewElement).flatten()->select(q|q.isKindOf(form::ViewArea)); return r;";
 
 			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(obj, query);
 
-			query = "form::Views.allInstances()->select(r|r.oclAsType(form::Views).uid = '" + views.getUid()
-					+ "').canvases->select(c|c.oclIsKindOf(form::ViewPortHolder))->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->"
-					+ "select(q|q.oclIsKindOf(form::NickNamed) and q.oclAsType(form::NickNamed).nickname <> null and q.oclAsType(form::NickNamed).nickname <> '')";
+			query = "var r = form::Views.allInstances()->select(r|r.uid = '" + views.getUid()
+					+ "').first().canvases->select(c|c.isKindOf(form::ViewPortHolder))->collect(v|v.viewElement).flatten()->"
+					+ "select(q|q.isKindOf(form::NickNamed) and q.nickname <> null and q.nickname <> ''); return r;";
 
 			Collection<NickNamed> map1 = (Collection<NickNamed>) internalEvaluate(obj, query);
 
@@ -956,16 +999,9 @@ public class QueryHelper {
 
 		try {
 
-			String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
-					+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
-					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
-					+ " ->collect(f|f.oclAsType(form::Form).view.menus)->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders "
-					+ "->select(mf|mf.oclIsKindOf(form::MenuFolder)))))->reject(qwe|application::ApplicationUILayer.allInstances()"
-					+ "->select(q|q.uid='" + app.getUid()
-					+ "')->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
-					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms ->collect(f|f.oclAsType(form::Form).view.menus)"
-					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).toSubMenu ->collect(mf|mf.oclAsType(form::ToSubmenu).target ))))"
-					+ "->includes(qwe))";
+			String query =
+			 "var r = application::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"').first().applicationUIPackages->collect(w|w.forms)->collect(f|f.view.menus).flatten()->collect(fl|fl.menuFolders).flatten()->select(mf|mf.isKindOf(form::MenuFolder))"
+			 + ".excludingAll(application::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"').first().applicationUIPackages->collect(w|w.forms)->collect(f|f.view.menus).flatten()->collect(fl|fl.toSubMenu).flatten()->collect(mf|mf.target)); return r;";
 
 			@SuppressWarnings("unchecked")
 			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
@@ -993,13 +1029,8 @@ public class QueryHelper {
 		Form frm = (Form) ((Views) views).eContainer();
 		ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
 
-		String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
-				+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages->"
-				+ "collect(w|w.oclAsType(application::ApplicationUIPackage).forms "
-				+ "->collect(f|f.oclAsType(form::Form).view.menus)"
-				+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
-				+ "->collect(mf|mf.oclAsType(form::MenuFolder)->select(e|e.extensionPoint)))))";
-
+		String query =  "var r = application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "').first().applicationUIPackages->collect(w|w.forms)->collect(f|f.view.menus).flatten()->collect(fl|fl.menuFolders).flatten()->select(mf|mf.extensionPoint);  return r;";
+		
 		try {
 
 			@SuppressWarnings("unchecked")
@@ -1025,9 +1056,8 @@ public class QueryHelper {
 
 		try {
 
-			String query = "form::CanvasFrame.allInstances()->select(r|r.oclAsType(form::CanvasFrame).uid='"
-					+ canvasFrame.getUid()
-					+ "')->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(form::ViewArea))";
+			String query = "var r =form::CanvasFrame.allInstances()->select(r|r.uid='" + canvasFrame.getUid()
+					+ "')->collect(v|v.viewElement).flatten()->select(q|q.isKindOf(form::ViewArea)); return  r;";
 
 			@SuppressWarnings("unchecked")
 			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(canvasFrame, query);
@@ -1051,8 +1081,7 @@ public class QueryHelper {
 	public Collection<Generalization> getTypeExtension(Type type) {
 		try {
 
-			String query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).source.uid ='"
-					+ type.getUid() + "')";
+			String query = "var r = type::Generalization.allInstances()->select(r|r.source.uid ='" + type.getUid() + "'); return r;";
 
 			@SuppressWarnings("unchecked")
 			Collection<Generalization> list = (Collection<Generalization>) internalEvaluate(type, query);
@@ -1069,9 +1098,8 @@ public class QueryHelper {
 	public Assosiation getAssosiation(Type typeMaster, Type typeDetail) {
 		try {
 
-			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
-					+ typeMaster.getUid() + "' and  r.oclAsType(type::Assosiation).target.uid ='" + typeDetail.getUid()
-					+ "')";
+			String query = "var r = type::Assosiation.allInstances()->select(r|r.source.uid ='" + typeMaster.getUid()
+					+ "' and  r.target.uid ='" + typeDetail.getUid() + "'); return r;";
 
 			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(typeMaster, query);
 			if (list1.iterator().hasNext()) {
@@ -1090,15 +1118,13 @@ public class QueryHelper {
 	public Collection<Assosiation>[] getAssosiation(Type type) {
 		try {
 
-			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
-					+ type.getUid()
-					+ "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Source ))";
+			String query = "var r =type::Assosiation.allInstances()->select(r|r.source.uid ='" + type.getUid()
+					+ "' and (  r.containment = type::Containment#Non or r.containment  = type::Containment#Source )); return r;";
 
 			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(type, query);
 
-			query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).target.uid ='"
-					+ type.getUid()
-					+ "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Target ))";
+			query = "var r = type::Assosiation.allInstances()->select(r|r.target.uid ='" + type.getUid()
+					+ "' and (  r.containment = type::Containment#Non or r.containment  = type::Containment#Target )); return r;";
 
 			Collection<Assosiation> list2 = (Collection<Assosiation>) internalEvaluate(type, query);
 
@@ -1121,10 +1147,11 @@ public class QueryHelper {
 
 			String query = null;
 			if (level == 0) {
-				query = "domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='" + hints[level] + "')";
+				query = "var r =  domain::DomainArtifacts.allInstances().first().techLeafs->select(q|q.name='" + hints[level]
+						+ "'); return r;";
 			} else {
-				query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
-						+ "').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='" + hints[level] + "')";
+				query = "var r = artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+						+ "').first().techLeafs->select(q|q.name='" + hints[level] + "'); return r;";
 			}
 
 			@SuppressWarnings("unchecked")
@@ -1163,14 +1190,15 @@ public class QueryHelper {
 
 			String query = null;
 			if (level == 0) {
-				query = "domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='" + hints[level] + "')";
+				query = "var r = domain::DomainArtifacts.allInstances().first().techLeafs->select(q|q.name='" + hints[level]
+						+ "');  return r;";
 			} else {
 				if (level == hints.length - 1) {
-					query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
-							+ "').oclAsType(artifact::TechLeaf).hints->select(q|q.name='" + hints[level] + "')";
+					query = "var r = artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+							+ "').first().hints->select(q|q.name='" + hints[level] + "'); return r;";
 				} else {
-					query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
-							+ "').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='" + hints[level] + "')";
+					query = "var r = artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+							+ "').first().techLeafs->select(q|q.name='" + hints[level] + "'); return  r;";
 				}
 			}
 
@@ -1207,10 +1235,9 @@ public class QueryHelper {
 			return new ArrayList<Type>();
 		}
 		try {
-			String query = "type::Type.allInstances()->select(r|r.oclAsType(type::Type).classifiers->select(c|c.hint.uid='"
-					+ hint + "')->size()>0)";
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) obj, TypePackage.Literals.TYPE,
-					query);
+			String query = "var r = type::Type.allInstances()->select(r|r.classifiers->select(c|c.hint.uid='" + hint
+					+ "')->size()>0); return r;";
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) obj, query);
 			if (list == null || list.size() == 0) {
 				return null;
 			}
@@ -1228,17 +1255,15 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public DataControl findDataControlForRelation(DataControl dataControl) {
 		try {
-			String query = "form::DataControl.allInstances()->collect(r|r.oclAsType(form::DataControl).relationMappers->"
-					+ "select(q|q.oclAsType(form::RelationMapper).dataControlRef<>null  and "
-					+ "q.oclAsType(form::RelationMapper).dataControlRef.uid='" + dataControl.getUid() + "'))";
+			String query = 
+			"var r = form::DataControl.allInstances()->select(r|r.relationMappers.size()<>0 and r.relationMappers ->select(q|q.dataControlRef<>null  and q.dataControlRef.uid='"+dataControl.getUid()+"').size()<>0 ); return r;";
 
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) dataControl,
-					TypePackage.Literals.TYPE, query);
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) dataControl, query);
 			if (list == null || list.size() == 0) {
 				return null;
 			}
 
-			return (DataControl) list.iterator().next().eContainer();
+			return (DataControl) list.iterator().next();
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return null;
@@ -1264,30 +1289,15 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public List<Relation> findRelation(DataControl dataControl) throws Exception {
-		String query = "form::Relation.allInstances()->select(r|r.master.uid ='" + dataControl.getUid() + "')";
+		String query = "var r = form::Relation.allInstances()->select(r|r.master.uid ='" + dataControl.getUid()
+				+ "'); return r;";
 		Collection<Relation> list1 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
 
-		query = "form::Relation.allInstances()->select(r|r.detail.uid ='" + dataControl.getUid()
-				+ "'  and r.detail.uid <> r.master.uid )";
+		query = "var r = form::Relation.allInstances()->select(r|r.detail.uid ='" + dataControl.getUid()
+				+ "'  and r.detail.uid <> r.master.uid );  return r;";
 		Collection<Relation> list2 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
 
 		ArrayList<Relation> relations = new ArrayList<Relation>();
-		relations.addAll(list1);
-		relations.addAll(list2);
-
-		return relations;
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<OmRelation> findRelation(ObjectMapper objectMapper) throws Exception {
-		String query = "objectmapper::Relation.allInstances()->select(r|r.master.uid ='" + objectMapper.getUid() + "')";
-		Collection<OmRelation> list1 = (Collection<OmRelation>) internalEvaluate((EObject) objectMapper, query);
-
-		query = "objectmapper::Relation.allInstances()->select(r|r.detail.uid ='" + objectMapper.getUid()
-				+ "'  and r.detail.uid <> r.master.uid )";
-		Collection<OmRelation> list2 = (Collection<OmRelation>) internalEvaluate((EObject) objectMapper, query);
-
-		ArrayList<OmRelation> relations = new ArrayList<OmRelation>();
 		relations.addAll(list1);
 		relations.addAll(list2);
 
@@ -1299,8 +1309,8 @@ public class QueryHelper {
 		ObjectMapper mp = (ObjectMapper) attributeConnector.getTarget().eContainer();
 
 		try {
-			String query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
-					+ "')";
+			String query = "var r = objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='"
+					+ mp.getUid() + "'); return r;";
 			Collection<OperationConnector> list1 = (Collection<OperationConnector>) internalEvaluate(
 					(EObject) attributeConnector, query);
 
@@ -1315,7 +1325,6 @@ public class QueryHelper {
 
 	}
 
-	
 	public List<OperationConnector> findOperationConnectorByTarget(OperationConnector operationConnector) {
 		ObjectMapper mp = (ObjectMapper) operationConnector.getTarget();
 
@@ -1327,33 +1336,34 @@ public class QueryHelper {
 //
 			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
 //			relations.addAll(list1);
-			
+
 			relations.addAll(findOperationConnectorByTarget(mp));
 			relations.remove(operationConnector);
-			
+
 			return relations;
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return null;
 		}
-	}	
-	
-	
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<OperationConnector> findOperationConnectorByTarget(ObjectMapper mp) {
 
 		try {
-			String query = "objectmapper::OmRelation.allInstances()->select(r|r.objectMapperRef <> null and r.objectMapperRef.uid ='" + mp.getUid()
-					+ "')";
+			String query = "var r = objectmapper::OmRelation.allInstances()->select(r|r.objectMapperRef <> null and r.objectMapperRef.uid ='"
+					+ mp.getUid() + "');  return r;";
 			Collection<OmRelation> list1 = (Collection<OmRelation>) internalEvaluate((EObject) mp, query);
 			ArrayList<OperationConnector> relations = new ArrayList<OperationConnector>();
-			if ( list1.size() != 0 ) {
+			if (list1.size() != 0) {
 				OmRelation or = list1.iterator().next();
-				relations.addAll(findOperationConnectorByTarget((ObjectMapper) or.eContainer() ));
+				relations.addAll(findOperationConnectorByTarget((ObjectMapper) or.eContainer()));
 			}
-			query = "objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()+ "')";
-	        Collection<OperationConnector> list2 = (Collection<OperationConnector>) internalEvaluate((EObject) mp, query);
-	        relations.addAll(list2);
+			query = "var r = objectmapper::OperationConnector.allInstances()->select(r|r.target.uid ='" + mp.getUid()
+					+ "');  return r;";
+			Collection<OperationConnector> list2 = (Collection<OperationConnector>) internalEvaluate((EObject) mp,
+					query);
+			relations.addAll(list2);
 			return relations;
 		} catch (Exception e) {
 			LogUtil.log(e);
@@ -1361,8 +1371,7 @@ public class QueryHelper {
 		}
 
 	}
-	
-	
+
 	public List<OmRelation> getOmRelation(ObjectMapperGroup group) {
 		List<OmRelation> array = new ArrayList<>();
 		for (ObjectMapper mp : group.getObjectMappers()) {
@@ -1411,7 +1420,7 @@ public class QueryHelper {
 		return attrs;
 	}
 
-	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {
+	public Object executeQuery(String strQuery, EObject eobj) throws Exception {
 		return internalEvaluate(eobj, strQuery);
 	}
 

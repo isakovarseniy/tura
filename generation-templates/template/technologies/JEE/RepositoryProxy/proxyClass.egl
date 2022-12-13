@@ -275,7 +275,16 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
       if (o instanceof [%=tp.~package%].[%=tp.~class%]Proxy){
            return this.getKey().equals(  (([%=tp.~package%].[%=tp.~class%]Proxy)o).getKey());
      }else{
-       return false;
+          if ( o  instanceof  [%=tp.~fullName%] ){
+		   [%=tp.~fullName%] obj = ( [%=tp.~fullName%]) o;
+		   org.apache.commons.lang.builder.EqualsBuilder builder = new org.apache.commons.lang.builder.EqualsBuilder();
+	         [%for ( field in tp.~primaryKey){%]
+		         builder.append(getObject().get[%=util.mergeAndCapitalize(field.name)%](), obj.get[%=util.mergeAndCapitalize(field.name)%]());
+	          [%}%]
+		      return builder.isEquals();
+          }else{
+             return false;
+          }
      }  
     }
     
@@ -367,6 +376,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 			throw  new RuntimeException(e);
 	      }
       }    
+    
     
     @Override
     public String toString(){
@@ -1330,6 +1340,43 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
               }
               %]
             }
+            
+            @Override
+            public boolean remove( Object  obj){
+                  [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] =  ([%=hash.get("target").~fullName%] )obj;
+                  org.tura.platform.repository.proxy.access.DelStruc valid = null;
+		          try {
+	                     valid = super.isRemovable([%=hash.get("sourceProperty")%]);
+	                     if ( valid.isRemovable()  && valid.getIndex() != -1){
+	                            this.remove(valid.getIndex());
+	                            return true;
+	                     }
+	                  }catch(Exception e){
+	                    throw new RuntimeException(e);
+	                  }                     
+                     if ( valid.isRemovable()  && valid.getIndex() == -1){
+		                String session = UUID.randomUUID().toString();
+		                try {
+					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]([%=hash.get("source").~class%]Proxy.this, [%=hash.get("sourceProperty")%]);
+							command.setStackProvider(localStackProvider);
+		                    if (command.prepare()){
+			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
+			                     localStackProvider.get().commit();
+				                 if ( getAttached() != null   && getAttached() ){
+				                    repository.getStackProvider().get().addCommands(changes);
+				                 }
+		                    }
+	                        return true;
+		                  }catch(Exception e){
+		                    throw new RuntimeException(e);
+						  } finally {
+								removeLocalStackProvider(session);
+						  }
+                     }
+                   
+                     return false;
+            }                
 
                @Override
                public [%=hash.get("target").~fullName%] remove(int index) {
@@ -1564,6 +1611,43 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
              }
              %]	          
             }
+            
+            @Override
+            public boolean remove( Object  obj){
+                 [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = ( [%=hash.get("target").~fullName%])obj;
+                  org.tura.platform.repository.proxy.access.DelStruc valid = null;
+		          try {
+	                     valid = super.isRemovable([%=hash.get("sourceProperty")%]);
+	                     if ( valid.isRemovable()  && valid.getIndex() != -1){
+	                            this.remove(valid.getIndex());
+	                            return true;
+	                     }
+	                  }catch(Exception e){
+	                    throw new RuntimeException(e);
+	                  }                     
+                     if ( valid.isRemovable()  && valid.getIndex() == -1){
+		                String session = UUID.randomUUID().toString();
+		                try {
+					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%]Proxy.this, [%=hash.get("sourceProperty")%]);
+							command.setStackProvider(localStackProvider);
+		                    if (command.prepare()){
+			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
+			                     localStackProvider.get().commit();
+				                 if ( getAttached() != null   && getAttached() ){
+				                    repository.getStackProvider().get().addCommands(changes);
+				                 }
+		                    }
+	                        return true;
+		                  }catch(Exception e){
+		                    throw new RuntimeException(e);
+						  } finally {
+								removeLocalStackProvider(session);
+						  }
+                     }
+                     return false;
+            }                
+            
 
                @Override
                public [%=hash.get("target").~fullName%] remove(int index) {
@@ -2242,6 +2326,43 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
 					removeLocalStackProvider(session);
 				}
             }
+
+            @Override
+            public boolean remove( Object obj){
+                   [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]  = ( [%=hash.get("source").~fullName%])obj; 
+                  org.tura.platform.repository.proxy.access.DelStruc valid = null;
+		          try {
+	                     valid = super.isRemovable([%=hash.get("targetProperty")%]);
+	                     if ( valid.isRemovable()  && valid.getIndex() != -1){
+	                            this.remove(valid.getIndex());
+	                            return true;
+	                     }
+	                  }catch(Exception e){
+	                    throw new RuntimeException(e);
+	                  }                     
+                     if ( valid.isRemovable()  && valid.getIndex() == -1){
+		                String session = UUID.randomUUID().toString();
+		                try {
+					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=detailType.~fullName%]Proxy.this, [%=hash.get("targetProperty")%]);
+							command.setStackProvider(localStackProvider);
+		                    if (command.prepare()){
+			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
+			                     localStackProvider.get().commit();
+				                 if ( getAttached() != null   && getAttached() ){
+				                    repository.getStackProvider().get().addCommands(changes);
+				                 }
+		                    }
+	                        return true;
+		                  }catch(Exception e){
+		                    throw new RuntimeException(e);
+						  } finally {
+								removeLocalStackProvider(session);
+						  }
+                     }
+                     return false;
+            }                
+
 
                @Override
                public [%=hash.get("source").~fullName%] remove(int index) {

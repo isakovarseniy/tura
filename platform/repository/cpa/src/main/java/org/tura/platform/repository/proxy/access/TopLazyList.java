@@ -27,7 +27,6 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 
-
 public class TopLazyList<T> extends LazyList<T> {
 
 	private static final long serialVersionUID = -1801686816138325861L;
@@ -64,7 +63,7 @@ public class TopLazyList<T> extends LazyList<T> {
 			getRepository().insert(element, obj.getProxyClazz());
 			super.add(index, element);
 		} catch (Exception e) {
-               throw new RuntimeException(e);
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -77,9 +76,47 @@ public class TopLazyList<T> extends LazyList<T> {
 			super.remove(index);
 			return (T) obj;
 		} catch (Exception e) {
-               throw new RuntimeException(e);
+			throw new RuntimeException(e);
 		}
-		
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean remove(Object o) {
+		try {
+			DelStruc response = isRemovable((T) o);
+			if (response.isRemovable()) {
+				ObjectControl obj = (ObjectControl) o;
+				getRepository().remove(obj, obj.getProxyClazz());
+
+				if (response.getIndex() != -1) {
+					super.remove(response.getIndex());
+				}
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	protected DelStruc isRemovable(T t) {
+		try {
+			DelStruc response = new DelStruc();
+
+			ObjectControl oc = (ObjectControl) t;
+			Class<?> clazz = oc.getProxyClazz();
+
+			if (clazz.getName().equals(getObjectType().getName())) {
+				response.setRemovable(true);
+				response.setIndex(getShifter().findPosition(t));
+			}
+			return response;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

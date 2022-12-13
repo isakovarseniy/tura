@@ -19,7 +19,7 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>processor</artifactId>
-	<version>6.0.0</version>
+	<version>6.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>Tura :: Platform :: Processor</name>
@@ -28,7 +28,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tura.eclipse.version>${project.version}</tura.eclipse.version>
-		<epsilon.version>1.4.0</epsilon.version>
+		<epsilon.version>2.4.0</epsilon.version>
 		<gogo.version>1.1.2</gogo.version>
 		<picocli.version>3.9.2</picocli.version>
 		<commons-io.version>2.6</commons-io.version>
@@ -130,17 +130,38 @@
 			<version>${google-java-format.version}</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>epsilon-emf</artifactId>
+			<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
 			<version>${epsilon.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore</artifactId>
-			<version>2.10.2-v20150123-0348</version>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+			<version>${epsilon.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.egl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.evl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.common</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.freemarker</groupId>
@@ -152,36 +173,6 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>${commons-lang.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.ocl</groupId>
-			<artifactId>org.eclipse.ocl.ecore</artifactId>
-			<version>3.15.0.v20200608-1555</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.ocl</groupId>
-			<artifactId>org.eclipse.ocl.common</artifactId>
-			<version>1.8.400.v20200608-1555</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.ocl</groupId>
-			<artifactId>org.eclipse.emf.validation.ocl</artifactId>
-			<version>1.8.0.201812070911</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.ocl</groupId>
-			<artifactId>org.eclipse.ocl</artifactId>
-			<version>3.15.0.v20200608-1555</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.ocl</groupId>
-			<artifactId>lpg.runtime.java</artifactId>
-			<version>2.0.17.v201004271640</version>
 		</dependency>
 
 		<dependency>

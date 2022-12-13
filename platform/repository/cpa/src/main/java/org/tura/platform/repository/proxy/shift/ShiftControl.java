@@ -80,6 +80,18 @@ public abstract class ShiftControl implements Serializable {
 		return null;
 
 	}
+	
+	
+	public int findPosition( Object obj) throws Exception {
+		int position = -1;
+		for (  Element e :  getShiftControlData().getShifterArray()) {
+			if ( e.getRef() != null && e.getRef().equals(obj)) {
+				position = e.getOriginalPosition();
+				break;
+			}
+		}
+		return position;
+	}
 
 	public void clean() throws Exception {
 		getShiftControlData().getShifterArray().clear();

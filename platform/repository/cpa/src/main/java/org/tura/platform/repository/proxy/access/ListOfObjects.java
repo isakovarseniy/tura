@@ -19,6 +19,7 @@
 package org.tura.platform.repository.proxy.access;
 
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,8 +28,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.lang.WordUtils;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
@@ -46,7 +49,7 @@ import org.tura.platform.repository.cpa.storage.TimeStampAware;
 import org.tura.platform.repository.proxy.shift.ShiftControl;
 import org.tura.platform.repository.proxy.shift.data.ShiftControlData;
 
-public abstract class ListOfObjects<T> extends AbstractList<T> implements SearchableList<T>,Serializable {
+public abstract class ListOfObjects<T> extends AbstractList<T> implements SearchableList<T>, Serializable {
 
 	private static final long serialVersionUID = -9208125887892329987L;
 	private Class<T> objectType;
@@ -118,7 +121,7 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 
 			@Override
 			public ShiftControlData getShiftControlData() throws Exception {
-				if  ( shiftData == null) {
+				if (shiftData == null) {
 					shiftData = new ShiftControlData();
 				}
 				return shiftData;
@@ -127,7 +130,7 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 			@Override
 			public void removeShiftControlData() throws Exception {
 				shiftData.close();
-				shiftData  =  null;
+				shiftData = null;
 			}
 		};
 		getListOfObjectsData().setShifter(shifter);
@@ -136,23 +139,22 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	public T create() throws RepositoryException {
 		return getRepository().create(objectType);
 	}
-	
-	
+
 	@Override
-	public Object InternalSearch(RepoKeyPath key) throws Exception{
+	public Object InternalSearch(RepoKeyPath key) throws Exception {
 		Map<Integer, Object> loaded = getListOfObjectsData().getLoaded();
-		for ( Object  obj : loaded.values()) {
-			ObjectControl  oc = (ObjectControl) obj;
-			if(  oc.isRemoved()) {
+		for (Object obj : loaded.values()) {
+			ObjectControl oc = (ObjectControl) obj;
+			if (oc.isRemoved()) {
 				continue;
 			}
 			if (key.equals(oc.getPath())) {
-				  return obj;
+				return obj;
 			}
 		}
 		return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public T get(int index) {
 		ObjectControl obj = null;
@@ -165,8 +167,8 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 				removed = false;
 				if (obj != null) {
 					removed = obj.isRemoved();
-					if (removed ) {
-					   getShifter().remove(index);
+					if (removed) {
+						getShifter().remove(index);
 						if (index >= getShifter().getActualRowNumber()) {
 							obj = null;
 							break;
@@ -295,11 +297,11 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	}
 
 	public void beforeLoad() {
-		
+
 	}
 
 	public void afterLoad() {
-		
+
 	}
 
 	@Override
@@ -348,53 +350,96 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	}
 
 	@Override
-    public Iterator<T> iterator() {
-        return new Itr();
-    }	
-	
-    private class Itr implements Iterator<T> {
-        int cursor = 0;
+	public Iterator<T> iterator() {
+		return new Itr();
+	}
 
-        @SuppressWarnings("unused")
+	private class Itr implements Iterator<T> {
+		int cursor = 0;
+
+		@SuppressWarnings("unused")
 		int lastRet = -1;
 
-        int expectedModCount = modCount;
+		int expectedModCount = modCount;
 
-        public boolean hasNext() {
-            if( cursor != size()) {
-            	if ( ListOfObjects.this.get(cursor) != null) {
-            		return true;
-            	}else {
-            		return false;
-            	}
-            }else {
-            	return false;
-            }
-            
-        }
+		public boolean hasNext() {
+			if (cursor != size()) {
+				if (ListOfObjects.this.get(cursor) != null) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
 
-        public T next() {
-            checkForComodification();
-            try {
-                int i = cursor;
-                T next = get(i);
-                lastRet = i;
-                cursor = i + 1;
-                return next;
-            } catch (IndexOutOfBoundsException e) {
-                checkForComodification();
-                throw new NoSuchElementException(e.getMessage());
-            }
-        }
+		}
 
-        public void remove() {
-        }
+		public T next() {
+			checkForComodification();
+			try {
+				int i = cursor;
+				T next = get(i);
+				lastRet = i;
+				cursor = i + 1;
+				return next;
+			} catch (IndexOutOfBoundsException e) {
+				checkForComodification();
+				throw new NoSuchElementException(e.getMessage());
+			}
+		}
 
-        final void checkForComodification() {
-            if (modCount != expectedModCount)
-                throw new ConcurrentModificationException();
-        }
-    }	
+		public void remove() {
+		}
+
+		final void checkForComodification() {
+			if (modCount != expectedModCount)
+				throw new ConcurrentModificationException();
+		}
+	}
+
+	protected DelStruc isRemovable(T t)  {
+		try {
+			DelStruc response = new DelStruc();
+			
+			ObjectControl oc = (ObjectControl) t;
+			Class<?> clazz = oc.getProxyClazz();
+			RepositoryHelper helper = new RepositoryHelper();
+			Map<RelationType, String> map = helper.findRelationByIdAndType(clazz, getProperty(),
+					cpaRelationType.revert());
+			String property = map.get(cpaRelationType.revert());
+			String methodName = "get" + WordUtils.capitalize(property);
+
+			Method method = clazz.getMethod(methodName);
+			Object parentObjOfRemoval = method.invoke(t);
+			Object pathOfParentObj = null;
+			if (parentObjOfRemoval != null) {
+				oc = (ObjectControl) parentObjOfRemoval;
+				pathOfParentObj = oc.getCpaPath();
+			}
+
+			if (pathOfParentObj != null && pathOfParentObj.equals(getParentKeyPath())) {
+				response.setRemovable(true);
+				response.setIndex(findIndex(t));
+			}
+			return response;
+		} catch (Exception e) {
+               throw new RuntimeException(e);
+		}
+	}
 	
+	private int findIndex(T t) throws Exception {
+		int  position = -1;
+		for (   Entry <Integer,Object>  entity: getListOfObjectsData().getLoaded().entrySet()) {
+			if  (  t.equals(entity.getValue()))  {
+				position =  entity.getKey();
+				break;
+			}
+		}
+		if (position == -1 ) {
+			position =  getShifter().findPosition(t);
+		}
+		return position;
+	}
 	
 }

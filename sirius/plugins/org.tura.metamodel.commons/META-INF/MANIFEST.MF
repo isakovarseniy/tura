@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
-Bundle-Version: 6.0.0
+Bundle-Version: 6.1.0
 Export-Package: 
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.properties.selections.adapters,
@@ -33,13 +33,13 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
  org.eclipse.gmf;bundle-version="1.4.1",
  org.eclipse.gmf.runtime.common.core;bundle-version="1.4.1",
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.6.0",
- org.eclipse.ocl;bundle-version="3.2.1",
- org.eclipse.ocl.ecore;bundle-version="3.2.0",
  org.tura.metamodel;bundle-version="1.0.0",
  org.eclipse.epsilon.common.dt;bundle-version="1.0.0",
  org.eclipse.epsilon.egl.engine;bundle-version="1.0.0",
  org.tura.metamodel.commons.preferences;bundle-version="1.0.0",
- org.eclipse.sirius
+ org.eclipse.sirius,
+ org.eclipse.epsilon.eol.dt;bundle-version="2.4.0",
+ org.eclipse.epsilon.emc.emf;bundle-version="2.4.0"
 Bundle-ClassPath: .,
  lib/freemarker-2.3.20.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

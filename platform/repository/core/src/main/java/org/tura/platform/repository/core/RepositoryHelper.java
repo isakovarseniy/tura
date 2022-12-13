@@ -413,6 +413,11 @@ public class RepositoryHelper implements Serializable {
 		int idx = pk.getPath().size() - 1;
 		String className = pk.getPath().get(idx).getType();
 		Class<?> clazz = Class.forName(className);
+		return findRelationByIdAndType(clazz,id,cpaRelationType);
+	}
+
+	public Map<RelationType, String> findRelationByIdAndType(Class<?> clazz, String id, RelationType cpaRelationType)
+			throws Exception {
 		Map<RelationType, String> result = new HashMap<>();
 
 		List<Method> methods = getMethodsAnnotatedWith(clazz, Association.class);
@@ -423,9 +428,11 @@ public class RepositoryHelper implements Serializable {
 				result.put(cpaRelationType, prop);
 				prop = assosiation.property();
 				result.put(cpaRelationType.revert(), prop);
+				
 			}
 		}
 		return result;
-	}
-
+		
+	}	
+	
 }

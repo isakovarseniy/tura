@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram
 Bundle-SymbolicName: org.tura.metamodel.sirius.diagram;singleton:=true
-Bundle-Version: 6.0.0
+Bundle-Version: 6.1.0
 Bundle-Activator: org.tura.metamodel.sirius.diagram.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

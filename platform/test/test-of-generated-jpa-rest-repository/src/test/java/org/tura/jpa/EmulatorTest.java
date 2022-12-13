@@ -25,7 +25,6 @@ import org.junit.Test;
 import org.tura.emulator.api.EmulatorControlApi;
 import org.tura.emulator.users.generated.ApiClient;
 import org.tura.emulator.users.generated.ApiException;
-import org.tura.emulator.users.generated.ApiResponse;
 import org.tura.emulator.users.generated.client.UserFacadeApi;
 
 import objects.test.serialazable.jpa.Client;

@@ -53,7 +53,7 @@ public class TuraCommand {
 		return emfModel;
 	}
 
-	protected EmfModel createEmfModelByURI(String name, String model, String metamodel, boolean readOnLoad,
+	public EmfModel createEmfModelByURI(String name, String model, String metamodel, boolean readOnLoad,
 			boolean storeOnDisposal) throws EolModelLoadingException, URISyntaxException {
 		EmfModel emfModel = new EmfModel();
 		StringProperties properties = new StringProperties();

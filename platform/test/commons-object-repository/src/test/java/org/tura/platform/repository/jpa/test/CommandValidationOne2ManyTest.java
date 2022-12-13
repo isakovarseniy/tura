@@ -91,21 +91,6 @@ public class CommandValidationOne2ManyTest {
 			One2Many1A o1 = (One2Many1A) repository.create(One2Many1A.class);
 			One2Many1B o2 = (One2Many1B) repository.create(One2Many1B.class);
 			
-//			try {
-//				o1.getOne2Many1B().add(o2);
-//				fail();
-//			}catch( Exception e) {
-//			}
-//			
-//			repository.insert(o1, One2Many1A.class);
-			
-//			try {
-//				o1.getOne2Many1B().add(o2);
-//				fail();
-//			}catch( Exception e) {
-//			}			
-//			
-//			repository.insert(o2, One2Many1B.class);
 			o1.getOne2Many1B().add(o2);
 			
 			List<Object> commands = stackProvider.get().getListOfCommand();
@@ -127,12 +112,17 @@ public class CommandValidationOne2ManyTest {
 			array = cpaStorageProvider.getStorage().find(One2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(2, array.size());
 			
-			try {
-				o1.getOne2Many1B().remove(o2);
+			
+			boolean b = o1.getOne2Many1B().remove(o2);
+			if  ( !b) {
 				fail();
-			}catch (Exception e) {
 			}
+			try {
 			o1.getOne2Many1B().remove(1);
+			fail();
+			}catch( Exception e) {
+				
+			}
 			
 			array = cpaStorageProvider.getStorage().find(One2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());

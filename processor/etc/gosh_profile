@@ -278,8 +278,6 @@ setVersion = {
    tura:mvn setversion --pom.xml $tura_home/examples/hr-manager/integration-testing-react/pom.xml --version $1
    tura:mvn setversion --pom.xml $tura_home/examples/sales-analyzer/sales-analyzer/pom.xml --version $1
    tura:mvn setversion --tycho --pom.xml $tura_home/sirius/pom.xml --version $1
-   tura:mvn setversion --pom.xml $tura_home/examples/rest-services/hr-complex-model-repository-triggers/pom.xml --version $1
-   tura:mvn setversion --pom.xml $tura_home/examples/rest-services/hr-simple-model-repository-triggers/pom.xml --version $1
    tura:mvn setversion --pom.xml $tura_home/examples/rest-services/jpa-test-model-repository-triggers/pom.xml --version $1
 
    tura:dsl removeFile --targetLocation $mr2/org/tura

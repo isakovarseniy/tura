@@ -20,6 +20,8 @@ package org.tura.platform.repository.test.suite;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import org.tura.platform.datacontrol.RemoveDetailObjectTest;
+import org.tura.platform.datacontrol.RemoveObjectTest;
 import org.tura.platform.repository.jpa.test.BusinessObjectTest;
 import org.tura.platform.repository.jpa.test.CommandValidationOne2ManyTest;
 import org.tura.platform.repository.jpa.test.CommandValidationOne2OneTest;
@@ -77,6 +79,8 @@ import org.tura.platform.repository.spa.test.SpaRepositoryInternalRelationTest;
 	D1SingleObjectPagingTest.class,
 	D2SingleObjectPagingTest.class,
 	
+	RemoveObjectTest.class,
+	RemoveDetailObjectTest.class
 }
 )
 public class RepositoryTestSuite {

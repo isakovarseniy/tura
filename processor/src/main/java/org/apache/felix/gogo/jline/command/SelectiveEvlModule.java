@@ -25,6 +25,7 @@ import org.eclipse.epsilon.common.module.ModuleElement;
 import org.eclipse.epsilon.common.parse.AST;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelElementTypeNotFoundException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelNotFoundException;
+import org.eclipse.epsilon.eol.execute.context.IEolContext;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.dom.ConstraintContext;
 import org.eclipse.epsilon.evl.execute.context.IEvlContext;
@@ -46,13 +47,11 @@ public class SelectiveEvlModule extends EvlModule {
 		HashMap<String, Class<?>> importConfiguration = super.getImportConfiguration();
 		importConfiguration.put("evl", SelectiveEvlModule.class);
 		return importConfiguration;
-	}	
-	
-	
+	}
+
 	class SelectiveConstraintContext extends ConstraintContext {
 		@Override
-
-		public Collection<?> getAllOfSourceKind(IEvlContext context)
+		public Collection<?> getAllOfSourceKind(IEolContext context)
 				throws EolModelElementTypeNotFoundException, EolModelNotFoundException {
 			// Only return a subset containing elements which are
 			// descendants of one of the root objects

@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.emc.emf.EmfModel;
-import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.execute.context.Variable;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.ModelRepository;
@@ -213,7 +212,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 					List<EObject> roots = new ArrayList<>();
 					roots.addAll(objectForValidation.values());
 					module.setRootEObjects(roots);
-					List<UnsatisfiedConstraint> constrains = validate(MAIN_OBJECT_VALIDATION_RULES, model, module);
+					Collection<UnsatisfiedConstraint> constrains = validate(MAIN_OBJECT_VALIDATION_RULES, model, module);
 					if (constrains != null && constrains.size() != 0) {
 						printErrors(constrains, null);
 					}
@@ -233,7 +232,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 	}
 
 
-	private void printErrors(List<UnsatisfiedConstraint> constrains, String header) {
+	private void printErrors(Collection<UnsatisfiedConstraint> constrains, String header) {
 
 		if (header != null) {
 			System.out.println(header);
@@ -259,7 +258,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 
 	}
 
-	private List<UnsatisfiedConstraint> validate(String rulesPath, EmfModel model, IEolExecutableModule module)
+	private Collection<UnsatisfiedConstraint> validate(String rulesPath, EmfModel model, EvlModule module)
 			throws Exception {
 
 		URL url = new URL(rulesPath);
@@ -370,7 +369,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("component", component));
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("ingredient", ingredient));
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("recipe", recipe));
-		List<UnsatisfiedConstraint> constrains = validate(MAPPINGS_TYPE_VALIDATION_RULES, (EmfModel) model, module);
+		Collection<UnsatisfiedConstraint> constrains = validate(MAPPINGS_TYPE_VALIDATION_RULES, (EmfModel) model, module);
 		if (constrains != null && constrains.size() != 0) {
 			printErrors(constrains, header);
 		}
@@ -385,7 +384,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 
 		SelectiveEvlModule module = new SelectiveEvlModule();
 		module.setRootEObjects(array);
-		List<UnsatisfiedConstraint> constrains = validate(RECIPE_VALIDATION_RULES, (EmfModel) model, module);
+		Collection<UnsatisfiedConstraint> constrains = validate(RECIPE_VALIDATION_RULES, (EmfModel) model, module);
 		if (constrains != null && constrains.size() != 0) {
 			printErrors(constrains, null);
 		}
@@ -395,7 +394,7 @@ public class ValidateCommand extends TuraCommand implements Runnable {
 			Map<String, EObject> objectForValidation) throws Exception {
 		
 		EvlModule module = new EvlModule();
-		List<UnsatisfiedConstraint> constrains = validate(ARTIFACT_VALIDATION_RULES, (EmfModel) model, module);
+		Collection<UnsatisfiedConstraint> constrains = validate(ARTIFACT_VALIDATION_RULES, (EmfModel) model, module);
 		if (constrains != null && constrains.size() != 0) {
 			printErrors(constrains, null);
 		}

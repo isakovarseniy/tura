@@ -6,11 +6,11 @@
         <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Model objects">
           <artifacts uid="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Domain model generation" template="tura:/generation-templates/template/pit/DomainModel/mainDomainModel.egl">
             <configVariables uid="ec2ab8e7-29af-406e-bc5c-2bf658ec776d" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="2f122165-6dcb-4620-8d63-15c0c9dc0270" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Domain Object}')->size()>0)">
+            <modelQuery uid="2f122165-6dcb-4620-8d63-15c0c9dc0270" name="Query model classes" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Domain Object}')->size()>0); return  r;var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Domain Object}')->size()>0); return  r;">
               <parameters uid="83d58dc0-4297-4c19-b869-f879e3c81674" name="Repository"/>
               <parameters uid="a3b311aa-04af-42be-b905-66b06246ded9" name="Package"/>
             </modelQuery>
-            <modelQuery uid="37036a3c-8f09-455e-93fa-ec2f87f9e1f7" name="Query model interfaces" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Domain Interface}')->size()>0)&#xA;">
+            <modelQuery uid="37036a3c-8f09-455e-93fa-ec2f87f9e1f7" name="Query model interfaces" query="var  r  = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Domain Interface}')->size()>0); return  r;&#xA;&#xA;">
               <parameters uid="7969678d-ba21-43f6-a500-99fad251d868" name="Repository"/>
               <parameters uid="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" name="Package"/>
             </modelQuery>
@@ -21,14 +21,14 @@
           </artifacts>
           <artifacts uid="902fea93-de0a-4951-923a-45c23168e4d3" name="Enumiration" description="" template="tura:/generation-templates/template/technologies/JSE/Object/mainEnumerator.egl">
             <configVariables uid="7d76d37f-ff13-40d0-b574-33d1b60cb7e2" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="1b1d46c5-d120-49d1-948c-225d055d4273" name="Query model enum" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Enumerator ) )">
+            <modelQuery uid="1b1d46c5-d120-49d1-948c-225d055d4273" name="Query model enum" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Enumerator ) ); return r;">
               <parameters uid="c899e49e-eb96-4625-8588-9e428efca685" name="Repository"/>
               <parameters uid="f18659ab-efc4-4d26-83b2-76b17b82c895" name="Package"/>
             </modelQuery>
           </artifacts>
           <artifacts uid="68246b4d-fccf-4565-a0c6-df4c18a8f205" name="Adapter generation" template="tura:/generation-templates/template/technologies/JEE/Repository/Adapter/mainAdapters.egl">
             <configVariables uid="51ef86de-9079-41f2-8890-c4bce1182c2c" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="47a3e12d-a07a-4141-b1a8-2e470cffcd50" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Adapter}')->size()>0)">
+            <modelQuery uid="47a3e12d-a07a-4141-b1a8-2e470cffcd50" name="Query model classes" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Adapter}')->size()>0);  return r;">
               <parameters uid="b7bad5a3-e701-4cd2-b1a0-17687a16bbf1" name="Repository"/>
               <parameters uid="5a0f22db-a0e8-4b1d-aec7-46f6103b35a9" name="Package"/>
             </modelQuery>
@@ -38,12 +38,16 @@
         <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="Persistence model repository">
           <artifacts uid="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Persistence model generator" template="tura:/generation-templates/template/pit/ORM/mainEntity.egl">
             <configVariables uid="85b49077-cf52-4b62-8333-2f16350015fc" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f" name="Query Entity Objects" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+            <modelQuery uid="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f" name="Query Entity Objects" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Entity Object}')->size()>0); return  r;">
               <parameters uid="d600605a-1411-447a-9c1e-1a8ef10a2a28" name="Repository"/>
               <parameters uid="cdabc42b-e03f-4da6-828e-37aaea8a64a1" name="Package"/>
             </modelQuery>
             <technologies uid="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" name="Entity implementation">
               <options uid="c06c65f3-8bff-4a65-bf5b-3594fecd5412" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+            </technologies>
+            <technologies uid="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" name="Object lock">
+              <options uid="54ed80ac-0652-4d9e-8901-9f1c03da157d" value="1d954b3a-abd0-44ca-aea7-8bb84f3ed679"/>
+              <options uid="433a189c-90e7-4377-a3c9-6a82ce348131" value="badd03e8-d65e-4bb2-93e6-98081853825d"/>
             </technologies>
             <hints uid="9591d781-747b-4491-b9ba-a8ea10a24361" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="c1cbc560-6541-4b7f-97c8-b419413fa0eb" name="Bean validation" hint="55406073-2639-498f-b8ee-f121395f99e3"/>
@@ -64,11 +68,11 @@
             <configVariables uid="f5bc5729-87b3-49cb-ab87-699ac0fb782f" name="DataBase jdbc url" varRef="ba2fd94e-1867-4349-bdf8-3c7ab266f769"/>
             <configVariables uid="80cc3e62-affe-4658-bfca-33fee888b3ca" name="persistence_unit" varRef="b374473f-5332-44d2-ae43-176f3e586a3b"/>
             <configVariables uid="4b2b95a5-4d75-4013-837c-ec2daeb10464" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="52517f79-0222-42d3-a473-d783bcf46ef9" name="Query persistance classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+            <modelQuery uid="52517f79-0222-42d3-a473-d783bcf46ef9" name="Query persistance classes" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Entity Object}')->size()>0); return r;&#xA;">
               <parameters uid="ce0cf871-7c61-4a98-82c3-d900ee351897" name="Repository"/>
               <parameters uid="6127dffe-e697-46fc-a99e-6c79be24b2bf" name="Package"/>
             </modelQuery>
-            <modelQuery uid="822a6b70-32ac-42a7-a662-371754055906" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+            <modelQuery uid="822a6b70-32ac-42a7-a662-371754055906" name="Query type" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type )  and r.name='${Type}');return  r;&#xA;&#xA;">
               <parameters uid="36482706-8d49-4e5d-b3dc-9c8c1698d109" name="Repository"/>
               <parameters uid="fa3c05a0-bed3-485e-8ad9-0f272e9e402f" name="Package"/>
               <parameters uid="26cd0053-fa49-45d6-9663-a1988602bd76" name="Type"/>
@@ -104,7 +108,7 @@
           </artifacts>
           <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="tura:/generation-templates/template/technologies/JEE/Repository/mainRepository.egl">
             <configVariables uid="5de71e73-e81c-4f59-8d00-50c2d9dc29fc" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+            <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Serializable Object}')->size()>0); return  r;">
               <parameters uid="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" name="Repository"/>
               <parameters uid="31c1633d-e431-47c9-b306-f880c5114864" name="Package"/>
             </modelQuery>
@@ -122,7 +126,7 @@
             <hints uid="d31b15b2-a772-490c-9eee-235c5c034b9e" name="DoNotNil" hint="a2eb633a-530b-4c82-96d2-7e61703bbadb"/>
           </artifacts>
           <artifacts uid="3fffa2e2-c9c1-409c-96da-d679b61f6798" name="EnumeratorConverters" template="tura:/generation-templates/template/technologies/JEE/Repository/mainEnumeratorConveter.egl">
-            <modelQuery uid="443caaa1-c2bf-4342-adaf-be2f75a3c9f1" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+            <modelQuery uid="443caaa1-c2bf-4342-adaf-be2f75a3c9f1" name="Query model classes" query="var r= domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Enumerator) and r.classifiers->select(q|q.hint.uid='@{Serializable Object}')->size()>0); return r; ">
               <parameters uid="b2a67e3e-4546-4034-8daa-5974d06c7b81" name="Repository"/>
               <parameters uid="ec40121f-9162-47f0-8a61-70cfa32125f0" name="Package"/>
             </modelQuery>
@@ -130,7 +134,7 @@
           </artifacts>
           <artifacts uid="ef5f6969-7ef4-495f-a526-6b900a48c7a3" name="Repository profile" template="tura:/generation-templates/template/technologies/JEE/Repository/mainProfile.egl">
             <configVariables uid="170ad51e-5fd6-4c68-8b20-5d117039ae02" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="151f1fcc-4712-4414-a566-59d02ed4d245" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms">
+            <modelQuery uid="151f1fcc-4712-4414-a566-59d02ed4d245" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms; return r; ">
               <parameters uid="b342a19c-222a-4afb-8cf6-12d98e8cd1dc" name="Domain Application"/>
               <parameters uid="34b0f968-ca4c-4152-a385-54189cdcee4b" name="Group"/>
               <parameters uid="7230edf3-3e89-4421-a4f8-8041e4dcc940" name="Application"/>
@@ -139,7 +143,7 @@
           </artifacts>
           <artifacts uid="6d6c8bd3-7175-43d8-9414-1c1372160e34" name="Object transformation generator" template="tura:/generation-templates/template/technologies/JEE/Repository/objectTransformation/mainObjectMappers.egl">
             <configVariables uid="d54b2115-30d4-4911-9d90-023cde7e4283" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="5e1704e0-6f3e-45d6-ad4e-d66c0e61a549" name="Query transformation group" query="domain::DomainMapper.allInstances()->select(r|r.oclAsType(domain::DomainMapper).name='${Domain Mapper}').oclAsType(domain::DomainMapper).objectMapperPackages->select(r|r.oclAsType(tura::objectmapper::ObjectMapperGroup).name='${Group}')">
+            <modelQuery uid="5e1704e0-6f3e-45d6-ad4e-d66c0e61a549" name="Query transformation group" query="var r = domain::DomainMapper.allInstances()->select(r|r.name='${Domain Mapper}').first().objectMapperPackages->select(r|r.name='${Group}'); return r;">
               <parameters uid="c4b6d0e9-71c1-454c-8490-6b967ec0f533" name="Domain Mapper"/>
               <parameters uid="77d9dae3-fca2-4dfb-b4b3-881e2f8f35b3" name="Group"/>
             </modelQuery>
@@ -151,12 +155,12 @@
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
           <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" description="" template="tura:/generation-templates/template/pit/Builder/mainModelBuilder.egl">
             <configVariables uid="708d28e3-c832-4ccc-ae6f-2fcfc312a755" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|((r.oclIsKindOf(tura::type::Type) and r.oclAsType(tura::type::Type).name='${Type}') or (r.oclIsKindOf(tura::type::Enumerator) and r.oclAsType(tura::type::Enumerator).name='${Type}')))">
+            <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|((r.isKindOf(type::Type) and r.name='${Type}') or (r.isKindOf(type::Enumerator) and r.name='${Type}'))); return r;">
               <parameters uid="b516ddbf-0acc-4279-a974-70fc787c56a7" name="Repository"/>
               <parameters uid="9504b800-0df7-4358-9905-088633212cd2" name="Package"/>
               <parameters uid="e3b370e6-74f9-427e-ae54-603a4f7747c2" name="Type"/>
             </modelQuery>
-            <modelQuery uid="21216e18-27d0-4994-bcea-7f023839eb64" name="Query package" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types">
+            <modelQuery uid="21216e18-27d0-4994-bcea-7f023839eb64" name="Query package" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).types.flatten(); return r;">
               <parameters uid="2ff5c610-33e2-4dc2-a809-4e76875e8752" name="Repository"/>
               <parameters uid="0473d7ad-921d-4013-ba20-6c96351469d6" name="Package"/>
             </modelQuery>
@@ -217,12 +221,12 @@
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="tura:/generation-templates/template/pit/mvc/mainMVCApplicationBuilder.egl">
             <configVariables uid="0e314347-c45c-4817-bb26-d2b8ea022534" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="0710bd35-c15a-4e87-821f-d534dfd8cb5a" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+            <modelQuery uid="0710bd35-c15a-4e87-821f-d534dfd8cb5a" name="Query type" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type )  and r.name='${Type}');  return r;">
               <parameters uid="511cb416-e48c-4eb1-a720-c916b73628ea" name="Repository"/>
               <parameters uid="193285c6-060b-4e29-a440-6862d33d7302" name="Package"/>
               <parameters uid="c7d733c5-b134-4414-a260-0852636e2be2" name="Type"/>
             </modelQuery>
-            <modelQuery uid="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce" name="Query package" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types">
+            <modelQuery uid="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce" name="Query package" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).types.flatten(); return r;">
               <parameters uid="30c1f3f9-955c-409d-9202-ec6ba3beea4b" name="Repository"/>
               <parameters uid="c1e85a38-e001-4c43-a94e-155c15e5c37e" name="Package"/>
             </modelQuery>
@@ -262,7 +266,7 @@
           <artifacts uid="3c163ca1-6fd4-46ef-a1bb-59eaf497296c" name="Client build" template="tura:/generation-templates/template/pit/mvc/mainClientApplicationBuilder.egl">
             <configVariables uid="4a2f1fd2-76b7-4d38-a755-b943785d1c9e" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
             <configVariables uid="ee6b0397-ab66-40e8-ad90-e78980ff619a" name="proxy_server" varRef="00c0e82a-9a3d-461f-bb05-d8e36f746629"/>
-            <modelQuery uid="1cf6f0e2-034e-4acb-86d7-5a50f59e1878" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+            <modelQuery uid="1cf6f0e2-034e-4acb-86d7-5a50f59e1878" name="Query type" query="var r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type )  and r.name='${Type}');return  r;">
               <parameters uid="edb03306-b1d3-48e8-ad1e-335cb15ca9f3" name="Repository"/>
               <parameters uid="9bc206f7-2a13-4589-b91f-2bf9dbe20fa5" name="Package"/>
               <parameters uid="01e78ca0-2eef-4d41-8e0e-fb0383e433ac" name="Type"/>
@@ -280,16 +284,16 @@
         <artifactPackages uid="05701dc4-c4ef-48cd-bb6a-9d56b6b1767a" name="UI application">
           <artifacts uid="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Data control" template="tura:/generation-templates/template/pit/mvc/model/mainModel.egl">
             <configVariables uid="9c10bb24-1fd3-44c6-8227-d6b27a5c0195" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="6f144a4c-ed93-4505-83eb-949ae91f81f2" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="6f144a4c-ed93-4505-83eb-949ae91f81f2" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;">
               <parameters uid="c59e9116-e389-49bc-be09-87085a157fbb" name="Domain Application"/>
               <parameters uid="bd434a4d-05fb-4391-af0d-ce67335d09e4" name="Group"/>
               <parameters uid="0e6076da-459b-4dd0-b959-1e0e14d3709a" name="Application"/>
               <parameters uid="7ede7695-6600-442a-a285-a05a22c90089" name="Package"/>
             </modelQuery>
-            <modelQuery uid="74fe4bf9-0396-4e18-b795-b0173f102183" name="Query repository proxy component" query="recipe::JavaComponent.allInstances()->select(r|r.oclAsType(recipe::JavaComponent).uid='${Component uuid}')">
+            <modelQuery uid="74fe4bf9-0396-4e18-b795-b0173f102183" name="Query repository proxy component" query="var r = recipe::JavaComponent.allInstances()->select(r|r.uid='${Component uuid}'); return  r;">
               <parameters uid="19882a6f-a81e-4046-abe0-ad51a3c6cc19" name="Component uuid"/>
             </modelQuery>
-            <modelQuery uid="ba7214a8-9530-431d-8b9a-a78545cae62f" name="Query one form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(form::Form).name='${Form}')&#xA;">
+            <modelQuery uid="ba7214a8-9530-431d-8b9a-a78545cae62f" name="Query one form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}');return  r;">
               <parameters uid="15a43426-8666-49ad-bcba-43c972a900ea" name="Domain Application"/>
               <parameters uid="d6e6c3c8-e158-4a83-a6f3-ab09d93034e4" name="Group"/>
               <parameters uid="d9cfc425-a96b-45c8-b449-75c75a0e2954" name="Application"/>
@@ -310,13 +314,13 @@
           </artifacts>
           <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="tura:/generation-templates/template/pit/mvc/view/mainView.egl">
             <configVariables uid="2f0471bc-be2a-499b-b4d5-001cc1ef02fc" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="6e511ddd-9739-4056-b478-e5224e536df4" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="6e511ddd-9739-4056-b478-e5224e536df4" name="Query form" query="var r =  domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;">
               <parameters uid="e1a35fee-7cf6-4b74-8081-76c8b4521140" name="Domain Application"/>
               <parameters uid="d998450d-f752-45da-835f-065c044e7f4c" name="Group"/>
               <parameters uid="74a4fc6e-658f-4814-ae0f-9b47663f7806" name="Application"/>
               <parameters uid="39d906fc-4ffd-4e09-b733-ac066c5ec505" name="Package"/>
             </modelQuery>
-            <modelQuery uid="c77dc195-e6dc-41fd-b46b-5e7fb739094f" name="Query one form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(form::Form).name='${Form}')&#xA;">
+            <modelQuery uid="c77dc195-e6dc-41fd-b46b-5e7fb739094f" name="Query one form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}'); return  r;">
               <parameters uid="3420339c-3ddc-4b74-a07f-8f2b0aecd772" name="Domain Application"/>
               <parameters uid="ab284a27-137d-47f1-9708-6591685d4fa8" name="Group"/>
               <parameters uid="2e5065e7-0de3-488c-bf72-108ffbbbb760" name="Application"/>
@@ -375,7 +379,7 @@
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="tura:/generation-templates/template/pit/mvc/view/mainMessageLibrary.egl">
             <configVariables uid="715fb1b6-0882-4bd2-8595-a32c600c8025" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="4952c198-a1c8-4f39-aa8a-9448640d40ae" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationMessages.messageLibraries">
+            <modelQuery uid="4952c198-a1c8-4f39-aa8a-9448640d40ae" name="Query message library" query="var r= domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationMessages.messageLibraries.asSequence();return r;">
               <parameters uid="7567233d-4978-48a3-abc8-91c1e6e026b7" name="Domain Application"/>
               <parameters uid="405dac8b-0858-41d7-bcfc-6a2db84a4d4d" name="Group"/>
               <parameters uid="2da04696-e0d1-453e-b7c4-3c69c2c43793" name="Application"/>
@@ -396,12 +400,12 @@
             <configVariables uid="3dfdb6d7-ca44-46f4-bc62-b25a79616e64" name="Session timeout" varRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b"/>
             <configVariables uid="fe00e88a-dd85-448b-a012-46c16a4408cd" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
             <configHashes uid="0efeb124-b5dd-41c9-8599-e22c39e6df46" name="Application routing table" hash="d716c499-dde8-4598-a7df-06282fe54480"/>
-            <modelQuery uid="dcf664dc-d951-4e02-af1a-ca7ac95fda26" name="Query application" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application)">
+            <modelQuery uid="dcf664dc-d951-4e02-af1a-ca7ac95fda26" name="Query application" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}'); return r;">
               <parameters uid="d01eca2d-6498-4c5e-a8fa-9d174985f006" name="Domain Application"/>
               <parameters uid="1d935640-f589-4deb-b5a3-eaf6799df108" name="Group"/>
               <parameters uid="6bedbda4-2dea-4298-9d2b-eca8cc146548" name="Application"/>
             </modelQuery>
-            <modelQuery uid="84b8f999-85b2-4033-a105-0d45cf95665f" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="84b8f999-85b2-4033-a105-0d45cf95665f" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;&#xA;">
               <parameters uid="3a8ecc42-daf6-44c2-bb9a-a0fb96d11b4c" name="Domain Application"/>
               <parameters uid="b35fe165-845f-4eb7-b79c-af34e425c081" name="Group"/>
               <parameters uid="63f8314a-d101-4436-a01a-3ac085d551d8" name="Application"/>
@@ -426,7 +430,7 @@
           </artifacts>
           <artifacts uid="c2c2a8d3-4b1e-410a-9ade-0971d5a0bef3" name="All Pagers" template="tura:/generation-templates/template/technologies/JSE/datacontrol/mainAllPagers.egl">
             <configVariables uid="c37f1a01-4cd2-46df-9309-9882e5349dcc" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="3c725660-a8c5-443b-9533-53daab6f1eee" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+            <modelQuery uid="3c725660-a8c5-443b-9533-53daab6f1eee" name="Query model classes" query="var r=domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Entity Object}')->size()>0); return r;">
               <parameters uid="675edf09-f702-4631-bba0-4f157ef21d88" name="Repository"/>
               <parameters uid="bc0c2b66-95a1-4854-b4a8-a42d9e486008" name="Package"/>
             </modelQuery>
@@ -435,26 +439,26 @@
           <artifacts uid="289fdbe5-abc4-4ee7-98e9-75f09e21439c" name="Adhoc template" template="tura:/generation-templates/template/technologies/adhoc.egl"/>
           <artifacts uid="04a111c5-75f9-4b7d-911f-b3c5704f645d" name="Client" template="tura:/generation-templates/template/pit/mvc/view/mainClient.egl">
             <configVariables uid="4e72b19f-877c-4125-a24f-783ad74893b6" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="e861c77a-3651-4d0b-b57d-d394bb3b08ec" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms">
+            <modelQuery uid="e861c77a-3651-4d0b-b57d-d394bb3b08ec" name="Query form" query="var r =  domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;">
               <parameters uid="a4836173-0f4e-4ce1-aee7-cb8aa5eebf8f" name="Domain Application"/>
               <parameters uid="bf237d47-b881-4613-81ea-e0adb2f68665" name="Group"/>
               <parameters uid="cc75192b-569f-4b0f-ba21-7c5b85ab0fe4" name="Application"/>
               <parameters uid="3b600147-8e99-4c4b-b630-ec4f676b8031" name="Package"/>
             </modelQuery>
-            <modelQuery uid="d33aabf0-f6f7-42f9-b904-5246a3fadf08" name="Query one form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(form::Form).name='${Form}')">
+            <modelQuery uid="d33aabf0-f6f7-42f9-b904-5246a3fadf08" name="Query one form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}'); return  r;">
               <parameters uid="1efb26be-9252-430a-b479-ebe859651262" name="Domain Application"/>
               <parameters uid="091e742e-7de8-4e17-a1a6-5ce38ba47f21" name="Group"/>
               <parameters uid="157e5550-0f10-4a99-83bd-672652e9239d" name="Application"/>
               <parameters uid="c3832d0d-c785-44b1-b847-fe2231b5a84c" name="Package"/>
               <parameters uid="0836d2d7-6b37-4a2c-ae26-841cd77176bc" name="Form"/>
             </modelQuery>
-            <modelQuery uid="27f58cce-d9a1-4ec9-adf9-31de7d859f75" name="Query server component" query="recipe::JavaComponent.allInstances()->select(r|r.oclAsType(recipe::JavaComponent).uid='${Component uuid}')">
+            <modelQuery uid="27f58cce-d9a1-4ec9-adf9-31de7d859f75" name="Query server component" query="var r = recipe::JavaComponent.allInstances()->select(r|r.uid='${Component uuid}'); return  r;">
               <parameters uid="356002ba-3277-4c69-8de9-614d5cfd324b" name="Component uuid"/>
             </modelQuery>
-            <modelQuery uid="6ba3a6a7-b53d-410d-8a6e-552379aaea00" name="Query tura lib" query="recipe::JavaScriptComponent.allInstances()->select(r|r.oclAsType(recipe::JavaScriptComponent).uid='${Component uuid}')">
+            <modelQuery uid="6ba3a6a7-b53d-410d-8a6e-552379aaea00" name="Query tura lib" query="var r = recipe::JavaScriptComponent.allInstances()->select(r|r.uid='${Component uuid}'); return  r;">
               <parameters uid="d6b3cd82-4c11-42a6-ba17-a1442696683a" name="Component uuid"/>
             </modelQuery>
-            <modelQuery uid="9d0b7ee1-7e7b-4832-bc9e-689bff861a27" name="Querty triggers" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+            <modelQuery uid="9d0b7ee1-7e7b-4832-bc9e-689bff861a27" name="Querty triggers" query="var r=domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type )  and r.name='${Type}');return r;">
               <parameters uid="d5aa3754-615f-4cab-a27b-17e1c9a4f360" name="Repository"/>
               <parameters uid="68ce18a6-798a-4dd2-8773-1f23e7b34b38" name="Package"/>
               <parameters uid="fce27d4b-b199-4175-9815-6faec39b82fb" name="Type"/>
@@ -496,13 +500,13 @@
         <artifactPackages uid="0a23182c-abb1-43f4-93f0-3371c846ad36" name="UI application interface ">
           <artifacts uid="159597f8-6998-4947-9a0c-be08e02260a5" name="DataControl Interface" description="" template="tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/mainDataControlInterface.egl">
             <configVariables uid="bdab4119-6d75-4569-933b-0f43ad005130" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="24dbf757-45c1-4d75-af3b-ed8ca60184ea" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="24dbf757-45c1-4d75-af3b-ed8ca60184ea" name="Query form" query="var r= domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;">
               <parameters uid="1561eaa6-4ca2-416d-957b-f5fb312b63e4" name="Domain Application"/>
               <parameters uid="36bc7750-c0e2-43de-b590-7167d9f4a153" name="Group"/>
               <parameters uid="242a0ac0-7267-48b8-9940-de542577c28a" name="Application"/>
               <parameters uid="84f83e19-6565-48c3-9a1f-fe1886e6b230" name="Package"/>
             </modelQuery>
-            <modelQuery uid="e3a3b08c-b5d8-4fa1-9c48-f9b5a696851c" name="Query one form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(form::Form).name='${Form}')&#xA;">
+            <modelQuery uid="e3a3b08c-b5d8-4fa1-9c48-f9b5a696851c" name="Query one form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}');return r;var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}');return r;">
               <parameters uid="436b5f04-79be-4bec-b23b-4e18f71e2ddc" name="Domain Application"/>
               <parameters uid="ee53de0f-a8cd-4574-96e3-a62b0194da50" name="Group"/>
               <parameters uid="438ec5a1-054e-4773-a0d7-3437cb90f4e8" name="Application"/>
@@ -518,13 +522,13 @@
             <hints uid="608b2fa7-84fa-4b84-96cc-76eea20d106b" name="CommandStack" hint="3af89e3a-1a60-40f6-b1cc-2d39bf927f71"/>
           </artifacts>
           <artifacts uid="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="Viewport interface" template="tura:/generation-templates/template/technologies/uuiClient/mainViewPortHolderInterface.egl">
-            <modelQuery uid="adb8b66d-658c-45ac-9fa7-8389586b6271" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="adb8b66d-658c-45ac-9fa7-8389586b6271" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').forms.flatten(); return r;">
               <parameters uid="d62af783-cfc9-444b-b3c7-38252846086f" name="Domain Application"/>
               <parameters uid="4dc59f11-982a-4cfc-970e-80d160594285" name="Group"/>
               <parameters uid="3bd23e05-a410-4c4c-afa2-41ef571daffe" name="Application"/>
               <parameters uid="5560e2bd-0c7d-439b-a0aa-681f0275fce6" name="Package"/>
             </modelQuery>
-            <modelQuery uid="ca981967-8c4a-4846-bbbf-773783be0569" name="Query one form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(form::Form).name='${Form}')&#xA;">
+            <modelQuery uid="ca981967-8c4a-4846-bbbf-773783be0569" name="Query one form" query="var  r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}');return r;">
               <parameters uid="0ea459fb-dfee-4900-b61b-bc5669210da7" name="Domain Application"/>
               <parameters uid="e995e52f-b578-4447-a94a-5fd6f3eb37d9" name="Group"/>
               <parameters uid="b5c7229a-adf7-471d-8559-a52ad7a00aca" name="Application"/>
@@ -536,7 +540,7 @@
         <artifactPackages uid="a863566f-081c-4299-aa68-6761e89de8aa" name="Testing artifact">
           <artifacts uid="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Selenium Page Object" template="tura:/generation-templates/template/technologies/Testing/Selenium/mainPageObjectBuilder.egl">
             <configVariables uid="49fd589b-4db5-4f02-9ecc-3165866d89f7" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="1bf945ea-2bd9-4571-9483-b52312063b02" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+            <modelQuery uid="1bf945ea-2bd9-4571-9483-b52312063b02" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms.flatten(); return r;">
               <parameters uid="1f2f0e06-3969-43bd-a00c-0c65920f8885" name="Domain Application"/>
               <parameters uid="d8cba772-7f0d-436f-9576-78468dcaf1c8" name="Group"/>
               <parameters uid="68f297d0-3b02-44ba-bc7b-e2d12d0fd02f" name="Application"/>
@@ -550,7 +554,7 @@
           </artifacts>
           <artifacts uid="3f8ae5c6-f199-4109-a693-28616e2b3201" name="CDITest" template="tura:/generation-templates/template/technologies/Testing/CDI/Datacontrol/mainCDITest.egl">
             <configVariables uid="97f47658-6615-4e55-bad1-58aec43ff188" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="5490ecbf-aa4b-4869-8cdd-732d4eb63885" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(tura::form::Form).name='${Form}')&#xA;">
+            <modelQuery uid="5490ecbf-aa4b-4869-8cdd-732d4eb63885" name="Query form" query="var r = domain::DomainApplication.allInstances()->select(r|r.name='${Domain Application}').first().applicationPackages->select(r|r.name='${Group}').first().applications->select(r|r.name='${Application}').first().applicationUILayer.applicationUIPackages->select(r|r.name='${Package}').first().forms->select(r|r.name='${Form}'); return r;">
               <parameters uid="7cb01704-2d6b-41c5-abbb-cb377148ff5c" name="Domain Application"/>
               <parameters uid="80980b3c-bea8-43c0-8757-3f4ccb5c41e2" name="Group"/>
               <parameters uid="1f9be1e6-44c9-48b5-841c-19b2910776de" name="Application"/>
@@ -562,7 +566,7 @@
         <artifactPackages uid="517f9380-85f0-4f86-a962-b92acd66e131" name="Repository proxy">
           <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" description="Persistence model repository proxy" template="tura:/generation-templates/template/technologies/JEE/RepositoryProxy/mainRepositoryProxy.egl">
             <configVariables uid="10159338-b695-4ac2-9f0d-a4a2dad33aca" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="69662b7f-94e7-4dbf-946a-a717aeb29210" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+            <modelQuery uid="69662b7f-94e7-4dbf-946a-a717aeb29210" name="Query model classes" query="var r=domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|r.isKindOf(type::Type ) and r.classifiers->select(q|q.hint.uid='@{Serializable Object}')->size()>0); return r;">
               <parameters uid="52de4dda-86be-4a4d-a3ce-0d093cf014b2" name="Repository"/>
               <parameters uid="cbba536e-3b02-44dc-8a9b-2fdec45575c6" name="Package"/>
             </modelQuery>
@@ -571,7 +575,7 @@
           </artifacts>
           <artifacts uid="01788d3b-cb04-49a4-ac90-fe9863806de4" name="XSD serializable objects" template="tura:/generation-templates/template/technologies/JEE/RepositoryProxy/mainXSDfromType.egl">
             <configVariables uid="9828e50f-8607-4d9f-ab13-480df0b9e903" name="Generation path" varRef="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|(r.oclIsKindOf(tura::type::Type) or r.oclIsKindOf(tura::type::Enumerator)) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
+            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="var  r = domain::DomainTypesRepository.allInstances()->select(r|r.name='${Repository}').first().repositoryPackages->select(r|r.name='${Package}' ).first().types->select(r|(r.isKindOf(type::Type) or r.isKindOf(type::Enumerator)) and r.classifiers->select(q|q.hint.uid='@{Serializable Object}')->size()>0); return r;">
               <parameters uid="24d765fa-9d81-488b-8f84-5bdf72735276" name="Repository"/>
               <parameters uid="01e38189-3ce8-4b79-a168-0f4c321d9423" name="Package"/>
             </modelQuery>
@@ -659,6 +663,10 @@
           <hints uid="d16c104f-40ba-4c5f-b280-1dbc2849f49f" name="ResetBeforeLoad"/>
           <techLeafs uid="8bf79a2b-42f9-45fb-b765-0892c8f5ab78" name="JPA"/>
           <techLeafs uid="a458cf68-68e3-4ab7-9551-55ed7e781594" name="SPA"/>
+        </techLeafs>
+        <techLeafs uid="75d30950-1505-4a76-a659-709e35929c02" name="Object lock">
+          <techLeafs uid="1d954b3a-abd0-44ca-aea7-8bb84f3ed679" name="PessimisticLocking"/>
+          <techLeafs uid="badd03e8-d65e-4bb2-93e6-98081853825d" name="OptimisticLocking"/>
         </techLeafs>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
@@ -3849,15 +3857,6 @@
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="9ed60fb4-3ff3-4fb9-9c65-ba61dd91f4b7"/>
-                          <queries uid="7e0aba10-e065-4f08-91f0-72e8a0cee866" name="Query NA classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
-                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="NA"/>
-                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="NA"/>
-                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="NA"/>
-                          </queries>
-                          <queries uid="fca4b151-c1c0-4842-bcac-cb37ac7d9925" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
-                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
-                          </queries>
                         </mappers>
                         <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -3871,6 +3870,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="${Generation path}/serviceLayer" mapperRef="d6c86c40-f181-4449-aa8b-138daf54786d">
                         <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="433a189c-90e7-4377-a3c9-6a82ce348131"/>
                           <queries uid="1ccc5377-e128-446d-beb2-069ff23b4c46" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA test package Lazy"/>
@@ -3892,11 +3892,6 @@
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Testing repository"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="JPA test package Lazy"/>
                           </queries>
-                          <queries uid="98d4f619-2bc3-48a1-b7a6-1fbc884a5497" name="Query NA type" queryRef="822a6b70-32ac-42a7-a662-371754055906">
-                            <variables queryParamRef="36482706-8d49-4e5d-b3dc-9c8c1698d109" value="NA"/>
-                            <variables queryParamRef="fa3c05a0-bed3-485e-8ad9-0f272e9e402f" value="NA"/>
-                            <variables queryParamRef="26cd0053-fa49-45d6-9663-a1988602bd76" value="NA"/>
-                          </queries>
                         </mappers>
                         <mappers uid="ffbdee3d-f63f-444c-a65e-2d62e863bb44" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Persistence object builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
@@ -3906,10 +3901,6 @@
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
-                          </queries>
-                          <queries uid="ac182b81-8db1-4d4f-848c-9946c1f09b07" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
-                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
                         <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner">
@@ -3922,6 +3913,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="7bbeb067-5e83-4fe2-b0e7-06eb572e8942" name="Persistence model second db" componentRoot="${Generation path}/serviceLayer" mapperRef="9950d57c-5e1b-40cd-b169-18460eb78418">
                         <mappers uid="072f25d9-5e5d-4fb8-85b2-a45dedf22191" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="433a189c-90e7-4377-a3c9-6a82ce348131"/>
                           <queries uid="a6e1a811-4159-4999-905c-636638f73f3e" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA 2 test package Lazy"/>
@@ -4237,6 +4229,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="65c2aece-7aab-4048-bfd0-f7839ed6de03" name="HR lazy persistance model" componentRoot="${Generation path}/serviceLayer" mapperRef="68b0885f-409f-43ba-9881-0652a190ed62">
                         <mappers uid="eac21c0f-42e1-41e8-a089-344836bdee19" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="54ed80ac-0652-4d9e-8901-9f1c03da157d"/>
                           <queries uid="f06c0e5f-dad3-400a-852f-b01c7433beca" name="Query package for classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="HR domain"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="HR model lazy"/>
@@ -4321,6 +4314,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR non lazy persistence model" componentRoot="${Generation path}/serviceLayer" mapperRef="9804d328-80ab-4442-b348-de87f0e53e46">
                         <mappers uid="8dafbf5c-a11a-45ca-b2e1-e5c2ad6d1742" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactRoot="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="54ed80ac-0652-4d9e-8901-9f1c03da157d"/>
                           <queries uid="04ffcc3b-ee30-4a5f-b687-62073ccbdc14" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="HR domain"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="HR model no lazy"/>
@@ -4430,7 +4424,7 @@
                             <variables queryParamRef="b342a19c-222a-4afb-8cf6-12d98e8cd1dc" value="ERP"/>
                             <variables queryParamRef="34b0f968-ca4c-4152-a385-54189cdcee4b" value="HR domain"/>
                             <variables queryParamRef="7230edf3-3e89-4421-a4f8-8041e4dcc940" value="HR application"/>
-                            <variables queryParamRef="789d603a-29bd-4159-9c61-10316d7236d7" value="Nested form package"/>
+                            <variables queryParamRef="789d603a-29bd-4159-9c61-10316d7236d7" value="Datacontrol  Lazy Model"/>
                           </queries>
                         </mappers>
                       </components>
@@ -4465,6 +4459,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="e5ed75ab-e5d3-4891-b763-289dba44a33c" name="HR  disconnected persistance model" componentRoot="${Generation path}/serviceLayer" mapperRef="c9626ed2-d4bd-49b6-96d0-abf21688b3fc">
                         <mappers uid="a9e456c5-fd39-4a76-8d35-30dff522cb17" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="54ed80ac-0652-4d9e-8901-9f1c03da157d"/>
                           <queries uid="a00a0d0f-97c3-42e6-abe0-7c69158054d2" name="Query package for classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="HR domain"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="HR model disconnected"/>
@@ -4764,15 +4759,6 @@
                           <technologies uid="d0d8e78d-ce7f-48cf-8040-52aa05095a33" techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies uid="a012c9e2-c5a2-462a-81bc-aa2f12520e91" techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies uid="be4c186d-f76c-4466-bb42-a296506e88aa" techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="9ed60fb4-3ff3-4fb9-9c65-ba61dd91f4b7"/>
-                          <queries uid="68f5c5b9-bc54-47ec-a473-23d944a019e2" name="Query NA classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
-                            <variables uid="f8a5f399-1b8c-4e95-a935-20c0d5e958ee" queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="NA"/>
-                            <variables uid="1920b0a2-56fd-4cbf-b9c4-02d67e2b0896" queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="NA"/>
-                            <variables uid="40fe5a4c-1f54-49ae-a2af-95c81971c694" queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="NA"/>
-                          </queries>
-                          <queries uid="8fac9cec-ee1d-4739-b3dc-ac04be1d094c" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables uid="d408fa4d-0fc9-4e89-829b-150d1f01aab0" queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
-                            <variables uid="72362c6a-4821-4450-ac6c-971ded07f831" queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
-                          </queries>
                         </mappers>
                         <mappers uid="1ef3b046-283d-445e-bb8c-c970cd1feca1" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="">
                           <technologies uid="eeb4a17c-ac88-448e-991c-66f070840039" techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="b94281cf-8f3b-4d85-a69c-4d25927c3806"/>
@@ -4786,6 +4772,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="9f8f276f-afeb-4212-9abb-b714cab61fa2" name="Persistence model" componentRoot="${Generation path}/serviceLayer" mapperRef="111bdd83-b34f-4300-9f12-dd02614f54cc">
                         <mappers uid="d5bf43fb-3bc4-4727-a510-8de50ef501ee" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies uid="c3acd311-4961-43cb-a24c-9b7341f8daf8" techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="433a189c-90e7-4377-a3c9-6a82ce348131"/>
                           <queries uid="9b334dbe-2dd1-4f79-9c4c-b3fa044710e2" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables uid="209ea47c-9c3b-4dbd-9440-838b4bd9e026" queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
                             <variables uid="d017d474-9c8e-4163-a094-224356890d23" queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA test package No Lazy"/>
@@ -4807,11 +4794,6 @@
                             <variables uid="02bfc9fd-49e9-47d6-8434-25c8b466bf99" queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Testing repository"/>
                             <variables uid="c91ef965-9215-4744-8be1-5a0a7d818a26" queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="JPA test package No Lazy"/>
                           </queries>
-                          <queries uid="e6c0289e-c9c6-48da-a357-66d3797084af" name="Query NA type" queryRef="822a6b70-32ac-42a7-a662-371754055906">
-                            <variables uid="f678aea8-ee79-4bb4-b07d-74e520d8d89f" queryParamRef="36482706-8d49-4e5d-b3dc-9c8c1698d109" value="NA"/>
-                            <variables uid="fab4c227-2a23-4bd4-880e-a139bfee0e90" queryParamRef="fa3c05a0-bed3-485e-8ad9-0f272e9e402f" value="NA"/>
-                            <variables uid="2bdbbe4b-2b38-4228-8bb9-ac6a9c58d4a8" queryParamRef="26cd0053-fa49-45d6-9663-a1988602bd76" value="NA"/>
-                          </queries>
                         </mappers>
                         <mappers uid="847f3148-fd18-4e3f-b770-aef721a24ada" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Persistence object builder">
                           <technologies uid="cecde5d4-06e8-4727-975e-bf4dc443c26b" techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
@@ -4821,10 +4803,6 @@
                             <variables uid="63a50277-3c53-4cf1-a7bf-02dcdc858a4b" queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables uid="83233353-b77c-48a4-834d-8a81cb787bce" queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
                             <variables uid="fcf8e83f-d280-4ff4-b157-d2e624174f30" queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
-                          </queries>
-                          <queries uid="e87341af-9d11-46d7-a371-6f24262db1a6" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables uid="97b60c64-2c8a-4dab-8e1e-1508736e904b" queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
-                            <variables uid="ed8b672f-7f1d-44ce-8101-35e14e5ce7f9" queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
                         <mappers uid="e83891e7-78a1-459b-ae8a-540e139e5bd3" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner">
@@ -4837,6 +4815,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="bfa294eb-33da-438c-bee8-09cf2d3e6de9" name="Persistence model second db" componentRoot="${Generation path}/serviceLayer" mapperRef="a5056982-94e5-4d7d-b488-f92c79f461e3">
                         <mappers uid="1e69cd5b-6d4e-47d1-a0b5-0f7eff7551ea" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation">
                           <technologies uid="443b621e-c9ff-4a2d-8656-a9d5a6fca17f" techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="433a189c-90e7-4377-a3c9-6a82ce348131"/>
                           <queries uid="7f721787-c4f6-4014-b4da-437cfda537c7" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables uid="ac86b798-e708-4684-861f-e606ef723ea5" queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
                             <variables uid="d33be700-0ae2-4b6d-b07c-8f4cc2d4b624" queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA 2 test package Non Lazy"/>
@@ -5783,7 +5762,7 @@
               <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
               <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
               <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
-              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="6.0.0"/>
+              <versions uid="d167b2e4-01ea-43de-88b1-9832a4c92246" name="platform.version" version="6.1.0"/>
               <versions uid="8bc8fa64-01a7-4ff2-a383-11765e47ab34" name="selenium.version" version="2.47.1"/>
               <versions uid="25576813-abe7-42bb-9316-854dee17e93f" name="junit.version" version="4.11"/>
               <versions uid="be26186b-9783-4472-a6cf-5834f1a98491" name="cdi.version" version="2.1.1.Final"/>
@@ -15918,6 +15897,7 @@
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer/sa" mapperRef="5321db6f-ff71-478f-8ede-e7b901d6197d">
                         <mappers uid="f9be98f4-656b-4495-a580-e89e1e450d41" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Database service persistence object">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <technologies techRef="fb3dc735-d166-4f2e-ac2d-96bd7a3f18cb" valueRef="54ed80ac-0652-4d9e-8901-9f1c03da157d"/>
                           <queries uid="cc160a62-016c-4a4c-8616-2e212ffb0c01" name="Query classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
                             <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Sales Analyzer"/>
                             <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="database"/>
@@ -16848,7 +16828,7 @@
               <appLayers uid="fa2406e6-8810-465c-a5d8-14c807a4c4a9" name="Persistence proxy" order="2"/>
               <appLayers uid="b41e6434-00a6-4270-aa59-7fd561bc47bc" name="UI layer" order="3"/>
               <appLayers uid="06dcbf36-6d39-431b-bf41-b02c0390e50e" name="Test layer" order="4"/>
-              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="6.0.0"/>
+              <versions uid="8e81f31a-1040-4e1e-a95d-b06c636c8afd" name="platform.version" version="6.1.0"/>
               <versions uid="c031121a-0df4-49df-ab47-5a69d10814dd" name="selenium.version" version="2.47.1"/>
               <versions uid="23484b46-6301-41f7-a371-733785a56a4b" name="keycloak.version" version="3.2.0.Final"/>
             </applicationMappers>

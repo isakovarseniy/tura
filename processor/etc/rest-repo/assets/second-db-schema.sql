@@ -11,7 +11,7 @@
 --   which accompanies this distribution, and is available at
 --   http://www.eclipse.org/legal/epl-v20.html
 -- 
-CREATE SCHEMA IF NOT EXISTS HR;
+    CREATE SCHEMA IF NOT EXISTS HR;
 
     drop table HR.JPAOBJECTSECONDDB if exists;
 
@@ -21,5 +21,17 @@ create sequence HR.hibernate_sequence start with 1 increment by 1;
     create table HR.JPAOBJECTSECONDDB (
        OBJ_ID bigint not null,
         NAME varchar(255),
+        primary key (OBJ_ID)
+    );
+
+    drop table HR.JPAOBJECTSECONDDB if exists;
+
+    drop sequence if exists HR.hibernate_sequence;
+create sequence HR.hibernate_sequence start with 1 increment by 1;
+
+    create table HR.JPAOBJECTSECONDDB (
+       OBJ_ID bigint not null,
+        NAME varchar(255),
+        V_JPAOBJECTSECONDDB integer,
         primary key (OBJ_ID)
     );

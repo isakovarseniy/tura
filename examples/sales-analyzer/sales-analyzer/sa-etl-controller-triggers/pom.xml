@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>sales-analyzer</groupId>
 		<artifactId>sales-analyzer-parent</artifactId>
-		<version>6.0.0</version>
+		<version>6.1.0</version>
 	</parent>
 
 	<artifactId>sa-etl-controller-triggers</artifactId>
