@@ -3,12 +3,12 @@ tura:install maven
 echo Build tura eclipse plugin
 tura:mvn build --pom.xml $tura_home/sirius/pom.xml  
 
-echo "Install dependency"
+#echo "Install dependency"
 
-eclipse_sirius = $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product/linux/gtk/x86_64
+#eclipse_sirius = $tura_home/sirius/site/org.tura.metamodel.site-definition/target/products/tura.product/linux/gtk/x86_64
 
-echo Build tura headless processor
-tura:mvn build --pom.xml $tura_home/processor/pom.xml 
+#echo Build tura headless processor
+#tura:mvn build --pom.xml $tura_home/processor/pom.xml 
 
          
 echo "Done"         
