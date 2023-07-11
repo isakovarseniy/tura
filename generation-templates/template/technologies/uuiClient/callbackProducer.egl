@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,14 @@
 */
 %]
 [%
+@template
+operation callbackProducer(hash){
+
+     var component =  hash.get("component");
+     var form =  hash.get("form");
+     var uipackage =  hash.get("uipackage");
+     var application =  hash.get("application");
+
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
@@ -29,3 +37,6 @@ public class ViewModelCallBackProducer {
 		return null;
 	}
 }
+[%
+}
+%]

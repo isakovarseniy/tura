@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -51,7 +51,10 @@ operation  method_definition( type , hash  ) {
 	[%
 	
 	  var properties = new Native('java.util.ArrayList');
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and  t.internal);
+      var pkg = type.eContainer();
+      
+	  //var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and  t.internal);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid and  t.internal);
       for (rel in assosiations){
       
          if ( not rel.target.findClassifier(util.getHint(model_mapper,"Domain Object"))  ){
@@ -98,7 +101,8 @@ operation  method_definition( type , hash  ) {
 	%]
 
 	[%
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and  t.internal);
+	  //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and  t.internal);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and  t.internal);
       for (rel in assosiations){
       
          if ( not rel.source.findClassifier(util.getHint(model_mapper,"Domain Object"))  ){

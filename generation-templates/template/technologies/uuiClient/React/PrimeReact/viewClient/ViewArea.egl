@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,7 +18,8 @@ operation form::ViewArea createTag(hash) {
     var clientLibraryPackage = hash.get('clientLibraryPackage');
     populateInclude(hash,"{TViewAria}",  clientLibraryPackage+"/component/TViewAria");
     var ref = getReactRef(self);
-            
+    
+    hash.put("viewArea",self); 
 
 %]
        <TViewAria id="[%=self.uid%]" [%=ref%] contextManager={this.contextManager}>
@@ -27,5 +28,6 @@ operation form::ViewArea createTag(hash) {
             
 [%
 }
+    hash.remove("viewArea"); 
 
 %]

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -12,7 +12,16 @@
  *   http://www.eclipse.org/legal/epl-v20.html
  */
 
- operation type::TypeElement collectType(pk){
+operation contains(primaryKey, field){
+        for( pf in primaryKey){
+            if (pf.name.equals(field.name) ){
+                return true;
+            }
+        }
+    return false;    
+}
+
+ operation type::TypeElement collectType(pk,model_mapper){
     var tp = self;
     var primaryKey=pk;
     if (pk == null){
@@ -21,18 +30,19 @@
     }
 
      for(field in tp.attributes){
-        if (field.pk){
+        if (field.pk  and not contains(primaryKey, field)){
             primaryKey.add(field);
         }
      }
-
-    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
+    var pkg  =  tp.eContainer();
+//    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and not t.isImplements(model_mapper) ).first();
+    var extension = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = tp.uid  and not t.isImplements(model_mapper) ).first();
     if (extension <> null){
 	   var ex =  extension.target;
 	   if (ex.isKindOf(type::TypeReference )){
 	       ex = extension.target.typeRef;
 	   }
-	   ex.collectType(primaryKey);
+	   ex.collectType(primaryKey, model_mapper);
     }
 }
 
@@ -97,95 +107,87 @@
      hash.put("detailType",detailType);
      hash.put("property",property);
      hash.put("containment",containment);
-     hash.put("masterContainment",containment);
 
       return hash;
  }
 
 
  operation type::TypeElement collectType(typeCollection,model_mapper,skattr,pk,bndattr){
-    var tp = self;
+    var tp = self.unwrap();
+
     var util = new Native('org.tura.metamodel.commons.Util');
 
-    if (self.isTypeOf(type::TypeReference)){
-        tp = self.typeRef;
-    }
-    
     if (not typeCollection.contains(tp)){
         typeCollection.add(tp);
     }
     
     
-    var skipAttributes=skattr;
-    if (skattr == null){
-        skipAttributes=new Native('java.util.ArrayList');
-    }
+    var skipAttributes=new Native('java.util.ArrayList');
+    var ignoredAttribute=new Native('java.util.ArrayList');
     
     var primaryKey=pk;
     if (pk == null){
         primaryKey=new Native('java.util.ArrayList');
-        self.~primaryKey = primaryKey;
+        tp.~primaryKey = primaryKey;
     }
 
-    var bindedAttribute=bndattr;
-    if (bindedAttribute == null){
-        bindedAttribute=new Native('java.util.ArrayList');
-        self.~bindedAttribute = bindedAttribute;
-    }
-
-
-     for(field in tp.attributes){
-        if (field.pk){
-            primaryKey.add(field);
-        }
+     if ( not tp.isPersistentInterface(model_mapper)){
+	     for(field in tp.attributes){
+	        if (field.pk and not contains(primaryKey, field)  ){
+	            primaryKey.add(field);
+	        }
+	     }
      }
 
-     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
+     var pkg = tp.eContainer();
+//     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
+     var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
         rel.check(); 
-  	    var tp1 =  rel.target;
-	    if (tp1.isKindOf(type::TypeReference )){
-	        tp1 = tp1.typeRef;
-	    }
+  	    var tp1 =  rel.target.unwrap();
 	    if (not typeCollection.contains(tp1)){
 	        tp1.collectType(typeCollection,model_mapper,null,null,null);
 	    }
      }
 
 
-     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
+//     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
+     var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
         rel.check(); 
-  	    var tp1 =  rel.source;
-	    if (tp1.isKindOf(type::TypeReference )){
-	        tp1 = tp1.typeRef;
-	    }
+  	    var tp1 =  rel.source.unwrap();
 	    if (not typeCollection.contains(tp1)){
 	    	tp1.collectType(typeCollection,model_mapper,null,null,null);
 	    }
      }
 
-     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
+//     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
+     var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
      for (rel in assosiations){
-
          for (lnk in rel.links){
              skipAttributes.add(lnk.detailField);
          }
-         
-
      }           
-    self.~skipAttributes=skipAttributes;
-    self.~bindedAttribute=bindedAttribute;
-    
-    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
+        
+//    var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and not t.isImplements(model_mapper) ).first();
+    var extension = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = tp.uid  and not t.isImplements(model_mapper) ).first();
     if (extension <> null){
-	   var ex =  extension.target;
-	   if (ex.isKindOf(type::TypeReference )){
-	       ex = extension.target.typeRef;
-	   }
-	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey,bindedAttribute);
+	   var ex =  extension.target.unwrap();
+	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey,ignoredAttribute);
 	   tp.~extension = ex;
     }
+    
+//    var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.isImplements(model_mapper) );
+    var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = tp.uid  and t.isImplements(model_mapper) );
+     for (interface in interfaces){
+	   var ex =  interface.target.unwrap();
+	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey,ignoredAttribute);
+    }    
+
+    tp.~skipAttributes=skipAttributes;
+    tp.~ignoredAttribute=ignoredAttribute;
+    
+
  }
  
 
@@ -337,27 +339,34 @@ operation type::Assosiation merge(hash){
     var isRef = false;
     
     var assosiations  = null;
-    if (source.isKindOf(type::TypeReference )){
+    if (source.isTypeOf(type::TypeReference )){
          source = source.typeRef;
          isRef = true;
-		 assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = source.uid);
+         var pkg = source.eContainer();
+//		 assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = source.uid);
+		 assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = source.uid);
     }
     var target = self.target;
-     if (target.isKindOf(type::TypeReference )){
+     if (target.isTypeOf(type::TypeReference )){
          target = target.typeRef;
          isRef = true;
-	     assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = target.uid);
+         var pkg = target.eContainer();
+//	     assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = target.uid);
+	     assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = target.uid);
      }
      if (isRef){
         var obj = null;
         var  mergedAssosiations = null;
         for (rel in assosiations){
-            var result = true;
+            var result = false;
             for ( lnk in rel.links){
-              var slink = self.links->select(t| t.masterField.uid  =  lnk.masterField.uid and  t.detailField.uid = lnk.detailField.uid );
-              if  (slink.size() == 0){
+            
+              var slink = null;  
+              slink = self.links->select(t| t.masterField.uid  =  lnk.masterField.uid and  t.detailField.uid = lnk.detailField.uid ).first();
+              if  (slink <> null ){
+                  result =  true;
+              }else{
                   result =  false;
-                  break;
               }
             }
             if (result){
@@ -374,6 +383,8 @@ operation type::Assosiation merge(hash){
 	        }else{
 	            obj  = self.uid;
 	        }
+        }else{
+           throw "Relation not found";
         }
 	    return obj;
      }else{
@@ -417,5 +428,56 @@ operation type::Assosiation isInternal(){
      }else{
         return false;
      }
+}
+
+
+
+operation type::Generalization isImplements(model_mapper){
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var type = self.target.unwrap();
+    if (type.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+       return true;
+    }else{
+       return false;
+    }
+    
+}
+
+operation type::TypeElement isPersistentInterface(model_mapper){
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var type = self.unwrap();
+    if (type.findClassifier( util.getHint(model_mapper,"Domain Interface"))  and   type.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+       return true;
+    }else{
+       return false;
+    }
+    
+}
+
+operation  type::Type isTopObject(){
+    var pkg = self.eContainer();
+//    var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
+    var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = self.uid);
+	for (rel in assosiations){
+	   var hash = rel.findTypeOfAssosiation(model_mapper);
+	   var masterType =   hash.get("masterType");
+	   var detailType = hash.get("detailType");
+	   var property =  hash.get("property");
+       var containment = hash.get("containment");
+     
+        if (detailType.uid == self.uid  and   rel.type.toString() <> "Many2Many"  and containment){
+           return false;
+        }
+    }
+//    var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid);
+    var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.source.uid = self.uid);
+        for (interface in interfaces){
+           var tp = interface.target.unwrap();
+           var isT = tp.isTopObject();
+           if ( not isT  ){
+                 return  false;
+           }
+      }
+      return  true;
 }
 

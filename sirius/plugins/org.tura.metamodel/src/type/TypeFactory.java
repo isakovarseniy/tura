@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -97,6 +97,15 @@ public interface TypeFactory extends EFactory {
 	 * @generated
 	 */
 	TypePointer createTypePointer();
+
+	/**
+	 * Returns a new object of class '<em>Pointer Obj</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pointer Obj</em>'.
+	 * @generated
+	 */
+	TypePointerObj createTypePointerObj();
 
 	/**
 	 * Returns a new object of class '<em>Package Pointer</em>'.

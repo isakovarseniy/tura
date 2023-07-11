@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -244,6 +244,11 @@ public class MappersItemProvider
 			(createChildParameter
 				(MapperPackage.Literals.MAPPERS__MAPPERS,
 				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MapperPackage.Literals.MAPPERS__MAPPERS,
+				 MapperFactory.eINSTANCE.createMetamodelPackageMapper()));
 	}
 
 	/**

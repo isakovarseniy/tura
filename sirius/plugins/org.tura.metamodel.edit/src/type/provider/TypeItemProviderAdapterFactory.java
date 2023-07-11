@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -243,6 +243,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 		}
 
 		return typePointerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link type.TypePointerObj} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypePointerObjItemProvider typePointerObjItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.TypePointerObj}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypePointerObjAdapter() {
+		if (typePointerObjItemProvider == null) {
+			typePointerObjItemProvider = new TypePointerObjItemProvider(this);
+		}
+
+		return typePointerObjItemProvider;
 	}
 
 	/**

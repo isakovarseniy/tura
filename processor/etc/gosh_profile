@@ -19,7 +19,7 @@ setTuraLocation
 try {
 
 setproperty chromedriverversion '2.44'
-setproperty mavenurl 'https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.zip' 
+setproperty mavenurl 'https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip' 
 
 complete -c tura:install -e
 complete -c tura:install -d "Tura install" 
@@ -267,6 +267,32 @@ nexusStart = {
 }
 addClosure "nexusStart";
 
+
+copyModelForLoading = {
+     tura:dsl copyFile --sourceResource $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain --targetLocation $tura_home/processor/processor-tura-model/ecore2repo/src/main/resources/org/tura/convert/trg/ --targetName hr.domain
+     tura:dsl removeFile --targetLocation $tura_home/processor/processor-tura-model/ecore2repo/target/classes/org/tura/convert/trg/hr.domain
+}
+addClosure "copyModelForLoading";
+
+
+copyLoadedModel = {
+     tura:dsl copyFile --sourceResource $tura_home/processor/processor-tura-model/ecore2repo/target/classes/org/tura/convert/trg/hr.domain --targetLocation $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/ --targetName hr.domain
+}
+addClosure "copyLoadedModel";
+
+
+generateMetaModel = {
+   tura:generate  --build --infraId 2944aed0-ae1e-4c55-a9d5-fcb11976c936 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain --recipeId 09473bd6-2152-4231-9724-56e4bdbf1d21
+}
+addClosure "generateMetaModel";
+
+buildMetaModel = {
+   tura:build  --infraId 2944aed0-ae1e-4c55-a9d5-fcb11976c936 --modelFile $tura_home/examples/hr-manager/org.tura.metamodel.example.sirius.hr-react/model/hr.domain --recipeId 09473bd6-2152-4231-9724-56e4bdbf1d21
+}
+addClosure "buildMetaModel";
+
+
+
 setVersion = {
   mr2 = tura:dsl config --mavenRepositoryLocation
 
@@ -297,7 +323,7 @@ setVersion = {
     tura:mvn build --pom.xml $tura_home/processor-extension-build-application/pom.xml 
    
    echo "Change !!!!!!!" $tura_home/sirius/site/org.tura.metamodel.site-definition/tura.product
-   echo "Change !!!!!!!" version in model for HR and SA
+   echo "Change !!!!!!!" version in model for HR and SA and Metamodel
 
 }
 addClosure "setVersion";

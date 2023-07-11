@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,11 +26,11 @@ operation form::Table createTag(hash) {
             if ( col.element = null  and col.findClassifier(util.getHint(model_mapper,"UItable.edit.column"))   )  {
                editable = true;
             }
-           if (not col.element.isKindOf(form::InputElement)){
+           if ( col.element !=null  and   not col.element.isKindOf(form::InputElement)){
               template = true;
            }
            
-           if ( col.element.isKindOf(form::DataTemplate)){
+           if ( col.element !=null and col.element.isKindOf(form::DataTemplate)){
               template = true;
            }
             

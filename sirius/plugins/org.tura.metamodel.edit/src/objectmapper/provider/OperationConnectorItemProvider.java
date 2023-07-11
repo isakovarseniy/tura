@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -285,87 +285,7 @@ public class OperationConnectorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createViewPortTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createContextParameters()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREFormTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OPERATION_CONNECTOR__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createSearchTrigger()));
+				 FormFactory.eINSTANCE.createContextParametersObj()));
 	}
 
 }

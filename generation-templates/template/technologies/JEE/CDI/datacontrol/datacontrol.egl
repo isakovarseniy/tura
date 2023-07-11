@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,14 +13,21 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
-
 [%
+@template
+operation datacontrol(hash){
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+    var javaPath = hash.get("javaPath");
+    var resourcePath = hash.get("resourcePath");
+    var form = hash.get("form");    
+    var uipackage = hash.get("uipackage");
+    var control = hash.get("control");
+    var controlSuffix = hash.get("controlSuffix");
+
      var util = new Native('org.tura.metamodel.commons.Util');
      var application = uipackage.eContainer();
      var suffix = "";
@@ -35,7 +42,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 
 public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable, org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
-    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private static final long serialVersionUID = 1L;
 	
 	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(control.name)%]DC.class.getName());;
 	
@@ -66,7 +73,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	javax.enterprise.inject.spi.BeanManager bm;
     [%
-     var relations = form::Relation.allInstances()->select(r|r.master= control);   
+     var pkg = control.eContainer();
+//     var relations = form::Relation.allInstances()->select(r|r.master= control);   
+     var relations = pkg.relations->select(r|r.master= control);   
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
@@ -101,7 +110,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      pager.addCpaStorageEventListenetr();
 [%
   if (not control.~dependObject.isDefined()){
-     var relations = form::Relation.allInstances()->select(r|r.detail= control); 
+        var pkg = control.eContainer();
+//     var relations = form::Relation.allInstances()->select(r|r.detail= control); 
+     var relations = pkg.relations->select(r|r.detail= control); 
      if  (relations.size() == 0){
      %]
      pager.addCommandStackListener();
@@ -115,7 +126,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      setBaseClass([%=control.~basefullName%].class); 
     [%
     
-     var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
+    var pkg = control.eContainer();
+//     var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
+     var isTree = pkg.relations->select(r|r.detail = control and r.isTree=true).size();   
      if (control.~treeRoot.isDefined() or isTree > 0){%]
      getCreateObjectParameters().fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
      [%}%]
@@ -452,3 +465,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     }
 	
 }
+[%
+}
+%]

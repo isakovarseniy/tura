@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,14 +29,25 @@ operation  main(hash) {
       var util = new Native('org.tura.metamodel.commons.Util');
       var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
 %]      
-<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <deployment>
-     <dependencies>
-       <module name="org.infinispan" services="export"/>  
-       <module name="org.infinispan.commons" services="export"/>  
-    </dependencies>
-  </deployment>
-</jboss-deployment-structure>
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+           <module name="org.jboss.resteasy.resteasy-jackson-provider"/>
+        </exclusions>
+        <dependencies>
+           <module name="org.infinispan" services="export"/>  
+            <module name="org.infinispan.commons" services="export"/>  
+            <module name="org.jboss.resteasy.resteasy-jackson2-provider" services="import"/>
+            <module  name="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider"/>
+            <system export="true">
+                <paths>
+                    <path name="sun/reflect"/>
+                </paths>
+            </system>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure> 
+
 
 [%
      util.saveFile( webapp,"jboss-deployment-structure.xml",out.toString());   

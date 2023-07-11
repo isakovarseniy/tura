@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@
  */
 package type.impl;
 
+import artifact.impl.CategorizedImpl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,7 +55,7 @@ import type.TypePackage;
  *
  * @generated
  */
-public class TypeGroupImpl extends EObjectImpl implements TypeGroup {
+public class TypeGroupImpl extends CategorizedImpl implements TypeGroup {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

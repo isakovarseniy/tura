@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,6 +87,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return registry.getPrImaryKeyStrategy();
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> SearchResult<T> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, Class<T> repositoryClass) throws RepositoryException {
 
@@ -117,10 +118,9 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				loader.setOrderCriteria(orderCriteria);
 				loader.setSearchCriteria(searchCriteria);
 				loader.setContext(context);
-				records.add((T) loader.loader(object, getPersistancePrimaryKey(object), repositoryClass,
+				records.add((T) loader.loader(object, getPersistancePrimaryKey(object),  findRepositoryClassByPersistanceObject(object) ,
 						new ObjectGraph(), profile));
 
-				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
 				if (rules != null) {
 					for (Rule rule : rules) {
@@ -250,7 +250,8 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 			}
 			List<Object> response = registry.getStorageCommandProcessor().process(spaRepositoryData);
-
+			this.cleanCommand(response);
+			
 			cl.beforeCommit();
 			getTransactionAdapter().commit();
 			cl.afterCommit();

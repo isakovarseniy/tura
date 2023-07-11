@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.MapperHelper;
 import org.tura.platform.repository.core.ProxyFactory;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
@@ -282,7 +283,6 @@ public class JbpmSearchServiceTest {
 
 			JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,
 					"spa-persistence-repository", registry);
-			service.setMapper(new ProcessMapper());
 			SearchResult<?> result = service.find(searchCriteria, orderCriteria, 0, 100,
 					SalesAnalyzerProcessInstance.class);
 			assertNotEquals(0, result.getSearchResult().size());
@@ -293,7 +293,6 @@ public class JbpmSearchServiceTest {
 				assertEquals(pi.getStates(), Integer.valueOf(2502));
 			}
 
-			service.setMapper(new TaskMapper());
 			result = service.find(searchCriteria, orderCriteria, 0, 100, SalesAnalyzerTaskInstance.class);
 			assertNotEquals(0, result.getSearchResult().size());
 			for (Object o : result.getSearchResult()) {
@@ -309,7 +308,6 @@ public class JbpmSearchServiceTest {
 			sc.setValue("Product05");
 			searchCriteria.add(sc);
 
-			service.setMapper(new TaskMapper());
 			result = service.find(searchCriteria, orderCriteria, 0, 100, SalesAnalyzerTaskInstance.class);
 			assertNotEquals(0, result.getSearchResult().size());
 			for (Object o : result.getSearchResult()) {
@@ -375,7 +373,6 @@ public class JbpmSearchServiceTest {
 
 			JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,
 					"spa-persistence-repository", registry);
-			service.setMapper(new ETLProcessMapper());
 			SearchResult<?> result = service.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
 					100, ETLProcessInstance.class);
 			assertNotEquals(0, result.getSearchResult().size());
@@ -412,7 +409,6 @@ public class JbpmSearchServiceTest {
 
 			JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,
 					"spa-persistence-repository", registry);
-			service.setMapper(new EtlNodeLogMapper());
 			SearchResult<?> result = service.find(searchCriteria, new ArrayList<OrderCriteria>(), 0, 100,
 					ETLNodeInstanceLog.class);
 			assertNotEquals(0, result.getSearchResult().size());
@@ -429,7 +425,7 @@ public class JbpmSearchServiceTest {
 		}
 	}
 
-	class EtlNodeLogMapper implements Mapper {
+	class EtlNodeLogMapper extends MapperHelper implements Mapper {
 
 		private static final long serialVersionUID = 1L;
 
@@ -499,7 +495,7 @@ public class JbpmSearchServiceTest {
 
 	}
 
-	class ProcessMapper implements Mapper {
+	class ProcessMapper extends MapperHelper implements Mapper {
 
 		private static final long serialVersionUID = 1L;
 
@@ -568,7 +564,7 @@ public class JbpmSearchServiceTest {
 
 	}
 
-	class ETLProcessMapper implements Mapper {
+	class ETLProcessMapper extends MapperHelper implements Mapper {
 
 		private static final long serialVersionUID = 1L;
 
@@ -637,7 +633,7 @@ public class JbpmSearchServiceTest {
 
 	}
 
-	class TaskMapper implements Mapper {
+	class TaskMapper extends MapperHelper implements Mapper {
 
 		private static final long serialVersionUID = 1L;
 
@@ -706,7 +702,7 @@ public class JbpmSearchServiceTest {
 
 	}
 
-	class ETLTaskMapper implements Mapper {
+	class ETLTaskMapper extends MapperHelper implements Mapper {
 
 		private static final long serialVersionUID = 3082834789745427761L;
 

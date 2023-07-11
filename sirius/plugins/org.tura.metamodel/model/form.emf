@@ -228,6 +228,7 @@ class ItemIcon{
 }
 
 class AreaRef{
+    id attr EString uid;
 	ref NickNamed area;
 	attr EInt group;
 }
@@ -254,6 +255,7 @@ class InputElement extends SourcesPointer {
 }
 
 class Selection extends StyleElement{
+    id attr EString uid;
    ref EObject displayOptionPointer;
    ref EObject valueOptionPointer;
 }
@@ -596,7 +598,7 @@ class FormVariable extends type.TypePointer{
 class DataControl  extends artifact.Categorized{
     id attr EString uid;
    attr EString name;
-   val type.TypePointer baseType;
+   val type.TypePointerObj baseType;
    val PREQueryTrigger preQueryTrigger;
    val POSTQueryTrigger postQueryTrigger;
    val PREInsertTrigger preInsertTrigger;
@@ -606,12 +608,18 @@ class DataControl  extends artifact.Categorized{
    val CreateTrigger create;
    val SearchTrigger search;
    val ArtificialField[*] artificialFields;   
-   val ContextParameters defaultSearch;
+   val ContextParametersObj defaultSearch;
    val Orders defaultOrderBy;
 
    val RelationMapper[*] relationMappers;
     
     
+}
+
+
+
+class ContextParametersObj extends ContextParameters{
+    id attr EString uid;
 }
 
 class RelationMapper {

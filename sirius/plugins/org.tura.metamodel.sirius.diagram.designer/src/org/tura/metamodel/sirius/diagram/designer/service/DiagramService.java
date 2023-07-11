@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -95,6 +95,7 @@ import infrastructure.EnterpriseInfrastructure;
 import mapper.CSSMapper;
 import mapper.JavaMapper;
 import mapper.JavaPackageMapper;
+import mapper.MetamodelPackageMapper;
 import mapper.JavaScriptMapper;
 import mapper.RoleMapper;
 import mapper.XMLPackageMapper;
@@ -401,6 +402,11 @@ public class DiagramService {
 		return (String) new TypeGroupPointerName().getFeatureValue(mapper, null);
 	}
 
+	public String generateName(MetamodelPackageMapper mapper) {
+		return (String) new TypeGroupPointerName().getFeatureValue(mapper, null);
+	}
+	
+	
 	public String generateName(CSSMapper mapper) {
 		return (String) new StylePointerLibraryName().getFeatureValue(mapper, null);
 	}

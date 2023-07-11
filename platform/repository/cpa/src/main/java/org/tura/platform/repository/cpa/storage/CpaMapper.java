@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryException;
 
 public interface CpaMapper extends Mapper{
-	void collectCpaIds( Object obj, Map<Object, String> keyMap);
-	void replaceCpaIds( Object obj, Map<Object, String> keyMap);
+	void collectCpaIds( Object obj, Map<Object, String> keyMap) throws RepositoryException;
+	void replaceCpaIds( Object obj, Map<Object, String> keyMap)  throws RepositoryException;
 	Boolean getAttached(Object obj);
-	void flattenObject(Object obj, List<Object> loadedObjects);
+	void flattenObject(Object obj, List<Object> loadedObjects)  throws RepositoryException;
 	void buildRepPathTree(org.tura.platform.repository.core.RepoKeyPath topCpaPath, Object persistenceObject,
 			Map<String, RepoKeyPath> keyMap, String relation, List<String> register) throws RepositoryException;	
 	boolean isComplex();

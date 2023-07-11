@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 package org.tura.platform.repository.core;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +38,7 @@ public class Registry implements Serializable {
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
 	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
 	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
-	private Map<String, Mapper> mappers = new HashMap<>();
+	private Map<String, Class<? extends Mapper>> mappers = new HashMap<>();
 	private Map<String, Class<? extends CommandProducer>> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
@@ -116,8 +117,8 @@ public class Registry implements Serializable {
 		throw new RuntimeException("Only PreQueryTrigger allowed");
 	}
 
-	public void addMapper(String repositoryClass, String persistanceClass, Mapper mapper) {
-		mappers.put(persistanceClass + "2" + repositoryClass, mapper);
+	public void addMapper(String repositoryClass, String persistanceClass, Class<? extends Mapper> mapperClass) {
+		mappers.put(persistanceClass + "2" + repositoryClass, mapperClass);
 	}
 
 	public Repository findProvider(String repositoryClass) throws RepositoryException {
@@ -207,8 +208,20 @@ public class Registry implements Serializable {
 		return postQueryTriggers.get(repositoryClass);
 	}
 
-	public Mapper findMapper(String persistanceClass, String repositoryClass) {
-		return mappers.get(persistanceClass + "2" + repositoryClass);
+	public Mapper findMapper(String persistanceClass, String repositoryClass) throws RepositoryException {
+		Class<? extends Mapper> mapperClass  = mappers.get(persistanceClass + "2" + repositoryClass);
+		if (mapperClass != null ) {
+			Mapper mapper;
+			try {
+				mapper = mapperClass.getDeclaredConstructor().newInstance();
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				throw new RepositoryException(e);
+			}
+			mapper.setRegistry(this);
+			return  mapper;
+		}
+		return null;
 	}
 
 	public ObjectGraphProfile findProfile(String profileName) {

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,9 +45,12 @@ public abstract class RunInteranllyTalendJobCommand implements Command {
 			SimpleDateFormat sdfr = new SimpleDateFormat("yyyy-MM-dd");
 			String dateString = sdfr.format(processingDate);
 
-			String[] args = new String[] { "--context=Default", "--context_param",
-					"session=" + new Long(workitem.getProcessInstanceId()).toString(), "--context_param",
-					"date=yyyy-MM-dd;" + dateString };
+			String[] args = new String[] { "--context=Default",
+					"--context_param","session=" + new Long(workitem.getProcessInstanceId()).toString(),
+					"--context_param","date=yyyy-MM-dd;" + dateString ,
+					"--context_param", "inputDirectory=/opt/jboss/jobs/",
+					"--context_param","outputDirectory=/opt/jboss/jobs/"
+			};
 
 			TalendJob r =  getTalendJob();
 			r.runJobInTOS(args);

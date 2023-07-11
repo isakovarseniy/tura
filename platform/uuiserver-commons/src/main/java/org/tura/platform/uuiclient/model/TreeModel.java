@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ public class TreeModel implements Serializable {
 	private List<List<TreePath>> selectedList;
 	private List<TreePath> currentPath;
 	private TreeDataControl dc;
-	private transient Logger logger;
+	private transient Logger logger = Logger.getLogger(TreeModel.class.getName());
 	private Object callback;
 	private String modelId;
 	private TreeNode contextSelectedNode;
@@ -154,7 +154,7 @@ public class TreeModel implements Serializable {
 
 		Object obj = twoResult[0];
 
-		IDataControl curdc = (DataControl<?>) ((ObjectControl) obj).getAttributes().get(Constants.DATA_CONTROL);
+		IDataControl curdc = (DataControl<?>) ((ObjectControl) obj).getObjectControlAttributes().get(Constants.DATA_CONTROL);
 
 		for (String relationName : curdc.getRelationsName()) {
 			curdc.createChild(relationName);

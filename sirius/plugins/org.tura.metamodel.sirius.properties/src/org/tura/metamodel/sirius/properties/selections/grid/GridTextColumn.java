@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -36,6 +36,7 @@ public class GridTextColumn implements GridColumn {
 	private Table table;
 	private GridProperty property;
 	private int width = 100;
+	private int textLimit = 100;
 	private int col;
 	protected TextDataAdapter dataAdapter;
 
@@ -61,7 +62,7 @@ public class GridTextColumn implements GridColumn {
 	@Override
 	public CellEditor getEditor() {
 		TextCellEditor textEditor = new TextCellEditor(table);
-		((Text) textEditor.getControl()).setTextLimit(100);
+		((Text) textEditor.getControl()).setTextLimit(textLimit);
 		return textEditor;
 	}
 
@@ -128,6 +129,14 @@ public class GridTextColumn implements GridColumn {
 	
 	public void setColumnwidth(int width) {
 		this.width = width;
+	}
+
+	public int getTextLimit() {
+		return textLimit;
+	}
+
+	public void setTextLimit(int textLimit) {
+		this.textLimit = textLimit;
 	}	
 
 }

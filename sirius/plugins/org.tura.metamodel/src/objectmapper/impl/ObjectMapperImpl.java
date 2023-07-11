@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import type.AttributePointer;
 import type.TypePointer;
+import type.TypePointerObj;
 
 /**
  * <!-- begin-user-doc -->
@@ -122,7 +123,7 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 	 * @generated
 	 * @ordered
 	 */
-	protected TypePointer baseType;
+	protected TypePointerObj baseType;
 
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
@@ -275,7 +276,7 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 	 * @generated
 	 */
 	@Override
-	public TypePointer getBaseType() {
+	public TypePointerObj getBaseType() {
 		return baseType;
 	}
 
@@ -284,8 +285,8 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBaseType(TypePointer newBaseType, NotificationChain msgs) {
-		TypePointer oldBaseType = baseType;
+	public NotificationChain basicSetBaseType(TypePointerObj newBaseType, NotificationChain msgs) {
+		TypePointerObj oldBaseType = baseType;
 		baseType = newBaseType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.OBJECT_MAPPER__BASE_TYPE, oldBaseType, newBaseType);
@@ -300,7 +301,7 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 	 * @generated
 	 */
 	@Override
-	public void setBaseType(TypePointer newBaseType) {
+	public void setBaseType(TypePointerObj newBaseType) {
 		if (newBaseType != baseType) {
 			NotificationChain msgs = null;
 			if (baseType != null)
@@ -436,7 +437,7 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 				setStage((ProcessingStage)newValue);
 				return;
 			case ObjectmapperPackage.OBJECT_MAPPER__BASE_TYPE:
-				setBaseType((TypePointer)newValue);
+				setBaseType((TypePointerObj)newValue);
 				return;
 			case ObjectmapperPackage.OBJECT_MAPPER__RELATIONS:
 				getRelations().clear();
@@ -476,7 +477,7 @@ public class ObjectMapperImpl extends CategorizedImpl implements ObjectMapper {
 				setStage((ProcessingStage)null);
 				return;
 			case ObjectmapperPackage.OBJECT_MAPPER__BASE_TYPE:
-				setBaseType((TypePointer)null);
+				setBaseType((TypePointerObj)null);
 				return;
 			case ObjectmapperPackage.OBJECT_MAPPER__RELATIONS:
 				getRelations().clear();

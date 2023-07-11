@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,13 +13,16 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
 [%
+@template
+operation modelWrapper(hash){
+
+     var component =  hash.get("component");
+     var form =  hash.get("form");
+     var uipackage =  hash.get("uipackage");
+     var application =  hash.get("application");
+
+
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;  
@@ -31,7 +34,7 @@ import org.tura.platform.uuiclient.model.ViewModel;
 [%=viewmodel_scope()%]
 public class ViewModelWrapper extends ViewModel{
 
-	private static final long serialVersionUID = -479640380646854571L;
+	private static final long serialVersionUID = 1L;
 
 
    @Override
@@ -44,4 +47,6 @@ public class ViewModelWrapper extends ViewModel{
 
 
 }
-
+[%
+}
+%]

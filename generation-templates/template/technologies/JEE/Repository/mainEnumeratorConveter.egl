@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,30 +13,32 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+ [%
 import "tura:/generation-templates/template/commons/typeElementUtil.eol";
 import "tura:/generation-templates/template/commons/categorizedUtil.eol";
 import "tura:/generation-templates/template/commons/assosiation.eol";
 import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
-
-
- ${percent}${end}
- 
- 
-  [%
+import "tura:/generation-templates/template/technologies/JEE/Repository/enumeratorConverter.egl";
+  
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
      var t2view = new Native("java.util.HashMap"); 
      var t2model = new Native("java.util.HashMap");
-     
+     var  types = new Native('java.util.ArrayList');
      
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
      
-     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+     var tp1 = util.runQuery(model_mapper,"Query model classes",model_mapper);
+     var tp2 = util.runQuery(model_mapper,"Query Enum from domain package",model_mapper);
+     if ( tp1 <> null){
+        types.addAll(tp1);
+     }
+     if ( tp2 <> null){
+        types.addAll(tp2);
+     }     
+
 
       if (types <> null and types.size <> 0 ){
       
@@ -81,13 +83,12 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
                 
             util.populateTechnologies(hash,model_mapper);
 
-            var converter : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/enumeratorConverter.egl",hash,TemplateFactory);
-            converter.setFormatter(f);
-            var buffer = converter.process();
-            util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/converter", t2view.get(type).get("class")+"Converter.java",buffer);   
+             %][%=enumeratorConverter(hash)%][%
+			out.formatWith(f);
+            util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/converter", t2view.get(type).get("class")+"Converter.java",out.toString());   
+			out.formatWith(n);
           
         }        
-
 
 
       }

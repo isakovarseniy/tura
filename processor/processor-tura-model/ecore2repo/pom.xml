@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>org.tura.processor</groupId>
+		<artifactId>processor-tura-model</artifactId>
+		<version>6.1.1</version>
+	</parent>
+
+	<artifactId>ecore2repo</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Tura :: Platform :: Processor :: Tura :: Epsilon Integration :: Ecore Loader and DB migration</name>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.ecl.engine</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.epl.engine</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.flock.engine</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.metamodel</groupId>
+			<artifactId>org.tura.metamodel</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>persistence-repository</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>metamodel-repository-proxy</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.processor</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.processor</groupId>
+			<artifactId>commons-emf-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.processor</groupId>
+			<artifactId>commons-tura-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+</project>

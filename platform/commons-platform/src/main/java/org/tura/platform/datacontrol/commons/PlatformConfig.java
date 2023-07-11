@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,4 +27,10 @@ public class PlatformConfig {
 	public static int LOADSTEP = 40;
 	
 	public static boolean  TEST_MODE = false;
+	
+	public static  int THRESHOLD = 10;
+
+	public static  boolean READ_WRITE_MODE = true;
+	
+	
 }

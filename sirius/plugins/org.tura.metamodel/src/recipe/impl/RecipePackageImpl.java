@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1072,7 +1072,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getModelMapper_Name() {
+	public EAttribute getModelMapper_Uid() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1082,7 +1082,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getModelMapper_ArtifactRoot() {
+	public EAttribute getModelMapper_Name() {
 		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1092,8 +1092,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModelMapper_Technologies() {
-		return (EReference)modelMapperEClass.getEStructuralFeatures().get(2);
+	public EAttribute getModelMapper_ArtifactRoot() {
+		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1102,7 +1102,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModelMapper_Queries() {
+	public EReference getModelMapper_Technologies() {
 		return (EReference)modelMapperEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1112,8 +1112,18 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getModelMapper_Queries() {
+		return (EReference)modelMapperEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getModelMapper_Skip() {
-		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1123,7 +1133,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 */
 	@Override
 	public EAttribute getModelMapper_ArtifactExtension() {
-		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1232,7 +1242,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getKeyValuePair_Key() {
+	public EAttribute getKeyValuePair_KeyCode() {
 		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1392,18 +1402,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getArtifactRef_Uid() {
-		return (EAttribute)artifactRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getArtifactRef_ArtifactRef() {
-		return (EReference)artifactRefEClass.getEStructuralFeatures().get(1);
+		return (EReference)artifactRefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1519,6 +1519,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEReference(configurationEClass, CONFIGURATION__HASH_PROPERTIES);
 
 		modelMapperEClass = createEClass(MODEL_MAPPER);
+		createEAttribute(modelMapperEClass, MODEL_MAPPER__UID);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_ROOT);
 		createEReference(modelMapperEClass, MODEL_MAPPER__TECHNOLOGIES);
@@ -1538,7 +1539,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 
 		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__UID);
-		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
+		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY_CODE);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
 
 		mappingTecnologiyEClass = createEClass(MAPPING_TECNOLOGIY);
@@ -1558,7 +1559,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(queryVariableEClass, QUERY_VARIABLE__VALUE);
 
 		artifactRefEClass = createEClass(ARTIFACT_REF);
-		createEAttribute(artifactRefEClass, ARTIFACT_REF__UID);
 		createEReference(artifactRefEClass, ARTIFACT_REF__ARTIFACT_REF);
 	}
 
@@ -1695,6 +1695,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEReference(getConfiguration_HashProperties(), this.getHashProperty(), null, "hashProperties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelMapperEClass, ModelMapper.class, "ModelMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModelMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_ArtifactRoot(), ecorePackage.getEString(), "artifactRoot", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelMapper_Technologies(), this.getMappingTecnologiy(), null, "technologies", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1714,7 +1715,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 
 		initEClass(keyValuePairEClass, KeyValuePair.class, "KeyValuePair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyValuePair_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyValuePair_KeyCode(), ecorePackage.getEString(), "keyCode", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKeyValuePair_Value(), ecorePackage.getEString(), "value", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingTecnologiyEClass, MappingTecnologiy.class, "MappingTecnologiy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1734,7 +1735,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getQueryVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, QueryVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactRefEClass, ArtifactRef.class, "ArtifactRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArtifactRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifactRef_ArtifactRef(), theArtifactPackage.getArtifact(), null, "artifactRef", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ public class Options<T> implements Serializable{
 				} catch (NoSuchMethodException m) {
 					ObjectControl oc = (ObjectControl) obj;
 					String attr = "ATTRIBUTE_" + label.toUpperCase().substring(3);
-					objLabel = oc.getAttributes().get(attr);
+					objLabel = oc.getObjectControlAttributes().get(attr);
 				}
 				Object objValue = null;
 				try {
@@ -99,7 +99,7 @@ public class Options<T> implements Serializable{
 				} catch (NoSuchMethodException m) {
 					ObjectControl oc = (ObjectControl) obj;
 					String attr = "ATTRIBUTE_" + value.toUpperCase().substring(3);
-					objValue = oc.getAttributes().get(attr);
+					objValue = oc.getObjectControlAttributes().get(attr);
 				}
 				options.add(new Object[] { objLabel, objValue });
 			}

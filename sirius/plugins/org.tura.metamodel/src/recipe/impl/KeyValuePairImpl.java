@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -35,7 +35,7 @@ import recipe.RecipePackage;
  * </p>
  * <ul>
  *   <li>{@link recipe.impl.KeyValuePairImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.impl.KeyValuePairImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link recipe.impl.KeyValuePairImpl#getKeyCode <em>Key Code</em>}</li>
  *   <li>{@link recipe.impl.KeyValuePairImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -63,24 +63,24 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	protected String uid = UID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * The default value of the '{@link #getKeyCode() <em>Key Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getKeyCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_EDEFAULT = null;
+	protected static final String KEY_CODE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * The cached value of the '{@link #getKeyCode() <em>Key Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getKeyCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected String key = KEY_EDEFAULT;
+	protected String keyCode = KEY_CODE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -150,8 +150,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * @generated
 	 */
 	@Override
-	public String getKey() {
-		return key;
+	public String getKeyCode() {
+		return keyCode;
 	}
 
 	/**
@@ -160,11 +160,11 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 	 * @generated
 	 */
 	@Override
-	public void setKey(String newKey) {
-		String oldKey = key;
-		key = newKey;
+	public void setKeyCode(String newKeyCode) {
+		String oldKeyCode = keyCode;
+		keyCode = newKeyCode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.KEY_VALUE_PAIR__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.KEY_VALUE_PAIR__KEY_CODE, oldKeyCode, keyCode));
 	}
 
 	/**
@@ -200,8 +200,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 		switch (featureID) {
 			case RecipePackage.KEY_VALUE_PAIR__UID:
 				return getUid();
-			case RecipePackage.KEY_VALUE_PAIR__KEY:
-				return getKey();
+			case RecipePackage.KEY_VALUE_PAIR__KEY_CODE:
+				return getKeyCode();
 			case RecipePackage.KEY_VALUE_PAIR__VALUE:
 				return getValue();
 		}
@@ -219,8 +219,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 			case RecipePackage.KEY_VALUE_PAIR__UID:
 				setUid((String)newValue);
 				return;
-			case RecipePackage.KEY_VALUE_PAIR__KEY:
-				setKey((String)newValue);
+			case RecipePackage.KEY_VALUE_PAIR__KEY_CODE:
+				setKeyCode((String)newValue);
 				return;
 			case RecipePackage.KEY_VALUE_PAIR__VALUE:
 				setValue((String)newValue);
@@ -240,8 +240,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 			case RecipePackage.KEY_VALUE_PAIR__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case RecipePackage.KEY_VALUE_PAIR__KEY:
-				setKey(KEY_EDEFAULT);
+			case RecipePackage.KEY_VALUE_PAIR__KEY_CODE:
+				setKeyCode(KEY_CODE_EDEFAULT);
 				return;
 			case RecipePackage.KEY_VALUE_PAIR__VALUE:
 				setValue(VALUE_EDEFAULT);
@@ -260,8 +260,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 		switch (featureID) {
 			case RecipePackage.KEY_VALUE_PAIR__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case RecipePackage.KEY_VALUE_PAIR__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+			case RecipePackage.KEY_VALUE_PAIR__KEY_CODE:
+				return KEY_CODE_EDEFAULT == null ? keyCode != null : !KEY_CODE_EDEFAULT.equals(keyCode);
 			case RecipePackage.KEY_VALUE_PAIR__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
@@ -280,8 +280,8 @@ public class KeyValuePairImpl extends EObjectImpl implements KeyValuePair {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
-		result.append(", key: ");
-		result.append(key);
+		result.append(", keyCode: ");
+		result.append(keyCode);
 		result.append(", value: ");
 		result.append(value);
 		result.append(')');

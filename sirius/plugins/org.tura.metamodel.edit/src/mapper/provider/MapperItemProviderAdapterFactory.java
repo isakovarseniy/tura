@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -404,6 +404,29 @@ public class MapperItemProviderAdapterFactory extends MapperAdapterFactory imple
 		}
 
 		return xmlTypeMapperItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mapper.MetamodelPackageMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetamodelPackageMapperItemProvider metamodelPackageMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.MetamodelPackageMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetamodelPackageMapperAdapter() {
+		if (metamodelPackageMapperItemProvider == null) {
+			metamodelPackageMapperItemProvider = new MetamodelPackageMapperItemProvider(this);
+		}
+
+		return metamodelPackageMapperItemProvider;
 	}
 
 	/**

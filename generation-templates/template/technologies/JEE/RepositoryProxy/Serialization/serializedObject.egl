@@ -1,0 +1,337 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JEE/RepositoryProxy/Serialization/serialCommons.egl";
+
+@template
+operation serializedObject(hash){
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var trackFields = new Native('java.util.ArrayList');
+ 
+  var recipe = hash.get("recipe");
+  var ingredient = hash.get("ingredient");
+  var component = hash.get("component");
+  var model_mapper = hash.get("model_mapper");
+  var path = hash.get("path");
+  var type = hash.get("type");
+  var mhash =  hash.get("mhash");
+  var typeCollection  = hash.get("typeCollection");
+ 
+
+%] 
+package [%=type.~package%]; 
+[%
+
+          var pkg = type.eContainer();
+          //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+          var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+	      if (assosiations.size() <> 0){
+	      %]
+				@org.tura.platform.repository.core.annotation.InternalClass
+	      [%
+	      }
+          %]
+			@com.fasterxml.jackson.annotation.JsonIdentityInfo(generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class, property = "serializationid")
+			[%=jsonTypeInfoAnnotation(type,recipe,ingredient,typeCollection)%]
+        public   class [%=type.~class%] [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%]  implements java.io.Serializable
+		[%  
+		if (type.~interface.isDefined()){
+			for (interface in type.~interface ){
+		%]
+			       , [%=interface.~fullName%]
+		[% 
+			}
+		} 
+		%]
+{
+        
+            private static final long serialVersionUID = 1L;
+        
+		    private Boolean attached;
+		    
+		    public Boolean getAttached() {
+		        return attached;
+		    }
+		
+		    public void setAttached(Boolean value) {
+		        this.attached = value;
+		    }
+		    
+		    private String serializationid;
+		    
+		    public String getSerializationid() {
+		        return serializationid;
+		    }
+		
+		    public void setSerializationid(String value) {
+		        this.serializationid = value;
+		    }
+		    
+		    private String cpaid;
+		    
+		    public String getCpaid() {
+		        return cpaid;
+		    }
+		
+		    public void setCpaid(String value) {
+		        this.cpaid = value;
+		    }
+            
+           [%=type.inhClass(model_mapper,trackFields)%] 
+}
+[%
+}
+@template
+operation type::Type  inhClass(model_mapper,trackFields){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var tp = self;
+     self.mappingType2Java(recipe,ingredient);
+     
+     for ( field in tp.attributes){
+     
+            if ( tp.~ignoredAttribute.contains(field)  ){
+                 continue;  
+            }
+             
+            var suffix = ""; 
+            if  ( field.pk  and   tp.isPersistentInterface(model_mapper)){
+               suffix =  tp.~class;
+            }else{  
+			     if ( trackFields.contains(field.name)){
+			        continue;
+			     }
+			     trackFields.add(field.name);
+		     }
+		      
+		     field.typeRef.mappingType2Java(recipe,ingredient);
+
+		     if (tp.~skipAttributes.contains(field)){ 
+		    %] 
+		    private [%=field.typeRef.~fullName%]  transient[%=util.mergeAndUnCapitalize(field.name)%];
+		    
+		    public  [%=field.typeRef.~fullName%] getTransient[%=util.mergeAndUnCapitalize(field.name)%](){
+		        return transient[%=util.mergeAndUnCapitalize(field.name)%];
+		    }
+		    public void setTransient[%=util.mergeAndUnCapitalize(field.name)%]( [%=field.typeRef.~fullName%]  transient[%=util.mergeAndUnCapitalize(field.name)%] ){
+		         this.transient[%=util.mergeAndUnCapitalize(field.name)%]  =  transient[%=util.mergeAndUnCapitalize(field.name)%];
+		    }
+		    [%
+		        continue; 
+		     }   
+		    %]
+		    private [%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%][%=suffix%];
+		    
+		    public  [%=field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%][%=suffix%](){
+		        return [%=util.mergeAndUnCapitalize(field.name)%][%=suffix%];
+		    }
+		    public void set[%=util.mergeAndCapitalize(field.name)%][%=suffix%]( [%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%][%=suffix%] ){
+		         this.[%=util.mergeAndUnCapitalize(field.name)%][%=suffix%]  =  [%=util.mergeAndUnCapitalize(field.name)%][%=suffix%];
+		    }
+		    [%
+			}
+
+		  var pkg =  tp.eContainer();	
+//		  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+		  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = tp.uid);
+	      for (rel in assosiations){
+	      
+	         var rel_uid =rel.merge(mhash); 
+	         if (rel_uid == null){
+	             rel_uid = rel.uid;
+	         } 
+	         
+            var hash = rel.findTypeOfAssosiation(model_mapper);
+            var masterType =   hash.get("masterType");
+            var direction = ",direction=org.tura.platform.repository.core.RelationType.Direct";
+            if (masterType.uid <> rel.source.uid ){
+               direction = " ,direction=org.tura.platform.repository.core.RelationType.Opposite";
+            }
+
+            var hash = rel.sourceSideNamesCalculation();
+            hash.get("source").mappingType2Java(recipe,ingredient);
+            hash.get("target").mappingType2Java(recipe,ingredient);
+            
+            var annotation = "Association";
+            var lazy = ",lazy="+rel.lazy;
+            if (rel.internal){
+              annotation = "Internal";
+              direction = "";
+              lazy = "";
+	         }
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] private [%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%];[%
+	         case "One2Many" : %]  private java.util.List<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%] = new java.util.ArrayList<>();[%
+	         case "Many2Many" : %] private java.util.List<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%] = new java.util.ArrayList<>();[%
+	         }
+	         %]
+            @org.tura.platform.repository.core.annotation.[%=annotation%](  id="[%=rel_uid%]",   from=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, mappedBy=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" [%=lazy%] [%=direction%] )	         
+              [%=rel.connectionAnnotation(model_mapper,"src")%]
+	         [%
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]()[%
+	         case "One2Many" : %] public java.util.List<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+	         case "Many2Many" : %] public java.util.List<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+	         }                
+	         %] { return [%=hash.get("sourceProperty")%]; } [%
+	         
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] public  void set[%=hash.get("sourceMethodName")%]([%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%])[%
+	         case "One2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.List<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+	         case "Many2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.List<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+	         }                
+	         %] { this.[%=hash.get("sourceProperty")%]=[%=hash.get("sourceProperty")%]; } [%
+	         
+	      }
+
+	  //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = tp.uid);
+      for (rel in assosiations){
+      
+         var rel_uid =rel.merge(mhash); 
+         if (rel_uid == null){
+             rel_uid = rel.uid;
+         } 
+         
+         var hash = rel.findTypeOfAssosiation(model_mapper);
+         var masterType =   hash.get("masterType");
+         var direction = " ,direction=org.tura.platform.repository.core.RelationType.Direct";
+         if (masterType.uid <> rel.target.uid ){
+              direction = " ,direction=org.tura.platform.repository.core.RelationType.Opposite";
+         }
+         if (masterType.uid == rel.target.uid and rel.target.uid == rel.source.uid){
+              direction = " ,direction=org.tura.platform.repository.core.RelationType.Opposite";
+         }
+      
+         var hash = rel.targetSideNamesCalculation();
+         hash.get("source").mappingType2Java(recipe,ingredient);
+         hash.get("target").mappingType2Java(recipe,ingredient);
+         
+            var annotation = "Association";
+            var lazy = ",lazy="+rel.lazy;
+            if (rel.internal){
+              annotation = "Internal";
+              lazy = "";
+              direction = "";
+	         }
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
+         case "One2Many" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
+         case "Many2Many" : %] private java.util.List<[%=hash.get("source").~fullName%]>  [%=hash.get("targetProperty")%] = new java.util.ArrayList<>();[%
+         }
+      
+       %]
+       @org.tura.platform.repository.core.annotation.[%=annotation%](id="[%=rel_uid%]" ,from=[%=hash.get("target").~package%].[%=hash.get("target").~class%].class, mappedBy=[%=hash.get("source").~package%].[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" [%=lazy%]  [%=direction%])      
+	    [%=rel.connectionAnnotation(model_mapper,"trg")%]
+       [%
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+         case "Many2Many" : %] public java.util.List<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]()[%
+         }                
+         %] { return [%=hash.get("targetProperty")%]; } [%
+
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void  set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+         case "One2Many" : %] public void set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+         case "Many2Many" : %] public  void set[%=hash.get("targetMethodName")%](java.util.List<[%=hash.get("source").~fullName%]> [%=hash.get("targetProperty")%])[%
+         }                
+         %] { this.[%=hash.get("targetProperty")%]=[%=hash.get("targetProperty")%]; } [%
+      }
+      
+      pkg = self.eContainer();
+      //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid and t.isImplements(model_mapper));
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid and t.isImplements(model_mapper));
+       for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+      [%=tp.inhClass(model_mapper,trackFields)%]
+      [%
+      }
+}
+
+
+@template
+operation type::Assosiation  connectionAnnotation(model_mapper,conType){
+  var util = new Native('org.tura.metamodel.commons.Util');
+    if (self.isConnectionAnnotationExists(model_mapper)) {
+       var hiddenJpa = "false";
+       if ( self.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+         hiddenJpa = "true";
+       }
+    
+      var first = true;
+      %]
+				@org.tura.platform.repository.core.annotation.Connection( type="[%=conType%]", hiddenJpa = [%=hiddenJpa%] ,
+				links= { 
+        		  [%for ( lnk in self.links) 
+        		  {%]
+        		    [%if (not first){ %] ,[%} %]
+				 @org.tura.platform.repository.core.annotation.Link(field1="[%=util.mergeAndUnCapitalize(lnk.masterField.name)%]", field2 ="[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]")
+		        [%
+                first = false;
+		        }%]
+				 }
+				)
+      [%
+
+    } 
+  }
+  
+  
+operation  type::Assosiation isConnectionAnnotationExists(model_mapper){
+
+	  var util = new Native('org.tura.metamodel.commons.Util');
+	
+	  var entityObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Entity Object"));
+	  var domainObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Domain Object"));
+	  var adapterObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Adapter"));
+	  var spaObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"SPA Object"));
+	  domainObjectSrc = domainObjectSrc or adapterObjectSrc or spaObjectSrc;
+	
+	
+	  var entityObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Entity Object"));
+	  var domainObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Domain Object"));
+	  var adapterObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Adapter"));
+	  var spaObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"SPA Object"));
+	  domainObjectTrg = domainObjectTrg or adapterObjectTrg or spaObjectTrg;
+	
+	  if (entityObjectSrc and  entityObjectTrg ){
+         if ( self.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+	        return true;
+         }else{
+	        return false;
+         }
+	  }
+	
+	  if (entityObjectSrc and  domainObjectTrg ){
+	     return true;
+	  }
+	
+	  if (domainObjectSrc and  entityObjectTrg ){
+	     return true;
+	  }
+	  
+	  if  (domainObjectSrc and domainObjectTrg and not self.internal){
+	     return true;
+	  }
+	   return false;
+}  
+
+%]

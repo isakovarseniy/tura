@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,18 +22,26 @@ import java.util.UUID;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 
 import org.tura.platform.repository.cdi.ServerCpaStorage;
+import org.tura.platform.repository.cdi.TypeHierarchy;
 import org.tura.platform.repository.cpa.storage.CpaStorage;
+import org.tura.platform.repository.cpa.storage.TypeInheritance;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class CdiServerCpaStorageProducer {
+	
+	
+	@Inject
+	@TypeHierarchy
+	private TypeInheritance typeInheritance;	
 	
     @Produces
     @ApplicationScoped
     @ServerCpaStorage
 	public CpaStorage getCpaStorage() {
-    	CpaStorage  cpaStorage = new CpaStorage(UUID.randomUUID().toString());
+    	CpaStorage  cpaStorage = new CpaStorage(UUID.randomUUID().toString(),typeInheritance);
 		ProxyCommadStackProvider stackProvider = new CdiServerCommadStackProvider();
 		cpaStorage.setCommadStackProvider(stackProvider);
 		return cpaStorage;

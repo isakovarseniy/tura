@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -87,6 +87,7 @@ public class TypeSwitch<T> extends Switch<T> {
 			case TypePackage.TYPE_GROUP: {
 				TypeGroup typeGroup = (TypeGroup)theEObject;
 				T result = caseTypeGroup(typeGroup);
+				if (result == null) result = caseCategorized(typeGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,6 +129,13 @@ public class TypeSwitch<T> extends Switch<T> {
 			case TypePackage.TYPE_POINTER: {
 				TypePointer typePointer = (TypePointer)theEObject;
 				T result = caseTypePointer(typePointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypePackage.TYPE_POINTER_OBJ: {
+				TypePointerObj typePointerObj = (TypePointerObj)theEObject;
+				T result = caseTypePointerObj(typePointerObj);
+				if (result == null) result = caseTypePointer(typePointerObj);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,6 +345,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypePointer(TypePointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pointer Obj</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pointer Obj</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypePointerObj(TypePointerObj object) {
 		return null;
 	}
 

@@ -1,0 +1,82 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+
+@template
+operation many2ManySerialization(hash){
+  var util = new Native('org.tura.metamodel.commons.Util');
+  var recipe = hash.get("recipe");
+  var ingredient = hash.get("ingredient");
+  var component = hash.get("component");
+  var model_mapper = hash.get("model_mapper");
+  var path = hash.get("path");
+  var type = hash.get("type");
+  var mhash =  hash.get("mhash");
+  var typeCollection  = hash.get("typeCollection");
+  var className = hash.get("className");
+  var rel = hash.get("rel");
+
+%] 
+package [%=type.~package%]; 
+
+
+public   class [%=className%] {
+
+[%
+
+     var hash = rel.sourceSideNamesCalculation();
+
+       for (lnk in rel.links){
+          lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+          var master = util.mergeAndUnCapitalize(lnk.masterField.name);
+          lnk.detailField.typeRef.mappingType2Java(recipe,ingredient);
+          var detail = util.mergeAndUnCapitalize(lnk.detailField.name);
+          %]
+          
+          private  [%=lnk.masterField.typeRef.~fullName%] [%=hash.get("targetMethodName").toLowerCase()%]_[%=master%];
+          
+          public [%=lnk.masterField.typeRef.~fullName%]  get[%=hash.get("targetMethodName").toLowerCase()%]_[%=master%](){
+                 return [%=hash.get("targetMethodName").toLowerCase()%]_[%=master%];
+          }
+          
+          public void set[%=hash.get("targetMethodName").toLowerCase()%]_[%=master%]([%=lnk.masterField.typeRef.~fullName%] [%=hash.get("targetMethodName").toLowerCase()%]_[%=master%]) {
+                this.[%=hash.get("targetMethodName").toLowerCase()%]_[%=master%] = [%=hash.get("targetMethodName").toLowerCase()%]_[%=master%];
+          }
+          
+          private [%=lnk.detailField.typeRef.~fullName%] [%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%];
+          
+          public [%=lnk.detailField.typeRef.~fullName%] get[%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%](){
+               return [%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%];
+          }
+       
+         public void set[%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%]([%=lnk.detailField.typeRef.~fullName%] [%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%] ){
+             this.[%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%] = [%=hash.get("sourceMethodName").toLowerCase()%]_[%=detail%];
+         }
+       
+          [%
+      }
+
+
+%]
+
+
+}
+
+[%}%]
+

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,9 @@ public class ObjectDataBase implements Serializable {
 	private Map<Class<?>, BidiMap> cpaid2KeyMapper = new HashMap<>();
 	private Map<String, RepoKeyPath> internalObjectRepoKeyPath = new HashMap<>();
 	private Map<String, List<String>> internalObjectRegistry = new HashMap<>();
+	private  TypeInheritance typeInheritance;
 
+	
 	public ObjectDataBase() {
 
 	}
@@ -69,6 +71,10 @@ public class ObjectDataBase implements Serializable {
 			r.addAll(registry);
 			this.internalObjectRegistry.put(key, r);
 		}
+	}
+
+	public ObjectDataBase(TypeInheritance typeInheritance) {
+		this.typeInheritance =   typeInheritance;  
 	}
 
 	public void catalogInternalObjects(String cpaid, StorageControl sc) throws RepositoryException {
@@ -152,13 +158,33 @@ public class ObjectDataBase implements Serializable {
 	}
 
 	public Collection<StorageControl> getObjectsByType(Class<?> type) {
-		Map<Object, StorageControl> typeDb = getTypeDb(type);
+		Map<Object, StorageControl> typeDb = getInheritance(type);
 		if ( typeDb == null) {
 			return null;
 		}
 		return typeDb.values();
 	}
 
+	private Map<Object, StorageControl> getInheritance(Class<?> type){
+		if ( this.typeInheritance == null) {
+			return getTypeDb(type);
+		}
+		 List< Class<?>> inh =   this.typeInheritance.findInheritance(type);
+		 if ( inh == null) {
+				return getTypeDb(type);
+		 }
+		 
+		Map<Object, StorageControl> hash = new HashMap<>();   
+		for( Class<?> clazz : inh) {
+			Map<Object, StorageControl> typeDb = getTypeDb(clazz);
+			if (  typeDb != null) {
+				hash.putAll(typeDb);
+			}
+		}
+		return hash;
+	}
+	
+	
 	private Map<Object, StorageControl> getTypeDb(Class<?> type) {
 		Map<Object, StorageControl> typeDb = db.get(type);
 		return typeDb;

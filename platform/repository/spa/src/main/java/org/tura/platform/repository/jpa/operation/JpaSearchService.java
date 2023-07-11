@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import javax.persistence.EntityManager;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.object.JpaDomainInterfaceSetter;
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
@@ -36,11 +37,12 @@ import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.jpa.operation.query.DefaultQueryProcessor;
 import org.tura.platform.repository.persistence.PersistanceMapper;
-import org.tura.platform.repository.spa.AbstaractSearchService;
+import org.tura.platform.repository.persistence.TypeAware;
+import org.tura.platform.repository.spa.AbstractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaObjectRegistry.SpaRegistry;
 
-public class JpaSearchService extends AbstaractSearchService {
+public class JpaSearchService extends AbstractSearchService {
 
 	private String registryName;
 	private SpaObjectRegistry spaRegistry;
@@ -68,7 +70,6 @@ public class JpaSearchService extends AbstaractSearchService {
 		this.registryName = registry;
 	}
 
-
 	public Registry getRegistry() {
 		return registry;
 	}
@@ -87,41 +88,51 @@ public class JpaSearchService extends AbstaractSearchService {
 					searchCriteria);
 			SearchCriteria parentChildRelationType = helper
 					.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
-			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
 
-			String repositoryClass = registry.findRepositoryClass(objectClass.getName());
-			PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(objectClass.getName(),
-					repositoryClass);
+			SearchCriteria parentRepositoryObject = helper
+					.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
+
+            Class<?>  parentPersistenceClass = null;
+			if (parentPersistenceObject != null && parentPersistenceObject.getValue() != null ) {
+				 parentPersistenceClass = parentPersistenceObject.getValue().getClass();
+			}
 			
+			if (parentPersistenceObject != null && parentPersistenceObject.getValue() != null 
+					&&  parentPersistenceObject.getValue() instanceof TypeAware ) {
+				parentPersistenceClass  =  ( (TypeAware)parentPersistenceObject.getValue()).getTypeClazz();
+			}
 
 			if (parentPersistenceObject != null && parentPersistenceObject.getValue() != null
-					&& parentPersistenceObject.getValue().getClass().isAnnotationPresent(Entity.class)
-					&& mapper != null) {
-				boolean isRegisterd  =  spaRegistry.getRegistry(registryName).isClassRegistered(parentPersistenceObject.getValue().getClass());
-				if (isRegisterd ) {
+					&& parentPersistenceClass.isAnnotationPresent(Entity.class)) {
+				boolean isRegisterd = spaRegistry.getRegistry(registryName).isClassRegistered(parentPersistenceClass);
+				if (isRegisterd) {
+					
+					PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(parentPersistenceClass.getName(),
+							parentRepositoryObject.getValue().getClass().getName(),registry);
+					
 					String relationType = (String) parentChildRelationType.getValue();
 					String property = (String) parentChildRelation.getValue();
-					Object persistenceObject = parentPersistenceObject.getValue();
-	
-					List<T> list = (List<T>) new RepositoryHelper(registry).findChildren(persistenceObject, relationType,
-							property);
-					return new SearchResult<T>(list, list.size());
+					Object persistenceObject = mapper.unwrap( parentPersistenceObject.getValue());
+					if (!helper.isHiddenJpaAssociation(parentRepositoryObject.getValue().getClass(), property)) {
+						List<T> list = (List<T>) helper.findChildren(persistenceObject, relationType, property);
+						return new SearchResult<T>(list, list.size());
+					}
 				}
 			}
 
-			SearchCriteria queryName = helper
-					.extractAndRemove(Constants.JPA_QUERY ,searchCriteria);
-			if ( queryName != null ) {
-				ExternalQueryProcessor<T> queryProcessor = (ExternalQueryProcessor<T>) queryProcessorRegistry.get(queryName.getValue());
-				if ( queryProcessor != null ) {
+			SearchCriteria queryName = helper.extractAndRemove(Constants.JPA_QUERY, searchCriteria);
+			if (queryName != null) {
+				ExternalQueryProcessor<T> queryProcessor = (ExternalQueryProcessor<T>) queryProcessorRegistry
+						.get(queryName.getValue());
+				if (queryProcessor != null) {
 					return queryProcessor.process(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 				}
 			}
-			
-              ExternalQueryProcessor<T> processor = new DefaultQueryProcessor<T>();
-              processor.setSearchService(this);
-              return processor.process(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
-			
+
+			ExternalQueryProcessor<T> processor = new DefaultQueryProcessor<T>();
+			processor.setSearchService(this);
+			return processor.process(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
+
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -146,19 +157,26 @@ public class JpaSearchService extends AbstaractSearchService {
 		return spaRegistry.getRegistry(registryName);
 	}
 
-	public <T>void addExternalQueryProcessor(String queryName, ExternalQueryProcessor<T> processor) {
+	public <T> void addExternalQueryProcessor(String queryName, ExternalQueryProcessor<T> processor) {
 		processor.setSearchService(this);
 		this.queryProcessorRegistry.put(queryName, processor);
 	}
-	
-	public <T>void addExternalQueryProcessor(Map<String, ExternalQueryProcessor<?>> queryProcessorRegistry ) {
-		if ( queryProcessorRegistry == null) {
+
+	public <T> void addExternalQueryProcessor(Map<String, ExternalQueryProcessor<?>> queryProcessorRegistry) {
+		if (queryProcessorRegistry == null) {
 			return;
 		}
-		for (  String query : queryProcessorRegistry.keySet()) {
+		for (String query : queryProcessorRegistry.keySet()) {
 			ExternalQueryProcessor<?> p = queryProcessorRegistry.get(query);
 			p.setSearchService(this);
 			this.queryProcessorRegistry.put(query, p);
 		}
+	}
+
+	public Object preprocessObject(Object obj) {
+		if (obj instanceof JpaDomainInterfaceSetter) {
+			return ((JpaDomainInterfaceSetter) obj).getObject();
+		}
+		return obj;
 	}
 }

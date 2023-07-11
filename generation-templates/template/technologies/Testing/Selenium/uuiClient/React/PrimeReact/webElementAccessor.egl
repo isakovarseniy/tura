@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -474,7 +474,8 @@ operation  form::PopupCanvas accessor(id,methodName,model_mapper)  {
 operation  form::TabPage accessor(id,methodName,model_mapper)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      
-     var list = TabPagesInheritance->allInstances()->select(r|r.target.uid = self.uid)->collect(q|q.source);
+     var pkg = self.eContainer();
+     var list = pkg.tabPagesInheritances->select(r|r.target.uid = self.uid)->collect(q|q.source);
      var tabCanvasUid = list.get(0).uid;
      
      var s = 'org.openqa.selenium.By.cssSelector("a[id$=\''+tabCanvasUid+"_header_"+self.tabSequence+'\']")';     

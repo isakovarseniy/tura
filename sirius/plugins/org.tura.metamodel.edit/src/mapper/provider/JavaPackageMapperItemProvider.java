@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -64,6 +64,7 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 			addMappedToPackageNamePropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
 			addGroupIdPropertyDescriptor(object);
+			addScopePropertyDescriptor(object);
 			addLibraryNamePropertyDescriptor(object);
 			addArtifactTypePropertyDescriptor(object);
 		}
@@ -181,6 +182,28 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Scope feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScopePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaPackageMapper_scope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaPackageMapper_scope_feature", "_UI_JavaPackageMapper_type"),
+				 MapperPackage.Literals.JAVA_PACKAGE_MAPPER__SCOPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Library Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_ID:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__GROUP_ID:
+			case MapperPackage.JAVA_PACKAGE_MAPPER__SCOPE:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__LIBRARY_NAME:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

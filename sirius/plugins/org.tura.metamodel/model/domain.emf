@@ -4,7 +4,7 @@ package domain;
 import "platform:/resource/org.tura.metamodel/model/application.ecore";
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
-import "platform:/resource/org.tura.metamodel/model/objectMapper.ecore";
+import "platform:/resource/org.tura.metamodel/model/objectmapper.ecore";
 
 
 //do not remove

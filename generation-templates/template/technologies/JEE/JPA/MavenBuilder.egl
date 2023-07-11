@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -40,23 +40,13 @@
 					<groupId>[%=type.~groupId%]</groupId>
 					<artifactId>[%=type.~artifactId%]</artifactId>
 					<version>[%=type.~version%]</version>
+					[% if( type.~scope <> null  and  not "compile".equals(type.~scope.toString())){%]
+					<scope>[%=type.~scope%]</scope>
+					[%}%]
+					
 				</dependency>
        [% } %]
 
-			  <dependency>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-					<version>4.11</version>
-					<scope>test</scope>
-				</dependency>
-
-				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-core</artifactId>
-					<version>5.4.0.Final</version>
-					<scope>test</scope>
-				</dependency>
-		
 			</dependencies>
 
 			<repositories>

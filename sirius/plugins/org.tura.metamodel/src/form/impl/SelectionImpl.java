@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link form.impl.SelectionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.SelectionImpl#getDisplayOptionPointer <em>Display Option Pointer</em>}</li>
  *   <li>{@link form.impl.SelectionImpl#getValueOptionPointer <em>Value Option Pointer</em>}</li>
  * </ul>
@@ -42,6 +43,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class SelectionImpl extends StyleElementImpl implements Selection {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getDisplayOptionPointer() <em>Display Option Pointer</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -79,6 +100,29 @@ public class SelectionImpl extends StyleElementImpl implements Selection {
 	@Override
 	protected EClass eStaticClass() {
 		return FormPackage.Literals.SELECTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.SELECTION__UID, oldUid, uid));
 	}
 
 	/**
@@ -169,6 +213,8 @@ public class SelectionImpl extends StyleElementImpl implements Selection {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FormPackage.SELECTION__UID:
+				return getUid();
 			case FormPackage.SELECTION__DISPLAY_OPTION_POINTER:
 				if (resolve) return getDisplayOptionPointer();
 				return basicGetDisplayOptionPointer();
@@ -187,6 +233,9 @@ public class SelectionImpl extends StyleElementImpl implements Selection {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FormPackage.SELECTION__UID:
+				setUid((String)newValue);
+				return;
 			case FormPackage.SELECTION__DISPLAY_OPTION_POINTER:
 				setDisplayOptionPointer((EObject)newValue);
 				return;
@@ -205,6 +254,9 @@ public class SelectionImpl extends StyleElementImpl implements Selection {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FormPackage.SELECTION__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case FormPackage.SELECTION__DISPLAY_OPTION_POINTER:
 				setDisplayOptionPointer((EObject)null);
 				return;
@@ -223,12 +275,30 @@ public class SelectionImpl extends StyleElementImpl implements Selection {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FormPackage.SELECTION__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.SELECTION__DISPLAY_OPTION_POINTER:
 				return displayOptionPointer != null;
 			case FormPackage.SELECTION__VALUE_OPTION_POINTER:
 				return valueOptionPointer != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SelectionImpl

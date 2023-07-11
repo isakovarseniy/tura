@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -65,6 +65,7 @@ public class JavaMapperItemProvider extends TypeMapperItemProvider {
 			addMappedToClassNamePropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
 			addGroupIdPropertyDescriptor(object);
+			addScopePropertyDescriptor(object);
 			addLibraryNamePropertyDescriptor(object);
 			addArtifactTypePropertyDescriptor(object);
 		}
@@ -204,6 +205,28 @@ public class JavaMapperItemProvider extends TypeMapperItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Scope feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScopePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaMapper_scope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaMapper_scope_feature", "_UI_JavaMapper_type"),
+				 MapperPackage.Literals.JAVA_MAPPER__SCOPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Library Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,6 +313,7 @@ public class JavaMapperItemProvider extends TypeMapperItemProvider {
 			case MapperPackage.JAVA_MAPPER__MAPPED_TO_CLASS_NAME:
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_ID:
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
+			case MapperPackage.JAVA_MAPPER__SCOPE:
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

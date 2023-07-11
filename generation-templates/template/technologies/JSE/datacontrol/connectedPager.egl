@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,13 +13,24 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign number = "#" >
-package [%=objPackage%];
-
 [%
-     var util = new Native('org.tura.metamodel.commons.Util');
+@template
+operation connectedPager(hash){
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+	var parent = hash.get("parent");
+	var type = hash.get("type");
+	var rel = hash.get("rel");
+	var objPackage = hash.get("objPackage");
+	var primaryKey = hash.get("primaryKey");
+	var sourceMethodName =  hash.get("sourceMethodName");
+	var targetMethodName = hash.get("targetMethodName");
+	var sourceProperty =  hash.get("sourceProperty");
+	var targetProperty =  hash.get("targetProperty");
 
 %]
+
+package [%=objPackage%];
 
 
 import java.util.List;
@@ -29,7 +40,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 
 public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[%=type.~fullName%]> implements java.io.Serializable{
    
-    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private static final long serialVersionUID = 1L;
     private org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%]>  list;
     
 
@@ -54,7 +65,7 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 			[%=type.~fullName%] obj = ([%=type.~fullName%]) repository.create(datacontrol.getBaseClass());
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
 		if (trigger != null){
-		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
+		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getObjectControlAttributes());
 		}
         ((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());		
         [%  if (rel.type.toString() == "One2Many" ){ %]
@@ -212,4 +223,6 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 
 
 }
-
+[%
+}
+%]

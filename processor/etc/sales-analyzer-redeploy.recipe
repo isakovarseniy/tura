@@ -1,3 +1,6 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+
 c = tura:docker config\
                       --alias wf\
                       --port 8081:8081\
@@ -9,7 +12,6 @@ c = tura:docker config\
 
 v = tura:docker createContainer --registry tura/sa/wildfly --tag 1.0 --var c --name sa-wf
 
-mr2 = tura:dsl config --mavenRepositoryLocation
 
                                           
 tura:dsl copyFile                --container $v\

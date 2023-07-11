@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,17 +13,20 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/commons/typeElementUtil.eol";
-import "tura:/generation-templates/template/commons/categorizedUtil.eol";
-import "tura:/generation-templates/template/commons/assosiation.eol";
-
- ${percent}${end}
  [%
-      var util = new Native('org.tura.metamodel.commons.Util');
+ operation proxyClass(hash){
+ 
+    var tp  = hash.get("tp");
+    var recipe =  hash.get("recipe");
+    var ingredient = hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var path = hash.get("path");
+    var interfaces = hash.get("interfaces");
+    var mhash = hash.get("mhash");
+ 
+    var util = new Native('org.tura.metamodel.commons.Util');
+
  %]
 package [%=tp.~package%];
 
@@ -32,16 +35,9 @@ import java.util.UUID;
 
 
 public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl, java.io.Serializable, org.tura.platform.repository.cpa.storage.TimeStampAware,org.tura.platform.repository.core.Cleanable
-[%
-     for (i in interfaces){
-     %]
-     ,[%=i.~fullName%]
-     [%
-     }
-%]
 {
 
-    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private static final long serialVersionUID = 1L;
 
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
     private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
@@ -64,68 +60,39 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	    if ( object.getCpaid() == null) {
 	    	object.setCpaid(java.util.UUID.randomUUID().toString());
 	    }
-	    this.cpaid = object.getCpaid() ;
+        this.setCpaid( object.getCpaid());
 	    this.storageProvider = storageProvider;
         lock();	    
     }
-    
-	 private  [%=tp.~class%]Proxy([%=tp.~class%]Proxy proxy) {
+  
+	 public  [%=tp.~class%]Proxy([%=tp.~class%]Proxy proxy) {
 		    this.repository = proxy.repository;
-		    this.cpaid = proxy.cpaid;
+            this.setCpaid(proxy.getCpaid()); 
 		    this.storageProvider = proxy.storageProvider;
-        [%
-   var type = tp;
-    while (1 == 1){
-
-      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
-      for ( rel in assosiations  ){
-           switch  (rel.type.toString()){
-             case "One2One" :  %][%=rel.one2oneSrcCopyField(recipe,ingredient,model_mapper)%][%
-             case "One2Many" : %][%=rel.one2manySrcCopyField(recipe,ingredient,model_mapper)%][%
-             case "Many2Many" : %][%=rel.many2manySrcCopyField(recipe,ingredient,model_mapper)%][%
-         }
-         
-     }            
-      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
-      for (rel in assosiations){
-           switch  (rel.type.toString()){
-             case "One2One" :  %][%=rel.one2oneTrgCopyField(recipe,ingredient,model_mapper)%][%
-             case "One2Many" : %][%=rel.one2manyTrgCopyField(recipe,ingredient,model_mapper)%][%
-             case "Many2Many" : %][%=rel.many2manyTrgCopyField(recipe,ingredient,model_mapper)%][%
-         }
-      }        
-    if (type.~extension.isDefined()){
-       type = type.~extension;
-    }else{
-       break;
-    }
-}      
-        %]
-      lock();        
+		    
+		    [%=srcCopyField(tp,recipe,ingredient,model_mapper)%]
+		    
+       lock();        
 	}
 	
+	  public boolean isInMemory() {
+		return inMemory;
+	}	
+	
+	@Override
+	public org.tura.platform.repository.core.Repository getRepository() {
+		return repository;
+	}
+	
+	@Override
+	public org.tura.platform.repository.core.Registry getRegistry() {
+		return repository.getRegistry();
+	}	
 	
 @Override
 	public void clean(  String name)throws java.io.IOException{
-        [%
-   var type = tp;
-    while (1 == 1){
-
-      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
-      for ( rel in assosiations  ){
-           %][%=rel.cleanSrc(recipe,ingredient,model_mapper)%][%
-     }            
-      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
-      for (rel in assosiations){
-           %][%=rel.cleanTrg(recipe,ingredient,model_mapper)%][%
-      }        
-    if (type.~extension.isDefined()){
-       type = type.~extension;
-    }else{
-       break;
-    }
-}      
-        %]	
+	
+	   [%=cleanObject(tp, recipe,ingredient,model_mapper)%]
 	
 	}
     
@@ -165,11 +132,6 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
     public void set_SrcId( String _sourceId){
            this._sourceId = _sourceId;    
-    }
-    
-    
-    public String getCpaid(){
-       return this.cpaid;
     }
     
 	public void addArtificialFieldWrapperProvider( org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider artificialFieldWrapper ){
@@ -223,7 +185,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     public  [%=tp.~class%] clone(){
 	    try {
-	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper().copyFromRepository2Persistence(this);
+	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry()).copyFromRepository2Persistence(this);
 		} catch (org.tura.platform.repository.core.RepositoryException e) {
 			 throw new RuntimeException(e);
 		}
@@ -231,7 +193,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
     public  [%=tp.~class%] deepClone(){
 	    try {
-	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper().deepCopyFromRepository2Persistence(this);
+	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry()).deepCopyFromRepository2Persistence(this);
 		} catch (org.tura.platform.repository.core.RepositoryException e) {
 			 throw new RuntimeException(e);
 		}
@@ -240,7 +202,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
      public  [%=tp.~class%] deepClone(java.util.Map<Object, Object> context ){
 	    try {
-	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper().deepCopyFromRepository2Persistence(this, context);
+	        return ([%=tp.~fullName%])   new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry()).deepCopyFromRepository2Persistence(this, context);
 		} catch (org.tura.platform.repository.core.RepositoryException e) {
 			 throw new RuntimeException(e);
 		}
@@ -248,7 +210,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
     
     public void add2Boundaries(java.util.Map<Object, Object> context ) {
-        [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper mapper = new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper();
+        [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper mapper = new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry());
         Object pk = mapper.getPrimaryKeyFromRepositoryObject(this);
         mapper.put(context,pk,this );
     }    
@@ -266,8 +228,74 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
 
     
-    public java.util.Map<String,Object> getAttributes(){
+    public java.util.Map<String,Object> getObjectControlAttributes(){
           return attributes;
+    }
+    
+    
+    public org.tura.platform.repository.cpa.EClass eClass() {
+	  return new org.tura.platform.repository.cpa.EClass("[%=tp.~class%]");
+    }	
+	
+    
+    public Object eContainer(){
+    [%
+      var arraySrc = new Native('java.util.ArrayList');
+      var arrayTrg = new Native('java.util.ArrayList');
+      tp.collectContainmentAssociation(arraySrc,arrayTrg);
+      if ( arraySrc.size() <> 0  or  arrayTrg.size() <> 0){
+      %]
+    [%=tp.~class%]Proxy memPrx  =  new [%=tp.~class%]Proxy(this);
+    memPrx.inMemory = true;
+    Object  container = null;
+      [%
+	      for (rel in arraySrc){
+             var hash = rel.sourceSideNamesCalculation();
+             %]
+             container = memPrx.get[%=hash.get("sourceMethodName")%]();
+             if  ( container !=  null ){
+                 return container;
+             }
+             [%
+	    }
+	      for (rel in arrayTrg){
+             var hash = rel.targetSideNamesCalculation();
+             %]
+             container = memPrx.get[%=hash.get("targetMethodName")%]();
+             if  ( container !=  null ){
+                 return container;
+             }
+             [%
+	    }
+	    
+	      for (rel in arraySrc){
+	        if(  rel.isLazy()){
+	             var hash = rel.sourceSideNamesCalculation();
+	             %]
+	             container = this.get[%=hash.get("sourceMethodName")%]();
+	             if  ( container !=  null ){
+	                 return container;
+	             }
+	             [%
+             }
+	    }
+	      for (rel in arrayTrg){
+	        if( rel.isLazy()){
+	             var hash = rel.targetSideNamesCalculation();
+	             %]
+	             container = this.get[%=hash.get("targetMethodName")%]();
+	             if  ( container !=  null ){
+	                 return container;
+	             }
+	             [%
+             }
+	    }
+	    
+      }
+       %]return null;[%
+      
+    %]
+    
     }
     
     @Override
@@ -287,6 +315,14 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
           }
      }  
     }
+    
+	  @Override
+	  public int  hashCode() {
+	      org.apache.commons.lang.builder.HashCodeBuilder builder = new org.apache.commons.lang.builder.HashCodeBuilder();
+	      builder.append(this.getKey());
+	      return builder.hashCode();
+	  }  
+    
     
 	@Override
 	public Boolean getAttached() {
@@ -325,14 +361,14 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
        }
     
        public org.tura.platform.repository.core.RepoObjectKey getPrimaryKey() throws Exception{
-	        return  new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper().getRepoObjectKey(this.getObject());
+	        return  new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry()).getRepoObjectKey(this.getObject());
       }
     
     
        public org.tura.platform.repository.core.RepoObjectKey getCpaPrimaryKey() throws Exception{
           org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
           key.setType("[%=tp.~fullName%]");
-          org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("cpaid",String.class.getName(),cpaid);
+          org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("cpaid",String.class.getName(),this.getCpaid());
           key.addValue(value);
 
           return key;
@@ -352,17 +388,19 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
        }    
     
       public org.tura.platform.repository.core.RepoKeyPath getPath() throws Exception{
-	        return  new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper().getPath(this.getObject());
+	        return  new [%=tp.~package%].mapper.[%=tp.~class%]ProxyMapper(repository.getRegistry()).getPath(this.getObject());
       }
     
 
       public org.tura.platform.repository.core.RepoKeyPath getCpaPath() {
         try{
       [%
-         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
+         var pkg = tp.eContainer();
+         //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
+         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
          if (assosiations.size() <> 0){
          %]
-          return repository.getInternalPath(this.cpaid);
+          return repository.getInternalPath(this.getCpaid());
          [%
          }else{
          %]
@@ -381,16 +419,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     @Override
     public String toString(){
     String str = "";
-    [%
-    for (field in tp.attributes){
-         if (tp.~skipAttributes.contains(field) ){
-            continue; 
-         }   
-    %]
-      str = str + " [%=field.name%] = "+ getObject().get[%=util.mergeAndCapitalize(field.name)%]();
-    [%
-    }
-    %]
+    [%=tp._toString(null,model_mapper)%]
      return str;
     }
     
@@ -426,34 +455,9 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	                 localStackProvider.get().commit();
                 }
         
-    [%
-    type = tp;
-    while (1 == 1){
-         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
-          for ( rel in assosiations  ){
-               switch  (rel.type.toString()){
-                 case "One2One" :  %][%=rel.one2oneSrcAttachment(recipe,ingredient,model_mapper)%][%
-                 case "One2Many" : %][%=rel.one2manySrcAttachment(recipe,ingredient,model_mapper)%][%
-                 case "Many2Many" : %][%
-             }
-             
-         }            
-          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
-          for (rel in assosiations){
-               switch  (rel.type.toString()){
-                 case "One2One" :  %][%=rel.one2oneTrgAttachment(recipe,ingredient,model_mapper)%][%
-                 case "One2Many" : %][%
-                 case "Many2Many" : %][%
-             }
-          }        
-          
-        if (type.~extension.isDefined()){
-           type = type.~extension;
-        }else{
-           break;
-        }
-  }
-%]
+           [%=objectAttachment(tp,recipe,ingredient,model_mapper)%]    
+
+
 		} catch (Exception e) {
 					throw new RuntimeException(e);
 		} finally {
@@ -461,14 +465,133 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 		}
 
 }
-[%
+
+   [%=inhClass(tp,recipe,ingredient,model_mapper,mhash,null,tp)%]
+
+
+	private ProxyCommadStackProvider getLocalStackProvider(String session) {
+		ProxyCommadStackProvider localStackProvider = stackMap.get(session);
+		if (localStackProvider == null) {
+			localStackProvider = new  org.tura.platform.repository.cpa.LocalCommadStackProvider();
+			stackMap.put(session, localStackProvider);
+			localStackProvider.get().addProxyCommandStackEventListener(session,
+					new LocalRepositoryCommitListener(session));
+		}
+		return localStackProvider;
+	}
+
+	private void removeLocalStackProvider(String session) {
+		stackMap.remove(session);
+	}
+		
+	private class LocalRepositoryCommitListener extends org.tura.platform.repository.proxy.ProxyCommandStackEventListener {
+	    private static final long serialVersionUID = 1L;
+	    
+       private String session;
     
-    var type = tp;
-    while (1 == 1){
+	    LocalRepositoryCommitListener(String  session){
+	    	this.session = session;
+	    }
+	    
+		public void beforeCommit() throws Exception {
+			List<Object> changes = getLocalStackProvider(session).get().getListOfCommand();
+            repository.getLocalRepository().applyChanges(changes);
+		}
+	}
+
+}        
+      
+[%
+}
+
+
+operation  type::Type collectContainmentAssociation(arraySrc,arrayTrg ){
+     var pkg = self.eContainer();
+     
+     //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid and ( t.containment.toString().equals("Source") or t.internal) );
+     var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = self.uid and ( t.containment.toString().equals("Source") or t.internal) );
+     arrayTrg.addAll(assosiations);
+     //assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = self.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+     assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = self.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+     arraySrc.addAll(assosiations);  
+
+      //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+         tp.collectContainmentAssociation(arraySrc,arrayTrg);
+      }        
+}
+
+@template
+operation  type::TypeElement _toString(trackFields,model_mapper){
+
+         if (trackFields == null){
+            trackFields = new Native('java.util.ArrayList');
+         }
+         
+        for ( field in self.attributes){
+        
+            if ( self.~ignoredAttribute.contains(field)  ){
+                 continue;  
+            }
+        
+		    if (self.~skipAttributes.contains(field)){
+                 continue;  
+		    }
+		    
+	        if ( trackFields.contains(field.name)){
+	           continue;
+	         }
+	        trackFields.add(field.name);
+            
+            var suffix="";
+            if  ( field.pk  and   self.isPersistentInterface(model_mapper)){
+               suffix =  self.~class;
+               if ( suffix == null) {
+                  self.mappingType2Java(recipe,ingredient);
+                  suffix =  type.~class;
+               }
+          }
+      %]
+      str = str + " [%=field.name%] = "+ getObject().get[%=util.mergeAndCapitalize(field.name)%][%=suffix%]();
+       [%     
+      }
+      var pkg = self.eContainer();
+      //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+       [%=tp._toString(trackFields,model_mapper)%]
+      [%
+      }        
+}
+
+
+@template
+operation  inhClass(type,recipe,ingredient,model_mapper,mhash,trackFields,mainType){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         
+         if (trackFields == null){
+            trackFields = new Native('java.util.ArrayList');
+         }
+         
+
         for ( field in type.attributes){
-		     if (type.~skipAttributes.contains(field) and not type.~bindedAttribute.contains(field)){
-		     
-            field.typeRef.mappingType2Java(recipe,ingredient);
+        
+            if ( type.~ignoredAttribute.contains(field)  ){
+                 continue;  
+            }
+        
+		    if (type.~skipAttributes.contains(field)){
+		    
+			     if ( trackFields.contains(field.name)){
+			        continue;
+			     }
+			     trackFields.add(field.name);
+			     
+	            field.typeRef.mappingType2Java(recipe,ingredient);
 		     
 %]
           private  [%=field.typeRef.~fullName%]   getTransient[%=util.mergeAndCapitalize(field.name)%](){
@@ -495,27 +618,57 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 					removeLocalStackProvider(session);
 				}
           }
-
-
-[%
-                continue; 
+   [%
              }   
         }    
-	    if (type.~extension.isDefined()){
-	       type = type.~extension;
-	    }else{
-	       break;
-	  }
-  }
+        for ( field in type.attributes){
+            if ( type.~ignoredAttribute.contains(field)  ){
+                 continue;  
+            }
+            if  ( field.pk  and   type.isPersistentInterface(model_mapper)){
+               var suffix =  type.~class;
+               if ( suffix == null) {
+                  type.mappingType2Java(recipe,ingredient);
+                  suffix =  type.~class;
+               }
+               
+             var n = util.mergeAndCapitalize(field.name)+suffix;
+		     if ( trackFields.contains(n)){
+		        continue;
+		     }
+		     trackFields.add(n);
+               
+               
+%]
+         @Override
+          public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%][%=suffix%](){
+               return this.getObject().get[%=util.mergeAndCapitalize(field.name)%][%=suffix%]();
+          }
+[%            
+            }
+       }    
     
-   type = tp;
-    while (1 == 1){
     
         for ( field in type.attributes){
+        
+            if ( type.~ignoredAttribute.contains(field)  ){
+                 continue;  
+            }
+            
+            if  ( field.pk  and   type.isPersistentInterface(model_mapper)){
+               continue;
+            }
+        
              if (type.~skipAttributes.contains(field) ){
                 continue; 
              }   
             field.typeRef.mappingType2Java(recipe,ingredient);
+            
+		     if ( trackFields.contains(field.name)){
+		        continue;
+		     }
+		     trackFields.add(field.name);
+            
             if (field.pk){
 %]
           @Override
@@ -593,8 +746,16 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
             }
         }
         
-      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+       var pkg = type.eContainer();
+//      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.source.uid = type.uid);
       for ( rel in assosiations  ){
+      	     if ( trackFields.contains(rel.uid+"src")){
+		        continue;
+		     }
+		     trackFields.add(rel.uid+"src");
+      
+      
 	         var rel_uid =rel.merge(mhash); 
 	         if (rel_uid == null){
 	             rel_uid = rel.uid;
@@ -604,13 +765,20 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
       
            switch  (rel.type.toString()){
              case "One2One" :  %][%=rel.one2oneSrc(recipe,ingredient,model_mapper)%][%
-             case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper)%][%
-             case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper)%][%
+             case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper,mainType)%][%
+             case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper,mainType)%][%
          }
          
      }            
-      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid );
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.target.uid = type.uid );
       for (rel in assosiations){
+      
+      	     if ( trackFields.contains(rel.uid+"trg")){
+		        continue;
+		     }
+		     trackFields.add(rel.uid+"trg");
+      
 	         var rel_uid =rel.merge(mhash); 
 	         if (rel_uid == null){
 	             rel_uid = rel.uid;
@@ -618,54 +786,62 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	         rel.~rel_uid = rel_uid;
       
            switch  (rel.type.toString()){
-             case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper)%][%
+             case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper,mainType)%][%
              case "One2Many" : %][%=rel.one2manyTrg(recipe,ingredient,model_mapper)%][%
-             case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper)%][%
+             case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper,mainType)%][%
          }
       }        
       
-    if (type.~extension.isDefined()){
-       type = type.~extension;
-    }else{
-       break;
-    }
-      
-}            
-%]
+      // var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+       [%=inhClass(tp,recipe,ingredient,model_mapper,mhash,trackFields,mainType)%]
+      [%
+      }        
 
-	private ProxyCommadStackProvider getLocalStackProvider(String session) {
-		ProxyCommadStackProvider localStackProvider = stackMap.get(session);
-		if (localStackProvider == null) {
-			localStackProvider = new  org.tura.platform.repository.cpa.LocalCommadStackProvider();
-			stackMap.put(session, localStackProvider);
-			localStackProvider.get().addProxyCommandStackEventListener(session,
-					new LocalRepositoryCommitListener(session));
-		}
-		return localStackProvider;
-	}
+}
 
-	private void removeLocalStackProvider(String session) {
-		stackMap.remove(session);
-	}
-		
-	private class LocalRepositoryCommitListener extends org.tura.platform.repository.proxy.ProxyCommandStackEventListener {
-	    private static final long serialVersionUID = 1L;
-	    
-       private String session;
-    
-	    LocalRepositoryCommitListener(String  session){
-	    	this.session = session;
-	    }
-	    
-		public void beforeCommit() throws Exception {
-			List<Object> changes = getLocalStackProvider(session).get().getListOfCommand();
-            repository.getLocalRepository().applyChanges(changes);
-		}
-	}
 
-}        
-      
-[%
+
+
+
+@template
+operation  objectAttachment(type,recipe,ingredient,model_mapper){
+
+         var pkg = type.eContainer();
+         //var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
+         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
+          for ( rel in assosiations  ){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneSrcAttachment(recipe,ingredient,model_mapper)%][%
+                 case "One2Many" : %][%=rel.one2manySrcAttachment(recipe,ingredient,model_mapper)%][%
+                 case "Many2Many" : %][%
+             }
+             
+         }            
+          //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+          var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+          for (rel in assosiations){
+               switch  (rel.type.toString()){
+                 case "One2One" :  %][%=rel.one2oneTrgAttachment(recipe,ingredient,model_mapper)%][%
+                 case "One2Many" : %][%
+                 case "Many2Many" : %][%
+             }
+          }        
+          
+      //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+       [%=objectAttachment(tp,recipe,ingredient,model_mapper)%]
+      [%
+      }        
+
+}
+
 
 @template
 operation type::Assosiation one2oneSrcAttachment(recipe,ingredient,model_mapper){
@@ -701,6 +877,40 @@ operation type::Assosiation one2oneTrgAttachment(recipe,ingredient,model_mapper)
 } 
 
 
+@template
+operation srcCopyField(type,recipe,ingredient,model_mapper){
+
+     var pkg = type.eContainer();
+      //var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid);
+      for ( rel in assosiations  ){
+           switch  (rel.type.toString()){
+             case "One2One" :  %][%=rel.one2oneSrcCopyField(recipe,ingredient,model_mapper)%][%
+             case "One2Many" : %][%=rel.one2manySrcCopyField(recipe,ingredient,model_mapper)%][%
+             case "Many2Many" : %][%=rel.many2manySrcCopyField(recipe,ingredient,model_mapper)%][%
+         }
+         
+     }            
+      //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      for (rel in assosiations){
+           switch  (rel.type.toString()){
+             case "One2One" :  %][%=rel.one2oneTrgCopyField(recipe,ingredient,model_mapper)%][%
+             case "One2Many" : %][%=rel.one2manyTrgCopyField(recipe,ingredient,model_mapper)%][%
+             case "Many2Many" : %][%=rel.many2manyTrgCopyField(recipe,ingredient,model_mapper)%][%
+         }
+      }        
+      
+      //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+       [%=srcCopyField(tp,recipe,ingredient,model_mapper)%]
+      [%
+      }        
+}
+
 
 @template
 operation type::Assosiation one2oneSrcCopyField(recipe,ingredient,model_mapper){
@@ -717,6 +927,34 @@ operation type::Assosiation one2oneSrcCopyField(recipe,ingredient,model_mapper){
    [%
    }
 }
+
+@template
+operation  cleanObject(type, recipe,ingredient,model_mapper){
+
+      var pkg = type.eContainer();
+      // var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid);
+      for ( rel in assosiations  ){
+           %][%=rel.cleanSrc(recipe,ingredient,model_mapper)%][%
+     }            
+      // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      for (rel in assosiations){
+           %][%=rel.cleanTrg(recipe,ingredient,model_mapper)%][%
+      }        
+
+      // var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid);
+      for (interface in interfaces){
+         var tp = interface.target.unwrap();
+      %]
+       [%=cleanObject(tp,recipe,ingredient,model_mapper)%]
+      [%
+      }        
+
+
+}
+
 
 
 @template
@@ -827,7 +1065,7 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
         
 	     if  (lazy){
 	           %]
-	           [%=self.one2oneSrcLazyGetMethod(hash,relationType,masterType)%]
+	           [%=self.one2oneSrcLazyGetMethod(hash,relationType,masterType,model_mapper)%]
 	           [%
 	     }else{
         %]
@@ -835,8 +1073,8 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
      public static org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation rm[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%] master,  [%=hash.get("target").~fullName%] detail){
             org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
             command.setRelationType("One2One");
-            command.setMaster(([%=hash.get("source").~fullName%]Proxy) master);
-            command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)detail);
+            command.setMaster((org.tura.platform.repository.core.ObjectControl) master);
+            command.setDetail(  (org.tura.platform.repository.core.ObjectControl)detail);
             command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
             command.setDetailProperty("[%=hash.get("targetMethodName")%]");
             
@@ -845,8 +1083,8 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
      public static org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation add[%=hash.get("sourceMethodName")%](  [%=hash.get("source").~fullName%] master,  [%=hash.get("target").~fullName%]  detail){
             org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
             command.setRelationType("One2One");
-            command.setMaster(([%=hash.get("source").~fullName%]Proxy) master);
-            command.setDetail((([%=hash.get("target").~fullName%]Proxy)  detail ));
+            command.setMaster((org.tura.platform.repository.core.ObjectControl) master);
+            command.setDetail(((org.tura.platform.repository.core.ObjectControl)  detail ));
             command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
             command.setDetailProperty("[%=hash.get("targetMethodName")%]");
      
@@ -866,7 +1104,7 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
      }else{
 	     if  (lazy){
 	           %]
-	           [%=self.one2oneSrcLazyGetMethod(hash,relationType,masterType)%]
+	           [%=self.one2oneSrcLazyGetMethod(hash,relationType,masterType,model_mapper)%]
 	           [%
 	     }else{
 	        if ( self.isInternal()){
@@ -890,7 +1128,8 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
            %]
            if ( [%=hash.get("sourceProperty")%] != null && ( [%=hash.get("sourceProperty")%].getAttached() == null || ![%=hash.get("sourceProperty")%].getAttached())){
                try{
-                    repository.insert([%=hash.get("sourceProperty")%], [%=hash.get("target").~fullName%].class  );  
+                    org.tura.platform.repository.core.ObjectControl oc  = (org.tura.platform.repository.core.ObjectControl)  ([%=hash.get("sourceProperty")%]);
+                    repository.insert([%=hash.get("sourceProperty")%], oc.getProxyClazz());  
 				} catch (RepositoryException e) {
 					throw new RuntimeException(e);
 				}
@@ -918,7 +1157,7 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
            [%
             }
            %]               
-           if (([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]Eager()) != null){
+           if ( this.get[%=hash.get("sourceMethodName")%]Eager() != null){
 	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%](this,this.get[%=hash.get("sourceMethodName")%]Eager());
 				command.setStackProvider(localStackProvider);
 	            command.prepare();
@@ -951,7 +1190,9 @@ operation type::Assosiation one2oneSrcMethodBlock(recipe,ingredient,model_mapper
         [%
         }else{
         %]
-           [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](this);
+           if( [%=hash.get("sourceProperty")%] != null  ){
+              [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](this);
+           }
         [%
         
         }
@@ -984,7 +1225,7 @@ operation type::Assosiation one2oneSrcEagerGetMethod(hash,relationType){
 
 
 @template
-operation type::Assosiation one2oneSrcLazyGetMethod(hash,relationType,masterType){
+operation type::Assosiation one2oneSrcLazyGetMethod(hash,relationType,masterType,model_mapper){
      var util = new Native('org.tura.metamodel.commons.Util');
 
      %]
@@ -996,7 +1237,7 @@ operation type::Assosiation one2oneSrcLazyGetMethod(hash,relationType,masterType
              [%=hash.get("sourceProperty")%]LazySingleObject
 				= new org.tura.platform.repository.proxy.access.LazySingleObject<[%=hash.get("target").~fullName%]>([%=hash.get("target").~fullName%].class,storageProvider , repository, org.tura.platform.repository.core.RelationType.[%=relationType%]){
 
-                   private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+                   private static final long serialVersionUID = 1L;
 
 					public  List<org.tura.platform.datacontrol.commons.OrderCriteria> getLazyObjectOrderCriteria(){
 					      return new java.util.ArrayList<>();
@@ -1006,8 +1247,15 @@ operation type::Assosiation one2oneSrcLazyGetMethod(hash,relationType,masterType
 					      java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> search =  new java.util.ArrayList<>();
 						  [%
 							         for (lnk in self.links){
+							           var field = lnk.masterField;
+							           var  tp = field.eContainer();
+							           var  suffix = "";
+				                       if  ( field.pk  and   tp.isPersistentInterface(model_mapper)){
+							                suffix= tp.~class;
+							            }
+							         
 							         %]
-		                   search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
+		                   search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%][%=suffix%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
 							         [%
 							         }
 						 %]					      
@@ -1023,7 +1271,7 @@ operation type::Assosiation one2oneSrcLazyGetMethod(hash,relationType,masterType
 
 
 @template
-operation type::Assosiation one2ManySrcLazyGetMethod(){
+operation type::Assosiation one2ManySrcLazyGetMethod(model_mapper){
      var util = new Native('org.tura.metamodel.commons.Util');
 
      %]
@@ -1037,8 +1285,14 @@ operation type::Assosiation one2ManySrcLazyGetMethod(){
 	      java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> search =  new java.util.ArrayList<>();
 		  [%
 			         for (lnk in self.links){
+			           var field = lnk.masterField;
+			           var  tp = field.eContainer();
+			           var  suffix = "";
+                       if  ( field.pk  and   tp.isPersistentInterface(model_mapper)){
+			                suffix= tp.~class;
+			            }
 			         %]
-           search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
+           search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%][%=suffix%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
 			         [%
 			         }
 		 %]					      
@@ -1067,10 +1321,17 @@ operation type::Assosiation many2ManySrcLazyGetMethod(recipe,ingredient,model_ma
 
 		  [%
 			         for (lnk in self.links){
+			           var field = lnk.masterField;
+			           var  tp = field.eContainer();
+			           var  suffix = "";
+                       if  ( field.pk  and   tp.isPersistentInterface(model_mapper)){
+			                suffix= tp.~class;
+			            }
+			         
                       lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
 			         
 			         %]
-           search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.masterField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
+           search.add( new org.tura.platform.datacontrol.commons.SearchCriteria("[%=util.mergeAndUnCapitalize(lnk.masterField.name)%]",com.octo.java.sql.exp.Operator.EQ.name(),get[%=util.mergeAndCapitalize(lnk.masterField.name)%][%=suffix%](),[%=lnk.masterField.typeRef.~fullName%].class.getName()));
 			         [%
 			         }
 		 %]					      
@@ -1158,7 +1419,7 @@ operation type::Assosiation one2manySrcCopyField(recipe,ingredient,model_mapper)
 }
 
 @template
-operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper){
+operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper,mainType){
      var hash = self.sourceSideNamesCalculation();
      var masterType =   hash.get("masterType");
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -1186,8 +1447,8 @@ operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper){
            }
         }
    [%
-     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,false)%][%
-     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,true)%][%
+     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,false,mainType)%][%
+     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,true,mainType)%][%
    }else{
    %]
         public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
@@ -1203,13 +1464,13 @@ operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper){
         
    [%
    
-     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,false)%][%
+     %][%=self.one2manySrcBlock(recipe,ingredient,model_mapper,false,mainType)%][%
    }
 }
 
 
 @template
-operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy){
+operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy,mainType){
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
      var detailType = hash.get("detailType");
@@ -1228,13 +1489,14 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
      var util = new Native('org.tura.metamodel.commons.Util');
      
      hash.get("target").mappingType2Java(recipe,ingredient);
+     hash.get("source").mappingType2Java(recipe,ingredient);
      if (masterType.uid == self.source.uid ){
      if ( not lazy){
      %]
 	        public static org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation add[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%] master,   [%=hash.get("target").~fullName%] detail ){
 	              org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-	              command.setMaster(([%=hash.get("source").~fullName%]Proxy)master);
-	              command.setDetail(([%=hash.get("target").~fullName%]Proxy)detail);
+	              command.setMaster((org.tura.platform.repository.core.ObjectControl)master);
+	              command.setDetail((org.tura.platform.repository.core.ObjectControl)detail);
 	              command.setRelationType("One2Many");
 	              command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
 	              command.setDetailProperty("[%=hash.get("targetMethodName")%]");
@@ -1243,8 +1505,8 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 	            
 	        public static org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation rm[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%] master,   [%=hash.get("target").~fullName%] detail ){
 	              org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-	              command.setMaster(([%=hash.get("source").~fullName%]Proxy)master);
-	              command.setDetail(([%=hash.get("target").~fullName%]Proxy)detail);
+	              command.setMaster((org.tura.platform.repository.core.ObjectControl)master);
+	              command.setDetail((org.tura.platform.repository.core.ObjectControl)detail);
 	              command.setRelationType("One2Many");
 	              command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
 	              command.setDetailProperty("[%=hash.get("targetMethodName")%]");
@@ -1264,16 +1526,19 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
           [%=hash.get("sourceProperty")%][%=self.accessorType(lazy)%] = 
              new org.tura.platform.repository.proxy.access.[%=self.accessorType(lazy)%][%=self.internalType()%]List<[%=hash.get("target").~fullName%]>([%=hash.get("target").~fullName%].class,storageProvider,repository,org.tura.platform.repository.core.RelationType.Direct) {
             
-          private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+          private static final long serialVersionUID = 1L;
             
            [%
 	          if  ( lazy){
-	          %][%=self.one2ManySrcLazyGetMethod()%][%
+	          %][%=self.one2ManySrcLazyGetMethod(model_mapper)%][%
 	          }
            %] 
             
             @Override
             public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+                 if ( [%=hash.get("sourceProperty")%] == null ){
+                    return;
+                 }
 		           [%
 		           if ( lazy){
 		               %]get[%=hash.get("sourceMethodName")%]Eager().add(i,[%=hash.get("sourceProperty")%]);
@@ -1284,7 +1549,8 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 			           %]
 			           if ( [%=hash.get("sourceProperty")%] != null && ( [%=hash.get("sourceProperty")%].getAttached() == null || ![%=hash.get("sourceProperty")%].getAttached())){
 			              try{
-			                  repository.insert([%=hash.get("sourceProperty")%], [%=hash.get("target").~fullName%].class);
+                              org.tura.platform.repository.core.ObjectControl oc  = (org.tura.platform.repository.core.ObjectControl)  ([%=hash.get("sourceProperty")%]);
+			                  repository.insert([%=hash.get("sourceProperty")%], oc.getProxyClazz());
 							} catch (RepositoryException e) {
 								throw new RuntimeException(e);
 							}
@@ -1292,7 +1558,7 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 			           }
 			           if (getAttached() == null || !getAttached()){
 			               try{
- 			                  repository.insert([%=hash.get("source").~fullName%]Proxy.this,[%=hash.get("source").~fullName%].class );
+ 			                  repository.insert([%=mainType.~fullName%]Proxy.this,[%=hash.get("source").~fullName%].class );
 							} catch (RepositoryException e) {
 								throw new RuntimeException(e);
 							}
@@ -1314,7 +1580,7 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 			            }
 			           %]
 			            ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-	                    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~class%]Proxy.this, [%=hash.get("sourceProperty")%]);
+	                    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("sourceMethodName")%]( [%=mainType.~class%]Proxy.this, [%=hash.get("sourceProperty")%]);
 						command.setStackProvider(localStackProvider);
 	                    if (command.prepare()){
 		                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1343,6 +1609,9 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
             
             @Override
             public boolean remove( Object  obj){
+                   if ( obj == null){
+                      return false;
+                   }
                   [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] =  ([%=hash.get("target").~fullName%] )obj;
                   org.tura.platform.repository.proxy.access.DelStruc valid = null;
 		          try {
@@ -1358,7 +1627,7 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 		                String session = UUID.randomUUID().toString();
 		                try {
 					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]([%=hash.get("source").~class%]Proxy.this, [%=hash.get("sourceProperty")%]);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]([%=mainType.~class%]Proxy.this, [%=hash.get("sourceProperty")%]);
 							command.setStackProvider(localStackProvider);
 		                    if (command.prepare()){
 			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1390,7 +1659,7 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
 		          String session = UUID.randomUUID().toString();
 		          try {
 			       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]([%=hash.get("source").~class%]Proxy.this, get(index));
+                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]([%=mainType.~class%]Proxy.this, get(index));
 					command.setStackProvider(localStackProvider);
                     if (command.prepare()){
 	                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1412,7 +1681,7 @@ operation type::Assosiation one2manySrcBlock(recipe,ingredient,model_mapper,lazy
             }
 			@Override
 			public RepoKeyPath getParentKeyPath() {
-				return [%=hash.get("source").~class%]Proxy.this.getCpaPath();
+				return [%=mainType.~class%]Proxy.this.getCpaPath();
 			}
 
 			@Override
@@ -1453,7 +1722,7 @@ operation type::Assosiation many2manySrcCopyField(recipe,ingredient,model_mapper
 
 
 @template
-operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper){
+operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper,mainType){
      var hash = self.sourceSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
      hash.get("target").mappingType2Java(recipe,ingredient);
@@ -1480,8 +1749,8 @@ operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper){
             }        
         }
    [%
-     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,false)%][%
-     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,true)%][%
+     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,false,mainType)%][%
+     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,true,mainType)%][%
    }else{
    %]
         public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
@@ -1496,13 +1765,13 @@ operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper){
         }        
    [%
    
-     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,false)%][%
+     %][%=self.many2manySrcBlock(recipe,ingredient,model_mapper,false,mainType)%][%
    }
 }
 
 
 @template
-operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,lazy){
+operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,lazy,mainType){
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
      var detailType = hash.get("detailType");
@@ -1526,8 +1795,8 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
      %]
        public static  org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation add[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%] master,  [%=hash.get("target").~fullName%] detail ){
             org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-            command.setMaster ( ([%=masterType.~fullName%]Proxy)master );
-            command.setDetail( ([%=detailType.~fullName%]Proxy)detail );
+            command.setMaster ( (org.tura.platform.repository.core.ObjectControl)master );
+            command.setDetail( (org.tura.platform.repository.core.ObjectControl)detail );
             command.setRelationType("Many2Many");
             command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
             command.setDetailProperty("[%=hash.get("targetMethodName")%]");
@@ -1536,8 +1805,8 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
 
        public static org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation rm[%=hash.get("sourceMethodName")%]([%=hash.get("source").~fullName%] master,  [%=hash.get("target").~fullName%] detail){
             org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-            command.setMaster ( ([%=masterType.~fullName%]Proxy)master );
-            command.setDetail( ([%=detailType.~fullName%]Proxy)detail );
+            command.setMaster ( (org.tura.platform.repository.core.ObjectControl)master );
+            command.setDetail( (org.tura.platform.repository.core.ObjectControl)detail );
             command.setRelationType("Many2Many");
             command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
             command.setDetailProperty("[%=hash.get("targetMethodName")%]");
@@ -1557,7 +1826,7 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
             [%=hash.get("sourceProperty")%][%=self.accessorType(lazy)%] = 
          new org.tura.platform.repository.proxy.access.[%=self.accessorType(lazy)%]List<[%=hash.get("target").~fullName%]>( [%=hash.get("target").~fullName%].class,storageProvider,repository,org.tura.platform.repository.core.RelationType.Direct) {
             
-          private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+          private static final long serialVersionUID = 1L;
             
            [%
 	          if  (lazy){
@@ -1567,6 +1836,9 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
             
             @Override
             public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+            if ([%=hash.get("sourceProperty")%] == null){
+               return;
+            } 
            [%
 	          if  (lazy){
 	        %]
@@ -1580,19 +1852,20 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
 			       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
 		           if ( [%=hash.get("sourceProperty")%] != null && ( [%=hash.get("sourceProperty")%].getAttached() == null || ![%=hash.get("sourceProperty")%].getAttached())){
                        try{ 
-  		                     repository.insert([%=hash.get("sourceProperty")%], [%=hash.get("target").~fullName%].class);
+                             org.tura.platform.repository.core.ObjectControl oc  = (org.tura.platform.repository.core.ObjectControl)  ([%=hash.get("sourceProperty")%]);
+  		                     repository.insert([%=hash.get("sourceProperty")%], oc.getProxyClazz());
 						} catch (RepositoryException e) {
 							throw new RuntimeException(e);
 						}
 		           }
 		           if (getAttached() == null || !getAttached()){
 	                   try{
-	                     repository.insert([%=hash.get("source").~fullName%]Proxy.this,[%=hash.get("source").~fullName%].class);
+	                     repository.insert([%=mainType.~fullName%]Proxy.this,[%=hash.get("source").~fullName%].class);
 						} catch (RepositoryException e) {
 							throw new RuntimeException(e);
 						}
 		           }
-                    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%]Proxy.this, [%=hash.get("sourceProperty")%]);
+                    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("sourceMethodName")%]( [%=mainType.~fullName%]Proxy.this, [%=hash.get("sourceProperty")%]);
 					command.setStackProvider(localStackProvider);
                     if (command.prepare()){
 	                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1614,6 +1887,9 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
             
             @Override
             public boolean remove( Object  obj){
+                 if ( obj == null){
+                    return false;
+                 }
                  [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = ( [%=hash.get("target").~fullName%])obj;
                   org.tura.platform.repository.proxy.access.DelStruc valid = null;
 		          try {
@@ -1629,7 +1905,7 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
 		                String session = UUID.randomUUID().toString();
 		                try {
 					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%]Proxy.this, [%=hash.get("sourceProperty")%]);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]( [%=mainType.~fullName%]Proxy.this, [%=hash.get("sourceProperty")%]);
 							command.setStackProvider(localStackProvider);
 		                    if (command.prepare()){
 			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1662,7 +1938,7 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
 		       String session = UUID.randomUUID().toString();
 		        try {
 			       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]( [%=hash.get("source").~fullName%]Proxy.this,get(index));
+                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("sourceMethodName")%]( [%=mainType.~fullName%]Proxy.this,get(index));
 					command.setStackProvider(localStackProvider);
                     if (command.prepare()){
 	                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -1685,7 +1961,7 @@ operation type::Assosiation many2manySrcBlock(recipe,ingredient,model_mapper,laz
             }
 			@Override
 			public RepoKeyPath getParentKeyPath() {
-				return [%=hash.get("source").~fullName%]Proxy.this.getCpaPath();
+				return [%=mainType.~fullName%]Proxy.this.getCpaPath();
 			}
 
 			@Override
@@ -1722,7 +1998,7 @@ operation type::Assosiation one2oneTrgCopyField(recipe,ingredient,model_mapper){
 }
 
 @template
-operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper){
+operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper,mainType){
      var hash = self.targetSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
      hash.get("source").mappingType2Java(recipe,ingredient);
@@ -1756,8 +2032,8 @@ operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper){
      
    [%
    
-     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,false)%][%
-     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,true)%][%
+     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,false,mainType)%][%
+     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,true,mainType)%][%
    }else{
    %]
      @Override
@@ -1778,13 +2054,13 @@ operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper){
      }
      
    [%   
-     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,false)%][%
+     %][%=self.one2oneTrgMethodBlock(recipe,ingredient,model_mapper,false,mainType)%][%
    }
 }
 
 
 @template
-operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper,lazy){
+operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper,lazy,mainType){
 
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
@@ -1819,8 +2095,8 @@ operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper
      %]
      public static org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation rm[%=hash.get("targetMethodName")%]([%=hash.get("target").~fullName%] master , [%=hash.get("source").~fullName%]  detail  ){
           org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-          command.setMaster(([%=hash.get("target").~fullName%]Proxy)master);
-          command.setDetail(([%=hash.get("source").~fullName%]Proxy)detail);
+          command.setMaster((org.tura.platform.repository.core.ObjectControl)master);
+          command.setDetail((org.tura.platform.repository.core.ObjectControl)detail);
           command.setRelationType("One2One");
           command.setMasterProperty("[%=hash.get("targetMethodName")%]");
           command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
@@ -1829,8 +2105,8 @@ operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper
      
      public static org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation add[%=hash.get("targetMethodName")%]([%=hash.get("target").~fullName%] master , [%=hash.get("source").~fullName%]  detail  ){
           org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-          command.setMaster(([%=hash.get("target").~fullName%]Proxy)master);
-          command.setDetail(([%=hash.get("source").~fullName%]Proxy)detail);
+          command.setMaster((org.tura.platform.repository.core.ObjectControl)master);
+          command.setDetail((org.tura.platform.repository.core.ObjectControl)detail);
           command.setRelationType("One2One");
           command.setMasterProperty("[%=hash.get("targetMethodName")%]");
           command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
@@ -1871,28 +2147,30 @@ operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper
         if (masterType.uid == self.target.uid ){
         %]
 		   String session = UUID.randomUUID().toString();
+	       Boolean saveAttached = false;
 	           [%
 	            if (not hash.get("containment")){
 	           %]
 	           if ( [%=hash.get("targetProperty")%] != null && ( [%=hash.get("targetProperty")%].getAttached() == null || ![%=hash.get("targetProperty")%].getAttached())){
                     try{
-	                   repository.insert([%=hash.get("targetProperty")%], [%=hash.get("source").~fullName%].class);
+                       org.tura.platform.repository.core.ObjectControl oc  = (org.tura.platform.repository.core.ObjectControl)  ([%=hash.get("targetProperty")%]);
+	                   repository.insert([%=hash.get("targetProperty")%], oc.getProxyClazz());
 					} catch (RepositoryException e) {
 						throw new RuntimeException(e);
 					}
 	           }
 	           if (getAttached() == null || !getAttached()){
 	              try{ 
-	                  repository.insert([%=hash.get("target").~fullName%]Proxy.this, [%=hash.get("target").~fullName%].class);
+	                  repository.insert([%=mainType.~fullName%]Proxy.this, [%=hash.get("target").~fullName%].class);
 					} catch (RepositoryException e) {
 						throw new RuntimeException(e);
 					}
 	           }
               try{
+                saveAttached = this.getAttached();
 	           [%
 	            }else{
 	            %]
-	         Boolean saveAttached = false;
               try{
 				    if ( [%=hash.get("targetProperty")%] != null){
 				       saveAttached = ((ObjectControl)[%=hash.get("targetProperty")%]).getAttached();
@@ -1902,14 +2180,14 @@ operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper
 	            }
 	           %]        
 			   ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-               if(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]Eager()) != null){
-	                org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=hash.get("target").~fullName%]Proxy.this ,this.get[%=hash.get("targetMethodName")%]());
+               if(this.get[%=hash.get("targetMethodName")%]Eager() != null){
+	                org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=mainType.~fullName%]Proxy.this ,this.get[%=hash.get("targetMethodName")%]());
 				    command.setStackProvider(localStackProvider);
 	                command.prepare();
                 }
         
                    if ([%=hash.get("targetProperty")%] != null){
-                      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = add[%=hash.get("targetMethodName")%]([%=hash.get("target").~fullName%]Proxy.this ,[%=hash.get("targetProperty")%]);
+                      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = add[%=hash.get("targetMethodName")%]([%=mainType.~fullName%]Proxy.this ,[%=hash.get("targetProperty")%]);
 				      command2.setStackProvider(localStackProvider);
                       command2.prepare();
                    }
@@ -1932,7 +2210,9 @@ operation type::Assosiation one2oneTrgMethodBlock(recipe,ingredient,model_mapper
         [%
         }else{
         %]
-           [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](this);
+           if (   [%=hash.get("targetProperty")%]  != null ){
+               [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](this);
+           }
         [%
         
         }
@@ -1974,7 +2254,7 @@ operation type::Assosiation one2oneTrgLazyGetMethod(hash,relationType,masterType
                 [%=hash.get("targetProperty")%]LazySingleObject =  
 				new org.tura.platform.repository.proxy.access.LazySingleObject<[%=hash.get("source").~fullName%]>([%=hash.get("source").~fullName%].class,storageProvider,repository,org.tura.platform.repository.core.RelationType.[%=relationType%]){
 
-                   private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+                   private static final long serialVersionUID = 1L;
 
 					public  List<org.tura.platform.datacontrol.commons.OrderCriteria> getLazyObjectOrderCriteria(){
 					      return new java.util.ArrayList<>();
@@ -2119,9 +2399,6 @@ operation type::Assosiation one2manyTrgMethodBlock(recipe,ingredient,model_mappe
      var util = new Native('org.tura.metamodel.commons.Util');
      
      hash.get("source").mappingType2Java(recipe,ingredient);
-     if (masterType.uid == self.target.uid ){
-     %]   Should not have this !!!!  [%
-     }else{
      %]
      private org.tura.platform.repository.proxy.access.[%=self.accessorType(lazy)%][%=self.internalType()%]SingleObject<[%=hash.get("source").~fullName%]>  [%=hash.get("targetProperty")%][%=self.accessorType(lazy)%]SingleObject ;
 
@@ -2144,11 +2421,12 @@ operation type::Assosiation one2manyTrgMethodBlock(recipe,ingredient,model_mappe
 	 if ( not lazy){    
 	    %]
 	     private void set[%=hash.get("targetMethodName")%][%=self.accessorType(lazy)%]( [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%]){
-	      [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(this);
+           if ( [%=hash.get("targetProperty")%]  !=  null){  
+	           [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(this);
+	        }
 	     }
 	     [%
      }
-    } 
 }
 
 
@@ -2178,7 +2456,7 @@ operation type::Assosiation many2manyTrgCopyField(recipe,ingredient,model_mapper
 
 
 @template
-operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper){
+operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper,mainType){
      var hash = self.targetSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
      hash.get("source").mappingType2Java(recipe,ingredient);
@@ -2204,8 +2482,8 @@ operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper){
           }
      }
    [%
-     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,false)%][%
-     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,true)%][%
+     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,false,mainType)%][%
+     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,true,mainType)%][%
    
    }else{
    %]
@@ -2220,14 +2498,14 @@ operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper){
           }
      }     
    [%
-     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,false)%][%
+     %][%=self.many2manyTrgMethodBlock(recipe,ingredient,model_mapper,false,mainType)%][%
    }
 
 }
 
 
 @template
-operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapper,lazy){
+operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapper,lazy,mainType){
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
      var detailType = hash.get("detailType");
@@ -2245,7 +2523,7 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
      hash = self.targetSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
      
-     hash.get("source").mappingType2Java(recipe,ingredient);
+     masterType.mappingType2Java(recipe,ingredient);
      if (masterType.uid == self.target.uid ){
      %]
      [%
@@ -2254,8 +2532,8 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
      %]
      private org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation add[%=hash.get("targetMethodName")%]( [%=detailType.~fullName%]  master, [%=masterType.~fullName%] detail){
            org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
-           command.setMaster( ([%=detailType.~fullName%]Proxy) master);
-           command.setDetail(  ([%=masterType.~fullName%]Proxy) detail);
+           command.setMaster( (org.tura.platform.repository.core.ObjectControl) master);
+           command.setDetail(  (org.tura.platform.repository.core.ObjectControl) detail);
            command.setRelationType("Many2Many");
            command.setMasterProperty("[%=hash.get("targetMethodName")%]");
            command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
@@ -2264,8 +2542,8 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
             
      private org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation rm[%=hash.get("targetMethodName")%]([%=detailType.~fullName%]  master, [%=masterType.~fullName%] detail){
            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
-           command.setMaster( ([%=detailType.~fullName%]Proxy) master);
-           command.setDetail(  ([%=masterType.~fullName%]Proxy) detail);
+           command.setMaster( (org.tura.platform.repository.core.ObjectControl) master);
+           command.setDetail(  (org.tura.platform.repository.core.ObjectControl) detail);
            command.setRelationType("Many2Many");
            command.setMasterProperty("[%=hash.get("targetMethodName")%]");
            command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
@@ -2283,7 +2561,7 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
         if (  [%=hash.get("targetProperty")%][%=self.accessorType(lazy)%] == null){ 
           [%=hash.get("targetProperty")%][%=self.accessorType(lazy)%] = 
          new org.tura.platform.repository.proxy.access.[%=self.accessorType(lazy)%]List<[%=hash.get("source").~fullName%]>( [%=hash.get("source").~fullName%].class,storageProvider,repository,org.tura.platform.repository.core.RelationType.Opposite) {
-            private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+            private static final long serialVersionUID = 1L;
             
            [%
 	          if  (lazy){
@@ -2293,24 +2571,28 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
                  
             @Override
             public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+               if ( [%=hash.get("targetProperty")%]  == null){
+                  return;
+               }
 		      String session = UUID.randomUUID().toString();
                try{
 			           if ( [%=hash.get("targetProperty")%] != null && ( [%=hash.get("targetProperty")%].getAttached() == null || ![%=hash.get("targetProperty")%].getAttached())){
                            try{
-			                  repository.insert([%=hash.get("targetProperty")%],  [%=hash.get("source").~fullName%] .class);
+                              org.tura.platform.repository.core.ObjectControl oc  = (org.tura.platform.repository.core.ObjectControl)  ([%=hash.get("targetProperty")%]);
+			                  repository.insert([%=hash.get("targetProperty")%],  oc.getProxyClazz());
 							} catch (RepositoryException e) {
 								throw new RuntimeException(e);
 							}
 			           }
 			           if (getAttached() == null || !getAttached()){
 			               try{
-			                  repository.insert( [%=hash.get("target").~fullName%]Proxy.this, [%=hash.get("target").~fullName%].class);
+			                  repository.insert( [%=mainType.~fullName%]Proxy.this, [%=hash.get("target").~fullName%].class);
 							} catch (RepositoryException e) {
 								throw new RuntimeException(e);
 							}
 			           }
 			         ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                       org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("targetMethodName")%]( [%=detailType.~fullName%]Proxy.this, [%=hash.get("targetProperty")%]);
+                       org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = add[%=hash.get("targetMethodName")%]( [%=mainType.~fullName%]Proxy.this, [%=hash.get("targetProperty")%]);
 			           command.setStackProvider(localStackProvider);
                         if (command.prepare()){
 		                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -2329,6 +2611,9 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
 
             @Override
             public boolean remove( Object obj){
+                   if ( obj == null ){
+                      return false;
+                   }
                    [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]  = ( [%=hash.get("source").~fullName%])obj; 
                   org.tura.platform.repository.proxy.access.DelStruc valid = null;
 		          try {
@@ -2344,7 +2629,7 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
 		                String session = UUID.randomUUID().toString();
 		                try {
 					       ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=detailType.~fullName%]Proxy.this, [%=hash.get("targetProperty")%]);
+                            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=mainType.~fullName%]Proxy.this, [%=hash.get("targetProperty")%]);
 							command.setStackProvider(localStackProvider);
 		                    if (command.prepare()){
 			                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -2369,7 +2654,7 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
 		        String session = UUID.randomUUID().toString();
                 try{
 			        ProxyCommadStackProvider localStackProvider = getLocalStackProvider(session);
-                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=detailType.~fullName%]Proxy.this, get(index));
+                    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = rm[%=hash.get("targetMethodName")%]([%=mainType.~fullName%]Proxy.this, get(index));
 			        command.setStackProvider(localStackProvider);
                     if (command.prepare()){
 	                     java.util.List<Object> changes = localStackProvider.get().getListOfCommand();
@@ -2389,7 +2674,7 @@ operation type::Assosiation many2manyTrgMethodBlock(recipe,ingredient,model_mapp
             
 			@Override
 			public RepoKeyPath getParentKeyPath() {
-				return [%=detailType.~fullName%]Proxy.this.getCpaPath();
+				return [%=mainType.~fullName%]Proxy.this.getCpaPath();
 			}
 
 			@Override

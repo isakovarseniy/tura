@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -348,7 +348,7 @@ operation   form::MenuItem  refreshUpdateArias() {
 @template
 operation refreshProcessArias(isProcessYourelslf,elslf) {
    var array = new Native('java.util.ArrayList');
-   var process = elslf.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+   var process = elslf.refreshAreas->select(r|r.group = 1)->sortBy(q|q.group);
    if (process.size() <> 0 ){
       array.addAll(process);
    }

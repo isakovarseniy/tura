@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import java.util.Map;
 
 import org.josql.Query;
 import org.josql.QueryResults;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.ObjectGraph;
@@ -47,7 +48,6 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 public class CpaStorage implements Serializable {
 
 	private static final long serialVersionUID = 6777242421337680079L;
-	private static final int THRESHOLD = 10;
 	private static final String MASTER_OBJECT = "MASTER_OBJECT";
 	private static final String MASTER_TYPE = "MASTER_TYPE";
 	private static final String DETAIL_OBJECT = "DETAIL_OBJECT";
@@ -71,9 +71,22 @@ public class CpaStorage implements Serializable {
 	private transient Map<String, LockData> lockKeeper = new HashMap<>();
 	private transient ReferenceQueue<? super ObjectControl> reaped = new ReferenceQueue<>();
 	private transient Map<Reference<ObjectControl>, RepoKeyPath> lockMap = new HashMap<>();
-	private  transient Map<String,  String>   internalCpaIdMapping  =  new  HashMap<>();
+	private transient Map<String, String> internalCpaIdMapping = new HashMap<>();
+	private TypeInheritance typeInheritance;
+
+	private transient Query SELECT_OBJECTS_SORTED_ASC_QUERY;
+	private transient Query SELECT_OBJECTREF_QUERY;
 
 	public CpaStorage() {
+	}
+
+	public CpaStorage(TypeInheritance typeInheritance) {
+	}
+
+	public CpaStorage(String id, TypeInheritance typeInheritance) {
+		this.id = id;
+		this.typeInheritance = typeInheritance;
+		init();
 	}
 
 	public void addCpaStorageEventListener(String id, CpaStorageEventListener listener) {
@@ -86,8 +99,17 @@ public class CpaStorage implements Serializable {
 		listeners.remove(id);
 	}
 
-	public CpaStorage(String id) {
-		this.id = id;
+	private void init() {
+		try {
+			if (SELECT_OBJECTS_SORTED_ASC_QUERY == null ) {
+				SELECT_OBJECTS_SORTED_ASC_QUERY = new Query();
+				SELECT_OBJECTS_SORTED_ASC_QUERY.parse(SELECT_OBJECTS_SORTED_ASC);
+				SELECT_OBJECTREF_QUERY = new Query();
+			    SELECT_OBJECTREF_QUERY.parse(SELECT_OBJECTREF);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public ProxyCommadStackProvider getCommadStackProvider() {
@@ -135,7 +157,7 @@ public class CpaStorage implements Serializable {
 
 	protected StorageData getStorageData() throws Exception {
 		if (commadStackProvider.get().getData(getId()) == null) {
-			commadStackProvider.get().addData(getId(), new StorageData());
+			commadStackProvider.get().addData(getId(), new StorageData(typeInheritance));
 		}
 		return (StorageData) commadStackProvider.get().getData(getId());
 	}
@@ -166,12 +188,12 @@ public class CpaStorage implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public void unloadObjects(Class<?> type) throws Exception {
-		unlockQueue();		
+		unlockQueue();
 		Collection<StorageControl> array = getStorageData().getDb().getObjectsByType(type);
 		if (array == null) {
 			return;
 		}
-		if (array.size() < THRESHOLD) {
+		if (array.size() < PlatformConfig.THRESHOLD) {
 			return;
 		}
 
@@ -332,6 +354,9 @@ public class CpaStorage implements Serializable {
 		RelationControl control = new RelationControl(property, lazy);
 		List<Ref> dependencies = getDependentCpaId(masterCpaId, masterExtId, control);
 		Ref ref = new Ref(detailCpaId, detailExtId, detailType, cpaRelationType);
+//		if (ref.getPk().equals(ref.getExtPk())) {
+//			ref.setWsc(new WeakReference<StorageControl>(detailSc));
+//		}
 
 		if (dependencies != null && dependencies.contains(ref)) {
 			return;
@@ -417,7 +442,10 @@ public class CpaStorage implements Serializable {
 		}
 		for (Ref ref : dependencies) {
 			if (RelationType.Any.equals(cpaRelationType) || ref.getCpaRelationType().equals(cpaRelationType)) {
-				result.add(wrap(ref));
+				StorageControl obj = wrap(ref);
+				if (obj != null) {
+					result.add(obj);
+				}
 			}
 		}
 		return result;
@@ -436,29 +464,31 @@ public class CpaStorage implements Serializable {
 
 		List<StorageControl> dependency = findDependencies(path, property, cpaRelationType);
 
-		Query query = new Query();
-		query.parse(SELECT_OBJECTS_SORTED_ASC);
-		query.setVariable(BEGIN_TIME_STAMP, startTimeStamp);
-		query.setVariable(END_TIME_STAMP, endTimeStamp);
-		query.setVariable(STATUS_NAME, status);
+		init();
+		SELECT_OBJECTS_SORTED_ASC_QUERY.setVariable(BEGIN_TIME_STAMP, startTimeStamp);
+		SELECT_OBJECTS_SORTED_ASC_QUERY.setVariable(END_TIME_STAMP, endTimeStamp);
+		SELECT_OBJECTS_SORTED_ASC_QUERY.setVariable(STATUS_NAME, status);
 
-		QueryResults result = query.execute(dependency);
+		QueryResults result = SELECT_OBJECTS_SORTED_ASC_QUERY.execute(dependency);
 
 		return result.getResults();
 	}
 
 	private StorageControl wrap(Ref ref) throws Exception {
-		StorageControl sc = findByCpaId(ref.getPk(), ref.getType());
+		StorageControl sc = null;
+		sc = findByCpaId(ref.getPk(), ref.getType());
 		if (sc == null) {
 			return null;
 		}
-		RepoKeyPath path = getStorageData().getDb().findInternalPath((String) ref.getExtPk());
-		if  ( !ref.getExtPk().equals(ref.getPk()) && path  == null) {
-			throw  new RepositoryException("Detail  object not found");
-		}
-		if (path != null) {
-			StorageControlWrapper scw = new StorageControlWrapper(sc, path);
-			return scw;
+		if (!ref.getPk().equals(ref.getExtPk())) {
+			RepoKeyPath path = getStorageData().getDb().findInternalPath((String) ref.getExtPk());
+			if (!ref.getExtPk().equals(ref.getPk()) && path == null) {
+				throw new RepositoryException("Detail  object not found");
+			}
+			if (path != null) {
+				StorageControlWrapper scw = new StorageControlWrapper(sc, path);
+				return scw;
+			}
 		}
 		return sc;
 	}
@@ -521,6 +551,9 @@ public class CpaStorage implements Serializable {
 	}
 
 	public void lock(ObjectControl oc) throws Exception {
+		if (!PlatformConfig.READ_WRITE_MODE) {
+			return;
+		}
 		RepoKeyPath path = oc.getCpaPath();
 		Reference<ObjectControl> ref = new WeakReference<ObjectControl>(oc, reaped);
 		lockMap.put(ref, path);
@@ -553,7 +586,7 @@ public class CpaStorage implements Serializable {
 		LockData lock = this.lockKeeper.get(cpaid);
 		if (lock == null) {
 			String maserCpaId = internalCpaIdMapping.get(cpaid);
-			if ( maserCpaId == null  ) {
+			if (maserCpaId == null) {
 				throw new RuntimeException("Object is not locked");
 			}
 			lock = this.lockKeeper.get(maserCpaId);
@@ -603,7 +636,7 @@ public class CpaStorage implements Serializable {
 				if (isLocked(masterCpaId)) {
 					return true;
 				}
-			}else {
+			} else {
 				return true;
 			}
 		}
@@ -613,7 +646,7 @@ public class CpaStorage implements Serializable {
 				return true;
 			}
 		}
-		
+
 		String masterCpaId = masterScl.getMapper().getCpaId(masterScl.getObject());
 		Class<?> clazz = masterScl.getType();
 
@@ -656,6 +689,7 @@ public class CpaStorage implements Serializable {
 					continue;
 				}
 				if (rc.isLazy()) {
+					graph.removeLastBranch(rc.getRelation());
 					continue;
 				}
 
@@ -691,10 +725,9 @@ public class CpaStorage implements Serializable {
 		Map<ObjectRef, Map<RelationControl, List<Ref>>> connections = getStorageData().getConnections();
 //Find all reletions Working for  internal objects
 
-		Query query = new Query();
-		query.parse(SELECT_OBJECTREF);
-		query.setVariable(CPAID, masterId);
-		QueryResults result = query.execute(connections.keySet());
+		init();
+		SELECT_OBJECTREF_QUERY.setVariable(CPAID, masterId);
+		QueryResults result = SELECT_OBJECTREF_QUERY.execute(connections.keySet());
 
 		Map<ObjectRef, Map<RelationControl, List<Ref>>> filteredConnection = new HashMap<>();
 		for (Object obj : result.getResults()) {
@@ -826,6 +859,12 @@ public class CpaStorage implements Serializable {
 		sc.setStatus(status);
 	}
 
+	public void updateLoadedBy(Object pk, Class<?> loadedBy, Class<?> type, PersistanceMapper mapper) throws Exception {
+		StorageControl sc = findByPrimaryKey(pk, type);
+		sc.setLoadedBy(loadedBy);
+	}
+	
+	
 	public Map<ObjectRef, Map<RelationControl, List<Ref>>> getConnections() throws Exception {
 		return getStorageData().getConnections();
 	}
@@ -850,15 +889,14 @@ public class CpaStorage implements Serializable {
 
 	}
 
-	
-    private void readObject(java.io.ObjectInputStream aInputStream) throws ClassNotFoundException, java.io.IOException {
+	private void readObject(java.io.ObjectInputStream aInputStream) throws ClassNotFoundException, java.io.IOException {
 		aInputStream.defaultReadObject();
 		lockKeeper = new HashMap<>();
 		reaped = new ReferenceQueue<>();
 		lockMap = new HashMap<>();
-		internalCpaIdMapping  =  new  HashMap<>();
+		internalCpaIdMapping = new HashMap<>();
 	}
-	
+
 	public enum LockOperation {
 		Update, Unload
 	}

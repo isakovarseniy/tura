@@ -47,15 +47,26 @@ enum ArtifactType{
 	
 }
 
+enum JavaLibScope{
+	compile;
+	provided;
+	test;
+	
+}
+
 class JavaMapper extends TypeMapper,VersionRef{
     id attr EString uid;
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
    attr EString artifactId;
    attr EString groupId;
+   attr JavaLibScope scope;
    attr EString libraryName;
    attr ArtifactType artifactType = "jar";
 }
+
+
+
 
 
 class JavaPackageMapper extends PackageMapper,VersionRef {
@@ -63,6 +74,7 @@ class JavaPackageMapper extends PackageMapper,VersionRef {
    attr EString mappedToPackageName;
    attr EString artifactId;
    attr EString groupId;
+   attr JavaLibScope scope;
    attr EString libraryName;
    attr ArtifactType artifactType = "jar";
 }
@@ -102,4 +114,10 @@ class XMLTypeMapper extends TypeMapper {
     id attr EString uid;
     attr EString namespace;
     attr EString typename;
+}
+
+
+class MetamodelPackageMapper extends PackageMapper {
+    id attr EString uid;
+   attr EString mappedToPackageName;
 }

@@ -1,0 +1,67 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+  
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var types = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+
+     var type;
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+     var tp1 = util.runQuery(model_mapper,"Query model classes",model_mapper);
+     if (tp1 <> null){
+        types.addAll(tp1);
+     }
+     
+     var tp2 = util.runQuery(model_mapper,"Query Entity from domain package",model_mapper);
+     if (tp2 <> null){
+        types.addAll(tp2);
+     }
+     
+     
+     if (types <> null and types.size <> 0 ){
+        var typeCollection = new Native("java.util.ArrayList");
+
+	    for (type in types){
+	       type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+
+     var tp3 = util.runQuery(model_mapper,"Query Enumerators for domain package",model_mapper);
+     if (tp3 <> null){
+        typeCollection.addAll(tp3);
+     }
+
+      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+
+	  hash.put("typeCollection",typeCollection);
+	  hash.put("recipe",recipe);
+	  hash.put("ingredient",ingredient);
+	  hash.put("component",component);
+	  hash.put("model_mapper",model_mapper);
+	  hash.put("path",path);
+
+	  var repository : Template = util.loadTemplate("tura:/generation-templates/template/technologies/Metamodel/metamodelClassMapper.egl",hash,TemplateFactory);
+	  repository.setFormatter(f);
+	  var buffer = repository.process();
+	  util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "MetamodelMapper.java",buffer);
+
+     }
+
+   %]

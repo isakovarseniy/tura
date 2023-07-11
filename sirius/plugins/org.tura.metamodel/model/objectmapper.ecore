@@ -27,7 +27,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stage" eType="#//ProcessingStage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointer"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointerObj"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//OmRelation" containment="true"/>
@@ -59,7 +59,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mergeAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="ecore:EClass form.ecore#//ContextParameters"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="ecore:EClass form.ecore#//ContextParametersObj"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationConnector" eSuperTypes="#//OperationConnectorRef">
@@ -69,7 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//ObjectMapper"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//ObjectMapper"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="#//OperationType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="ecore:EClass form.ecore#//ContextParameters"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="ecore:EClass form.ecore#//ContextParametersObj"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperationType">

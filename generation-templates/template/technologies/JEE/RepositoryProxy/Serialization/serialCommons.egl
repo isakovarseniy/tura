@@ -1,0 +1,51 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+ [%
+ @template
+ operation  jsonTypeInfoAnnotation(type,recipe,ingredient,typeCollection){
+ 
+ 
+       var pkg = type.eContainer();
+//       var generalizations = type::Generalization.allInstances()->select(t|t.target.unwrap( ).uid = type.uid);
+       var generalizations =  pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.target.unwrap( ).uid = type.uid);
+ 
+ %]
+            @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property = "@class")
+[% 
+            if (  generalizations <> null  and  generalizations.size() <> 0 ){
+             
+%]
+@com.fasterxml.jackson.annotation.JsonSubTypes({
+[% 
+                var i = 0; 
+                 for( g in generalizations){
+                    var subclass = g.source.unwrap();
+                    if ( not typeCollection.contains(subclass)  ){
+                         continue;
+                    }
+                    subclass.mappingType2Java(recipe,ingredient);
+%]
+		 [%if(i <> 0){%],[%}%]@com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = [%=subclass.~fullName%].class, name = "[%=subclass.~class%]")
+[%
+              i = 1;
+ 		}
+%]
+		})
+[%            
+            } 
+ } 
+ 
+ %]

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -31,6 +31,7 @@ package mapper;
  *   <li>{@link mapper.JavaMapper#getMappedToClassName <em>Mapped To Class Name</em>}</li>
  *   <li>{@link mapper.JavaMapper#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link mapper.JavaMapper#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link mapper.JavaMapper#getScope <em>Scope</em>}</li>
  *   <li>{@link mapper.JavaMapper#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link mapper.JavaMapper#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
@@ -169,6 +170,31 @@ public interface JavaMapper extends TypeMapper, VersionRef {
 	 * @generated
 	 */
 	void setGroupId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Scope</b></em>' attribute.
+	 * The literals are from the enumeration {@link mapper.JavaLibScope}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scope</em>' attribute.
+	 * @see mapper.JavaLibScope
+	 * @see #setScope(JavaLibScope)
+	 * @see mapper.MapperPackage#getJavaMapper_Scope()
+	 * @model
+	 * @generated
+	 */
+	JavaLibScope getScope();
+
+	/**
+	 * Sets the value of the '{@link mapper.JavaMapper#getScope <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scope</em>' attribute.
+	 * @see mapper.JavaLibScope
+	 * @see #getScope()
+	 * @generated
+	 */
+	void setScope(JavaLibScope value);
 
 	/**
 	 * Returns the value of the '<em><b>Library Name</b></em>' attribute.

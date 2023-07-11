@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,124 +13,125 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+  [%
 import "tura:/generation-templates/template/commons/typeElementUtil.eol";
 import "tura:/generation-templates/template/commons/categorizedUtil.eol";
 import "tura:/generation-templates/template/commons/assosiation.eol";
 import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
+import "tura:/generation-templates/template/technologies/JEE/JPA/entitypk.egl";
+import "tura:/generation-templates/template/technologies/JEE/Repository/SPA/mapperClass.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl";
 
 
- ${percent}${end}
- 
- 
-  [%
-     var util = new Native('org.tura.metamodel.commons.Util');
-     var alltypes = new Native('java.util.ArrayList');
-     var hash = new Native('java.util.HashMap');
-     var t2view = new Native("java.util.HashMap"); 
-     var t2model = new Native("java.util.HashMap"); 
-     var templateStore = new Native('java.util.HashMap');
+operation repository(hash ){
 
+	     var recipe =  hash.get("recipe");
+		 var ingredient = hash.get("ingredient");
+		 var component = hash.get("component");
+		 var model_mapper = hash.get("model_mapper");
+		 var configuration = hash.get("configuration");
 
-     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
-     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+	     var util = new Native('org.tura.metamodel.commons.Util');
+	     var alltypes = new Native('java.util.ArrayList');
+	     var t2view = new Native("java.util.HashMap"); 
+	     var t2model = new Native("java.util.HashMap"); 
+	     var templateStore = new Native('java.util.HashMap');
+		 var  types = new Native('java.util.ArrayList');
+	
+	
+	     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+	     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+	     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
+	
+	     var tp1 = util.runQuery(model_mapper,"Query model classes",model_mapper);
+	     if ( tp1 <> null){
+	        types.addAll(tp1);
+	     }
+	 
+	      if (types <> null and types.size <> 0 ){
+	      
+	        var resourcePath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";  
+	
+	        %][%=beanxml()%][% 
+			out.formatWith(x);
+		    util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",out.toString());   
+			out.formatWith(n);
 
-     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
- 
-      if (types <> null and types.size <> 0 ){
-      
-        var resourcePath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";  
-
-	    var beansxml : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
-	    beansxml.setFormatter(x);
-	    var buffer = beansxml.process();
-	    util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
-      
-        var typeCollection = new Native("java.util.ArrayList"); 
-	    for (type in types){
-	       type.collectType(typeCollection,model_mapper,null,null,null);
-	    }
-
-	  var savepackage = null;
-	    
-      for(type in typeCollection){
-         type.mappingType2Java(recipe,ingredient,'MODEL');
-         var h = new Native("java.util.HashMap"); 
-         h.put("class",type.~class);
-         h.put("package",type.~package);
-         h.put("fullName",type.~fullName);
-         t2model.put(type,h);
-         
-         type.mappingType2Java(recipe,ingredient,'VIEW');
-         var h = new Native("java.util.HashMap"); 
-         h.put("class",type.~class);
-         h.put("package",type.~package);
-         h.put("fullName",type.~fullName);
-         t2view.put(type,h);
-      }	    
- 
-      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
-      for(type in t2model.keySet()){
-         
-        if (not type.~primaryKey.isDefined()  ){
-           continue;
-        }
-
-       if (
-		type.findClassifier(util.getHint(model_mapper,"SPA Object"))
-		or 
-         type.findClassifier(util.getHint(model_mapper,"Domain Object"))  
-       or 
-         type.findClassifier(util.getHint(model_mapper,"Adapter"))       
-       ){
-	    hash.put("t2model",t2model);
-	    hash.put("t2view",t2view);
-
-	    hash.put("type",type);
-	    hash.put("recipe",recipe);
-	    hash.put("ingredient",ingredient);
-	    hash.put("component",component);
-	    hash.put("model_mapper",model_mapper);
-	    hash.put("path",path);
-		    
-	    util.populateTechnologies(hash,model_mapper);
-		
-	    if (type.~primaryKey.size() >1 ){
+	        var typeCollection = new Native("java.util.ArrayList"); 
+		    for (type in types){
+		       type.collectType(typeCollection,model_mapper,null,null,null);
+		    }
+	
+		  var savepackage = null;
+	      for(type in typeCollection){
 	         type.mappingType2Java(recipe,ingredient,'MODEL');
-		    var entitypk : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/JPA/entitypk.egl",hash,TemplateFactory);
-		    entitypk.setFormatter(f);
-		    var buffer = entitypk.process();
-		    util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") + "PK.java",buffer);   
-		
-		}
-		
-		
-	    var serializer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/SPA/mapperClass.egl",hash,TemplateFactory,templateStore);
-	    serializer.setFormatter(f);
-	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"Mapper.java",buffer);   
- 		
- 		
- 		
- 		
- 		
-        }
-   }
- 	hash.put("savepackage",component.getBasePackage());
- 	hash.put("typeCollection",typeCollection);
-    var init : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/SPA/initSPARepository.egl",hash,TemplateFactory,templateStore);
-    init.setFormatter(f);
-    var buffer = init.process();
-    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "InitSPARepository.java",buffer);   
-   
-    var init : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/SPA/InstantiatorSpaRepository.egl",hash,TemplateFactory,templateStore);
-    init.setFormatter(f);
-    var buffer = init.process();
-    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "SPARepositoryInstantiator.java",buffer);   
-   
-   
- }  
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("class",type.~class);
+	         h.put("package",type.~package);
+	         h.put("fullName",type.~fullName);
+	         t2model.put(type,h);
+	         
+	         type.mappingType2Java(recipe,ingredient,'VIEW');
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("class",type.~class);
+	         h.put("package",type.~package);
+	         h.put("fullName",type.~fullName);
+	         t2view.put(type,h);
+	      }	    
+	      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+	      for(type in t2model.keySet()){
+
+	        if (not type.~primaryKey.isDefined()  ){
+	           continue;
+	        }
+	
+	       if (
+			type.findClassifier(util.getHint(model_mapper,"SPA Object"))
+			or 
+	         type.findClassifier(util.getHint(model_mapper,"Domain Object"))  
+	       or 
+	         type.findClassifier(util.getHint(model_mapper,"Adapter"))       
+	       ){
+		    hash.put("t2model",t2model);
+		    hash.put("t2view",t2view);
+	
+		    hash.put("type",type);
+		    hash.put("recipe",recipe);
+		    hash.put("ingredient",ingredient);
+		    hash.put("component",component);
+		    hash.put("model_mapper",model_mapper);
+		    hash.put("path",path);
+			    
+		    util.populateTechnologies(hash,model_mapper);
+			
+		    if (type.~primaryKey.size() >1 ){
+		         type.mappingType2Java(recipe,ingredient,'MODEL');
+			     %][%=entitypk(hash)%][%  
+			      out.formatWith(f);
+			      util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") + "PK.java",out.toString());   
+			      out.formatWith(n);
+			}
+			
+			%][%=mappers(hash)%][%
+			out.formatWith(f);
+		    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"Mapper.java",out.toString());   
+			out.formatWith(n);
+			
+	        }
+	   }
+	 	hash.put("savepackage",component.getBasePackage());
+	 	hash.put("typeCollection",typeCollection);
+	    var init : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/SPA/initSPARepository.egl",hash,TemplateFactory,templateStore);
+	    init.setFormatter(f);
+	    var buffer = init.process();
+	    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "InitSPARepository.java",buffer);   
+	   
+	    var init : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/Repository/SPA/InstantiatorSpaRepository.egl",hash,TemplateFactory,templateStore);
+	    init.setFormatter(f);
+	    var buffer = init.process();
+	    util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "SPARepositoryInstantiator.java",buffer);   
+	   
+	   
+	 }  
+ }
 %]

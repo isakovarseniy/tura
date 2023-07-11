@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,7 +18,32 @@
  import "tura:/generation-templates/template/commons/categorizedUtil.eol";
  import "tura:/generation-templates/template/commons/assosiation.eol";
  
- var util = new Native('org.tura.metamodel.commons.Util');
+ @template
+ operation entity(hash){
+ 
+    var type =  hash.get("type");
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var path = hash.get("path");
+    var configuration =  hash.get("configuration");    
+ 
+ 
+	 var util = new Native('org.tura.metamodel.commons.Util');
+	 var pkg = type.eContainer();
+	 var  isDomainInterface = type.findClassifier( util.getHint(model_mapper,"Domain Interface"));
+
+//	 var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.isImplements(model_mapper)  );
+	 var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.source.uid = type.uid and t.isImplements(model_mapper)  );
+
+	 var hasSuperInterface = type.isHasSuperInterface();
+	 var superInterfaces = new Native('java.util.ArrayList');
+	 if (type.~extension.isDefined()){
+	   type.~extension.collectInterfaces(superInterfaces);
+	 }
+ 
+ 
 %]
 package [%=type.~package%];  
 
@@ -35,8 +60,22 @@ package [%=type.~package%];
 @javax.persistence.IdClass(value=[%=type.~class%]PK.class)
 [%}%]
 
-public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%] {
+public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%]  implements java.io.Serializable, org.tura.platform.repository.persistence.TypeAware[%
+   if ( isDomainInterface  ){
+        %] ,org.tura.platform.object.JpaDomainInterfaceSetter , org.tura.platform.repository.persistence.CastTo[%     
+   }
+   if (  not isDomainInterface and hasSuperInterface){
+        %], org.tura.platform.repository.persistence.CastTo[%     
+   }
+   
+%] {
+     private static final long serialVersionUID = 1L;
 
+
+     public 	Class<?> getTypeClazz(){
+         return [%=type.~fullName%].class;
+     }
+     
 
 [%for ( field in type.attributes){
      if (type.~skipAttributes.contains(field) )
@@ -72,7 +111,23 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
     @javax.persistence.Enumerated(javax.persistence.EnumType.STRING)
     [%}%]
     
-	@javax.persistence.Column(name = "[%=util.splitByCapitalLatterAndCapitalize(field.name)%]")
+    
+    [%
+    var unique ="";
+    if ( field.uk){
+      unique =",unique=true";
+    }
+    var column_name=  util.splitByCapitalLatterAndCapitalize(field.name);  
+    if (field.findClassifier(util.getHint(model_mapper,"Column"))){
+       column_name=field.~hintDetails;
+    }
+    var columnLength =  "";
+    if (field.findClassifier(util.getHint(model_mapper,"ColumnLength"))){
+        columnLength = ",length = "+field.~hintDetails;
+    }
+    
+    %]   
+	@javax.persistence.Column(name = "[%=column_name%]"  [%=unique%]  [%=columnLength%])
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
 	
 	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]){
@@ -101,8 +156,15 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 %]
 
 	[%
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	
+//	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation)  and   t.source.uid = type.uid);
       for (rel in assosiations){
+      
+      var fetch = "";
+      if ( rel.isLazy()){
+         fetch = ",fetch = javax.persistence.FetchType.LAZY";
+      }
       
 		if( not alltypes.contains(rel.target.unwrap())){
                %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
@@ -114,12 +176,18 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
                continue;
          }
       
+         if (  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+               continue;
+         }
+      
+      
          var hash = rel.sourceSideNamesCalculation();
          
   	     switch  (rel.type.toString()){
-         case "One2One" : %] @javax.persistence.OneToOne(mappedBy="[%=hash.get("targetProperty")%]")[%
-         case "One2Many" : %] @javax.persistence.OneToMany(mappedBy="[%=hash.get("targetProperty")%]")[%
-         case "Many2Many" : %] @javax.persistence.ManyToMany(mappedBy="[%=hash.get("targetProperty")%]")[%
+         case "One2One" : %] @javax.persistence.OneToOne(mappedBy="[%=hash.get("targetProperty")%]"  [%=fetch%])[%
+         case "One2Many" : %] @javax.persistence.OneToMany(mappedBy="[%=hash.get("targetProperty")%]" [%=fetch%])[%
+         case "Many2Many" : %] @javax.persistence.ManyToMany(mappedBy="[%=hash.get("targetProperty")%]" [%=fetch%])[%
          }
       
   	     switch  (rel.type.toString()){
@@ -147,8 +215,14 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	%]
 
 	[%
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+	
+//	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid);
       for (rel in assosiations){
+          var fetch = "";
+           if ( rel.isLazy()){
+              fetch = "fetch = javax.persistence.FetchType.LAZY";
+            }
       
 		if( not alltypes.contains(rel.source.unwrap())){
                %][%=rel.targetNoAssociation(recipe,ingredient)%][%
@@ -159,14 +233,19 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
                %][%=rel.targetNoAssociation(recipe,ingredient)%][%
                continue;
          }
+         
+         if (  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+               continue;
+         }         
       
          var hash = rel.targetSideNamesCalculation();
       
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.OneToOne[%
-         case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.ManyToOne[%
-         case "Many2Many" : %] [%=rel.joinTable(hash.get("sourceMethodName"),hash.get("targetMethodName"),model_mapper)%] @javax.persistence.ManyToMany[%
+         case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.OneToOne([%=fetch%])[%
+         case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.ManyToOne([%=fetch%])[%
+         case "Many2Many" : %] [%=rel.joinTable(hash.get("sourceMethodName"),hash.get("targetMethodName"),model_mapper)%] @javax.persistence.ManyToMany([%=fetch%])[%
          }
       
       
@@ -190,23 +269,470 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          }                
          %] { this.[%=hash.get("targetProperty")%]=[%=hash.get("targetProperty")%]; } [%
 
-
       }
+      if (  not isDomainInterface and  hasSuperInterface){
+       %][%=type.inheritanceGeneration(superInterfaces,alltypes,null)%][%
+       %]
+       public  [%=type.~class%] (){
+       [%=type.constructor(superInterfaces,null)%]
+       }
+       [%
+       }
+       
+       if ( not isDomainInterface and  hasSuperInterface){
+       %]
+		  @SuppressWarnings("unchecked")
+		  @Override
+		 public <T>T castTo(  Class<T> clazz) throws org.tura.platform.repository.core.RepositoryException {
+            [%=type.castTo(type,superInterfaces,null)%]
+[%
+       if ( superInterfaces.size() <> 0){
+%]
+         return super.castTo(clazz); 
+[%     
+     }else{
+%]
+		  throw new org.tura.platform.repository.core.RepositoryException("Cast exception to  " + clazz.getName() );
+[%       
+     }
+%]
+	  }  
+       [%
+       }
+       
+       if ( isDomainInterface){
+%]
+		  @Override
+		 public <T>T castTo(  Class<T> clazz) throws org.tura.platform.repository.core.RepositoryException {
+            return ((org.tura.platform.repository.persistence.CastTo)getObject()).castTo(clazz);
+         }
+[%       
+       }
+       
+//       var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.isImplements(model_mapper)  );
+       var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.source.uid = type.uid and t.isImplements(model_mapper)  );
+       
+       if ( not isDomainInterface and  interfaces.size()  <> 0){
+       %]
+          public Object getObject(){
+             return this;
+          }
+       [%
+       }
+       if ( isDomainInterface ){
+       %]
+       [%=type.inhRef(type)%]
+       
+	   @javax.persistence.Column(name = "INH_SWITCH")
+       private String inhSwitch;
+       
+       public Object getObject(){
+          if (inhSwitch == null ){
+             return this;
+          }
+         [%=type.getObject()%]
+          return this;
+        }
+          public void setObject(Object obj){
+              if (obj != null ){
+                  inhSwitch = obj.getClass().getName();
+       [%=type.setObject()%]
+              }
+        }  
+       [%
+       
+       }
+       
+       
 	%]
 }
 [%
+}
+
+@template
+operation type::TypeElement inhRef(type){
+      var pkg = self.eContainer();
+//      var interfaces = type::Generalization.allInstances()->select(t|t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+       for (interface in interfaces){
+		  var ex =  interface.source.unwrap( );
+		  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+		     continue;
+		  }
+		  if ( ex.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+             %][%=ex.inhRef(type)%][%
+		     continue;
+		  }
+      %]
+         @javax.persistence.OneToOne(mappedBy="inh[%=util.mergeAndCapitalize(type.~class)%]",fetch = javax.persistence.FetchType.LAZY)
+         private [%=ex.~fullName%]   cl[%=util.mergeAndCapitalize(ex.~class)%];     
+       [%
+          
+       }     
+}
+
+@template
+operation type::TypeElement getObject(){
+	  var util = new Native('org.tura.metamodel.commons.Util');
+      var pkg = self.eContainer();
+//       var interfaces = type::Generalization.allInstances()->select(t|t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+       var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+       for (interface in interfaces){
+		  var ex =  interface.source.unwrap( );
+		  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+		     continue;
+		  }
+		  if ( ex.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+             %][%=ex.getObject()%][%
+		     continue;
+		  }
+          
+		  %]
+		  if( cl[%=util.mergeAndCapitalize(ex.~class)%] != null){
+		      return  cl[%=util.mergeAndCapitalize(ex.~class)%].getObject();
+		  }
+		    [%
+	      }
+}
+
+@template
+operation type::TypeElement setObject(){
+	   var util = new Native('org.tura.metamodel.commons.Util');
+       var pkg = self.eContainer();
+//	   var interfaces = type::Generalization.allInstances()->select(t|t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+	   var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and   t.target.unwrap( ).uid = self.uid and t.isImplements(model_mapper) );
+	   for (interface in interfaces){
+		  var ex =  interface.source.unwrap( );
+		  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+		     continue;
+		  }
+		  if ( ex.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+             %][%=ex.setObject()%][%
+		     continue;
+		  }
+	      %]
+		   if( inhSwitch.equals("[%=ex.~fullName%]")){
+			      cl[%=util.mergeAndCapitalize(ex.~class)%] = ([%=ex.~fullName%])obj;
+			}
+		   [%
+	  }
+}
+
+
+@template
+operation type::TypeElement constructor(superInterfaces,trackInh){
+      if ( trackInh = null ){
+         trackInh = new Native('java.util.ArrayList');
+     }
+	   var util = new Native('org.tura.metamodel.commons.Util');
+       var pkg = self.eContainer();
+     
+//       var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid and t.isImplements(model_mapper)  );
+       var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and   t.source.uid = self.uid and t.isImplements(model_mapper)  );
+       for (interface in interfaces){
+		  var ex =  interface.target.unwrap( );
+		  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+		     continue;
+		  }
+		  if (superInterfaces.contains(ex)  ){
+		       continue; 
+		  }
+		  if (trackInh.contains(ex) ){
+		       continue; 
+		  }
+		  trackInh.add(ex);
+		  
+		  %]
+		  [%=ex.~fullName%] [%=util.mergeAndUnCapitalize(ex.~class)%] = new [%=ex.~fullName%]();
+		  this.inh[%=util.mergeAndCapitalize(ex.~class)%] =  [%=util.mergeAndUnCapitalize(ex.~class)%];
+		  [%=util.mergeAndUnCapitalize(ex.~class)%].setObject(this);
+
+           [%=ex.constructor(superInterfaces,trackInh)%]
+
+		  [%
+       }  
+
+}
+
+operation type::TypeElement isHasSuperInterface(){
+
+ var pkg = self.eContainer();
+// var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid and t.isImplements(model_mapper)  );
+ var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid and t.isImplements(model_mapper)  );
+ for (interface in interfaces){
+	  var ex =  interface.target.unwrap( );
+	  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+	     continue;
+	  }
+	  return true;
+ } 
+ 
+//  var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid and not t.isImplements(model_mapper)  );
+  var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid and not t.isImplements(model_mapper)  );
+  for (interface in interfaces){
+	    var ex =  interface.target.unwrap( );
+	    var  hasSuper = ex.isHasSuperInterface();
+	    if ( hasSuper ){
+	       return true;
+	    }
+  } 
+  return false;    
+
+}
+
+operation type::TypeElement collectInterfaces(collectioin){
+
+     var pkg = self.eContainer();
+//	 var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid  );
+	 var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid  );
+	 for (interface in interfaces){
+		  var ex =  interface.target.unwrap( );
+		  if ( not ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+		     continue;
+		  }
+		  
+	     if ( ex.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+	        collectioin.add(ex);
+	     }
+	     ex.collectInterfaces(collectioin);
+	 } 
+
+}
+
+@template 
+operation type::TypeElement castTo(originType,superInterfaces, trackInh){
+      if ( trackInh = null ){
+         trackInh = new Native('java.util.ArrayList');
+     }
+
+     if ( self.uid = originType.uid){
+%]
+		  if (  clazz.getName().equals([%=self.~fullName%].class.getName())) {
+			  return (T) this;
+		  }
+[%     
+     }
+
+      var pkg = self.eContainer();
+//	  var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid);
+	  var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid);
+	  for (interface in interfaces){
+         var ex = interface.target.unwrap();
+         if ( superInterfaces.contains(ex) ){
+            continue;
+         }
+	     if ( trackInh.contains(ex) ){
+            continue;
+	     }
+	  
+	     if ( ex.findClassifier( util.getHint(model_mapper,"Domain Interface"))){
+	  %]
+		  if (  clazz.getName().equals([%=ex.~fullName%].class.getName())) {
+			  return (T) this.inh[%=ex.~class%] ;
+		  }
+	  [%
+	    }else{
+	  %]
+		  if (  clazz.getName().equals([%=ex.~fullName%].class.getName())) {
+			  return (T) this;
+		  }
+	  [%
+	    }
+	  %]
+          [%=ex.castTo(originType,superInterfaces, trackInh)%]
+	   [%
+	  }
+
+
+}
+
+@template 
+operation type::TypeElement inheritanceGeneration(superInterfaces,alltypes,trackInh){
+      if ( trackInh = null ){
+         trackInh = new Native('java.util.ArrayList');
+     }
+      var pkg = self.eContainer();
+
+//      var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = self.uid and t.isImplements(model_mapper) );
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = self.uid and t.isImplements(model_mapper) );
+       for (interface in interfaces){
+			  var ex =  interface.target.unwrap( );
+			  if ( superInterfaces.contains(ex) ){
+			        continue;
+			  }
+			  
+			  if ( trackInh.contains(ex) ){
+			        continue;
+			  }
+			 trackInh.add(ex); 			  
+			  
+			  var localInhClass = ex.~class;
+			  
+			  if ( ex.findClassifier( util.getHint(model_mapper,"Entity Object"))){
+
+					for ( field in ex.attributes){
+			             if ( field.pk){
+			             var suffix = ex.~class; 
+			             if (  localInhClass.equals(suffix)  ){
+			               suffix ="";
+			             }
+			             
+%]
+				public void set[%=util.mergeAndCapitalize(field.name)%][%=ex.~class%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]){
+				}
+				public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%][%=ex.~class%](){
+					return this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().get[%=util.mergeAndCapitalize(field.name)%]();
+				}
+[%			             
+			               continue;
+			             }
+					     if (ex.~skipAttributes.contains(field) ){
+					        continue; 
+					     }
+					
+					    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+					        continue; 
+					    }
+					     
+					    field.typeRef.mappingType2Java(recipe,ingredient);
+								  
+%]	
+				public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]){
+					this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().set[%=util.mergeAndCapitalize(field.name)%] ([%=util.mergeAndUnCapitalize(field.name)%]);
+				}
+				public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%](){
+					return this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().get[%=util.mergeAndCapitalize(field.name)%] ();
+				}
+[%			  
+					}		
+					
+                  var pkgex = ex.eContainer();
+//				  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = ex.uid);
+				  var assosiations = pkgex.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = ex.uid);
+
+			      for (rel in assosiations){
+					if( not alltypes.contains(rel.target.unwrap())){
+			               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+			               continue;
+					}
+					      
+			         if ( not rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+			               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+			               continue;
+			         }
+			      
+			         if (  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+			               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+			               continue;
+			         }
+			      
+			      
+			         var hash = rel.sourceSideNamesCalculation();
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]()[%
+			         case "One2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+			         case "Many2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+			         }                
+			         %] { return this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().get[%=util.mergeAndCapitalize(hash.get("sourceProperty"))%](); } [%
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %] public  void set[%=hash.get("sourceMethodName")%]([%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%])[%
+			         case "One2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+			         case "Many2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+			         }                
+			         %] { this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().set[%=util.mergeAndCapitalize(hash.get("sourceProperty"))%]([%=hash.get("sourceProperty")%]); } [%
+			         
+			    }				
+//				  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = ex.uid);
+				  var assosiations = pkgex.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.target.uid = ex.uid);
+			      for (rel in assosiations){
+			      
+					if( not alltypes.contains(rel.source.unwrap())){
+			               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+			               continue;
+					}
+			      
+			         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+			               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+			               continue;
+			         }
+			      
+			         if (  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+			               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+			               continue;
+			         }			      
+			      
+			         var hash = rel.targetSideNamesCalculation();
+			      
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+			         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+			         case "Many2Many" : %] public java.util.Collection<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]()[%
+			         }                
+			         %] { return this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().get[%=util.mergeAndCapitalize(hash.get("targetProperty"))%](); } [%
+			
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %] public  void  set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+			         case "One2Many" : %] public void set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+			         case "Many2Many" : %] public  void set[%=hash.get("targetMethodName")%](java.util.Collection<[%=hash.get("source").~fullName%]> [%=hash.get("targetProperty")%])[%
+			         }                
+			         %] { this.getInh[%=util.mergeAndCapitalize(localInhClass)%]().set[%=util.mergeAndCapitalize(hash.get("targetProperty"))%]([%=hash.get("targetProperty")%]); } [%
+			
+			      }
+			      
+       %]
+       [%=ex.inheritanceJoinColumns()%]
+       @javax.persistence.OneToOne(cascade = javax.persistence.CascadeType.ALL)
+       private [%=ex.~fullName%]  inh[%=ex.~class%];
+       
+       public [%=ex.~fullName%] getInh[%=ex.~class%](){
+            return inh[%=ex.~class%];
+       }
+       
+       public void setInh[%=ex.~class%]([%=ex.~fullName%] inh[%=ex.~class%]){
+           this.inh[%=ex.~class%] = inh[%=ex.~class%];
+       }
+       [%=ex.inheritanceGeneration(superInterfaces,alltypes,trackInh)%]
+       [%  						  
+			  }
+
+      }
+      
+}
+
+
 @template
 operation type::Assosiation  joinColumns(){
       var util = new Native('org.tura.metamodel.commons.Util');
 	  var i = 0;
       %]@javax.persistence.JoinColumns({[%
             for (lnk in self.links){
-            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=util.splitByCapitalLatterAndCapitalize(lnk.detailField.name)%]")[%
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=util.splitByCapitalLatterAndCapitalize(lnk.detailField.name)%]", referencedColumnName = "[%=util.splitByCapitalLatterAndCapitalize(lnk.masterField.name)%]")[%
             i = 1;  
             }
     %]}) 
 [%
 }
+
+@template
+operation type::Type  inheritanceJoinColumns(){
+      var util = new Native('org.tura.metamodel.commons.Util');
+	  var i = 0;
+      %]@javax.persistence.JoinColumns({[%
+            for ( field in self.attributes){
+            if ( not field.pk){
+               continue;
+            }
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="ref_[%=util.mergeAndUnCapitalize(field.name)%]_[%=util.mergeAndUnCapitalize(self.~class)%]", referencedColumnName = "[%=util.mergeAndUnCapitalize(field.name)%]")[%
+            i = 1;  
+            }
+    %]}) 
+[%
+}
+
+
+
 @template
 operation type::Assosiation  joinTable(src,target,model_mapper){
 	  var i = 0;

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
@@ -170,25 +169,12 @@ public class SpaRepository implements Repository, SpaRepositoryDataAware {
 			}
 			throw new RepositoryException("Cannot find  SearchProvider for class " + className);
 		}
-		if (provider instanceof AbstaractSearchService) {
-			((AbstaractSearchService) provider).setMapper(findMapper(className));
-			((AbstaractSearchService) provider).setCache(spaRepositoryData.getCache().get(className));
+		if (provider instanceof AbstractSearchService) {
+			((AbstractSearchService) provider).setCache(spaRepositoryData.getCache().get(className));
 		}
 		return provider;
 
 	}
-
-	protected Mapper findMapper(String persistanceClassName) throws RepositoryException {
-
-		String repositoryClassName = registry.findRepositoryClass(persistanceClassName);
-		Mapper mapper = registry.findMapper(persistanceClassName, repositoryClassName);
-		if (mapper == null) {
-			throw new RepositoryException(
-					"Mapper not found from " + persistanceClassName + " to " + repositoryClassName);
-		}
-		return mapper;
-	}
-
 
 	private void merge(Map<Object, SpaControl> listOfObjectsPerType, SpaControl preparedObject, SpaControl control)
 			throws RepositoryException {

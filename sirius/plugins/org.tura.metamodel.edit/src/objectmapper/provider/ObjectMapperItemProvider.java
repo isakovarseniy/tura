@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -254,77 +254,7 @@ public class ObjectMapperItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createCalculatedField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createAggregation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createTypePointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 FormFactory.eINSTANCE.createFormParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 FormFactory.eINSTANCE.createFormVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 FormFactory.eINSTANCE.createArtificialField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createTypeMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createJavaMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
+				 TypeFactory.eINSTANCE.createTypePointerObj()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -369,7 +299,6 @@ public class ObjectMapperItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ObjectmapperPackage.Literals.OBJECT_MAPPER__BASE_TYPE ||
 			childFeature == ObjectmapperPackage.Literals.OBJECT_MAPPER__CALCULATIONS ||
 			childFeature == ObjectmapperPackage.Literals.OBJECT_MAPPER__AGGRIGATIONS;
 

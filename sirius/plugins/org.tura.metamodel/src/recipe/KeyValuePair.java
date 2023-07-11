@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link recipe.KeyValuePair#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.KeyValuePair#getKey <em>Key</em>}</li>
+ *   <li>{@link recipe.KeyValuePair#getKeyCode <em>Key Code</em>}</li>
  *   <li>{@link recipe.KeyValuePair#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -64,30 +64,26 @@ public interface KeyValuePair extends EObject {
 	void setUid(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * Returns the value of the '<em><b>Key Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key</em>' attribute.
-	 * @see #setKey(String)
-	 * @see recipe.RecipePackage#getKeyValuePair_Key()
+	 * @return the value of the '<em>Key Code</em>' attribute.
+	 * @see #setKeyCode(String)
+	 * @see recipe.RecipePackage#getKeyValuePair_KeyCode()
 	 * @model
 	 * @generated
 	 */
-	String getKey();
+	String getKeyCode();
 
 	/**
-	 * Sets the value of the '{@link recipe.KeyValuePair#getKey <em>Key</em>}' attribute.
+	 * Sets the value of the '{@link recipe.KeyValuePair#getKeyCode <em>Key Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key</em>' attribute.
-	 * @see #getKey()
+	 * @param value the new value of the '<em>Key Code</em>' attribute.
+	 * @see #getKeyCode()
 	 * @generated
 	 */
-	void setKey(String value);
+	void setKeyCode(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

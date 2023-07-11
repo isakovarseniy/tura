@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,8 @@ public abstract class ShiftControl implements Serializable {
 
 	public abstract void removeShiftControlData() throws Exception;;
 
+	private transient Query SELECT_UPPER_EQ_ELEMENTS_QUERY;
+
 	public ShiftControl() {
 	}
 
@@ -45,17 +47,27 @@ public abstract class ShiftControl implements Serializable {
 		this.logger = logger;
 	}
 
+	private void init() {
+		try {
+			if (SELECT_UPPER_EQ_ELEMENTS_QUERY == null) {
+				SELECT_UPPER_EQ_ELEMENTS_QUERY = new Query();
+				SELECT_UPPER_EQ_ELEMENTS_QUERY.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 
 	public Object getObject(int position) throws Exception {
 		return getObject(position, false);
 	}
 
 	public Object getObject(int position, boolean retPosition) throws Exception {
-		Query query = new Query();
-		query.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
-		query.setVariable("position", Integer.valueOf(position));
+		init();
+		SELECT_UPPER_EQ_ELEMENTS_QUERY.setVariable("position", Integer.valueOf(position));
 
-		QueryResults result = query.execute(getShiftControlData().getShifterArray());
+		QueryResults result = SELECT_UPPER_EQ_ELEMENTS_QUERY.execute(getShiftControlData().getShifterArray());
 
 		if (result.getResults().size() == 0)
 			return position;
@@ -80,12 +92,11 @@ public abstract class ShiftControl implements Serializable {
 		return null;
 
 	}
-	
-	
-	public int findPosition( Object obj) throws Exception {
+
+	public int findPosition(Object obj) throws Exception {
 		int position = -1;
-		for (  Element e :  getShiftControlData().getShifterArray()) {
-			if ( e.getRef() != null && e.getRef().equals(obj)) {
+		for (Element e : getShiftControlData().getShifterArray()) {
+			if (e.getRef() != null && e.getRef().equals(obj)) {
 				position = e.getOriginalPosition();
 				break;
 			}
@@ -120,7 +131,7 @@ public abstract class ShiftControl implements Serializable {
 
 	/**
 	 * @return the actualRowNumber
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public long getPersistedRowNumber() throws Exception {
 		return getShiftControlData().getActualRowNumber();
@@ -128,7 +139,7 @@ public abstract class ShiftControl implements Serializable {
 
 	/**
 	 * @return the actualRowNumber
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public long getActualRowNumber() throws Exception {
 		int addOpr = getShiftControlData().getAddOpr();
@@ -142,12 +153,11 @@ public abstract class ShiftControl implements Serializable {
 
 	/**
 	 * @param actualRowNumber the actualRowNumber to set
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void setActualRowNumber(long actualRowNumber) throws Exception {
 		getShiftControlData().setActualRowNumber(actualRowNumber);
 	}
-
 
 	@SuppressWarnings("unchecked")
 	private void addOperation(int position, Object obj) throws Exception {

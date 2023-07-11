@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import mapper.JavaPackageMapper;
 import mapper.MappingLayer;
+import mapper.MetamodelPackageMapper;
 import mapper.PackageMapper;
 import type.TypeGroup;
 
@@ -49,6 +50,14 @@ public class PackageMapperWrapper implements PackageMapper {
 		}
 
 		return "NA";
+	}
+
+	public String getScope() {
+		if (mapper instanceof JavaPackageMapper) {
+			JavaPackageMapper javaMapper = (JavaPackageMapper) mapper;
+			return javaMapper.getScope().toString();
+		}
+		return null;
 	}
 
 	@Override
@@ -162,6 +171,21 @@ public class PackageMapperWrapper implements PackageMapper {
 	public void setPackageRef(TypeGroup value) {
 		mapper.setPackageRef(value);
 
+	}
+
+	public String getMappedToPackageName() {
+		if (mapper instanceof MetamodelPackageMapper) {
+			MetamodelPackageMapper metaMapper = (MetamodelPackageMapper) mapper;
+			return metaMapper.getMappedToPackageName();
+		}
+		return "NA";
+	}
+	
+	public void setMappedToPackageName(String mappedToPackageName) {
+		if (mapper instanceof MetamodelPackageMapper) {
+			MetamodelPackageMapper metaMapper = (MetamodelPackageMapper) mapper;
+			metaMapper.setMappedToPackageName(mappedToPackageName);
+		}
 	}
 
 }

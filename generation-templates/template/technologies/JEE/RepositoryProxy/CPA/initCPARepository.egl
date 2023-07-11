@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,17 +13,12 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+ [%
  import "tura:/generation-templates/template/commons/typeElementUtil.eol";
  import "tura:/generation-templates/template/commons/categorizedUtil.eol";
  import "tura:/generation-templates/template/commons/assosiation.eol";
  import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
 
- ${percent}${end}
- [%
       var util = new Native('org.tura.metamodel.commons.Util');
       
  %]
@@ -33,8 +28,9 @@ ${start}${percent}
  import org.tura.platform.repository.core.Registry;
  import org.tura.platform.repository.spa.SpaObjectRegistry;
  
- public class InitCPARepository implements  org.tura.platform.repository.cpa.InitCpaRepositoryInterface{
+ public class InitCPARepository implements  org.tura.platform.repository.cpa.InitCpaRepositoryInterface,java.io.Serializable{
  
+     private static final long serialVersionUID =1L;
      private Registry registry;
      private SpaObjectRegistry spaRegistry;
      public static String SPA_REPOSITORY_NAME = "[%=component.artifactId%]";
@@ -88,9 +84,9 @@ ${start}${percent}
 		       ){
        %] 
         registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
-        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper() );
+        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper.class );
         spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
-        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper() );
+        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]ProxyMapper.class);
         
         spaRegistry.getRegistry("[%=component.artifactId%]").addSearchProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.cpa.storage.CpaSearchService.class);
         spaRegistry.getRegistry("[%=component.artifactId%]").addCRUDProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.cpa.storage.CpaCRUDService.class);

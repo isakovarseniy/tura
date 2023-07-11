@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,15 +13,15 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
-
 [%
+ @template
+operation beanFactory( hash){
      var util = new Native('org.tura.metamodel.commons.Util');
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+     var beanFactoryName  =  hash.get("beanFactoryName");
+     var bfSuffix = hash.get("bfSuffix");
+     
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
@@ -32,7 +32,7 @@ import javax.inject.Inject;
 [%=datacontrol_scope()%]
 public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializable {
 
-    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private static final long serialVersionUID = 1L;
 
     private int section;
 
@@ -97,7 +97,7 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
     
  [%
      for (control in controls){
-         var relations = form::Relation.allInstances()->select(r|r.master= control);   
+         var relations = form.datacontrols.relations->select(r|r.master= control);   
          for ( relation in relations ){
            if (relation.detail.~dependObject <>  null ){ %] 
        private [%=typeName(relation.detail, component, form)%] [%=propertyName(relation.detail)%];
@@ -127,7 +127,7 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
     
 [%
      for (control in controls){
-         var relations = form::Relation.allInstances()->select(r|r.master= control);   
+         var relations = form.datacontrols.relations->select(r|r.master= control);   
          for ( relation in relations ){
          if (relation.isTree = false){%]
           public    [%=typeName(relation.detail, component, form)%]  [%=methodName(relation.detail)%]() throws org.tura.platform.datacontrol.commons.TuraException{
@@ -166,7 +166,9 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
 
 }
 
-[% @template
+[%
+}
+ @template
 operation methodName(dc:form::DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -174,7 +176,7 @@ operation methodName(dc:form::DataControl) {
  [%} 
  
   @template
-operation typeName(dc:form::DataControl, component:recipe::Component, form:form::Form) {
+operation typeName(dc, component, form) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var uipackage = form.eContainer();
      
@@ -183,7 +185,7 @@ operation typeName(dc:form::DataControl, component:recipe::Component, form:form:
  [%} 
  
  @template
-operation propertyName(dc:DataControl) {
+operation propertyName(dc) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
    [%if (dc.~treeRoot=true){%]treeRoot[%=util.mergeAndCapitalize(dc.name)%][%} else {%][%=util.mergeAndUnCapitalize(dc.name)%][%}%]

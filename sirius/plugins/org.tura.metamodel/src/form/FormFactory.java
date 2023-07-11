@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -898,6 +898,15 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	DataControl createDataControl();
+
+	/**
+	 * Returns a new object of class '<em>Context Parameters Obj</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Context Parameters Obj</em>'.
+	 * @generated
+	 */
+	ContextParametersObj createContextParametersObj();
 
 	/**
 	 * Returns a new object of class '<em>Relation Mapper</em>'.

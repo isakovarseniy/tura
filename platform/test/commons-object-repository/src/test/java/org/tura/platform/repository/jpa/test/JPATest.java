@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,7 +127,7 @@ public class JPATest {
 	
 	@Test
 	public void checkClientClass(){
-		assertEquals(12, Client.class.getDeclaredMethods().length);
+		assertEquals(13, Client.class.getDeclaredMethods().length);
 		assertTrue(findMethod( Client.class,"getName" ));
 		assertTrue(findMethod( Client.class,"setName",new Class[]{String.class} ));
 
@@ -158,7 +158,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(20, Person.class.getDeclaredMethods().length);
+		assertEquals(21, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));
@@ -221,7 +221,7 @@ public class JPATest {
 	
 	@Test
 	public void checkMailAddressClass(){
-		assertEquals(14, MailAddress.class.getDeclaredMethods().length);
+		assertEquals(15, MailAddress.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( MailAddress.class,"getObjId" ));
 		assertTrue(findMethod( MailAddress.class,"setObjId",new Class[]{Long.class} ));

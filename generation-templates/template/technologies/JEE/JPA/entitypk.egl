@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,18 @@
 [%
  import "tura:/generation-templates/template/commons/typeElementUtil.eol";
  import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ 
+ @template
+ operation entitypk(hash){
+ 
+ var type =  hash.get("type");
+ var recipe = hash.get("recipe");
+ var ingredient =  hash.get("ingredient");
+ var component = hash.get("component");
+ var model_mapper = hash.get("model_mapper");
+ var path = hash.get("path");
+ var configuration =  hash.get("configuration");    
+ 
  
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
@@ -115,3 +127,5 @@ public class [%=type.~class%]PK implements java.io.Serializable{
 
 
 }
+[%}%]
+

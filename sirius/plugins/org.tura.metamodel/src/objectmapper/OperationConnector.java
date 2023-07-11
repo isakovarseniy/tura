@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,6 +17,7 @@
 package objectmapper;
 
 import form.ContextParameters;
+import form.ContextParametersObj;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -159,12 +160,12 @@ public interface OperationConnector extends OperationConnectorRef {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Search</em>' containment reference.
-	 * @see #setDefaultSearch(ContextParameters)
+	 * @see #setDefaultSearch(ContextParametersObj)
 	 * @see objectmapper.ObjectmapperPackage#getOperationConnector_DefaultSearch()
 	 * @model containment="true"
 	 * @generated
 	 */
-	ContextParameters getDefaultSearch();
+	ContextParametersObj getDefaultSearch();
 
 	/**
 	 * Sets the value of the '{@link objectmapper.OperationConnector#getDefaultSearch <em>Default Search</em>}' containment reference.
@@ -174,6 +175,6 @@ public interface OperationConnector extends OperationConnectorRef {
 	 * @see #getDefaultSearch()
 	 * @generated
 	 */
-	void setDefaultSearch(ContextParameters value);
+	void setDefaultSearch(ContextParametersObj value);
 
 } // OperationConnector

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@ public class CpaUnloadObject extends ProxyOperation{
         Object cloned = proxy.deepClone();
         data.setObject(cloned);
         data.setPk(proxy.getPath());
+        data.setRegistry(proxy.getRegistry());
         data.getParams().put(Constants.CPA_OPERATION, OperationLevel.UNLOAD.name());
         stackProvider.get().addCommand(data);
 

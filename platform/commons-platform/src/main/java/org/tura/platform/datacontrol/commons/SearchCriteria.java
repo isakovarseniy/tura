@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,63 +20,67 @@ package org.tura.platform.datacontrol.commons;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
-@XmlRootElement(name = "SearchCriteria")
-public class SearchCriteria implements Serializable{
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+@JsonSubTypes({
+		@JsonSubTypes.Type(value = ObjectProfileCriteria.class, name = "ObjectProfileCriteria") })
+public class SearchCriteria implements Serializable {
 
 	private static final long serialVersionUID = -4139161436826790643L;
 	private String parentClass;
-	private String property; 
+	private String property;
 	private String name;
 	private String comparator;
 	private Object value;
 	private String className;
-	
-	public SearchCriteria(){
+
+	public SearchCriteria() {
 	}
 
-	public SearchCriteria(String name,String comparator,Object value,String className){
-		this.name=name;
-		this.comparator=comparator;
-		this.value=value;
-		this.className=className;
+	public SearchCriteria(String name, String comparator, Object value, String className) {
+		this.name = name;
+		this.comparator = comparator;
+		this.value = value;
+		this.className = className;
 	}
-	
-	@XmlElement
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@XmlElement
+
 	public Object getValue() {
 		return value;
 	}
+
 	public void setValue(Object value) {
 		this.value = value;
 	}
-	
-	@XmlElement
+
 	public String getClassName() {
 		return className;
 	}
+
 	public void setClassName(String className) {
 		this.className = className;
 	}
-	
-	@XmlElement
+
 	public String getComparator() {
 		return comparator;
 	}
+
 	public void setComparator(String comparator) {
 		this.comparator = comparator;
 	}
 
-	@XmlElement
 	public String getParentClass() {
 		return parentClass;
 	}
@@ -85,7 +89,6 @@ public class SearchCriteria implements Serializable{
 		this.parentClass = parentClass;
 	}
 
-	@XmlElement
 	public String getProperty() {
 		return property;
 	}
@@ -93,18 +96,34 @@ public class SearchCriteria implements Serializable{
 	public void setProperty(String property) {
 		this.property = property;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("parentClass = "+parentClass);
-		builder.append("property = "+property);
-		builder.append("name = "+name);
-		builder.append("comparator = "+comparator);
-		if ( value != null) {
-			builder.append("value = "+value.toString());
+		builder.append("parentClass = " + parentClass);
+		builder.append("property = " + property);
+		builder.append("name = " + name);
+		builder.append("comparator = " + comparator);
+		if (value != null) {
+			builder.append("value = " + value.toString());
 		}
-		builder.append("className = "+className);
+		builder.append("className = " + className);
 		return builder.toString();
 	}
+	
+	@Override
+	public int hashCode() {
+		HashCodeBuilder builder = new HashCodeBuilder();
+		builder.append(parentClass);
+		builder.append(property);
+		builder.append( name);
+		builder.append(comparator);
+		if (value != null) {
+			builder.append( value.toString());
+		}
+		builder.append( className);
+		return builder.toHashCode();
+	}
+	
+	
 }

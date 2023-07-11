@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -194,6 +194,15 @@ public class MapperSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTypeMapper(xmlTypeMapper);
 				if (result == null) result = caseMapper(xmlTypeMapper);
 				if (result == null) result = caseTypePointer(xmlTypeMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MapperPackage.METAMODEL_PACKAGE_MAPPER: {
+				MetamodelPackageMapper metamodelPackageMapper = (MetamodelPackageMapper)theEObject;
+				T result = caseMetamodelPackageMapper(metamodelPackageMapper);
+				if (result == null) result = casePackageMapper(metamodelPackageMapper);
+				if (result == null) result = caseMapper(metamodelPackageMapper);
+				if (result == null) result = casePackagePointer(metamodelPackageMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -408,6 +417,21 @@ public class MapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXMLTypeMapper(XMLTypeMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Metamodel Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Metamodel Package Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMetamodelPackageMapper(MetamodelPackageMapper object) {
 		return null;
 	}
 

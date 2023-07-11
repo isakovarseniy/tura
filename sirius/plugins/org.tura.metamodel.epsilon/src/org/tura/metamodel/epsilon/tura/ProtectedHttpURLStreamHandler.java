@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -55,7 +55,7 @@ public class ProtectedHttpURLStreamHandler extends AbstractURLStreamHandlerServi
 	public static String turaLocation() {
 		try {
 			Path path = Paths.get(System.getProperty("user.home") + "/.tura/turaLink");
-			return Files.readString(path, Charset.defaultCharset());
+			return   new String( Files.readAllBytes(path));
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return System.getProperty("user.home");
@@ -65,7 +65,7 @@ public class ProtectedHttpURLStreamHandler extends AbstractURLStreamHandlerServi
 	public static String getRoots() {
 		try {
 			Path path = Paths.get(System.getProperty("user.home") + "/.tura/templateLink");
-			return Files.readString(path, Charset.defaultCharset());
+			return new String( Files.readAllBytes(path));
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return turaLocation();

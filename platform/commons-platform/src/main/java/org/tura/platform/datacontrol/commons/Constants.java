@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ public class Constants {
 	public static String  LINK_OPERATION = "LINK_OPERATION";
 	public static String  CPA_OPERATION = "CPA_OPERATION";
 	public static String  CPA_ID_MAPPERS = "CPA_CPA_ID_MAPPERS";
+	public static String  CPA_LOADED_BY = "CPA_LOADED_BY";
 	public static String UPDATE_CPA_STORAGE = "UPDATE_CPA_STORAGE";
 	public static String CPA_MODIFICATION_SOURCE = "CPA_MODIFICATION_SOURCE";
 	

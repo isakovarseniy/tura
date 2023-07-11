@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,13 +22,20 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProxyData implements Serializable{
+import org.tura.platform.repository.core.Registry;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+public abstract class ProxyData implements Serializable , CloneableCommand{
 
 	private static final long serialVersionUID = 5093832246017157053L;
-	String relationType;
-	String masterProperty;
-	String detailProperty;
-	private Map<String,Object> params = new HashMap<>();
+	protected String relationType;
+	protected String masterProperty;
+	protected String detailProperty;
+	protected Registry registry;
+	protected Map<String,Object> params = new HashMap<>();
 	
 	
 	public String getRelationType() {
@@ -53,5 +60,14 @@ public class ProxyData implements Serializable{
 		return params;
 	}
 
+	@Override
+	public void setRegistry(Registry registry) {
+		this.registry =  registry;
+	}
+	@Override
+	public void cleanRegistry() {
+		this.registry = null;
+	}	
+	
 	
 }

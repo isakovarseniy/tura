@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,14 +13,16 @@
  */
 
 operation type::TypeElement isInternal( ) { 
-         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.internal);
+        var pkg  = self.eContainer();
+         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.target.uid = self.uid  and t.internal);
          if (assosiations.size() > 0){
             return true;
          }
          return false;
 }
 operation type::TypeReference isInternal( ) { 
-         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid  and t.internal);
+        var pkg  = self.eContainer();
+         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.target.uid = self.uid  and t.internal);
          if (assosiations.size() > 0){
             return true;
          }
@@ -28,6 +30,10 @@ operation type::TypeReference isInternal( ) {
 }
 
 
+
+operation type::TypeElement mappingType2Metamodel( recipe:Recipe, ingredient :Ingredient) { 
+      self.mappingType2Metamodel(recipe,ingredient,"ALL");
+}
 
 operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient) { 
       self.mappingType2XML(recipe,ingredient,"ALL");
@@ -49,6 +55,66 @@ operation type::TypeElement unwrap( ) {
      return self;
       
 }
+
+
+operation type::TypeElement mappingType2Metamodel( recipe:Recipe, ingredient :Ingredient,maskType) { 
+    self.~mapper=null;
+    self.~metaPackage=null;
+    self.~metaClass=null;
+    self.~metaFullName=null;
+
+    var appmappers =   new Native('java.util.ArrayList');  
+    var util = new Native('org.tura.metamodel.commons.Util');
+
+    var tp=self;
+    if (self.isTypeOf(type::TypeReference)){
+        tp = self.typeRef;
+    }
+    
+    appmappers.addAll(recipe.mappers);
+    appmappers.addAll(ingredient.mappers);
+
+     if (tp <> null and not self.isTypeOf(type::Primitive)){
+	    for( appmapper in appmappers ){
+	         var pkg =  self.eContainer();
+	         var pkgUID = self.eContainer().uid;
+	         if (self.isTypeOf(type::TypeReference)){
+	             pkgUID = self.typeRef.eContainer().uid;
+	             pkg =  self.typeRef.eContainer();
+	         }
+
+	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::MetamodelPackageMapper) and r.packageRef.uid= pkgUID);
+
+             if ( set.size() <> 0 ){
+
+              var pkgMp =  util.mapPackage(set,ingredient,pkg,maskType) ;
+ 
+              if ( pkgMp <> null){
+                 self.~mapper="Type2Metamodel";
+                 self.~metaPackage= pkgMp.mappedToPackageName;
+                 self.~metaClass=util.mergeAndCapitalize(tp.name);
+                 self.~metaFullName=self.~metaPackage+"::"+self.~metaClass;
+              }  
+             }
+	     }
+     }
+
+     if (self.~metaPackage = null and tp <> null){
+/*  Cannot throw exception */     
+         var container = "Primitives";
+         if ( not tp.isTypeOf(type::Primitive)){
+            container = tp.eContainer().name;
+         } 
+
+         util.traceIfDebug("MetamodelMapper","Unable to find MetamodelMapper for type \"" + container+"."+tp.name+"\" for ingredient \"" + ingredient.name +"\"");
+         self.~mapper="Type2Metamodel";
+         self.~metaPackage= "Unable to find Type2Metamodel for type \""+ container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
+         self.~metaClass= "Unable to find Type2Metamodel";
+         self.~metaFullName=self.~metaPackage+"::"+self.~metaClass;
+     }
+}
+
+
 
 
 operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient,maskType) { 
@@ -171,6 +237,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
                  self.~artifactId=type.artifactId;
                  self.~groupId=type.groupId;
                  self.~version= type.version;
+                 self.~scope = type.scope;
                  if (type.libraryName <> null)
                      self.~library = type.libraryName;
                  else{
@@ -205,6 +272,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
                  self.~artifactId=pkgMp.artifactId;
                  self.~groupId=pkgMp.groupId;
                  self.~version= pkgMp.version;
+                 self.~scope = pkgMp.scope;
                  if (pkgMp.libraryName <> null)
                      self.~library = pkgMp.libraryName;
                  else{

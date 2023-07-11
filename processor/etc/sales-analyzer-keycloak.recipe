@@ -2,34 +2,32 @@ tura:docker stopContainer --name sa-kc
 
 tura:docker removeContainer --name sa-kc
 
-tura:docker removeImage --registry tura/sa/keycloak --tag 1.0
-
-tura:docker pullImage --registry jboss/keycloak --tag 4.8.3.Final
+tura:docker pullImage --registry jboss/keycloak --tag 12.0.1
 
 tura:docker createNetwork --network sa-net
 
 c = tura:docker config\
-                --var DB_ADDR=db\
+                --var DB_ADDR=sa-pg\
                 --var DB_VENDOR=postgres\
                 --var DB_USER=postgres\
                 --var DB_PASSWORD=postgres\
                 --var DB_DATABASE=postgres\
+                --var DB_SCHEMA=keycloak\
                 --var KEYCLOAK_USER=admin\
-                --var KEYCLOAK_PASSWORD=qwerty
-
-v = tura:docker createContainer --registry jboss/keycloak --tag 4.8.3.Final --var c
-
-tura:docker stopContainer --id $v
-
-
-tura:docker commitContainer --registry tura/sa/keycloak --tag 1.0 --id $v
-
-tura:docker removeContainer --id $v
-
-c = tura:docker config --port 8080:8080 --network sa-net --alias kc
-
-tura:docker createContainer --registry tura/sa/keycloak --tag 1.0 --var c --name sa-kc
+                --var KEYCLOAK_PASSWORD=qwerty\
+                --var KEYCLOAK_HOSTNAME=kc\
+                --var DEBUG=true\
+                --var DEBUG_PORT='*:3333'\
+                --var JAVA_OPTS="-Djboss.bind.address=0.0.0.0"\
+                --port 8080:8080\
+                --port 3335:3333\
+                --network sa-net\
+                --alias  kc
 
 
+#                --var JAVA_OPTS="-Djboss.bind.address=0.0.0.0 -Djboss.http.port=11111"\
+#                --port 11111:11111\
+#                --var KEYCLOAK_LOGLEVEL=TRACE\
 
+tura:docker createContainer --registry jboss/keycloak --tag 12.0.1 --var c --name sa-kc
 

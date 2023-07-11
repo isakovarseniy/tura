@@ -1,0 +1,12 @@
+embed-server --server-config=${server.config:standalone-full.xml}
+
+/subsystem=datasources/data-source=HR_POOL:add(jndi-name=java:jboss/jdbc/hrDS, connection-url="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=RUNSCRIPT FROM '/opt/jboss/wildfly/first-db-schema.sql'" ,driver-name=h2, enabled=true, use-java-context=true)
+/subsystem=datasources/data-source=HR_POOL:write-attribute(name=user-name,value=sa)
+/subsystem=datasources/data-source=HR_POOL:write-attribute(name=password,value=sa)
+
+/subsystem=datasources/data-source=HR_POOL_sd2:add(jndi-name=java:jboss/jdbc/hrDS_sd2, connection-url="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=RUNSCRIPT FROM '/opt/jboss/wildfly/second-db-schema.sql'" ,driver-name=h2, enabled=true, use-java-context=true)
+/subsystem=datasources/data-source=HR_POOL_sd2:write-attribute(name=user-name,value=sa)
+/subsystem=datasources/data-source=HR_POOL_sd2:write-attribute(name=password,value=sa)
+
+
+/system-property=basePath:add(value="/opt/jboss")

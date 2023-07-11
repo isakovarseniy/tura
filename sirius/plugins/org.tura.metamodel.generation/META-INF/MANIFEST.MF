@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Generation
 Bundle-SymbolicName: org.tura.metamodel.generation;singleton:=true
-Bundle-Version: 6.1.0
+Bundle-Version: 6.1.1
 Bundle-Activator: org.tura.metamodel.processor.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

@@ -10,8 +10,6 @@ tura:docker removeImage --registry tura/sa/postgres --tag 1.0
 
 tura:docker removeContainer --name sa-kc
 
-tura:docker removeImage --registry tura/sa/keycloak --tag 1.0
-
 tura:docker removeContainer --name sa-wf
 
 tura:docker removeImage --registry tura/sa/wildfly --tag 1.0

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -138,7 +138,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		try {
 			DataControl<?> dc = getRoot();
 			if (currentObject != null) {
-				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+				dc = (DataControl<?>) ((ObjectControl) currentObject).getObjectControlAttributes().get(Constants.DATA_CONTROL);
 			}
 			Relation rel = dc.getChild(relationName);
 			if (rel.getChild() == null)
@@ -161,7 +161,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		try {
 			DataControl<?> dc = getRoot();
 			if (currentObject != null) {
-				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
+				dc = (DataControl<?>) ((ObjectControl) currentObject).getObjectControlAttributes().get(Constants.DATA_CONTROL);
 			}
 
 			currentObject = dc.createObject();
@@ -180,7 +180,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	@Override
 	public void removeObject() throws Exception {
-		DataControl<?> dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes()
+		DataControl<?> dc = (DataControl<?>) ((ObjectControl) currentObject).getObjectControlAttributes()
 				.get(Constants.DATA_CONTROL);
 
 		RowRemovedEvent event = new RowRemovedEvent(this, currentObject, currentPosition);
@@ -193,7 +193,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	public void removeAll() throws Exception {
 		setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
-		DataControl<?> dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes()
+		DataControl<?> dc = (DataControl<?>) ((ObjectControl) currentObject).getObjectControlAttributes()
 				.get(Constants.DATA_CONTROL);
 
 		dc.removeAll();

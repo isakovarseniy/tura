@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,27 +13,29 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
- import "tura:/generation-templates/template/commons/typeElementUtil.eol";
- import "tura:/generation-templates/template/commons/categorizedUtil.eol";
- import "tura:/generation-templates/template/commons/assosiation.eol";
- import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
-
- ${percent}${end}
  [%
+@template
+operation mappers(hash){ 
+
       var util = new Native('org.tura.metamodel.commons.Util');
+	  var t2model = hash.get("t2model");
+	  var  t2view = hash.get("t2view");
+	  var type = hash.get("type");
+	  var recipe = hash.get("recipe");
+	  var ingredient = hash.get("ingredient");
+	  var component = hash.get("component");
+	  var model_mapper = hash.get("model_mapper");
+	  var path = hash.get("path");
+ 	  var alltypes = hash.get("alltypes");
       
  %]
  
  package [%=t2view.get(type).get("package")%].mapper;
  
  
- public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
+ public class [%=t2view.get(type).get("class")%]Mapper extends org.tura.platform.repository.core.MapperHelper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
  
-     private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+     private static final long serialVersionUID = 1L;
      private org.tura.platform.repository.core.ProxyFactory proxyFactory;
 			  
 			
@@ -78,10 +80,16 @@ ${start}${percent}
       }
  
  
+       public Object unwrap(Object persistenceObject)  {
+          return org.hibernate.Hibernate.unproxy(persistenceObject);
+       }
+ 
        public org.tura.platform.repository.core.RepoKeyPath getPath(Object object) throws Exception{
           [%=t2view.get(type).get("fullName")%]  obj = ( [%=t2view.get(type).get("fullName")%])object;
       [%
-         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+         //var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+         var pkg = type.eContainer();
+         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
          if (assosiations.size() <> 0){
               for (rel in assosiations){
                  var hash = rel.targetSideNamesCalculation();
@@ -131,6 +139,7 @@ ${start}${percent}
 	}
 		
       	public Object getPrimaryKey(Object persistenceObject){
+			persistenceObject =    unwrap(persistenceObject);
 
 	    [%=t2model.get(type).get("fullName")%] jpa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
       	
@@ -139,6 +148,8 @@ ${start}${percent}
       	}
       	
       	public void nillPrimaryKey(Object persistenceObject){
+      	    persistenceObject =    unwrap(persistenceObject);
+      	
 	        [%=t2model.get(type).get("fullName")%] jpa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
       	
         	[%=nilPK(type,"jpa",model_mapper)%]   
@@ -155,6 +166,7 @@ ${start}${percent}
       	
       	
 	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject){
+			persistenceObject =    unwrap(persistenceObject);
 	    
 	    [%=t2model.get(type).get("fullName")%] jpa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
 	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
@@ -162,49 +174,29 @@ ${start}${percent}
 	    [%=stringPK(type,"key","jpa",t2model.get(type).get("fullName"))%]
 	    
 	      obj.setAttached(true);
-          obj.setSerializationid(key.toString());
-	    [%
-	       var tp = type;
-	        while  (1 == 1) {
-	         %]
-	          [%=serializer(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
-	          [%=copyLink(tp,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
+          obj.setSerializationid(java.util.UUID.randomUUID().toString()+"||"+[%=t2view.get(type).get("fullName")%].class.getName());
+
+	     [%=serializer(type,"jpa","obj",model_mapper,recipe,ingredient,null)%]
+	     [%=copyLink(type,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
 	          
-	         [%  
-	            if (tp.~extension.isDefined()){
-	               tp = tp.~extension;
-	            }else{
-	               break;
-	            }
-	         }     	    
-	    
-	    %]
 	    return obj;
 	    
 	    }
 	    
    
 	   public void differentiator(Object persistenceObject, Object repositoryObject ,  java.util.Map<Object, Object> context) throws org.tura.platform.repository.core.RepositoryException{
+		  persistenceObject =    unwrap(persistenceObject);
 	      [%=t2model.get(type).get("fullName")%] jpa  = ([%=t2model.get(type).get("fullName")%])persistenceObject;
 	      [%=t2view.get(type).get("fullName")%] obj = ([%=t2view.get(type).get("fullName")%] )repositoryObject;
-	    [%
-	       var tp = type;
-	        while  (1 == 1) {
-	         %]
-	          [%=serializer(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
-	          [%=copyLink(tp,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
-	         [%  
-	            if (tp.~extension.isDefined()){
-	               tp = tp.~extension;
-	            }else{
-	               break;
-	            }
-	         }     	    
-	    
-	    %]
+
+
+	      [%=serializer(type,"jpa","obj",model_mapper,recipe,ingredient,null)%]
+	      [%=copyLink(type,alltypes,"jpa","obj",model_mapper,recipe,ingredient)%]
+
 	    }	    
 	    
 	    public void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject){
+			persistenceObject =    unwrap(persistenceObject);
 	    [%=t2model.get(type).get("fullName")%] jpa =( [%=t2model.get(type).get("fullName")%] )persistenceObject;
 	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
 	    
@@ -212,21 +204,7 @@ ${start}${percent}
      	  ((org.tura.platform.repository.core.ObjectControl) obj).setForcePKupdate(true);
 	    }
 	    
-	    
-	    [%
-	       var tp = type;
-	        while  (1 == 1) {
-	         %]
-	          [%=serializerPK(tp,type.~skipAttributes,"jpa","obj",model_mapper,recipe,ingredient)%]
-	         [%  
-	            if (tp.~extension.isDefined()){
-	               tp = tp.~extension;
-	            }else{
-	               break;
-	            }
-	         }     	    
-	    
-	    %]
+	     [%=serializerPK(type,"jpa","obj",model_mapper,recipe,ingredient,null)%]
 	    
 	    }
 	    
@@ -235,20 +213,9 @@ ${start}${percent}
 	    [%=t2model.get(type).get("fullName")%] jpa = new  [%=t2model.get(type).get("fullName")%] ();
 	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
 	    
-	    [%
-	       var tp = type;
-	        while  (1 == 1) {
-	         %]
-	          [%=serializer(tp,type.~skipAttributes,"obj","jpa",model_mapper,recipe,ingredient)%]
-	         [%  
-	            if (tp.~extension.isDefined()){
-	               tp = tp.~extension;
-	            }else{
-	               break;
-	            }
-	         }     	    
-	    
-	    %]
+
+	    [%=serializer(type,"obj","jpa",model_mapper,recipe,ingredient,null)%]
+
 	    return jpa;
 	    
 	    }
@@ -274,3 +241,4 @@ ${start}${percent}
 	    
  
  }
+ [%}%]

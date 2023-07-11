@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -42,6 +42,7 @@ import infrastructure.impl.InfrastructurePackageImpl;
 
 import mapper.ArtifactType;
 import mapper.CSSMapper;
+import mapper.JavaLibScope;
 import mapper.JavaMapper;
 import mapper.JavaPackageMapper;
 import mapper.JavaScriptMapper;
@@ -50,6 +51,7 @@ import mapper.MapperFactory;
 import mapper.MapperPackage;
 import mapper.Mappers;
 import mapper.MappingLayer;
+import mapper.MetamodelPackageMapper;
 import mapper.PackageMapper;
 import mapper.RoleMapper;
 import mapper.TypeMapper;
@@ -198,7 +200,21 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass metamodelPackageMapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum artifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum javaLibScopeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -547,7 +563,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getJavaMapper_LibraryName() {
+	public EAttribute getJavaMapper_Scope() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -557,8 +573,18 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getJavaMapper_ArtifactType() {
+	public EAttribute getJavaMapper_LibraryName() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getJavaMapper_ArtifactType() {
+		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -617,7 +643,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getJavaPackageMapper_LibraryName() {
+	public EAttribute getJavaPackageMapper_Scope() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -627,8 +653,18 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getJavaPackageMapper_ArtifactType() {
+	public EAttribute getJavaPackageMapper_LibraryName() {
 		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getJavaPackageMapper_ArtifactType() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -877,8 +913,48 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getMetamodelPackageMapper() {
+		return metamodelPackageMapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMetamodelPackageMapper_Uid() {
+		return (EAttribute)metamodelPackageMapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMetamodelPackageMapper_MappedToPackageName() {
+		return (EAttribute)metamodelPackageMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getJavaLibScope() {
+		return javaLibScopeEEnum;
 	}
 
 	/**
@@ -940,6 +1016,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_CLASS_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_ID);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__GROUP_ID);
+		createEAttribute(javaMapperEClass, JAVA_MAPPER__SCOPE);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_TYPE);
 
@@ -948,6 +1025,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_ID);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__GROUP_ID);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__SCOPE);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE);
 
@@ -980,8 +1058,13 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__NAMESPACE);
 		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__TYPENAME);
 
+		metamodelPackageMapperEClass = createEClass(METAMODEL_PACKAGE_MAPPER);
+		createEAttribute(metamodelPackageMapperEClass, METAMODEL_PACKAGE_MAPPER__UID);
+		createEAttribute(metamodelPackageMapperEClass, METAMODEL_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
+		javaLibScopeEEnum = createEEnum(JAVA_LIB_SCOPE);
 	}
 
 	/**
@@ -1033,6 +1116,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		roleMapperEClass.getESuperTypes().add(thePermissionPackage.getSecurityEntityPointer());
 		xmlPackageMapperEClass.getESuperTypes().add(this.getPackageMapper());
 		xmlTypeMapperEClass.getESuperTypes().add(this.getTypeMapper());
+		metamodelPackageMapperEClass.getESuperTypes().add(this.getPackageMapper());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(mappersEClass, Mappers.class, "Mappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1065,6 +1149,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getJavaMapper_MappedToClassName(), ecorePackage.getEString(), "mappedToClassName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaMapper_Scope(), this.getJavaLibScope(), "scope", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_ArtifactType(), this.getArtifactType(), "artifactType", "jar", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1073,6 +1158,7 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getJavaPackageMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_Scope(), this.getJavaLibScope(), "scope", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaPackageMapper_ArtifactType(), this.getArtifactType(), "artifactType", "jar", 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1105,10 +1191,19 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getXMLTypeMapper_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXMLTypeMapper_Typename(), ecorePackage.getEString(), "typename", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(metamodelPackageMapperEClass, MetamodelPackageMapper.class, "MetamodelPackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMetamodelPackageMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MetamodelPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMetamodelPackageMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, MetamodelPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.JAR);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.JS_PACK);
+
+		initEEnum(javaLibScopeEEnum, JavaLibScope.class, "JavaLibScope");
+		addEEnumLiteral(javaLibScopeEEnum, JavaLibScope.COMPILE);
+		addEEnumLiteral(javaLibScopeEEnum, JavaLibScope.PROVIDED);
+		addEEnumLiteral(javaLibScopeEEnum, JavaLibScope.TEST);
 
 		// Create resource
 		createResource(eNS_URI);

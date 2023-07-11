@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,13 +13,11 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
 [%
+@template
+operation elresolver(hash){
+    var  component = hash.get("component");
+
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].commons.datacontrol;  
@@ -55,3 +53,6 @@ public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver,
 
 
 }
+[%
+}
+%]

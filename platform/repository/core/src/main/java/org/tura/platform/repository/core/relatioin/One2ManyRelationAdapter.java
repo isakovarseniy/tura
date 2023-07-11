@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -129,7 +129,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		Association assosiation = method.getAnnotation(Association.class);
 		Class <?> remoteClass = assosiation.mappedBy();
 		if (returnType instanceof ParameterizedType) {
-			Method remoteMethod = remoteClass.getMethod("set"+ WordUtils.capitalize(assosiation.property()) , clazz );
+			Method remoteMethod = remoteClass.getMethod("set"+ WordUtils.capitalize(assosiation.property()) , assosiation.from() );
 			return remoteMethod;
 		}else{
 			Method m = clazz.getMethod("set"+ WordUtils.capitalize(method.getName().substring(3)) , remoteClass );

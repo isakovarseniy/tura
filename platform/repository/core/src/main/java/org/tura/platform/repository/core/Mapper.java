@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,9 @@ public interface Mapper extends ObjectDifferentiator, Serializable {
 	void copyPKFromPersistence2Repository(Object persistenceObject, Object repositoryObject) throws RepositoryException;
 	void put(Map<Object, Object> context, Object pk, Object type);
 	Object get(Map<Object, Object> context, Object pk, Object type);
+	
 	public void setProxyFactory(ProxyFactory proxyFactory);
+	public void setRegistry(Registry registry);
 	
 }
 

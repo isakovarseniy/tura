@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,17 +22,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-
-import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
-@XmlRootElement(name = "SearchRequest")
-@XmlSeeAlso( ObjectProfileCriteria.class)
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
 public class SearchRequest implements Serializable{
 	
 	private static final long serialVersionUID = -5673803995514431529L;
@@ -44,7 +42,6 @@ public class SearchRequest implements Serializable{
 	private String objectClass;
 	
 	
-	@XmlElement
 	public Integer getStartIndex() {
 		return startIndex;
 	}
@@ -52,7 +49,6 @@ public class SearchRequest implements Serializable{
 		this.startIndex = startIndex;
 	}
 	
-	@XmlElement
 	public Integer getEndIndex() {
 		return endIndex;
 	}
@@ -60,21 +56,18 @@ public class SearchRequest implements Serializable{
 		this.endIndex = endIndex;
 	}
 	
-	@XmlElement
 	public String getObjectClass() {
 		return objectClass;
 	}
 	public void setObjectClass(String objectClass) {
 		this.objectClass = objectClass;
 	}
-	@XmlElement
 	public List<SearchCriteria> getSearch() {
 		return search;
 	}
 	public void setSearch(List<SearchCriteria> search) {
 		this.search = search;
 	}
-	@XmlElement
 	public List<OrderCriteria> getOrder() {
 		return order;
 	}
@@ -82,7 +75,6 @@ public class SearchRequest implements Serializable{
 		this.order = order;
 	}
 	
-	@XmlElement
 	public String getProfile() {
 		return profile;
 	}
@@ -90,6 +82,17 @@ public class SearchRequest implements Serializable{
 		this.profile = profile;
 	}
 
+	@Override
+	public int hashCode() {
+		HashCodeBuilder builder = new HashCodeBuilder();
+		builder.append(search);
+		builder.append(order);
+		builder.append( profile);
+		builder.append(startIndex);
+		builder.append(endIndex);
+		builder.append(objectClass);
+		return builder.toHashCode();
+	}
 	
 	
 }

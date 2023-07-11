@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link form.impl.AreaRefImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.AreaRefImpl#getArea <em>Area</em>}</li>
  *   <li>{@link form.impl.AreaRefImpl#getGroup <em>Group</em>}</li>
  * </ul>
@@ -43,6 +44,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class AreaRefImpl extends EObjectImpl implements AreaRef {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getArea() <em>Area</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -90,6 +111,29 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 	@Override
 	protected EClass eStaticClass() {
 		return FormPackage.Literals.AREA_REF;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.AREA_REF__UID, oldUid, uid));
 	}
 
 	/**
@@ -163,6 +207,8 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FormPackage.AREA_REF__UID:
+				return getUid();
 			case FormPackage.AREA_REF__AREA:
 				if (resolve) return getArea();
 				return basicGetArea();
@@ -180,6 +226,9 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FormPackage.AREA_REF__UID:
+				setUid((String)newValue);
+				return;
 			case FormPackage.AREA_REF__AREA:
 				setArea((NickNamed)newValue);
 				return;
@@ -198,6 +247,9 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FormPackage.AREA_REF__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case FormPackage.AREA_REF__AREA:
 				setArea((NickNamed)null);
 				return;
@@ -216,6 +268,8 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FormPackage.AREA_REF__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.AREA_REF__AREA:
 				return area != null;
 			case FormPackage.AREA_REF__GROUP:
@@ -234,7 +288,9 @@ public class AreaRefImpl extends EObjectImpl implements AreaRef {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (group: ");
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", group: ");
 		result.append(group);
 		result.append(')');
 		return result.toString();

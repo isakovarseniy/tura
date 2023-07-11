@@ -1,0 +1,61 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+ [%
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ 
+  var util = new Native('org.tura.metamodel.commons.Util');
+%]
+ package [%=savepackage%];
+ 
+ 
+ public class ObjectInheritance extends org.tura.platform.repository.cpa.storage.TypeInheritance{
+ 
+       public void init(){
+       [% 
+       for (  type in  typeCollection ){
+          %][%=type.inheritance(type,typeCollection)%][%
+       } 
+       %]
+       }
+ 
+ }
+ 
+ [%
+ @template
+ operation  type::TypeElement inheritance(supertype,typeCollection){
+       var pkg = self.eContainer();
+//      var interfaces = type::Generalization.allInstances()->select(t|t.target.unwrap( ).uid = self.uid);
+ 
+      var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.target.unwrap( ).uid = self.uid);
+      var  type  = self.unwrap();    
+      var  super = supertype.unwrap();
+      for (interface in interfaces){
+         var tp = interface.source.unwrap();
+         if (not typeCollection.contains(tp)){
+             continue;
+         }
+
+
+      %]
+      addInheritance([%=super.~fullName%].class, [%=tp.~fullName%].class);
+      [%=tp.inheritance(supertype,typeCollection)%]
+      [%
+      }
+ 
+ }
+ 
+ %]
+ 

@@ -116,6 +116,7 @@ class Configuration{
 }
 
 class ModelMapper extends ArtifactRef,common.Orderable , artifact.Categorized{
+    id attr EString uid;
    attr EString name;
    attr EString artifactRoot;
    val MappingTecnologiy[*] technologies;
@@ -140,7 +141,7 @@ class HashProperty{
 
 class KeyValuePair{
     id attr EString uid;
-    attr EString key;
+    attr EString keyCode;
     attr EString value;
 }
 
@@ -164,7 +165,6 @@ class QueryVariable{
 }
 
 class ArtifactRef{
-    id attr EString uid;
    ref artifact.Artifact artifactRef;
 }
 

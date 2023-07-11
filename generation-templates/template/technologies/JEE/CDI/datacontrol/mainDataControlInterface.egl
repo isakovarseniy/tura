@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,9 +16,12 @@
 [%
 import "tura:/generation-templates/template/technologies/JEE/CDI/expressionImpl.eol";
 import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactoryInterface.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/artificialFieldInterface.egl";
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
      var forms = new Native('java.util.ArrayList');
      
      var frm1 = util.runQuery(model_mapper,"Query form",model_mapper);
@@ -82,19 +85,19 @@ import "tura:/generation-templates/template/pit/mvc/model/datacontrolUtil.eol";
            
          }
 
-         var beanFactory : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactoryInterface.egl",hash,TemplateFactory);
-         beanFactory.setFormatter(f);
-         var buffer = beanFactory.process();
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "IBeanFactory.java",buffer);   
-
-
+         %][%=beanFactoryInterface(hash)%][%
+		 out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "IBeanFactory.java",out.toString());   
+		 out.formatWith(n);
+         
          for (control in controls){
             if (control.artificialFields <> null and control.artificialFields.size()<> 0 ){
                hash.put("control",control);
-               var artifitial : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/artificialFieldInterface.egl",hash,TemplateFactory);
-               artifitial.setFormatter(f);
-               buffer = artifitial.process();
-               util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name)+"ArtifitialFieldsAdapter.java",buffer);   
+               
+               %][%=artificialFieldInterface(hash)%][%
+		       out.formatWith(f);
+               util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name)+"ArtifitialFieldsAdapter.java",out.toString());   
+		       out.formatWith(n);
             }         
          }
       }   

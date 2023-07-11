@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,19 @@
 package org.tura.platform.repository.core;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 import java.util.UUID;
 
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.data.CloneableCommand;
 import org.tura.platform.repository.data.CommandStackData;
 import org.tura.platform.repository.proxy.ProxyCommandStackEventListener;
-
-import com.rits.cloning.Cloner;
 
 public class CommandStack implements Serializable {
 
@@ -136,10 +137,11 @@ public class CommandStack implements Serializable {
 	}
 
 	public List<Object> getListOfCommand() {
-		Cloner c = new Cloner();
-		List<Object> o = c.deepClone(getCommandStackData().getTransaction());
-		return o;
-
+			List<Object> array = new ArrayList<>();
+			for (Object obj : getCommandStackData().getTransaction()) {
+				array.add(((CloneableCommand) obj).cloneCmd());
+			}
+			return array;
 	}
 
 	public Object getData(String id) {
@@ -167,7 +169,7 @@ public class CommandStack implements Serializable {
 		if (this.savePoints == null) {
 			initSavePoint();
 		}
-		
+
 		SavePoint sp = savePoints.peek();
 		SavePoint newSp = new SavePoint(sp);
 		savePoints.push(newSp);

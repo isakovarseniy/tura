@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -62,6 +62,7 @@ public class GeneralizationConfigurator implements EdgeConfigurator {
 	public List<String> getSource() {
 		ArrayList<String> list = new ArrayList<>();
 		list.add("Type" + tContainer.class.getName());
+		list.add("TypeReference" + tNode.class.getName());
 
 		return list;
 	}

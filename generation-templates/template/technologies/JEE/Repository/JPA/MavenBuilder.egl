@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -46,6 +46,10 @@
 					<groupId>[%=h.get("groupId")%]</groupId>
 					<artifactId>[%=h.get("artifactId")%]</artifactId>
 					<version>[%=h.get("version")%]</version>
+					[% if( h.get("scope") <> null  and  not "compile".equals(h.get("scope").toString())){%]
+					<scope>[%=h.get("scope")%]</scope>
+					[%}%]
+					
 				</dependency>
        [% } %]
 

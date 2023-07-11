@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -85,6 +85,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 			case MapperPackage.ROLE_MAPPER: return createRoleMapper();
 			case MapperPackage.XML_PACKAGE_MAPPER: return createXMLPackageMapper();
 			case MapperPackage.XML_TYPE_MAPPER: return createXMLTypeMapper();
+			case MapperPackage.METAMODEL_PACKAGE_MAPPER: return createMetamodelPackageMapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +101,8 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 		switch (eDataType.getClassifierID()) {
 			case MapperPackage.ARTIFACT_TYPE:
 				return createArtifactTypeFromString(eDataType, initialValue);
+			case MapperPackage.JAVA_LIB_SCOPE:
+				return createJavaLibScopeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -115,6 +118,8 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 		switch (eDataType.getClassifierID()) {
 			case MapperPackage.ARTIFACT_TYPE:
 				return convertArtifactTypeToString(eDataType, instanceValue);
+			case MapperPackage.JAVA_LIB_SCOPE:
+				return convertJavaLibScopeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -279,6 +284,17 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public MetamodelPackageMapper createMetamodelPackageMapper() {
+		MetamodelPackageMapperImpl metamodelPackageMapper = new MetamodelPackageMapperImpl();
+		return metamodelPackageMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ArtifactType createArtifactTypeFromString(EDataType eDataType, String initialValue) {
 		ArtifactType result = ArtifactType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -291,6 +307,26 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	 * @generated
 	 */
 	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaLibScope createJavaLibScopeFromString(EDataType eDataType, String initialValue) {
+		JavaLibScope result = JavaLibScope.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJavaLibScopeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

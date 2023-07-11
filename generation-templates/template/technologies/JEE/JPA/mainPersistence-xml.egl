@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,26 +13,43 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-[%
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/${JPA_implementation}.egl";
+import "tura:/generation-templates/template/technologies/${Database_type}.egl";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
  import "tura:/generation-templates/template/commons/typeElementUtil.eol";
-  
+ import "tura:/generation-templates/template/technologies/JEE/JPA/persistence-xml.egl";
+ import "tura:/generation-templates/template/technologies/JEE/JPA/schema-gen.egl";
+ ${percent}${end}
+[%
+
   
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
      var classes = new Native('java.util.ArrayList');
-     
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
      
 
      var type;
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
-     if (types <> null and types.size <> 0 )
-         alltypes.addAll(types); 
+     if (types <> null and types.size <> 0 ){
+         alltypes.addAll(types);
+     } 
      types = util.runQuery(model_mapper,"Query persistance classes",model_mapper);
-     if (types <> null and types.size <> 0 )
+     if (types <> null and types.size <> 0 ){
          alltypes.addAll(types); 
+     }
+     types = util.runQuery(model_mapper,"Query Entity from domain package",model_mapper);
+     if (types <> null and types.size <> 0 ){
+         alltypes.addAll(types); 
+     }
+
 
     if (alltypes.size() <> 0 ){
  
@@ -54,23 +71,18 @@
     util.populateTechnologies(hash,model_mapper);
 
 
-     var persistence : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/JPA/persistence-xml.egl",hash,TemplateFactory);
      var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
-     persistence.setFormatter(f);
 
      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;    
      if (model_mapper.artifactRoot <> null ){
          path = path+"/"+model_mapper.artifactRoot ;
-         }
+      }
 
      path = path+"/src/main/resources/META-INF/";  
-     var buffer = persistence.process();
-     util.saveFile( path, "persistence.xml",buffer); 
-     
-     
-     var persistence : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/JPA/schema-gen.egl",hash,TemplateFactory);
-     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
-     persistence.setFormatter(f);
+     out.formatWith(f);
+     %][%=persistence(hash)%][%
+     util.saveFile( path, "persistence.xml",out.toString()); 
+     out.formatWith(n);
      
      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;    
      if (model_mapper.artifactRoot <> null ){
@@ -78,8 +90,10 @@
       }
      
      path = path+"/src/test/java/org/tura/test";  
-     var buffer = persistence.process();
-     util.saveFile( path, "GenerateSchemaTest.java",buffer); 
+     out.formatWith(f);
+     %][%=schema(hash)%][%
+     util.saveFile( path, "GenerateSchemaTest.java",out.toString()); 
+     out.formatWith(n);
      
      
  %]

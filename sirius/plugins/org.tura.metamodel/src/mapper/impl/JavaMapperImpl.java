@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,6 +17,7 @@
 package mapper.impl;
 
 import mapper.ArtifactType;
+import mapper.JavaLibScope;
 import mapper.JavaMapper;
 import mapper.MapperPackage;
 
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link mapper.impl.JavaMapperImpl#getMappedToClassName <em>Mapped To Class Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link mapper.impl.JavaMapperImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getArtifactType <em>Artifact Type</em>}</li>
  * </ul>
@@ -159,6 +161,26 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * @ordered
 	 */
 	protected String groupId = GROUP_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScope()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final JavaLibScope SCOPE_EDEFAULT = JavaLibScope.COMPILE;
+
+	/**
+	 * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScope()
+	 * @generated
+	 * @ordered
+	 */
+	protected JavaLibScope scope = SCOPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLibraryName() <em>Library Name</em>}' attribute.
@@ -380,6 +402,29 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * @generated
 	 */
 	@Override
+	public JavaLibScope getScope() {
+		return scope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setScope(JavaLibScope newScope) {
+		JavaLibScope oldScope = scope;
+		scope = newScope == null ? SCOPE_EDEFAULT : newScope;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_MAPPER__SCOPE, oldScope, scope));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getLibraryName() {
 		return libraryName;
 	}
@@ -441,6 +486,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return getArtifactId();
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				return getGroupId();
+			case MapperPackage.JAVA_MAPPER__SCOPE:
+				return getScope();
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				return getLibraryName();
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
@@ -474,6 +521,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return;
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				setGroupId((String)newValue);
+				return;
+			case MapperPackage.JAVA_MAPPER__SCOPE:
+				setScope((JavaLibScope)newValue);
 				return;
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				setLibraryName((String)newValue);
@@ -511,6 +561,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
+			case MapperPackage.JAVA_MAPPER__SCOPE:
+				setScope(SCOPE_EDEFAULT);
+				return;
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				setLibraryName(LIBRARY_NAME_EDEFAULT);
 				return;
@@ -541,6 +594,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case MapperPackage.JAVA_MAPPER__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+			case MapperPackage.JAVA_MAPPER__SCOPE:
+				return scope != SCOPE_EDEFAULT;
 			case MapperPackage.JAVA_MAPPER__LIBRARY_NAME:
 				return LIBRARY_NAME_EDEFAULT == null ? libraryName != null : !LIBRARY_NAME_EDEFAULT.equals(libraryName);
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
@@ -601,6 +656,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 		result.append(artifactId);
 		result.append(", groupId: ");
 		result.append(groupId);
+		result.append(", scope: ");
+		result.append(scope);
 		result.append(", libraryName: ");
 		result.append(libraryName);
 		result.append(", artifactType: ");

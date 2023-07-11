@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -412,13 +412,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_MAPPER__GROUP_ID = TYPE_MAPPER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Scope</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_MAPPER__SCOPE = TYPE_MAPPER_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Library Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__LIBRARY_NAME = TYPE_MAPPER_FEATURE_COUNT + 6;
+	int JAVA_MAPPER__LIBRARY_NAME = TYPE_MAPPER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Type</b></em>' attribute.
@@ -427,7 +436,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 7;
+	int JAVA_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Java Mapper</em>' class.
@@ -436,7 +445,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 8;
+	int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.JavaPackageMapperImpl <em>Java Package Mapper</em>}' class.
@@ -512,13 +521,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_PACKAGE_MAPPER__GROUP_ID = PACKAGE_MAPPER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Scope</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_PACKAGE_MAPPER__SCOPE = PACKAGE_MAPPER_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Library Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__LIBRARY_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 5;
+	int JAVA_PACKAGE_MAPPER__LIBRARY_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Type</b></em>' attribute.
@@ -527,7 +545,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = PACKAGE_MAPPER_FEATURE_COUNT + 6;
+	int JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = PACKAGE_MAPPER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Java Package Mapper</em>' class.
@@ -536,7 +554,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 7;
+	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.
@@ -905,6 +923,61 @@ public interface MapperPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link mapper.impl.MetamodelPackageMapperImpl <em>Metamodel Package Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.MetamodelPackageMapperImpl
+	 * @see mapper.impl.MapperPackageImpl#getMetamodelPackageMapper()
+	 * @generated
+	 */
+	int METAMODEL_PACKAGE_MAPPER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Layers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METAMODEL_PACKAGE_MAPPER__LAYERS = PACKAGE_MAPPER__LAYERS;
+
+	/**
+	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METAMODEL_PACKAGE_MAPPER__PACKAGE_REF = PACKAGE_MAPPER__PACKAGE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METAMODEL_PACKAGE_MAPPER__UID = PACKAGE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METAMODEL_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Metamodel Package Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METAMODEL_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link mapper.ArtifactType <em>Artifact Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -912,7 +985,18 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getArtifactType()
 	 * @generated
 	 */
-	int ARTIFACT_TYPE = 14;
+	int ARTIFACT_TYPE = 15;
+
+
+	/**
+	 * The meta object id for the '{@link mapper.JavaLibScope <em>Java Lib Scope</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.JavaLibScope
+	 * @see mapper.impl.MapperPackageImpl#getJavaLibScope()
+	 * @generated
+	 */
+	int JAVA_LIB_SCOPE = 16;
 
 
 	/**
@@ -1161,6 +1245,17 @@ public interface MapperPackage extends EPackage {
 	EAttribute getJavaMapper_GroupId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaMapper#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scope</em>'.
+	 * @see mapper.JavaMapper#getScope()
+	 * @see #getJavaMapper()
+	 * @generated
+	 */
+	EAttribute getJavaMapper_Scope();
+
+	/**
 	 * Returns the meta object for the attribute '{@link mapper.JavaMapper#getLibraryName <em>Library Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1235,6 +1330,17 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaPackageMapper_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scope</em>'.
+	 * @see mapper.JavaPackageMapper#getScope()
+	 * @see #getJavaPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaPackageMapper_Scope();
 
 	/**
 	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#getLibraryName <em>Library Name</em>}'.
@@ -1518,6 +1624,38 @@ public interface MapperPackage extends EPackage {
 	EAttribute getXMLTypeMapper_Typename();
 
 	/**
+	 * Returns the meta object for class '{@link mapper.MetamodelPackageMapper <em>Metamodel Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metamodel Package Mapper</em>'.
+	 * @see mapper.MetamodelPackageMapper
+	 * @generated
+	 */
+	EClass getMetamodelPackageMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.MetamodelPackageMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see mapper.MetamodelPackageMapper#getUid()
+	 * @see #getMetamodelPackageMapper()
+	 * @generated
+	 */
+	EAttribute getMetamodelPackageMapper_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.MetamodelPackageMapper#getMappedToPackageName <em>Mapped To Package Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped To Package Name</em>'.
+	 * @see mapper.MetamodelPackageMapper#getMappedToPackageName()
+	 * @see #getMetamodelPackageMapper()
+	 * @generated
+	 */
+	EAttribute getMetamodelPackageMapper_MappedToPackageName();
+
+	/**
 	 * Returns the meta object for enum '{@link mapper.ArtifactType <em>Artifact Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1526,6 +1664,16 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getArtifactType();
+
+	/**
+	 * Returns the meta object for enum '{@link mapper.JavaLibScope <em>Java Lib Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Java Lib Scope</em>'.
+	 * @see mapper.JavaLibScope
+	 * @generated
+	 */
+	EEnum getJavaLibScope();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1750,6 +1898,14 @@ public interface MapperPackage extends EPackage {
 		EAttribute JAVA_MAPPER__GROUP_ID = eINSTANCE.getJavaMapper_GroupId();
 
 		/**
+		 * The meta object literal for the '<em><b>Scope</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_MAPPER__SCOPE = eINSTANCE.getJavaMapper_Scope();
+
+		/**
 		 * The meta object literal for the '<em><b>Library Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1806,6 +1962,14 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_PACKAGE_MAPPER__GROUP_ID = eINSTANCE.getJavaPackageMapper_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Scope</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_PACKAGE_MAPPER__SCOPE = eINSTANCE.getJavaPackageMapper_Scope();
 
 		/**
 		 * The meta object literal for the '<em><b>Library Name</b></em>' attribute feature.
@@ -2026,6 +2190,32 @@ public interface MapperPackage extends EPackage {
 		EAttribute XML_TYPE_MAPPER__TYPENAME = eINSTANCE.getXMLTypeMapper_Typename();
 
 		/**
+		 * The meta object literal for the '{@link mapper.impl.MetamodelPackageMapperImpl <em>Metamodel Package Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.MetamodelPackageMapperImpl
+		 * @see mapper.impl.MapperPackageImpl#getMetamodelPackageMapper()
+		 * @generated
+		 */
+		EClass METAMODEL_PACKAGE_MAPPER = eINSTANCE.getMetamodelPackageMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METAMODEL_PACKAGE_MAPPER__UID = eINSTANCE.getMetamodelPackageMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped To Package Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METAMODEL_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = eINSTANCE.getMetamodelPackageMapper_MappedToPackageName();
+
+		/**
 		 * The meta object literal for the '{@link mapper.ArtifactType <em>Artifact Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2034,6 +2224,16 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ARTIFACT_TYPE = eINSTANCE.getArtifactType();
+
+		/**
+		 * The meta object literal for the '{@link mapper.JavaLibScope <em>Java Lib Scope</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.JavaLibScope
+		 * @see mapper.impl.MapperPackageImpl#getJavaLibScope()
+		 * @generated
+		 */
+		EEnum JAVA_LIB_SCOPE = eINSTANCE.getJavaLibScope();
 
 	}
 

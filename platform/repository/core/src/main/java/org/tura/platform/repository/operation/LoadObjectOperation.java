@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ package org.tura.platform.repository.operation;
 import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.data.AddTopObjectData;
 import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
@@ -32,8 +33,13 @@ public class LoadObjectOperation extends ProxyOperation{
 	private Object proxy ;
     private ProxyCommadStackProvider stackProvider;
     private Map<Object,Map<Object, String>> collected;
+    private Registry registry;
+    private Class<?> loadedBy;
 	
-
+    public LoadObjectOperation(Registry registry) {
+    	this.registry = registry;
+    }
+    
 	public ProxyCommadStackProvider getStackProvider() {
 		return stackProvider;
 	}
@@ -69,12 +75,24 @@ public class LoadObjectOperation extends ProxyOperation{
     	AddTopObjectData data = new AddTopObjectData();
     	populate(data);
         data.setObject(proxy);
+        data.setRegistry(registry);
         data.getParams().put(Constants.CPA_OPERATION, OperationLevel.LOAD.name());
         if( collected != null) {
             data.getParams().put(Constants.CPA_ID_MAPPERS, collected);
         }
+        if ( loadedBy != null) {
+            data.getParams().put(Constants.CPA_LOADED_BY, loadedBy);
+        }
         stackProvider.get().addCommand(data);
     }
+
+	public Class<?> getLoadedBy() {
+		return loadedBy;
+	}
+
+	public void setLoadedBy(Class<?> loadedBy) {
+		this.loadedBy = loadedBy;
+	}
 	
 	
 	

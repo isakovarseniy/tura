@@ -84,6 +84,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectMapperPackages" upperBound="-1"
-        eType="ecore:EClass objectMapper.ecore#//ObjectMapperGroup" containment="true"/>
+        eType="ecore:EClass objectmapper.ecore#//ObjectMapperGroup" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

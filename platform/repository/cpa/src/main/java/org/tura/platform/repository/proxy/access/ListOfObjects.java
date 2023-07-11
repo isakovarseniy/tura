@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import java.util.NoSuchElementException;
 
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.ObjectControl;
@@ -161,7 +162,9 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 
 		boolean removed = false;
 		try {
-			loadNewObject(getObjectType(), index);
+			if (PlatformConfig.READ_WRITE_MODE) {
+				loadNewObject(getObjectType(), index);
+			}
 			do {
 				obj = (ObjectControl) getObject(index);
 				removed = false;
@@ -187,7 +190,7 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	private void loadNewObject(Class<T> objectType, int index) throws Exception {
 		List<SearchCriteria> search = new ArrayList<>();
 		search.addAll(getSearchCriteria());
-		long startTimeStamp = getListOfObjectsData().getCurrentTimeStamp() + 1;
+		long startTimeStamp = getListOfObjectsData().getCurrentTimeStamp();
 
 		List<StorageControl> result = null;
 
@@ -200,11 +203,16 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 		}
 
 		for (StorageControl sc : result) {
+			T proxy = (T) repository.factory(sc.getObject(), sc.getObject().getClass().getName());
+
+			if (getShifter().findPosition(proxy) != -1) {
+				continue;
+			}
+
 			if (startTimeStamp < sc.getTimeStamp()) {
 				startTimeStamp = sc.getTimeStamp();
 			}
 			getListOfObjectsData().setCurrentTimeStamp(startTimeStamp);
-			T proxy = (T) repository.factory(sc.getObject(), sc.getObject().getClass().getName());
 			getShifter().add(index, proxy);
 		}
 	}
@@ -252,7 +260,9 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	public int size() {
 		try {
 			if (getShifter().getActualRowNumber() == -1) {
-				loadNewObject(getObjectType(), 0);
+				if (PlatformConfig.READ_WRITE_MODE) {
+					loadNewObject(getObjectType(), 0);
+				}
 				load(0);
 			}
 			return Math.toIntExact(getShifter().getActualRowNumber());
@@ -262,10 +272,14 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 	}
 
 	public void reset() throws Exception {
-		shiftData.close();
-		listData.close();
-		shiftData = null;
-		listData = null;
+		if (shiftData != null) {
+			shiftData.close();
+			shiftData = null;
+		}
+		if (listData != null) {
+			listData.close();
+			listData = null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -398,10 +412,10 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 		}
 	}
 
-	protected DelStruc isRemovable(T t)  {
+	protected DelStruc isRemovable(T t) {
 		try {
 			DelStruc response = new DelStruc();
-			
+
 			ObjectControl oc = (ObjectControl) t;
 			Class<?> clazz = oc.getProxyClazz();
 			RepositoryHelper helper = new RepositoryHelper();
@@ -424,22 +438,22 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 			}
 			return response;
 		} catch (Exception e) {
-               throw new RuntimeException(e);
+			throw new RuntimeException(e);
 		}
 	}
-	
+
 	private int findIndex(T t) throws Exception {
-		int  position = -1;
-		for (   Entry <Integer,Object>  entity: getListOfObjectsData().getLoaded().entrySet()) {
-			if  (  t.equals(entity.getValue()))  {
-				position =  entity.getKey();
+		int position = -1;
+		for (Entry<Integer, Object> entity : getListOfObjectsData().getLoaded().entrySet()) {
+			if (t.equals(entity.getValue())) {
+				position = entity.getKey();
 				break;
 			}
 		}
-		if (position == -1 ) {
-			position =  getShifter().findPosition(t);
+		if (position == -1) {
+			position = getShifter().findPosition(t);
 		}
 		return position;
 	}
-	
+
 }

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,9 +63,11 @@ public abstract class CpaAbstractOperation extends SpaRepositoryCommand{
 						cpaMapper.replaceCpaIds(persistancelObject, mp);
 					}
 				}
+				Class<?> loadedBy =  (Class<?>) params.get(Constants.CPA_LOADED_BY);
 				control = new CpaUpdateStorageControl( persistancelObject  ,p2rMapper.getPrimaryKey(persistancelObject), OperationLevel.OPERATION,registryName);
 				control.setProperty( Constants.STORAGE_CONTROL_STATUS);
 				control.setValue(ObjectStatus.Loaded.name());
+				control.setLoadedBy(loadedBy);
 			}
 		}
 		return control;

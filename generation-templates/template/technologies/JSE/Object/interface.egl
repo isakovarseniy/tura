@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,14 +16,23 @@
 [%
  import "tura:/generation-templates/template/commons/typeElementUtil.eol";
  import "tura:/generation-templates/template/commons/categorizedUtil.eol";
- import "tura:/generation-templates/template/technologies/JSE/Object/method.egl";
  
- var util = new Native('org.tura.metamodel.commons.Util');
- var hash = new Native('java.util.HashMap');
+ @template
+ operation  interface( h ){
  
- hash.put("recipe",recipe);
- hash.put("ingredient",ingredient);
- hash.put("skipVar",true);    
+ 	 var type = h.get("type");
+	 var recipe = h.get("recipe");
+	 var ingredient = h.get("ingredient");
+	 var component = h.get("component");
+	 var model_mapper = h.get("model_mapper");
+	 var path  = h.get("path");    
+ 
+	 var util = new Native('org.tura.metamodel.commons.Util');
+	 var hash = new Native('java.util.HashMap');
+	 
+	 hash.put("recipe",recipe);
+	 hash.put("ingredient",ingredient);
+	 hash.put("skipVar",true);    
  
 %]
 package [%=type.~package%];  
@@ -44,7 +53,9 @@ if (type.~interface.isDefined()){
 
 }
 
-[%@template
+[%
+}
+@template
 operation  getMethod( property ){
 %]
 ;

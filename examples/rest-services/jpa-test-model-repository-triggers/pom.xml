@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 
 	<groupId>org.tura.example.service.hrform</groupId>
 	<artifactId>jpa-test-model-repository-triggers</artifactId>
-	<version>6.1.0</version>
+	<version>6.1.1</version>
 	<packaging>jar</packaging>
 
 	<dependencyManagement>
@@ -70,7 +70,7 @@
 			<groupId>org.tura.platform.repository</groupId>
 			<artifactId>cdi-persistence-repo-starter-jee</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-repository-non-lazy</artifactId>
@@ -88,6 +88,13 @@
 			<artifactId>test-objects-repository-proxy-non-lazy</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ package org.tura.platform.repository.client.rest;
 
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -28,19 +27,19 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.IdDeserializationProblemHandler;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
-import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchRequest;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.core.UpdateRequest;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class RestClientRepository implements Repository {
@@ -97,53 +96,36 @@ public class RestClientRepository implements Repository {
 			Integer endIndex, Class<T> objectClass) throws RepositoryException {
 
 		try {
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
+			mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE,
+					JsonTypeInfo.As.PROPERTY);
+			mapper.addHandler(new IdDeserializationProblemHandler());
+
 			client = ClientBuilder.newClient();
 
 			SearchRequest request = new SearchRequest();
+			request.setSearch(searchCriteria);
 			request.setOrder(orderCriteria);
 			request.setStartIndex(startIndex);
 			request.setEndIndex(endIndex);
 			request.setObjectClass(objectClass.getName());
 
-			for( SearchCriteria  sc : searchCriteria ) {
-				if ( sc instanceof ObjectProfileCriteria  ) {
-					request.setProfile(((ObjectProfileCriteria) sc).getProfile());
-				}else{
-					request.getSearch().add(sc);
-					sc.setClassName( sc.getValue().getClass().getName());
-					sc.setValue(sc.getValue().toString());
-				}
-			}
-			
 			String context = base.getPath();
 			 Invocation.Builder builder = client.target(new URL(base, context + "rest/repository/find").toExternalForm())
 						.request(MediaType.APPLICATION_JSON);
 			 if ( customizer != null) {
 				 builder = customizer.process(builder);
 			 }
-			Response response = builder.post(Entity.entity(request, MediaType.APPLICATION_JSON));
+			Response response = builder.post(Entity.entity(mapper.writeValueAsBytes(request), MediaType.APPLICATION_JSON));
 
 			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
 
-			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
+			String map = response.readEntity(String.class);
 			
-			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-		    List<T> list = new ArrayList<>();
-		    
-			for (int i  = 0; ;i++){
-				String key =  Integer.valueOf(i).toString();
-				if (map.get(key) == null){
-					break;
-				}
-				String className = map.get(key+"_type").get(0);
-				Class<?> clazz = Class.forName(className);
-				list.add( (T) mapper.readValue(map.get(key).get(0),clazz));
-			}
-            Long size =  mapper.readValue(map.get("size").get(0),Long.class);
 			
-			SearchResult<T> result = new SearchResult<T>(list,size.longValue());
+			SearchResult<T> result = mapper.readValue(map.getBytes(), SearchResult.class);
 			
 			return result;
 		} catch (Exception e) {
@@ -172,16 +154,12 @@ public class RestClientRepository implements Repository {
 			client = ClientBuilder.newClient();
 
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-			mapper.enableDefaultTyping();
+			mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE,
+					JsonTypeInfo.As.PROPERTY);
+			mapper.addHandler(new IdDeserializationProblemHandler());
 
-			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
-
-			int index = 0;
-			for (Object o : changes) {
-				formData.add(Integer.valueOf(index).toString()+"_type", o.getClass().getName());
-				formData.add(Integer.valueOf(index).toString(), mapper.writeValueAsString(o));
-				index++;
-			}
+			UpdateRequest request = new UpdateRequest();
+			request.setChange(changes);
 
 			String context = base.getPath();
 			
@@ -190,28 +168,17 @@ public class RestClientRepository implements Repository {
 			 if ( customizer != null) {
 				 builder = customizer.process(builder);
 			 }
-			Response response = builder.post(Entity.form(formData));
+		    Response response = builder.post(Entity.entity( mapper.writeValueAsBytes(request), MediaType.APPLICATION_JSON));
 
-			
 			
 			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
 				throw new RepositoryException(response.readEntity(String.class));
 			}
 			
-			@SuppressWarnings("unchecked")
-			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
-		    ArrayList<Object> list = new ArrayList<>();
-		    
-			for (int i  = 0; ;i++){
-				String key = Integer.valueOf(i).toString();
-				if (map.get(key) == null){
-					break;
-				}
-				String className = map.get(key+"_type").get(0);
-				Class<?> clazz = Class.forName(className);
-				list.add( mapper.readValue(map.get(key).get(0),clazz));
-			}
-			return list;
+			String map = response.readEntity(String.class);
+			UpdateRequest resp = mapper.readValue(map.getBytes(), UpdateRequest.class);
+			
+			return resp.getChange();
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}finally{

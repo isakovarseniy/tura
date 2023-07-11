@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -20,6 +20,7 @@ import artifact.impl.CategorizedImpl;
 
 import form.ArtificialField;
 import form.ContextParameters;
+import form.ContextParametersObj;
 import form.CreateTrigger;
 import form.DataControl;
 import form.FormPackage;
@@ -49,6 +50,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import type.TypePointer;
+import type.TypePointerObj;
 
 /**
  * <!-- begin-user-doc -->
@@ -126,7 +128,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 * @ordered
 	 */
-	protected TypePointer baseType;
+	protected TypePointerObj baseType;
 
 	/**
 	 * The cached value of the '{@link #getPreQueryTrigger() <em>Pre Query Trigger</em>}' containment reference.
@@ -226,7 +228,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 * @ordered
 	 */
-	protected ContextParameters defaultSearch;
+	protected ContextParametersObj defaultSearch;
 
 	/**
 	 * The cached value of the '{@link #getDefaultOrderBy() <em>Default Order By</em>}' containment reference.
@@ -319,7 +321,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 */
 	@Override
-	public TypePointer getBaseType() {
+	public TypePointerObj getBaseType() {
 		return baseType;
 	}
 
@@ -328,8 +330,8 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBaseType(TypePointer newBaseType, NotificationChain msgs) {
-		TypePointer oldBaseType = baseType;
+	public NotificationChain basicSetBaseType(TypePointerObj newBaseType, NotificationChain msgs) {
+		TypePointerObj oldBaseType = baseType;
 		baseType = newBaseType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, newBaseType);
@@ -344,7 +346,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 */
 	@Override
-	public void setBaseType(TypePointer newBaseType) {
+	public void setBaseType(TypePointerObj newBaseType) {
 		if (newBaseType != baseType) {
 			NotificationChain msgs = null;
 			if (baseType != null)
@@ -737,7 +739,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 */
 	@Override
-	public ContextParameters getDefaultSearch() {
+	public ContextParametersObj getDefaultSearch() {
 		return defaultSearch;
 	}
 
@@ -746,8 +748,8 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs) {
-		ContextParameters oldDefaultSearch = defaultSearch;
+	public NotificationChain basicSetDefaultSearch(ContextParametersObj newDefaultSearch, NotificationChain msgs) {
+		ContextParametersObj oldDefaultSearch = defaultSearch;
 		defaultSearch = newDefaultSearch;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__DEFAULT_SEARCH, oldDefaultSearch, newDefaultSearch);
@@ -762,7 +764,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 	 * @generated
 	 */
 	@Override
-	public void setDefaultSearch(ContextParameters newDefaultSearch) {
+	public void setDefaultSearch(ContextParametersObj newDefaultSearch) {
 		if (newDefaultSearch != defaultSearch) {
 			NotificationChain msgs = null;
 			if (defaultSearch != null)
@@ -930,7 +932,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 				setName((String)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
-				setBaseType((TypePointer)newValue);
+				setBaseType((TypePointerObj)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				setPreQueryTrigger((PREQueryTrigger)newValue);
@@ -961,7 +963,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 				getArtificialFields().addAll((Collection<? extends ArtificialField>)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)newValue);
+				setDefaultSearch((ContextParametersObj)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				setDefaultOrderBy((Orders)newValue);
@@ -989,7 +991,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 				setName(NAME_EDEFAULT);
 				return;
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
-				setBaseType((TypePointer)null);
+				setBaseType((TypePointerObj)null);
 				return;
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				setPreQueryTrigger((PREQueryTrigger)null);
@@ -1019,7 +1021,7 @@ public class DataControlImpl extends CategorizedImpl implements DataControl {
 				getArtificialFields().clear();
 				return;
 			case FormPackage.DATA_CONTROL__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)null);
+				setDefaultSearch((ContextParametersObj)null);
 				return;
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				setDefaultOrderBy((Orders)null);

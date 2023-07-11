@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -2247,13 +2247,22 @@ public interface FormPackage extends EPackage {
 	int AREA_REF = 35;
 
 	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA_REF__UID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Area</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AREA_REF__AREA = 0;
+	int AREA_REF__AREA = 1;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -2262,7 +2271,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AREA_REF__GROUP = 1;
+	int AREA_REF__GROUP = 2;
 
 	/**
 	 * The number of structural features of the '<em>Area Ref</em>' class.
@@ -2271,7 +2280,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AREA_REF_FEATURE_COUNT = 2;
+	int AREA_REF_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.FormatableImpl <em>Formatable</em>}' class.
@@ -2684,13 +2693,22 @@ public interface FormPackage extends EPackage {
 	int SELECTION__STYLE = STYLE_ELEMENT__STYLE;
 
 	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION__UID = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Display Option Pointer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTION__DISPLAY_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 0;
+	int SELECTION__DISPLAY_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value Option Pointer</b></em>' reference.
@@ -2699,7 +2717,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTION__VALUE_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 1;
+	int SELECTION__VALUE_OPTION_POINTER = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Selection</em>' class.
@@ -2708,7 +2726,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 2;
+	int SELECTION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.BlockableImpl <em>Blockable</em>}' class.
@@ -8759,6 +8777,43 @@ public interface FormPackage extends EPackage {
 	int DATA_CONTROL_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 15;
 
 	/**
+	 * The meta object id for the '{@link form.impl.ContextParametersObjImpl <em>Context Parameters Obj</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.ContextParametersObjImpl
+	 * @see form.impl.FormPackageImpl#getContextParametersObj()
+	 * @generated
+	 */
+	int CONTEXT_PARAMETERS_OBJ = 96;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PARAMETERS_OBJ__PARAMETERS = CONTEXT_PARAMETERS__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PARAMETERS_OBJ__UID = CONTEXT_PARAMETERS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Context Parameters Obj</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PARAMETERS_OBJ_FEATURE_COUNT = CONTEXT_PARAMETERS_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8766,7 +8821,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelationMapper()
 	 * @generated
 	 */
-	int RELATION_MAPPER = 96;
+	int RELATION_MAPPER = 97;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8821,7 +8876,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 97;
+	int ORDERS = 98;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8858,7 +8913,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 98;
+	int ORDER_BY = 99;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8904,7 +8959,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 99;
+	int RELATION = 100;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8977,7 +9032,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInternalRelation()
 	 * @generated
 	 */
-	int INTERNAL_RELATION = 100;
+	int INTERNAL_RELATION = 101;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9059,7 +9114,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 101;
+	int DEPENDENCY = 102;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -9114,7 +9169,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 102;
+	int ARTIFICIAL_FIELD = 103;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -9160,7 +9215,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 103;
+	int COMPARATOR = 104;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -9170,7 +9225,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 104;
+	int ORDER = 105;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -9180,7 +9235,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 105;
+	int ORIENTATION = 106;
 
 	/**
 	 * The meta object id for the '{@link form.RadioLayout <em>Radio Layout</em>}' enum.
@@ -9190,7 +9245,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRadioLayout()
 	 * @generated
 	 */
-	int RADIO_LAYOUT = 106;
+	int RADIO_LAYOUT = 107;
 
 	/**
 	 * The meta object id for the '{@link form.DataExporterType <em>Data Exporter Type</em>}' enum.
@@ -9200,7 +9255,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataExporterType()
 	 * @generated
 	 */
-	int DATA_EXPORTER_TYPE = 107;
+	int DATA_EXPORTER_TYPE = 108;
 
 	/**
 	 * The meta object id for the '{@link form.Sortable <em>Sortable</em>}' enum.
@@ -9210,7 +9265,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSortable()
 	 * @generated
 	 */
-	int SORTABLE = 108;
+	int SORTABLE = 109;
 
 	/**
 	 * The meta object id for the '{@link form.SelectionMode <em>Selection Mode</em>}' enum.
@@ -9220,7 +9275,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelectionMode()
 	 * @generated
 	 */
-	int SELECTION_MODE = 109;
+	int SELECTION_MODE = 110;
 
 
 	/**
@@ -9231,7 +9286,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTimeLineLayout()
 	 * @generated
 	 */
-	int TIME_LINE_LAYOUT = 110;
+	int TIME_LINE_LAYOUT = 111;
 
 	/**
 	 * The meta object id for the '{@link form.TimeLineAlign <em>Time Line Align</em>}' enum.
@@ -9241,7 +9296,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTimeLineAlign()
 	 * @generated
 	 */
-	int TIME_LINE_ALIGN = 111;
+	int TIME_LINE_ALIGN = 112;
 
 
 	/**
@@ -10375,6 +10430,17 @@ public interface FormPackage extends EPackage {
 	EClass getAreaRef();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.AreaRef#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see form.AreaRef#getUid()
+	 * @see #getAreaRef()
+	 * @generated
+	 */
+	EAttribute getAreaRef_Uid();
+
+	/**
 	 * Returns the meta object for the reference '{@link form.AreaRef#getArea <em>Area</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10500,6 +10566,17 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSelection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.Selection#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see form.Selection#getUid()
+	 * @see #getSelection()
+	 * @generated
+	 */
+	EAttribute getSelection_Uid();
 
 	/**
 	 * Returns the meta object for the reference '{@link form.Selection#getDisplayOptionPointer <em>Display Option Pointer</em>}'.
@@ -12064,6 +12141,27 @@ public interface FormPackage extends EPackage {
 	EReference getDataControl_RelationMappers();
 
 	/**
+	 * Returns the meta object for class '{@link form.ContextParametersObj <em>Context Parameters Obj</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context Parameters Obj</em>'.
+	 * @see form.ContextParametersObj
+	 * @generated
+	 */
+	EClass getContextParametersObj();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.ContextParametersObj#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see form.ContextParametersObj#getUid()
+	 * @see #getContextParametersObj()
+	 * @generated
+	 */
+	EAttribute getContextParametersObj_Uid();
+
+	/**
 	 * Returns the meta object for class '{@link form.RelationMapper <em>Relation Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13408,6 +13506,14 @@ public interface FormPackage extends EPackage {
 		EClass AREA_REF = eINSTANCE.getAreaRef();
 
 		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AREA_REF__UID = eINSTANCE.getAreaRef_Uid();
+
+		/**
 		 * The meta object literal for the '<em><b>Area</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -13512,6 +13618,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SELECTION = eINSTANCE.getSelection();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECTION__UID = eINSTANCE.getSelection_Uid();
 
 		/**
 		 * The meta object literal for the '<em><b>Display Option Pointer</b></em>' reference feature.
@@ -14798,6 +14912,24 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_CONTROL__RELATION_MAPPERS = eINSTANCE.getDataControl_RelationMappers();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.ContextParametersObjImpl <em>Context Parameters Obj</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.ContextParametersObjImpl
+		 * @see form.impl.FormPackageImpl#getContextParametersObj()
+		 * @generated
+		 */
+		EClass CONTEXT_PARAMETERS_OBJ = eINSTANCE.getContextParametersObj();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTEXT_PARAMETERS_OBJ__UID = eINSTANCE.getContextParametersObj_Uid();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.operation.ExternalQueryProcessor;
 import org.tura.platform.repository.jpa.operation.query.Many2ManyQueryProcessor;
+import org.tura.platform.repository.jpa.test.MetamodelPrimaryKeyStrategy;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.mixed.test.SPAAdapterLoader;
 import org.tura.platform.repository.mixed.test.W1PreQueryTrigger;
@@ -140,6 +141,13 @@ public class RepositoryProducer {
 		return repository;
 	}
 
+	public Repository getMetamodelRepository() throws Exception {
+		Repository rep = getJpaRepository();
+		registry.setPrImaryKeyStrategy(new MetamodelPrimaryKeyStrategy());
+		return rep;
+	}
+	
+	
 	public Repository getSpaRepository() throws Exception {
 		Registry registry = new Registry();
 		SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
@@ -215,7 +223,7 @@ public class RepositoryProducer {
 	}
 
 	public Repository getMixRepository() throws Exception {
-		Registry registry = new Registry();
+		registry = new Registry();
 		SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
 
 		registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());

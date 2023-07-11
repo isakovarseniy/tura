@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -35,9 +36,12 @@ import org.apache.commons.jxpath.JXPathNotFoundException;
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
+import org.tura.platform.repository.core.annotation.Connection;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
+import org.tura.platform.repository.data.CloneableCommand;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
+import org.tura.platform.repository.persistence.TypeAware;
 import org.tura.platform.repository.spa.SpaRepositoryData;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
@@ -90,6 +94,21 @@ public class RepositoryHelper implements Serializable {
 		}
 	}
 
+	
+	public Class<?> findRepositoryClassByPersistanceObject(Object persistanceObject) throws RepositoryException {
+      String persistanceType = persistanceObject.getClass().getName();
+		if (persistanceObject instanceof Adapter) {
+			persistanceType = ((Adapter) persistanceObject).getObjectType();
+		}else {
+			if (  persistanceObject instanceof TypeAware) {
+				persistanceType = ((TypeAware) persistanceObject).getTypeClazz().getName();
+			}
+		}
+		return findRepositoryClass(persistanceType);
+		
+	}
+	
+	
 	public Class<?> findRepositoryClass(String persistanceClass) throws RepositoryException {
 		try {
 			return Class.forName(registry.findRepositoryClass(persistanceClass));
@@ -149,7 +168,34 @@ public class RepositoryHelper implements Serializable {
 		}
 		return mapper;
 	}
-
+	public Mapper findMapperWithoutException(Class<?> repositoryClass) throws RepositoryException {
+		Mapper mapper = null;
+		try {
+			String persistanceClassName = registry.findPersistanceClass(repositoryClass.getName());
+			mapper = registry.findMapper(persistanceClassName, repositoryClass.getName());
+		}catch(Exception e) {
+			
+		}
+		return mapper;
+	}
+	
+	
+	public Mapper findMapperByPersistanceClass(Class<?> persistanceClass) throws RepositoryException {
+		  return findMapperByPersistanceClass(persistanceClass.getName());
+	}
+	
+	
+	public Mapper findMapperByPersistanceClass(String persistanceClassName) throws RepositoryException {
+		String repositoryClassName = registry.findRepositoryClass(persistanceClassName);
+		Mapper mapper = registry.findMapper(persistanceClassName, repositoryClassName);
+		if (mapper == null) {
+			throw new RepositoryException(
+					"Mapper not found from " + persistanceClassName + " to " + repositoryClassName);
+		}
+		return mapper;
+	}
+	
+	
 	public CommandProducer findCommandProducer(String repositoryClass, Map<String, Object> params,
 			SpaRepositoryData spaRepositoryData) throws RepositoryException {
 		CommandProducer cp = registry.findCommandProduce(repositoryClass, params);
@@ -190,7 +236,12 @@ public class RepositoryHelper implements Serializable {
 		String persistanceType = persistanceObject.getClass().getName();
 		if (persistanceObject instanceof Adapter) {
 			persistanceType = ((Adapter) persistanceObject).getObjectType();
+		}else {
+			if (persistanceObject instanceof TypeAware ) {
+				persistanceType = ((TypeAware)persistanceObject).getTypeClazz().getName();
+			}
 		}
+		
 		String repositoryClass = registry.findRepositoryClass(persistanceType);
 		return registry.findMapper(persistanceType, repositoryClass).getPrimaryKey(persistanceObject);
 	}
@@ -329,18 +380,18 @@ public class RepositoryHelper implements Serializable {
 
 	}
 
-	public static Class<?> getObjectType(Object obj) {
-		if (obj instanceof Adapter) {
-			try {
-				return Class.forName(((Adapter) obj).getObjectType());
-			} catch (ClassNotFoundException e) {
-				throw new RuntimeException(e);
+	public static Class<?> getObjectType(Type type) throws RepositoryException {
+		if ( type instanceof ParameterizedType) {
+			ParameterizedType prmT = (ParameterizedType) type;
+			if ( prmT.getActualTypeArguments().length != 1) {
+				throw new RepositoryException("Wrong number of parameters");
 			}
-		} else {
-			return obj.getClass();
+			return (Class<?>) prmT.getActualTypeArguments()[0];
 		}
+		return (Class<?>) type;
 	}
-
+	
+	
 	public boolean beckwardProperty(Object persistanceDetailObject, String detailProperty) {
 		try {
 			Class<?> clazz = persistanceDetailObject.getClass();
@@ -391,6 +442,18 @@ public class RepositoryHelper implements Serializable {
 		return true;
 	}
 
+	public boolean isHiddenJpaAssociation(Class<?> clazz, String property) throws Exception {
+		String methodName = "get" + WordUtils.capitalize(property);
+		Method masterMethod = clazz.getMethod(methodName, new Class<?>[] {});
+
+		Connection association = masterMethod.getAnnotation(Connection.class);
+		if (association == null) {
+			return false;
+		}
+		return association.hiddenJpa();
+	}
+	
+	
 	public void updatePath(RepoKeyPath path, String parentProperty, Object childObject) throws Exception {
 		Mapper maper = findMapper(childObject.getClass());
 		path.addRepoObjectKey(parentProperty, maper.getRepoObjectKey(childObject));
@@ -432,7 +495,84 @@ public class RepositoryHelper implements Serializable {
 			}
 		}
 		return result;
-		
+	}	
+
+	
+	public Method findMethodByIdAndType(Class<?> clazz, String id, RelationType cpaRelationType)
+			throws Exception {
+		List<Method> methods = getMethodsAnnotatedWith(clazz, Association.class);
+		for (Method method : methods) {
+			Association assosiation = method.getAnnotation(Association.class);
+			if (assosiation.id().equals(id) && assosiation.direction().equals(cpaRelationType)) {
+				return method;
+			}
+		}
+		return null;
 	}	
 	
+	
+	public Mapper findMapperByRepoObject(Object repositoryObject)  throws RepositoryException{
+		return findMapper(getRealClass(repositoryObject));
+	}
+	
+	public Mapper findMapperByPersistenceObject(Object persistenceObject) throws RepositoryException{
+		String persistenceType = persistenceObject.getClass().getName();
+		if (persistenceObject instanceof  Adapter ) {
+			persistenceType = ((Adapter)persistenceObject).getObjectType();
+		}else {
+			if (  persistenceObject instanceof TypeAware) {
+				persistenceType = ((TypeAware) persistenceObject).getTypeClazz().getName();
+			}
+		}
+		String repositoryClass = registry.findRepositoryClass(persistenceType);
+		return registry.findMapper(persistenceType, repositoryClass);
+	}	
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public Object newRepoObject( Object persistenceObject) throws RepositoryException {
+		String persistenceType = persistenceObject.getClass().getName();
+		if (persistenceObject instanceof  Adapter ) {
+			persistenceType = ((Adapter)persistenceObject).getObjectType();
+		}else {
+			if (  persistenceObject instanceof TypeAware) {
+				persistenceType = ((TypeAware) persistenceObject).getTypeClazz().getName();
+			}
+		}
+		Class repoClass = findRepositoryClass(persistenceType);
+		try {
+			return repoClass.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException e) {
+			throw new RepositoryException(e);
+		}
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public Object newPersistenceObject( Object repositoryObject) throws RepositoryException {
+		Class persistenceClass = findPersistanceClass(getRealClass(repositoryObject).getName());
+		try {
+			return persistenceClass.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException e) {
+			throw new RepositoryException(e);
+		}
+	}
+	
+	protected Class<?> getRealClass(Object repositoryObject){
+		if ( repositoryObject instanceof ObjectControl) {
+			return ((ObjectControl)repositoryObject).getProxyClazz();
+		}
+		return repositoryObject.getClass();
+	}
+	
+	public  void cleanCommand(List<Object> response) {
+		if ( response == null  || response.size() == 0 ) {
+			return;
+		}
+		for ( Object o : response) {
+			CloneableCommand cmd  = (CloneableCommand) o;
+			cmd.cleanRegistry();
+		}
+	}
 }

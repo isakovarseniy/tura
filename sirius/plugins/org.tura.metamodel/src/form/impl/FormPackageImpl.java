@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -46,6 +46,7 @@ import form.Comparator;
 import form.Context;
 import form.ContextParameter;
 import form.ContextParameters;
+import form.ContextParametersObj;
 import form.ContextValue;
 import form.ControlPointer;
 import form.Controls;
@@ -863,6 +864,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass dataControlEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contextParametersObjEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2153,8 +2161,18 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAreaRef_Uid() {
+		return (EAttribute)areaRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAreaRef_Area() {
-		return (EReference)areaRefEClass.getEStructuralFeatures().get(0);
+		return (EReference)areaRefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2164,7 +2182,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	@Override
 	public EAttribute getAreaRef_Group() {
-		return (EAttribute)areaRefEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)areaRefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2273,8 +2291,18 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSelection_Uid() {
+		return (EAttribute)selectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getSelection_DisplayOptionPointer() {
-		return (EReference)selectionEClass.getEStructuralFeatures().get(0);
+		return (EReference)selectionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2284,7 +2312,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	@Override
 	public EReference getSelection_ValueOptionPointer() {
-		return (EReference)selectionEClass.getEStructuralFeatures().get(1);
+		return (EReference)selectionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3743,6 +3771,26 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getContextParametersObj() {
+		return contextParametersObjEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getContextParametersObj_Uid() {
+		return (EAttribute)contextParametersObjEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRelationMapper() {
 		return relationMapperEClass;
 	}
@@ -4287,6 +4335,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(itemIconEClass, ITEM_ICON__ICON);
 
 		areaRefEClass = createEClass(AREA_REF);
+		createEAttribute(areaRefEClass, AREA_REF__UID);
 		createEReference(areaRefEClass, AREA_REF__AREA);
 		createEAttribute(areaRefEClass, AREA_REF__GROUP);
 
@@ -4304,6 +4353,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		inputElementEClass = createEClass(INPUT_ELEMENT);
 
 		selectionEClass = createEClass(SELECTION);
+		createEAttribute(selectionEClass, SELECTION__UID);
 		createEReference(selectionEClass, SELECTION__DISPLAY_OPTION_POINTER);
 		createEReference(selectionEClass, SELECTION__VALUE_OPTION_POINTER);
 
@@ -4506,6 +4556,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_SEARCH);
 		createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_ORDER_BY);
 		createEReference(dataControlEClass, DATA_CONTROL__RELATION_MAPPERS);
+
+		contextParametersObjEClass = createEClass(CONTEXT_PARAMETERS_OBJ);
+		createEAttribute(contextParametersObjEClass, CONTEXT_PARAMETERS_OBJ__UID);
 
 		relationMapperEClass = createEClass(RELATION_MAPPER);
 		createEAttribute(relationMapperEClass, RELATION_MAPPER__UID);
@@ -4753,6 +4806,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		searchTriggerEClass.getESuperTypes().add(this.getTrigger());
 		formVariableEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 		dataControlEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
+		contextParametersObjEClass.getESuperTypes().add(this.getContextParameters());
 		internalRelationEClass.getESuperTypes().add(this.getRelation());
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 
@@ -4898,6 +4952,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getItemIcon_Icon(), this.getContext(), null, "icon", null, 0, 1, ItemIcon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(areaRefEClass, AreaRef.class, "AreaRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAreaRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, AreaRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAreaRef_Area(), this.getNickNamed(), null, "area", null, 0, 1, AreaRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAreaRef_Group(), ecorePackage.getEInt(), "group", null, 0, 1, AreaRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4915,6 +4970,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSelection_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSelection_DisplayOptionPointer(), ecorePackage.getEObject(), null, "displayOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSelection_ValueOptionPointer(), ecorePackage.getEObject(), null, "valueOptionPointer", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -5104,7 +5160,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_BaseType(), theTypePackage.getTypePointer(), null, "baseType", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataControl_BaseType(), theTypePackage.getTypePointerObj(), null, "baseType", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreInsertTrigger(), this.getPREInsertTrigger(), null, "preInsertTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5114,9 +5170,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getDataControl_Create(), this.getCreateTrigger(), null, "create", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), null, "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_DefaultSearch(), this.getContextParameters(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataControl_DefaultSearch(), this.getContextParametersObj(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_DefaultOrderBy(), this.getOrders(), null, "defaultOrderBy", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_RelationMappers(), this.getRelationMapper(), null, "relationMappers", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contextParametersObjEClass, ContextParametersObj.class, "ContextParametersObj", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContextParametersObj_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ContextParametersObj.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationMapperEClass, RelationMapper.class, "RelationMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelationMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

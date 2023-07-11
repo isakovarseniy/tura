@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 package org.tura.platform.datacontrol;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -112,7 +113,7 @@ public abstract class AbstractSingleDataControl {
 			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), Long.valueOf(10));
+			assertEquals(row.getObjId(), factory.cDept(10L) );
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -472,12 +473,13 @@ public abstract class AbstractSingleDataControl {
 				st.push(row);
 				dc.nextObject();
 			} while (dc.hasNext());
-
+			
+			DepartmentType cdp= st.peek();
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals((long) (row.getObjId()), 38L);
+			assertNotEquals(row.getObjId(), cdp.getObjId());
 			dc.removeObject();
 			row = dc.getCurrentObject();
-			assertEquals((long) (row.getObjId()), 37L);
+			assertEquals(row.getObjId(), cdp.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();

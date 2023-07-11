@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,12 +29,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -77,8 +79,31 @@ public class PrimitivesGroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUidPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PrimitivesGroup_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitivesGroup_uid_feature", "_UI_PrimitivesGroup_type"),
+				 TypePackage.Literals.PRIMITIVES_GROUP__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -130,7 +155,10 @@ public class PrimitivesGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PrimitivesGroup_type");
+		String label = ((PrimitivesGroup)object).getUid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PrimitivesGroup_type") :
+			getString("_UI_PrimitivesGroup_type") + " " + label;
 	}
 	
 
@@ -146,6 +174,9 @@ public class PrimitivesGroupItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PrimitivesGroup.class)) {
+			case TypePackage.PRIMITIVES_GROUP__UID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TypePackage.PRIMITIVES_GROUP__PRIMITIVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

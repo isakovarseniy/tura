@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.tests;singleton:=true
 Automatic-Module-Name: org.tura.metamodel.tests
-Bundle-Version: 6.1.0
+Bundle-Version: 6.1.1
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: application.tests,
  artifact.tests,
  common.tests,

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ public class PostDeployer {
 
 	public static String KEYCLOAK_ADMIN_REALM = "master";
 	public static String KEYCLOAK_ADMIN_CLIENTID = "realm-management";
-	public static String CLIENT_SECRET = "029b240b-b862-463f-a528-67db46dc233d";
+	public static String CLIENT_SECRET = "0db78c54-d83d-4f11-941a-e945e9631ecc";
 	public static String ADMIN_USER = "admin";
 	public static String ADMIN_PASSWORD = "qwerty";
 	public static String KEYCLOAK_MANAGED_REALM = "sales-analyzer";	

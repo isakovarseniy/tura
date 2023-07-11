@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -314,6 +314,11 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			(createChildParameter
 				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
 				 TypeFactory.eINSTANCE.createTypePointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 TypeFactory.eINSTANCE.createTypePointerObj()));
 
 		newChildDescriptors.add
 			(createChildParameter

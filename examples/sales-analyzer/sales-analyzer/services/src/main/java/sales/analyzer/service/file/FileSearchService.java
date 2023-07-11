@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,14 +35,14 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.spa.AbstaractSearchService;
+import org.tura.platform.repository.spa.AbstractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaObjectRegistry.SpaRegistry;
 
 import sales.analyzer.api.model.impl.FileEntity;
 import sales.analyzer.process.commons.Constants;
 
-public class FileSearchService extends AbstaractSearchService {
+public class FileSearchService extends AbstractSearchService {
 
 	private String baseDir;
 	private String registryName;
@@ -126,6 +126,13 @@ public class FileSearchService extends AbstaractSearchService {
 	@Override
 	protected SpaRegistry getSpaRegistry() {
 		return spaRegistry.getRegistry(registryName);
+	}
+
+
+
+	@Override
+	protected Registry getRegistry() {
+		return registry;
 	}
 
 }

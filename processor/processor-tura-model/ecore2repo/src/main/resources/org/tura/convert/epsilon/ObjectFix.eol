@@ -1,0 +1,127 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+ var uuid := Native('java.util.UUID');
+
+var objects  = src!type::ReturnValue.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+
+var objects  = src!recipe::QueryVariable.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+//var objects  = src!type::Attribute.allInstances();
+//for ( obj in objects){
+//    if ( not obj.uid.isDefined()  or   obj.uid = null){
+//         obj.uid =  uuid.randomUUID().toString();
+//   }
+//}
+
+//var objects  = src!type::Link.allInstances();
+//for ( obj in objects){
+//    if ( not obj.uid.isDefined()  or   obj.uid = null){
+//       obj.uid =  uuid.randomUUID().toString();
+//   }
+//}
+
+var objects  = src!form::Orders.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!recipe::MappingTecnologiy.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!recipe::DeploymentComponent.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!form::ExpressionPart.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!form::AreaRef.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!recipe::Property.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!type::PrimitivesGroup.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!form::Selection.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!form::Context.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!recipe::DeploymentStarStep.allInstances();
+for ( obj in objects){
+       obj.uid =  uuid.randomUUID().toString();
+}
+
+var objects  = src!form::ContextParametersObj.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+
+var objects  = src!type::TypePointerObj.allInstances();
+for ( obj in objects){
+    if ( not obj.uid.isDefined()  or   obj.uid = null){
+       obj.uid =  uuid.randomUUID().toString();
+    }   
+}
+

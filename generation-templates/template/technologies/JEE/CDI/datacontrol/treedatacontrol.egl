@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,14 +13,22 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
-
 [%
+@template
+operation treedatacontrol(hash){
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+    var javaPath = hash.get("javaPath");
+    var resourcePath = hash.get("resourcePath");
+    var form = hash.get("form");    
+    var uipackage = hash.get("uipackage");
+    var control = hash.get("control");
+    var controlSuffix = hash.get("controlSuffix");
+
+
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
@@ -79,3 +87,7 @@ public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tu
 
 
 }
+[%
+}
+%]
+

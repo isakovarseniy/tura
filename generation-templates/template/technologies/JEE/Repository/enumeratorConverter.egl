@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,15 +13,19 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-
- ${percent}${end}
  [%
       var util = new Native('org.tura.metamodel.commons.Util');
-      
+ operation enumeratorConverter(hash){     
+ 
+        var t2model = hash.get("t2model");
+        var t2view =  hash.get("t2view");
+        var  type = hash.get("type");
+        var recipe = hash.get("recipe");
+        var ingredient = hash.get("ingredient");
+        var component= hash.get("component");
+        var model_mapper = hash.get("model_mapper");
+        var path = hash.get("path");
+ 
  %]
  
  package [%=t2view.get(type).get("package")%].converter;
@@ -48,4 +52,4 @@ ${start}${percent}
         
         }
  }
-
+[%}%]

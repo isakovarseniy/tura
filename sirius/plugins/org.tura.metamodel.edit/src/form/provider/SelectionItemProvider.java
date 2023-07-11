@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,6 +19,7 @@ package form.provider;
 
 import form.FormPackage;
 
+import form.Selection;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,6 +28,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link form.Selection} object.
@@ -56,10 +59,33 @@ public class SelectionItemProvider extends StyleElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUidPropertyDescriptor(object);
 			addDisplayOptionPointerPropertyDescriptor(object);
 			addValueOptionPointerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Selection_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Selection_uid_feature", "_UI_Selection_type"),
+				 FormPackage.Literals.SELECTION__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -125,7 +151,10 @@ public class SelectionItemProvider extends StyleElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Selection_type");
+		String label = ((Selection)object).getUid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Selection_type") :
+			getString("_UI_Selection_type") + " " + label;
 	}
 	
 
@@ -139,6 +168,12 @@ public class SelectionItemProvider extends StyleElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Selection.class)) {
+			case FormPackage.SELECTION__UID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

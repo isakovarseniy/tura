@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -21,6 +21,7 @@ import artifact.Categorized;
 import org.eclipse.emf.common.util.EList;
 
 import type.TypePointer;
+import type.TypePointerObj;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,12 +115,12 @@ public interface DataControl extends Categorized {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Type</em>' containment reference.
-	 * @see #setBaseType(TypePointer)
+	 * @see #setBaseType(TypePointerObj)
 	 * @see form.FormPackage#getDataControl_BaseType()
 	 * @model containment="true"
 	 * @generated
 	 */
-	TypePointer getBaseType();
+	TypePointerObj getBaseType();
 
 	/**
 	 * Sets the value of the '{@link form.DataControl#getBaseType <em>Base Type</em>}' containment reference.
@@ -129,7 +130,7 @@ public interface DataControl extends Categorized {
 	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setBaseType(TypePointer value);
+	void setBaseType(TypePointerObj value);
 
 	/**
 	 * Returns the value of the '<em><b>Pre Query Trigger</b></em>' containment reference.
@@ -364,12 +365,12 @@ public interface DataControl extends Categorized {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Search</em>' containment reference.
-	 * @see #setDefaultSearch(ContextParameters)
+	 * @see #setDefaultSearch(ContextParametersObj)
 	 * @see form.FormPackage#getDataControl_DefaultSearch()
 	 * @model containment="true"
 	 * @generated
 	 */
-	ContextParameters getDefaultSearch();
+	ContextParametersObj getDefaultSearch();
 
 	/**
 	 * Sets the value of the '{@link form.DataControl#getDefaultSearch <em>Default Search</em>}' containment reference.
@@ -379,7 +380,7 @@ public interface DataControl extends Categorized {
 	 * @see #getDefaultSearch()
 	 * @generated
 	 */
-	void setDefaultSearch(ContextParameters value);
+	void setDefaultSearch(ContextParametersObj value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Order By</b></em>' containment reference.

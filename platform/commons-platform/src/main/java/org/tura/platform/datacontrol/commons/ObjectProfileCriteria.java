@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,24 +18,22 @@
 
 package org.tura.platform.datacontrol.commons;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
-@XmlRootElement(name = "ObjectProfileCriteria")
-public class ObjectProfileCriteria extends SearchCriteria{
-	
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+public class ObjectProfileCriteria extends SearchCriteria {
+
 	private static final long serialVersionUID = 6053975586859765976L;
 	private String profile;
 
 	public ObjectProfileCriteria() {
 	}
-	
-	
+
 	public ObjectProfileCriteria(String profile) {
 		this.profile = profile;
 	}
-	
-	@XmlElement
+
 	public String getProfile() {
 		return profile;
 	}
@@ -43,45 +41,35 @@ public class ObjectProfileCriteria extends SearchCriteria{
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-	
-	
-	@XmlElement
+
 	@Override
 	public String getName() {
 		return null;
 	}
-	
-	@XmlElement
+
 	@Override
 	public Object getValue() {
 		return null;
 	}
-	
-	@XmlElement
+
 	@Override
 	public String getClassName() {
 		return null;
 	}
-	
-	@XmlElement
+
 	@Override
 	public String getComparator() {
 		return null;
 	}
 
-	@XmlElement
 	@Override
 	public String getParentClass() {
 		return null;
 	}
 
-
-	@XmlElement
 	@Override
 	public String getProperty() {
 		return null;
 	}
 
-
 }
-

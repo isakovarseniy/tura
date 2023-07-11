@@ -28,7 +28,7 @@ class ObjectMapper extends artifact.Categorized{
     id attr EString uid;
     attr EString name;
 	ref ProcessingStage stage;
-    val type.TypePointer baseType;
+    val type.TypePointerObj baseType;
     val OmRelation[*] relations;
     val CalculatedField[*] calculations;
     val Aggregation [*] aggrigations;
@@ -64,7 +64,7 @@ class AttributeConnector extends OperationConnectorRef{
 	   ref EObject source;
 	   ref EObject target;
 	   attr EBoolean mergeAttr;
-       val form.ContextParameters defaultSearch;
+       val form.ContextParametersObj defaultSearch;
 	   
 }	
 	
@@ -74,7 +74,7 @@ class OperationConnector extends OperationConnectorRef{
 	   ref ObjectMapper source;
 	   ref ObjectMapper target;
 	   attr OperationType operationType;
-       val form.ContextParameters defaultSearch;
+       val form.ContextParametersObj defaultSearch;
 	   
 }	
 

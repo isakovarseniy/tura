@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -83,15 +83,19 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
 operation form::DataControl findTreeRoot(  ) : form::DataControl {
 
      var masters; 
-     var i = form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->size();
+     var pkg = self.eContainer();
+//     var i = form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->size();
+     var i = pkg.relations->select(r|r.isTree=true and  r.detail = self )->size();
      
      if ( i = 0 ){
         return self;
      }
       if (i  > 1 ){
-         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self  and r.master <> self)->collect(w|w.master);
+         // masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self  and r.master <> self)->collect(w|w.master);
+         masters =  pkg.relations->select(r|r.isTree=true and  r.detail = self  and r.master <> self)->collect(w|w.master);
       }else{
-         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+         // masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+         masters =  pkg.relations->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
       }
 
       for ( master in masters ){

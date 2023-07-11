@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="type" nsURI="http://tura.org/2016/v2/type" nsPrefix="tura.type">
-  <eClassifiers xsi:type="ecore:EClass" name="TypeGroup">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeGroup" eSuperTypes="artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -12,6 +12,8 @@
         eType="#//Relationship" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitivesGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="primitives" upperBound="-1"
         eType="#//Primitive" containment="true"/>
   </eClassifiers>
@@ -37,6 +39,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypePointerObj" eSuperTypes="#//TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackagePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//TypeGroup"/>

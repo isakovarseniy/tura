@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -2290,6 +2290,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return dataControlItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link form.ContextParametersObj} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContextParametersObjItemProvider contextParametersObjItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.ContextParametersObj}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContextParametersObjAdapter() {
+		if (contextParametersObjItemProvider == null) {
+			contextParametersObjItemProvider = new ContextParametersObjItemProvider(this);
+		}
+
+		return contextParametersObjItemProvider;
 	}
 
 	/**

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,10 @@ import org.tura.platform.repository.jpa.test.D1SingleObjectPagingTest;
 import org.tura.platform.repository.jpa.test.D2SingleObjectPagingTest;
 import org.tura.platform.repository.jpa.test.JPARepositoryTest;
 import org.tura.platform.repository.jpa.test.JPATest;
+import org.tura.platform.repository.jpa.test.JpaHiddenAssosiationTest;
 import org.tura.platform.repository.jpa.test.Many2ManyNoContainmentTest;
 import org.tura.platform.repository.jpa.test.Many2ManyTest;
+import org.tura.platform.repository.jpa.test.MetamodelTest;
 import org.tura.platform.repository.jpa.test.One2ManyContainmentTest;
 import org.tura.platform.repository.jpa.test.One2ManyNoContaintmantTest;
 import org.tura.platform.repository.jpa.test.One2ManyTest;
@@ -80,7 +82,11 @@ import org.tura.platform.repository.spa.test.SpaRepositoryInternalRelationTest;
 	D2SingleObjectPagingTest.class,
 	
 	RemoveObjectTest.class,
-	RemoveDetailObjectTest.class
+	RemoveDetailObjectTest.class,
+	
+	MetamodelTest.class	,
+	
+	JpaHiddenAssosiationTest.class
 }
 )
 public class RepositoryTestSuite {

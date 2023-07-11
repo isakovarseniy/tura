@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,20 @@ package org.tura.platform.repository.core;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
 public class SearchResult<T> implements Serializable{
 	private static final long serialVersionUID = 1451767056951539998L;
 	private List<T> searchResult;
 	private long numberOfRows;
+
+	
+	public SearchResult( ){
+		
+	}
+	
 	
 	public SearchResult( List<T> searchResult,long numberOfRows){
 		this.searchResult=searchResult;

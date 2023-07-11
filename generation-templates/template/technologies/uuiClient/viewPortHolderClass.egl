@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,13 +13,16 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-${percent}${end}
 [%
+@template
+operation  viewPortHolderClass(hash){
+
+     var component =  hash.get("component");
+     var form =  hash.get("form");
+     var uipackage =  hash.get("uipackage");
+     var application =  hash.get("application");
+     var allPorts = hash.get("allPorts");
+
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
@@ -31,7 +34,8 @@ public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHo
 
 [%
       for (port in allPorts){
-      var canvases = ViewInheritance->allInstances()->select(vi|vi.source=port);
+//      var canvases = ViewInheritance->allInstances()->select(vi|vi.source=port);
+      var canvases = form.view.viewInheritances->select(vi|vi.source=port).first();
       var canvas = "";
       if (canvases <> null and canvases.size <> 0){
         for ( c in canvases){
@@ -40,7 +44,7 @@ public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHo
            }
         }
         if ( canvas == ""){
-            canvas = util.mergeAndUnCapitalize(canvases.get(0).target.name);         
+            canvas = util.mergeAndUnCapitalize(canvases.target.name);         
         }
       }
       
@@ -83,3 +87,7 @@ public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHo
 %]
 
 }
+
+[%
+}
+%]

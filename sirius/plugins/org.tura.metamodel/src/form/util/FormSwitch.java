@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1132,6 +1132,13 @@ public class FormSwitch<T> extends Switch<T> {
 				DataControl dataControl = (DataControl)theEObject;
 				T result = caseDataControl(dataControl);
 				if (result == null) result = caseCategorized(dataControl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FormPackage.CONTEXT_PARAMETERS_OBJ: {
+				ContextParametersObj contextParametersObj = (ContextParametersObj)theEObject;
+				T result = caseContextParametersObj(contextParametersObj);
+				if (result == null) result = caseContextParameters(contextParametersObj);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2620,6 +2627,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataControl(DataControl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context Parameters Obj</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context Parameters Obj</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextParametersObj(ContextParametersObj object) {
 		return null;
 	}
 

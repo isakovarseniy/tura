@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,32 +33,31 @@ import org.tura.platform.repository.persistence.ConnectionProcessor;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
-public class SpaExternalConnectMasterToDetailOperation extends SpaConnectMasterToDetailOperation{
+public class SpaExternalConnectMasterToDetailOperation extends SpaConnectMasterToDetailOperation {
 
 	private static final long serialVersionUID = -7419164235363434789L;
 	private boolean NOP;
 
-	public SpaExternalConnectMasterToDetailOperation(Registry registry,SpaObjectRegistry spaRegistry) {
-		super(registry,spaRegistry);
+	public SpaExternalConnectMasterToDetailOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry, spaRegistry);
 	}
-	
-	
+
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
-		if (NOP){
-			return this.createNOPcontrol( masterPk, masterType, masterPersistanceType);
+		if (NOP) {
+			return this.createNOPcontrol(masterPk, masterType, masterPersistanceType);
 		}
 		return super.prepare();
-	}	
+	}
 
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		try {
-			
-			if (!RepositoryCommandType.connectMasterToDetail.equals(cmdType) ){
+
+			if (!RepositoryCommandType.connectMasterToDetail.equals(cmdType)) {
 				return false;
 			}
-			
+
 			super.checkCommand(cmdType, parameters);
 			String methodName = "get" + WordUtils.capitalize(masterProperty);
 			Class<?> masterClass = Class.forName(extendedMasterType);
@@ -68,33 +67,33 @@ public class SpaExternalConnectMasterToDetailOperation extends SpaConnectMasterT
 				Association association = m.getAnnotation(Association.class);
 				Class<?> detailClass = Class.forName(extendedDetailType);
 
-				Repository masterProvider =   findProvider(masterClass.getName(),spaRepositoryData);
-				Repository detailProvider =   findProvider(detailClass.getName(),spaRepositoryData);
-				if (masterProvider.equals(detailProvider)){
-					return false;
+				Repository masterProvider = findProvider(masterClass.getName(), spaRepositoryData);
+				Repository detailProvider = findProvider(detailClass.getName(), spaRepositoryData);
+				if (!connection.hiddenJpa()) {
+					if (masterProvider.equals(detailProvider)) {
+						return false;
+					}
 				}
-				
-				
+
 				ConnectionProcessor relation = new ConnectionProcessor(connection, association);
 				Map<String, Class<?>> h = relation.sortObject(masterClass, detailClass);
-				
-				if (masterClass.equals(h.get(ConnectionProcessor.DETAIL))){
-					
+
+				if (masterClass.equals(h.get(ConnectionProcessor.DETAIL))) {
+
 					this.knownObjects.add(masterPersistanceType);
 					this.knownObjects.add(detailPersistanceType);
 					NOP = false;
 					return true;
-				}else{
+				} else {
 					NOP = true;
 					return true;
 				}
-			}else{
+			} else {
 				return false;
 			}
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
 	}
-	
-	
+
 }

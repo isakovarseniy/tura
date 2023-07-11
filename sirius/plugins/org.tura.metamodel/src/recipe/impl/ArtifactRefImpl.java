@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -37,33 +37,12 @@ import recipe.RecipePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link recipe.impl.ArtifactRefImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.ArtifactRefImpl#getArtifactRef <em>Artifact Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
-	/**
-	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUid()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String UID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUid()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uid = UID_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getArtifactRef() <em>Artifact Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -91,29 +70,6 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
 	@Override
 	protected EClass eStaticClass() {
 		return RecipePackage.Literals.ARTIFACT_REF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getUid() {
-		return uid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setUid(String newUid) {
-		String oldUid = uid;
-		uid = newUid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.ARTIFACT_REF__UID, oldUid, uid));
 	}
 
 	/**
@@ -164,8 +120,6 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RecipePackage.ARTIFACT_REF__UID:
-				return getUid();
 			case RecipePackage.ARTIFACT_REF__ARTIFACT_REF:
 				if (resolve) return getArtifactRef();
 				return basicGetArtifactRef();
@@ -181,9 +135,6 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RecipePackage.ARTIFACT_REF__UID:
-				setUid((String)newValue);
-				return;
 			case RecipePackage.ARTIFACT_REF__ARTIFACT_REF:
 				setArtifactRef((Artifact)newValue);
 				return;
@@ -199,9 +150,6 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RecipePackage.ARTIFACT_REF__UID:
-				setUid(UID_EDEFAULT);
-				return;
 			case RecipePackage.ARTIFACT_REF__ARTIFACT_REF:
 				setArtifactRef((Artifact)null);
 				return;
@@ -217,28 +165,10 @@ public class ArtifactRefImpl extends EObjectImpl implements ArtifactRef {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RecipePackage.ARTIFACT_REF__UID:
-				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.ARTIFACT_REF__ARTIFACT_REF:
 				return artifactRef != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (uid: ");
-		result.append(uid);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ArtifactRefImpl

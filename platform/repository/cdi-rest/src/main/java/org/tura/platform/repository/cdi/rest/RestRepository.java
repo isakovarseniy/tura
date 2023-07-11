@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,6 @@
 
 package org.tura.platform.repository.cdi.rest;
 
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -28,19 +26,18 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.tura.platform.datacontrol.commons.IdDeserializationProblemHandler;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
-import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.cdi.ServerRepo;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchRequest;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.core.UpdateRequest;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -67,32 +64,16 @@ public class RestRepository {
 
 	@POST
 	@Path("find")
-	public Response find(SearchRequest  request) {
+	public Response find(String map) {
 		try {
-			for( SearchCriteria  sc : request.getSearch() ) {
-				Class<?> clazz = Class.forName(sc.getClassName());
-				Constructor<?> constractor = clazz.getConstructor(String.class);
-				sc.setValue(  constractor.newInstance(sc.getValue()));
-			}
-			if (request .getProfile() != null){
-				request.getSearch().add(  new ObjectProfileCriteria(request .getProfile()) );
-			}
-			
+			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
+			mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE,
+					JsonTypeInfo.As.PROPERTY);
+		    SearchRequest request = mapper.readValue(map.getBytes(), SearchRequest.class);
+
 			SearchResult <?> result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), Class.forName(  request.getObjectClass()));
 
-			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-
-			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
-			formData.add("size",  Long.valueOf (result.getNumberOfRows()).toString());
-
-			int index = 0;
-			for (Object o : result.getSearchResult()) {
-				formData.add(Integer.valueOf(index).toString()+"_type", o.getClass().getName());
-				formData.add(Integer.valueOf(index).toString(), mapper.writeValueAsString(o));
-				index++;
-			}
-			
-			return Response.status(Response.Status.OK).entity(formData).build();
+			return Response.status(Response.Status.OK).entity(mapper.writeValueAsString(result)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
@@ -112,35 +93,20 @@ public class RestRepository {
 
 	@POST
 	@Path("applyChanges")
-	public Response applyChanges(MultivaluedMap<String,String> map) {
+	public Response applyChanges(String map) {
 		try {
 			ObjectMapper mapper = ObjectMapperBuilder.getObjectMapper();
-			mapper.enableDefaultTyping();
-		    ArrayList<Object> list = new ArrayList<>();
+			mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE,
+					JsonTypeInfo.As.PROPERTY);
+			mapper.addHandler(new IdDeserializationProblemHandler());
 		    
-			for (int i  = 0; ;i++){
-				String key = Integer.valueOf(i).toString();
-				if (map.get(key) == null){
-					break;
-				}
-				String className = map.get(key+"_type").get(0);
-				Class<?> clazz = Class.forName(className);
-				list.add( mapper.readValue(map.get(key).get(0),clazz));
-			}
-
-			@SuppressWarnings("rawtypes")
-			List changes = repository.applyChanges(list);
+		    UpdateRequest request = mapper.readValue(map.getBytes(), UpdateRequest.class);
+		    
+			List<Object> changes = repository.applyChanges(request.getChange());
+			UpdateRequest response = new UpdateRequest();
+			response.setChange(changes);
 			
-			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
-
-			int index = 0;
-			for (Object o : changes) {
-				formData.add(Integer.valueOf(index).toString()+"_type", o.getClass().getName());
-				formData.add(Integer.valueOf(index).toString(), mapper.writeValueAsString(o));
-				index++;
-			}
-			
-			return Response.status(Response.Status.OK).entity(formData).build();
+			return Response.status(Response.Status.OK).entity(mapper.writeValueAsBytes(response)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}

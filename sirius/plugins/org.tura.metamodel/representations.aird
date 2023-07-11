@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_K-CDYC6uEeaLjpWhaM97tA" version="14.3.1.202003261200">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_K-CDYC6uEeaLjpWhaM97tA" version="15.1.0.202211301600">
   <semanticResources>model/domain.ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>model/artifact.ecore</semanticResources>
@@ -19,10 +19,10 @@
   <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
   <semanticResources>model/objectmapper.emf</semanticResources>
   <semanticResources>model/domain.trace</semanticResources>
+  <semanticResources>model/objectmapper.ecore</semanticResources>
   <semanticResources>model/domain.genmodel</semanticResources>
   <semanticResources>model/domain.gmfgraph</semanticResources>
   <semanticResources>model/domain.gmfmap</semanticResources>
   <semanticResources>model/domain.gmftool</semanticResources>
   <semanticResources>model/domain.gmfgen</semanticResources>
-  <semanticResources>model/objectmapper.ecore</semanticResources>
 </viewpoint:DAnalysis>

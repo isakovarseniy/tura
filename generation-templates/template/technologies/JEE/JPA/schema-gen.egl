@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,14 +13,13 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${JPA_implementation}.egl";
-import "tura:/generation-templates/template/technologies/${Database_type}.egl";
- ${percent}${end}
- 
+[%
+@template 
+operation schema(hash){
+    var classes =   hash.get("classes");
+    var configuration =  hash.get("configuration");
+
+%]
 package org.tura.test;
 
 import java.util.EnumSet;
@@ -73,3 +72,4 @@ public class GenerateSchemaTest {
 
     
 }
+[%}%]

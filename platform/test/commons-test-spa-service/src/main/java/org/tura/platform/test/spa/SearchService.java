@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.spa.AbstaractSearchService;
+import org.tura.platform.repository.spa.AbstractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaObjectRegistry.SpaRegistry;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
@@ -44,7 +44,7 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
 
-public class SearchService extends AbstaractSearchService implements RegistryAware{
+public class SearchService extends AbstractSearchService implements RegistryAware{
 	
 	public static String TARGET_CLASS = "TARGET_CLASS";
 
@@ -52,6 +52,7 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	private SpaObjectRegistry spaRegistry;
 	private Registry registry;
 	
+
 	public SearchService(SpaObjectRegistry spaRegistry,String registryName,Registry registry) {
 		this.registryName = registryName;
 		this.spaRegistry = spaRegistry;
@@ -123,18 +124,23 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 		return (T) cloner.deepClone(SearchBase.base.get(objectClass.getName()).get(pk));		
 	}
 
-	public String getRegistry() {
+	public String getRegistryName() {
 		return registryName;
 	}
 
-	public void setRegistry(String registry) {
-		this.registryName = registry;
+	public void setRegistryName(String registryName) {
+		this.registryName = registryName;
 	}
 
+	
 	@Override
 	protected SpaRegistry getSpaRegistry() {
 		return spaRegistry.getRegistry(registryName);
 	}
 
+	@Override
+	public Registry getRegistry() {
+		return registry;
+	}
 	
 }

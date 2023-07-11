@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.tura.platform.repository.core.RelationType;
 @Target({ METHOD})
 public @interface Association {
 	String id();
+	Class<?> from();
 	Class<?> mappedBy();
 	String property();
 	boolean  containment() default false;

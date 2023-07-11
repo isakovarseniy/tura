@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -188,7 +188,7 @@ public class AbstractSingleDataControlPool {
 			dc.nextObject();
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), Long.valueOf(10L));
+			assertEquals(row.getObjId(), factory.cDept(10L));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -250,7 +250,7 @@ public class AbstractSingleDataControlPool {
 			stackProvider.get().rallbackCommand();
 
 			row = dc.getCurrentObject();
-			assertEquals(Long.valueOf(10L), row.getObjId());
+			assertEquals(factory.cDept(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -278,7 +278,7 @@ public class AbstractSingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(Long.valueOf(10L), row.getObjId());
+			assertEquals(factory.cDept(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -459,7 +459,7 @@ public class AbstractSingleDataControlPool {
 			
 			stackProvider.get().rallbackSavePoint();
 			d2 = dc.getCurrentObject();
-			assertEquals(d2.getObjId(), Long.valueOf(10L));
+			assertEquals(d2.getObjId(), factory.cDept(10L));
 
 
 		} catch (Exception e) {

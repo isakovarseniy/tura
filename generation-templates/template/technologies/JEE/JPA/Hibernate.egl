@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,7 +17,7 @@
 operation  persistence_jpaproperties(Connection , schemaUpdate, configuration) {
 %]
 		<properties>
-[%    if (Connection.equals("JDBC")){%]
+[%    if (Connection.equals("JEE/DataSource/JDBC")){%]
 			<property name="javax.persistence.jdbc.driver" value="[%=configuration.get("DataBase jdbc driver")%]" />
 			<property name="javax.persistence.jdbc.url" value="[%=configuration.get("DataBase jdbc url")%]" />
 			<property name="javax.persistence.jdbc.user" value="[%=configuration.get("DataBase user")%]" />

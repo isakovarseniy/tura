@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.annotation.InternalClass;
+import org.tura.platform.repository.persistence.TypeAware;
 import org.tura.platform.repository.spa.SpaRepositoryData;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
@@ -78,6 +79,10 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 		String persistanceType = persistenceObject.getClass().getName();
 		if (persistenceObject instanceof Adapter) {
 			persistanceType = ((Adapter) persistenceObject).getObjectType();
+		}else {
+			if (  persistenceObject instanceof TypeAware) {
+				persistanceType = ((TypeAware) persistenceObject).getTypeClazz().getName();
+			}			
 		}
 
 		Mapper mapper = registry.findMapper(persistanceType, repositoryObject.getClass().getName());
@@ -230,7 +235,16 @@ public class RepositoryObjectLoader extends RepositoryHelper{
 				loader.setSearchCriteria(search);
 				loader.setContext(context);
 				
-				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object), assosiation.mappedBy(),
+				String type = object.getClass().getName();
+				if( object instanceof  Adapter) {
+					type =( (Adapter)object).getObjectType();
+				}else {
+					if (  object instanceof TypeAware) {
+						type = ((TypeAware) object).getTypeClazz().getName();
+					}
+				}
+				
+				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object), findPersistanceClass(type),
 						graph, grapfProfile);
 				if (loadedObject != null) {
 					processor.connectRepositoryObjects(repositoryObject, loadedObject);

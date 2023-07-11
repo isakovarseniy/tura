@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ public class CpaCRUDService extends CRUDProvider {
 		String repositoryClassName = registry.findRepositoryClass(persistanceClass);
 
 		PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(persistanceClass.getName(),
-				repositoryClassName);
+				repositoryClassName,registry);
 		if (mapper == null) {
 			throw new RepositoryException(
 					"PersistanceMapper not found from " + persistanceClass.getName() + " to " + repositoryClassName);
@@ -64,7 +64,7 @@ public class CpaCRUDService extends CRUDProvider {
 		PersistanceMapper mapper = findPersistanceMapper(control.getTypeClass());
 
 		if (control instanceof CpaUpdateStorageControl) {
-			updateStorageControlStatus(control, mapper);
+			updateStorageControl(control, mapper);
 			return;
 		}
 		if (control.getLevel().equals(OperationLevel.INSERT)) {
@@ -134,9 +134,12 @@ public class CpaCRUDService extends CRUDProvider {
 		cpaStorage.correctCreatedObjects(control.getObject(), control.getTypeClass(), mapper, keyControl.getMasterMapper(), keyControl.getMaster());
 	}
 
-	private void updateStorageControlStatus(SpaControl control, PersistanceMapper mapper) throws Exception {
+	private void updateStorageControl(SpaControl control, PersistanceMapper mapper) throws Exception {
 		CpaUpdateStorageControl cpaControl = (CpaUpdateStorageControl) control;
 		cpaStorage.updateStatus(control.getKey(), (String) (cpaControl.getValue()), control.getTypeClass(), mapper);
+		if (cpaControl.getLoadedBy() != null ) {
+		   cpaStorage.updateLoadedBy(control.getKey(), cpaControl.getLoadedBy(), control.getTypeClass(), mapper);
+		}
 	}
 
 	private void load(SpaControl control, PersistanceMapper mapper) throws Exception {

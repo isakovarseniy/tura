@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -42,7 +42,7 @@ operation form::Blockable createEndTag(hash) {
 
 
 operation form::Blockable isBlocked() {
-   var process = self.block->select(r|r.group == 1)->sortBy(q|q.group);
+   var process = self.block->select(r|r.group = 1)->sortBy(q|q.group);
    if (process.size() <> 0 ){
       return true;
    }else{
@@ -51,7 +51,7 @@ operation form::Blockable isBlocked() {
 }
 
 operation form::Blockable mkBlockUIid() {
-   var process = self.block->select(r|r.group == 1)->sortBy(q|q.group);
+   var process = self.block->select(r|r.group = 1)->sortBy(q|q.group);
    if (process.size() <> 0 ){
       var ref = process.first();
       return ref.area.mkuid();

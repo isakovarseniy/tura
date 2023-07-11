@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,22 +13,21 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+[%
 import "tura:/generation-templates/template/commons/typeElementUtil.eol";
 import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JSE/Object/interface.egl";
+import "tura:/generation-templates/template/technologies/JSE/Object/method.egl";
 
- ${percent}${end}
 
-[%
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
 
      var type;
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
 
 
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
@@ -38,35 +37,31 @@ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
        for (type in types){
           type.mappingType2Java(recipe,ingredient);
  
-          var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid  and t.classifiers->size() = 0 ).first();
+          var pkg = type.eContainer();
+          // var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid  and not t.isImplements(model_mapper) ).first();
+          var extension = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid  and not t.isImplements(model_mapper) ).first();
           if (extension <> null){
-	          var ex =  extension.target;
-	          if (ex.isKindOf(type::TypeReference )){
-	             ex = extension.target.typeRef;
-	          }
+	          var ex =  extension.target.unwrap();
 	          ex.mappingType2Java(recipe,ingredient);
 	          type.~extension = ex;
            }
-           
-           var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.classifiers->size() <> 0 );
+           // var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.isImplements(model_mapper) );
+           var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid and t.isImplements(model_mapper) );
           
           if (interfaces <> null){
               for (interface in interfaces){
-                if (interface.findClassifier(util.getHint(model_mapper,"obj.Implements"))){
-			          var ex =  interface.target;
-			          if (interface.isKindOf(type::TypeReference )){
-			             ex = interface.target.typeRef;
-			          }
+			          var ex =  interface.target.unwrap();
 			          ex.mappingType2Java(recipe,ingredient);
 			          if (not type.~interface.isDefined()){
                            type.~interface = new Native('java.util.ArrayList');
 			          }
 			          type.~interface.add ( ex);
-                }
               }
           
            }
-           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           
+           // var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.source.uid = type.uid);
            for (rel in assosiations){
   	          var tp =  rel.target;
 	          if (tp.isKindOf(type::TypeReference )){
@@ -75,13 +70,11 @@ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
 	          tp.mappingType2Java(recipe,ingredient);
            }
 
-           var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+           // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+           var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid);
  
            for (rel in assosiations){
-  	          var tp =  rel.source;
-	          if (tp.isKindOf(type::TypeReference )){
-	             tp = tp.typeRef;
-	          }
+  	          var tp =  rel.source.unwrap();
 	          tp.mappingType2Java(recipe,ingredient);
            }
            
@@ -94,6 +87,7 @@ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
           hash.put("path",path);    
 
           domain_class_generation(hash);
+          
     }
 
      var types = util.runQuery(model_mapper,"Query model interfaces",model_mapper);
@@ -101,43 +95,36 @@ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
      if (types <> null and types.size <> 0 )
 
        for (type in types){
+          var pkg = type.eContainer();
           type.mappingType2Java(recipe,ingredient);
 
-          var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.classifiers <> null  );
+          // var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.isImplements(model_mapper)  );
+          var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and  t.source.uid = type.uid and t.isImplements(model_mapper)  );
           
           if (interfaces <> null){
               for (interface in interfaces){
-                if (interface.findClassifier( util.getHint(model_mapper,"obj.Implements"))){
-			          var ex =  interface.target;
-			          if (interface.isKindOf(type::TypeReference )){
-			             ex = interface.target.typeRef;
-			          }
+			          var ex =  interface.target.unwrap();
 			          ex.mappingType2Java(recipe,ingredient);
 			          if (not type.~interface.isDefined()){
                            type.~interface = new Native('java.util.ArrayList');
 			          }
 			          type.~interface.add ( ex);
-                }
               }
           
            }
            
-           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           // var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid);
            for (rel in assosiations){
-  	          var tp =  rel.target;
-	          if (tp.isKindOf(type::TypeReference )){
-	             tp = tp.typeRef;
-	          }
+  	          var tp =  rel.target.unwrap();
 	          tp.mappingType2Java(recipe,ingredient);
            }
 
-           var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+           // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+           var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid);
 
            for (rel in assosiations){
-  	          var tp =  rel.source;
-	          if (tp.isKindOf(type::TypeReference )){
-	             tp = tp.typeRef;
-	          }
+  	          var tp =  rel.source.unwrap();
 	          tp.mappingType2Java(recipe,ingredient);
            }
            
@@ -150,6 +137,7 @@ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
           hash.put("path",path);    
      
           domain_interface_generation(hash);
+
     }
 
     
@@ -189,11 +177,10 @@ operation  domain_interface_generation(hash) {
     
     util.populateTechnologies(hash,model_mapper);
 
-    var entityBean : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/Object/interface.egl",hash,TemplateFactory);
-    entityBean.setFormatter(f);
-    var buffer = entityBean.process();
-    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   
-
+	%][%=interface(hash)%][%  
+	out.formatWith(f);
+	util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",out.toString());   
+	out.formatWith(n);
 
 }
 

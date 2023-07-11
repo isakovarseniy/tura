@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,59 +45,75 @@ public class GenerateSchema {
                         .build());
 
         
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many1B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject11.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.C1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One2A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Q1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.DD1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject8.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One1B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many3A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One2B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many2A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject4.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject6.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Client.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.T1T2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject7.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One3A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Department1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Q2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.IndepObject2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many1A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.B2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject3.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.P1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Location.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Order.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Customer.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One4B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One1A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Employee1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One4A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many1B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject5.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.Person.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many2A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many3B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Phone.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Vehicle.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Employee2.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2One3B.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.Q4.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many1A.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.IndepObject1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Client.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.MailAddress.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.B1.class);
-        metadata.addAnnotatedClass(org.tura.jpa.test.T1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Phone.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Vehicle.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Location.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.File.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Customer.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Order.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One1A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One1B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One2A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One2B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One3A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One3B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many1A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many1B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many2A.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.One2Many2B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One4A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2One4B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many3A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.One2Many3B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many1A.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many1B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many2A.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.Many2Many2B.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.IndepObject1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.IndepObject2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Department1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Employee1.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.Department2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Employee2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.B1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.B2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.DD1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.C1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject3.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject4.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Q1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Q2.class);
         metadata.addAnnotatedClass(org.tura.jpa.test.Q3.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Q4.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.P1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.T1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.T1T2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject5.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject6.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject7.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject8.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject11.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.L1.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.L2.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject12.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.JPAObject13.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Canvas.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Window.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.TabCanvas.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.UiElement.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.InputText.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.OutputText.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Button.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Style.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Trigger.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.Aria.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.UObject.class);
+        metadata.addAnnotatedClass(org.tura.jpa.test.WAria.class);
 
 
         SchemaExport schemaExport = new SchemaExport( );

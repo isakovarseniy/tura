@@ -1,0 +1,76 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+operation addGeneralization(cmd){
+    var srcPkgName = cmd.turaType.eContainer().name;
+    var sourceTypeName = cmd.turaType.name;
+    
+    var trgPkgName = cmd.eSuperType.eContainer().name;
+    var trgTypeName = cmd.eSuperType.name;
+    
+    var trgType =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+    
+    
+    var ref = null;
+    if ( not srcPkgName.equals(trgPkgName)){
+       var turaTypeRef =  trgType;
+       ref = trg!type::TypeReference.allinstances()->select ( g|g.eContainer().name = srcPkgName and g.typeRef.uid = turaTypeRef.uid).first();
+       if ( ref = null){
+        ref = new trg!type::TypeReference;
+        ref.uid = uuid.randomUUID().toString();
+        ref.typeRef = turaTypeRef;
+        cmd.turaType.eContainer().types.add(ref);
+       }
+    }else{
+        ref =  trg!type::Type.allinstances()-> select( g | g.name = trgTypeName and g.eContainer().name = trgPkgName).first();
+    }
+    var generalization = new trg!type::Generalization;
+    generalization.uid = uuid.randomUUID().toString();
+    generalization.source = cmd.turaType;
+    generalization.target = ref;
+    
+    cmd.turaType.eContainer().relationships.add(generalization);
+   
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName).println();
+
+    if ( not srcPkgName.equals(trgPkgName)){
+       var turaTypeRef =  cmd.turaType;
+       ref = trg!type::TypeReference.allinstances()->select ( g|g.eContainer().name = trgPkgName and g.typeRef.uid = turaTypeRef.uid).first();
+       if ( ref = null){
+	        ref = new trg!type::TypeReference;
+	        ref.uid = uuid.randomUUID().toString();
+	        ref.typeRef = turaTypeRef;
+	        trgType.eContainer().types.add(ref);
+        }
+	    var generalization = new trg!type::Generalization;
+	    generalization.uid = uuid.randomUUID().toString();
+	    generalization.source = ref;
+	    generalization.target = trgType;
+	    
+       ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName+ "  Ref generalization "  + generalization.uid  ).println();
+	    
+	    trgType.eContainer().relationships.add(generalization);
+        
+    }
+
+}
+
+
+operation trg!type::TypeElement unwrap( ) { 
+      if (self.isTypeOf(trg!type::TypeReference)){
+        return  self.typeRef;
+     }
+     return self;
+      
+}

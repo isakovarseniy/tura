@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -31,8 +31,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ShapeCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart;
 
 import common.CommonPackage;

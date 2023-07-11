@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -199,7 +199,7 @@ public abstract class AbstractMasterDetail {
 
 			DepartmentType parent =  (DepartmentType) dce.getPager().getParentObject();
 			
-			assertEquals(parent.getObjId(),  Long.valueOf(10));
+			assertEquals(parent.getObjId(),  factory.cDept(10L)  );
 			
 		} catch (Exception e) {
 			e.printStackTrace();

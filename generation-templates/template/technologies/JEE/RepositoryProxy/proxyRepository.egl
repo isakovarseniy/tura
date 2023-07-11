@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,25 +23,41 @@
 %]
 package [%=component.basePackage%];
 
-public class ProxyRepository extends org.tura.platform.repository.cpa.CpaRepository {
+public class ProxyRepository extends org.tura.platform.repository.cpa.CpaRepositoryImpl {
 
-   private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+   private static final long serialVersionUID = 1L;
 
-   private static java.util.List<String> array;
-	
+   private static java.util.List<String> topObjects;
+   private static java.util.List<String> instantiable;
+   private static java.util.List<String> notInstantiable;
+
 	public ProxyRepository() {
 
 	}	
 	
-	public  java.util.List<String> getArray(){
-	    return array;
-    }
+	public  java.util.List<String> getTopObjects() {
+		return topObjects;
+	}
+	
+	public  java.util.List<String> getInstantiable() {
+		return instantiable;
+	}
+    
+	public  java.util.List<String> getNotInstantiable() {
+		return notInstantiable;
+	}    
+    
 	public Object factory( Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException{
 	
 	switch (objectClass){
 	
 [%
 	for (type in typeCollection){
+	
+       if (type.findClassifier(util.getHint(model_mapper,"Domain Interface")) ){
+           continue;
+        }
+	
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
@@ -58,30 +74,31 @@ case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullNa
 	}
 	
 	static{
-	array = new java.util.ArrayList<String>();
+	topObjects = new java.util.ArrayList<String>();
+	instantiable = new java.util.ArrayList<String>();
+	notInstantiable= new java.util.ArrayList<String>();
 	
 [%	
      for (type in typeCollection){
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
-     
-         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
-         var topObject = true;
-	     for (rel in assosiations){
-	        var hash = rel.findTypeOfAssosiation(model_mapper);
-	        var masterType =   hash.get("masterType");
-	        var detailType = hash.get("detailType");
-	        var property =  hash.get("property");
-            var containment = hash.get("containment");
-     
-        if (detailType.uid == type.uid  and   rel.type.toString() <> "Many2Many"  and containment){
-           topObject = false;
+        
+       if (type.findClassifier(util.getHint(model_mapper,"Domain Interface")) ){
+		%]
+		       notInstantiable.add("[%=type.~fullName%]");
+		[%     
+           continue;
         }
-     }
+     
+         var topObject = type.isTopObject();
+%]
+       instantiable.add("[%=type.~fullName%]");
+[%     
+     
      if (topObject ){
          %]
-              array.add("[%=type.~fullName%]");
+              topObjects.add("[%=type.~fullName%]");
          [%
      }
      %]

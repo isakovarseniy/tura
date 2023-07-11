@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1050,22 +1050,13 @@ public interface RecipePackage extends EPackage {
 	int ARTIFACT_REF = 21;
 
 	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT_REF__UID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Artifact Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_REF__ARTIFACT_REF = 1;
+	int ARTIFACT_REF__ARTIFACT_REF = 0;
 
 	/**
 	 * The number of structural features of the '<em>Artifact Ref</em>' class.
@@ -1074,7 +1065,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_REF_FEATURE_COUNT = 2;
+	int ARTIFACT_REF_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ModelMapperImpl <em>Model Mapper</em>}' class.
@@ -1085,15 +1076,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	int MODEL_MAPPER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_MAPPER__UID = ARTIFACT_REF__UID;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Ref</b></em>' reference.
@@ -1123,13 +1105,22 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__CLASSIFIERS = ARTIFACT_REF_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_MAPPER__UID = ARTIFACT_REF_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 2;
+	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Root</b></em>' attribute.
@@ -1138,7 +1129,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 3;
+	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
@@ -1147,7 +1138,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 4;
+	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -1156,7 +1147,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 5;
+	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Skip</b></em>' attribute.
@@ -1165,7 +1156,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__SKIP = ARTIFACT_REF_FEATURE_COUNT + 6;
+	int MODEL_MAPPER__SKIP = ARTIFACT_REF_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Extension</b></em>' attribute.
@@ -1174,7 +1165,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_EXTENSION = ARTIFACT_REF_FEATURE_COUNT + 7;
+	int MODEL_MAPPER__ARTIFACT_EXTENSION = ARTIFACT_REF_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -1183,7 +1174,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 8;
+	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.
@@ -1297,13 +1288,13 @@ public interface RecipePackage extends EPackage {
 	int KEY_VALUE_PAIR__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Key Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR__KEY = 1;
+	int KEY_VALUE_PAIR__KEY_CODE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2227,6 +2218,17 @@ public interface RecipePackage extends EPackage {
 	EClass getModelMapper();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.ModelMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see recipe.ModelMapper#getUid()
+	 * @see #getModelMapper()
+	 * @generated
+	 */
+	EAttribute getModelMapper_Uid();
+
+	/**
 	 * Returns the meta object for the attribute '{@link recipe.ModelMapper#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2400,15 +2402,15 @@ public interface RecipePackage extends EPackage {
 	EAttribute getKeyValuePair_Uid();
 
 	/**
-	 * Returns the meta object for the attribute '{@link recipe.KeyValuePair#getKey <em>Key</em>}'.
+	 * Returns the meta object for the attribute '{@link recipe.KeyValuePair#getKeyCode <em>Key Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see recipe.KeyValuePair#getKey()
+	 * @return the meta object for the attribute '<em>Key Code</em>'.
+	 * @see recipe.KeyValuePair#getKeyCode()
 	 * @see #getKeyValuePair()
 	 * @generated
 	 */
-	EAttribute getKeyValuePair_Key();
+	EAttribute getKeyValuePair_KeyCode();
 
 	/**
 	 * Returns the meta object for the attribute '{@link recipe.KeyValuePair#getValue <em>Value</em>}'.
@@ -2570,17 +2572,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArtifactRef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link recipe.ArtifactRef#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see recipe.ArtifactRef#getUid()
-	 * @see #getArtifactRef()
-	 * @generated
-	 */
-	EAttribute getArtifactRef_Uid();
 
 	/**
 	 * Returns the meta object for the reference '{@link recipe.ArtifactRef#getArtifactRef <em>Artifact Ref</em>}'.
@@ -3206,6 +3197,14 @@ public interface RecipePackage extends EPackage {
 		EClass MODEL_MAPPER = eINSTANCE.getModelMapper();
 
 		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL_MAPPER__UID = eINSTANCE.getModelMapper_Uid();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3340,12 +3339,12 @@ public interface RecipePackage extends EPackage {
 		EAttribute KEY_VALUE_PAIR__UID = eINSTANCE.getKeyValuePair_Uid();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Key Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute KEY_VALUE_PAIR__KEY = eINSTANCE.getKeyValuePair_Key();
+		EAttribute KEY_VALUE_PAIR__KEY_CODE = eINSTANCE.getKeyValuePair_KeyCode();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3474,14 +3473,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARTIFACT_REF = eINSTANCE.getArtifactRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARTIFACT_REF__UID = eINSTANCE.getArtifactRef_Uid();
 
 		/**
 		 * The meta object literal for the '<em><b>Artifact Ref</b></em>' reference feature.

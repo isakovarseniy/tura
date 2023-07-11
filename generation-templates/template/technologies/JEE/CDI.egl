@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,7 +13,26 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-[% @template
+[%
+import "tura:/generation-templates/template/technologies/JSE/datacontrol/topObjectPager.egl";
+import "tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/triggerProducer.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/parameterProducer.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/commandstack.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/commandstackProvider.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProducer.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/cdiClientRegistry.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/proxyRepositoryProducer.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/datacontrol.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactory.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/factoryInitProducer.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/elresolver.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl";
+
+ @template
 operation  service_producer_generation(hash) {
 
      cdi_service_producer_generation(hash);
@@ -28,6 +47,7 @@ operation  datacontrolgeneration(hash) {
 
     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
     
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
@@ -61,58 +81,74 @@ operation  datacontrolgeneration(hash) {
          
          collectStacks.put( suffix,suffix);
     
-         var datacontrol : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/datacontrol.egl",hash,TemplateFactory);
-         datacontrol.setFormatter(f);
-         buffer = datacontrol.process();
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+         %][%=datacontrol(hash)%][%
+		 out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",out.toString());   
+		 out.formatWith(n);
 
-         var producercontrol : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/triggerProducer.egl",hash,TemplateFactory);
-         producercontrol.setFormatter(f);
-         buffer = producercontrol.process();
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "TriggerProducer.java",buffer);   
+         %][%=triggerProducer(hash)%][%
+		 out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "TriggerProducer.java",out.toString());   
+		 out.formatWith(n);
+
+         %][%=parameterProducer(hash)%][%
+		 out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "ParameterProducer.java",out.toString());   
+		 out.formatWith(n);
 
 
-         var parameteproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/parameterProducer.egl",hash,TemplateFactory);
-         parameteproducer.setFormatter(f);
-         buffer = parameteproducer.process();
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "ParameterProducer.java",buffer);   
-
-
-	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
-	    trans.process();
+        %][%=commandstack(component,uipackage, form,suffix)%][%
+		 out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(suffix) +".java",out.toString());   
+		 out.formatWith(n);
 	    
 	    
-	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/commandstackProvider.egl",hash,TemplateFactory);
-	    trans.process();
+         %][%=commandstackProvider(component,uipackage, form,suffix)%][%
+         out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(suffix) +"Provider.java",out.toString());   
+		 out.formatWith(n);
 
-	    var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProducer.egl",hash,TemplateFactory);
-	    trans.process();
+        %][%=cpaStrorageProducer(component,uipackage, form,suffix)%][%
+         out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCpaStorage" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
+		 out.formatWith(n);
 
-	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl",hash,TemplateFactory);
-	     trans.process();
 
-	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/cdiClientRegistry.egl",hash,TemplateFactory);
-	     trans.process();
+         %][%=cpaStrorageProvider(component,uipackage, form,suffix)%][%
+         out.formatWith(f);
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCpaStorage" +util.mergeAndCapitalize(suffix) +"Provider.java",out.toString());   
+		 out.formatWith(n);
 
-	     var trans : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/proxyRepositoryProducer.egl",hash,TemplateFactory);
-	     trans.process();
-	    
+
+         %][%=clientRegistry(component,uipackage, form,suffix)%][%
+          out.formatWith(f);
+          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClient"+  util.mergeAndCapitalize(suffix) +"Registry.java",out.toString());   
+		  out.formatWith(n);
+
+
+         %][%=proxyRepositoryProducer(component,uipackage, form,suffix)%][%
+         out.formatWith(f);
+          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxy" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
+		  out.formatWith(n);
+
 
          if (control.~treeRoot <> null){
 
-            var treedatacontrol : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl",hash,TemplateFactory);
-            treedatacontrol.setFormatter(f);
-            buffer = treedatacontrol.process();
-            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+           %][%=treedatacontrol(hash)%][%
+		    out.formatWith(f);
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",out.toString());
+            out.formatWith(n);
+               
        }
 
        if (control.~pagerType == "topPager"){
             hash.put("type",control.baseType.typeRef);
             hash.put("objPackage",component.basePackage+"."+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pager");
-            var pager : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/topObjectPager.egl",hash,TemplateFactory);
-            pager.setFormatter(f);
-            buffer = pager.process();
-            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",buffer);   
+
+            %][%=topObjectPager(hash)%][%
+		    out.formatWith(f);
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",out.toString());   
+		    out.formatWith(n);
        
        }else{
      
@@ -146,37 +182,35 @@ operation  datacontrolgeneration(hash) {
 	            hash.put("targetProperty",h.get("sourceProperty") );
 	        
 	        }
-            var pager : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl",hash,TemplateFactory);
-            pager.setFormatter(f);
-            buffer = pager.process();
-            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , control.~parenType.typeRef.~class+"2"+util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",buffer);   
+           %][%=connectedPager(hash)%][%
+		    out.formatWith(f);
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , control.~parenType.typeRef.~class+"2"+util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",out.toString());   
+		    out.formatWith(n);
        } 
-       
     }
 
+	   %][%=beanxml()%][% 
+	   out.formatWith(x);
+	   util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",out.toString());   
+	   out.formatWith(n);
 
-    var beansxml : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
-    beansxml.setFormatter(x);
-    buffer = beansxml.process();
-    util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
-
-    var resolver : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/elresolver.egl",hash,TemplateFactory);
-    resolver.setFormatter(f);
-    buffer = resolver.process();
-    util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",buffer);   
+    %][%=elresolver(hash)%][%
+	out.formatWith(f);
+    util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",out.toString());   
+	out.formatWith(n);
 
 
     hash.put("bfSuffix", "");
-    var beanFactory : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);
-    beanFactory.setFormatter(f);
-    buffer = beanFactory.process();
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",buffer);   
-
-
-	 var factoryInitProducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/factoryInitProducer.egl",hash,TemplateFactory);
-	 factoryInitProducer.setFormatter(f);
-	 var buffer = factoryInitProducer.process();
-	 util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",buffer);  
+    %][%=beanFactory(hash)%][%
+	out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",out.toString());   
+	out.formatWith(n);
+	
+	
+	 %][%=factoryInitProducer(hash)%][%
+	 out.formatWith(f);
+	 util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",out.toString());  
+	 out.formatWith(n);
 
   }
 %]

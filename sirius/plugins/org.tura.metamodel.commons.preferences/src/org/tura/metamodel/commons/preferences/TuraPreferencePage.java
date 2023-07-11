@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,8 +16,10 @@ package org.tura.metamodel.commons.preferences;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Properties;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
@@ -79,18 +81,18 @@ public class TuraPreferencePage extends FieldEditorPreferencePage implements IWo
 	@Override
 	public boolean performOk() {
 		if (super.performOk()) {
-			String path = System.getProperty("user.home") + "/.tura/licensefile";
-			 try {
-				Files.writeString(Paths.get((path)), license.getStringValue());
-			} catch (IOException e) {
-				e.printStackTrace();
-				return false;
-			}
+//			String path = System.getProperty("user.home") + "/.tura/licensefile";
+//			 try {
+//				Files.writeString(Paths.get(path), license.getStringValue());
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				return false;
+//			}
 			 Properties props = new Properties();
 			 props.put(IPreferenceConstants.DEBUGING, Boolean.valueOf(debugging.getBooleanValue()).toString());
 			 props.put(IPreferenceConstants.LOG_TEMPLATES, Boolean.valueOf(logPreprocessedTemplate.getBooleanValue()).toString());
 			 
-			path = System.getProperty("user.home") + "/.tura/generation.properties";
+			String path = System.getProperty("user.home") + "/.tura/generation.properties";
 			try {
 				FileOutputStream out = new FileOutputStream(path);
 				props.store(out, "");

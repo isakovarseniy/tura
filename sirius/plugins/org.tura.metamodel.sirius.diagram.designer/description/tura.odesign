@@ -367,7 +367,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="Generalization" semanticCandidatesExpression="feature:relationships" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="type.Generalization" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Generalization'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Generalization']">
+        <edgeMappings name="Generalization" semanticCandidatesExpression="feature:relationships" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="type.Generalization" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Generalization'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Generalization']">
           <style targetArrow="InputClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
             <beginLabelStyleDescription>
@@ -2677,6 +2677,28 @@
         <create name="Create Java Package Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20package%20mappers']">
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool:CreateInstance" typeName="mapper.JavaPackageMapper" referenceName="mappers">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+      <subItemMappings name="Metamodel package mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
+        <defaultStyle labelSize="12" labelExpression="Metamodel package mappers">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Metamodel package mapper" domainClass="mapper.MetamodelPackageMapper" semanticCandidatesExpression="feature:mappers">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+        <create name="Create Metamodel Package Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Metamodel%20package%20mappers']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="mapper.MetamodelPackageMapper" referenceName="mappers">
               <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
             </subModelOperations>
           </firstModelOperation>

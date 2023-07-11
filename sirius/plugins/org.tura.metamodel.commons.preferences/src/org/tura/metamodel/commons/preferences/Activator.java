@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -72,15 +72,15 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	protected void initializeDefaultPreferences(IPreferenceStore store) {
-		String path = System.getProperty("user.home") + "/.tura/licensefile";
-		store.setDefault(IPreferenceConstants.LICENSE, "");
-		try {
-			String license = Files.readString(Paths.get((path)));
-			store.setDefault(IPreferenceConstants.LICENSE, license);
-		} catch (Exception e) {
-		}
+//		String path = System.getProperty("user.home") + "/.tura/licensefile";
+//		store.setDefault(IPreferenceConstants.LICENSE, "");
+//		try {
+//			String license = Files.readString(Paths.get((path)));
+//			store.setDefault(IPreferenceConstants.LICENSE, license);
+//		} catch (Exception e) {
+//		}
 
-		path = System.getProperty("user.home") + "/.tura/generation.properties";
+		String  path = System.getProperty("user.home") + "/.tura/generation.properties";
 		Properties prop = new Properties();
 		ByteArrayInputStream in = null;
 		try {

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -601,7 +601,8 @@ public void copyFrom[%=h.get("sourceCursorName")%](){
   @template
   operation objectmapper::ObjectMapper loadChildren(cursorsNames,model_mapper){
       var util = new Native('org.tura.metamodel.commons.Util');
-   	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.eContainer().uid = self.uid and q.objectMapperRef <> null);
+//   	  var omRelations = objectmapper::OmRelation.allInstances()->select(q|q.eContainer().uid = self.uid and q.objectMapperRef <> null);
+   	  var omRelations =  self.eContainer().objectMappers->collect(w|w.relations).flatten()->select(q|q.eContainer().uid = self.uid and q.objectMapperRef <> null);
 
  	  if (omRelations.size <> 0){
  	      for ( omRel in omRelations){

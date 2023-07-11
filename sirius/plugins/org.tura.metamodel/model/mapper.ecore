@@ -32,6 +32,11 @@
     <eLiterals name="jar"/>
     <eLiterals name="jsPack" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JavaLibScope">
+    <eLiterals name="compile"/>
+    <eLiterals name="provided" value="1"/>
+    <eLiterals name="test" value="2"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//TypeMapper #//VersionRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -39,6 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//JavaLibScope"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" eType="#//ArtifactType"
         defaultValueLiteral="jar"/>
@@ -49,6 +55,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//JavaLibScope"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" eType="#//ArtifactType"
         defaultValueLiteral="jar"/>
@@ -88,5 +95,10 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetamodelPackageMapper" eSuperTypes="#//PackageMapper">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,6 +17,7 @@
 package objectmapper.impl;
 
 import form.ContextParameters;
+import form.ContextParametersObj;
 import objectmapper.AttributeConnector;
 import objectmapper.ObjectmapperPackage;
 
@@ -119,7 +120,7 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected ContextParameters defaultSearch;
+	protected ContextParametersObj defaultSearch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,7 +273,7 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 */
 	@Override
-	public ContextParameters getDefaultSearch() {
+	public ContextParametersObj getDefaultSearch() {
 		return defaultSearch;
 	}
 
@@ -281,8 +282,8 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs) {
-		ContextParameters oldDefaultSearch = defaultSearch;
+	public NotificationChain basicSetDefaultSearch(ContextParametersObj newDefaultSearch, NotificationChain msgs) {
+		ContextParametersObj oldDefaultSearch = defaultSearch;
 		defaultSearch = newDefaultSearch;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH, oldDefaultSearch, newDefaultSearch);
@@ -297,7 +298,7 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 */
 	@Override
-	public void setDefaultSearch(ContextParameters newDefaultSearch) {
+	public void setDefaultSearch(ContextParametersObj newDefaultSearch) {
 		if (newDefaultSearch != defaultSearch) {
 			NotificationChain msgs = null;
 			if (defaultSearch != null)
@@ -370,7 +371,7 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 				setMergeAttr((Boolean)newValue);
 				return;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)newValue);
+				setDefaultSearch((ContextParametersObj)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -397,7 +398,7 @@ public class AttributeConnectorImpl extends OperationConnectorRefImpl implements
 				setMergeAttr(MERGE_ATTR_EDEFAULT);
 				return;
 			case ObjectmapperPackage.ATTRIBUTE_CONNECTOR__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)null);
+				setDefaultSearch((ContextParametersObj)null);
 				return;
 		}
 		super.eUnset(featureID);

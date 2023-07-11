@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,17 +13,13 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+ [%
  import "tura:/generation-templates/template/commons/typeElementUtil.eol";
  import "tura:/generation-templates/template/commons/categorizedUtil.eol";
  import "tura:/generation-templates/template/commons/assosiation.eol";
  import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
 
- ${percent}${end}
- [%
+
       var util = new Native('org.tura.metamodel.commons.Util');
       
  %]
@@ -72,29 +68,39 @@ ${start}${percent}
 		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
 		           continue;
 		        }
+
+		        
 				if( not types.contains(type)){
 		               continue;
 				}
 		        
        %] 
-        registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
-        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
-        spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
-
         spaRegistry.getRegistry("[%=component.artifactId%]").addSearchProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.jpa.operation.JpaSearchService.class);
+        registry.addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
+[%
+		       if (not type.findClassifier(util.getHint(model_mapper,"Domain Interface")) ){
+		           %]
+        registry.addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper.class );
+        spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
         spaRegistry.getRegistry("[%=component.artifactId%]").addCRUDProvider([%=t2model.get(type).get("fullName")%].class, org.tura.platform.repository.jpa.operation.JpaCRUDService.class);
+        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper.class );
+		           [%
+		        }
+%]
 
-        spaRegistry.getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         
        [%
        
-          var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+         var pkg = type.eContainer();
+//          var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+          var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid);
 	      for (rel in assosiations){
 
-	         if ( rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  and  types.contains(rel.target.unwrap())  ){
-	               continue;
+             if ( not  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+		         if ( rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  and  types.contains(rel.target.unwrap())  ){
+		               continue;
+		         }
 	         }
-	         
 	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
 	         rel.target.mappingType2Java(recipe,ingredient,'VIEW');
 
@@ -117,11 +123,15 @@ ${start}${percent}
                triggers.add(t2);
 	         }
           }
-	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+
+	     // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+	     var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid and t.target.uid <> t.source.uid);
 	      for (rel in assosiations){
 	      
-	         if ( rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))   and types.contains(rel.source) ){
-	               continue;
+             if ( not  rel.findClassifier(util.getHint(model_mapper,"HideAssosiatioinForJpa"))  ){
+		         if ( rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))   and types.contains(rel.source) ){
+		               continue;
+		         }
 	         }
 	         
 	         rel.source.mappingType2Java(recipe,ingredient,'VIEW');
@@ -179,6 +189,11 @@ ${start}${percent}
 		     if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
 		           continue;
 		     }
+		     
+//	       if (type.findClassifier(util.getHint(model_mapper,"Domain Interface")) ){
+//	           continue;
+//	        }
+		     
 		     if (type.isKindOf(type::Enumerator )){
 		          continue;
 		     }
@@ -190,8 +205,14 @@ ${start}${percent}
 	          var tp = type;
 	          while (1 == 1){
 				  for ( field in tp.attributes){
+				  
+				    var column_name=  util.splitByCapitalLatterAndCapitalize(field.name);  
+				    if (field.findClassifier(util.getHint(model_mapper,"Column"))){
+				       column_name=field.~hintDetails;
+				    }
+				  
 				 %]
-				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=util.mergeAndUnCapitalize(field.name).toLowerCase()%]","[%=util.splitByCapitalLatterAndCapitalize(field.name)%]");
+				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=util.mergeAndUnCapitalize(field.name).toLowerCase()%]","[%=column_name%]");
 				  [%
 				  }
 				  if (tp.~extension.isDefined()){

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link recipe.ModelMapper#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.ModelMapper#getName <em>Name</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.ModelMapper#getTechnologies <em>Technologies</em>}</li>
@@ -43,6 +44,28 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ModelMapper extends ArtifactRef, Orderable, Categorized {
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(String)
+	 * @see recipe.RecipePackage#getModelMapper_Uid()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getUid();
+
+	/**
+	 * Sets the value of the '{@link recipe.ModelMapper#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

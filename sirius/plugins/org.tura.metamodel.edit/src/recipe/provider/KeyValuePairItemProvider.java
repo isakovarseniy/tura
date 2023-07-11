@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -77,7 +77,7 @@ public class KeyValuePairItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addKeyPropertyDescriptor(object);
+			addKeyCodePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -106,19 +106,19 @@ public class KeyValuePairItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Key feature.
+	 * This adds a property descriptor for the Key Code feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyPropertyDescriptor(Object object) {
+	protected void addKeyCodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_KeyValuePair_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_KeyValuePair_key_feature", "_UI_KeyValuePair_type"),
-				 RecipePackage.Literals.KEY_VALUE_PAIR__KEY,
+				 getString("_UI_KeyValuePair_keyCode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyValuePair_keyCode_feature", "_UI_KeyValuePair_type"),
+				 RecipePackage.Literals.KEY_VALUE_PAIR__KEY_CODE,
 				 true,
 				 false,
 				 false,
@@ -188,7 +188,7 @@ public class KeyValuePairItemProvider
 
 		switch (notification.getFeatureID(KeyValuePair.class)) {
 			case RecipePackage.KEY_VALUE_PAIR__UID:
-			case RecipePackage.KEY_VALUE_PAIR__KEY:
+			case RecipePackage.KEY_VALUE_PAIR__KEY_CODE:
 			case RecipePackage.KEY_VALUE_PAIR__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

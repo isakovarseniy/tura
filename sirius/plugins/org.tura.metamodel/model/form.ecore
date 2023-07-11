@@ -200,6 +200,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AreaRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//NickNamed"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -216,6 +218,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement #//ControlPointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
@@ -457,7 +461,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointer"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointerObj"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
         containment="true"/>
@@ -477,12 +481,16 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
         eType="#//ArtificialField" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//ContextParameters"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//ContextParametersObj"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//Orders"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relationMappers" upperBound="-1"
         eType="#//RelationMapper" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextParametersObj" eSuperTypes="#//ContextParameters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelationMapper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

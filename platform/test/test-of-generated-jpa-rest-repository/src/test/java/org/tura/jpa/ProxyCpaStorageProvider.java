@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,17 @@ import org.tura.platform.repository.cpa.storage.CpaStorage;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
+import objects.test.serialazable.jpa.ObjectInheritance;
+
 public class ProxyCpaStorageProvider implements CpaStorageProvider {
 
 	private static final long serialVersionUID = 520444826411985629L;
 	private CpaStorage cpaStorage;
 
 	public ProxyCpaStorageProvider(ProxyCommadStackProvider stackProvider) {
-		this.cpaStorage = new CpaStorage(UUID.randomUUID().toString());
+		ObjectInheritance inh = new ObjectInheritance();
+		inh.init();
+		this.cpaStorage = new CpaStorage(UUID.randomUUID().toString(),inh);
 		this.cpaStorage.setCommadStackProvider(stackProvider);
 	}
 

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,13 +13,19 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
+[%
+  var util = new Native('org.tura.metamodel.commons.Util');
+%]
 package [%=component.basePackage%];
  
 import java.util.Arrays;
 
 import org.tura.platform.repository.core.Instantiator;
 
-public class ProxyRepositoryInstantiator implements Instantiator{
+public class ProxyRepositoryInstantiator implements Instantiator,java.io.Serializable{
+   
+   
+   private static final long serialVersionUID = 1L;
    
    private org.tura.platform.repository.core.ProxyRepositoryProvider provider; 
 

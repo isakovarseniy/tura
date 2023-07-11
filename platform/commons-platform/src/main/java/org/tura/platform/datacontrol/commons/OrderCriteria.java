@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,37 +20,36 @@ package org.tura.platform.datacontrol.commons;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
-@XmlRootElement(name = "OrderCriteria")
-public class OrderCriteria implements Serializable{
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+public class OrderCriteria implements Serializable {
 	private static final long serialVersionUID = -2953457492318291734L;
 	private String name;
 	private String order;
 	private String parentClass;
-	private String property; 
-	
+	private String property;
 
-	 public OrderCriteria(){
-		 
-	 }
-	
-	 public OrderCriteria(String name,String order){
-		 this.name=name;
-		 this.order=order;
-	 }
+	public OrderCriteria() {
 
-	 @XmlElement
-	 public String getName() {
+	}
+
+	public OrderCriteria(String name, String order) {
+		this.name = name;
+		this.order = order;
+	}
+
+	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@XmlElement
+
 	public String getOrder() {
 		return order;
 	}
@@ -59,7 +58,6 @@ public class OrderCriteria implements Serializable{
 		this.order = order;
 	}
 
-	@XmlElement
 	public String getParentClass() {
 		return parentClass;
 	}
@@ -67,9 +65,7 @@ public class OrderCriteria implements Serializable{
 	public void setParentClass(String parentClass) {
 		this.parentClass = parentClass;
 	}
-	
-	
-	@XmlElement
+
 	public String getProperty() {
 		return property;
 	}
@@ -77,15 +73,26 @@ public class OrderCriteria implements Serializable{
 	public void setProperty(String property) {
 		this.property = property;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("parentClass = "+parentClass);
-		builder.append("property = "+property);
-		builder.append("name = "+name);
-		builder.append("order = "+order);
+		builder.append("parentClass = " + parentClass);
+		builder.append("property = " + property);
+		builder.append("name = " + name);
+		builder.append("order = " + order);
 		return builder.toString();
 	}
 
+	
+	@Override
+	public int hashCode() {
+		HashCodeBuilder builder = new HashCodeBuilder();
+		builder.append(name);
+		builder.append(order);
+		builder.append( parentClass);
+		builder.append(property);
+		return builder.toHashCode();
+	}	
+	
 }

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -240,77 +240,7 @@ public class DataControlItemProvider extends CategorizedItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createFormParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createFormVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createArtificialField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createTypePointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createCalculatedField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 ObjectmapperFactory.eINSTANCE.createAggregation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createTypeMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createJavaMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
+				 TypeFactory.eINSTANCE.createTypePointerObj()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -360,87 +290,7 @@ public class DataControlItemProvider extends CategorizedItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createViewPortTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createContextParameters()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREFormTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
-				 FormFactory.eINSTANCE.createSearchTrigger()));
+				 FormFactory.eINSTANCE.createContextParametersObj()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -451,38 +301,6 @@ public class DataControlItemProvider extends CategorizedItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__RELATION_MAPPERS,
 				 FormFactory.eINSTANCE.createRelationMapper()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == FormPackage.Literals.DATA_CONTROL__BASE_TYPE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__CREATE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__SEARCH;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

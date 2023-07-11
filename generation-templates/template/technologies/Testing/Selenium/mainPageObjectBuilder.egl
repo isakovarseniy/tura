@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,11 +13,22 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "tura:/generation-templates/template/technologies/Testing/Selenium/${View_implementation}/webElementAccessor.egl";
+import "tura:/generation-templates/template/technologies/${View_implementation}.egl";
+import "tura:/generation-templates/template/technologies/Testing/Selenium/PageObject.egl";
+import "tura:/generation-templates/template/technologies/Testing/Selenium/MainHolderPageObject.egl";
+${percent}${end}
 [%
+
      var util = new Native('org.tura.metamodel.commons.Util');
      var queryHelper = new Native('org.tura.metamodel.commons.QueryHelper');
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
-      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter");
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
 
     if (forms.size() <> 0 ){
        for (form in forms){
@@ -51,17 +62,19 @@
                   var uiElementsList = queryHelper.findUIElementsForPage(canvas); 
                   hash.put("uiElementsList",uiElementsList);
                   hash.put("canvas",canvas);
-                  var pageobject : Template = util.loadTemplate("tura:/generation-templates/template/technologies/Testing/Selenium/PageObject.egl",hash,TemplateFactory);
-                  pageobject.setFormatter(f);
-                  var buffer = pageobject.process();
-                  util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  util.mergeAndCapitalize(canvas.name) +  "PageObject.java",buffer);  
+                  
+                 %][%=PageObject(hash)%][%
+		          out.formatWith(f);
+                  util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  util.mergeAndCapitalize(canvas.name) +  "PageObject.java",out.toString());  
+		          out.formatWith(n);
               }
            }
           hash.put("uiElementsList",array);
-          var pageobject : Template = util.loadTemplate("tura:/generation-templates/template/technologies/Testing/Selenium/MainHolderPageObject.egl",hash,TemplateFactory);
-          pageobject.setFormatter(f);
-          var buffer = pageobject.process();
-          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  "MainHolderPageObject.java",buffer);  
+          
+          %][%=MainHolderPageObject(hash)%][%
+		  out.formatWith(f);
+          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pageobject/"  ,  "MainHolderPageObject.java",out.toString());  
+		  out.formatWith(n);
 
        }
      }  

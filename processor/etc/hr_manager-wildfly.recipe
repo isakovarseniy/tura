@@ -6,45 +6,49 @@ tura:docker removeContainer --name hr-wf
 
 tura:docker removeImage --registry tura/hr-manager/wildfly --tag 1.0
 
-tura:docker pullImage --registry jboss/wildfly --tag 10.1.0.Final
+tura:docker pullImage --registry jboss/wildfly --tag 21.0.1.Final
 
 tura:docker createNetwork --network hr-net
 
 c = tura:docker config --user 0 
 
-v = tura:docker createContainer --registry jboss/wildfly --tag 10.1.0.Final --var c
-
-tura:dsl jbossStandaloneFullXml\
-                 --container $v\
-                 --configPath postgres/docker\
-                 --jboss_home /opt/jboss/wildfly\
-                 --application hr-manager\
-                 --serverType wildfly-10.1.0.Final
+v = tura:docker createContainer --registry jboss/wildfly --tag 21.0.1.Final --var c
 
 tura:dsl jbossModule\
                  --container $v\
                  --configPath postgres/docker\
                  --jboss_home /opt/jboss/wildfly\
                  --application hr-manager\
-                 --serverType wildfly-10.1.0.Final\
+                 --serverType wildfly-21.0.1.Final\
                  --relativeLocation org/postgresql/main
 
 tura:dsl copyRoles\
                 --container $v\
                 --jboss_home /opt/jboss/wildfly\
                 --application hr-manager\
-                --serverType wildfly-10.1.0.Final
+                --serverType wildfly-21.0.1.Final
 
 tura:dsl copyUsers\
                 --container $v\
                 --jboss_home /opt/jboss/wildfly\
                 --application hr-manager\
-                --serverType wildfly-10.1.0.Final
+                --serverType wildfly-21.0.1.Final
 
 tura:dsl copyFile\
                 --container $v\
                 --targetLocation /opt/jboss/wildfly/modules/org/postgresql/main\
                 --sourceResource $mr2/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar 
+
+
+tura:dsl copyFile\
+                --container $v\
+                --targetLocation /opt/jboss/wildfly/bin\
+                --sourceResource $repo_home/hr-manager/wildfly-21.0.1.Final/assets/wf-config.cli
+
+
+tura:dsl exec --cmd "docker exec -i  $v  sh -c \" /opt/jboss/wildfly//bin/jboss-cli.sh  --file=/opt/jboss/wildfly//bin/wf-config.cli\""
+
+
 
 tura:docker stopContainer --id $v
 
@@ -52,7 +56,7 @@ tura:docker commitContainer\
                 --registry tura/hr-manager/wildfly\
                 --tag 1.0\
                 --id $v\
-                --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug 3333 -c standalone-full.xml -b 0.0.0.0"
+                --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug *:3333 -c standalone-full.xml -b 0.0.0.0"
 
 
 tura:docker removeContainer --id $v

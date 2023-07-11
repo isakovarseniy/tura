@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,7 +132,7 @@ public class Actions implements EventAware {
 		try {
 			TreeDataControl tdc = (TreeDataControl) datacontrol;
 			ObjectControl w = (ObjectControl) tdc.getCurrentObject();
-			DataControl<?> dc = (DataControl<?>) w.getAttributes().get(Constants.DATA_CONTROL);
+			DataControl<?> dc = (DataControl<?>) w.getObjectControlAttributes().get(Constants.DATA_CONTROL);
 			String rel = dc.getRelationsName().iterator().next();
 			if (rel != null)
 				tdc.createChildObject(rel);

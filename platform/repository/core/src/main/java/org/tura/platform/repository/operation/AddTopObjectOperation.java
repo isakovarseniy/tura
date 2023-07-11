@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,6 +63,7 @@ public class AddTopObjectOperation extends ProxyOperation{
         Object cloned =proxy.deepClone();
         data.setObject(cloned);
         data.getParams().put(Constants.CPA_MODIFICATION_SOURCE, proxy.get_SrcId());
+        data.setRegistry(proxy.getRegistry());
 
         stackProvider.get().addCommand(data);
 

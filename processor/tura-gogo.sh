@@ -2,7 +2,7 @@
 #
 #   Tura - Application generation solution
 #
-#   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+#   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 #
 #
 #   This project includes software developed by Arseniy Isakov
@@ -100,6 +100,8 @@ fi
 echo TURA VERSION $TURA_VERSION
 
 opts="${JLINE_OPTS}"
+opts="${opts} --add-opens java.base/java.util=ALL-UNNAMED"
+
 logconf="${DIRNAME}/etc/logging.properties"
 cmd=
 while [ "${1}" != "" ]; do
@@ -147,7 +149,12 @@ trap 'nothing' TSTP
 echo JAVA : $JAVACMD
 "$JAVACMD" -version
 
-"$JAVACMD" -cp ${TARGETDIR}/processor-${TURA_VERSION}-jar-with-dependencies.jar:${EXTENSION}\
+
+if [ -z "$MODEL_CONNECTOR" ]; then
+  MODEL_CONNECTOR=${TARGETDIR}/processor-emf-model-command/processor-emf-model-command-${TURA_VERSION}-jar-with-dependencies.jar
+fi
+
+"$JAVACMD" -cp ${TARGETDIR}/processor-tura-command/processor-tura-command-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-tura-command-api/processor-tura-command-api-${TURA_VERSION}-jar-with-dependencies.jar:${MODEL_CONNECTOR}:${EXTENSION}\
      $opts \
     -Dgosh.home="${DIRNAME}" \
     -DTURA_HOME="${TURA_HOME}" \

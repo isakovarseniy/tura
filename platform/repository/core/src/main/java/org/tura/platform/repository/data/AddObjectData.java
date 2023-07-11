@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,11 @@ package org.tura.platform.repository.data;
 
 import org.tura.platform.repository.core.RepoKeyPath;
 
-public class AddObjectData  extends ProxyData{
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+public class AddObjectData  extends ProxyData {
 
 	private static final long serialVersionUID = -1243277410436122398L;
 	private RepoKeyPath masterPk;
@@ -38,6 +42,20 @@ public class AddObjectData  extends ProxyData{
 	}
 	public void setDetailPk(RepoKeyPath detailPk) {
 		this.detailPk = detailPk;
+	}
+	@Override
+	public Object cloneCmd()  {
+
+		AddObjectData cloned = new AddObjectData();
+		cloned.relationType = this.relationType;
+		cloned.masterProperty=this.masterProperty;
+		cloned.detailProperty=this.detailProperty;
+		cloned.params = this.params;
+		cloned.masterPk =  this.masterPk.clone();
+		cloned.detailPk = this.detailPk.clone();
+		cloned.registry = this.registry;
+
+		return cloned;
 	}
 	
 }

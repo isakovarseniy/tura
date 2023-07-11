@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,17 @@
 */
 %]
 [%
+ @template
+operation artificialFieldInterface(hash){
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+    var form = hash.get("form");    
+    var uipackage = hash.get("uipackage");
+    var control = hash.get("control");
+     
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
@@ -25,13 +36,13 @@ public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter  
    private org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger;
    
     public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(org.tura.platform.repository.core.ObjectControl obj){
-        this.attributes = obj.getAttributes();
+        this.attributes = obj.getObjectControlAttributes();
         this.obj = obj;
     }
 
 
     public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(org.tura.platform.repository.core.ObjectControl obj, org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger){
-        this.attributes = obj.getAttributes();
+        this.attributes = obj.getObjectControlAttributes();
         this.obj = obj;
         this.onChangeArtificialFieldTrigger = onChangeArtificialFieldTrigger;
     }
@@ -68,3 +79,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter  
     }
     %] 
 }
+
+[%
+}
+%]

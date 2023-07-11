@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ public abstract class LazySingleObject<T> extends EagerSingleObject<T> {
 	protected abstract List<SearchCriteria> getLazyObjectSearchCriteria();
 
 	private ProxyCommadStackProvider localStackProvider = getLocalStackProvider();
-	
+
 	private String id = UUID.randomUUID().toString();
 
 	public LazySingleObject(Class<T> objectType, CpaStorageProvider storageProvider, CpaRepository repository,
@@ -58,53 +58,55 @@ public abstract class LazySingleObject<T> extends EagerSingleObject<T> {
 
 	public T get(RepoKeyPath cpaPath, String relation) {
 		T t = super.get(cpaPath, relation);
-		if (t == null) {
-			try {
-				SearchResult<T> result = repository.find(getLazyObjectSearchCriteria(), getLazyObjectOrderCriteria(), 0,
-						loadStep, getObjectType());
-				if (result.getNumberOfRows() != 0) {
-					t = result.getSearchResult().get(0);
-					Object obj = storageProvider.getStorage().getObject(cpaPath);
-					ObjectControl m = (ObjectControl) repository.factory(obj, obj.getClass().getName());
-					
-					RepositoryHelper helper =  new RepositoryHelper();
-					Map<RelationType, String> props = helper.findRelationByIdAndType(cpaPath,relation, cpaRelationType);
-					
-					ObjectControl master =  m;
-					ObjectControl detail = (ObjectControl) t;
-					if (  RelationType.Opposite.equals(cpaRelationType) ) {
-						 master =  (ObjectControl) t;
-						 detail = m;
-					}
-					String masterProperty = props.get(RelationType.Direct);
-					String detailProperty = props.get(RelationType.Opposite);
-					
-					CpaConnectOperation command = new CpaConnectOperation();
-					command.setMaster(master);
-					command.setDetail(detail);
-					command.setMasterProperty(masterProperty);
-					command.setDetailProperty(detailProperty);
-					command.setStackProvider(localStackProvider);
-					if (command.prepare()) {
-						localStackProvider.get().commit();
-					}
-				}
-			} catch (Exception e) {
-				throw new RuntimeException(e);
+		if (t != null) {
+			return t;
+		}
+		try {
+			SearchResult<T> result = repository.find(getLazyObjectSearchCriteria(), getLazyObjectOrderCriteria(), 0,
+					loadStep, getObjectType());
+			if (result.getNumberOfRows() != 0) {
+				t = result.getSearchResult().get(0);
 			}
+			if (t != null) {
+				Object obj = storageProvider.getStorage().getObject(cpaPath);
+				ObjectControl m = (ObjectControl) repository.factory(obj, obj.getClass().getName());
+
+				RepositoryHelper helper = new RepositoryHelper();
+				Map<RelationType, String> props = helper.findRelationByIdAndType(cpaPath, relation, cpaRelationType);
+
+				ObjectControl master = m;
+				ObjectControl detail = (ObjectControl) t;
+				if (RelationType.Opposite.equals(cpaRelationType)) {
+					master = (ObjectControl) t;
+					detail = m;
+				}
+				String masterProperty = props.get(RelationType.Direct);
+				String detailProperty = props.get(RelationType.Opposite);
+
+				CpaConnectOperation command = new CpaConnectOperation();
+				command.setMaster(master);
+				command.setDetail(detail);
+				command.setMasterProperty(masterProperty);
+				command.setDetailProperty(detailProperty);
+				command.setStackProvider(localStackProvider);
+				if (command.prepare()) {
+					localStackProvider.get().commit();
+				}
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 		return t;
 	}
-	
+
 	@Override
 	public void close() throws IOException {
 	}
-	
 
 	private ProxyCommadStackProvider getLocalStackProvider() {
 		if (localStackProvider == null) {
 			localStackProvider = new LocalCommadStackProvider();
-			localStackProvider.get().addProxyCommandStackEventListener(id,new LocalRepositoryCommitListener());
+			localStackProvider.get().addProxyCommandStackEventListener(id, new LocalRepositoryCommitListener());
 		}
 		return localStackProvider;
 	}

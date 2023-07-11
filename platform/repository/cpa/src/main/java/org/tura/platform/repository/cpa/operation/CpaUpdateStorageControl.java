@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ public class CpaUpdateStorageControl extends  SpaControl{
 
 	private String property;
 	private  Object value;
+	private  Class<?> loadedBy;
 	
 	public CpaUpdateStorageControl(Object object, Object key, OperationLevel level, String registryName) {
 		super(object, key, level, registryName);
@@ -46,7 +47,14 @@ public class CpaUpdateStorageControl extends  SpaControl{
 		this.value = value;
 	}
 
-	
+	public Class<?> getLoadedBy() {
+		return loadedBy;
+	}
+
+	public void setLoadedBy(Class<?> loadedBy) {
+		this.loadedBy = loadedBy;
+	}
+
 	
 	
 }

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,12 @@
 */
 %]
 [%
+import "tura:/generation-templates/template/technologies/uuiClient/viewPortHolderClass.egl";
+import  "tura:/generation-templates/template/technologies/uuiClient/modelWrapper.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/callbackProducer.egl";
+import "tura:/generation-templates/template/technologies/uuiClient/viewPortTriggerProducer.egl";
+import  "tura:/generation-templates/template/technologies/uuiClient/menuPostProcessorProducer.egl";
+
 operation  viewgeneration(hash) {
       var form = hash.get("form");   
       var  javaPath =  hash.get("javaPath");  
@@ -24,6 +30,11 @@ operation  viewgeneration(hash) {
       var scriptTriggers = new Native('java.util.ArrayList'); 
       var menuReferences = new Native('java.util.ArrayList'); 
       var modelRegistration = new Native('java.util.ArrayList'); 
+      
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
+      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+      var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
+      
       
       var uipackage = hash.get("uipackage");
 
@@ -49,42 +60,36 @@ operation  viewgeneration(hash) {
       menuProvider(hash);
       actionExecutor(hash);
       
-      
 
       hash.put("allPorts",allPorts);
-      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
-      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
              
-      var viewportclass : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/viewPortHolderClass.egl",hash,TemplateFactory);
-      viewportclass.setFormatter(f);
-      var buffer = viewportclass.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",buffer);  
+      %][%=viewPortHolderClass(hash)%][%      
+      out.formatWith(f);
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"  , "ViewPortHolder.java",out.toString());  
+      out.formatWith(n);
 
 
-      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
-      var modelWrapper : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/modelWrapper.egl",hash,TemplateFactory);
-      modelWrapper.setFormatter(f);
-      var buffer = modelWrapper.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"   , "ViewModelWrapper.java",buffer);  
+      %][%=modelWrapper(hash)%][%
+      out.formatWith(f);
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/viewmodel/"   , "ViewModelWrapper.java",out.toString());  
+      out.formatWith(n);
 
 
-
-      var viewmodelcallbackproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/callbackProducer.egl",hash,TemplateFactory);
-      viewmodelcallbackproducer.setFormatter(f);
-      var buffer = viewmodelcallbackproducer.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewModelCallBackProducer.java",buffer);  
+      %][%=callbackProducer(hash)%][%
+      out.formatWith(f);
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewModelCallBackProducer.java",out.toString());  
+      out.formatWith(n);
       
-
-      var viewporttriggerproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/viewPortTriggerProducer.egl",hash,TemplateFactory);
-      viewporttriggerproducer.setFormatter(f);
-      var buffer = viewporttriggerproducer.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
+      %][%=viewPortTriggerProducer(hash)%][%
+      out.formatWith(f);
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",out.toString());  
+      out.formatWith(n);
 
       
-      var menutriggerproducer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/menuPostProcessorProducer.egl",hash,TemplateFactory);
-      menutriggerproducer.setFormatter(f);
-      var buffer = menutriggerproducer.process();
-      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "MenuPostProcessorProducer.java",buffer);  
+      %][%=menuPostProcessorProducer(hash)%][%
+      out.formatWith(f);
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "MenuPostProcessorProducer.java",out.toString());  
+      out.formatWith(n);
       
       
       

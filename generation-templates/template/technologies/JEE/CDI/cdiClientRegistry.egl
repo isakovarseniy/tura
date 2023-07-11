@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,30 +13,8 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/technologies/${Environment}.egl";
-import "tura:/generation-templates/template/commons/categorizedUtil.eol";
-${percent}${end}
 [%
-    var util = new Native('org.tura.metamodel.commons.Util');
-     
-    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
-
-    var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
-    var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
-    var uipackage = form.eContainer();
-
-    %][%=clientRegistry(component,uipackage, form,controlSuffix)%][%
-    
-    out.formatWith(f);
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClient"+  util.mergeAndCapitalize(controlSuffix) +"Registry.java",out.toString());   
-
-%]
-
-[% @template
+@template
 operation  clientRegistry(component,uipackage,form, suffix) {
 
      var util = new Native('org.tura.metamodel.commons.Util');

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class ConnectionProcessor implements RelOperation{
 			Object value = srcM.invoke(master);
 			
 			String trgName = "set"+WordUtils.capitalize(lnk.field2());
-			Method trgM = detail.getClass().getMethod(trgName, new Class<?>[]{value.getClass()});
+			Method trgM = detail.getClass().getMethod(trgName, new Class<?>[]{srcM.getReturnType()});
 			
 			trgM.invoke(detail, value);
 			

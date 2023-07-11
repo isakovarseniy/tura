@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,14 +13,9 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "tura:/generation-templates/template/commons/typeElementUtil.eol";
- ${percent}${end}
-
 [%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/technologies/JSE/Object/enumerator.egl";
   
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
@@ -29,8 +24,14 @@ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
      var type;
 
      var types = util.runQuery(model_mapper,"Query model enum",model_mapper);
-     if (types <> null and types.size <> 0 )
+     if (types <> null and types.size <> 0 ){
          alltypes.addAll(types); 
+     }
+
+     var types = util.runQuery(model_mapper,"Query enum  from domain package",model_mapper);
+     if (types <> null and types.size <> 0 ){
+         alltypes.addAll(types); 
+     }
 
 
     if (alltypes.size() <> 0 ){
@@ -54,6 +55,7 @@ operation  enumerator_generation(hash) {
 
    var util = new Native('org.tura.metamodel.commons.Util');
    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+   var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
         
     var type =  hash.get("type");
     var recipe = hash.get("recipe");
@@ -64,11 +66,9 @@ operation  enumerator_generation(hash) {
     
     util.populateTechnologies(hash,model_mapper);
 
-    var enum : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JSE/Object/enumerator.egl",hash,TemplateFactory);
-    enum.setFormatter(f);
-    var buffer = enum.process();
-    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   
-
-
+     %][%=enumerator(hash)%][%  
+      out.formatWith(f);
+      util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",out.toString());   
+      out.formatWith(n);
 }
 %]

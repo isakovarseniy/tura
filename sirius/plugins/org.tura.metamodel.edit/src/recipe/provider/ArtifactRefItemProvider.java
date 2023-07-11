@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -76,32 +76,9 @@ public class ArtifactRefItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUidPropertyDescriptor(object);
 			addArtifactRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Uid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ArtifactRef_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArtifactRef_uid_feature", "_UI_ArtifactRef_type"),
-				 RecipePackage.Literals.ARTIFACT_REF__UID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -145,10 +122,7 @@ public class ArtifactRefItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ArtifactRef)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ArtifactRef_type") :
-			getString("_UI_ArtifactRef_type") + " " + label;
+		return getString("_UI_ArtifactRef_type");
 	}
 	
 
@@ -162,12 +136,6 @@ public class ArtifactRefItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ArtifactRef.class)) {
-			case RecipePackage.ARTIFACT_REF__UID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

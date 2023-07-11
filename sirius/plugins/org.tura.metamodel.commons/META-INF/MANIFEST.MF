@@ -1,14 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.tura.metamodel.commons; singleton:=true
-Bundle-Version: 6.1.0
+Bundle-Version: 6.1.1
 Export-Package: 
  org.tura.metamodel.commons,
  org.tura.metamodel.commons.properties.selections.adapters,
  org.tura.metamodel.commons.properties.selections.adapters.helper
 Import-Package: domain,
- org.apache.commons.lang;version="2.6.0",
+ org.apache.commons.lang3,
  org.eclipse.draw2d,
  org.eclipse.draw2d.geometry,
  org.eclipse.emf.common.command,
@@ -20,19 +21,18 @@ Import-Package: domain,
  org.eclipse.emf.edit.provider,
  org.eclipse.emf.edit.ui.provider,
  org.eclipse.gmf.runtime.diagram.ui.layout,
- org.eclipse.sirius.diagram.business.internal.metamodel.spec;version="3.1.0",
  org.eclipse.sirius.diagram.impl;version="3.1.0",
  org.eclipse.sirius.viewpoint.description;version="3.0.0",
  org.eclipse.ui.ide,
  org.eclipse.ui.views.properties,
  org.eclipse.ui.views.properties.tabbed
-Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
- org.eclipse.ui.browser;bundle-version="3.4.0",
+Require-Bundle: org.eclipse.ui;bundle-version="3.103.0";visibility:=reexport,
+ org.eclipse.ui.browser;bundle-version="3.4.0";visibility:=reexport,
  org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.300",
  org.eclipse.core.runtime;bundle-version="3.8.0",
- org.eclipse.gmf;bundle-version="1.4.1",
- org.eclipse.gmf.runtime.common.core;bundle-version="1.4.1",
- org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.6.0",
+ org.eclipse.gmf;bundle-version="1.15.3",
+ org.eclipse.gmf.runtime.common.core;bundle-version="1.7.1",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.9.1",
  org.tura.metamodel;bundle-version="1.0.0",
  org.eclipse.epsilon.common.dt;bundle-version="1.0.0",
  org.eclipse.epsilon.egl.engine;bundle-version="1.0.0",
@@ -41,7 +41,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
  org.eclipse.epsilon.eol.dt;bundle-version="2.4.0",
  org.eclipse.epsilon.emc.emf;bundle-version="2.4.0"
 Bundle-ClassPath: .,
- lib/freemarker-2.3.20.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+ lib/freemarker-2.3.20.jar,
+ lib/commons-lang3-3.1.jar
 Bundle-Activator: org.tura.metamodel.Activator
 Bundle-ActivationPolicy: lazy

@@ -1,0 +1,16 @@
+embed-server --server-config=${server.config:standalone-full.xml}
+
+/subsystem=datasources/jdbc-driver=postgresql-jdbc4:add(driver-name="postgresql-jdbc4",driver-module-name="org.postgresql")
+/subsystem=datasources/data-source=hrDS_pool:add(jndi-name=java:jboss/jdbc/hrDS, connection-url=jdbc:postgresql://hr-pg:5432/postgres ,driver-name=postgresql-jdbc4,driver-class=org.postgresql.Driver ,jta=true , enabled=true, use-java-context=true, use-ccm=true)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=min-pool-size,value=2)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=max-pool-size,value=20)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=check-valid-connection-sql,value="SELECT 1")
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=validate-on-match,value=false)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=background-validation,value=false)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=use-fast-fail,value=false)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=user-name,value=postgres)
+/subsystem=datasources/data-source=hrDS_pool:write-attribute(name=password,value=postgres)
+
+
+
+/system-property=aes_key:add(value="qvDHwQChO/NVvxCYG3yO+w==")

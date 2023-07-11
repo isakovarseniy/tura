@@ -1,0 +1,175 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+ [%
+import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JSE/Object/enumerator.egl";
+import "tura:/generation-templates/template/technologies/JEE/RepositoryProxy/Serialization/serializedObject.egl";
+import "tura:/generation-templates/template/technologies/JEE/RepositoryProxy/Serialization/interfaceObject.egl";
+import "tura:/generation-templates/template/technologies/JEE/RepositoryProxy/Serialization/many2ManySerialization.egl";
+ 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hash = new Native('java.util.HashMap');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
+
+     var nsHash = new Native("java.util.HashMap"); 
+     var mhash = new Native('java.util.HashMap');
+     var typeCollection = new Native("java.util.ArrayList"); 
+
+
+    var exceptions = configuration.get("Format exceptions");
+    if ( exceptions <> null){
+       f.setExceptions(exceptions.keySet());
+    }
+
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+     if (types <> null and types.size <> 0 ){
+	    for (type in types){
+            if (type.isKindOf(type::Enumerator )){
+             typeCollection.add(type);
+            }else{
+               type.collectType(typeCollection,model_mapper,null,null,null);
+            }
+	    }
+     }
+      
+      types = util.runQuery(model_mapper,"Query Entity from domain package",model_mapper);
+      if (types <> null and types.size <> 0 ){
+	    for (type in types){
+            if (type.isKindOf(type::Enumerator )){
+             typeCollection.add(type);
+            }else{
+               type.collectType(typeCollection,model_mapper,null,null,null);
+            }
+	    }
+      }
+      
+      
+      types = util.runQuery(model_mapper,"Query model interfaces",model_mapper);
+      if (types <> null and types.size <> 0 ){
+	    for (type in types){
+               type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+      }
+
+      types = util.runQuery(model_mapper,"Query type",model_mapper);
+      if (types <> null and types.size <> 0 ){
+	    for (type in types){
+               type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+      }
+
+      var  exclusions = util.runQuery(model_mapper,"Exclude type",model_mapper);
+
+ 
+      for(type in typeCollection){
+      
+          if ( exclusions <> null and exclusions.contains(type)){
+              continue;
+          }
+      
+          type.mappingType2Java(recipe,ingredient);
+          
+          var pkg = type.eContainer();
+         //var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and not t.isImplements(model_mapper) ).first();
+         var extension = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid and not t.isImplements(model_mapper) ).first();
+          
+          if (extension <> null){
+	          var ex =  extension.target.unwrap();
+	          ex.mappingType2Java(recipe,ingredient);
+	          type.~extension = ex;
+           }
+           
+          //var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.isImplements(model_mapper)  );
+          var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid and t.isImplements(model_mapper)  );
+          
+          if (interfaces <> null){
+              for (interface in interfaces){
+		          var ex =  interface.target.unwrap();
+		          ex.mappingType2Java(recipe,ingredient);
+		          if (not type.~interface.isDefined()){
+	                   type.~interface = new Native('java.util.ArrayList');
+		          }
+		          type.~interface.add ( ex);
+	        }
+          
+           }            
+          
+          
+		  var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
+		  hash.put("recipe",recipe);
+		  hash.put("ingredient",ingredient);
+		  hash.put("component",component);
+		  hash.put("model_mapper",model_mapper);
+		  hash.put("path",path);
+		  hash.put("type",type);
+		  hash.put("mhash",mhash);
+		  hash.put("typeCollection",typeCollection);
+		  
+         if (type.isKindOf(type::Enumerator )){
+		     %][%=enumerator(hash)%][%  
+		      out.formatWith(f);
+		      util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",out.toString());   
+		      out.formatWith(n);
+         }
+
+         if (type.isKindOf(type::Type )){
+            if (not type.findClassifier( util.getHint(model_mapper,"Domain Interface"))) {
+		     %][%=serializedObject(hash)%][%  
+		        out.formatWith(f);
+			    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",out.toString());   
+		        out.formatWith(n);
+		    }else {
+		     %][%=interface(hash)%][%  
+		        out.formatWith(f);
+			    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",out.toString());   
+		        out.formatWith(n);
+		    }
+		    
+		    
+            var pkg = type.eContainer();
+		    
+// 		    var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+ 		    var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and  t.source.uid = type.uid);
+ 		    
+	 		for ( rel in assosiations  ){
+	
+		       if ( rel.type.toString()<>"Many2Many"   ){
+		              continue;
+	           }
+	           var className = rel.source.~class+"Many2Many"+rel.target.~class+"Relation";
+	           
+		       hash.put("className",className);
+		       hash.put("rel",rel);
+
+		     %][%=many2ManySerialization(hash)%][%  
+		       out.formatWith(f);
+			   util.saveFile( path+type.~package.replaceAll("\\.","\\/"), className + ".java",out.toString());   
+		       out.formatWith(n);
+
+			   
+		       hash.remove("className");
+		       hash.remove("rel");
+	           
+	       }		    
+            continue;
+         }
+      
+      }
+   
+%]

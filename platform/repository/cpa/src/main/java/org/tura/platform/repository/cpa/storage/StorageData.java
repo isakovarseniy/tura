@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public class StorageData implements Serializable {
 	private Map<ObjectRef, Map<RelationControl, List<Ref>>> connactions = new HashMap<>();
 	private Map<Class<?>, Long> currentTimeStemp = new HashMap<>();
 	private long session;
+	private TypeInheritance typeInheritance;
 
 	public static Object factory(Object obj) {
 		if (obj == null)
@@ -49,7 +50,15 @@ public class StorageData implements Serializable {
 
 	}
 
+	public StorageData(TypeInheritance  typeInheritance) throws Exception {
+		this.typeInheritance =  typeInheritance;
+		this.db = new ObjectDataBase(typeInheritance);
+	}
+	
+	
 	public StorageData(StorageData s) throws Exception {
+		this.typeInheritance = s.typeInheritance;
+		
 		this.currentTimeStemp.putAll(s.currentTimeStemp);
 		this.db = new ObjectDataBase(s.db);
 

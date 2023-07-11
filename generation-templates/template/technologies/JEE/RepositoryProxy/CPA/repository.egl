@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,20 +13,15 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+[%
 import "tura:/generation-templates/template/commons/typeElementUtil.eol";
 import "tura:/generation-templates/template/commons/categorizedUtil.eol";
 import "tura:/generation-templates/template/commons/assosiation.eol";
 import "tura:/generation-templates/template/technologies/JEE/Repository/repositoryCommon.egl";
-
-
- ${percent}${end}
- 
- 
-  [%
+import "tura:/generation-templates/template/technologies/JEE/JPA/entitypk.egl";
+import "tura:/generation-templates/template/technologies/JEE/RepositoryProxy/CPA/mapperClass.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl";
+  
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
@@ -37,16 +32,16 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
 
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
 
       if (typeCollection <> null and typeCollection.size <> 0 ){
       
         var resourcePath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";  
 
-	    var beansxml : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
-	    beansxml.setFormatter(x);
-	    var buffer = beansxml.process();
-	    util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
-      
+	   %][%=beanxml()%][% 
+	   out.formatWith(x);
+	   util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",out.toString());   
+	   out.formatWith(n);
 
 	  var savepackage = null;
 
@@ -68,7 +63,6 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
  
       var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
       for(type in t2model.keySet()){
-         
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
@@ -92,21 +86,19 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
 		
 	    if (type.~primaryKey.size() >1 ){
 	         type.mappingType2Java(recipe,ingredient,'MODEL');
-		    var entitypk : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/JPA/entitypk.egl",hash,TemplateFactory);
-		    entitypk.setFormatter(f);
-		    var buffer = entitypk.process();
-		    util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") + "PK.java",buffer);   
-		
+		     %][%=entitypk(hash)%][%  
+		      out.formatWith(f);
+		      util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") + "PK.java",out.toString());   
+		      out.formatWith(n);
 		}
 		
-	    var serializer : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/CPA/mapperClass.egl",hash,TemplateFactory,templateStore);
-	    serializer.setFormatter(f);
-	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"ProxyMapper.java",buffer);   
- 		
+	    %][%=mapperClass(hash)%][%
+		out.formatWith(f);
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"ProxyMapper.java",out.toString());   
+		out.formatWith(n);
+		
         }
    }
-   
  	hash.put("savepackage",component.getBasePackage());
  	hash.put("typeCollection",typeCollection);
     var init : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/CPA/initCPARepository.egl",hash,TemplateFactory,templateStore);
@@ -119,6 +111,11 @@ import "tura:/generation-templates/template/technologies/JEE/Repository/reposito
     var buffer = init.process();
     util.saveFile( path+component.getBasePackage().replaceAll("\\.","\\/"), "CPARepositoryInstantiator.java",buffer);   
    
+	 var inheritance : Template = util.loadTemplate("tura:/generation-templates/template/technologies/JEE/RepositoryProxy/inheritance.egl",hash,TemplateFactory);
+     inheritance.setFormatter(f);
+	 var buffer = inheritance.process();
+	 util.saveFile( path+component.basePackage.replaceAll("\\.","\\/"), "ObjectInheritance.java",buffer);   
+	   
    
  }  
 %]

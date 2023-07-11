@@ -1,0 +1,697 @@
+import "operations.eol";
+
+pre{
+
+"Start of update artifacts".println();
+
+          var exception  = new Native('java.util.ArrayList');
+          
+          var asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "Uielement" and g.eContainer().name = "form").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "Relationship" and g.eContainer().name = "type").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "MenuElement" and g.eContainer().name = "form").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "TypeElement" and g.eContainer().name = "type").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "InfrastructureComponent" and g.eContainer().name = "infrastructure").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "CanvasFrame" and g.eContainer().name = "form").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "ContextValue" and g.eContainer().name = "form").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "Relation" and g.eContainer().name = "form").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "Component" and g.eContainer().name = "recipe").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+
+          asEntityException  = new Native('java.util.ArrayList');
+          var type = trg!type::Type.allinstances()-> select( g | g.name = "CalculatedField" and g.eContainer().name = "objectmapper").first();
+          type.buildEntityExceptiions(asEntityException);
+          exception.addAll(asEntityException);
+
+
+          var applyException = prepareCommands(exception);
+          
+          
+          var updateEntityTypeClassifier  = new Native('java.util.ArrayList');
+          var updateImplementationTypeClassifier = new Native('java.util.ArrayList');
+          var addPKToImplementationTypeClassifier = new Native('java.util.ArrayList');
+          var updatePkClassifier = new Native('java.util.ArrayList');
+          var addLink = new Native('java.util.ArrayList');
+          var addGeneralization = new Native('java.util.ArrayList');
+          var enumeratorSerialization = new Native('java.util.ArrayList');
+
+          
+          var uuid := Native('java.util.UUID');
+
+          var entityObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Entity Object" and r.eContainer().name = "JPA").first();
+          var columnLengthHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "ColumnLength" and r.eContainer().name = "JPA").first();
+          var hiddenRelationHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "HideAssosiatioinForJpa" and r.eContainer().name = "JPA").first();
+          var serialObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Serializable Object" and r.eContainer().name = "RepositoryProxy").first();
+          var implementationObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Domain Interface" and r.eContainer().name = "Domain_model").first();
+          var sequenceObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "Sequence" and r.eContainer().name = "JPA").first();
+          var doNotNillObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "DoNotNil" and r.eContainer().name = "Repository").first();
+          var keepItObjectHint = trg!artifact::GenerationHint.allinstances()->select(r|r.name = "KeepIt" and r.eContainer().name = "Model").first();
+
+          var stringType = trg!type::Primitive.allInstances()->select(r|r.name='String').first();
+          var metaObject = trg!type::Type.allinstances()-> select( g | g.name = "MetaObject" and g.eContainer().name = "MetaBase").first();
+
+}
+
+
+pattern UpdateEntityClassifier
+    turaType : trg!type::Type 
+          from :
+            trg!type::Type.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel").excludingAll(
+                  trg!type::Generalization.allInstances()->select(q | q.eContainer().eContainer().name = "Tura metamodel").target 
+                  ->collect(c|getType(c)) ) {
+                  
+       match :   turaType <> null    
+
+       onmatch   {
+            var cmd =  new Tuple(command = "updateEntityTypeClassifier", turaType = turaType);
+            updateEntityTypeClassifier.add (cmd);
+            var cmd =  new Tuple(command = "updatePkClassifier", turaType = turaType);
+            updatePkClassifier.add (cmd);
+            if (turaType.uid <> metaObject.uid ){
+              var cmd =  new Tuple(command = "addGeneralization",  eSuperType=metaObject , turaType=turaType);
+              addGeneralization.add (cmd);
+            }
+            
+       }          
+
+     }
+            
+pattern UpdateImplementationClassifier
+    turaType : trg!type::Type 
+          from :
+                  trg!type::Generalization.allInstances()->select(q | q.eContainer().eContainer().name = "Tura metamodel").target 
+                  ->collect(c|getType(c)) {
+       match :   turaType <> null    
+
+       onmatch   {
+            var cmd =  new Tuple(command = "updateImplementationTypeClassifier", turaType = turaType);
+            updateImplementationTypeClassifier.add (cmd);
+            var cmd =  new Tuple(command = "addPKToImplementationTypeClassifier", turaType = turaType);
+            addPKToImplementationTypeClassifier.add (cmd);
+       }          
+
+     }
+     
+     
+pattern UpdateAssosiations
+    turaAssosiation : trg!type::Assosiation 
+          from :
+                  trg!type::Assosiation.allInstances()->select(q | q.eContainer().eContainer().name = "Tura metamodel" and q.links.size() = 0 ) 
+            {
+                  
+       match :   turaAssosiation <> null   
+
+       onmatch   {
+            var cmd =  new Tuple(command = "addLink", turaAssosiation = turaAssosiation);
+            addLink.add (cmd);
+       }          
+
+     }     
+
+
+pattern EnumeratorSerialization
+    turaType : trg!type::Enumerator 
+          from :
+            trg!type::Enumerator.allinstances()-> select( g | g.eContainer().eContainer().name = "Tura metamodel"){
+       match :   turaType <> null    
+
+       onmatch   {
+            var cmd =  new Tuple(command = "enumeratorSerialization", turaType = turaType);
+            enumeratorSerialization.add (cmd);
+       }          
+
+     }
+
+post{
+
+      processor(updateEntityTypeClassifier);
+      processor(enumeratorSerialization);
+      processor(updateImplementationTypeClassifier);
+      processor(updatePkClassifier);
+      processor(addPKToImplementationTypeClassifier);
+      processor(applyException);
+      processor(addLink);
+      
+      fixMapper();
+      fixObjects();      
+      processor(addGeneralization);
+      
+"End of update artifacts".println();
+      
+}
+
+
+operation processor (commands){
+  for (cmd in commands){
+          (cmd.command   + " ->  Start").println();
+  
+       switch(cmd.command){
+          case "updateEntityTypeClassifier":  updateEntityTypeClassifier(cmd);
+          case "updateImplementationTypeClassifier" : updateImplementationTypeClassifier(cmd);
+          case "addPKToImplementationTypeClassifier" : addPKToImplementationTypeClassifier(cmd);
+          case "updatePkClassifier" : updatePkClassifier(cmd);
+          case "addLink" : addLink(cmd);
+          case "applyException" : applyException(cmd);
+          case "addGeneralization" : addGeneralization(cmd);
+          case "enumeratorSerialization" : enumeratorSerialization(cmd);
+          
+      }
+
+        (cmd.command   + " ->  End").println();
+      
+  }
+}
+
+
+
+operation enumeratorSerialization(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    
+	var classifier =    cmd.turaType.classifiers->select(c|c.hint = serialObjectHint).first();
+	if (not classifier.isDefined()  or classifier =  null ){
+	   var classifier = new trg!artifact::Classifier;
+	   classifier.uid = uuid.randomUUID().toString();
+	   classifier.hint = serialObjectHint;
+	   cmd.turaType.classifiers.add(classifier);
+	   
+	   ( pkgName+":"+ typeName +"  .add Serial to  Enum").println();
+	}
+
+}
+
+
+operation applyException(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+	var classifier =    cmd.turaType.classifiers->select(c|c.hint = implementationObjectHint).first();
+	if (classifier.isDefined()  and classifier <> null ){
+	   cmd.turaType.classifiers.remove(classifier);
+	    ( pkgName+":"+ typeName +"  .remove Implemetation ").println();
+	}
+	var classifier =    cmd.turaType.classifiers->select(c|c.hint = serialObjectHint).first();
+	if (not classifier.isDefined()  or classifier =  null ){
+	   var classifier = new trg!artifact::Classifier;
+	   classifier.uid = uuid.randomUUID().toString();
+	   classifier.hint = serialObjectHint;
+	   cmd.turaType.classifiers.add(classifier);
+	   
+	   ( pkgName+":"+ typeName +"  .add Serial ").println();
+	}
+	var attr = cmd.turaType.attributes ->select(c|c.pk).first();
+	if (attr.isDefined() and attr<> null and attr.name = "suid"){
+	  cmd.turaType.attributes.remove(attr);
+	  ( pkgName+":"+ typeName +"  .remove PK ").println();
+	  
+	}
+	if (attr.isDefined() and attr<> null and attr.name = "uid"){
+	    var classifier = attr.classifiers->select(c|c.hint = sequenceObjectHint).first();
+	    if (classifier.isDefined()  and classifier <>  null ){
+	       attr.classifiers.remove(classifier);
+	      ( pkgName+":"+ typeName+" .remove sequenceObjectHint").println();
+	    }
+	    var classifier = attr.classifiers->select(c|c.hint = doNotNillObjectHint).first();
+	    if (not classifier.isDefined() or classifier = null){
+	      var classifier = new trg!artifact::Classifier;
+	      classifier.uid = uuid.randomUUID().toString();
+	      classifier.hint = doNotNillObjectHint;
+	    
+	      attr.classifiers.add(classifier);
+	      ( pkgName+":"+ typeName+" .add doNotNillObjectHint").println();
+	    
+	    }
+	    
+	    
+	}
+
+}
+
+operation addLink(cmd){
+
+    var srcType = getType(cmd.turaAssosiation.source);
+    var srcPk =  srcType.findPk();
+
+    var srcPkgName = srcType.eContainer().name;
+    var sourceTypeName = srcType.name;
+
+    if ( not srcPk.isDefined() or srcPk= null ) {
+        ( srcPkgName+":"+ sourceTypeName+" No PK !!!").println();
+    }   
+
+    var trgType = getType(cmd.turaAssosiation.target);
+    
+    
+    var trgPkgName = trgType.eContainer().name;
+    var trgTypeName = trgType.name;
+    
+
+//    cmd.turaAssosiation.targetOperation = 'op '+cmd.turaAssosiation.sourceOperation+ srcType.name;
+    var refTrg = null;
+    if ( not cmd.turaAssosiation.type.toString().equals(  "Many2Many" ) ){
+	    var atrName = 'ref '+cmd.turaAssosiation.sourceOperation+ srcType.name;
+	    
+	    refTrg = trgType.attributes->select(a|a.name = atrName).first();
+	    if ( not refTrg.isDefined() or refTrg = null){
+		    refTrg = new trg!type::Attribute;
+		    refTrg.uid= uuid.randomUUID().toString();
+		    refTrg.name = atrName;
+		    refTrg.typeRef = srcPk.typeRef;
+		    trgType.attributes.add(refTrg);
+		    
+			var classifier = new trg!artifact::Classifier;
+			classifier.uid = uuid.randomUUID().toString();
+			classifier.hint = keepItObjectHint;
+			refTrg.classifiers.add(classifier);    
+	    }else{
+	     (  'Attribute  '+atrName +'already exists' ).println();
+	    }
+    }else{
+         refTrg = trgType.findPk();
+    }
+    
+     var link = new trg!type::Link;
+     cmd.turaAssosiation.links.add(link);
+     link.uid = uuid.randomUUID().toString();
+     link.masterField= srcPk;
+     link.detailField = refTrg;
+     
+   ( srcPkgName+":"+ sourceTypeName+" -> "+trgPkgName+"."+trgTypeName +"  .addLink").println();
+
+
+}
+
+operation updatePkClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    
+    var pk = cmd.turaType.attributes->select(a|a.pk).first();
+    if ( pk.isDefined()  and pk <> null){
+	    var classifier =   pk.classifiers->select(c|c.hint = doNotNillObjectHint).first();
+	    if (not classifier.isDefined() or classifier = null){
+	      var classifier = new trg!artifact::Classifier;
+	      classifier.uid = uuid.randomUUID().toString();
+	      classifier.hint = doNotNillObjectHint;
+	    
+	      pk.classifiers.add(classifier);
+	      ( pkgName+":"+ typeName+" .add doNotNillObjectHint").println();
+	    
+	    }
+    }
+}
+
+
+operation addPKToImplementationTypeClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+    
+    var pk = cmd.turaType.attributes->select(a|a.pk).first();
+
+    if (not pk.isDefined() or  pk = null){
+        pk = new trg!type::Attribute;
+        pk.uid = uuid.randomUUID().toString();
+        pk.pk  =  true;
+        pk.name = "suid";
+        pk.typeRef=stringType;
+        
+        cmd.turaType.attributes.add(pk);
+        
+	    var classifier = new trg!artifact::Classifier;
+	    classifier.uid = uuid.randomUUID().toString();
+	    classifier.hint = keepItObjectHint;
+	    pk.classifiers.add(classifier);
+        
+      ( pkgName+":"+ typeName+" .add pk").println();
+        
+    }
+
+    var classifier =   pk.classifiers->select(c|c.hint = sequenceObjectHint).first();
+    if (not classifier.isDefined() or  classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = sequenceObjectHint;
+      classifier.details = '@javax.persistence.GeneratedValue(generator = "UUID") @org.hibernate.annotations.GenericGenerator(name = "UUID",strategy = "org.tura.jpa.id.UUIDGenerator")';
+    
+      pk.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add sequenceObjectHint").println();
+    
+    }
+
+
+
+}
+
+operation updateEntityTypeClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+
+    var classifier =  cmd.turaType.classifiers->select(c|c.hint = implementationObjectHint).first();
+    if (classifier.isDefined() or classifier <> null){
+      ( pkgName+":"+ typeName+" . implementationObjectHint.IsDefined.Already").println();
+      return;
+    }
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = entityObjectHint).first();
+    if (not classifier.isDefined() or classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = entityObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add entityObjectHint").println();
+    
+    }
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = serialObjectHint).first();
+    if (not classifier.isDefined()  or classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = serialObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add serialObjectHint").println();
+    
+    }
+
+}
+
+
+operation updateImplementationTypeClassifier(cmd){
+    var pkgName = cmd.turaType.eContainer().name;
+    var typeName = cmd.turaType.name;
+
+    var classifier =  cmd.turaType.classifiers->select(c|c.hint = entityObjectHint).first();
+    if (classifier.isDefined() or classifier <> null){
+      ( pkgName+":"+ typeName+" .entityObjectHint.IsDefined.Already").println();
+      return;
+    }
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = implementationObjectHint).first();
+    if (not classifier.isDefined() or classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = implementationObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add implementationObjectHint  to Inteface").println();
+    
+    }
+
+    var classifier =   cmd.turaType.classifiers->select(c|c.hint = entityObjectHint).first();
+    if (not classifier.isDefined() or classifier = null){
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = entityObjectHint;
+    
+      cmd.turaType.classifiers.add(classifier);
+      ( pkgName+":"+ typeName+" .add entityObjectHint  to interface ").println();
+    
+    }
+
+
+}
+
+operation getType(type){
+   if ( type.isKindOf(trg!type::TypeReference)){
+      return type.typeRef;
+   }
+      return type;
+}
+
+
+operation trg!type::Type  buildEntityExceptiions(asException){
+    
+    if ( not asException.contains(self)){
+        asException.add(self);
+    }
+
+    var interfaces = trg!type::Generalization.allInstances()->select(t|t.target.uid = self.uid);
+      for (interface in interfaces){
+         var tp = interface.source.unwrap();
+         tp.buildEntityExceptiions(asException);
+      }
+
+} 
+
+operation trg!type::Type  findPk(){
+    return self.findPk(0);
+}
+
+operation trg!type::Type  findPk(lv){
+   var srcPk =  self.attributes->select(a|a.pk).first();
+    if  ( not   srcPk.isDefined() or  srcPk == null ){
+      if (lv = 0 ){
+           ("No pk ->>>>"+self.name).println();    
+      }   
+      lv = lv+1;
+       var interfaces = trg!type::Generalization.allInstances()->select(t|t.source.uid = self.uid);
+       for (interface in interfaces){
+         var tp = interface.target.unwrap();
+         srcPk = tp.findPk(lv);
+         if  (  srcPk.isDefined() and  srcPk <> null ){
+             return srcPk;
+         }
+      }
+    }else{
+        return srcPk;
+    }
+} 
+
+
+
+operation prepareCommands(asEntityException){
+     var commands  = new Native('java.util.ArrayList');
+     for( turaType in asEntityException){
+         var cmd =  new Tuple(command = "applyException", turaType = turaType);
+         commands.add(cmd);
+     }
+     return commands;
+}
+
+
+
+operation fixObjects(){
+      var domainRep = trg!domain::DomainTypesRepository.allinstances()-> select( g | g.name = 'Tura metamodel').first();
+      var pck = domainRep.repositoryPackages->select(q|q.name='artifact').first();
+      var type = pck.types->select(q|q.name='ModelQuery').first();
+      var attr = type.attributes->select(q|q.name='query').first();
+      
+      var classifier = new trg!artifact::Classifier;
+      classifier.uid = uuid.randomUUID().toString();
+      classifier.hint = columnLengthHint;
+      classifier.details = "1024";
+      attr.classifiers.add(classifier);
+
+}
+
+operation fixMapper(){
+      var domainRep = trg!domain::DomainTypesRepository.allinstances()-> select( g | g.name = 'Tura metamodel').first();
+
+      var mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.metabase').first();
+      var pck = domainRep.repositoryPackages->select(q|q.name='MetaBase').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.metabase').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='metabase').first();
+      mapper.packageRef = pck;
+      
+      
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.domain').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='domain').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.domain').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='domain').first();
+      mapper.packageRef = pck;
+      
+      
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.artifact').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='artifact').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.artifact').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='artifact').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.type').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='type').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.type').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='type').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.application').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='application').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.application').first();
+      mapper.packageRef = pck;
+      
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='application').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.objectmapper').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='objectmapper').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.objectmapper').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='objectmapper').first();
+      mapper.packageRef = pck;
+
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.permission').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='permission').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.permission').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='permission').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.message').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='message').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.message').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='message').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.infra').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='infrastructure').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.infra').first();
+      mapper.packageRef = pck;
+      
+      
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='infrastructure').first();
+      mapper.packageRef = pck;
+      
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.form').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='form').first();
+      mapper.packageRef = pck;
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.form').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='form').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.recipe').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='recipe').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.recipe').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='recipe').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.mapper').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='mapper').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.mapper').first();
+      mapper.packageRef = pck;
+      
+
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='mapper').first();
+      mapper.packageRef = pck;
+
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.style').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='style').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.style').first();
+      mapper.packageRef = pck;
+      
+      
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='style').first();
+      mapper.packageRef = pck;
+      
+
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.jpa.common').first();
+      pck = domainRep.repositoryPackages->select(q|q.name='common').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::JavaPackageMapper.allinstances()->select(q|q.mappedToPackageName='org.tura.model.designer.repository.serialized.common').first();
+      mapper.packageRef = pck;
+      
+      mapper =  trg!mapper::MetamodelPackageMapper.allinstances()->select(q|q.mappedToPackageName='common').first();
+      mapper.packageRef = pck;
+      
+      
+      
+      
+      
+}
+
+

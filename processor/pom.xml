@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -19,15 +19,15 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>processor</artifactId>
-	<version>6.1.0</version>
-	<packaging>jar</packaging>
+	<version>6.1.1</version>
+	<packaging>pom</packaging>
 
 	<name>Tura :: Platform :: Processor</name>
 	<url>https://github.com/isakovarseniy/tura</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tura.eclipse.version>${project.version}</tura.eclipse.version>
+		<tura.version>${project.version}</tura.version>
 		<epsilon.version>2.4.0</epsilon.version>
 		<gogo.version>1.1.2</gogo.version>
 		<picocli.version>3.9.2</picocli.version>
@@ -36,6 +36,7 @@
 		<docker-java.version>3.2.5</docker-java.version>
 		<freemarker.version>2.3.20</freemarker.version>
 		<commons-lang.version>2.6</commons-lang.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
 		<google-java-format.version>1.6</google-java-format.version>
 		<slf4j-jdk14.version>1.7.25</slf4j-jdk14.version>
 		<jgit.version>5.6.0.201912101111-r</jgit.version>
@@ -44,7 +45,9 @@
 		<com.github.oshi.version>4.7.3</com.github.oshi.version>
 		<commons-codec.version>1.14</commons-codec.version>
 		<javaparser-verson>3.16.1</javaparser-verson>
-
+		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
+		<version.hibernate-entitymanager>5.4.0.Final</version.hibernate-entitymanager>
+		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
 	</properties>
 
 	<repositories>
@@ -54,190 +57,259 @@
 			<url>http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
 		</repository>
 		<repository>
-			<id>http://repo.spring.io/plugins-release/</id>
+			<id>repo.spring.io_plugins-release_</id>
 			<url>http://repo.spring.io/plugins-release/</url>
 		</repository>
 		<repository>
-			<id>https://projects.itemis.de/nexus/content/repositories/OS/</id>
+			<id>projects.itemis.de_nexus_content_repositories_OS_</id>
 			<url>https://projects.itemis.de/nexus/content/repositories/OS/</url>
 		</repository>
 	</repositories>
 
-	<dependencies>
+	<dependencyManagement>
 
-		<dependency>
-			<groupId>com.github.javaparser</groupId>
-			<artifactId>javaparser-core</artifactId>
-			<version>${javaparser-verson}</version>
-		</dependency>
+		<dependencies>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>${gson.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.github.oshi</groupId>
-			<artifactId>oshi-core</artifactId>
-			<version>${com.github.oshi.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>${commons-codec.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
 
 
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>cpa</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
 
 
-		<dependency>
-			<groupId>org.eclipse.jgit</groupId>
-			<artifactId>org.eclipse.jgit</artifactId>
-			<version>${jgit.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${version.com.h2database.h2}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.jgit</groupId>
-			<artifactId>org.eclipse.jgit.archive</artifactId>
-			<version>${jgit.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.github.javaparser</groupId>
+				<artifactId>javaparser-core</artifactId>
+				<version>${javaparser-verson}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.tura.metamodel</groupId>
-			<artifactId>org.tura.metamodel</artifactId>
-			<version>${tura.eclipse.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${gson.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.tura.metamodel</groupId>
-			<artifactId>org.tura.metamodel.commons</artifactId>
-			<version>${tura.eclipse.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.github.oshi</groupId>
+				<artifactId>oshi-core</artifactId>
+				<version>${com.github.oshi.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.tura.metamodel</groupId>
-			<artifactId>org.tura.metamodel.generation</artifactId>
-			<version>${tura.eclipse.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
 
-
-
-		<dependency>
-			<groupId>com.google.googlejavaformat</groupId>
-			<artifactId>google-java-format</artifactId>
-			<version>${google-java-format.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${version.com.h2database.h2}</version>
+			</dependency>
 
 
-		<dependency>
-			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
-			<version>${epsilon.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.eclipse.jgit</groupId>
+				<artifactId>org.eclipse.jgit</artifactId>
+				<version>${jgit.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
-			<version>${epsilon.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.eclipse.jgit</groupId>
+				<artifactId>org.eclipse.jgit.archive</artifactId>
+				<version>${jgit.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>org.eclipse.epsilon.egl.engine</artifactId>
-			<version>${epsilon.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.metamodel</groupId>
+				<artifactId>org.tura.metamodel</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
 
+			<dependency>
+				<groupId>org.tura.metamodel</groupId>
+				<artifactId>org.tura.metamodel.commons</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>org.eclipse.epsilon.evl.engine</artifactId>
-			<version>${epsilon.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.metamodel</groupId>
+				<artifactId>org.tura.metamodel.generation</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.epsilon</groupId>
-			<artifactId>org.eclipse.epsilon.common</artifactId>
-			<version>${epsilon.version}</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>${freemarker.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons-lang.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.gogo.jline</artifactId>
-			<version>${gogo.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>info.picocli</groupId>
-			<artifactId>picocli-shell-jline3</artifactId>
-			<version>${picocli.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.zeroturnaround</groupId>
-			<artifactId>zt-zip</artifactId>
-			<version>1.12</version>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>me.tongfei</groupId>
-			<artifactId>progressbar</artifactId>
-			<version>0.9.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.processor</groupId>
+				<artifactId>model</artifactId>
+			</dependency>
 
 
-		<dependency>
-			<groupId>org.apache.maven.shared</groupId>
-			<artifactId>maven-invoker</artifactId>
-			<version>${maven-invoker.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>com.google.googlejavaformat</groupId>
+				<artifactId>google-java-format</artifactId>
+				<version>${google-java-format.version}</version>
+			</dependency>
 
 
-		<dependency>
-			<groupId>com.github.docker-java</groupId>
-			<artifactId>docker-java</artifactId>
-			<version>${docker-java.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.epl.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
 
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>${slf4j-jdk14.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.flock.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
 
 
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
 
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.egl.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.evl.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.common</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.epsilon</groupId>
+				<artifactId>org.eclipse.epsilon.ecl.engine</artifactId>
+				<version>${epsilon.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${freemarker.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.gogo.jline</artifactId>
+				<version>${gogo.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>info.picocli</groupId>
+				<artifactId>picocli-shell-jline3</artifactId>
+				<version>${picocli.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>zt-zip</artifactId>
+				<version>1.12</version>
+				<type>jar</type>
+			</dependency>
+
+			<dependency>
+				<groupId>me.tongfei</groupId>
+				<artifactId>progressbar</artifactId>
+				<version>0.9.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.apache.maven.shared</groupId>
+				<artifactId>maven-invoker</artifactId>
+				<version>${maven-invoker.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.github.docker-java</groupId>
+				<artifactId>docker-java</artifactId>
+				<version>${docker-java.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-jdk14</artifactId>
+				<version>${slf4j-jdk14.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>${version.hibernate-jpa-2.1-api}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${version.hibernate-entitymanager}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+	<modules>
+		<module>processor-tura-command-api</module>
+		<module>processor-tura-command</module>
+		<module>processor-emf-model-command</module>
+		<module>processor-tura-model</module>
+	</modules>
 
 	<build>
 		<plugins>
@@ -248,73 +320,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<!-- get all project dependencies -->
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<outputDirectory>${project.basedir}</outputDirectory>
-					<!-- MainClass in mainfest make a executable jar -->
-					<archive>
-						<manifest>
-							<!-- mainClass>org.tura.processor.RecipeProcessor</mainClass -->
-							<mainClass>org.apache.felix.gogo.jline.TuraMain</mainClass>
-						</manifest>
-					</archive>
-
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<!-- bind to the packaging phase -->
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											com.mycila.maven-license-plugin
-										</groupId>
-										<artifactId>
-											maven-license-plugin
-										</artifactId>
-										<versionRange>
-											[1.10.b1,)
-										</versionRange>
-										<goals>
-											<goal>format</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+
 	</build>
 </project>

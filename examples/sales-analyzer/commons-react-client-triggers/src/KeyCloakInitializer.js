@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ export class KeyCloakInitializer {
             '  "ssl-required": "external",\n' +
             '  "resource": "sa-admin-client",\n' +
             '  "credentials": {\n' +
-            '    "secret": "68e09d49-853d-4f80-8cfd-758e51983ef2"\n' +
+            '    "secret": "7c951619-039d-4625-9ed0-5e63a9236611"\n' +
             '  },\n' +
             '  "confidential-port": 0\n' +
             '}';

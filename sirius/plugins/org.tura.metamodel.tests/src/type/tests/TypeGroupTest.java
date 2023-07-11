@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@
  */
 package type.tests;
 
+import artifact.tests.CategorizedTest;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -29,15 +30,7 @@ import type.TypeGroup;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeGroupTest extends TestCase {
-
-	/**
-	 * The fixture for this Group test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeGroup fixture = null;
+public class TypeGroupTest extends CategorizedTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,23 +52,14 @@ public class TypeGroupTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Group test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(TypeGroup fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Group test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected TypeGroup getFixture() {
-		return fixture;
+		return (TypeGroup)fixture;
 	}
 
 	/**

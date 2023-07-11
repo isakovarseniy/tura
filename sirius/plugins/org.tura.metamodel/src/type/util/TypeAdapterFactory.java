@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -112,6 +112,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypePointer(TypePointer object) {
 				return createTypePointerAdapter();
+			}
+			@Override
+			public Adapter caseTypePointerObj(TypePointerObj object) {
+				return createTypePointerObjAdapter();
 			}
 			@Override
 			public Adapter casePackagePointer(PackagePointer object) {
@@ -292,6 +296,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.TypePointerObj <em>Pointer Obj</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.TypePointerObj
+	 * @generated
+	 */
+	public Adapter createTypePointerObjAdapter() {
 		return null;
 	}
 

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,23 +38,22 @@ public class SpaExternalConnectDetailToMasterOperation extends SpaConnectDetailT
 	private static final long serialVersionUID = -1429740367166308465L;
 	protected boolean NOP;
 
-	
-	public SpaExternalConnectDetailToMasterOperation(Registry registry,SpaObjectRegistry spaRegistry) {
-		super(registry,spaRegistry);
+	public SpaExternalConnectDetailToMasterOperation(Registry registry, SpaObjectRegistry spaRegistry) {
+		super(registry, spaRegistry);
 	}
-	
+
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
-		if (NOP){
+		if (NOP) {
 			return new ArrayList<>();
 		}
 		return super.prepare();
-	}	
-	
+	}
+
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		try {
-			if (!RepositoryCommandType.connectDetailToMaster.equals(cmdType) ){
+			if (!RepositoryCommandType.connectDetailToMaster.equals(cmdType)) {
 				return false;
 			}
 			super.checkCommand(cmdType, parameters);
@@ -65,27 +64,28 @@ public class SpaExternalConnectDetailToMasterOperation extends SpaConnectDetailT
 			if (connection != null) {
 				Association association = m.getAnnotation(Association.class);
 				Class<?> detailClass = Class.forName(extendedDetailType);
-				
-				Repository masterProvider =   findProvider(masterClass.getName(),spaRepositoryData);
-				Repository detailProvider =   findProvider(detailClass.getName(),spaRepositoryData);
-				if (masterProvider.equals(detailProvider)){
-					return false;
+
+				Repository masterProvider = findProvider(masterClass.getName(), spaRepositoryData);
+				Repository detailProvider = findProvider(detailClass.getName(), spaRepositoryData);
+				if (!connection.hiddenJpa()) {
+					if (masterProvider.equals(detailProvider)) {
+						return false;
+					}
 				}
-				
 				ConnectionProcessor relation = new ConnectionProcessor(connection, association);
 				Map<String, Class<?>> h = relation.sortObject(masterClass, detailClass);
-				
-				if (detailClass.equals(h.get(ConnectionProcessor.DETAIL))){
-					
+
+				if (detailClass.equals(h.get(ConnectionProcessor.DETAIL))) {
+
 					this.knownObjects.add(masterPersistanceType);
 					this.knownObjects.add(detailPersistanceType);
 					NOP = false;
 					return true;
-				}else{
+				} else {
 					NOP = true;
 					return true;
 				}
-			}else{
+			} else {
 				return false;
 			}
 		} catch (Exception e) {

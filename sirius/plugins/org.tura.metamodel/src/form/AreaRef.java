@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link form.AreaRef#getUid <em>Uid</em>}</li>
  *   <li>{@link form.AreaRef#getArea <em>Area</em>}</li>
  *   <li>{@link form.AreaRef#getGroup <em>Group</em>}</li>
  * </ul>
@@ -36,6 +37,28 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface AreaRef extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(String)
+	 * @see form.FormPackage#getAreaRef_Uid()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getUid();
+
+	/**
+	 * Sets the value of the '{@link form.AreaRef#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Area</b></em>' reference.
 	 * <!-- begin-user-doc -->

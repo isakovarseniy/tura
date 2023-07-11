@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -52,6 +52,7 @@ import recipe.RecipePackage;
  * <ul>
  *   <li>{@link recipe.impl.ModelMapperImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getTechnologies <em>Technologies</em>}</li>
@@ -92,6 +93,26 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -254,6 +275,29 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @generated
 	 */
 	@Override
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MODEL_MAPPER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -396,6 +440,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return getOrder();
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
 				return getClassifiers();
+			case RecipePackage.MODEL_MAPPER__UID:
+				return getUid();
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return getName();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -427,6 +473,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+				return;
+			case RecipePackage.MODEL_MAPPER__UID:
+				setUid((String)newValue);
 				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName((String)newValue);
@@ -466,6 +515,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
+			case RecipePackage.MODEL_MAPPER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -500,6 +552,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return order != ORDER_EDEFAULT;
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
+			case RecipePackage.MODEL_MAPPER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -572,6 +626,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (order: ");
 		result.append(order);
+		result.append(", uid: ");
+		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", artifactRoot: ");

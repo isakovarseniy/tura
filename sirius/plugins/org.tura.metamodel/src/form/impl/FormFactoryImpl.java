@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -167,6 +167,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.ROOT: return createRoot();
 			case FormPackage.FORM_VARIABLE: return createFormVariable();
 			case FormPackage.DATA_CONTROL: return createDataControl();
+			case FormPackage.CONTEXT_PARAMETERS_OBJ: return createContextParametersObj();
 			case FormPackage.RELATION_MAPPER: return createRelationMapper();
 			case FormPackage.ORDERS: return createOrders();
 			case FormPackage.ORDER_BY: return createOrderBy();
@@ -1295,6 +1296,17 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public DataControl createDataControl() {
 		DataControlImpl dataControl = new DataControlImpl();
 		return dataControl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContextParametersObj createContextParametersObj() {
+		ContextParametersObjImpl contextParametersObj = new ContextParametersObjImpl();
+		return contextParametersObj;
 	}
 
 	/**

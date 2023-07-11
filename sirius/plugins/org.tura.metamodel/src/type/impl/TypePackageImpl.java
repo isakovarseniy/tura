@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -95,6 +95,7 @@ import type.TypeFactory;
 import type.TypeGroup;
 import type.TypePackage;
 import type.TypePointer;
+import type.TypePointerObj;
 import type.TypeReference;
 
 /**
@@ -152,6 +153,13 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	private EClass typePointerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typePointerObjEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -452,8 +460,18 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPrimitivesGroup_Uid() {
+		return (EAttribute)primitivesGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getPrimitivesGroup_Primitives() {
-		return (EReference)primitivesGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference)primitivesGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -584,6 +602,26 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	@Override
 	public EReference getTypePointer_TypeRef() {
 		return (EReference)typePointerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTypePointerObj() {
+		return typePointerObjEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTypePointerObj_Uid() {
+		return (EAttribute)typePointerObjEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1173,6 +1211,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		createEReference(typeGroupEClass, TYPE_GROUP__RELATIONSHIPS);
 
 		primitivesGroupEClass = createEClass(PRIMITIVES_GROUP);
+		createEAttribute(primitivesGroupEClass, PRIMITIVES_GROUP__UID);
 		createEReference(primitivesGroupEClass, PRIMITIVES_GROUP__PRIMITIVES);
 
 		typeElementEClass = createEClass(TYPE_ELEMENT);
@@ -1192,6 +1231,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
 		typePointerEClass = createEClass(TYPE_POINTER);
 		createEReference(typePointerEClass, TYPE_POINTER__TYPE_REF);
+
+		typePointerObjEClass = createEClass(TYPE_POINTER_OBJ);
+		createEAttribute(typePointerObjEClass, TYPE_POINTER_OBJ__UID);
 
 		packagePointerEClass = createEClass(PACKAGE_POINTER);
 		createEReference(packagePointerEClass, PACKAGE_POINTER__PACKAGE_REF);
@@ -1297,9 +1339,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		typeGroupEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		relationshipEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		referencesEClass.getESuperTypes().add(this.getRelationship());
 		generalizationEClass.getESuperTypes().add(this.getRelationship());
+		typePointerObjEClass.getESuperTypes().add(this.getTypePointer());
 		assosiationEClass.getESuperTypes().add(this.getRelationship());
 		attributeEClass.getESuperTypes().add(this.getTypePointer());
 		attributeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
@@ -1325,6 +1369,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEReference(getTypeGroup_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primitivesGroupEClass, PrimitivesGroup.class, "PrimitivesGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPrimitivesGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PrimitivesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimitivesGroup_Primitives(), this.getPrimitive(), null, "primitives", null, 0, -1, PrimitivesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1344,6 +1389,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
 		initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypePointer_TypeRef(), this.getTypeElement(), null, "typeRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typePointerObjEClass, TypePointerObj.class, "TypePointerObj", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypePointerObj_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypePointerObj.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packagePointerEClass, PackagePointer.class, "PackagePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPackagePointer_PackageRef(), this.getTypeGroup(), null, "packageRef", null, 0, 1, PackagePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

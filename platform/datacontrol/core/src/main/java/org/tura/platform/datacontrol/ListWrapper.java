@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,14 +72,14 @@ public class ListWrapper<T> extends AbstractList<T> {
 				return null;
 			}
 			ObjectControl oc = (ObjectControl) t;
-			if (oc.getAttributes() != null && oc.getAttributes().get(Constants.POST_QUERY_TRIGGER_COMPLETED) == null) {
+			if (oc.getObjectControlAttributes() != null && oc.getObjectControlAttributes().get(Constants.POST_QUERY_TRIGGER_COMPLETED) == null) {
 				PostQueryTrigger trigger  = dc.getPostQueryTrigger();
 				if (trigger != null) {
 					trigger.execute(dc, oc);
 				}
-				oc.getAttributes().put(Constants.POST_QUERY_TRIGGER_COMPLETED, true);
+				oc.getObjectControlAttributes().put(Constants.POST_QUERY_TRIGGER_COMPLETED, true);
 			}
-			oc.getAttributes().put(Constants.DATA_CONTROL, dc);
+			oc.getObjectControlAttributes().put(Constants.DATA_CONTROL, dc);
 			
 			oc.addArtificialFieldWrapperProvider((ArtificialFieldWrapperProvider) dc);
 			

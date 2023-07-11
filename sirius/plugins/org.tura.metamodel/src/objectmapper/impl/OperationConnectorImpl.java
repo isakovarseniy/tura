@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -17,6 +17,7 @@
 package objectmapper.impl;
 
 import form.ContextParameters;
+import form.ContextParametersObj;
 import objectmapper.ObjectMapper;
 import objectmapper.ObjectmapperPackage;
 import objectmapper.OperationConnector;
@@ -138,7 +139,7 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected ContextParameters defaultSearch;
+	protected ContextParametersObj defaultSearch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,7 +315,7 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 */
 	@Override
-	public ContextParameters getDefaultSearch() {
+	public ContextParametersObj getDefaultSearch() {
 		return defaultSearch;
 	}
 
@@ -323,8 +324,8 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultSearch(ContextParameters newDefaultSearch, NotificationChain msgs) {
-		ContextParameters oldDefaultSearch = defaultSearch;
+	public NotificationChain basicSetDefaultSearch(ContextParametersObj newDefaultSearch, NotificationChain msgs) {
+		ContextParametersObj oldDefaultSearch = defaultSearch;
 		defaultSearch = newDefaultSearch;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ObjectmapperPackage.OPERATION_CONNECTOR__DEFAULT_SEARCH, oldDefaultSearch, newDefaultSearch);
@@ -339,7 +340,7 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 	 * @generated
 	 */
 	@Override
-	public void setDefaultSearch(ContextParameters newDefaultSearch) {
+	public void setDefaultSearch(ContextParametersObj newDefaultSearch) {
 		if (newDefaultSearch != defaultSearch) {
 			NotificationChain msgs = null;
 			if (defaultSearch != null)
@@ -417,7 +418,7 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 				setOperationType((OperationType)newValue);
 				return;
 			case ObjectmapperPackage.OPERATION_CONNECTOR__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)newValue);
+				setDefaultSearch((ContextParametersObj)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -447,7 +448,7 @@ public class OperationConnectorImpl extends OperationConnectorRefImpl implements
 				setOperationType(OPERATION_TYPE_EDEFAULT);
 				return;
 			case ObjectmapperPackage.OPERATION_CONNECTOR__DEFAULT_SEARCH:
-				setDefaultSearch((ContextParameters)null);
+				setDefaultSearch((ContextParametersObj)null);
 				return;
 		}
 		super.eUnset(featureID);

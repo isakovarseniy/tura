@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,45 +22,96 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.tura.platform.repository.core.CopyFrom;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepositoryHelper;
 
-public class UpdateObjectData implements Serializable{
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "@class")
+public class UpdateObjectData implements Serializable, CloneableCommand {
 
 	private static final long serialVersionUID = 8079343032199551089L;
 	private RepoKeyPath pk;
 	private Object value;
 	private String property;
 	private String propertyType;
-	
-	private Map<String,Object> params = new HashMap<>();
-	
-	
+	private Registry registry;
+
+	private Map<String, Object> params = new HashMap<>();
+
 	public String getPropertyType() {
 		return propertyType;
 	}
+
 	public void setPropertyType(String propertyType) {
 		this.propertyType = propertyType;
 	}
+
 	public RepoKeyPath getPk() {
 		return pk;
 	}
+
 	public void setPk(RepoKeyPath pk) {
 		this.pk = pk;
 	}
+
 	public Object getValue() {
 		return value;
 	}
+
 	public void setValue(Object value) {
 		this.value = value;
 	}
+
 	public String getProperty() {
 		return property;
 	}
+
 	public void setProperty(String property) {
 		this.property = property;
 	}
+
 	public Map<String, Object> getParams() {
 		return params;
 	}
-	
+
+	@Override
+	public Object cloneCmd() {
+
+		UpdateObjectData cloned = new UpdateObjectData();
+		cloned.pk = this.pk.clone();
+		cloned.property = this.property;
+		cloned.propertyType = this.propertyType;
+		cloned.params = this.params;
+		cloned.registry = this.registry;
+
+		if (this.value != null) {
+			try {
+				RepositoryHelper helper = new RepositoryHelper(registry);
+				CopyFrom cloner = (CopyFrom) helper.findMapperWithoutException(this.value.getClass());
+				if (cloner == null) {
+					cloned.value = this.value;
+				} else {
+					cloned.value = cloner.deepCopyFromRepository2Persistence(this.value);
+				}
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return cloned;
+	}
+
+	@Override
+	public void setRegistry(Registry registry) {
+		this.registry = registry;
+	}
+
+	@Override
+	public void cleanRegistry() {
+		this.registry = null;
+	}
+
 }

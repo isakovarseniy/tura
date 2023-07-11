@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -48,6 +48,8 @@ import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptMapperConf
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaTypeMapperConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaTypeMappersConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.mappers.MetamodelPackageMapperConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.mappers.MetamodelPackageMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.RoleMapperConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.RoleMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.XMLPackageMapperConfigurator;
@@ -99,6 +101,7 @@ public class TuraDiagram {
         tTreeDiagram treeDiagram = viewPoint.addTreeDiagram("Mapping diagram", "application.ApplicationMapper");
         treeDiagram.addChild(JavaTypeMappersConfigurator.create().addChild(JavaTypeMapperConfigurator.create()));
         treeDiagram.addChild(JavaPackageMappersConfigurator.create().addChild(JavaPackageMapperConfigurator.create()));
+        treeDiagram.addChild(MetamodelPackageMappersConfigurator.create().addChild(MetamodelPackageMapperConfigurator.create()));
         treeDiagram.addChild(JavaScriptMappersConfigurator.create().addChild(JavaScriptMapperConfigurator.create()));
         treeDiagram.addChild(CSSMappersConfigurator.create().addChild(CSSMapperConfigurator.create()));
         treeDiagram.addChild(RoleMappersConfigurator.create().addChild(RoleMapperConfigurator.create()));

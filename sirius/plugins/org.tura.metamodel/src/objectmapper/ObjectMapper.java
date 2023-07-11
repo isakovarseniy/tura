@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import type.AttributePointer;
 import type.TypePointer;
+import type.TypePointerObj;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,12 +120,12 @@ public interface ObjectMapper extends Categorized {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Type</em>' containment reference.
-	 * @see #setBaseType(TypePointer)
+	 * @see #setBaseType(TypePointerObj)
 	 * @see objectmapper.ObjectmapperPackage#getObjectMapper_BaseType()
 	 * @model containment="true"
 	 * @generated
 	 */
-	TypePointer getBaseType();
+	TypePointerObj getBaseType();
 
 	/**
 	 * Sets the value of the '{@link objectmapper.ObjectMapper#getBaseType <em>Base Type</em>}' containment reference.
@@ -134,7 +135,7 @@ public interface ObjectMapper extends Categorized {
 	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setBaseType(TypePointer value);
+	void setBaseType(TypePointerObj value);
 
 	/**
 	 * Returns the value of the '<em><b>Relations</b></em>' containment reference list.

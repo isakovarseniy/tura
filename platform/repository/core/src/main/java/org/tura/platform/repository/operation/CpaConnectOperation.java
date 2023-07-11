@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ public class CpaConnectOperation extends AddObjectOperation{
         data.setMasterPk(getMaster().getPath());
         data.setDetailPk(getDetail().getPath());
         data.getParams().put(Constants.CPA_OPERATION, OperationLevel.LOAD.name());
+        data.setRegistry(getMaster().getRegistry());
         
         
         getStackProvider().get().addCommand(data);

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -119,6 +119,7 @@ public class CategorizedPropertySelection extends GridProperty {
 		public HintDetailsColumn(Table table, GridProperty property, int col,TextDataAdapter adapter) {
 			super(table, property, col);
 			setTextDataAdapter(adapter);
+			setTextLimit(2024);
 			this.setColumnName("Hint details");
 		}
 		

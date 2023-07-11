@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,9 +13,16 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign number = "#" >
 [%
+@template
+operation topObjectPager(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
+	 var recipe = hash.get("recipe");
+	 var ingredient = hash.get("ingredient");
+	 var component = hash.get("component");
+	 var model_mapper = hash.get("model_mapper");
+     var type = hash.get("type");
+     var objPackage = hash.get("objPackage");
 
 %]
 package [%=objPackage%];
@@ -29,7 +36,7 @@ import java.util.List;
 
 public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[%=type.~fullName%]> implements java.io.Serializable{
 
-    private static final long serialVersionUID = [%=util.serialVersionUID()%]L;
+    private static final long serialVersionUID = 1L;
     private org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%]>  list;
 
     public [%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl<[%=type.~fullName%]> datacontrol){
@@ -88,7 +95,7 @@ public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[
 		
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
 		if (trigger != null){
-		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
+		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getObjectControlAttributes());
 		}
 		((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());
         obj = connectObject(obj);
@@ -267,3 +274,7 @@ public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[
 
 
 }
+
+[%
+}
+%]

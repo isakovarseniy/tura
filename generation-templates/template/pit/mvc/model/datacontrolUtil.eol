@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -52,9 +52,12 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
      if (relSet.size() <> 0){
         var rel =relSet.iterator().next();
 
-         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
+        var pkg = rel.master.baseType.typeRef.eContainer();
+//         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
+         var assossiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
          if (assossiations.size() == 0){
-            assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
+            //assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
+            assossiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
          }
          var  assossiation = null;
         if (assossiations.size() == 0){
@@ -145,7 +148,10 @@ operation form::DataControl processRelations( recipe:Recipe, ingredient :Ingredi
         var util = new Native('org.tura.metamodel.commons.Util');
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         
-       var masterscontrol = form::DataControl.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid )->reject(q|form::Relation.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid  )->collect(w|w.detail)->includes(q));        
+       //var masterscontrol = form::DataControl.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid )->reject(q|form::Relation.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid  )->collect(w|w.detail)->includes(q));
+       
+       var masterscontrol =  self.eContainer().controls->excludingAll(self.eContainer().relations->collect(t|t.detail) );
+               
         for ( master in masterscontrol ){
             master.~masterControl = true;
         }        
@@ -169,7 +175,9 @@ operation form::DataControl processDependencies(recipe:Recipe, ingredient :Ingre
         
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         var form = queryHelper.getForm(self);
-        var listOfDependencies = form::Dependency.allInstances()->select(r| r.eContainer().uid = form.getDatacontrols().getUid())->collect(w|w);
+
+        //var listOfDependencies = form::Dependency.allInstances()->select(r| r.eContainer().uid = form.getDatacontrols().getUid())->collect(w|w);
+        var listOfDependencies= self.eContainer().dependencies;
         for (dep in listOfDependencies){
             var master = dep.master;
             var dependent = dep.detail;
@@ -197,7 +205,9 @@ operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl
         
         objectTrack.add(self);
         
-        var listOfRelations = form::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        //var listOfRelations = form::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        var listOfRelations = self.eContainer().relations->select(r|r.isTree=false and r.master.uid = self.uid);
+        
         for (rel in listOfRelations){
             var dependent = rel.detail;
             treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
@@ -213,7 +223,8 @@ operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl
             }
         }      
               
-        var listOfDependecies = form::Dependency.allInstances()->select(r| r.master = self);
+        //var listOfDependecies = form::Dependency.allInstances()->select(r| r.master = self);
+        var listOfDependecies =  self.eContainer().dependencies->select(r| r.master.uid = self.uid);
         for (dep in listOfDependecies){
             var dependent = dep.detail;
             treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
@@ -224,7 +235,9 @@ operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl
          
         }              
               
-        var listOfTreeNodes = form::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
+        //var listOfTreeNodes = form::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
+        var listOfTreeNodes = self.eContainer().relations->select(r|r.isTree=true and r.master.uid = self.uid)->collect(w|w.detail);
+        
         for (treeNode in listOfTreeNodes){
                treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
         }

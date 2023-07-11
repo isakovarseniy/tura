@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,11 +67,6 @@ public class W3Adapter extends W3 implements Adapter {
 		}else{
 			w3Source.getHash().remove("W1");
 		}
-	}
-
-	@Override
-	public String getObjectType() {
-		return null;
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -77,8 +77,22 @@
 		<class>org.tura.jpa.test.Department2</class>
 		<class>org.tura.jpa.test.Employee1</class>
 		<class>org.tura.jpa.test.Employee2</class>
+		<class>org.tura.jpa.test.UObject</class>
+		<class>org.tura.jpa.test.Canvas</class>
+		<class>org.tura.jpa.test.Aria</class>
+		<class>org.tura.jpa.test.WAria</class>
+		<class>org.tura.jpa.test.UiElement</class>
+		<class>org.tura.jpa.test.Style</class>
+		<class>org.tura.jpa.test.Window</class>
+		<class>org.tura.jpa.test.TabCanvas</class>
+		<class>org.tura.jpa.test.InputText</class>
+		<class>org.tura.jpa.test.OutputText</class>
+		<class>org.tura.jpa.test.Button</class>
+		<class>org.tura.jpa.test.Trigger</class>
+		<class>org.tura.jpa.test.JPAHideRelationA1</class>
+		<class>org.tura.jpa.test.JPAHideRelationB1</class>
 		
-     
+		
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

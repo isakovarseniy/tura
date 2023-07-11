@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -13,23 +13,18 @@
  *   http://www.eclipse.org/legal/epl-v20.html
 */
 %]
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
+[%
 import "tura:/generation-templates/template/commons/typeElementUtil.eol";
 import "tura:/generation-templates/template/commons/categorizedUtil.eol";
 import "tura:/generation-templates/template/commons/assosiation.eol";
+import "tura:/generation-templates/template/technologies/JSE/datacontrol/topObjectPager.egl";
+import  "tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl";
 
- ${percent}${end}
- 
- 
-  [%
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
-     var templateStore = new Native('java.util.HashMap');
+     var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
      
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
       if (types <> null and types.size <> 0 ){
@@ -51,7 +46,9 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 		           continue;
 		        }
 	             var topObject = true;
-		         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+	             var pkg = type.eContainer();
+		         // var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+		         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid);
 	             for (rel in assosiations){
 			        var hash = rel.findTypeOfAssosiation(model_mapper);
 				    hash.put("recipe",recipe);
@@ -66,13 +63,15 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 		            var containment = hash.get("containment");
 		            if (  detailType.uid ==  type.uid and  rel.type.toString() <> "Many2Many"){
 			           topObject = false;
-				       makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f);
+				       makeConnectedPager(hash,masterType,detailType,rel,path,f,n);
 		            }
 
 			        
 	             }
 	             if (topObject  ){
-			         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	                 var pkg = type.eContainer();
+//			         var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+			         var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = type.uid);
 		             for (rel in assosiations){
 				        var hash = rel.findTypeOfAssosiation(model_mapper);
 					    hash.put("recipe",recipe);
@@ -87,7 +86,7 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
 	
 		            if (  detailType.uid ==  type.uid and rel.type.toString() <> "Many2Many"){
 			           topObject = false;
-				        makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f);
+				       makeConnectedPager(hash,masterType,detailType,rel,path,f,n);
 		            }
          
 	              }
@@ -101,16 +100,16 @@ import "tura:/generation-templates/template/commons/assosiation.eol";
                     hash.put("type",type);
                     hash.put("objPackage",type.~package+".pager");
 
-				   var pager : Template =   util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/topObjectPager.egl",hash,TemplateFactory,templateStore);
-			       pager.setFormatter(f);
-			       var buffer = pager.process();
-			       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/pager", type.~class+ "Pager.java",buffer);   
+                   %][%=topObjectPager(hash)%][%
+		           out.formatWith(f);
+			       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/pager", type.~class+ "Pager.java",out.toString());   
+		           out.formatWith(n);
 	             
 	             }
 	       }  
       }
 
-operation  makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,f) {
+operation  makeConnectedPager(hash,masterType,detailType,rel,path,f,n) {
        var util = new Native('org.tura.metamodel.commons.Util');
 
 	   hash.put("parent",masterType);
@@ -154,11 +153,10 @@ operation  makeConnectedPager(hash,masterType,detailType,rel,path,templateStore,
 	    
 	    }
 
-   
-	   var pager : Template =   util.loadTemplate("tura:/generation-templates/template/technologies/JSE/datacontrol/connectedPager.egl",hash,TemplateFactory,templateStore);
-	   pager.setFormatter(f);
-	   var buffer = pager.process();
-	   util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",buffer);   
+        %][%=connectedPager(hash)%][%
+		out.formatWith(f);
+	    util.saveFile( path+detailType.~package.replaceAll("\\.","\\/")+"/pager", masterType.~class +"2"+detailType.~class+ "Pager.java",out.toString());   
+		out.formatWith(n);
 
   }
 %]

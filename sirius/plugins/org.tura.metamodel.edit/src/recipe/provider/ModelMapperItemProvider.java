@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -67,6 +67,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOrderPropertyDescriptor(object);
+			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addArtifactRootPropertyDescriptor(object);
 			addSkipPropertyDescriptor(object);
@@ -93,6 +94,28 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelMapper_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_uid_feature", "_UI_ModelMapper_type"),
+				 RecipePackage.Literals.MODEL_MAPPER__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -256,6 +279,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 
 		switch (notification.getFeatureID(ModelMapper.class)) {
 			case RecipePackage.MODEL_MAPPER__ORDER:
+			case RecipePackage.MODEL_MAPPER__UID:
 			case RecipePackage.MODEL_MAPPER__NAME:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 			case RecipePackage.MODEL_MAPPER__SKIP:

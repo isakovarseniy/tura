@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -45,7 +45,7 @@ import java.util.UUID;
 
 import javax.crypto.KeyGenerator;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
@@ -108,7 +108,7 @@ public class Util {
 	public static String turaLocation() {
 		try {
 			Path path = Paths.get(System.getProperty("user.home") + "/.tura/turaLink");
-			return Files.readString(path, Charset.defaultCharset());
+			return  new String( Files.readAllBytes(path));
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return System.getProperty("user.home");
@@ -130,13 +130,13 @@ public class Util {
 		return str;
 	}
 
-	private static long time;
+	private  long time;
 
-	public static void initTimestamp() {
+	public  void initTimestamp() {
 		time = System.currentTimeMillis();
 	}
 
-	public static long timeDiff() {
+	public  long timeDiff() {
 		long i = System.currentTimeMillis();
 		long j = i - time;
 		time = i;
@@ -737,7 +737,9 @@ public class Util {
 
 	public static EglTemplate loadTemplate(String templateFile, HashMap<String, Object> parameters,
 			EglTemplateFactory factory, HashMap<String, Object> templateStore) throws Exception {
+
 		EglTemplate template = loadTemplate(templateFile, parameters, factory);
+
 		return template;
 	}
 

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,10 @@ public  class SpaRepositoryHelper extends RepositoryHelper {
 	protected String registryName;
 	
 	
+	public  SpaRepositoryHelper() {
+		
+	}
+	
 	public  SpaRepositoryHelper(Registry registry, SpaObjectRegistry spaRegistry  ) {
 		super(registry);
 		this .spaRegistry = spaRegistry;
@@ -62,15 +66,13 @@ public  class SpaRepositoryHelper extends RepositoryHelper {
 		String persistanceClassName = registry.findPersistanceClass(repositoryClass.getName());
 
 		PersistanceMapper mapper = spaRegistry.getRegistry(registryName).findMapper(persistanceClassName,
-				repositoryClass.getName());
+				repositoryClass.getName(),registry);
 		if (mapper == null) {
 			SpaRepository repository = (SpaRepository) registry.findProvider(repositoryClass.getName());
 			if (repository != null) {
 				mapper = spaRegistry.getRegistry(repository.getRegistryName()).findMapper(persistanceClassName,
-						repositoryClass.getName());
-				if (mapper != null) {
-					return mapper;
-				}
+						repositoryClass.getName(),registry);
+				return mapper;
 			}
 			throw new RepositoryException(
 					"PersistanceMapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
@@ -78,6 +80,7 @@ public  class SpaRepositoryHelper extends RepositoryHelper {
 		return mapper;
 	}
 
+	
 	protected PersistanceMapper findPersistanceMapper(String repositoryClass) throws RepositoryException {
 		try {
 			return findPersistanceMapper(Class.forName(repositoryClass));

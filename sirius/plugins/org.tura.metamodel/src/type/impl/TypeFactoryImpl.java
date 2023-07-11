@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2022 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -78,6 +78,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.REFERENCES: return createReferences();
 			case TypePackage.GENERALIZATION: return createGeneralization();
 			case TypePackage.TYPE_POINTER: return createTypePointer();
+			case TypePackage.TYPE_POINTER_OBJ: return createTypePointerObj();
 			case TypePackage.PACKAGE_POINTER: return createPackagePointer();
 			case TypePackage.ASSOSIATION: return createAssosiation();
 			case TypePackage.LINK: return createLink();
@@ -206,6 +207,17 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public TypePointer createTypePointer() {
 		TypePointerImpl typePointer = new TypePointerImpl();
 		return typePointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypePointerObj createTypePointerObj() {
+		TypePointerObjImpl typePointerObj = new TypePointerObjImpl();
+		return typePointerObj;
 	}
 
 	/**
