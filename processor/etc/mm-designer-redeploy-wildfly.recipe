@@ -1,0 +1,164 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+c = tura:docker config\
+                --port 8080:8080\
+                --port 3333:3333\
+                --port 8443:8443\
+                --network ${mm_network}\
+                --var JAVA_OPTS="-Xms64m -Xmx1g -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true"
+                
+
+v = tura:docker createContainer --registry tura/metamodel/wildfly --tag 1.0 --var c --name ${mm_wf_cnt_name}
+
+
+tura:dsl copyFile               --container $v\
+                                          --targetLocation  /opt/jboss/wildfly/\
+                                          --targetName windPlugins.json\
+                                          --sourceResource $repo_home/metamodel/assets/windPlugins.json       
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-object-repository-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/mm-object-repository/${tura_version}/mm-object-repository-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-frame-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-frame/${tura_version}/mm-frame-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-frame-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-frame-client/${tura_version}/mm-frame-client-${tura_version}.war
+
+                                      
+                                      
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-navigator-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-navigator/${tura_version}/mm-navigator-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-navigator-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-navigator-client/${tura_version}/mm-navigator-client-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-messages-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-messages/${tura_version}/mm-messages-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-messages-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-messages-client/${tura_version}/mm-messages-client-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-technologies-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-technologies/${tura_version}/mm-technologies-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-technologies-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-technologies-client/${tura_version}/mm-technologies-client-${tura_version}.war
+
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-artifacts-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-artifacts/${tura_version}/mm-artifacts-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-artifacts-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-artifacts-client/${tura_version}/mm-artifacts-client-${tura_version}.war
+
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-styles-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-styles/${tura_version}/mm-styles-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-styles-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-styles-client/${tura_version}/mm-styles-client-${tura_version}.war
+
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-tree-selection-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-tree-selection/${tura_version}/mm-tree-selection-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-tree-selection-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-tree-selection-client/${tura_version}/mm-tree-selection-client-${tura_version}.war
+
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-mapper-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-mapper/${tura_version}/mm-mapper-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-mapper-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-mapper-client/${tura_version}/mm-mapper-client-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-recipe-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-recipe/${tura_version}/mm-recipe-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-recipe-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-recipe-client/${tura_version}/mm-recipe-client-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-types-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-types/${tura_version}/mm-types-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-types-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-types-client/${tura_version}/mm-types-client-${tura_version}.war
+
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                     --jboss_home /opt/jboss/wildfly\
+                                     --targetName mm-properties-${tura_version}.war\
+                                    --srcResource $mr2/org/tura/model-designer/ui/mm-properties/${tura_version}/mm-properties-${tura_version}.war
+
+
+tura:dsl jbossDoDeploy --container $v\
+                                      --jboss_home /opt/jboss/wildfly\
+                                      --targetName mm-properties-client-${tura_version}.war\
+                                      --srcResource $mr2/org/tura/model-designer/ui/mm-properties-client/${tura_version}/mm-properties-client-${tura_version}.war
+
+                                      
+                                      

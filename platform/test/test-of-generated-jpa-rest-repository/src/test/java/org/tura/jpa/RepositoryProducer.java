@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ package org.tura.jpa;
 
 import org.tura.platform.repository.core.AllowEverythingProfile;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.CpaTransactionAdapter;
@@ -47,7 +48,15 @@ public class RepositoryProducer {
 		Registry cpaRegistry = new Registry();
 		SpaObjectRegistry cpaSpaRegistry = new SpaObjectRegistry();
 
-		ProxyCommadStackProvider stackProvider = new LocalCommadStackProvider();
+		ProxyCommadStackProvider stackProvider = new LocalCommadStackProvider(new RegistryProvider() {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Registry get() {
+				return cpaRegistry;
+			}
+		});
 		cpaStorageProvider = new ProxyCpaStorageProvider(stackProvider);
 
 		InitCPARepository init = new InitCPARepository(cpaRegistry, cpaSpaRegistry);
@@ -57,7 +66,7 @@ public class RepositoryProducer {
 		init.initRules();
 
 		cpaSpaRegistry.getRegistry(InitCPARepository.SPA_REPOSITORY_NAME).addInstantiator(new CpaServiceInstantiator(
-				cpaSpaRegistry, InitCPARepository.SPA_REPOSITORY_NAME, cpaRegistry, cpaStorageProvider));
+				cpaSpaRegistry, InitCPARepository.SPA_REPOSITORY_NAME, cpaRegistry, cpaStorageProvider,null));
 
 		ProxyRepository proxyRepository = new ProxyRepository();
 		proxyRepository.setStackProvider(stackProvider);

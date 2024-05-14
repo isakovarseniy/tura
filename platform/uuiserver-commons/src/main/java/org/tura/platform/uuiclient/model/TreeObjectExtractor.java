@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public abstract class TreeObjectExtractor {
 
 		Object data = node.getData();
 		Map<String, Object> hashNode = new HashMap<String, Object>();
-		GridModelTriggers triggers = (GridModelTriggers) callback;
+		TreeModelTriggers triggers = (TreeModelTriggers) callback;
 
 		if (!(node.isRoot())) {
 			ObjectControl oc = (ObjectControl) data;

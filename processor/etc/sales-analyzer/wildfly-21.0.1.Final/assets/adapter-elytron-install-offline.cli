@@ -59,15 +59,6 @@ else
 end-if
 
 
-/subsystem=keycloak/secure-deployment=kie-server.war/:add(ssl-required=external)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=realm,value=sales-analyzer)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=auth-server-url,value=http://kc:8080/auth)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=resource,value=kie-server)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=principal-attribute,value=preferred_username)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=enable-basic-auth,value=true)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=realm-public-key,value=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhRI9Og4T0OHCXq1hvGjyi0dPsKHeW62tMCm9orKTnn+nUONqcxLkKCcD7HXK0CGVOWy7abJ/c+LypSP9+Zx8pWDzX9K3uULubMBe00JQqtrutlLILFgsek2Ao4Ch3hmxBU7+0alYrZdL8VEul8vb7So9OQVa6KbJTBx1hDAnDMmekxo8Qvxsl6q9V/HOta/ZGl1ZaIkqnlHFVPDR83WrOOsVyHs5thonXR1ii5JDSGB4iEmYnDtkNXhtule5W8nHjUTlD/mctl3zP4TGiMVObh3xdm0UvJHc4dIrD+jgTKUFAMl2oOnPRx4F9mWHRDa63fx96BXBXWWdPw9XpxaHkwIDAQAB)
-/subsystem=keycloak/secure-deployment=kie-server.war/credential=secret/:add(value=f435bf4e-e27c-4101-ad0c-3671a6a119f4)
-
 /subsystem=keycloak/secure-deployment=sa-admin.war/:add(ssl-required=external)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=realm,value=sales-analyzer)
 /subsystem=keycloak/secure-deployment=sa-admin.war/:write-attribute(name=auth-server-url,value=http://kc:8080/auth/)
@@ -118,13 +109,7 @@ end-if
 
 
 /system-property=aes_key:add(value="qvDHwQChO/NVvxCYG3yO+w==")
-/system-property=org.drools.server.filter.classes:add(value=true)
-/system-property=org.kie.server.persistence.schema:add(value=KIESERVER)
-/system-property=org.kie.server.sync.deploy:add(value=false)
-/system-property=org.kie.server.persistence.dialect:add(value="org.hibernate.dialect.PostgreSQLDialect")
-/system-property=org.kie.server.persistence.ds:add(value="java:jboss/jdbc/SalesAnalyzerDS")
-/system-property=TALEND_JOB_ROOT:add(value="/opt/jboss/jobs")
-/system-property=FILE_IMPORT_DIRECTORY:add(value="/opt/jboss/jobs")
+/system-property=FILE_IMPORT_DIRECTORY:add(value="/opt/jboss/files")
 /system-property=keycloak_url:add(value="http://kc:8080/auth")
 /system-property=keycloak_admin_realm:add(value="master")
 /system-property=keycloak_admin_clientid:add(value="realm-management")
@@ -132,7 +117,5 @@ end-if
 /system-property=keycloak_admin_user:add(value="admin")
 /system-property=keycloak_admin_password:add(value="qwerty")
 /system-property=keycloak_managed_realm:add(value="sales-analyzer")
-/system-property=kie_server_url:add(value="http://wf:8081/kie-server/services/rest/server")
+/system-property=kie_server_url:add(value="http://kie:8080/kie-server/services/rest/server")
 /system-property=tura.request.file.storage:add(value=true)
-/system-property=org.jbpm.ht.callback:add(value="custom")
-/system-property=org.jbpm.ht.custom.callback:add(value="org.kie.server.services.impl.security.ElytronUserGroupCallback")

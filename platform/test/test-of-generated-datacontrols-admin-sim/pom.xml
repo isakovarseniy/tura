@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.1</version>
+		<version>6.1.2</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
@@ -34,77 +34,10 @@
 	<name>Tura :: Platform :: Test :: Generated code :: DataControl :: Admin simulation</name>
 
 	<dependencies>
-		<!-- Test -->
-		<dependency>
-			<groupId>de.odysseus.juel</groupId>
-			<artifactId>juel</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform.test</groupId>
-			<artifactId>commons-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.test</groupId>
-			<artifactId>commons-test-spa-service</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>annotations</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.octo.java.sql</groupId>
-			<artifactId>java-sql-dsl</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-impl</artifactId>
-			<scope>test</scope>
+			<artifactId>commons-cdi-datacontrol-test</artifactId>
 		</dependency>
 
 		<dependency>
@@ -113,21 +46,10 @@
 			<scope>test</scope>
 		</dependency>
 
-
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
+			<groupId>org.tura.platform.test</groupId>
+			<artifactId>commons-test-spa-service</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.repository</groupId>
-			<artifactId>cdi</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.repository</groupId>
-			<artifactId>cdi-persistence-repo-starter-jse</artifactId>
 		</dependency>
 
 		<dependency>
@@ -156,10 +78,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>uuiserver-commons</artifactId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>admin-object-jpa-persistance-xml-for-testing</artifactId>
+			<version>${project.version}</version>
 		</dependency>
-
 
 	</dependencies>
 	<build>
@@ -170,8 +92,7 @@
 				<configuration>
 					<argLine>
 						--add-opens java.base/java.lang=ALL-UNNAMED
-						--add-opens
-						java.base/java.util=ALL-UNNAMED
+						--add-opens java.base/java.util=ALL-UNNAMED
 					</argLine>
 				</configuration>
 			</plugin>

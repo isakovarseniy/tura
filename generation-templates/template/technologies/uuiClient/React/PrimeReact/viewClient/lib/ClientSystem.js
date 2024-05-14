@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -158,18 +158,31 @@ export class ClientSystem{
     }
 
 
-    enableEditModeFotTree(componentId){
+    enableEditModeForTree(componentId){
         let registeredComponent = this.contextManager.getComponent(componentId);
         if ( typeof registeredComponent !== "undefined" && registeredComponent !== null){
             registeredComponent.enableEditMode();
         }
     }
 
+    enableContextEditModeForTree(componentId){
+        let registeredComponent = this.contextManager.getComponent(componentId);
+        if ( typeof registeredComponent !== "undefined" && registeredComponent !== null){
+            registeredComponent.enableContextEditMode();
+        }
+    }
     disableEditModeFotTree(componentId){
         let registeredComponent = this.contextManager.getComponent(componentId);
         if ( typeof registeredComponent !== "undefined" && registeredComponent !== null){
             registeredComponent.disableEditMode();
         }
+    }
+
+    toVar(uid){
+        if ( uid.startsWith("tura")){
+            return uid;
+        }
+        return "tura"+uid.replaceAll( "\-","_");
     }
 
 

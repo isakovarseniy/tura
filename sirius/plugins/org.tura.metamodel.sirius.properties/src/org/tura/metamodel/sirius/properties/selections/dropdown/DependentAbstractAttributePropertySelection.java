@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,37 +23,37 @@ import org.tura.metamodel.sirius.properties.selections.events.CastChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.DataControlChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.Event;
 import org.tura.metamodel.sirius.properties.selections.events.EventListener;
+import org.tura.metamodel.sirius.properties.selections.events.ObjectPointer;
 
-public abstract class DependentAbstractAttributePropertySelection extends AbstractAttributePropertySelection{
+public abstract class DependentAbstractAttributePropertySelection extends AbstractAttributePropertySelection
+		implements ObjectPointer {
 
 	class SelectionListener implements EventListener {
 		@Override
 		public void handleEvent(Event event) {
-			if (event instanceof DataControlChangeEvent || event instanceof  CastChangeEvent) {
-				for (int j = 0; j < dropDownDataSupplier.getWatchPointFeature().length; j++) {
+			if (event instanceof DataControlChangeEvent || event instanceof CastChangeEvent) {
+				ObjectPointer op = (ObjectPointer) event;
+
+				if (op.getObjectId().equals(getObjectId()) && op.getScope().equals(getScope() )  ) {
+
+					for (int j = 0; j < dropDownDataSupplier.getWatchPointFeature().length; j++) {
 						values = null;
 						EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 						CompoundCommand compoundCommand = new CompoundCommand();
 						EStructuralFeature[] features = getFeature();
 
 						for (int i = 0; i < features.length; i++) {
-							if (features[i].getFeatureID() != dropDownDataSupplier
-									.getWatchPointFeature()[j]
+							if (features[i].getFeatureID() != dropDownDataSupplier.getWatchPointFeature()[j]
 									.getFeatureID())
-								compoundCommand.append(SetCommand.create(
-										editingDomain,
-										getModel(features[i]), features[i],
-										null));
+								compoundCommand.append(
+										SetCommand.create(editingDomain, getModel(features[i]), features[i], null));
 						}
-						editingDomain.getCommandStack().execute(
-								compoundCommand);
+						editingDomain.getCommandStack().execute(compoundCommand);
 						refresh();
 					}
+				}
 			}
 		}
 	}
 
-	
-	
-	
 }

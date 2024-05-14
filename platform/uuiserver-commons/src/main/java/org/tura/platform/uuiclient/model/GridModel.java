@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -138,6 +138,13 @@ public class GridModel implements AbstractGridModel, Serializable {
 		this.selected = selected;
 	}
 
+	public Object getParent() throws TuraException {
+		if ( dc.getParent() != null ) {
+			return dc.getParent().getMasterCurrentObject();
+		}
+		return null;
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void decodeAndSetSelected(Object obj) {
 		if (obj == null) {
@@ -267,6 +274,9 @@ public class GridModel implements AbstractGridModel, Serializable {
 					this.first = 0;
 				}
 			} else {
+				if (callback != null) {
+					list = callback.postProcessLoaded(list);
+				}
 				return list;
 			}
 

@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>org.tura</groupId>
 		<artifactId>processor</artifactId>
-		<version>6.1.1</version>
+		<version>6.1.2</version>
 	</parent>	
 
 	<groupId>org.tura.processor</groupId>
@@ -34,12 +34,19 @@
 
 
 	<modules>
+  	    <module>metamodel/db-persistence-model</module>
+  	    <module>metamodel/persistence-repository</module>
+  	    <module>metamodel/serialized-model</module>
+  	    <module>metamodel/metamodel-repository-proxy</module>
+  	    <module>metamodel/h2-jdbc-persistence-model-persistence-xml</module>
+  	    <module>metamodel/postgres-jdbc-persistence-model-persistence-xml</module>
+  	    <module>metamodel/postgres-jndi-persistence-model-persistence-xml</module>
+
 		<module>commons-tura-model</module>
 		<module>commons-emf-model</module>
 		<module>model</module>
 		<module>ecore2repo</module>
         <module>processor-tura-model-command</module>
-		<module>test</module>
 	</modules>
 
 </project>

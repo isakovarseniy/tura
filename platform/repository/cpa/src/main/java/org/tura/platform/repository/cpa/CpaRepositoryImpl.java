@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.tura.platform.repository.core.Instantiator;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.ObjectGraph;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.Repository;
@@ -121,7 +122,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 			localStackProvider.get().commit();
 
 			RepositoryHelper helper = new RepositoryHelper(registry);
-			CpaStorage cpaStorage = this.getStorageProvider().getStorage();
+			CpaStorage cpaStorage = this.getStorageProvider().get();
 			CpaMapper cpaMapper = (CpaMapper) helper.findMapper(objectClass);
 			StorageControl sc = cpaStorage.findByPrimaryKey(cpaMapper.getPrimaryKeyFromRepositoryObject(obj),
 					objectClass);
@@ -141,9 +142,11 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 	@Override
 	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
 		this.stackProvider = stackProvider;
-		this.stackProvider.get().addProxyCommandStackEventListener(id, new RemoteRepositoryCommitListener());
+		this.stackProvider.get().getEventSubscribersProvider().get().addProxyCommandStackEventListener(id,
+				new RemoteRepositoryCommitListener());
 	}
 
+	@Override
 	public ProxyCommadStackProvider getStackProvider() {
 		return stackProvider;
 	}
@@ -249,7 +252,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 	private <T> SearchResult<T> readWriteMode(SearchResult<T> result, Class<T> objectClass) throws RepositoryException {
 
 		try {
-			CpaStorage cpaStorage = this.getStorageProvider().getStorage();
+			CpaStorage cpaStorage = this.getStorageProvider().get();
 			try {
 				cpaStorage.unloadObjects(objectClass);
 			} catch (Exception e) {
@@ -291,7 +294,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 
 	public RepoKeyPath getInternalPath(String cpaid) {
 		try {
-			return storageProvider.getStorage().getInternalPath(cpaid);
+			return storageProvider.get().getInternalPath(cpaid);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -311,7 +314,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 	private <T> List<T> loadObjects(Map<Object, Boolean> resultOfLockValidation, List<T> searchResult,
 			Map<Object, Map<Object, String>> collected) throws Exception {
 		List<T> list = new ArrayList<>();
-		CpaStorage cpaStorage = this.getStorageProvider().getStorage();
+		CpaStorage cpaStorage = this.getStorageProvider().get();
 		RepositoryHelper helper = new RepositoryHelper(registry);
 		cpaStorage.nextSession();
 
@@ -337,7 +340,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 
 	private <T> Map<Object, Map<Object, String>> unloadObjects(List<Map<String, Object>> objectToRemove,
 			List<Map<String, Object>> relationToRemove) throws Exception {
-		CpaStorage cpaStorage = this.getStorageProvider().getStorage();
+		CpaStorage cpaStorage = this.getStorageProvider().get();
 		Map<Object, Map<Object, String>> fullCollected = cpaStorage.collectCpaIds(objectToRemove);
 		cpaStorage.unloadObjects(objectToRemove, relationToRemove);
 		return fullCollected;
@@ -377,7 +380,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 			Class<?> clazz = Class.forName(key.getType());
 			PersistanceMapper mapper = (PersistanceMapper) helper.findMapper(clazz);
 			Object pk = mapper.getPKey(key);
-			StorageControl sc = storageProvider.getStorage().findByPrimaryKey(pk, clazz);
+			StorageControl sc = storageProvider.get().findByPrimaryKey(pk, clazz);
 			if (sc != null) {
 				if (ObjectStatus.Removed.equals(sc.getStatus())) {
 					return null;
@@ -425,7 +428,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 	private <T> List<T> loadAndFindObjects(List<T> searchResult) throws RepositoryException {
 		List<T> list = new ArrayList<>();
 		try {
-			CpaStorage cpaStorage = getStorageProvider().getStorage();
+			CpaStorage cpaStorage = getStorageProvider().get();
 			RepositoryHelper helper = new RepositoryHelper(registry);
 			cpaStorage.nextSession();
 
@@ -480,9 +483,17 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 	private ProxyCommadStackProvider getLocalStackProvider(String session) {
 		ProxyCommadStackProvider localStackProvider = stackMap.get(session);
 		if (localStackProvider == null) {
-			localStackProvider = new LocalCommadStackProvider();
+			localStackProvider = new LocalCommadStackProvider(new RegistryProvider() {
+				
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public Registry get() {
+					return registry;
+				}
+			});
 			stackMap.put(session, localStackProvider);
-			localStackProvider.get().addProxyCommandStackEventListener(session,
+			localStackProvider.get().getEventSubscribersProvider().get().addProxyCommandStackEventListener(session,
 					new LocalRepositoryCommitListener(session));
 		}
 		return localStackProvider;
@@ -532,7 +543,7 @@ public abstract class CpaRepositoryImpl implements CpaRepository {
 			List<Map<String, Object>> relationToRemove) throws Exception {
 		RepositoryHelper helper = new RepositoryHelper(registry);
 		CpaMapper cpaMapper = (CpaMapper) helper.findMapper(objectClass);
-		CpaStorage cpaStorage = this.getStorageProvider().getStorage();
+		CpaStorage cpaStorage = this.getStorageProvider().get();
 		StorageControl sc = cpaStorage.findByPrimaryKey(cpaMapper.getPrimaryKeyFromRepositoryObject(obj), objectClass);
 		boolean isLock = false;
 		if (sc != null) {

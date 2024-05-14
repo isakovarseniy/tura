@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.Infrastructure2Configuration#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.Infrastructure2Configuration#getSource <em>Source</em>}</li>
  *   <li>{@link recipe.Infrastructure2Configuration#getTarget <em>Target</em>}</li>
+ *   <li>{@link recipe.Infrastructure2Configuration#getConfigBranch <em>Config Branch</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getInfrastructure2Configuration()
@@ -114,5 +115,27 @@ public interface Infrastructure2Configuration extends EObject {
 	 * @generated
 	 */
 	void setTarget(Configuration value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Branch</em>' attribute.
+	 * @see #setConfigBranch(String)
+	 * @see recipe.RecipePackage#getInfrastructure2Configuration_ConfigBranch()
+	 * @model
+	 * @generated
+	 */
+	String getConfigBranch();
+
+	/**
+	 * Sets the value of the '{@link recipe.Infrastructure2Configuration#getConfigBranch <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Config Branch</em>' attribute.
+	 * @see #getConfigBranch()
+	 * @generated
+	 */
+	void setConfigBranch(String value);
 
 } // Infrastructure2Configuration

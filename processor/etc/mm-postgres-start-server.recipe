@@ -1,0 +1,33 @@
+if { %(dump_file == null) } { 
+    echo  "Dump_file cannot be null";
+    throw "Dump_file cannot be null";
+}
+
+
+tura:docker stopContainer --name ${mm_postgres_cnt_name}
+
+tura:docker removeContainer --name ${mm_postgres_cnt_name}
+
+tura:docker pullImage --registry postgres --tag ${mm_postgres_version}
+
+tura:docker createNetwork --network ${mm_network}
+
+
+c = tura:docker config --user 0\
+                                   --var POSTGRES_PASSWORD=postgres\
+                                   --port ${mm_postgres_cnt_port}:5432\
+                                   --network ${mm_network}\
+                                   --alias ${mm_postgres_alias}
+
+
+v = tura:docker createContainer --registry postgres --tag ${mm_postgres_version} --var c --name ${mm_postgres_cnt_name}
+
+tura:docker postgres postgresHealthCheck --name ${mm_postgres_cnt_name}
+
+try {
+tura:docker postgres postgresUploadDump --dump $dump_file --name ${mm_postgres_cnt_name}
+} catch {
+   echo "db dump upload error. Can be ignored"
+}
+
+

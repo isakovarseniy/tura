@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.cpa.storage.CpaRepositoryProvider;
 import org.tura.platform.repository.proxy.CpaStorageEventListener;
 import org.tura.platform.repository.proxy.ProxyCommandStackEventListener;
 
@@ -39,9 +40,11 @@ public abstract class Pager<T> implements Serializable {
 	private int endIndex;
 	private int loadStep = PlatformConfig.LOADSTEP;
 	protected DataControl<T> datacontrol;
-	protected CpaRepository repository;
+	private transient CpaRepository repository;
+	private CpaRepositoryProvider repositoryProvider;
+
 	protected String id = UUID.randomUUID().toString();
-	protected  boolean internal = false;
+	protected boolean internal = false;
 
 	public abstract T create() throws TuraException;
 
@@ -66,8 +69,8 @@ public abstract class Pager<T> implements Serializable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object findObject(RepoKeyPath key) throws TuraException {
 		try {
-			List  lst =  new ArrayList();
-			lst.add(repository.find(key, null));
+			List lst = new ArrayList();
+			lst.add(getRepository().find(key, null));
 			return new ListWrapper<>(lst, datacontrol).get(0);
 		} catch (RepositoryException e) {
 			throw new TuraException(e);
@@ -123,22 +126,25 @@ public abstract class Pager<T> implements Serializable {
 			return str;
 	}
 
+	public void setRepositoryProvider(CpaRepositoryProvider repositoryProvider) {
+		this.repositoryProvider = repositoryProvider;
+	}
+
 	public CpaRepository getRepository() {
+		if (repository == null) {
+			repository = repositoryProvider.get();
+		}
 		return repository;
 	}
 
-	public void setRepository(CpaRepository repository) {
-		this.repository = repository;
-	}
-
 	public void addCommandStackListener() {
-		repository.getStackProvider().get().addProxyCommandStackEventListener(id,
-				new PagerCommandStackEventListenerr());
+		getRepository().getStackProvider().get().getEventSubscribersProvider().get()
+				.addProxyCommandStackEventListener(id, new PagerCommandStackEventListenerr());
 	}
 
 	public void addCpaStorageEventListenetr() {
-		repository.getStorageProvider().getStorage().addCpaStorageEventListener(id, new PagerCpaStorageEventListener());
-
+		getRepository().getStorageProvider().get().getEventSubscriberesProvider().get().addCpaStorageEventListener(id,
+				new PagerCpaStorageEventListener());
 	}
 
 	protected DataControl<T> getDataControl() {
@@ -148,11 +154,13 @@ public abstract class Pager<T> implements Serializable {
 	public class PagerCommandStackEventListenerr extends ProxyCommandStackEventListener {
 		private static final long serialVersionUID = 1L;
 
-		public void afterRallbackSavePoint() throws Exception {
+       @Override
+		public void afterRollbackSavePoint() throws Exception {
 			Pager.this.datacontrol.forceRefresh();
 		}
 
-		public void afterRallback() throws Exception {
+       @Override
+		public void afterRollback() throws Exception {
 			Pager.this.datacontrol.forceRefresh();
 		}
 
@@ -160,29 +168,30 @@ public abstract class Pager<T> implements Serializable {
 
 	public class PagerCpaStorageEventListener extends CpaStorageEventListener {
 		private static final long serialVersionUID = 1L;
-		
+
 		@Override
-		public  void objectInserted(Class<?> clazz, String source) throws Exception{
-			if (!datacontrol.isIsoleted()  && !datacontrol.getId().equals(source)  && datacontrol.getBaseClass().equals(clazz)) {
-				if ( internal) {
+		public void objectInserted(Class<?> clazz, String source) throws Exception {
+			if (!datacontrol.isIsoleted() && !datacontrol.getId().equals(source)
+					&& datacontrol.getBaseClass().equals(clazz)) {
+				if (internal) {
 					Pager.this.datacontrol.forceRefresh();
-				}else {
-				    Pager.this.datacontrol.getCurrentObject();
+				} else {
+					Pager.this.datacontrol.getCurrentObject();
 				}
 			}
 		}
-		
+
 		@Override
-		public  void objectDelited(Class<?> clazz, String source) throws Exception{
-			if (  !datacontrol.isIsoleted()  && !datacontrol.getId().equals(source)  && datacontrol.getBaseClass().equals(clazz)) {
-				if ( internal) {
+		public void objectDelited(Class<?> clazz, String source) throws Exception {
+			if (!datacontrol.isIsoleted() && !datacontrol.getId().equals(source)
+					&& datacontrol.getBaseClass().equals(clazz)) {
+				if (internal) {
 					Pager.this.datacontrol.forceRefresh();
-				}else {
-				    Pager.this.datacontrol.getCurrentObject();
+				} else {
+					Pager.this.datacontrol.getCurrentObject();
 				}
 			}
 		}
-		
 
 	}
 

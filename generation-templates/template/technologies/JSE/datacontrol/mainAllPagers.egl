@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -126,6 +126,8 @@ operation  makeConnectedPager(hash,masterType,detailType,rel,path,f,n) {
 	        
 	        hash.put("sourceProperty",h.get("sourceProperty"));
 	        hash.put("targetProperty",h.get("targetProperty"));
+	        
+		    rel.~oppositeSide = false;
 	    
 		}
 
@@ -138,6 +140,8 @@ operation  makeConnectedPager(hash,masterType,detailType,rel,path,f,n) {
 	        
 	        hash.put("sourceProperty",h.get("targetProperty"));
 	        hash.put("targetProperty",h.get("sourceProperty"));
+	        
+		    rel.~oppositeSide = true;
 	    
 	    }
 
@@ -150,6 +154,9 @@ operation  makeConnectedPager(hash,masterType,detailType,rel,path,f,n) {
 	        
 	        hash.put("sourceProperty",h.get("sourceProperty"));
 	        hash.put("targetProperty",h.get("targetProperty"));
+	        
+		    rel.~oppositeSide = false;
+	        
 	    
 	    }
 

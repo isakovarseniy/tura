@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,10 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.CreateTrigger;
+import org.tura.platform.datacontrol.annotations.CustomCreate;
+import org.tura.platform.datacontrol.annotations.CustomDelete;
+import org.tura.platform.datacontrol.annotations.CustomPagerCleaner;
+import org.tura.platform.datacontrol.annotations.CustomQuery;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
@@ -291,6 +295,89 @@ public class CDIImplementationDataControlStructureUtil {
 			fail("No Selector annotation");
 	}
 
+	public static void checkCustomCreateTrigger(Method method, String named) {
+		if (method.getParameterAnnotations().length != 1)
+			fail("Wrong number of parameters");
+
+		boolean noselector = true;
+		for (Annotation[] annotations : method.getParameterAnnotations()) {
+			for (Annotation annotation : annotations) {
+				if (annotation instanceof CustomCreate) {
+					if (((CustomCreate) annotation).value().equals(named)) {
+						noselector = false;
+						break;
+					}
+				} else
+					noselector = true;
+			}
+		}
+		if (noselector)
+			fail("No Selector annotation");
+	}	
+	
+	
+	public static void checkCustomQueryTrigger(Method method, String named) {
+		if (method.getParameterAnnotations().length != 1)
+			fail("Wrong number of parameters");
+
+		boolean noselector = true;
+		for (Annotation[] annotations : method.getParameterAnnotations()) {
+			for (Annotation annotation : annotations) {
+				if (annotation instanceof CustomQuery) {
+					if (((CustomQuery) annotation).value().equals(named)) {
+						noselector = false;
+						break;
+					}
+				} else
+					noselector = true;
+			}
+		}
+		if (noselector)
+			fail("No Selector annotation");
+	}	
+	
+	public static void checkCustomPagerCleanerTrigger(Method method, String named) {
+		if (method.getParameterAnnotations().length != 1)
+			fail("Wrong number of parameters");
+
+		boolean noselector = true;
+		for (Annotation[] annotations : method.getParameterAnnotations()) {
+			for (Annotation annotation : annotations) {
+				if (annotation instanceof CustomPagerCleaner) {
+					if (((CustomPagerCleaner) annotation).value().equals(named)) {
+						noselector = false;
+						break;
+					}
+				} else
+					noselector = true;
+			}
+		}
+		if (noselector)
+			fail("No Selector annotation");
+	}		
+
+	public static void checkCustomDeleteTrigger(Method method, String named) {
+		if (method.getParameterAnnotations().length != 1)
+			fail("Wrong number of parameters");
+
+		boolean noselector = true;
+		for (Annotation[] annotations : method.getParameterAnnotations()) {
+			for (Annotation annotation : annotations) {
+				if (annotation instanceof CustomDelete) {
+					if (((CustomDelete) annotation).value().equals(named)) {
+						noselector = false;
+						break;
+					}
+				} else
+					noselector = true;
+			}
+		}
+		if (noselector)
+			fail("No Selector annotation");
+	}		
+	
+	
+	
 	public static void checkPostQueryTrigger(Method method, String named) {
 		if (method.getParameterAnnotations().length != 1)
 			fail("Wrong number of parameters");

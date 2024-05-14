@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
-import java.util.HashMap;
 
 import org.apache.felix.gogo.jline.command.api.IBuildCommand;
 import org.tura.metamodel.commons.QueryHelper;
@@ -71,8 +70,6 @@ public class BuildCommand extends TuraCommand implements IBuildCommand{
 			} else {
 
 				QueryHelper queryHelper = new QueryHelper(model);
-				HashMap<String, Object> configuration = new HashMap<>();
-				getConfiguratioin(queryHelper.getConfiguration( infraId), configuration);
 				Recipe recipe = queryHelper.getRecipe( recipeId);
 				boolean result = depoymentRecipe(recipe);
 				if (result) {

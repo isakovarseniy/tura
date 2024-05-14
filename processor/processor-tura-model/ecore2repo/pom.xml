@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -22,7 +22,7 @@
 	<parent>
 		<groupId>org.tura.processor</groupId>
 		<artifactId>processor-tura-model</artifactId>
-		<version>6.1.1</version>
+		<version>6.1.2</version>
 	</parent>
 
 	<artifactId>ecore2repo</artifactId>
@@ -95,10 +95,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
-
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -115,6 +114,12 @@
 		<dependency>
 			<groupId>org.tura.processor</groupId>
 			<artifactId>commons-tura-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>postgres-jdbc-persistence-model-persistence-xml</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

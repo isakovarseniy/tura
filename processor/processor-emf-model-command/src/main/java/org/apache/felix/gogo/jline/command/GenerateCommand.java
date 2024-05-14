@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -63,6 +63,9 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 	private String modelFile;
 
 	private boolean build;
+	
+	private QueryHelper queryHelper = new QueryHelper();
+
 
 	public void run() {
 		EmfModel model = null;
@@ -128,9 +131,6 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 
 				boolean result = false;
 				EObject obj = c.iterator().next();
-				QueryHelper queryHelper = new QueryHelper();
-				HashMap<String, Object> configuration = new HashMap<>();
-				getConfiguratioin(queryHelper.getConfiguration(obj, infraId), configuration);
 
 				Ingredient ingredient = null;
 				Recipe recipe = null;
@@ -143,22 +143,22 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 					component = (Component) mapper.eContainer();
 					ingredient = (Ingredient) component.eContainer();
 					recipe = (Recipe) ingredient.eContainer();
-					result = generateSourcesForModelMapper(model, mapper, ingredient, component, recipe, configuration);
+					result = generateSourcesForModelMapper(model, mapper, ingredient, component, recipe);
 					break;
 				case "componentId":
 					component = queryHelper.getComponent(obj, componentId);
 					ingredient = (Ingredient) component.eContainer();
 					recipe = (Recipe) ingredient.eContainer();
-					result = generateSourcesForComponent(model, ingredient, component, recipe, configuration);
+					result = generateSourcesForComponent(model, ingredient, component, recipe);
 					break;
 				case "ingredientId":
 					ingredient = queryHelper.getIngredient(obj, ingredientId);
 					recipe = (Recipe) ingredient.eContainer();
-					result = generateSourcesForIngredient(model, ingredient, recipe, configuration);
+					result = generateSourcesForIngredient(model, ingredient, recipe);
 					break;
 				case "recipeId":
 					recipe = queryHelper.getRecipe(obj, recipeId);
-					result = generateSourcesForRecipe(model, recipe, configuration);
+					result = generateSourcesForRecipe(model, recipe);
 					break;
 				}
 				if (!result) {
@@ -183,9 +183,9 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 		}
 	}
 
-	private boolean generateSourcesForRecipe(IModel model, Recipe recipe, HashMap<String, Object> configuration) {
+	private boolean generateSourcesForRecipe(IModel model, Recipe recipe) {
 		for (Ingredient ingredient : recipe.getIngredients()) {
-			boolean result = generateSourcesForIngredient(model, ingredient, recipe, configuration);
+			boolean result = generateSourcesForIngredient(model, ingredient, recipe);
 			if (!result) {
 				return false;
 			}
@@ -193,14 +193,13 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 		return true;
 	}
 
-	private boolean generateSourcesForIngredient(IModel model, Ingredient ingredient, Recipe recipe,
-			HashMap<String, Object> configuration) {
+	private boolean generateSourcesForIngredient(IModel model, Ingredient ingredient, Recipe recipe) {
 		if (ingredient.isSkip()) {
 			return true;
 		}
 
 		for (Component component : ingredient.getComponents()) {
-			boolean result = generateSourcesForComponent(model, ingredient, component, recipe, configuration);
+			boolean result = generateSourcesForComponent(model, ingredient, component, recipe);
 			if (!result) {
 				return false;
 			}
@@ -208,14 +207,14 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 		return true;
 	}
 
-	private boolean generateSourcesForComponent(IModel model, Ingredient ingredient, Component component, Recipe recipe,
-			HashMap<String, Object> configuration) {
+	private boolean generateSourcesForComponent(IModel model, Ingredient ingredient, Component component, Recipe recipe) {
 		if (component.isSkip()) {
 			return true;
 		}
 
 		for (ModelMapper mapper : component.getMappers()) {
-			boolean result = generateSourcesForModelMapper(model, mapper, ingredient, component, recipe, configuration);
+			
+			boolean result = generateSourcesForModelMapper(model, mapper, ingredient, component, recipe);
 			if (!result) {
 				return false;
 			}
@@ -224,7 +223,7 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 	}
 
 	private boolean generateSourcesForModelMapper(IModel model, ModelMapper mapper, Ingredient ingredient,
-			Component component, Recipe recipe, HashMap<String, Object> configuration) {
+			Component component, Recipe recipe) {
 
 		if (mapper.isSkip()) {
 			return true;
@@ -242,6 +241,9 @@ public class GenerateCommand extends TuraCommand  implements IGenerateCommand{
 		EglTemplate template = null;
 		try {
 
+			HashMap<String, Object> configuration = new HashMap<>();
+			getConfiguratioin(queryHelper.getBranchedConfiguration(mapper, infraId,mapper.getConfigBranch()), configuration,mapper.getConfigBranch());
+			
 			EglTemplateFactory factory = new EglTemplateFactory();
 
 			ModelRepository modelRepo = factory.getContext().getModelRepository();

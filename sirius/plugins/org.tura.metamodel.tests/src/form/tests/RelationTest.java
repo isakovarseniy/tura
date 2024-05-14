@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@
  */
 package form.tests;
 
+import artifact.tests.CategorizedTest;
 import form.FormFactory;
 import form.Relation;
 
@@ -29,15 +30,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RelationTest extends TestCase {
-
-	/**
-	 * The fixture for this Relation test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Relation fixture = null;
+public class RelationTest extends CategorizedTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,23 +52,14 @@ public class RelationTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Relation test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Relation fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Relation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Relation getFixture() {
-		return fixture;
+		return (Relation)fixture;
 	}
 
 	/**

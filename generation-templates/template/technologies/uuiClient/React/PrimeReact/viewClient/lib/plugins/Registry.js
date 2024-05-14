@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,7 +24,26 @@ class Registry{
     componentLayoutManager = new Map();
     connectionConfigurationTrigger = new Map();
     elementCustomizer = new Map();
+    toStringByComponentId = new Map();
+    toStringByType = new Map();
+    pluginMode = false;
 
+
+    setPluginMode(){
+        this.pluginMode = true;
+    }
+
+    getPluginMode(){
+        return this.pluginMode;
+    }
+
+    addToStringByComponentId(key, obj){
+        this.toStringByComponentId.set(key,obj);
+    }
+
+    addToStringByType(key, obj){
+        this.toStringByType.set(key,obj);
+    }
 
     addElementCustomizer(key, obj){
         this.elementCustomizer.set(key,obj);
@@ -143,6 +162,15 @@ class Registry{
         return this.elementCustomizer.get(key);
     }
 
+    getToStringByComponentId(key){
+        var toString = this.toStringByComponentId.get( key);
+        return this.getObject(toString);
+    }
+
+    getToStringByType(key){
+        var toString = this.toStringByType.get( key);
+        return this.getObject(toString);
+    }
 
 }
 

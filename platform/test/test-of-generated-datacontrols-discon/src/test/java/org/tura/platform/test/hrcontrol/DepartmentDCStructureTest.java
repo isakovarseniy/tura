@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,10 @@ import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.c
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkConnection;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTriggerParameters;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomCreateTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomDeleteTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomPagerCleanerTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomQueryTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultOrderCriteria;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultSearchCriteria;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkKeys;
@@ -51,12 +55,16 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
+import org.tura.platform.datacontrol.command.base.CreateTrigger;
+import org.tura.platform.datacontrol.command.base.DeleteTrigger;
+import org.tura.platform.datacontrol.command.base.PagerCleanerTrigger;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.QueryTrigger;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -69,7 +77,7 @@ public class DepartmentDCStructureTest {
 
 	@Test
 	public void checkDepartmentDCStructure(){
-		assertEquals(21, DepartmentDC.class.getDeclaredMethods().length);
+		assertEquals(25, DepartmentDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( DepartmentDC.class,"init" ));
 
@@ -127,6 +135,27 @@ public class DepartmentDCStructureTest {
 		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
 		checkPostCreateTrigger(m,"department");
 
+		assertTrue(findMethod( DepartmentDC.class,"setCreateTrigger" ,new Class[]{CreateTrigger.class}));
+		m = getMethod( DepartmentDC.class,"setCreateTrigger" ,new Class[]{CreateTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomCreateTrigger(m,"department");
+		
+		
+		assertTrue(findMethod( DepartmentDC.class,"setQueryTrigger" ,new Class[]{QueryTrigger.class}));
+		m = getMethod( DepartmentDC.class,"setQueryTrigger" ,new Class[]{QueryTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomQueryTrigger(m,"department");
+		
+		assertTrue(findMethod( DepartmentDC.class,"setDeleteTrigger" ,new Class[]{DeleteTrigger.class}));
+		m = getMethod( DepartmentDC.class,"setDeleteTrigger" ,new Class[]{DeleteTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomDeleteTrigger(m,"department");
+		
+		assertTrue(findMethod( DepartmentDC.class,"setPagerCleanerTrigger" ,new Class[]{PagerCleanerTrigger.class}));
+		m = getMethod( DepartmentDC.class,"setPagerCleanerTrigger" ,new Class[]{PagerCleanerTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomPagerCleanerTrigger(m,"department");	
+		
 		
 		assertTrue(findMethod( DepartmentDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class}));
 		m = getMethod( DepartmentDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class});

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -99,6 +99,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
                if (self.extensionPoint = false  and type <> "org.tura.platform.uuiclient.menu.DefaultMenuModel"){%]
                [%=setAttribute("model","Style",buildExpression(self.style,hints,hash))%]
                [%=setAttribute("model","StyleClass",self.styleClassExpression(hash))%]
+               [%=setAttribute("model","StyleClass",self.styleClassExpression(hash))%]
              [%}
                  for (item in self.menuElements.sortBy(q|q.order)){%]
                    [%=item.addToModel(hash,addOperation)%]
@@ -123,7 +124,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      var model_mapper = hash.get("model_mapper");
      
   %]
-        org.tura.platform.uuiclient.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.tura.platform.uuiclient.menu.DefaultMenuItem((String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
+        org.tura.platform.uuiclient.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.tura.platform.uuiclient.menu.DefaultMenuItem("[%=self.uid%]",(String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
         [%
         
             var classifierUUID = util.getHint(model_mapper,"transitionURL");
@@ -136,6 +137,8 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",buildExpression(self.style,hints,hash))%]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClassExpression(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Rendered",constructExpression(self,'rendered',hints,hash),"Boolean")%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Disabled",buildExpression(self.enabled,hints,hash),"Boolean")%]
 	    [%=self.initContextTriggers(hash,"react.preClick",null,util.mergeAndUnCapitalize(self.name)+".getEvents()")%]
 		[%=self.initContextTriggers(hash,"react.onClick",null,util.mergeAndUnCapitalize(self.name)+".getEvents()")%]
                

@@ -1,0 +1,13 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+c = tura:docker config\
+                        --port ${business_center_http}:8080\
+                        --port ${business_center_debug}:3333\
+                        --port ${business_center_git}:8001\
+                        --network ${business_center_net}\
+                        --volume $mr2:/opt/jboss/.m2/repository\
+                        --var JAVA_OPTS="-server -Xms512m -Xmx3072m" 
+
+v = tura:docker createContainer --registry tura/jbpm/bc --tag 1.0 --var c --name jbpm-bc
+
+tura:dsl exec --cmd "docker exec -i  $v sh -c \" touch /opt/jboss/wildfly/standalone/deployments/business-central.war.dodeploy \" "

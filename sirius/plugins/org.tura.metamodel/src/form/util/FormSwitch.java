@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -1163,6 +1163,7 @@ public class FormSwitch<T> extends Switch<T> {
 			case FormPackage.RELATION: {
 				Relation relation = (Relation)theEObject;
 				T result = caseRelation(relation);
+				if (result == null) result = caseCategorized(relation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1170,6 +1171,7 @@ public class FormSwitch<T> extends Switch<T> {
 				InternalRelation internalRelation = (InternalRelation)theEObject;
 				T result = caseInternalRelation(internalRelation);
 				if (result == null) result = caseRelation(internalRelation);
+				if (result == null) result = caseCategorized(internalRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

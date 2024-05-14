@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,12 +40,16 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.annotations.FormPrm;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;
-import org.tura.platform.repository.cpa.storage.ProxyObjectRegistry;
+import org.tura.platform.repository.cpa.storage.Locker;
 import org.tura.platform.uuiclient.cdi.Scope;
 import org.tura.platform.uuiclient.cdi.ScopeStorage;
+import org.tura.platform.uuiclient.cdi.SharedClientScopeContext;
 import org.tura.platform.uuiclient.cdi.StorageNotFountException;
 import org.tura.platform.uuiclient.cdi.UUIClientScopeContext;
+import org.tura.platform.uuiclient.model.FormParameters;
 import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -64,19 +68,26 @@ public class RestUUIServer {
 	ELResolver elResolver;
 
 	@Inject
-	SessionHolder sessionHolder;
+	SessionCleaner sessionCleaner;
 
 	@Inject
 	ResponseState responseState;
-	
+
 	@Inject
 	@Named("storage")
 	ScopeStorage scopeStorage;
-	
+
+	@Inject
+	@Named("sharedStorage")
+	ScopeStorage sharedScopeStorage;
+
 	@Inject
 	KeyHolder keyHolder;
-	
-	
+
+	@Inject
+	@FormPrm
+	FormParameters formParameters;
+
 	@POST
 	@Path("update/file")
 	@Consumes("multipart/form-data")
@@ -130,34 +141,66 @@ public class RestUUIServer {
 	public Response executeRequesr(DataUpdateRequest dataUpdateRequest, HashMap<String, InputStream> files) {
 
 		try {
-			sessionHolder.setScopeStorage(scopeStorage);
-			scopeStorage.setSecretKey(keyHolder.getSecretKey());
+			sessionCleaner.setScopeStorage(scopeStorage);
+			sessionCleaner.setSessionId(dataUpdateRequest.getSessionId());
+			sessionCleaner.setSharedScopeStorage(sharedScopeStorage);
+			sessionCleaner.setSharedSessionId(dataUpdateRequest.getSharedSessionId());
+			Locker.setSessionId(dataUpdateRequest.getSessionId());
 
-			scopeStorage.setState(dataUpdateRequest.getSessionState());
-			sessionHolder.setSessionId(dataUpdateRequest.getSessionId());
+			scopeStorage.setSecretKey(keyHolder.getSecretKey());
+			sharedScopeStorage.setSecretKey(keyHolder.getSecretKey());
 			
+			
+			String sharedContextFlag = System.getProperty(Constants.SHARED_CONTEXT);
+			SharedClientScopeContext sharedCtx = new SharedClientScopeContext();
+			Scope sharedScope = null;
+			if (sharedContextFlag != null && "true".equals(sharedContextFlag)) {
+				sharedScopeStorage.setState(dataUpdateRequest.getSharedSessionState());
+
+				sharedCtx.setStorage(sharedScopeStorage);
+				sharedScope = new Scope(dataUpdateRequest.getFormSelector(), sessionCleaner.getSharedSessionId());
+				sharedCtx.activate(sharedScope, dataUpdateRequest.isInitSession());
+			}
+			
+			
+			scopeStorage.setState(dataUpdateRequest.getSessionState());
+
 			UUIClientScopeContext ctx = new UUIClientScopeContext();
 			ctx.setStorage(scopeStorage);
-			Scope scope = new Scope(dataUpdateRequest.getFormSelector(), sessionHolder.getSessionId());
+			Scope scope = new Scope(dataUpdateRequest.getFormSelector(), sessionCleaner.getSessionId());
 			ctx.activate(scope, dataUpdateRequest.isInitSession());
 
+
 			elResolver.setValue("#{requestLocale}", dataUpdateRequest.getBrowserLanguage());
+			if (dataUpdateRequest.getParameters() != null) {
+				formParameters.putAll(dataUpdateRequest.getParameters());
+			}
+			formParameters.setRequest(dataUpdateRequest);
+			
 			if (files != null) {
 				elResolver.setValue("#{turaFiles}", files);
 			}
 
-			ProxyObjectRegistry.restoreLock();
-			
+
 			DataUpdateResponse object = processor.process(dataUpdateRequest);
 			object.setTopUpdateElementIds(dataUpdateRequest.getTopUpdateElementIds());
-
 
 			elResolver.setValue("#{requestLocale}", null);
 			elResolver.setValue("#{turaFiles}", null);
 
+			
+			if (sharedContextFlag != null && "true".equals(sharedContextFlag)) {
+				sharedCtx.passivate(sharedScope);
+			}			
+			
+			
 			ctx.passivate(scope);
 
 			object.setSessionState(scopeStorage.getState());
+			if (sharedContextFlag != null && "true".equals(sharedContextFlag)) {
+				object.setSharedSessionState(sharedScopeStorage.getState());
+			}			
+			
 			MultivaluedMap<String, String> formData = prepareResponse(object);
 
 			return Response.status(Response.Status.OK).entity(formData).build();
@@ -211,10 +254,8 @@ public class RestUUIServer {
 
 	}
 
-	
-	private String encode( String message) {
+	private String encode(String message) {
 		return message.replaceAll(" ", "(_)");
 	}
-	
-	
+
 }

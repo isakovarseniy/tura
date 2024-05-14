@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,10 +30,22 @@
     "primeflex": "2.0.0",
     "primeicons": "4.1.0",
     "primereact": "6.5.0",
+    [%
+    var bilderScripts = "react-scripts";
+    if (Application_Type.equals("uuiClient/MicroFrontEndPlugin")){
+      bilderScripts = "react-app-rewired";
+      %]
+    "react-app-rewired": "^2.1.8",
+      [%
+    }else{
+      %]
+    "react-scripts": "3.4.1",
+      [%
+    }
+    %]
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1"    
    [% for (h in lib.values()) { %]
     ,[%=h.get("dependency")%]
@@ -41,10 +53,10 @@
     
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "[%=bilderScripts%] --openssl-legacy-provider start",
+    "build": "[%=bilderScripts%] --openssl-legacy-provider build",
+    "test": "[%=bilderScripts%] --openssl-legacy-provider test",
+    "eject": "[%=bilderScripts%] --openssl-legacy-provider eject"
   },
   "eslintConfig": {
     "extends": "react-app"

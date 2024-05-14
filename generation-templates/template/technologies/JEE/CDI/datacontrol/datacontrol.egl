@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,7 +27,8 @@ operation datacontrol(hash){
     var uipackage = hash.get("uipackage");
     var control = hash.get("control");
     var controlSuffix = hash.get("controlSuffix");
-
+    var controlSelfSuffix=hash.get("controlSelfSuffix");
+    
      var util = new Native('org.tura.metamodel.commons.Util');
      var application = uipackage.eContainer();
      var suffix = "";
@@ -40,16 +41,13 @@ operation datacontrol(hash){
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 
-public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable, org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
+public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC extends org.tura.platform.datacontrol.DataControl <[%=control.~basefullName%]>  implements java.io.Serializable, org.tura.platform.repository.proxy.ArtificialFieldWrapperProvider [%if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%] , org.tura.platform.datacontrol.ChangeRecordListener [%}%]{
 
     private static final long serialVersionUID = 1L;
 	
-	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(control.name)%]DC.class.getName());;
+	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC.class.getName());;
 	
-    @javax.inject.Inject
-    @org.tura.platform.repository.cdi.ClientProxyRepo("[%=suffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-	private  org.tura.platform.repository.cpa.CpaRepository repository;
-
+	
     [%
     if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%]
     @Override
@@ -77,16 +75,27 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 //     var relations = form::Relation.allInstances()->select(r|r.master= control);   
      var relations = pkg.relations->select(r|r.master= control);   
     for (relation in relations){
+    
+      var  dcTreePrefix = "";
+      var dcSelfSuffix = "";
+       if (relation.detail.~treeRoot=true and relation.isTree <> true){
+          dcTreePrefix = "TreeRoot";
+       }
+       if ( relation.~loopRelation.isDefined() and relation.~loopRelation == true and  relation.isTypeOf(form::InternalRelation)){
+          dcSelfSuffix="Self";
+       }
+
+    
       if (not relation.detail.~dependObject.isDefined()){
     %]
-	private [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC  [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
+	private [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC  [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
     [%
      }
     }
     %] 
     
 
-	public  [%=util.mergeAndCapitalize(control.name)%]DC() throws Exception {
+	public  [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC() throws Exception {
 		super();
 	}
 	
@@ -106,7 +115,13 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		[%
        }     
      %]
-     pager.setRepository(repository);
+    [%
+    var selector = suffix+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase();
+    if ( control.findClassifier( util.getHint(model_mapper,"SharedScope"))){
+       selector = control.~hintDetails;
+    }
+   %]     
+     pager.setRepositoryProvider(new  org.tura.platform.repository.cdi.CdiClientCpaRepositoryProvider("[%=selector%]"));
      pager.addCpaStorageEventListenetr();
 [%
   if (not control.~dependObject.isDefined()){
@@ -233,6 +248,33 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.searchObjectParameters = searchObjectParameters;
 	}
 
+
+	@Override
+	@javax.inject.Inject
+	public void setQueryTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CustomQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.QueryTrigger queryTrigger) {
+		this.queryTrigger = queryTrigger;
+	}
+
+
+	@Override
+	@javax.inject.Inject
+	public void setDeleteTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CustomDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.DeleteTrigger deleteTrigger) {
+		this.deleteTrigger = deleteTrigger;
+	}
+	
+	@Override
+	@javax.inject.Inject
+	public void setPagerCleanerTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CustomPagerCleaner("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PagerCleanerTrigger pagerCleanerTrigger) {
+		this.pagerCleanerTrigger = pagerCleanerTrigger;
+	}	
+
+
 	@Override
 	@javax.inject.Inject
 	public void setPreQueryTrigger(
@@ -248,6 +290,16 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
+
+
+	@Override
+	@javax.inject.Inject
+	public void setCreateTrigger(
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CustomCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.CreateTrigger createTrigger) {
+		this.createTrigger = createTrigger;
+	}
+
 
 	@Override
 	@javax.inject.Inject
@@ -302,7 +354,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      var i = 0;
      for (link in relation.links){
        if (i <> 0 ){ %],[%}  %]
-	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
+	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=util.mergeAndUnCapitalize(link.masterField.name)%]", field2 = "[%=util.mergeAndUnCapitalize(link.detailField.name)%]")
     [%
      i = i+1;
       }%]    
@@ -332,11 +384,21 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		if (relation.getChild() == null) {
 			org.tura.platform.datacontrol.IDataControl dc = null;       
        [% i = 1;
-       }%]
+       }
+      var dcTreePrefix = "";
+      var dcSelfSuffix = "";
+       if (relation.detail.~treeRoot=true and relation.isTree <> true){
+          dcTreePrefix = "TreeRoot";
+       }
+       if ( relation.~loopRelation.isDefined() and relation.~loopRelation == true and  relation.isTypeOf(form::InternalRelation)){
+          dcSelfSuffix="Self";
+       }
+       
+       %]
        if ("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]".equals(relName)){
-       	javax.enterprise.inject.spi.Bean< [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC> bean = (javax.enterprise.inject.spi.Bean< [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC>) bm.getBeans( [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC.class).iterator().next();
+       	javax.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC> bean = (javax.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC>) bm.getBeans( [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC.class).iterator().next();
     	javax.enterprise.context.spi.CreationalContext<?> ctx = bm.createCreationalContext(bean);
-        [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer = ([%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC)bm.getReference(bean, [%if (relation.detail.~treeRoot=true and relation.isTree <> true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(relation.detail.name)%]DC.class, ctx);
+        [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer = ([%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC)bm.getReference(bean, [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC.class, ctx);
 		dc = [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
 		}
     [%

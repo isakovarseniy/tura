@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -195,15 +195,16 @@ public abstract class ListOfObjects<T> extends AbstractList<T> implements Search
 		List<StorageControl> result = null;
 
 		if (getParentKeyPath() != null) {
-			result = storageProvider.getStorage().findDependencies(getParentKeyPath(), getProperty(), startTimeStamp,
+			result = storageProvider.get().findDependencies(getParentKeyPath(), getProperty(), startTimeStamp,
 					Long.MAX_VALUE, Arrays.asList(new String[] { ObjectStatus.Inserted.name() }), this.cpaRelationType);
 		} else {
-			result = storageProvider.getStorage().find(objectType, startTimeStamp, Long.MAX_VALUE,
+			result = storageProvider.get().find(objectType, startTimeStamp, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 		}
 
 		for (StorageControl sc : result) {
-			T proxy = (T) repository.factory(sc.getObject(), sc.getObject().getClass().getName());
+			T obj = CpaHelper.toObject(sc);
+			T proxy = (T) repository.factory(obj, obj.getClass().getName());
 
 			if (getShifter().findPosition(proxy) != -1) {
 				continue;

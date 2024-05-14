@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,17 +25,14 @@ import static org.junit.Assert.fail;
 import java.io.File;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.sales.analyzer.process.PostDeployer;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.tura.platform.selenium.InputText;
 import org.tura.platform.selenium.Table;
 import org.tura.platform.selenium.primereact.Repeater;
@@ -50,32 +47,14 @@ public class AdminTest extends AbstractTest{
 	static WebDriver driver;
 	static ChromeDriverService service;
 	static private String app_url = "/admin/administration/adminWindow";
-	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
-
-	@BeforeClass
-	public static void beforeClass() {
-		try {
-
-			service = new ChromeDriverService.Builder()
-					.usingDriverExecutable(new File(driver_location)).usingAnyFreePort()
-					.build();
-
-			service.start();
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
-	}
-
-	@AfterClass
-	public static void createAndStopService() {
-		service.stop();
-	}
+	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"
+			+ getChromeDriverName();
 
 	@Before
 	public void createDriver() {
-		driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		ChromeOptions option = new ChromeOptions();
+		option.setBinary(new File(driver_location));
+		driver = new ChromeDriver( new ChromeOptions());
 	}
 
 	@After
@@ -85,10 +64,10 @@ public class AdminTest extends AbstractTest{
 
 	private void login() {
 		WebElement el = driver.findElement(By.id("username"));
-		el.sendKeys(PostDeployer.USERNAME);
+		el.sendKeys(AbstractTest.USERNAME);
 
 		el = driver.findElement(By.id("password"));
-		el.sendKeys(PostDeployer.PASSWORD);
+		el.sendKeys(AbstractTest.PASSWORD);
 
 		el = driver.findElement(By.id("kc-login"));
 		el.click();

@@ -1,0 +1,213 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+c = tura:docker config\
+                        --alias kie\
+                        --port ${kie_server_http}:8080\
+                        --port ${kie_server_debug}:3333\
+                        --network sa-net\
+                        --volume $mr2:/opt/jboss/.m2/repository\
+                        --volume $tura_working_directory/resources:/opt/jboss/files\
+                        --var JAVA_OPTS="-server -Xms512m -Xmx2048m -Duser.timezone=America/Toronto"
+                        
+
+v = tura:docker createContainer --registry tura/jbpm/kieserver --tag 1.0 --var c --name sa-kie
+
+
+                                          
+tura:dsl copyFile                --container $v\
+                                          --unzip\
+                                          --sourceResource $tura_home/examples/sales-analyzer/talend-jobs/monthly_file_processing.zip\
+                                          --targetLocation    /opt/jboss/jobs\
+                                          --targetName monthly_file_processing.zip
+                                          
+                                          
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Create_cases/etl/create_cases_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/History_loader/etl/monthly_file_validation_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Load_Monthly_Data/etl/load_monthly_data_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Monthly_file_validation/etl/monthly_file_validation_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+                  
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+                  
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Prepare_to_rules_run/etl/prepare_to_rules_run_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Default.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+                                          
+                                          
+tura:dsl jobPropertyFile\
+          --containerId $v\
+         --application sales-analyzer\
+         --artifact Development.properties\
+         --targetLocation /opt/jboss/\
+         --relativeLocation /jobs/monthly_file_processing/Run_rules/etl/run_rules_0_1/contexts\
+         --property USER_HOME:/opt/jboss/files/  
+
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/kie-server/WEB-INF/lib/\
+                                         --targetName server-extension-${tura_version}.jar\
+                                         --sourceResource "$mr2/sales-analyzer/server-extension/${tura_version}/server-extension-${tura_version}.jar" 
+
+tura:dsl copyFile               --container $v\
+                                          --targetLocation  /opt/jboss/deployment/kie-server/WEB-INF/lib/\
+                                          --targetName api-extension-${tura_version}.jar\
+                                          --sourceResource $mr2/sales-analyzer/api-extension/${tura_version}/api-extension-${tura_version}.jar       
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/kie-server/WEB-INF/\
+                                         --targetName jboss-deployment-structure.xml\
+                                         --sourceResource "$repo_home/sales-analyzer/kie-server/assets/jboss-deployment-structure.xml" 
+                                         
+                                         
+# Remove restriction for "admin" group in KieServer                                          
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/kie-server/WEB-INF/classes\
+                                         --targetName restricted-groups.properties\
+                                         --sourceResource "$repo_home/sales-analyzer/kie-server/assets/restricted-groups.properties" 
+                                         
+
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Monthly_file_validation/Monthly_file_validation_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Load_Monthly_Data/Load_Monthly_Data_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_data_for_period/Generate_data_for_period_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Generate_monthly_file/Generate_monthly_file_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/History_loader/History_loader_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chmod +x /opt/jboss/jobs/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chown -R jboss:jboss /opt/jboss/jobs\" "
+tura:dsl exec --cmd "docker exec -i --user root sa-kie sh -c \"chown -R jboss:jboss /opt/jboss/files\" "
+
+
+tura:dsl exec --cmd "docker exec -i  $v sh -c \" touch /opt/jboss/wildfly/standalone/deployments/kie-server.war.dodeploy \" "
+
+
+tura:docker jbpm healthCheckKieServer\
+                           --jbpm-host-port localhost:${kie_server_http}\
+                           --kc-host-port localhost:${keyclock_http}\
+                           --realm sales-analyzer\
+                           --clientId service-access\
+                           --user bpmadmin\
+                           --password qwerty\
+                           --repeats 30
+
+
+
+tura:docker jbpm createContainer\
+                           --jbpm-host-port localhost:${kie_server_http}\
+                           --kc-host-port localhost:${keyclock_http}\
+                           --realm sales-analyzer\
+                           --clientId service-access\
+                           --user bpmadmin\
+                           --password qwerty\
+                           --kiecontainerId sales-analyzer-container\
+                           --groupId sales-analyzer\
+                           --artifactId sa-processes\
+                           --version ${tura_version}\
+                           --repeats 10
+
+
+
+tura:docker jbpm startProcess\
+                           --jbpm-host-port localhost:${kie_server_http}\
+                           --kc-host-port localhost:${keyclock_http}\
+                           --realm sales-analyzer\
+                           --clientId service-access\
+                           --user bpmadmin\
+                           --password qwerty\
+                           --kiecontainerId sales-analyzer-container\
+                           --processId sales.analyzer.HealthCheck\
+                           --repeats 10      
+                           
+echo 'Copy monthly files'        
+tura:dsl removeFile --targetLocation "/opt/jboss/files/MonthlyData*.*" --container sa-kie                   
+tura:dsl copyMonthlyFiles\
+                                         --containerId $v\
+                                         --application sales-analyzer\
+                                         --relativeLocation files\
+                                         --targetLocation /opt/jboss/                                       
+                           

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,13 +22,14 @@ import java.util.HashMap;
 
 import org.tura.platform.uuiclient.rest.events.DefaultEventProcessor;
 import org.tura.platform.uuiclient.rest.events.EventProcessor;
+import org.tura.platform.uuiclient.rest.events.EventProcessorWithResolver;
 
 public class EventRegistry {
 
 	private static HashMap<String ,EventProcessor> hash = new HashMap<>();
 	
 	static {
-//		hash.put("react.onRowSelection", new OnRowSelectionProcessor());
+		hash.put("react.onAddWindowEvent", new EventProcessorWithResolver());
 	}
 	
 	public static EventProcessor findProcessor( String eventName) {

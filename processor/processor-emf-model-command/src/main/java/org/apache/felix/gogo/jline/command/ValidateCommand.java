@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -61,9 +61,9 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 	private String MAPPINGS_TYPE_VALIDATION_RULES = "tura:/generation-templates/validation/rules/runtimeTypedefinitionValidationRules.evl";
 
 	private String RECIPE_VALIDATION_RULES = "tura:/generation-templates/validation/mainRecipeValidationRules.evl";
-	
+
 	private String ARTIFACT_VALIDATION_RULES = "tura:/generation-templates/validation/mainArtifactValidationRules.evl";
-	
+
 	private String recipeId;
 
 	private String componentId;
@@ -75,10 +75,12 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 	private boolean recipeOnly;
 
 	private boolean artifactsOnly;
-	
+
 	private String infraId;
 
 	private String modelFile;
+
+	private QueryHelper queryHelper = new QueryHelper();
 
 	public void run() {
 		errors = 0;
@@ -106,7 +108,7 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 			if (recipeOnly) {
 				action = "recipeOnly";
 			}
-			
+
 			if (artifactsOnly) {
 				action = "artifactsOnly";
 			}
@@ -152,8 +154,6 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 
 				EObject obj = c.iterator().next();
 				QueryHelper queryHelper = new QueryHelper();
-				HashMap<String, Object> configuration = new HashMap<>();
-				getConfiguratioin(queryHelper.getConfiguration(obj, infraId), configuration);
 
 				Ingredient ingredient = null;
 				Recipe recipe = null;
@@ -164,36 +164,34 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 				switch (action) {
 				case "recipeOnly":
 					recipe = queryHelper.getRecipe(obj, recipeId);
-					validateRecipe(model, recipe, configuration, objectForValidation);
+					validateRecipe(model, recipe, objectForValidation);
 					break;
 
 				case "artifactsOnly":
 					recipe = queryHelper.getRecipe(obj, recipeId);
-					validateArtifacts(model, recipe, configuration, objectForValidation);
+					validateArtifacts(model, recipe, objectForValidation);
 					break;
 				case "mapperId":
 					mapper = queryHelper.getModelMapper(obj, mapperId);
 					component = (Component) mapper.eContainer();
 					ingredient = (Ingredient) component.eContainer();
 					recipe = (Recipe) ingredient.eContainer();
-					validateObjectsForModelMapper(model, mapper, ingredient, component, recipe, configuration,
-							objectForValidation);
+					validateObjectsForModelMapper(model, mapper, ingredient, component, recipe, objectForValidation);
 					break;
 				case "componentId":
 					component = queryHelper.getComponent(obj, componentId);
 					ingredient = (Ingredient) component.eContainer();
 					recipe = (Recipe) ingredient.eContainer();
-					validateObjectsForComponent(model, ingredient, component, recipe, configuration,
-							objectForValidation);
+					validateObjectsForComponent(model, ingredient, component, recipe, objectForValidation);
 					break;
 				case "ingredientId":
 					ingredient = queryHelper.getIngredient(obj, ingredientId);
 					recipe = (Recipe) ingredient.eContainer();
-					validateObjectsForIngredient(model, ingredient, recipe, configuration, objectForValidation);
+					validateObjectsForIngredient(model, ingredient, recipe, objectForValidation);
 					break;
 				case "recipeId":
 					recipe = queryHelper.getRecipe(obj, recipeId);
-					validateObjectsForRecipe(model, recipe, configuration, objectForValidation);
+					validateObjectsForRecipe(model, recipe, objectForValidation);
 					break;
 				}
 
@@ -202,7 +200,8 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 					List<EObject> roots = new ArrayList<>();
 					roots.addAll(objectForValidation.values());
 					module.setRootEObjects(roots);
-					Collection<UnsatisfiedConstraint> constrains = validate(MAIN_OBJECT_VALIDATION_RULES, model, module);
+					Collection<UnsatisfiedConstraint> constrains = validate(MAIN_OBJECT_VALIDATION_RULES, model,
+							module);
 					if (constrains != null && constrains.size() != 0) {
 						printErrors(constrains, null);
 					}
@@ -213,14 +212,13 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 			}
 
 		} catch (Throwable e) {
-			throw new RuntimeException("Eror during build process",e);
+			throw new RuntimeException("Eror during build process", e);
 		} finally {
 			if (model != null) {
 				model.dispose();
 			}
 		}
 	}
-
 
 	private void printErrors(Collection<UnsatisfiedConstraint> constrains, String header) {
 
@@ -299,46 +297,48 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 		return p;
 	}
 
-	private void validateObjectsForRecipe(IModel model, Recipe recipe, HashMap<String, Object> configuration,
-			Map<String, EObject> objectForValidation) throws Exception {
+	private void validateObjectsForRecipe(IModel model, Recipe recipe, Map<String, EObject> objectForValidation)
+			throws Exception {
 		for (Ingredient ingredient : recipe.getIngredients()) {
-			validateObjectsForIngredient(model, ingredient, recipe, configuration, objectForValidation);
+			validateObjectsForIngredient(model, ingredient, recipe, objectForValidation);
 		}
 	}
 
 	private void validateObjectsForIngredient(IModel model, Ingredient ingredient, Recipe recipe,
-			HashMap<String, Object> configuration, Map<String, EObject> objectForValidation) throws Exception {
+			Map<String, EObject> objectForValidation) throws Exception {
 		if (ingredient.isSkip()) {
 			return;
 		}
 
 		for (Component component : ingredient.getComponents()) {
-			validateObjectsForComponent(model, ingredient, component, recipe, configuration, objectForValidation);
+			validateObjectsForComponent(model, ingredient, component, recipe, objectForValidation);
 		}
 	}
 
 	private void validateObjectsForComponent(IModel model, Ingredient ingredient, Component component, Recipe recipe,
-			HashMap<String, Object> configuration, Map<String, EObject> objectForValidation) throws Exception {
+			Map<String, EObject> objectForValidation) throws Exception {
 		if (component.isSkip()) {
 			return;
 		}
 
 		for (ModelMapper mapper : component.getMappers()) {
-			validateObjectsForModelMapper(model, mapper, ingredient, component, recipe, configuration,
-					objectForValidation);
+			validateObjectsForModelMapper(model, mapper, ingredient, component, recipe, objectForValidation);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	private void validateObjectsForModelMapper(IModel model, ModelMapper mapper, Ingredient ingredient,
-			Component component, Recipe recipe, HashMap<String, Object> configuration,
-			Map<String, EObject> objectForValidation) throws Exception {
+			Component component, Recipe recipe, Map<String, EObject> objectForValidation) throws Exception {
 
 		if (mapper.isSkip()) {
 			return;
 		}
 		String header = "Validation:  Ingredient -> {" + ingredient.getName() + "} Component -> {" + component.getName()
 				+ "} Mapper -> {" + mapper.getName() + "}";
+
+		HashMap<String, Object> configuration = new HashMap<>();
+		getConfiguratioin(queryHelper.getBranchedConfiguration(mapper, infraId, mapper.getConfigBranch()),
+				configuration, mapper.getConfigBranch());
 
 		List<ModelQuery> modelQueryList = mapper.getArtifactRef().getModelQuery();
 
@@ -359,16 +359,17 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("component", component));
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("ingredient", ingredient));
 		module.getContext().getFrameStack().put(Variable.createReadOnlyVariable("recipe", recipe));
-		Collection<UnsatisfiedConstraint> constrains = validate(MAPPINGS_TYPE_VALIDATION_RULES, (EmfModel) model, module);
+		Collection<UnsatisfiedConstraint> constrains = validate(MAPPINGS_TYPE_VALIDATION_RULES, (EmfModel) model,
+				module);
 		if (constrains != null && constrains.size() != 0) {
 			printErrors(constrains, header);
 		}
 
 	}
 
-	private void validateRecipe(EmfModel model, Recipe recipe, HashMap<String, Object> configuration,
-			Map<String, EObject> objectForValidation)  throws Exception{
-		
+	private void validateRecipe(EmfModel model, Recipe recipe, Map<String, EObject> objectForValidation)
+			throws Exception {
+
 		List<EObject> array = new ArrayList<>();
 		array.add(recipe);
 
@@ -379,31 +380,30 @@ public class ValidateCommand extends TuraCommand implements IValidateCommand {
 			printErrors(constrains, null);
 		}
 	}
-	
-	private void validateArtifacts(EmfModel model, Recipe recipe, HashMap<String, Object> configuration,
-			Map<String, EObject> objectForValidation) throws Exception {
-		
+
+	private void validateArtifacts(EmfModel model, Recipe recipe, Map<String, EObject> objectForValidation)
+			throws Exception {
+
 		EvlModule module = new EvlModule();
 		Collection<UnsatisfiedConstraint> constrains = validate(ARTIFACT_VALIDATION_RULES, (EmfModel) model, module);
 		if (constrains != null && constrains.size() != 0) {
 			printErrors(constrains, null);
 		}
-		
-	}
 
+	}
 
 	@Override
 	public void run(String recipeId, String componentId, String ingredientId, String mapperId, boolean recipeOnly,
 			boolean artifactsOnly, String infraId, Object model) {
-		this.recipeId=recipeId;
+		this.recipeId = recipeId;
 		this.componentId = componentId;
 		this.ingredientId = ingredientId;
 		this.mapperId = mapperId;
 		this.recipeOnly = recipeOnly;
 		this.artifactsOnly = artifactsOnly;
-		this.infraId =  infraId;
+		this.infraId = infraId;
 		this.modelFile = (String) model;
 		run();
 	}
-	
+
 }

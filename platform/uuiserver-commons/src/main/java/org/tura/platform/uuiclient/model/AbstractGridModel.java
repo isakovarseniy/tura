@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ package org.tura.platform.uuiclient.model;
 
 import java.util.List;
 
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.uuiclient.rest.EventDescription;
 
 public interface AbstractGridModel {
@@ -35,6 +36,7 @@ public interface AbstractGridModel {
 	public void setPageSize(int pageSize);
 	public Long getTotalRows();
     public int getFirst();	
+	public Object getParent() throws TuraException;
     
     public Object getSelected();
     public void setSelected(Object selected);

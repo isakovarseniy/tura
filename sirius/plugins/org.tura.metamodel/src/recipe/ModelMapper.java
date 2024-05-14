@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.ModelMapper#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.ModelMapper#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactExtension <em>Artifact Extension</em>}</li>
+ *   <li>{@link recipe.ModelMapper#getConfigBranch <em>Config Branch</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getModelMapper()
@@ -201,5 +202,27 @@ public interface ModelMapper extends ArtifactRef, Orderable, Categorized {
 	 * @generated
 	 */
 	void setArtifactExtension(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Branch</em>' attribute.
+	 * @see #setConfigBranch(String)
+	 * @see recipe.RecipePackage#getModelMapper_ConfigBranch()
+	 * @model
+	 * @generated
+	 */
+	String getConfigBranch();
+
+	/**
+	 * Sets the value of the '{@link recipe.ModelMapper#getConfigBranch <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Config Branch</em>' attribute.
+	 * @see #getConfigBranch()
+	 * @generated
+	 */
+	void setConfigBranch(String value);
 
 } // ModelMapper

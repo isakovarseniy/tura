@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,11 @@ public class ViewModel implements Serializable {
     	this.callbackProducer = callbackProducer;
     }
 
+    public Object getModel(String modelId) {
+        return modelHolder.get(modelId);
+    }
+    
+    
     @SuppressWarnings({ "rawtypes" })
     public Object getModel(String modelId, String modelType, Object obj) {
 
@@ -84,10 +89,19 @@ public class ViewModel implements Serializable {
             model = getTimeLineModel((DataControl) obj,callback,modelId);
         }
 
+        if ("windowPlugin".equals(modelType)) {
+            model = getWindowPluginModel((DataControl) obj,callback,modelId);
+        }
+        
         modelHolder.put(modelId, model);
         return model;
 
     }
+
+	@SuppressWarnings("rawtypes")
+	private Object getWindowPluginModel(DataControl obj, Object callback, String modelId) {
+        return new WindowsPluginModel(callback,modelId);
+	}
 
 	private Object getUielementModel(Object callback, String modelId) {
 		return new UIElementModel();

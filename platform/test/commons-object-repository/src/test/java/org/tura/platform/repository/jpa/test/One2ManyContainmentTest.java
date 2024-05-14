@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,10 +100,10 @@ public class One2ManyContainmentTest {
 
 			repository.insert(o1, One2Many2A.class);
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(2, array.size());
 			
 			stackProvider.get().commit();
@@ -118,27 +118,27 @@ public class One2ManyContainmentTest {
 			assertEquals(2, result.getSearchResult().size());
 
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
 			
 			repository.remove(o1, One2Many2A.class);
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
 			assertEquals(2, array.size());
 			
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
@@ -149,10 +149,10 @@ public class One2ManyContainmentTest {
 					One2Many2B.class);
 			assertEquals(0, result.getSearchResult().size());
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 			
 			
@@ -179,26 +179,26 @@ public class One2ManyContainmentTest {
 			o2 = (One2Many2B) repository.create(One2Many2B.class);
 			o1.getOne2Many2B().add(o2);
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Created.name() }) );
+			List<StorageControl> array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Created.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
 			assertEquals(2, array.size());
 			
 			repository.insert(o1, One2Many2A.class);
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name() }) );
 			assertEquals(2, array.size());
 
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
 			assertEquals(2, array.size());
 			
 			
@@ -211,10 +211,10 @@ public class One2ManyContainmentTest {
 					One2Many2B.class);
 			assertEquals(2, result.getSearchResult().size());
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
 			assertEquals(2, array.size());
 			
 			int size = o1.getOne2Many2B().size();
@@ -222,18 +222,18 @@ public class One2ManyContainmentTest {
 				o1.getOne2Many2B().remove(0);
 			}
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name() }) );
 			assertEquals(2, array.size());
 			
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
@@ -246,10 +246,10 @@ public class One2ManyContainmentTest {
 					One2Many2B.class);
 			assertEquals(0, result.getSearchResult().size());
 
-			array = cpaStorageProvider.getStorage().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
+			array = cpaStorageProvider.get().find(One2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name(),ObjectStatus.Removed.name() }) );
 			assertEquals(0, array.size());
 			
 			

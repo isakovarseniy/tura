@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 package org.sales.analyzer.process;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 import java.text.SimpleDateFormat;
@@ -37,6 +38,8 @@ import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
 import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
+import org.sales.analyzer.ui.AbstractTest;
+import org.kie.server.api.model.instance.ProcessInstance;
 
 import sales.analyzer.process.commons.Constants;
 
@@ -44,28 +47,25 @@ import sales.analyzer.process.commons.Constants;
 public class ImportProcessTest {
 
 	private static int RETRY = 300;
-	private static final String PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
-	private static final String FILE_LOAD_NODE = "File Loader";
-	private static final String REVIEW_ERROR = "Review error";
+	private static final String PROCESS_ID = Constants.ETL_MONTHLY_FILE_LOAD_PROCESS_ID;
+	private static final String FILE_LOAD_NODE = Constants.STEP2;
+	private static final String REVIEW_ERROR = Constants.STEP3;
 	@SuppressWarnings("unused")
-	private static final String PREPARE_DATA_FOR_RULES = "Prepare data for rule processing";
+	private static final String PREPARE_DATA_FOR_RULES = Constants.STEP4;
 	@SuppressWarnings("unused")
-	private static final String RUN_BUSINESS_RULES = "Run business rules";
-	private static final String REVIEW_BUSSINESS_RULES_RESULT = "Review bussiness rules result";
+	private static final String RUN_BUSINESS_RULES = Constants.STEP5;
+	private static final String REVIEW_BUSSINESS_RULES_RESULT = Constants.STEP6;
 	@SuppressWarnings("unused")
-	private static final String RUN_CASE_GENERATION = "Run case generation";
-	private static final String REVIEW_CEASE_GENERATION="Review cease generation";
+	private static final String RUN_CASE_GENERATION = Constants.STEP8;
+	private static final String REVIEW_CEASE_GENERATION= Constants.STEP9;
 	
 
 	@Test
 	public void t0000_MonthlyDataLoader_HappyPath() {
 		try {
-			
-			
-			
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider( AbstractTest.getToken()));
 			
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
@@ -142,7 +142,8 @@ public class ImportProcessTest {
 			if (asyncResult == true ) {
 				fail();
 			}
-			
+			List<ProcessInstance> ls =  queryClient.findProcessInstancesByProcessId(Constants.CASE_INVESTIGATION_PROCESS, null, 4, 100);
+			 assertNotEquals(0, ls.size());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

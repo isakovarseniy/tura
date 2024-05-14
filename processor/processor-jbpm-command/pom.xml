@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tura.platform.version>5.0.5</tura.platform.version>
+		<gogo.version>1.1.2</gogo.version>
+		<picocli.version>3.9.2</picocli.version>
+		<commons-httpclient-version>3.1</commons-httpclient-version>
+
+		<version.jbpm>7.48.0.Final</version.jbpm>
+		<version.kafka-clients>2.7.0</version.kafka-clients>
+		<version.junit>4.11</version.junit>
+		<version.jersey-media-json-jackson>2.22</version.jersey-media-json-jackson>
+
+	</properties>
+
+
+	<parent>
+		<groupId>org.tura</groupId>
+		<artifactId>processor</artifactId>
+		<version>6.1.2</version>
+	</parent>
+
+	<groupId>org.tura.processor</groupId>
+	<artifactId>processor-jbpm-command</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Tura :: Platform :: Processor :: JBPM</name>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.tura.processor</groupId>
+			<artifactId>processor-tura-command-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.processor</groupId>
+			<artifactId>processor-tura-command</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons-httpclient-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${version.jersey-media-json-jackson}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.uberfire</groupId>
+			<artifactId>uberfire-rest-client</artifactId>
+			<version>${version.jbpm}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.workbench.screens</groupId>
+			<artifactId>kie-wb-common-library-api</artifactId>
+			<version>${version.jbpm}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server-client</artifactId>
+			<version>${version.jbpm}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.sun.xml.messaging.saaj</groupId>
+			<artifactId>saaj-impl</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<outputDirectory>${project.basedir}</outputDirectory>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+						<manifest>
+							<!--
+							mainClass>org.tura.processor.RecipeProcessor</mainClass -->
+							<mainClass>org.apache.felix.gogo.jline.TuraMain</mainClass>
+						</manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<!-- bind to the packaging phase -->
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

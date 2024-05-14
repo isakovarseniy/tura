@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -562,6 +562,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getConfigExtension_ConfigBranch() {
+		return (EAttribute)configExtensionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRecipe2Infrastructure() {
 		return recipe2InfrastructureEClass;
 	}
@@ -634,6 +644,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	@Override
 	public EReference getInfrastructure2Configuration_Target() {
 		return (EReference)infrastructure2ConfigurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getInfrastructure2Configuration_ConfigBranch() {
+		return (EAttribute)infrastructure2ConfigurationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1142,6 +1162,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getModelMapper_ConfigBranch() {
+		return (EAttribute)modelMapperEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -1456,6 +1486,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(configExtensionEClass, CONFIG_EXTENSION__UID);
 		createEReference(configExtensionEClass, CONFIG_EXTENSION__SOURCE);
 		createEReference(configExtensionEClass, CONFIG_EXTENSION__TARGET);
+		createEAttribute(configExtensionEClass, CONFIG_EXTENSION__CONFIG_BRANCH);
 
 		recipe2InfrastructureEClass = createEClass(RECIPE2_INFRASTRUCTURE);
 		createEAttribute(recipe2InfrastructureEClass, RECIPE2_INFRASTRUCTURE__UID);
@@ -1466,6 +1497,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(infrastructure2ConfigurationEClass, INFRASTRUCTURE2_CONFIGURATION__UID);
 		createEReference(infrastructure2ConfigurationEClass, INFRASTRUCTURE2_CONFIGURATION__SOURCE);
 		createEReference(infrastructure2ConfigurationEClass, INFRASTRUCTURE2_CONFIGURATION__TARGET);
+		createEAttribute(infrastructure2ConfigurationEClass, INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH);
 
 		deploymentComponentEClass = createEClass(DEPLOYMENT_COMPONENT);
 		createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__UID);
@@ -1526,6 +1558,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__SKIP);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_EXTENSION);
+		createEAttribute(modelMapperEClass, MODEL_MAPPER__CONFIG_BRANCH);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__UID);
@@ -1632,6 +1665,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getConfigExtension_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigExtension_Source(), this.getConfiguration(), null, "source", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigExtension_Target(), this.getConfiguration(), null, "target", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigExtension_ConfigBranch(), ecorePackage.getEString(), "configBranch", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recipe2InfrastructureEClass, Recipe2Infrastructure.class, "Recipe2Infrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRecipe2Infrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Recipe2Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1642,6 +1676,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getInfrastructure2Configuration_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Infrastructure2Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure2Configuration_Source(), this.getInfrastructure(), null, "source", null, 0, 1, Infrastructure2Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure2Configuration_Target(), this.getConfiguration(), null, "target", null, 0, 1, Infrastructure2Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure2Configuration_ConfigBranch(), ecorePackage.getEString(), "configBranch", null, 0, 1, Infrastructure2Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentComponentEClass, DeploymentComponent.class, "DeploymentComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1702,6 +1737,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_Skip(), ecorePackage.getEBoolean(), "skip", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_ArtifactExtension(), ecorePackage.getEString(), "artifactExtension", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModelMapper_ConfigBranch(), ecorePackage.getEString(), "configBranch", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

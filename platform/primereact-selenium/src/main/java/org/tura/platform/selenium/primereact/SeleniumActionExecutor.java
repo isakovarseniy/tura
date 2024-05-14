@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 
 package org.tura.platform.selenium.primereact;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -46,7 +47,7 @@ public abstract class SeleniumActionExecutor {
 		}
 		action(driver);
         for (WebElement webElement : webElements){
-        	WebDriverWait wait = new WebDriverWait(driver, 10);
+        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         	wait.until( ExpectedConditions.stalenessOf(webElement));
         }
 		

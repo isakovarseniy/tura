@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,6 +52,12 @@ public class EagerSingleObject<T> implements Serializable, Closeable {
 		
 	}
 
+	
+	public CpaRepository getRepository() {
+		return repository;
+	}
+
+
 	@SuppressWarnings("unchecked")
 	public T get(RepoKeyPath cpaPath, String relation) {
 		try {
@@ -70,7 +76,7 @@ public class EagerSingleObject<T> implements Serializable, Closeable {
 		String[] ObjectStatuses = { ObjectStatus.Inserted.name(), ObjectStatus.Loaded.name(),
 				ObjectStatus.Updated.name() };
 
-		List<T> list = CpaHelper.toObjectList(storageProvider.getStorage().findDependencies(cpaPath, relation, 0,
+		List<T> list = CpaHelper.toObjectList(storageProvider.get().findDependencies(cpaPath, relation, 0,
 				Long.MAX_VALUE, Arrays.asList(ObjectStatuses) ,this.cpaRelationType  ));
 
 		if (list.size() == 0) {
@@ -81,7 +87,7 @@ public class EagerSingleObject<T> implements Serializable, Closeable {
 
 	protected T findObject(RepoKeyPath cpaPath, Class<T>  objectType) throws Exception {
 
-		T t= storageProvider.getStorage().getObject(cpaPath);
+		T t= storageProvider.get().getObject(cpaPath);
 
 		return t;
 	}	

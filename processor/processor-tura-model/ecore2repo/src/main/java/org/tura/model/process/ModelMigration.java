@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,7 +26,6 @@ import javax.persistence.Persistence;
 
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.flock.FlockModule;
-import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.tura.convert.trg.TrgModelLoader;
 import org.tura.epsilon.model.TuraModel;
@@ -51,7 +50,6 @@ import domain.DomainPackage;
 public class ModelMigration extends EmfInstantiator {
 
 	private static TuraInstantiator repositoryProducer;
-	private static Server server;
 
 	public static void main(String[] args) {
 		try {
@@ -59,9 +57,7 @@ public class ModelMigration extends EmfInstantiator {
 		    mig.migrate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			server.stop();
-		}
+		} 
 
 	}
 
@@ -89,7 +85,6 @@ public class ModelMigration extends EmfInstantiator {
 
 	private TuraModel createTuraModel() throws Exception {
 
-		server = Server.createTcpServer().start();		
 		repositoryProducer = new TuraInstantiator();
 		
 		Configuration config = new Configuration();

@@ -511,7 +511,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="#//Order"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relation">
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

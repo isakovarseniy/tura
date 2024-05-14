@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -68,10 +68,9 @@ export class TButton extends TuraComponent {
             return externalLayoutManager.getLayout(this.props.children, this.contextManager, this.state, this);
         }
 
-
         return (
             <Button id={this.id}  onClick={this.handleClick}  label={this.state.label}  icon={this.state.icon} style={this.state.style}
-                    className = {this.state.className}>
+                    className = {this.state.className} disabled={this.state.disabled} tooltip = {this.state.hintMessage} >
             </Button>
 
         );

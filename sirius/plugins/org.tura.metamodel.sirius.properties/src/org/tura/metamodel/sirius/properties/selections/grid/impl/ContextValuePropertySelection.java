@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -252,6 +252,12 @@ public abstract class ContextValuePropertySelection extends GridProperty {
             if (obj != null) {
                 rootOfTree.addChild(obj);
             }
+
+            obj = new QueryHelper1().getMessages(root);
+            if (obj != null) {
+                rootOfTree.addChild(obj);
+            }
+            
             
             Form frm = new QueryHelper1().getForm(root);
             obj = new QueryHelper().getDomainApplications(frm);

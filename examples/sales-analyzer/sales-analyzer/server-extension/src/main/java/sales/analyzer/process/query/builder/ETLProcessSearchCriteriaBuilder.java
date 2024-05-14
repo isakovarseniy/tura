@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class ETLProcessSearchCriteriaBuilder implements QueryParamBuilder<Column
 			ColumnFilter f1 = FilterFactory.equalsTo(username);
 			f1.setColumnId(SecurityRulesHelper.COLUMN_ACTUALOWNER_ID);
 
-			List<String> groups = userGroupCallback.getGroupsForUser(username, null, null);
+			List<String> groups = userGroupCallback.getGroupsForUser(username);
 			ColumnFilter f2 = FilterFactory.in(SecurityRulesHelper.COLUMN_ORG_ID, groups);
 			ColumnFilter filter = FilterFactory.OR(f1, f2);
 			filters.add(filter);

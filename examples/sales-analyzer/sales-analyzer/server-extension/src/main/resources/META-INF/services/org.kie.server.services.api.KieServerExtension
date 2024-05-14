@@ -1,1 +1,2 @@
 org.kie.server.services.impl.security.IdentityExtension
+org.kie.server.services.query.QueryExtension

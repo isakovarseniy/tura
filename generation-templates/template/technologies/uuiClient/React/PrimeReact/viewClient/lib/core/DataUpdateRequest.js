@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,8 +23,9 @@ export class DataUpdateRequest {
     initSession = false;
     sessionId = "";
     sessionState="";
-
-
+	sharedSessionId;
+	sharedSessionState;
+	
     setTopUpdateElementIds(  topUpdateElementIds  ) {
         this.topUpdateElementIds = topUpdateElementIds;
     }
@@ -53,6 +54,21 @@ export class DataUpdateRequest {
         this.sessionState = sessionState;
     }
 
+	getSharedSessionId() {
+		return sharedSessionId;
+	}
+
+	setSharedSessionId( sharedSessionId) {
+		this.sharedSessionId = sharedSessionId;
+	}
+
+	getSharedSessionState() {
+		return sharedSessionState;
+	}
+
+	setSharedSessionState( sharedSessionState) {
+		this.sharedSessionState = sharedSessionState;
+	}
 
 
 }

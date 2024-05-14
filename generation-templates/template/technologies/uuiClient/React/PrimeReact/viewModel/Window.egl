@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -128,6 +128,13 @@ operation  form::Window createModel(hash) {
 			public void initContext(org.tura.platform.datacontrol.ELResolver elResolver,org.tura.platform.uuiclient.rest.client.commands.ResponseState responseState) throws Exception{
 			    [%=self.style(hash)%]
 			    [%=self.styleClass(hash)%]
+			    [%
+			        var params=new Native('java.util.ArrayList');
+			        params.add("cmd");
+			    
+			    %]
+			    [%=self.initContextTriggers(hash,"form.callApi",params)%]
+			    
 			    this.columnStyleClass = new String[]{ [%=self.columnStyleClass(hash)%] };
 			    
 			    String modelExpression =  "#{viewmodel[%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]','uielement', null)}";
@@ -167,7 +174,12 @@ operation  form::Window createModel(hash) {
 			    	   UuiElement uie = chClass.newInstance();
 			    	   getChildrens().add(uie.restoreContext(chMap,request,responseState,eventsToFire));
 			       }
-			       
+			       List<Object> events = (List<Object>) map.get("events");
+			       for ( Object child : events) {
+			    	   Map <String, Object> chMap = (Map<String, Object>) child;
+			    	   EventDescription event = new EventDescription();
+			    	   getEvents().add((EventDescription)event.restoreContext(chMap,request,responseState,eventsToFire));
+			       }
 			       if ( map.get("blocking") != null){
 			          this.blocking = (boolean) map.get("blocking");
 			       }

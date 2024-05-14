@@ -2,7 +2,7 @@
 #
 #   Tura - Application generation solution
 #
-#   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+#   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 #
 #
 #   This project includes software developed by Arseniy Isakov
@@ -50,6 +50,6 @@ else
   exit -1;
 fi
 
-MODEL_CONNECTOR="${HOME}/.m2/repository/com/h2database/h2/1.4.193/h2-1.4.193.jar:${TARGETDIR}/processor-tura-model/processor-tura-model-command/processor-tura-model-command-${TURA_VERSION}-jar-with-dependencies.jar";export MODEL_CONNECTOR
+MODEL_CONNECTOR="${TARGETDIR}/processor-tura-model/processor-tura-model-command/postgresql-42.1.1.jar:${TARGETDIR}/processor-tura-model/metamodel/postgres-jdbc-persistence-model-persistence-xml/postgres-jdbc-persistence-model-persistence-xml-${TURA_VERSION}.jar:${TARGETDIR}/processor-tura-model/processor-tura-model-command/processor-tura-model-command-${TURA_VERSION}-jar-with-dependencies.jar";export MODEL_CONNECTOR
 
 $TURA_HOME/processor/tura-gogo.sh "$1"

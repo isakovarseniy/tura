@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -447,10 +447,10 @@ public class MixedRepositoryTest {
             
 			stackProvider.get().commit();
 			
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(SPAObject13.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(SPAObject13.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(JPAObject13.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(JPAObject13.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
 			

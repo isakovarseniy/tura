@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -269,6 +269,10 @@ public class UserSelectionGridTrigger  implements GridModelTriggers, Serializabl
 		
 	}
     
+	@Override
+	public List<Object> postProcessLoaded(List<Object> obj) {
+		return obj;
+	}
     
     
 }

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,12 +27,13 @@ import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.CastChangeEvent;
+import org.tura.metamodel.sirius.properties.selections.events.ObjectPointer;
 
 import form.DataControl;
 import form.Form;
 import type.Type;
 
-public abstract class AbstractCastPropertySelection extends AbstractEnumerationPropertySection {
+public abstract class AbstractCastPropertySelection extends AbstractEnumerationPropertySection implements ObjectPointer{
 
 	protected String getLabelText() {
 		return "Cast type";//$NON-NLS-1$
@@ -105,7 +106,7 @@ public abstract class AbstractCastPropertySelection extends AbstractEnumerationP
 
 	@Override
 	public void afterUpdate(){
-		Bus.getInstance().notify(new CastChangeEvent());
+		Bus.getInstance().notify(new CastChangeEvent(getObjectId() , getScope()));
 		
 	}	
 	

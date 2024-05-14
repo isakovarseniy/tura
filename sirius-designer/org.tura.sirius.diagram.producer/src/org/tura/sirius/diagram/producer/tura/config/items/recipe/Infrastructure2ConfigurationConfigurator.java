@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -86,6 +86,7 @@ public class Infrastructure2ConfigurationConfigurator implements EdgeConfigurato
 
 		CenterLabelStyleDescription centerStyle = StyleFactory.eINSTANCE.createCenterLabelStyleDescription();
 		style.setCenterLabelStyleDescription(centerStyle);
+		centerStyle.setLabelExpression("aql:self.configBranch");
 
 		return style;
 	}

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -22,7 +22,7 @@ operation elresolver(hash){
 %]
 package  [%=component.basePackage%].commons.datacontrol;  
 
-[%=elresolver_scope()%]
+@[%=elresolver_scope()%]
 public class ELResolverImpl implements org.tura.platform.datacontrol.ELResolver, java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,11 @@ public class ResponseState {
 		return lifeCycleRegistry.findContextRef(form);
 	}
 
+	
+	public String findInitExpression(String form) {
+		return lifeCycleRegistry.findInitExpression(form);
+	}
+	
 	
 	public void addFatalValidationError(Exception e) {
 		ProgramSource programSource = lifeCycleRegistry.getFatalValidationErrorProcessor();

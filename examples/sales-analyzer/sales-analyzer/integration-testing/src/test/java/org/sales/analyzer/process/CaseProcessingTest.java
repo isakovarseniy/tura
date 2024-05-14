@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
 import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
+import org.sales.analyzer.ui.AbstractTest;
 
 import sales.analyzer.api.model.impl.ExtraClasses;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
@@ -40,15 +41,15 @@ import sales.analyzer.process.commons.Constants;
 
 public class CaseProcessingTest {
 
-	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
+	private String PROCESS_ID = Constants.CASE_INVESTIGATION_PROCESS;
 
 
 	@Test
 	public void t0000_runCase() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider( AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
@@ -78,7 +79,7 @@ public class CaseProcessingTest {
 
 			QueryDefinition query = new QueryDefinition();
 			query.setName("getAllCaseDetailsInstances");
-			query.setSource(PostDeployer.JNDI_FOR_JBPM_ACCESS);
+			query.setSource(AbstractTest.JNDI_FOR_JBPM_ACCESS);
 			query.setTarget(Target.PROCESS.name());
 			query.setExpression("SELECT "
 		      +"pl.ID PROC_ID,pl.CORRELATIONKEY PROC_CORRELATIONKEY,pl.DURATION PROC_DURATION ,pl.END_DATE PROC_END_DATE ,pl.EXTERNALID PROC_EXTERNALID,pl.USER_IDENTITY PROC_USER_IDENTITY,pl.OUTCOME PROC_OUTCOME,pl.PARENTPROCESSINSTANCEID PROC_PARENTPROCESSINSTANCEID,pl.PROCESSID PROC_PROCESSID,pl.PROCESSINSTANCEDESCRIPTION PROC_PROCESSINSTANCEDESCRIPTION,pl.PROCESSINSTANCEID PROC_PROCESSINSTANCEID,pl.PROCESSNAME PROC_PROCESSNAME,pl.PROCESSVERSION PROC_PROCESSVERSION,pl.START_DATE PROC_START_DATE,pl.STATUS PROC_STATUS,\n" 	
@@ -91,7 +92,7 @@ public class CaseProcessingTest {
 
 			query = new QueryDefinition();
 			query.setName("getAllTaskiInstancesForCase");
-			query.setSource(PostDeployer.JNDI_FOR_JBPM_ACCESS);
+			query.setSource(AbstractTest.JNDI_FOR_JBPM_ACCESS);
 			query.setTarget(Target.TASK.name());
 			query.setExpression("SELECT TSK.* FROM KIESERVER.TASK TSK \n"
 					+ "INNER JOIN KIESERVER.TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n"

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,6 +14,35 @@
 
 package org.tura.metamodel.sirius.properties.selections.events;
 
-public class DataControlChangeEvent  implements Event{
+import org.tura.metamodel.sirius.properties.selections.dropdown.Scope;
+
+public class DataControlChangeEvent  implements Event,ObjectPointer{
+
+	String objectId;
+	Scope scope;
+
+	public DataControlChangeEvent(String objectId,Scope  scope ) {
+		this.objectId = objectId;
+		this.scope = scope;
+	}
+	
+	public void setObjectId(String objectId) {
+		this.objectId = objectId;
+	}
+
+
+	@Override
+	public String getObjectId() {
+		return objectId;
+	}
+
+	public Scope getScope() {
+		return scope;
+	}
+
+	public void setScope(Scope scope) {
+		this.scope = scope;
+	}
+
 
 }

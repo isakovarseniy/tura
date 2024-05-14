@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -55,12 +55,12 @@ public class CdiClientProxy[%=suffix%]Producer {
 	
 	
     @Produces
-    [%=commandstack_scope()%]
+    @[%=commandstack_scope()%]
     @ClientProxyRepo("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 	public CpaRepository getCpaRepository() {
 
-    CpaStorageProvider cpaStorageProvider = new CdiClientCpaStorage[%=util.mergeAndCapitalize(suffix)%]Provider();
-    ProxyCommadStackProvider stackProvider = new CdiClientCommandStack[%=util.mergeAndCapitalize(suffix)%]Provider();
+    CpaStorageProvider cpaStorageProvider = new org.tura.platform.repository.cdi.CdiClientCpaStorageProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]");
+    ProxyCommadStackProvider stackProvider = new org.tura.platform.repository.cdi.CdiClientCommandStackProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]");
     
     proxyRepository.setStackProvider(stackProvider);
     proxyRepository.setTransport(transport);

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ import javax.crypto.SecretKey;
 
 public interface ScopeStorage {
 	
-	void write(Scope scopeId, BeanStorage map) throws Exception;
-	BeanStorage load(Scope scopeId) throws Exception;
+	void write(Scope scopeId, Object map) throws Exception;
+	Object load(Scope scopeId) throws Exception;
 	boolean findScope(Scope scopeId) ;
 	void destroyStorage(String session);
 	byte[] getState() throws Exception;

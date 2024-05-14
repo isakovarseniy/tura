@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@ public class FactoryDC2  {
 	public DataControl initEmployees(String elPrefix) throws Exception {
 		EmployeesDC<Employee2> employeesDS = new EmployeesDC<Employee2>();
 		Department22Employee2Pager pager = new Department22Employee2Pager(employeesDS);
-		pager.setRepository(Factory.getRepository());
+		pager.setRepositoryProvider(Factory.getCpaRepositoryProvider());
 		pager.addCpaStorageEventListenetr();
 
 		employeesDS.setElResolver(elResolver);
@@ -64,7 +64,7 @@ public class FactoryDC2  {
 	public DataControl initDepartments(String elPrefix) throws Exception {
 		DepartmentsDC<Department2> departmentsDS = new DepartmentsDC<Department2>();
 		Department2Pager pager = new Department2Pager(departmentsDS);
-		pager.setRepository(Factory.getRepository());
+		pager.setRepositoryProvider(Factory.getCpaRepositoryProvider());
 		pager.addCommandStackListener();
 		pager.addCpaStorageEventListenetr();
 

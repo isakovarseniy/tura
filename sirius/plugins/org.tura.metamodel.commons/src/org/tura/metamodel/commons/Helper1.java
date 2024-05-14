@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -15,6 +15,7 @@
 package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,29 +42,21 @@ import objectmapper.OmRelation;
 import type.Assosiation;
 import type.Attribute;
 import type.AttributePointer;
+import type.Generalization;
 import type.Type;
 import type.TypeElement;
 import type.TypeFactory;
+import type.TypePointer;
+import type.TypeReference;
 
 public class Helper1 {
 
 	public void populateObjectMapper(DataControl datacontrol, EObject model) {
 		Type type = (Type) datacontrol.getBaseType().getTypeRef();
 
-		Map<String, TypeElement> relatedObjects = new HashMap<String, TypeElement>();
-		HashMap<String, Assosiation> hash = new HashMap<String, Assosiation>();
-
-		new Helper().getRelatedAssosiations(relatedObjects, hash, type);
-
 		ArrayList<RelationMapper> relations = new ArrayList<RelationMapper>();
-		for (String key : relatedObjects.keySet()) {
-			RelationMapper relationMapper = FormFactory.eINSTANCE.createRelationMapper();
-			relationMapper.setUid(UUID.randomUUID().toString());
-			relationMapper.setTypeRef(relatedObjects.get(key));
-			relationMapper.setAssosiationRef(hash.get(key));
-
-			relations.add(relationMapper);
-		}
+		
+		buildRelations(relations, type);
 
 		Session session = SessionManager.INSTANCE.getSession(model);
 		EditingDomain editingDomain = session.getTransactionalEditingDomain();
@@ -73,6 +66,39 @@ public class Helper1 {
 		editingDomain.getCommandStack().execute(setCommand);
 
 	}
+	
+	
+	public void buildRelations( ArrayList<RelationMapper> relations, Type type) {
+		HashMap<String, Assosiation> hash = new HashMap<String, Assosiation>();
+		Map<String, TypeElement> relatedObjects = new HashMap<String, TypeElement>();
+
+		new Helper().getRelatedAssosiations(relatedObjects, hash, type);
+
+		for (String key : relatedObjects.keySet()) {
+			RelationMapper relationMapper = FormFactory.eINSTANCE.createRelationMapper();
+			relationMapper.setUid(UUID.randomUUID().toString());
+			relationMapper.setTypeRef(relatedObjects.get(key));
+			relationMapper.setAssosiationRef(hash.get(key));
+
+			relations.add(relationMapper);
+		}
+		QueryHelper queryHelper = new QueryHelper();
+		Collection<Generalization> generalizations = queryHelper.getTypeExtension(type);
+		for (Generalization gl : generalizations) {
+			Type tp = null;
+			if ( gl.getTarget() instanceof Type) {
+				tp = (Type) gl.getTarget();
+			}
+			if ( gl.getTarget() instanceof TypeReference ) {
+				tp = (Type) ((TypePointer) (gl.getTarget())).getTypeRef();
+			}
+			if ( "MetaObject".equals(tp.getName())) {
+				continue;
+			}
+			buildRelations(relations, tp);
+		}
+	}
+
 
 	public void populateObjectMapper(ObjectMapper objectMapper, EObject model) {
 		Type type = (Type) objectMapper.getBaseType().getTypeRef();

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@ package org.tura.metamodel.sirius.properties.selections.dropdown;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -32,21 +33,18 @@ import form.Selection;
 public class DisplayOptionPointerAttributePropertySelection extends DependentAbstractAttributePropertySelection {
 
 	private SelectionListener listener = new SelectionListener();
-	
-	
+
 	protected String getLabelText() {
 		return "Display value";
 	}
 
-	
 	@Override
-	public void createControls(Composite parent,
-			final TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, final TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		Bus.getInstance().addEventListner(listener);
-		
+
 	}
-	
+
 	protected void init() {
 		dropDownDataSupplier = new SelectionDisplayOptionPointer();
 	}
@@ -60,10 +58,8 @@ public class DisplayOptionPointerAttributePropertySelection extends DependentAbs
 
 			selection = FormFactory.eINSTANCE.createSelection();
 
-			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, dd,
-							FormPackage.eINSTANCE.getOptionSelection_Selection(),
-							selection));
+			editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, dd,
+					FormPackage.eINSTANCE.getOptionSelection_Selection(), selection));
 		}
 
 		return dd;
@@ -71,12 +67,22 @@ public class DisplayOptionPointerAttributePropertySelection extends DependentAbs
 
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
-		return ((OptionSelection)super.getModel()).getSelection();
+		return ((OptionSelection) super.getModel()).getSelection();
 	}
 
 	@Override
-	public void dispose(){
+	public void dispose() {
 		Bus.getInstance().removeEventListner(listener);
 	}
-	
+
+	@Override
+	public String getObjectId() {
+		return EcoreUtil.getID(getModel());
+	}
+
+	@Override
+	public Scope getScope() {
+		return Scope.OPTION;
+	}
+
 }

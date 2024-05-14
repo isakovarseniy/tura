@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.Extension;
 import javax.enterprise.inject.spi.ProcessBean;
 
+import org.tura.platform.datacontrol.annotations.FormInitialization;
 import org.tura.platform.datacontrol.annotations.StackSupplier;
 import org.tura.platform.uuiclient.annotations.ElementByIdConverter;
 import org.tura.platform.uuiclient.annotations.ElementByIdValidator;
@@ -50,6 +51,7 @@ public class LifeCycleRegistry  implements Extension{
     private HashMap<String, Bean<?>> keyConverter = new HashMap<>();
     private HashMap<String, Bean<?>> typeConverter = new HashMap<>();
     private HashMap<String, Bean<?>> contextRef = new HashMap<>();
+    private HashMap<String, String> formInitRef = new HashMap<>();
 
     
     
@@ -99,9 +101,19 @@ public class LifeCycleRegistry  implements Extension{
         	FormContextRef annotetion = event.getAnnotated().getAnnotation(FormContextRef.class);
         	contextRef.put(annotetion.form(),event.getBean());
         }
+
+        if (event.getAnnotated().isAnnotationPresent(FormInitialization.class)) {
+        	FormInitialization annotetion = event.getAnnotated().getAnnotation(FormInitialization.class);
+        	formInitRef.put(annotetion.form(),annotetion.expression());
+        }
         
     }
     
+    
+    public String findInitExpression(String form) {
+    	return formInitRef.get(form);
+    	
+    }
     
     public ContextRef findContextRef(String form) {
     	Bean<?> bean = contextRef.get(form);

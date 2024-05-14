@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,13 +116,13 @@ public class AdapterTest {
 			W3 w3 = (W3) repository.create(W3.class);
 
 			w1.setW2(w2);
-			List<StorageControl> array = cpaStorageProvider.getStorage().findAny(W3.class, 0, Long.MAX_VALUE);
+			List<StorageControl> array = cpaStorageProvider.get().findAny(W3.class, 0, Long.MAX_VALUE);
 			assertEquals(1, array.size());
 			
 			w1.getW3().add(w3);
 			
 			
-			array = cpaStorageProvider.getStorage().findAny(W3.class, 0, Long.MAX_VALUE);
+			array = cpaStorageProvider.get().findAny(W3.class, 0, Long.MAX_VALUE);
 			assertEquals(0, array.size());
 			
 			repository.insert(w1, W1.class);
@@ -130,7 +130,7 @@ public class AdapterTest {
 			o1.setW1(w1);
 
 			String cpaid = ((Q1Proxy) o1).getCpaid();
-			Map<ObjectRef, Map<RelationControl, List<Ref>>> filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			Map<ObjectRef, Map<RelationControl, List<Ref>>> filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			ObjectRef  ref = filtered.keySet().iterator().next();
 			assertEquals(cpaid,ref.getCpaId());
@@ -138,7 +138,7 @@ public class AdapterTest {
 			
 			
 			cpaid = ((W1Proxy) w1).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			ref = filtered.keySet().iterator().next();
 			assertEquals(cpaid,ref.getCpaId());
@@ -153,14 +153,14 @@ public class AdapterTest {
 			assertEquals(1, result.getSearchResult().size());
 			
 			cpaid = ((Q1Proxy) o1).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			ref = filtered.keySet().iterator().next();
 			assertEquals(cpaid,ref.getCpaId());
 			assertEquals(cpaid,ref.getExtCpaId());
 			
 			cpaid = ((W1Proxy) w1).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			ref = filtered.keySet().iterator().next();
 			assertEquals(cpaid,ref.getCpaId());
@@ -172,7 +172,7 @@ public class AdapterTest {
 			assertEquals(((Q1Proxy)o1).getCpaid(),r.getExtPk());
 			
 			
-			array = cpaStorageProvider.getStorage().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			StorageControl sc = array.get(0);
 			assertEquals(1, sc.getSession());
 			
@@ -192,7 +192,7 @@ public class AdapterTest {
 			w3.setQ3(q3);
 			
 			cpaid = ((W1Proxy) w1).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(3,filtered.size());
 			
 			oref = new ObjectRef(cpaid,cpaid);
@@ -219,7 +219,7 @@ public class AdapterTest {
 
 			
 			cpaid = ((Q2Proxy) q2).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			oref = new ObjectRef(cpaid,cpaid);
 			r = filtered.get(oref).values().iterator().next().get(0);
@@ -228,7 +228,7 @@ public class AdapterTest {
 			
 			
 			cpaid = ((Q3Proxy) q3).getCpaid();
-			filtered = cpaStorageProvider.getStorage().findRelations(cpaid);
+			filtered = cpaStorageProvider.get().findRelations(cpaid);
 			assertEquals(1,filtered.size());
 			oref = new ObjectRef(cpaid,cpaid);
 			r = filtered.get(oref).values().iterator().next().get(0);
@@ -236,45 +236,45 @@ public class AdapterTest {
 			assertEquals(((W3Proxy)w3).getCpaid(),r.getExtPk());
 			
 			
-			array = cpaStorageProvider.getStorage().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
 			stackProvider.get().commit();
 			
-			array = cpaStorageProvider.getStorage().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().findAny(W3.class, 0, Long.MAX_VALUE);
+			array = cpaStorageProvider.get().findAny(W3.class, 0, Long.MAX_VALUE);
 			assertEquals(0, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
  
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, Q1.class);
 			assertEquals(1, result.getSearchResult().size());
 
-			array = cpaStorageProvider.getStorage().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			sc = array.get(0);
 			assertEquals(2, sc.getSession());
 			
-			array = cpaStorageProvider.getStorage().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(W1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			sc = array.get(0);
 			if ( RepositoryTestSuite.lazyObjectRepository) {
@@ -283,10 +283,10 @@ public class AdapterTest {
 				assertEquals(2, sc.getSession());
 			}
 
-			array = cpaStorageProvider.getStorage().findAny(W3.class, 0, Long.MAX_VALUE);
+			array = cpaStorageProvider.get().findAny(W3.class, 0, Long.MAX_VALUE);
 			assertEquals(0, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q2.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			sc = array.get(0);
 			if ( RepositoryTestSuite.lazyObjectRepository) {
@@ -295,7 +295,7 @@ public class AdapterTest {
 				assertEquals(2, sc.getSession());
 			}
 
-			array = cpaStorageProvider.getStorage().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Q3.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			sc = array.get(0);
 			if ( RepositoryTestSuite.lazyObjectRepository) {

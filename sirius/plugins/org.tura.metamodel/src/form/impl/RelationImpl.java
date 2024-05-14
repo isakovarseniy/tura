@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@
  */
 package form.impl;
 
+import artifact.impl.CategorizedImpl;
 import form.DataControl;
 import form.FormPackage;
 import form.Relation;
@@ -56,7 +57,7 @@ import type.Link;
  *
  * @generated
  */
-public class RelationImpl extends EObjectImpl implements Relation {
+public class RelationImpl extends CategorizedImpl implements Relation {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

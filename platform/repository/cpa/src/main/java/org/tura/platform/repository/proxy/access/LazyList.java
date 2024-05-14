@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,8 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.core.RelationType;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryHelper;
@@ -146,7 +148,7 @@ public abstract class LazyList<T> extends ListOfObjects<T> implements Closeable 
 		RepoKeyPath cpaPath = getParentKeyPath();
 		String relation = getProperty();
 
-		Object obj = storageProvider.getStorage().getObject(cpaPath);
+		Object obj = storageProvider.get().getObject(cpaPath);
 		ObjectControl m = (ObjectControl) getRepository().factory(obj, obj.getClass().getName());
 
 		RepositoryHelper helper = new RepositoryHelper();
@@ -177,8 +179,16 @@ public abstract class LazyList<T> extends ListOfObjects<T> implements Closeable 
 
 	private ProxyCommadStackProvider getLocalStackProvider() {
 		if (localStackProvider == null) {
-			localStackProvider = new LocalCommadStackProvider();
-			localStackProvider.get().addProxyCommandStackEventListener(id, new LocalRepositoryCommitListener());
+			localStackProvider = new LocalCommadStackProvider(new RegistryProvider() {
+				
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public Registry get() {
+					return getRepository().getRegistry();
+				}
+			});
+			localStackProvider.get().getEventSubscribersProvider().get().addProxyCommandStackEventListener(id, new LocalRepositoryCommitListener());
 		}
 		return localStackProvider;
 	}

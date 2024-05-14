@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ public class DefaultMenuItem extends UuiElement implements MenuElement,   Serial
 	private static final long serialVersionUID = 3331702159629836992L;
 	
 	private String id;
+	private String uid;
     private String icon;
     private String iconPos;
     private String label;
@@ -48,6 +49,16 @@ public class DefaultMenuItem extends UuiElement implements MenuElement,   Serial
     private String containerStyleClass;
 	private String clazz = DefaultMenuItem.class.getName();
     
+	
+	public DefaultMenuItem() {
+    }
+
+    public DefaultMenuItem(String uid, String label) {
+    	this.setUid(uid);
+    	this.setLabel(label);
+    }
+	
+	
     public String getClazz() {
 		return clazz;
 	}
@@ -66,13 +77,6 @@ public class DefaultMenuItem extends UuiElement implements MenuElement,   Serial
 		this.events = events;
 	}
 
-	public DefaultMenuItem() {
-    }
-
-    public DefaultMenuItem(String label) {
-    	this.setLabel(label);
-    }
-    
     
     public String getId() {
         return id;
@@ -180,6 +184,16 @@ public class DefaultMenuItem extends UuiElement implements MenuElement,   Serial
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	
+	
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	@Override

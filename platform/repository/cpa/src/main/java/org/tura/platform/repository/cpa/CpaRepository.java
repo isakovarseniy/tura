@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,24 +35,14 @@ public interface CpaRepository extends ProxyFactory, ProxyRepositoryInterface {
 
 	public Repository getTransport();
 
-	public void setTransport(Repository transport);
-
 	public Registry getRegistry();
 
-	public void setRegistry(Registry registry);
-
 	public CpaStorageProvider getStorageProvider();
-
-	public void setStorageProvider(CpaStorageProvider storageProvider);
-
-	public void setProfile(String profile);
-
+	
 	public <T> T create(Class<T> objectClass) throws RepositoryException;
 
-	public void setStackProvider(ProxyCommadStackProvider stackProvider);
-
 	public ProxyCommadStackProvider getStackProvider();
-
+	
 	public <T> void insert(Object obj, Class<T> objectClass) throws RepositoryException;
 
 	public <T> void remove(Object obj, Class<T> objectClass) throws RepositoryException;

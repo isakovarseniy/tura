@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,6 +18,7 @@ import React from "react";
 import {registry} from "../plugin/Registry";
 import {EventExecuter} from "./EventExecutor";
 import {BlockerSystem} from "../lib/BlockerSystem";
+import {SharedContext} from "../core/SharedContext";
 
 export class ContextManager{
 
@@ -30,6 +31,9 @@ export class ContextManager{
     criticalSection = 0;
     blocker = new Map();
 
+//Only for debuging
+//    crossdomain =true;
+
     constructor(serverUrl,formSelector, sessionId){
         this.serverUrl = serverUrl;
         this.formSelector = formSelector;
@@ -40,7 +44,50 @@ export class ContextManager{
         this.externalConnectorCallback = null;
         this.sessionId=sessionId;
 
+        this.broadcastProcessor = this.broadcastProcessor.bind(this);
+        this.initChannel = this.initChannel.bind(this);
+        this.postEvent = this.postEvent.bind(this);
+
+        if ( registry.getPluginMode() === true ) {
+            this.initChannel();  
+        }
+
     }
+
+
+    initChannel(){
+        if ( this.crossdomain === true ){
+            window.addEventListener("message", this.broadcastProcessor);
+        }else{
+            this.bc = new BroadcastChannel("tura.plugin.broadcast");
+            this.bc.onmessage = this.broadcastProcessor;
+        }
+    }
+
+     broadcastProcessor(event){
+        var command = event.data;
+        if (  typeof command.srcPlugin !== "undefined" || command.srcPlugin !== null ){
+            if ( command.srcPlugin !== this.formSelector){
+                let commandProcessor =  registry.getCommand(command.clazz);
+                if(typeof commandProcessor !== "undefined" && commandProcessor !== null ){
+                    commandProcessor.execute(command,this);
+                }
+            }
+        }
+     }
+
+     postEvent(event){
+        if ( registry.getPluginMode() === true ) {
+            if ( this.crossdomain === true){
+                window.parent.postMessage(event, "*");
+            }else{
+                this.bc.postMessage(event);
+            }
+        }
+     }
+
+
+
 
     addBlockingInterceptor( blockable, blockingEvent ){
 
@@ -101,19 +148,10 @@ export class ContextManager{
 
 
     startCriticalSection(){
-        this.criticalSection++;
-        if ( this.criticalSection > 1){
-            this.criticalSection--;
-            return false;
-        }
-        return true;
+        return new SharedContext().startCriticalSection();
     }
     endtCriticalSection(){
-        if ( this.criticalSection > 0){
-            this.criticalSection--;
-            return true;
-        }
-        return false;
+        return new SharedContext().endtCriticalSection();
     }
 
     queueEvent(event){
@@ -229,6 +267,9 @@ export class ContextManager{
         req.setSessionId(this.sessionId);
         req.setSessionState(this.sessionState);
 
+        var sharedContext = new SharedContext();
+        req.setSharedSessionId(sharedContext.getSharedSessionId());
+        req.setSharedSessionState(sharedContext.getSharedContext());
 
 
         if ( this.externalConnectorCallback === null){
@@ -364,7 +405,7 @@ export class ContextManager{
 
         let uuid = obj.uuid;
         this.sessionState = obj.sessionState;
-
+        new SharedContext().setSharedContext(obj.sharedSessionState);
 
         if (typeof obj.fatalClientErrors !== "undefined" &&  obj.fatalClientErrors.length !== 0  ){
             this.processClientActions(obj.fatalClientErrors);
@@ -386,6 +427,14 @@ export class ContextManager{
         let event = this.unqueueEvent();
         if ( event !== null){
             new EventExecuter(event.state,this).run(event.this_,event.args);
+        }else{
+            event = {
+                srcPlugin : this.formSelector,
+                clazz : "org.tura.platform.uuiclient.rest.client.commands.ExecuteQueuedEventsCommand"
+            };
+            this.postEvent(event);
+
+
         }
 
     }
@@ -418,13 +467,19 @@ export class ContextManager{
     processClientActions( program){
         for ( let i = 0 ; i < program.length; i++){
             var command = program[i];
+
+            if ( registry.getPluginMode() === true) {
+                if(typeof command.trgPlugin !== "undefined" && command.trgPlugin !== null ){
+                    command.srcPlugin = this.formSelector;
+                    this.postEvent(command);
+                    continue;
+                }
+            }
             let commandProcessor =  registry.getCommand(command.clazz);
             if(typeof commandProcessor !== "undefined" && commandProcessor !== null ){
                 commandProcessor.execute(command,this);
             }
-
         }
-
     }
 
     fixEvent( events,fixEvent ){

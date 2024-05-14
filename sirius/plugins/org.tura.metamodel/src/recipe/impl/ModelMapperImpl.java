@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -59,6 +59,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExtension <em>Artifact Extension</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getConfigBranch <em>Config Branch</em>}</li>
  * </ul>
  *
  * @generated
@@ -213,6 +214,26 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @ordered
 	 */
 	protected String artifactExtension = ARTIFACT_EXTENSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConfigBranch() <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigBranch()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONFIG_BRANCH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConfigBranch() <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigBranch()
+	 * @generated
+	 * @ordered
+	 */
+	protected String configBranch = CONFIG_BRANCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -416,6 +437,29 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @generated
 	 */
 	@Override
+	public String getConfigBranch() {
+		return configBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setConfigBranch(String newConfigBranch) {
+		String oldConfigBranch = configBranch;
+		configBranch = newConfigBranch;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MODEL_MAPPER__CONFIG_BRANCH, oldConfigBranch, configBranch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
@@ -454,6 +498,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return isSkip();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				return getArtifactExtension();
+			case RecipePackage.MODEL_MAPPER__CONFIG_BRANCH:
+				return getConfigBranch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -497,6 +543,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				setArtifactExtension((String)newValue);
 				return;
+			case RecipePackage.MODEL_MAPPER__CONFIG_BRANCH:
+				setConfigBranch((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -536,6 +585,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				setArtifactExtension(ARTIFACT_EXTENSION_EDEFAULT);
 				return;
+			case RecipePackage.MODEL_MAPPER__CONFIG_BRANCH:
+				setConfigBranch(CONFIG_BRANCH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -566,6 +618,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return skip != SKIP_EDEFAULT;
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
 				return ARTIFACT_EXTENSION_EDEFAULT == null ? artifactExtension != null : !ARTIFACT_EXTENSION_EDEFAULT.equals(artifactExtension);
+			case RecipePackage.MODEL_MAPPER__CONFIG_BRANCH:
+				return CONFIG_BRANCH_EDEFAULT == null ? configBranch != null : !CONFIG_BRANCH_EDEFAULT.equals(configBranch);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -636,6 +690,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		result.append(skip);
 		result.append(", artifactExtension: ");
 		result.append(artifactExtension);
+		result.append(", configBranch: ");
+		result.append(configBranch);
 		result.append(')');
 		return result.toString();
 	}

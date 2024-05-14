@@ -1194,7 +1194,7 @@
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelExpression="aql:self.configBranch">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
             <endLabelStyleDescription>
@@ -1222,7 +1222,7 @@
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelExpression="aql:self.configBranch">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
             <endLabelStyleDescription>
@@ -1885,12 +1885,22 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
-          </style>
+          <conditionnalStyles predicateExpression="service:checkIfNotSharedContext">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="aql:self.name">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:checkIfSharedContext">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="aql:self.name">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            </style>
+          </conditionnalStyles>
         </containerMappings>
         <containerMappings name="FakeRelationMapper" semanticCandidatesExpression="aql:self.objectMappers" domainClass="form.RelationMapper">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:generateName">
@@ -2176,7 +2186,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="form.DataControl" referenceName="controls">
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:getBaseTypeName(element)"/>
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="type.TypePointer" referenceName="baseType" variableName="instance1">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="type.TypePointerObj" referenceName="baseType" variableName="instance1">
                   <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="service:getBaseType(element)"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
@@ -2206,10 +2216,10 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="form.InternalRelation" referenceName="relations" variableName="instance2">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance2"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:oldSemanticContainer"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:oldSemanticContainer"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:newSemanticContainer"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="var:oldSemanticContainer"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="var:newSemanticContainer"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

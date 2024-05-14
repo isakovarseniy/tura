@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -72,6 +72,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			addArtifactRootPropertyDescriptor(object);
 			addSkipPropertyDescriptor(object);
 			addArtifactExtensionPropertyDescriptor(object);
+			addConfigBranchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -209,6 +210,28 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Config Branch feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigBranchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelMapper_configBranch_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_configBranch_feature", "_UI_ModelMapper_type"),
+				 RecipePackage.Literals.MODEL_MAPPER__CONFIG_BRANCH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -284,6 +307,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 			case RecipePackage.MODEL_MAPPER__SKIP:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXTENSION:
+			case RecipePackage.MODEL_MAPPER__CONFIG_BRANCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:

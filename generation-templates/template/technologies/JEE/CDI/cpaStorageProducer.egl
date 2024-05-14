@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -37,20 +37,19 @@ import org.tura.platform.repository.cpa.storage.TypeInheritance;
 import javax.inject.Inject;
 
 
-public class CdiClientCpaStorage[%=suffix%]Producer {
+public class CdiClientCpaStorage[%=suffix%]Producer implements java.io.Serializable{
 	
-	@Inject
-	@TypeHierarchy
-	private TypeInheritance typeInheritance;	
-	
+	private static final long serialVersionUID = 1L;
 	
     @Produces
-    [%=commandstack_scope()%]
+    @[%=commandstack_scope()%]
     @ClientCpaStorage("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-	public CpaStorage getCpaStorage() {
-    	CpaStorage  cpaStorage = new CpaStorage(UUID.randomUUID().toString(),typeInheritance);
-		ProxyCommadStackProvider stackProvider = new CdiClientCommandStack[%=suffix%]Provider();
+	public CpaStorage getCpaStorage() {	
+    	CpaStorage  cpaStorage = new CpaStorage(UUID.randomUUID().toString(),new org.tura.platform.repository.cdi.CdiClientTypeInheritanceProvider());
+		ProxyCommadStackProvider stackProvider = new org.tura.platform.repository.cdi.CdiClientCommandStackProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]");
 		cpaStorage.setCommadStackProvider(stackProvider);
+        cpaStorage.setEventSubscriberesProvider(new  org.tura.platform.repository.cdi.CdiClientProxyCpaStorageEventSubscribersProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]"));
+		
 		return cpaStorage;
 	}
 

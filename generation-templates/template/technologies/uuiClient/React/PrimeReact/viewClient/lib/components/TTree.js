@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -66,9 +66,19 @@ export class TTree extends TuraComponent {
     enableEditMode(){
         this.setState({
             editRowMode: true,
+            editRowKey:this.state.selected
+        });
+    }
+
+
+
+    enableContextEditMode(){
+        this.setState({
+            editRowMode: true,
             editRowKey:this.state.contextSelection
         });
     }
+    
 
     disableEditMode(){
         this.setState({

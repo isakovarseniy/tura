@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,12 @@
 
 package org.tura.platform.uuiclient.model;
 
+import java.io.Serializable;
+
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.uuiclient.rest.EventDescription;
 
-public interface FullCalendarTriggers {
+public interface FullCalendarTriggers  extends Serializable{
 	public void  load(FullCalendarModel model) throws TuraException;
 	public void onDataClick(FullCalendarModel model,EventDescription event) throws TuraException;
 	public void onDrop(FullCalendarModel model,EventDescription event) throws TuraException;

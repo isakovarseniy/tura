@@ -1,0 +1,19 @@
+c2 = tura:docker findContainer --name sa-kie
+echo 'Wildfly container located? '$c2
+
+if { %(c2) } { 
+     echo '  Stop container '
+     tura:docker stopContainer --name sa-kie
+     echo ' Remove container '
+     tura:docker removeContainer --name sa-kie
+} {
+   c2 = tura:docker findImage --registry tura/jbpm/kieserver --tag 1.0
+   if { %(c2) } { } {
+   
+   echo 'Building wildfly container'
+   source pre:///$repo_home/sales-analyzer-kie-start-server.recipe
+   
+   }
+}
+ 
+ source pre:///$repo_home/sales-analyzer-kie-redeploy-server.recipe

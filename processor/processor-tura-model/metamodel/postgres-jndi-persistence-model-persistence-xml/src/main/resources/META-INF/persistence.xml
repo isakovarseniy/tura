@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
+
+   <persistence-unit name="Metamodel"  transaction-type="JTA">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		
+            
+		   <jta-data-source>java:jboss/jdbc/MetamodelDS</jta-data-source>
+		
+        <class>org.tura.model.designer.repository.jpa.metabase.MetaObject</class>
+        <class>org.tura.model.designer.repository.jpa.domain.Domain</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainArtifacts</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainArtifact</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainTypes</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainTypesRepository</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainApplications</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainApplication</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainMappers</class>
+        <class>org.tura.model.designer.repository.jpa.domain.DomainMapper</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ArtifactGroup</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.TechLeaf</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.Artifact</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.GenerationHintWithNickName</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ConfigVariableWithNickName</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ConfigHashWithNickName</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.GenerationHint</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ConfigVariable</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ConfigHash</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.ModelQuery</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.QueryParameter</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.Technology</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.Option</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.Categorized</class>
+        <class>org.tura.model.designer.repository.jpa.artifact.Classifier</class>
+        <class>org.tura.model.designer.repository.jpa.type.TypeGroup</class>
+        <class>org.tura.model.designer.repository.jpa.type.PrimitivesGroup</class>
+        <class>org.tura.model.designer.repository.jpa.type.TypeElement</class>
+        <class>org.tura.model.designer.repository.jpa.type.Relationship</class>
+        <class>org.tura.model.designer.repository.jpa.type.References</class>
+        <class>org.tura.model.designer.repository.jpa.type.Generalization</class>
+        <class>org.tura.model.designer.repository.jpa.type.TypePointer</class>
+        <class>org.tura.model.designer.repository.jpa.type.TypePointerObj</class>
+        <class>org.tura.model.designer.repository.jpa.type.PackagePointer</class>
+        <class>org.tura.model.designer.repository.jpa.type.Assosiation</class>
+        <class>org.tura.model.designer.repository.jpa.type.Link</class>
+        <class>org.tura.model.designer.repository.jpa.type.Attribute</class>
+        <class>org.tura.model.designer.repository.jpa.type.Operation</class>
+        <class>org.tura.model.designer.repository.jpa.type.Primitive</class>
+        <class>org.tura.model.designer.repository.jpa.type.Type</class>
+        <class>org.tura.model.designer.repository.jpa.type.TypeReference</class>
+        <class>org.tura.model.designer.repository.jpa.type.Parameter</class>
+        <class>org.tura.model.designer.repository.jpa.type.ReturnValue</class>
+        <class>org.tura.model.designer.repository.jpa.type.Enumerator</class>
+        <class>org.tura.model.designer.repository.jpa.type.EnumAttribute</class>
+        <class>org.tura.model.designer.repository.jpa.type.MethodPointer</class>
+        <class>org.tura.model.designer.repository.jpa.type.AttributePointer</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationGroup</class>
+        <class>org.tura.model.designer.repository.jpa.application.Application</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationInfrastructureLayers</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationInfrastructureLayer</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationMessageLibraries</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationLanguages</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationMessageLibrary</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationRealms</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationRealm</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationStyleLibraries</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationStyle</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationUILayer</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationUIPackage</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationRecipes</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationRecipe</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationMappers</class>
+        <class>org.tura.model.designer.repository.jpa.application.ApplicationMapper</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.ProcessingStage</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.ObjectMapperGroup</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.ObjectMapper</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.Variable</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.Aggregation</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.OmRelation</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.OperationConnectorRef</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.AttributeConnector</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.OperationConnector</class>
+        <class>org.tura.model.designer.repository.jpa.objectmapper.CalculatedField</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Roles</class>
+        <class>org.tura.model.designer.repository.jpa.permission.SecurityEntity</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Role</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Group</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Group2Group</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Group2Role</class>
+        <class>org.tura.model.designer.repository.jpa.permission.Secured</class>
+        <class>org.tura.model.designer.repository.jpa.permission.GrantAccess</class>
+        <class>org.tura.model.designer.repository.jpa.permission.SecurityEntityPointer</class>
+        <class>org.tura.model.designer.repository.jpa.message.MessageLibrary</class>
+        <class>org.tura.model.designer.repository.jpa.message.Message</class>
+        <class>org.tura.model.designer.repository.jpa.message.Translation</class>
+        <class>org.tura.model.designer.repository.jpa.message.Language</class>
+        <class>org.tura.model.designer.repository.jpa.infra.EnterpriseInfrastructure</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Datacenter</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Subsystem</class>
+        <class>org.tura.model.designer.repository.jpa.infra.InfrastructureLayer</class>
+        <class>org.tura.model.designer.repository.jpa.infra.InfrastructureConnection</class>
+        <class>org.tura.model.designer.repository.jpa.infra.InfrastructureComponent</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Server</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Router</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Hub</class>
+        <class>org.tura.model.designer.repository.jpa.infra.Storage</class>
+        <class>org.tura.model.designer.repository.jpa.infra.ServerClaster</class>
+        <class>org.tura.model.designer.repository.jpa.form.Form</class>
+        <class>org.tura.model.designer.repository.jpa.form.FormParameter</class>
+        <class>org.tura.model.designer.repository.jpa.form.Views</class>
+        <class>org.tura.model.designer.repository.jpa.form.MultiLangLabel</class>
+        <class>org.tura.model.designer.repository.jpa.form.CanvasFrame</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewPortHolder</class>
+        <class>org.tura.model.designer.repository.jpa.form.DefaultCavas</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewElement</class>
+        <class>org.tura.model.designer.repository.jpa.form.PopupCanvas</class>
+        <class>org.tura.model.designer.repository.jpa.form.OverlayCanvas</class>
+        <class>org.tura.model.designer.repository.jpa.form.Canvas</class>
+        <class>org.tura.model.designer.repository.jpa.form.Window</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuDefinition</class>
+        <class>org.tura.model.designer.repository.jpa.form.TabCanvas</class>
+        <class>org.tura.model.designer.repository.jpa.form.TabPage</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewPort</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewArea</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewPortTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.ViewInheritance</class>
+        <class>org.tura.model.designer.repository.jpa.form.TabPagesInheritance</class>
+        <class>org.tura.model.designer.repository.jpa.form.LinkToMessage</class>
+        <class>org.tura.model.designer.repository.jpa.form.LinkToLabel</class>
+        <class>org.tura.model.designer.repository.jpa.form.ChildrenHolder</class>
+        <class>org.tura.model.designer.repository.jpa.form.ContextParameter</class>
+        <class>org.tura.model.designer.repository.jpa.form.ContextValue</class>
+        <class>org.tura.model.designer.repository.jpa.form.ExpressionPart</class>
+        <class>org.tura.model.designer.repository.jpa.form.ContextParameters</class>
+        <class>org.tura.model.designer.repository.jpa.form.Context</class>
+        <class>org.tura.model.designer.repository.jpa.form.StyleElement</class>
+        <class>org.tura.model.designer.repository.jpa.form.NickNamed</class>
+        <class>org.tura.model.designer.repository.jpa.form.FlexFields</class>
+        <class>org.tura.model.designer.repository.jpa.form.FlexField</class>
+        <class>org.tura.model.designer.repository.jpa.form.EnabledUIItem</class>
+        <class>org.tura.model.designer.repository.jpa.form.Uielement</class>
+        <class>org.tura.model.designer.repository.jpa.form.ItemIcon</class>
+        <class>org.tura.model.designer.repository.jpa.form.AreaRef</class>
+        <class>org.tura.model.designer.repository.jpa.form.Formatable</class>
+        <class>org.tura.model.designer.repository.jpa.form.ControlPointer</class>
+        <class>org.tura.model.designer.repository.jpa.form.SourcesPointer</class>
+        <class>org.tura.model.designer.repository.jpa.form.InputElement</class>
+        <class>org.tura.model.designer.repository.jpa.form.Selection</class>
+        <class>org.tura.model.designer.repository.jpa.form.Blockable</class>
+        <class>org.tura.model.designer.repository.jpa.form.LayerHolder</class>
+        <class>org.tura.model.designer.repository.jpa.form.InputText</class>
+        <class>org.tura.model.designer.repository.jpa.form.Password</class>
+        <class>org.tura.model.designer.repository.jpa.form.Label</class>
+        <class>org.tura.model.designer.repository.jpa.form.MessageElement</class>
+        <class>org.tura.model.designer.repository.jpa.form.OutputText</class>
+        <class>org.tura.model.designer.repository.jpa.form.CheckBox</class>
+        <class>org.tura.model.designer.repository.jpa.form.OptionSelection</class>
+        <class>org.tura.model.designer.repository.jpa.form.DropDownSelection</class>
+        <class>org.tura.model.designer.repository.jpa.form.SelectManyMenu</class>
+        <class>org.tura.model.designer.repository.jpa.form.RadioSelection</class>
+        <class>org.tura.model.designer.repository.jpa.form.Image</class>
+        <class>org.tura.model.designer.repository.jpa.form.Date</class>
+        <class>org.tura.model.designer.repository.jpa.form.Button</class>
+        <class>org.tura.model.designer.repository.jpa.form.DataExporter</class>
+        <class>org.tura.model.designer.repository.jpa.form.Column</class>
+        <class>org.tura.model.designer.repository.jpa.form.Table</class>
+        <class>org.tura.model.designer.repository.jpa.form.Menu</class>
+        <class>org.tura.model.designer.repository.jpa.form.BlockUI</class>
+        <class>org.tura.model.designer.repository.jpa.form.FileUpload</class>
+        <class>org.tura.model.designer.repository.jpa.form.FileDownload</class>
+        <class>org.tura.model.designer.repository.jpa.form.DataScroller</class>
+        <class>org.tura.model.designer.repository.jpa.form.TimeLine</class>
+        <class>org.tura.model.designer.repository.jpa.form.FullCalendar</class>
+        <class>org.tura.model.designer.repository.jpa.form.Poll</class>
+        <class>org.tura.model.designer.repository.jpa.form.DataTemplate</class>
+        <class>org.tura.model.designer.repository.jpa.form.WindowRef</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuHolder</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuExtensionRef</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuElement</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuFolder</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuItem</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuExtensionPoint</class>
+        <class>org.tura.model.designer.repository.jpa.form.SubMenu</class>
+        <class>org.tura.model.designer.repository.jpa.form.ToSubmenu</class>
+        <class>org.tura.model.designer.repository.jpa.form.MenuSeparator</class>
+        <class>org.tura.model.designer.repository.jpa.form.Tree</class>
+        <class>org.tura.model.designer.repository.jpa.form.Controls</class>
+        <class>org.tura.model.designer.repository.jpa.form.Trigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.PREFormTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.PREQueryTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.POSTQueryTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.PREInsertTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.PREDeleteTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.POSTCreateTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.PREUpdateTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.CreateTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.InsertTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.UpdateTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.DeleteTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.SearchTrigger</class>
+        <class>org.tura.model.designer.repository.jpa.form.Root</class>
+        <class>org.tura.model.designer.repository.jpa.form.FormVariable</class>
+        <class>org.tura.model.designer.repository.jpa.form.DataControl</class>
+        <class>org.tura.model.designer.repository.jpa.form.ContextParametersObj</class>
+        <class>org.tura.model.designer.repository.jpa.form.RelationMapper</class>
+        <class>org.tura.model.designer.repository.jpa.form.Orders</class>
+        <class>org.tura.model.designer.repository.jpa.form.OrderBy</class>
+        <class>org.tura.model.designer.repository.jpa.form.Relation</class>
+        <class>org.tura.model.designer.repository.jpa.form.InternalRelation</class>
+        <class>org.tura.model.designer.repository.jpa.form.Dependency</class>
+        <class>org.tura.model.designer.repository.jpa.form.ArtificialField</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Recipes</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Recipe</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.ConfigExtension</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Recipe2Infrastructure</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Infrastructure2Configuration</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.DeploymentComponent</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.DeploymentStarStep</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.UsingMappers</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Ingredient</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Component</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.JavaComponent</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.JavaScriptComponent</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Infrastructure</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Configuration</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.ModelMapper</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Property</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.HashProperty</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.KeyValuePair</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.MappingTecnologiy</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.Query</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.QueryVariable</class>
+        <class>org.tura.model.designer.repository.jpa.recipe.ArtifactRef</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.Mappers</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.Mapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.Version</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.VersionRef</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.MappingLayer</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.TypeMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.PackageMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.JavaMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.JavaPackageMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.JavaScriptMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.CSSMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.RoleMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.XMLPackageMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.XMLTypeMapper</class>
+        <class>org.tura.model.designer.repository.jpa.mapper.MetamodelPackageMapper</class>
+        <class>org.tura.model.designer.repository.jpa.style.StyleLibrary</class>
+        <class>org.tura.model.designer.repository.jpa.style.StyleSet</class>
+        <class>org.tura.model.designer.repository.jpa.style.StylePointer</class>
+        <class>org.tura.model.designer.repository.jpa.common.HTMLLayerHolder</class>
+        <class>org.tura.model.designer.repository.jpa.common.Orderable</class>
+        <class>org.tura.model.designer.repository.jpa.dictionary.ListOfLanguages</class>
+        <class>org.tura.model.designer.repository.jpa.dictionary.OptionsSet</class>
+   
+
+				<properties>
+				
+		            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+		
+		    
+		    
+		            <property name="hibernate.default_schema" value="tura"/>
+					<property name = "hibernate.show_sql" value = "false" />
+		           	
+				</properties>
+
+	</persistence-unit>
+</persistence>

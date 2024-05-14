@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -82,6 +82,7 @@ operation  clientgeneration(hash){
       }
       for (canvas in form.view.canvases){
          if (canvas.isKindOf(form::Window) ){
+           clearContext(hash);
            canvas.createComponent(hash);   
          }
       }
@@ -232,6 +233,12 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TReactPolling.js",buffer);  
 
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TWindowPlugin.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/component/"  , "TWindowPlugin.js",buffer);  
+
+
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/components/TRenderElementResponsive.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/component/"  , "TRenderElementResponsive.js",buffer);  
@@ -260,6 +267,11 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/core/"  , "ContextManager.js",buffer);  
 
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/SharedContext.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "SharedContext.js",buffer);  
+
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/DataUpdateRequest.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/core/"  , "DataUpdateRequest.js",buffer);  
@@ -267,6 +279,11 @@ operation  install_components(hash) {
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/EventExecutor.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/core/"  , "EventExecutor.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/MicroFrontend.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/core/"  , "MicroFrontend.js",buffer);  
+
 
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/core/TuraComponent.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
@@ -312,6 +329,30 @@ operation  install_components(hash) {
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/plugin/"  , "BlockUIOffCommmand.js",buffer);  
 
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/EnableTreeEditCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "EnableTreeEditCommand.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/AddWindowPluginCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "AddWindowPluginCommand.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/CallFormApiCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "CallFormApiCommand.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/RemoveWindowPluginCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "RemoveWindowPluginCommand.js",buffer);  
+      
+      
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/ExecuteQueuedEventsCommand.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "ExecuteQueuedEventsCommand.js",buffer);  
+      
+      
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/Registry.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/plugin/"  , "Registry.js",buffer);  
@@ -323,6 +364,21 @@ operation  install_components(hash) {
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/UpdateMessageCommand.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
       util.saveFile( jsPath+"/plugin/"  , "UpdateMessageCommand.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/DynamicLayout.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/"  , "DynamicLayout.js",buffer);  
+
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/toString/BooleanToString.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/toString"  , "BooleanToString.js",buffer);  
+
+      var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/plugins/toString/DateToString.js",hash,TemplateFactory);
+      var buffer = libTemplate.process();
+      util.saveFile( jsPath+"/plugin/toString"  , "DateToString.js",buffer);  
+
 
       var libTemplate : Template = util.loadTemplate("tura:/generation-templates/template/technologies/uuiClient/React/PrimeReact/viewClient/lib/ClientSystem.js",hash,TemplateFactory);
       var buffer = libTemplate.process();
@@ -345,9 +401,51 @@ operation  getDependentId(hash) {
       if ( dependId == null){
          return "";
       }else{
-         return dependId;
+         var md = hash.get("model");
+         return dependId.replaceAll("\\$\\{model\\}", md);
       }
 }
+
+operation  getModel(hash) {
+      var md = hash.get("model");
+      if ( md == null){
+         return "";
+      }else{
+         return "passDep = {"+md+"}";
+      }
+}
+
+operation  replaceModel(hash,md) {
+      var mod = hash.get("model");
+      if ( mod == null){
+         return;
+      }
+      hash.put("model",md);
+}
+
+operation form::Uielement saveContext(hash){
+      var dependId = hash.get("dependId");
+      if ( dependId == null){
+         return "";
+      }    
+      self.~dependId = dependId;
+      self.~md = hash.get("model");
+}
+
+operation form::Uielement applyContext(hash){
+      if (  self.~dependId.isDefined()){
+         hash.put("dependId",self.~dependId );
+         hash.put("model",self.~md );
+      } else{
+         clearContext(hash);
+      }   
+}
+
+operation clearContext(hash){
+         hash.remove("dependId" );
+         hash.remove("model" );
+}
+
 
 operation getReactRef(obj){
     if (obj.~ref <> null ){
@@ -365,6 +463,23 @@ operation  getKey(hash) {
       }else{
          return key;
       }
+}
+
+operation form::Uielement collectChildrens(hash){
+   if (self.isKindOf( form::Tree)  or self.isKindOf( form::Table) or self.isKindOf( form::DataScroller )  or self.isKindOf( form::TimeLine ) ){
+      return;
+   }
+   if ( hash.get("context") = 'dataScroller' or hash.get("context") = 'timeLine' ){
+      if ( self.isKindOf( form::ChildrenHolder) ){
+          for ( element in self.children){
+              element.collectChildrens(hash);
+          }
+          return;
+      }
+      if (self.isKindOf( form::InputElement) ){
+          self.addToChildren(hash);
+      }    
+   }
 }
 
 

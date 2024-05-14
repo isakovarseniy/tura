@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,17 @@ import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
+import org.tura.platform.datacontrol.command.base.CreateTrigger;
+import org.tura.platform.datacontrol.command.base.DeleteTrigger;
 import org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger;
+import org.tura.platform.datacontrol.command.base.PagerCleanerTrigger;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.QueryTrigger;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -71,6 +75,11 @@ public class EmployeesDC<T> extends DataControl<T> implements ArtificialFieldWra
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
+	@Override
+	public void setCreateTrigger(CreateTrigger createTrigger) {
+		this.createTrigger = createTrigger;
+	}		
+	
 	@Override
 	public void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
@@ -125,4 +134,22 @@ public class EmployeesDC<T> extends DataControl<T> implements ArtificialFieldWra
 		
 	}
 
+	@Override
+	public void setQueryTrigger(QueryTrigger queryTrigger) {
+		this.queryTrigger = queryTrigger;
+	}
+
+	@Override
+	public void setDeleteTrigger(DeleteTrigger deleteTrigger) {
+		this.deleteTrigger = deleteTrigger;
+		
+	}
+
+	@Override
+	public void setPagerCleanerTrigger(PagerCleanerTrigger pagerCleanerTrigger) {
+		this.pagerCleanerTrigger = pagerCleanerTrigger;
+	}
+	
+	
+	
 }

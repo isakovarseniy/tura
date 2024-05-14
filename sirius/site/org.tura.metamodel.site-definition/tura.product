@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="6.1.1.qualifier" useFeatures="false" includeLaunchers="true" autoIncludeRequirements="true">
+<product name="%productName" uid="tura.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="6.1.2.qualifier" useFeatures="false" includeLaunchers="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="eclipse_lg.png"/>
@@ -692,7 +692,7 @@
       <plugin id="org.eclipse.jsch.ui.source"/>
       <plugin id="org.eclipse.lsp4e"/>
       <plugin id="org.eclipse.lsp4j" version="0.20.1.qualifier"/>
-      <plugin id="org.eclipse.lsp4j.jsonrpc"  version="0.20.1.qualifier"/>
+      <plugin id="org.eclipse.lsp4j.jsonrpc" version="0.20.1.qualifier"/>
       <plugin id="org.eclipse.ltk.core.refactoring"/>
       <plugin id="org.eclipse.ltk.core.refactoring.source"/>
       <plugin id="org.eclipse.ltk.ui.refactoring"/>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,11 @@ import static org.junit.Assert.assertTrue;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkArtificialProperties;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkConnection;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomCreateTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomDeleteTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomPagerCleanerTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTriggerParameters;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCustomQueryTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultOrderCriteria;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultSearchCriteria;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkKeys;
@@ -51,12 +55,16 @@ import org.tura.platform.datacontrol.DCRule;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
+import org.tura.platform.datacontrol.command.base.CreateTrigger;
+import org.tura.platform.datacontrol.command.base.DeleteTrigger;
+import org.tura.platform.datacontrol.command.base.PagerCleanerTrigger;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.QueryTrigger;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -68,7 +76,7 @@ public class CountryDCStructureTest {
 
 	@Test
 	public void checkCountryDCStructure(){
-		assertEquals(19, CountryDC.class.getDeclaredMethods().length);
+		assertEquals(23, CountryDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CountryDC.class,"init" ));
 		
@@ -122,6 +130,27 @@ public class CountryDCStructureTest {
 		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
 		checkPostCreateTrigger(m,"country");
 
+		assertTrue(findMethod( CountryDC.class,"setCreateTrigger" ,new Class[]{CreateTrigger.class}));
+		m = getMethod( CountryDC.class,"setCreateTrigger" ,new Class[]{CreateTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomCreateTrigger(m,"country");
+		
+
+		assertTrue(findMethod( CountryDC.class,"setQueryTrigger" ,new Class[]{QueryTrigger.class}));
+		m = getMethod( CountryDC.class,"setQueryTrigger" ,new Class[]{QueryTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomQueryTrigger(m,"country");
+		
+		assertTrue(findMethod( CountryDC.class,"setDeleteTrigger" ,new Class[]{DeleteTrigger.class}));
+		m = getMethod( CountryDC.class,"setDeleteTrigger" ,new Class[]{DeleteTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomDeleteTrigger(m,"country");
+		
+		assertTrue(findMethod( CountryDC.class,"setPagerCleanerTrigger" ,new Class[]{PagerCleanerTrigger.class}));
+		m = getMethod( CountryDC.class,"setPagerCleanerTrigger" ,new Class[]{PagerCleanerTrigger.class});
+		checkSelector(m,"datacontroldisconnectedmodel.hrcontroller");
+		checkCustomPagerCleanerTrigger(m,"country");	
+		
 		
 		assertTrue(findMethod( CountryDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class}));
 		m = getMethod( CountryDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class});

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,8 +24,6 @@ import org.apache.felix.gogo.jline.command.DockerConfig;
 import org.apache.felix.gogo.jline.command.DockerCreateContainer;
 import org.apache.felix.gogo.jline.command.DockerFindContainer;
 import org.apache.felix.gogo.jline.command.DockerFindImage;
-import org.apache.felix.gogo.jline.command.DockerKeyCloak;
-import org.apache.felix.gogo.jline.command.DockerKeyCloakAdapter;
 import org.apache.felix.gogo.jline.command.DockerLdap;
 import org.apache.felix.gogo.jline.command.DockerLogWatcher;
 import org.apache.felix.gogo.jline.command.DockerMongo;
@@ -120,7 +118,9 @@ public class DockerOperation  {
     }
 
     protected CommandLine getCommandLine() {
-        return new CommandLine(new DockerCommand())
+    	CommandLine cmd = new CommandLine(new DockerCommand());
+    	TuraMain.submenuExtensionService.initExtension(cmd, "tura:docker");
+    	cmd
                 .addSubcommand("createContainer", new DockerCreateContainer())
                 .addSubcommand("commitContainer", new DockerCommitContainer())
                 .addSubcommand("config", new DockerConfig())
@@ -149,11 +149,8 @@ public class DockerOperation  {
                 .addSubcommand("ldap", new CommandLine(new DockerLdap())
                         .addSubcommand("ldapHealthCheck", new LdapOnDockerHealtCheck())
                         )
-
-                
-                .addSubcommand("keycloak", new CommandLine(new DockerKeyCloak())   
-	                                        .addSubcommand("doDeployAdapter", new DockerKeyCloakAdapter())
-                		) ;
+ ;
+    	return cmd;
     }
 
 }

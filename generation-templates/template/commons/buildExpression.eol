@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -34,7 +34,7 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
          tokenArray.add(tokenizer.nextToken());
        }
        
-       for (  exprParam in  contextValue.expression  )  {
+       for (  exprParam in  contextValue.expression.sortBy(q|q.order)  )  {
        switch(exprParam.expressionType){
        
           case "ArtificialFieldImpl":              resultExpression = ArtificialFieldImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);

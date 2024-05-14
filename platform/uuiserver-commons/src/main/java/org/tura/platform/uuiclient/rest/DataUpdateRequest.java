@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,26 @@ public class DataUpdateRequest {
 	
 	private byte[] sessionState;
 	
+	private String sharedSessionId;
+	
+	private byte[] sharedSessionState;
+	
+
+	public String getSharedSessionId() {
+		return sharedSessionId;
+	}
+
+	public void setSharedSessionId(String sharedSessionId) {
+		this.sharedSessionId = sharedSessionId;
+	}
+
+	public byte[] getSharedSessionState() {
+		return sharedSessionState;
+	}
+
+	public void setSharedSessionState(byte[] sharedSessionState) {
+		this.sharedSessionState = sharedSessionState;
+	}
 
 	public String getSessionId() {
 		return sessionId;

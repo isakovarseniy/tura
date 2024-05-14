@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -74,7 +74,7 @@ import java.util.logging.Logger;
 import org.tura.platform.datacontrol.ELResolver;
 
 @Named("[%=util.mergeAndCapitalize(library.name)%]")
-[%=viewmodel_scope()%]
+@[%=viewmodel_scope()%]
 public class [%=util.mergeAndCapitalize(library.name)%]Library extends  AbstractMap<String, String> implements Serializable {
 
 	@Inject

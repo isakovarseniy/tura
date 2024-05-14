@@ -31,6 +31,7 @@ class ConfigExtension {
     id attr EString uid;
     ref Configuration source;
     ref Configuration target;
+    attr EString configBranch;
 }
 
 
@@ -45,6 +46,7 @@ class Infrastructure2Configuration{
     id attr EString uid;
     ref Infrastructure source;
     ref Configuration target;
+    attr EString configBranch;
 }
 
 
@@ -123,6 +125,7 @@ class ModelMapper extends ArtifactRef,common.Orderable , artifact.Categorized{
    val Query[*] queries;
    attr EBoolean skip;
    attr EString artifactExtension;
+   attr  EString configBranch;
 }
 
 class Property{

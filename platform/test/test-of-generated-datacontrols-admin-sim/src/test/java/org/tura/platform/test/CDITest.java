@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,8 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.example.ui.datacontroladminsimulation.admin.datacontrol.BeanFactory;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.init.RoleInit;
 import org.tura.platform.hr.init.UserInit;
 import org.tura.platform.repository.cdi.ClientProxyRepo;
@@ -162,6 +164,15 @@ public class CDITest {
 			DataControl<U1> dcU = bf.getU1();
 			U1 ui = dcU.getCurrentObject();
 			DataControl<Rref> dcR = bf.getRref();
+			dcR.setPreQueryTrigger(new PreQueryTrigger() {
+				
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public void execute(DataControl<?> datacontrol) throws TuraException {
+					datacontrol.getDefaultOrderCriteria().clear();
+				}
+			});
 			Rref ref = dcR.getCurrentObject();
 			assertEquals("ui-access", ui.getRref().get(0).getR1().getName());
 

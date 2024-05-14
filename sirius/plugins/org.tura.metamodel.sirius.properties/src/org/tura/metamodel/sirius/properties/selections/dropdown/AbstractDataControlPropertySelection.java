@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -28,10 +28,12 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.DataControlChangeEvent;
+import org.tura.metamodel.sirius.properties.selections.events.ObjectPointer;
 
 import form.DataControl;
 
-public abstract class AbstractDataControlPropertySelection extends AbstractEnumerationPropertySection {
+public abstract class AbstractDataControlPropertySelection extends AbstractEnumerationPropertySection
+		implements ObjectPointer {
 
 	protected String getLabelText() {
 		return "Data control name";
@@ -68,17 +70,15 @@ public abstract class AbstractDataControlPropertySelection extends AbstractEnume
 		return values;
 	}
 
-
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
 		return getModel();
 	}
 
 	@Override
-	public void afterUpdate(){
-		Bus.getInstance().notify(new DataControlChangeEvent());
-		
-	}
+	public void afterUpdate() {
+		Bus.getInstance().notify(new DataControlChangeEvent(getObjectId(),getScope()));
 
+	}
 
 }

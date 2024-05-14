@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 import org.tura.platform.repository.core.Instantiator;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 public class CpaServiceInstantiator implements Instantiator, Serializable {
@@ -32,16 +33,18 @@ public class CpaServiceInstantiator implements Instantiator, Serializable {
 	private String registryName;
 	private Registry registry;
 	private CpaStorageProvider cpaStoragesProvider;
+	private RegistryProvider registryProvider;
 
 	private static String[] knownObjects = new String[] { CpaCRUDService.class.getName(),
 			CpaSearchService.class.getName(), };
 
 	public CpaServiceInstantiator(SpaObjectRegistry spaRegistry, String registryName, Registry registry,
-			CpaStorageProvider cpaStoragesProvider) {
+			CpaStorageProvider cpaStoragesProvider, RegistryProvider registryProvider) {
 		this.spaRegistry = spaRegistry;
 		this.registryName = registryName;
 		this.registry = registry;
 		this.cpaStoragesProvider = cpaStoragesProvider;
+		this.registryProvider = registryProvider;
 	}
 
 
@@ -60,10 +63,10 @@ public class CpaServiceInstantiator implements Instantiator, Serializable {
 	@Override
 	public <T> T newInstance(Class<T> clazz) {
 		if (CpaSearchService.class.equals(clazz)) {
-			return (T) new CpaSearchService(spaRegistry, registryName, registry, cpaStoragesProvider.getStorage());
+			return (T) new CpaSearchService(spaRegistry, registryName, registry, cpaStoragesProvider.get());
 		}
 		if (CpaCRUDService.class.equals(clazz)) {
-			return (T) new CpaCRUDService(spaRegistry, registryName, registry,cpaStoragesProvider.getStorage());
+			return (T) new CpaCRUDService(spaRegistry, registryName, registry,cpaStoragesProvider.get(),registryProvider);
 		}
 
 		throw new RuntimeException("Unknown class " + clazz);

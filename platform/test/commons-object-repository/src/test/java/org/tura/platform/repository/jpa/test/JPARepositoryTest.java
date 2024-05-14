@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -133,10 +133,10 @@ public class JPARepositoryTest {
 			person.setFile(dir1);
 			client.setPerson(person);
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}))	;		
+			List<StorageControl> array = cpaStorageProvider.get().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}))	;		
 			assertEquals(2, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Phone.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}))	;		
+			array = cpaStorageProvider.get().find(Phone.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}))	;		
 			assertEquals(2, array.size());
 			
 			assertEquals(2, person.getPhone().size());
@@ -282,22 +282,22 @@ public class JPARepositoryTest {
 				f.getObjId();
 			}
 			
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
 			client.getPerson().setFile(null);
 			client.setName("Client name 3");
 
-			array = cpaStorageProvider.getStorage().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
+			array = cpaStorageProvider.get().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
 			assertEquals(2, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Client.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(Client.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(Person.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(Person.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(MailAddress.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(MailAddress.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			if ( RepositoryTestSuite.lazyObjectRepository) {
 			   assertEquals(0, array.size());
 			}else {
@@ -306,20 +306,20 @@ public class JPARepositoryTest {
 
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(0, array.size());
 
-			array = cpaStorageProvider.getStorage().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
+			array = cpaStorageProvider.get().find(File.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
 			assertEquals(0, array.size());
 
-			array = cpaStorageProvider.getStorage().find(Person.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Person.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			if ( RepositoryTestSuite.lazyObjectRepository) {
 			   assertEquals(1, array.size());
 			}else {
 				assertEquals(2, array.size());
 			}
 			
-			array = cpaStorageProvider.getStorage().find(MailAddress.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(MailAddress.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			if ( RepositoryTestSuite.lazyObjectRepository) {
 				assertEquals(0, array.size());
 			}else {

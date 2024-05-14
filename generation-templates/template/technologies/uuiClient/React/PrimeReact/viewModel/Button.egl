@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -38,7 +38,6 @@ operation form::Button createModel(hash) {
 			private Object value;
 			private String clazz = "[%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel.Button_[%=self.mkuid_()%]";
 			
-			
 		    private String style;
 		    private String className;
 		    private String  label;
@@ -48,6 +47,15 @@ operation form::Button createModel(hash) {
 		    private Object tooltip;
 		    private  boolean disabled;
 		  	private boolean rendered = true;
+            private String hintMessage ;
+
+ 			public String getHintMessage() {
+				return hintMessage;
+			}
+			
+			public void setHintMessage(String hintMessage) {
+				this.hintMessage = hintMessage;
+			}		  	
 
 		    public String getClazz() {
 				return clazz;
@@ -133,6 +141,7 @@ operation form::Button createModel(hash) {
 			    [%=self.disabled(hash)%]
 			    [%=self.labelExpr(hash,"label")%]
 			    [%=self.icon(hash)%]
+			    [%=self.messageHint(hash)%]
 
 			    
 			    [%=self.initContextTriggers(hash,"react.preClick",null)%]

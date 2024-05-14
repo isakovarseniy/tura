@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.repository.RepositoryProducer;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.cpa.storage.CpaRepositoryProvider;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
@@ -41,8 +42,7 @@ public class Factory {
 	private Map<Long, Long> employeeConverter = new HashMap<>();
 	public static RepositoryProducer repositoryProducer = new RepositoryProducer();
 	private static CpaRepository repository;
-	private  ELResolver elResolver = new ELResolverImpl();
-
+	private ELResolver elResolver = new ELResolverImpl();
 
 	public void initDB(String initializer, EntityManager em) throws Exception {
 
@@ -62,8 +62,7 @@ public class Factory {
 		}
 
 	}
-	
-	
+
 	public void setRelatioin(DataControl<DepartmentType> ddc, DataControl<EmployeeType> edc) throws TuraException {
 		Relation relation = new Relation();
 		relation.setParent(ddc);
@@ -73,7 +72,7 @@ public class Factory {
 
 		ddc.addChildren("departmentsToemployees", relation);
 
-	}	
+	}
 
 	public Long cDept(Long id) {
 		return departmentConverter.get(id);
@@ -87,54 +86,60 @@ public class Factory {
 		return repositoryProducer.em;
 	}
 
-	
 	public static RepositoryProducer getRepositoryProducer() {
 		return repositoryProducer;
 	}
 
 	public static CpaRepository getRepository() throws Exception {
-		if ( repository == null) {
+		if (repository == null) {
 			Repository transport = repositoryProducer.getJpaRepository();
 			repository = repositoryProducer.getProxyRepository(transport);
 		}
 		return repository;
 	}
 
+	public static CpaRepositoryProvider getCpaRepositoryProvider() throws Exception {
+		return new CpaRepositoryProvider() {
+			private static final long serialVersionUID = 1L;
+			@Override
+			public CpaRepository get() {
+				try {
+					return getRepository();
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+		};
+	}
 
-	public  static  CpaStorageProvider getStorageProvider() throws Exception {
+	public static CpaStorageProvider getStorageProvider() throws Exception {
 		return getRepository().getStorageProvider();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public DataControl<DepartmentType> initDepartments(String elPrefix, String initializer) throws Exception {
 		switch (initializer) {
 		case "Department1":
 			return new FactoryDC1(elResolver).initDepartments(elPrefix);
 		case "Department2":
-			return  new FactoryDC2(elResolver).initDepartments(elPrefix);
+			return new FactoryDC2(elResolver).initDepartments(elPrefix);
 		}
 		return null;
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	public DataControl<EmployeeType> initEmployees(String elPrefix, String initializer) throws Exception {
 		switch (initializer) {
 		case "Employee1":
 			return new FactoryDC1(elResolver).initEmployees(elPrefix);
 		case "Employee2":
-			return  new FactoryDC2(elResolver).initEmployees(elPrefix);
+			return new FactoryDC2(elResolver).initEmployees(elPrefix);
 		}
 		return null;
 	}
-	
-	
-	
-	public void clean() throws  Exception {
+
+	public void clean() throws Exception {
 		repository = null;
 	}
-	
-	
-	
-	
+
 }

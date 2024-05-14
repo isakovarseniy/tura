@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -53,6 +53,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
    @SuppressWarnings("unused")
     private String  id =java.util.UUID.randomUUID().toString();
     private String _sourceId;
+    private org.tura.platform.repository.core.RepoKeyPath saveCpaPath;
 
 
     public  [%=tp.~class%]Proxy([%=tp.~fullName%] object, org.tura.platform.repository.cpa.CpaRepository repository,org.tura.platform.repository.cpa.storage.CpaStorageProvider storageProvider){
@@ -163,7 +164,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
 	private void lock() {
 		try {
-			storageProvider.getStorage().lock(this);
+			org.tura.platform.repository.cpa.storage.Locker.lock(this);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -172,11 +173,18 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
     private void readObject(java.io.ObjectInputStream aInputStream) throws ClassNotFoundException, java.io.IOException {
 		aInputStream.defaultReadObject();
-	    org.tura.platform.repository.cpa.storage.ProxyObjectRegistry.addProxyObject(this);
+		try {
+			org.tura.platform.repository.cpa.storage.Locker.restoreLock(this, this.saveCpaPath);
+			this.saveCpaPath = null;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+
+		}
 	}
   	
   	
   private void writeObject(java.io.ObjectOutputStream aOutputStream) throws IOException {
+        this.saveCpaPath = this.getCpaPath();
 	    aOutputStream.defaultWriteObject();
    }  
        
@@ -335,7 +343,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     
     private [%=tp.~fullName%]  getObject() {
 	    try{
-	        return storageProvider.getStorage().getObject(this.getCpaPath());
+	        return storageProvider.get().getObject(this.getCpaPath());
 	     }catch(Exception e){
 	        throw new RuntimeException(e);
 	     }
@@ -427,7 +435,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	@Override
 	public long getStorageControlTimeStamp() {
 		try {
-		return storageProvider.getStorage().getStorageControl(this.getCpaPath()).getTimeStamp();
+		return storageProvider.get().getStorageControl(this.getCpaPath()).getTimeStamp();
 		}catch( Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -472,9 +480,17 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 	private ProxyCommadStackProvider getLocalStackProvider(String session) {
 		ProxyCommadStackProvider localStackProvider = stackMap.get(session);
 		if (localStackProvider == null) {
-			localStackProvider = new  org.tura.platform.repository.cpa.LocalCommadStackProvider();
+			localStackProvider = new  org.tura.platform.repository.cpa.LocalCommadStackProvider(new org.tura.platform.repository.core.RegistryProvider() {
+		
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public org.tura.platform.repository.core.Registry get() {
+			return getRegistry();
+		}
+	});
 			stackMap.put(session, localStackProvider);
-			localStackProvider.get().addProxyCommandStackEventListener(session,
+			localStackProvider.get().getEventSubscribersProvider().get().addProxyCommandStackEventListener(session,
 					new LocalRepositoryCommitListener(session));
 		}
 		return localStackProvider;

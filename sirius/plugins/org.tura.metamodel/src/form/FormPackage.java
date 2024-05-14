@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -8962,13 +8962,22 @@ public interface FormPackage extends EPackage {
 	int RELATION = 100;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__UID = 0;
+	int RELATION__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -8977,7 +8986,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__NAME = 1;
+	int RELATION__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Master</b></em>' reference.
@@ -8986,7 +8995,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__MASTER = 2;
+	int RELATION__MASTER = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Detail</b></em>' reference.
@@ -8995,7 +9004,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__DETAIL = 3;
+	int RELATION__DETAIL = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Tree</b></em>' attribute.
@@ -9004,7 +9013,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__IS_TREE = 4;
+	int RELATION__IS_TREE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -9013,7 +9022,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__LINKS = 5;
+	int RELATION__LINKS = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
@@ -9022,7 +9031,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_FEATURE_COUNT = 6;
+	int RELATION_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.InternalRelationImpl <em>Internal Relation</em>}' class.
@@ -9033,6 +9042,15 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERNAL_RELATION = 101;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__CLASSIFIERS = RELATION__CLASSIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.

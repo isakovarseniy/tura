@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -310,13 +310,22 @@ public interface RecipePackage extends EPackage {
 	int CONFIG_EXTENSION__TARGET = 2;
 
 	/**
+	 * The feature id for the '<em><b>Config Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_EXTENSION__CONFIG_BRANCH = 3;
+
+	/**
 	 * The number of structural features of the '<em>Config Extension</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_EXTENSION_FEATURE_COUNT = 3;
+	int CONFIG_EXTENSION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.Recipe2InfrastructureImpl <em>Recipe2 Infrastructure</em>}' class.
@@ -402,13 +411,22 @@ public interface RecipePackage extends EPackage {
 	int INFRASTRUCTURE2_CONFIGURATION__TARGET = 2;
 
 	/**
+	 * The feature id for the '<em><b>Config Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH = 3;
+
+	/**
 	 * The number of structural features of the '<em>Infrastructure2 Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE2_CONFIGURATION_FEATURE_COUNT = 3;
+	int INFRASTRUCTURE2_CONFIGURATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.
@@ -1168,13 +1186,22 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__ARTIFACT_EXTENSION = ARTIFACT_REF_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Config Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_MAPPER__CONFIG_BRANCH = ARTIFACT_REF_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Model Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 9;
+	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.
@@ -1669,6 +1696,17 @@ public interface RecipePackage extends EPackage {
 	EReference getConfigExtension_Target();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.ConfigExtension#getConfigBranch <em>Config Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Branch</em>'.
+	 * @see recipe.ConfigExtension#getConfigBranch()
+	 * @see #getConfigExtension()
+	 * @generated
+	 */
+	EAttribute getConfigExtension_ConfigBranch();
+
+	/**
 	 * Returns the meta object for class '{@link recipe.Recipe2Infrastructure <em>Recipe2 Infrastructure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1753,6 +1791,17 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInfrastructure2Configuration_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link recipe.Infrastructure2Configuration#getConfigBranch <em>Config Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Branch</em>'.
+	 * @see recipe.Infrastructure2Configuration#getConfigBranch()
+	 * @see #getInfrastructure2Configuration()
+	 * @generated
+	 */
+	EAttribute getInfrastructure2Configuration_ConfigBranch();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.DeploymentComponent <em>Deployment Component</em>}'.
@@ -2295,6 +2344,17 @@ public interface RecipePackage extends EPackage {
 	EAttribute getModelMapper_ArtifactExtension();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.ModelMapper#getConfigBranch <em>Config Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Branch</em>'.
+	 * @see recipe.ModelMapper#getConfigBranch()
+	 * @see #getModelMapper()
+	 * @generated
+	 */
+	EAttribute getModelMapper_ConfigBranch();
+
+	/**
 	 * Returns the meta object for class '{@link recipe.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2765,6 +2825,14 @@ public interface RecipePackage extends EPackage {
 		EReference CONFIG_EXTENSION__TARGET = eINSTANCE.getConfigExtension_Target();
 
 		/**
+		 * The meta object literal for the '<em><b>Config Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_EXTENSION__CONFIG_BRANCH = eINSTANCE.getConfigExtension_ConfigBranch();
+
+		/**
 		 * The meta object literal for the '{@link recipe.impl.Recipe2InfrastructureImpl <em>Recipe2 Infrastructure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2831,6 +2899,14 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EReference INFRASTRUCTURE2_CONFIGURATION__TARGET = eINSTANCE.getInfrastructure2Configuration_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH = eINSTANCE.getInfrastructure2Configuration_ConfigBranch();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.
@@ -3251,6 +3327,14 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_MAPPER__ARTIFACT_EXTENSION = eINSTANCE.getModelMapper_ArtifactExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL_MAPPER__CONFIG_BRANCH = eINSTANCE.getModelMapper_ConfigBranch();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.

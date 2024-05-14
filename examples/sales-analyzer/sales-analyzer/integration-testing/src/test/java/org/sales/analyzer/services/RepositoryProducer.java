@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,13 +28,14 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RoleRepresentation;
-import org.sales.analyzer.process.PostDeployer;
 import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
+import org.sales.analyzer.ui.AbstractTest;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.AllowEverythingProfile;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.CpaTransactionAdapter;
@@ -119,7 +120,15 @@ public class RepositoryProducer {
 		Registry cpaRegistry = new Registry();
 		SpaObjectRegistry cpaSpaRegistry = new SpaObjectRegistry();
 
-		ProxyCommadStackProvider stackProvider = new LocalCommadStackProvider();
+		ProxyCommadStackProvider stackProvider = new LocalCommadStackProvider(new RegistryProvider() {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Registry get() {
+				return cpaRegistry;
+			}
+		});
 		cpaStorageProvider = new ProxyCpaStorageProvider(stackProvider);
 
 		InitCPARepository init = new InitCPARepository(cpaRegistry, cpaSpaRegistry);
@@ -129,7 +138,7 @@ public class RepositoryProducer {
 		init.initRules();
 
 		cpaSpaRegistry.getRegistry(InitCPARepository.SPA_REPOSITORY_NAME).addInstantiator(new CpaServiceInstantiator(
-				cpaSpaRegistry, InitCPARepository.SPA_REPOSITORY_NAME, cpaRegistry, cpaStorageProvider));
+				cpaSpaRegistry, InitCPARepository.SPA_REPOSITORY_NAME, cpaRegistry, cpaStorageProvider,null));
 
 		ProxyRepository proxyRepository = new ProxyRepository();
 		proxyRepository.setStackProvider(stackProvider);
@@ -173,24 +182,24 @@ public class RepositoryProducer {
         initSpa.initClassMapping();
 
 		Keycloak keycloak = KeycloakBuilder.builder()
-				.serverUrl(PostDeployer.KEYCLOAK_URL)
-				.realm(PostDeployer.KEYCLOAK_ADMIN_REALM)
-				.clientId(PostDeployer.KEYCLOAK_ADMIN_CLIENTID)
+				.serverUrl(AbstractTest.KEYCLOAK_URL)
+				.realm(AbstractTest.KEYCLOAK_ADMIN_REALM)
+				.clientId(AbstractTest.KEYCLOAK_ADMIN_CLIENTID)
 				.grantType(OAuth2Constants.PASSWORD)
-				.clientSecret(PostDeployer.CLIENT_SECRET)
-				.username(PostDeployer.ADMIN_USER)
-				.password(PostDeployer.ADMIN_PASSWORD)
+				.clientSecret(AbstractTest.CLIENT_SECRET)
+				.username(AbstractTest.ADMIN_USER)
+				.password(AbstractTest.ADMIN_PASSWORD)
 				.build();
-RealmResource realmResource = keycloak.realm(PostDeployer.KEYCLOAK_MANAGED_REALM);
+RealmResource realmResource = keycloak.realm(AbstractTest.KEYCLOAK_MANAGED_REALM);
 
 KeyCloakServicesInstantiator initK = new KeyCloakServicesInstantiator(
-		                                                 PostDeployer.KEYCLOAK_URL,
-		                                                 PostDeployer.KEYCLOAK_ADMIN_REALM,
-		                                                 PostDeployer.KEYCLOAK_ADMIN_CLIENTID,
-		                                                 PostDeployer.CLIENT_SECRET,
-		                                                 PostDeployer.ADMIN_USER,
-		                                                 PostDeployer.ADMIN_PASSWORD,
-		                                                 PostDeployer.KEYCLOAK_MANAGED_REALM,
+														 AbstractTest.KEYCLOAK_URL,
+														 AbstractTest.KEYCLOAK_ADMIN_REALM,
+														 AbstractTest.KEYCLOAK_ADMIN_CLIENTID,
+														 AbstractTest.CLIENT_SECRET,
+														 AbstractTest.ADMIN_USER,
+														 AbstractTest.ADMIN_PASSWORD,
+														 AbstractTest.KEYCLOAK_MANAGED_REALM,
 		                                                 registry, spaRegistry, "spa-persistence-repository"
 														);
 
@@ -203,7 +212,7 @@ KeyCloakServicesInstantiator initK = new KeyCloakServicesInstantiator(
         spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.User.class.getName(),new SPAAdapterLoader(realmResource));
         spaRegistry.getRegistry("spa-persistence-repository").addLoader(org.tura.salesanalyzer.persistence.keycloak.RoleRef.class.getName(),new SPAAdapterLoader(realmResource));
 
-		JbpmServiceInstantiator initJ = new JbpmServiceInstantiator( PostDeployer.KIE_SERVER_URL , new OAuthCredentialsProvider(new PostDeployer().getToken()),new UserPeferencesProviderImpl(),registry,spaRegistry,"spa-persistence-repository");
+		JbpmServiceInstantiator initJ = new JbpmServiceInstantiator( AbstractTest.KIE_SERVER_URL , new OAuthCredentialsProvider( AbstractTest.getToken()),new UserPeferencesProviderImpl(),registry,spaRegistry,"spa-persistence-repository");
 
         spaRegistry.getRegistry("spa-persistence-repository").addInstantiator(initJ);
         spaRegistry.getRegistry("spa-persistence-repository").addCRUDProvider(SalesAnalyzerProcessInstance.class,JbpmCRUDService.class);

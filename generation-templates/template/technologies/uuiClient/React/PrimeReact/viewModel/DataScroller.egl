@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -63,8 +63,17 @@ operation form::DataScroller createModel(hash) {
 		  	private Integer first;
 		  	private String layout; 
 		  	private List <Integer> modifiedRecords;
+		  	private String parentKey;
 		    
 
+		    public String getParentKey() {
+		        return parentKey;
+		    }
+		
+		    public void setParentKey(String parentKey) {
+		        this.parentKey = parentKey;
+		    }		
+             
 		    public List<Integer> getModifiedRecords() {
 				return modifiedRecords;
 			}
@@ -191,6 +200,11 @@ operation form::DataScroller createModel(hash) {
 			    this.totalRows = model.getTotalRows();
 			    first = model.getFirst();
 			    this.values = new ArrayList<Map<String,Object>>();
+			    this.parentKey = "";
+			    org.tura.platform.repository.core.ObjectControl po = (org.tura.platform.repository.core.ObjectControl)model.getParent();
+			    if (po != null ){
+			       parentKey = po.getPrimaryKey().toString();
+			    }
 			    
 			    [% 
 			       var expression = constructExpression(self,'datascroller.initial.layout',hints, hash);

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -63,12 +63,13 @@ public class DefaultSearchPropertySelection extends ContextParameterPropertySele
 		if (((DataControl) super.getModel()).getDefaultSearch() == null) {
 			EditingDomain editingDomain = ((DiagramEditor) this.getPart()).getEditingDomain();
 
-			ContextParameters ctx = FormFactory.eINSTANCE.createContextParameters();
+			ContextParameters ctx = FormFactory.eINSTANCE.createContextParametersObj();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, super.getModel(),
 							FormPackage.eINSTANCE.getDataControl_DefaultSearch(), ctx));
 		}
 		return ((DataControl) super.getModel()).getDefaultSearch();
+
 	}
 
 	@Override

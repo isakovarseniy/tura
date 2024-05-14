@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -92,26 +92,26 @@ public class Many2ManyTest {
 			Many2Many2B o2 = (Many2Many2B) repository.create(Many2Many2B.class);
 			repository.insert(o2, Many2Many2B.class);
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
 			o1.getMany2Many2B().add(o2);
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Inserted.name()}) );
 			assertEquals(1, array.size());
 			
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 
 			SearchResult<?> result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
@@ -130,18 +130,18 @@ public class Many2ManyTest {
 
 			o1.getMany2Many2B().remove(0);
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Updated.name()}) );
 			assertEquals(1, array.size());
 			
 			stackProvider.get().commit();
 
-			array = cpaStorageProvider.getStorage().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many2B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,

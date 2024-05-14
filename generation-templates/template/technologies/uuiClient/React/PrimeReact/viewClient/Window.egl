@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -49,7 +49,12 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
       [% if ( form.parameters.size() <> 0){ 
           populateInclude(hash,"queryString",  "query-string");
       %]
-        const values = queryString.parse(this.props.location.search);
+        var values = null;
+        if ( typeof  this.props.params === "undefined"){
+           values = queryString.parse(this.props.location.search);
+        } else{
+           values = this.props.params; 
+        }
       [%}%]
     
       [%
@@ -180,10 +185,14 @@ export class [%=util.mergeAndCapitalize(self.name)%] extends React.Component {
           }
      var generateComponents = hash.get("generateComponents");
      hash.put("generateComponents",new Native("java.util.ArrayList"));
+     clearContext(hash);
      
      while ( 1 == 1){
 	     for (comp in generateComponents){
-	            %] [%=comp.createComponent(hash)%][%
+	            comp.applyContext(hash);		
+	            %] 
+	            [%=comp.createComponent(hash)%]
+	            [%
 	        
 	     }
          generateComponents = hash.get("generateComponents");

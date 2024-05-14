@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.tura.platform.datacontrol.commons.Constants;
 
 @ApplicationScoped
 public class KeyHolder {
@@ -38,7 +39,7 @@ public class KeyHolder {
     @PostConstruct
     public void init()   {
     	try {
-    		String encodedKey = System.getProperty("aes_key");
+    		String encodedKey = System.getProperty( Constants.AES_KEY );
     		byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
     		secretKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     		

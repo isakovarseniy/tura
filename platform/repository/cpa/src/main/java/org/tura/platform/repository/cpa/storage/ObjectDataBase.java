@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,8 @@ public class ObjectDataBase implements Serializable {
 	private Map<Class<?>, BidiMap> cpaid2KeyMapper = new HashMap<>();
 	private Map<String, RepoKeyPath> internalObjectRepoKeyPath = new HashMap<>();
 	private Map<String, List<String>> internalObjectRegistry = new HashMap<>();
-	private  TypeInheritance typeInheritance;
+	private  TypeInheritanceProvider typeInheritanceProvider;
+	private transient TypeInheritance typeInfoProvider;
 
 	
 	public ObjectDataBase() {
@@ -47,6 +48,7 @@ public class ObjectDataBase implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public ObjectDataBase(ObjectDataBase odb) throws Exception {
+		this.typeInheritanceProvider = odb.typeInheritanceProvider;
 		for (Class<?> clazz : odb.db.keySet()) {
 			Map<Object, StorageControl> mp = new HashMap<>();
 			this.db.put(clazz, mp);
@@ -73,8 +75,8 @@ public class ObjectDataBase implements Serializable {
 		}
 	}
 
-	public ObjectDataBase(TypeInheritance typeInheritance) {
-		this.typeInheritance =   typeInheritance;  
+	public ObjectDataBase(TypeInheritanceProvider typeInheritanceProvider) {
+		this.typeInheritanceProvider =   typeInheritanceProvider;  
 	}
 
 	public void catalogInternalObjects(String cpaid, StorageControl sc) throws RepositoryException {
@@ -166,10 +168,10 @@ public class ObjectDataBase implements Serializable {
 	}
 
 	private Map<Object, StorageControl> getInheritance(Class<?> type){
-		if ( this.typeInheritance == null) {
+		if ( this.getTypeInheritance() == null) {
 			return getTypeDb(type);
 		}
-		 List< Class<?>> inh =   this.typeInheritance.findInheritance(type);
+		 List< Class<?>> inh =   this.getTypeInheritance().findInheritance(type);
 		 if ( inh == null) {
 				return getTypeDb(type);
 		 }
@@ -185,6 +187,17 @@ public class ObjectDataBase implements Serializable {
 	}
 	
 	
+	private TypeInheritance getTypeInheritance() {
+		if (this.typeInfoProvider != null) {
+			return typeInfoProvider;
+		}
+		if ( this.typeInheritanceProvider != null) {
+			this.typeInfoProvider = this.typeInheritanceProvider.get();
+			return typeInfoProvider;
+		}
+		return null;
+	}
+
 	private Map<Object, StorageControl> getTypeDb(Class<?> type) {
 		Map<Object, StorageControl> typeDb = db.get(type);
 		return typeDb;

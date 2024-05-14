@@ -1,7 +1,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 
 	<groupId>sales-analyzer</groupId>
 	<artifactId>sales-analyzer-parent</artifactId>
-	<version>6.1.1</version>
+	<version>6.1.2</version>
 
 	<packaging>pom</packaging>
 
@@ -33,10 +33,7 @@
 		<wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
 		<junit-version>4.11</junit-version>
 		<javaee-api-version>7.0</javaee-api-version>
-		<drools-version>6.5.0.Final</drools-version>
-		<org.wildfly.core-version>2.2.0.Final</org.wildfly.core-version>
-		<org.wildfly.extras.creaper-version>1.6.1</org.wildfly.extras.creaper-version>
-		<wildfly-version>10.1.0.Final</wildfly-version>
+		<drools-version>7.48.0.Final</drools-version>
 		<infinispan.version>9.2.4.Final</infinispan.version>
 		<h2-version>1.3.175</h2-version>
 		<keycloak-version>12.0.1</keycloak-version>
@@ -68,7 +65,8 @@
 
 		<repository>
 			<id> redhat 2</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<url>
+				https://repository.jboss.org/nexus/content/repositories/releases</url>
 
 		</repository>
 
@@ -224,7 +222,6 @@
 			</dependency>
 
 
-
 			<dependency>
 				<groupId>org.jboss.resteasy</groupId>
 				<artifactId>resteasy-client</artifactId>
@@ -288,6 +285,13 @@
 				<version>${drools-version}</version>
 				<type>war</type>
 				<classifier>ee7</classifier>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>business-central</artifactId>
+				<version>${drools-version}</version>
+				<type>pom</type>
 			</dependency>
 
 			<dependency>
@@ -363,13 +367,6 @@
 				<artifactId>config-integration-testing</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
-			<dependency>
-				<groupId>sales-analyzer</groupId>
-				<artifactId>post-deployer</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
 
 
 			<dependency>
@@ -456,37 +453,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.wildfly.extras.creaper</groupId>
-				<artifactId>creaper-core</artifactId>
-				<version>${org.wildfly.extras.creaper-version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.wildfly.extras.creaper</groupId>
-				<artifactId>creaper-commands</artifactId>
-				<version>${org.wildfly.extras.creaper-version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.wildfly.core</groupId>
-				<artifactId>wildfly-controller-client</artifactId>
-				<version>${org.wildfly.core-version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.wildfly.core</groupId>
-				<artifactId>wildfly-cli</artifactId>
-				<version>${org.wildfly.core-version}</version>
-			</dependency>
-
-
-			<dependency>
-				<groupId>org.wildfly.core</groupId>
-				<artifactId>wildfly-patching</artifactId>
-				<version>${org.wildfly.core-version}</version>
-			</dependency>
-
-			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
 				<version>${h2-version}</version>
@@ -554,7 +520,8 @@
 							<artifactId>advancedPersistentLookupLib-1.2</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/advancedPersistentLookupLib-1.2.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/advancedPersistentLookupLib-1.2.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -569,7 +536,8 @@
 							<artifactId>commons-collections-3.2.2</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/commons-collections-3.2.2.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/commons-collections-3.2.2.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -584,7 +552,8 @@
 							<artifactId>talendcsv</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/talendcsv.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/talendcsv.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -599,7 +568,8 @@
 							<artifactId>dom4j-2.1.1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/dom4j-2.1.1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/dom4j-2.1.1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -614,7 +584,8 @@
 							<artifactId>jboss-serialization</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jboss-serialization.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/jboss-serialization.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -630,7 +601,8 @@
 							<artifactId>json_simple-1.1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/json_simple-1.1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/json_simple-1.1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -645,7 +617,8 @@
 							<artifactId>jsonpath</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/jsonpath.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/jsonpath.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -660,7 +633,8 @@
 							<artifactId>log4j-1.2.17</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.17.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/log4j-1.2.17.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -675,7 +649,8 @@
 							<artifactId>postgresql-9.4-1201.jdbc41</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/postgresql-9.4-1201.jdbc41.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/postgresql-9.4-1201.jdbc41.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -690,7 +665,8 @@
 							<artifactId>routines</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/routines.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/routines.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -705,7 +681,8 @@
 							<artifactId>talend_file_enhanced_20070724</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/talend_file_enhanced_20070724.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/talend_file_enhanced_20070724.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -720,7 +697,8 @@
 							<artifactId>trove</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/lib/trove.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/lib/trove.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -735,7 +713,8 @@
 							<artifactId>generate_data_for_period_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Generate_data_for_period/generate_data_for_period_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Generate_data_for_period/generate_data_for_period_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -750,7 +729,8 @@
 							<artifactId>generate_monthly_file_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Generate_monthly_file/generate_monthly_file_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Generate_monthly_file/generate_monthly_file_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -765,7 +745,8 @@
 							<artifactId>history_loader_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/History_loader/history_loader_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/History_loader/history_loader_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -781,7 +762,8 @@
 							<artifactId>monthly_file_validation_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Monthly_file_validation/monthly_file_validation_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Monthly_file_validation/monthly_file_validation_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -797,7 +779,8 @@
 							<artifactId>prepare_to_rules_run_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Prepare_to_rules_run/prepare_to_rules_run_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Prepare_to_rules_run/prepare_to_rules_run_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -812,7 +795,8 @@
 							<artifactId>run_rules_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Run_rules/run_rules_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Run_rules/run_rules_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -827,7 +811,8 @@
 							<artifactId>create_cases_0_1</artifactId>
 							<version>6.0.0</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/../talend-jobs/monthly_file_processing/Create_cases/create_cases_0_1.jar</file>
+							<file>
+								${basedir}/../talend-jobs/monthly_file_processing/Create_cases/create_cases_0_1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
@@ -844,17 +829,16 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+				<module>dependency-loader</module>
 				<module>api-extension</module>
 				<module>services</module>
 				<module>server-extension</module>
 				<module>rules-commons</module>
-				<module>processes</module>
+				<module>../sa-processes</module>
 				<module>web-app-commons</module>
 				<module>sa-admin-triggers</module>
 				<module>sa-case-manager-triggers</module>
 				<module>sa-etl-controller-triggers</module>
-				<module>post-deployer</module>
-				<module>dependency-loader</module>
 				<module>integration-testing</module>
 			</modules>
 		</profile>
@@ -867,7 +851,7 @@
 				<module>api-extension</module>
 				<module>server-extension</module>
 				<module>rules-commons</module>
-				<module>processes</module>
+				<module>../sa-processes</module>
 			</modules>
 		</profile>
 		<profile>
@@ -876,19 +860,16 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+				<module>dependency-loader</module>
 				<module>services</module>
 				<module>web-app-commons</module>
 				<module>sa-admin-triggers</module>
 				<module>sa-case-manager-triggers</module>
 				<module>sa-etl-controller-triggers</module>
-				<module>post-deployer</module>
-				<module>dependency-loader</module>
 			</modules>
 		</profile>
 
 	</profiles>
-
-
 
 
 </project>

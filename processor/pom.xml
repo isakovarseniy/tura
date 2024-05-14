@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -19,7 +19,7 @@
 
 	<groupId>org.tura</groupId>
 	<artifactId>processor</artifactId>
-	<version>6.1.1</version>
+	<version>6.1.2</version>
 	<packaging>pom</packaging>
 
 	<name>Tura :: Platform :: Processor</name>
@@ -33,7 +33,7 @@
 		<picocli.version>3.9.2</picocli.version>
 		<commons-io.version>2.6</commons-io.version>
 		<maven-invoker.version>3.0.1</maven-invoker.version>
-		<docker-java.version>3.2.5</docker-java.version>
+		<docker-java.version>3.3.4</docker-java.version>
 		<freemarker.version>2.3.20</freemarker.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
@@ -48,13 +48,15 @@
 		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
 		<version.hibernate-entitymanager>5.4.0.Final</version.hibernate-entitymanager>
 		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
+		<version.postgres-jdbc>42.1.1</version.postgres-jdbc>
 	</properties>
 
 	<repositories>
 		<repository>
 			<id>maven-us.nuxeo.org</id>
 			<name>maven-us.nuxeo.org</name>
-			<url>http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
+			<url>
+				http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
 		</repository>
 		<repository>
 			<id>repo.spring.io_plugins-release_</id>
@@ -83,6 +85,25 @@
 				<version>${tura.version}</version>
 			</dependency>
 
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${version.postgres-jdbc}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.processor</groupId>
+				<artifactId>processor-tura-command-api</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.tura.processor</groupId>
+				<artifactId>processor-tura-command</artifactId>
+				<version>${tura.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.h2database</groupId>
@@ -309,6 +330,9 @@
 		<module>processor-tura-command</module>
 		<module>processor-emf-model-command</module>
 		<module>processor-tura-model</module>
+		<module>processor-jbpm-command</module>
+		<module>processor-keycloak-command</module>
+		<module>processor-jboss-command</module>
 	</modules>
 
 	<build>

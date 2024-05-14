@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,6 +18,17 @@ public class OSHelper {
 	
 	
 	private static String os_name = System.getProperty("os.name").toLowerCase();
+	private static String os_arch = System.getProperty("os.arch").toLowerCase();
+
+	
+	
+	public static boolean isX86() {
+		return (os_arch.indexOf("x86") >= 0 || os_arch.indexOf("amd") >= 0  );
+	}
+
+	public static boolean isARM() {
+		return (os_arch.indexOf("aarch") >= 0  );
+	}
 
 	
 	public static boolean isWindows() {

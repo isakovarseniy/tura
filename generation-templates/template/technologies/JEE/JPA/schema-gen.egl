@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -41,8 +41,8 @@ public class GenerateSchemaTest {
     public  void schemaGeneration() {
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "[%=configuration.get("DataBase jdbc driver")%]");
-        settings.put("dialect", "org.hibernate.dialect.[%=persistence_databasename()%]Dialect");
-        settings.put("hibernate.connection.url", "[%=configuration.get("DataBase jdbc url")%]");
+        settings.put("hibernate.dialect", "org.hibernate.dialect.[%=persistence_databasename()%]Dialect");
+        settings.put("hibernate.connection.url", "[%=configuration.get("DataBase jdbc url")%]"); //jdbc:postgresql://localhost:5432/postgres
         settings.put("hibernate.connection.username", "[%=configuration.get("DataBase user")%]");
         settings.put("hibernate.connection.password", "[%=configuration.get("DataBase password")%]");
         settings.put("show_sql", "true");

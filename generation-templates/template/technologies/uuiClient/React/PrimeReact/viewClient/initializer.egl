@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -34,6 +34,17 @@ import {StartPollCommand} from "[%=clientLibraryPackage%]/plugin/StartPollComman
 import {StopPollCommand} from "[%=clientLibraryPackage%]/plugin/StopPollCommand";
 import {BlockUIOnCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOnCommmand";
 import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCommmand";
+import {EnableTreeEditCommand} from "[%=clientLibraryPackage%]/plugin/EnableTreeEditCommand";
+import {CallFormApiCommand} from "[%=clientLibraryPackage%]/plugin/CallFormApiCommand";
+import {AddWindowPluginCommand} from "[%=clientLibraryPackage%]/plugin/AddWindowPluginCommand";
+import {RemoveWindowPluginCommand} from "[%=clientLibraryPackage%]/plugin/RemoveWindowPluginCommand";
+import {ExecuteQueuedEventsCommand} from "[%=clientLibraryPackage%]/plugin/ExecuteQueuedEventsCommand";
+import {BooleanToString} from "tura-lib/plugin/toString/BooleanToString";
+import {DateToString} from "[%=clientLibraryPackage%]/plugin/toString/DateToString";
+import {SharedContext} from "[%=clientLibraryPackage%]/core/SharedContext";
+import uuid from "uuid/v1";
+
+
 
 [%
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -68,8 +79,18 @@ import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCom
 [%
     }  
 
-
-
+	for ( form in forms){
+      for (canvas in form.view.canvases){
+         if (canvas.isKindOf(form::Window) ){
+          var uipackage = form.eContainer();
+         var application = uipackage.eContainer();
+         
+%]import {[%=util.mergeAndCapitalize(canvas.name)%]} from   "./[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(canvas.name)%]";
+[%         
+         
+         }
+      }	
+	}
 
 %]
 
@@ -84,6 +105,17 @@ import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCom
 		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.StopPoll",new StopPollCommand());
         registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.BlockUIOffCommmand",new BlockUIOffCommmand());
         registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.BlockUIOnCommmand",new BlockUIOnCommmand());
+		registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.EnableTreeEditCommand",new EnableTreeEditCommand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.AddWindowPluginCommand",new AddWindowPluginCommand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.CallFormApiCommand",new CallFormApiCommand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.RemoveWindowPluginCommand",new RemoveWindowPluginCommand());
+        registry.addCommand("org.tura.platform.uuiclient.rest.client.commands.ExecuteQueuedEventsCommand",new ExecuteQueuedEventsCommand());
+
+        registry.addToStringByType("Boolean",new BooleanToString()); 
+        registry.addToStringByType("Date",new DateToString()); 
+        new SharedContext().initContext();
+
+
 
 [%
     for ( trigger in scriptTriggersAll)    {
@@ -109,7 +141,38 @@ import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCom
 [%
         }
     } 
-    
+
+	for ( form in forms){
+      for (canvas in form.view.canvases){
+         if (canvas.isKindOf(form::Window) ){
+          var uipackage = form.eContainer();
+          var application = uipackage.eContainer();
+         
+%]
+
+window.render[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%][%=util.mergeAndCapitalize(canvas.name)%] = (containerId, history, params) => {
+   var sessionId =uuid();
+  
+  ReactDOM.render(
+    <[%=util.mergeAndCapitalize(canvas.name)%] sessionId={sessionId}  history={history}  params = {params} />,
+    document.getElementById(containerId),
+  );
+};
+
+window.unmount[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%][%=util.mergeAndCapitalize(canvas.name)%] = containerId => {
+  ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
+};
+
+
+[%         
+         
+         }
+      }	
+	}
+
+%]
+    if ( typeof window.isMicroUIFrame === "undefined" ){
+[%
     if ( wrapper <> null ){
 %] new [%=wrapper.~class%]().init(registry, () => {
      ReactDOM.render(<App />, document.getElementById('root'));
@@ -119,7 +182,7 @@ import {BlockUIOffCommmand} from "[%=clientLibraryPackage%]/plugin/BlockUIOffCom
     %]ReactDOM.render(<App />, document.getElementById('root'));[%
     }
 %]
-
+}
 
 
        

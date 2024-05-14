@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class TreeModel implements Serializable {
 	private List<TreePath> currentPath;
 	private TreeDataControl dc;
 	private transient Logger logger = Logger.getLogger(TreeModel.class.getName());
-	private Object callback;
+	private TreeModelTriggers callback;
 	private String modelId;
 	private TreeNode contextSelectedNode;
 	private List<String> expandedNodes;
@@ -70,7 +70,12 @@ public class TreeModel implements Serializable {
 		this.setModelId(modelId);
 		this.dc = dc;
 		dc.addEventLiteners(new RecordListener());
-		this.callback = callback;
+		this.callback = (TreeModelTriggers) callback;
+	}
+	
+	
+	public TreeDataControl  getTreeDataControl() {
+		return dc;
 	}
 
 	public List<String> getExpandedNodes() {
@@ -180,9 +185,16 @@ public class TreeModel implements Serializable {
 	public void onNodeSelect(EventDescription event) throws Exception {
 		TreeNode expnode = findNode(event);
 		setSelected(expnode);
+		if ( callback != null) {
+			callback.onNodeSelect(expnode);
+		}
 	}
 
-	public void onNodeUnselect(EventDescription event) {
+	public void onNodeUnselect(EventDescription event) throws Exception{
+		TreeNode expnode = findNode(event);
+		if ( callback != null) {
+			callback.onNodeUnSelect(expnode);
+		}
 	}
 
 	@SuppressWarnings("unchecked")

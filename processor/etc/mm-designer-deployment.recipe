@@ -1,0 +1,21 @@
+c2 = tura:docker findContainer --name ${mm_wf_cnt_name}
+echo 'Wildfly container located? '$c2
+if { %(c2) } { 
+
+     echo '  Stop container '
+     tura:docker stopContainer --name ${mm_wf_cnt_name}
+     echo ' Remove container '
+     tura:docker removeContainer --name ${mm_wf_cnt_name}
+
+} {
+   c2 = tura:docker findImage --registry tura/metamodel/wildfly --tag 1.0
+   if { %(c2) } { } {
+   
+   echo 'Building wildfly container'
+   source pre:///$repo_home/mm-designer-wildfly.recipe
+   
+   }
+
+}
+ 
+ source pre:///$repo_home/mm-designer-redeploy-wildfly.recipe

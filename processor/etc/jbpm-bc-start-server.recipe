@@ -1,0 +1,86 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+tura:docker stopContainer --name jbpm-bc
+
+tura:docker removeContainer --name jbpm-bc
+
+tura:docker removeImage --registry tura/jbpm/bc --tag 1.0
+
+tura:docker pullImage --registry jboss/wildfly --tag $wildfly_version
+
+tura:docker createNetwork --network ${business_center_net}
+
+c = tura:docker config\
+                        --port ${business_center_http}:8080\
+                        --port ${business_center_debug}:3333\
+                        --network ${business_center_net}\
+                        --var JAVA_OPTS="-server -Xms512m -Xmx3072m" 
+
+v = tura:docker createContainer --registry jboss/wildfly --tag $wildfly_version --var c 
+
+
+tura:dsl copyFile               --container $v\
+                                          --unzip\
+                                          --sourceResource $mr2/org/kie/business-central-webapp/${jbpm_version}/business-central-webapp-${jbpm_version}.war\
+                                          --targetLocation    /opt/jboss/deployment/business-central\
+                                          --targetName business-central-webapp-${jbpm_version}.war
+
+                                          
+tura:dsl removeFile            --container $v\
+                                          --targetLocation /opt/jboss/deployment/business-central/business-central-webapp-${jbpm_version}.war
+                                          
+                                          
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \" ln -s /opt/jboss/deployment/business-central/ /opt/jboss/wildfly/standalone/deployments/business-central.war \" "
+
+
+tura:docker keycloak doDeployAdapter\
+                     --container $v\
+                     --jboss_home /opt/jboss/wildfly\
+                     --serverType wildfly-$wildfly_version\
+                     --application  business-central\
+                     --cliFile adapter-elytron-install-offline.cli\
+                     --keyCloakAdapter $mr2/org/keycloak/keycloak-wildfly-adapter-dist/${keycloak_version}/keycloak-wildfly-adapter-dist-${keycloak_version}.zip
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/business-central/WEB-INF\
+                                         --targetName web.xml\
+                                         --sourceResource "$repo_home/business-central/assets/web.xml" 
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/wildfly\
+                                         --targetName kie-git.json\
+                                         --sourceResource "$repo_home/business-central/assets/kie-git.json" 
+
+
+tura:dsl removeFile            --container $v\
+                                          --targetLocation /opt/jboss/deployment/business-central/WEB-INF/lib/uberfire-security-management-wildfly-${jbpm_version}.jar
+
+tura:dsl removeFile            --container $v\
+                                          --targetLocation /opt/jboss/deployment/business-central/WEB-INF/lib/uberfire-security-management-tomcat-${jbpm_version}.jar
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/business-central/WEB-INF/classes\
+                                         --targetName security-management.properties\
+                                         --sourceResource "$repo_home/business-central/assets/security-management.properties" 
+
+
+tura:dsl copyFile               --container $v\
+                                         --targetLocation /opt/jboss/deployment/business-central/META-INF\
+                                         --targetName jboss-deployment-structure.xml\
+                                         --sourceResource "$repo_home/business-central/assets/jboss-deployment-structure.xml" 
+
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss/deployment\" "
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss/wildfly\" "
+
+tura:docker stopContainer --id $v
+
+tura:docker commitContainer\
+                --registry tura/jbpm/bc\
+                --tag 1.0\
+                --id $v\
+                --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug *:3333 -c standalone-full.xml -b 0.0.0.0"
+                
+tura:docker removeContainer --id $v                

@@ -2,7 +2,7 @@
 #
 #   Tura - Application generation solution
 #
-#   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+#   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 #
 #
 #   This project includes software developed by Arseniy Isakov
@@ -154,7 +154,7 @@ if [ -z "$MODEL_CONNECTOR" ]; then
   MODEL_CONNECTOR=${TARGETDIR}/processor-emf-model-command/processor-emf-model-command-${TURA_VERSION}-jar-with-dependencies.jar
 fi
 
-"$JAVACMD" -cp ${TARGETDIR}/processor-tura-command/processor-tura-command-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-tura-command-api/processor-tura-command-api-${TURA_VERSION}-jar-with-dependencies.jar:${MODEL_CONNECTOR}:${EXTENSION}\
+"$JAVACMD" -cp ${TARGETDIR}/processor-tura-command/processor-tura-command-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-tura-command-api/processor-tura-command-api-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-jbpm-command/processor-jbpm-command-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-jboss-command/processor-jboss-command-${TURA_VERSION}-jar-with-dependencies.jar:${TARGETDIR}/processor-keycloak-command/processor-keycloak-command-${TURA_VERSION}-jar-with-dependencies.jar:${MODEL_CONNECTOR}:${EXTENSION}\
      $opts \
     -Dgosh.home="${DIRNAME}" \
     -DTURA_HOME="${TURA_HOME}" \

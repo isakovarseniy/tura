@@ -642,7 +642,7 @@ class OrderBy{
     attr Order order;
 }
 
-class Relation{
+class Relation extends artifact.Categorized{
     id attr EString uid;
    attr EString name;
    ref DataControl master;

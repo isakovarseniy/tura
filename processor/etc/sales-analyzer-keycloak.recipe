@@ -2,7 +2,7 @@ tura:docker stopContainer --name sa-kc
 
 tura:docker removeContainer --name sa-kc
 
-tura:docker pullImage --registry jboss/keycloak --tag 12.0.1
+tura:docker pullImage --registry jboss/keycloak --tag ${keycloak_version}
 
 tura:docker createNetwork --network sa-net
 
@@ -29,5 +29,5 @@ c = tura:docker config\
 #                --port 11111:11111\
 #                --var KEYCLOAK_LOGLEVEL=TRACE\
 
-tura:docker createContainer --registry jboss/keycloak --tag 12.0.1 --var c --name sa-kc
+tura:docker createContainer --registry jboss/keycloak --tag ${keycloak_version} --var c --name sa-kc
 

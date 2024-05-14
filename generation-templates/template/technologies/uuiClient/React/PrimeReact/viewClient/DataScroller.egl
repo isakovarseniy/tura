@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -72,8 +72,11 @@ export class DataScroller_[%=self.mkuid()%] extends TDataScroller {
 
            hash.put("childrenCollection", childrenCollection); 
            hash.put("context", 'dataScroller'); 
-           hash.put("key","key = {row.index}");
-           hash.put("dependId","dependId={row.index}");
+           hash.put("key","key = {row.index+this.state.parentKey}");
+//           hash.put("dependId","dependId={row.index}");
+           hash.put("dependId","dependId={${model}}  rowkey={${model}}");
+           hash.put("model","row.index");
+           
 %]
         record.push(
              <div className="p-grid">

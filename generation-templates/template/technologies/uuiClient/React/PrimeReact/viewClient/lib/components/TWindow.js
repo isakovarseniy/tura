@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -15,13 +15,24 @@
 import React from "react";
 import {TuraComponent} from "../core/TuraComponent";
 import {registry} from "../plugin/Registry";
+import {EventExecuter} from "../core/EventExecutor";
+
 
 export class TWindow extends TuraComponent {
 
     constructor(props) {
         super(props);
-
+        this.onCallFormApi = this.onCallFormApi.bind(this);
     }
+
+    onCallFormApi(cmd){
+        let eventonCallApi = this.getEvent('form.callApi');
+        if ( typeof eventonCallApi !== "undefined" && eventonCallApi !== null) {
+            let params = this.getParameter( eventonCallApi, "cmd");
+            params.value = cmd.params;
+            new EventExecuter(eventonCallApi, this.contextManager ).run(this);
+        }
+    }   
 
 
     render() {

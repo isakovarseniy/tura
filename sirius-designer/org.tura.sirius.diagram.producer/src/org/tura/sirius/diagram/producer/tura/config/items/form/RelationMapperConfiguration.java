@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -97,7 +97,7 @@ public class RelationMapperConfiguration implements NodeConfigurator {
 
 		c1.getSubModelOperations().add(ToolHelper.createSet("name", "service:getBaseTypeName(element)"));
 
-		CreateInstance c2 = ToolHelper.createInstance("type.TypePointer", "instance1", "baseType");
+		CreateInstance c2 = ToolHelper.createInstance("type.TypePointerObj", "instance1", "baseType");
 		c2.getSubModelOperations().add(ToolHelper.createSet("typeRef", "service:getBaseType(element)"));
 
 		c1.getSubModelOperations().add(c2);
@@ -172,13 +172,13 @@ public class RelationMapperConfiguration implements NodeConfigurator {
 		c1.getSubModelOperations().add(c2);
 
 		c1.getSubModelOperations().add(ToolHelper.createSet("master", "var:oldSemanticContainer"));
-		c1.getSubModelOperations().add(ToolHelper.createSet("detail", "var:oldSemanticContainer"));
+		c1.getSubModelOperations().add(ToolHelper.createSet("detail", "var:newSemanticContainer"));
 		c1.getSubModelOperations().add(ToolHelper.createSet("uid", "service:generateUID"));
 
 		ChangeContext c3 = ToolHelper.createChangeContext("var:element");
 		c1.getSubModelOperations().add(c3);
 
-		c3.getSubModelOperations().add(ToolHelper.createSet("dataControlRef", "var:oldSemanticContainer"));
+		c3.getSubModelOperations().add(ToolHelper.createSet("dataControlRef", "var:newSemanticContainer"));
 
 		ObjectWrapper w = (ObjectWrapper) tRoot.context
 				.get("FakeDataControlRelarionsMapper" + tContainer.class.getName());

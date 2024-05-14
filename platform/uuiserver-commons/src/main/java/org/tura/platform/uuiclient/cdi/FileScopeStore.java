@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,9 @@ public class FileScopeStore implements ScopeStorage {
 	}
 
 	@Override
-	public void write(Scope scopeId, BeanStorage map) throws Exception {
+	public void write(Scope scopeId, Object map ) throws Exception {
+		
+	
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 		try {
@@ -55,14 +57,14 @@ public class FileScopeStore implements ScopeStorage {
 	}
 
 	@Override
-	public BeanStorage load(Scope scopeId) throws Exception {
+	public Object load(Scope scopeId) throws Exception {
 		FileInputStream fos = null;
 		ObjectInputStream oos = null;
 		try {
 			File scopeFile = getScopeFile(scopeId);
 			fos = new FileInputStream(scopeFile);
 			oos = new ObjectInputStream(fos);
-			BeanStorage map = (BeanStorage) oos.readObject();
+			Object map = oos.readObject();
 			return map;
 		} finally {
 			if (oos != null) {

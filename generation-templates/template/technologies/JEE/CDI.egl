@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,15 +19,15 @@ import "tura:/generation-templates/template/technologies/JSE/datacontrol/connect
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/triggerProducer.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/parameterProducer.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/commandstack.egl";
-import "tura:/generation-templates/template/technologies/JEE/CDI/commandstackProvider.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/proxyCommandStackEventSubscribers.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/proxyCpaStorageEventSubscribers.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProducer.egl";
-import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl";
-import "tura:/generation-templates/template/technologies/JEE/CDI/cpaStorageProvider.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/cdiClientRegistry.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/proxyRepositoryProducer.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/datacontrol.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beanFactory.egl";
+import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/FormInitialization.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/factoryInitProducer.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/elresolver.egl";
 import "tura:/generation-templates/template/technologies/JEE/CDI/datacontrol/beans-xml.egl";
@@ -69,8 +69,13 @@ operation  datacontrolgeneration(hash) {
      hash.put("controlSuffix","");     
      
      for (control in controls){
-     
+
          hash.put("control",control);
+         
+          if ( control.~inRelation.isDefined()  ){
+               control.initPager(recipe,ingredient  ,model_mapper, control.~inRelation) ;
+          }         
+         
     
 	    var list = control.findAllClassifiers(util.getHint(model_mapper,"CommandStack"));
 	    var suffix= "";
@@ -97,40 +102,43 @@ operation  datacontrolgeneration(hash) {
 		 out.formatWith(n);
 
 
-        %][%=commandstack(component,uipackage, form,suffix)%][%
-		 out.formatWith(f);
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(suffix) +".java",out.toString());   
-		 out.formatWith(n);
-	    
-	    
-         %][%=commandstackProvider(component,uipackage, form,suffix)%][%
-         out.formatWith(f);
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(suffix) +"Provider.java",out.toString());   
-		 out.formatWith(n);
+    if ( not control.findClassifier( util.getHint(model_mapper,"SharedScope"))){
+    
+	         %][%=commandStackEventSubscribers(component,uipackage, form,suffix)%][%
+			 out.formatWith(f);
+		     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxyCommandStackEventSubscribers" +util.mergeAndCapitalize(suffix) +".java",out.toString());   
+			 out.formatWith(n);
+	
+	
+	         %][%=cpaStorageEventSubscribers(component,uipackage, form,suffix)%][%
+			 out.formatWith(f);
+		     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxyCpaStorageEventSubscribers" +util.mergeAndCapitalize(suffix) +".java",out.toString());   
+			 out.formatWith(n);
+    
+    
+	        %][%=commandstack(component,uipackage, form,suffix)%][%
+			 out.formatWith(f);
+	         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCommandStack" +util.mergeAndCapitalize(suffix) +".java",out.toString());   
+			 out.formatWith(n);
+		    
+		    
+	        %][%=cpaStrorageProducer(component,uipackage, form,suffix)%][%
+	         out.formatWith(f);
+	         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCpaStorage" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
+			 out.formatWith(n);
+	
+	
+	         %][%=clientRegistry(component,uipackage, form,suffix)%][%
+	          out.formatWith(f);
+	          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClient"+  util.mergeAndCapitalize(suffix) +"Registry.java",out.toString());   
+			  out.formatWith(n); 
 
-        %][%=cpaStrorageProducer(component,uipackage, form,suffix)%][%
-         out.formatWith(f);
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCpaStorage" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
-		 out.formatWith(n);
+	         %][%=proxyRepositoryProducer(component,uipackage, form,suffix)%][%
+	         out.formatWith(f);
+	          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxy" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
+			  out.formatWith(n);
 
-
-         %][%=cpaStrorageProvider(component,uipackage, form,suffix)%][%
-         out.formatWith(f);
-         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientCpaStorage" +util.mergeAndCapitalize(suffix) +"Provider.java",out.toString());   
-		 out.formatWith(n);
-
-
-         %][%=clientRegistry(component,uipackage, form,suffix)%][%
-          out.formatWith(f);
-          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClient"+  util.mergeAndCapitalize(suffix) +"Registry.java",out.toString());   
-		  out.formatWith(n);
-
-
-         %][%=proxyRepositoryProducer(component,uipackage, form,suffix)%][%
-         out.formatWith(f);
-          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CdiClientProxy" +util.mergeAndCapitalize(suffix) +"Producer.java",out.toString());   
-		  out.formatWith(n);
-
+         }
 
          if (control.~treeRoot <> null){
 
@@ -140,8 +148,75 @@ operation  datacontrolgeneration(hash) {
             out.formatWith(n);
                
        }
-
+       
        if (control.~pagerType == "topPager"){
+            pagerGen(control,hash);
+         }else{
+           if (control.~inRelation.isDefined()  ){
+               pagerGen(control,hash);
+           }
+         }       
+         
+         if (control.~selfRelation.isDefined()  ){
+             control.initPager(recipe,ingredient  ,model_mapper, control.~selfRelation) ;
+             pagerGen(control,hash);
+             hash.put("controlSelfSuffix","Self");
+	         %][%=datacontrol(hash)%][%
+			 out.formatWith(f);
+	         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "SelfDC.java",out.toString());   
+			 out.formatWith(n);
+			 
+             hash.remove("controlSelfSuffix");
+			 
+         }
+    }
+
+	%][%=beanxml()%][% 
+	out.formatWith(x);
+	util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",out.toString());   
+	out.formatWith(n);
+
+    %][%=elresolver(hash)%][%
+	out.formatWith(f);
+    util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",out.toString());   
+	out.formatWith(n);
+
+
+    hash.put("bfSuffix", "");
+    %][%=beanFactory(hash)%][%
+	out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",out.toString());   
+	out.formatWith(n);
+	
+    %][%=beanFactoryInitializer(hash)%][%
+	out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "FormBeanFactoryInitialization.java",out.toString());   
+	out.formatWith(n);
+
+
+	
+	 %][%=factoryInitProducer(hash)%][%
+	 out.formatWith(f);
+	 util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",out.toString());  
+	 out.formatWith(n);
+
+  }
+  
+  
+  
+  operation pagerGen(control,hash){
+  
+      var javaPath = hash.get("javaPath");
+      var resourcePath = hash.get("resourcePath");
+      var form = hash.get("form");    
+      var uipackage = hash.get("uipackage");
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+      var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+      var n= new Native("org.tura.metamodel.generation.NullFormatter"); 
+      var queryHelper := new Native('org.tura.metamodel.commons.QueryHelper');
+  
+  
+         if (control.~pagerType == "topPager"){
             hash.put("type",control.baseType.typeRef);
             hash.put("objPackage",component.basePackage+"."+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pager");
 
@@ -162,7 +237,8 @@ operation  datacontrolgeneration(hash) {
 
             var masterType =  control.~parenType.typeRef;
             var rel = control.~rel;
-           if (masterType.uid.equals(rel.source.uid)  ){
+            
+           if ( queryHelper.compareType(masterType,rel.source)){
 	            var h= rel.sourceSideNamesCalculation();
 	            
 	            hash.put("sourceMethodName",h.get("sourceMethodName"));
@@ -170,47 +246,29 @@ operation  datacontrolgeneration(hash) {
 	            
 	            hash.put("sourceProperty",h.get("sourceProperty"));
 	            hash.put("targetProperty",h.get("targetProperty"));
-	        
-			}
-	        if (masterType.uid.equals(rel.target.uid)  ){
-	            var h= rel.targetSideNamesCalculation();
 
-	            hash.put("sourceMethodName",h.get("targetMethodName"));
-	            hash.put("targetMethodName",h.get("sourceMethodName"));
-	            
-	            hash.put("sourceProperty",h.get("targetProperty"));
-	            hash.put("targetProperty",h.get("sourceProperty") );
+		        rel.~oppositeSide = false;
 	        
+			}else{
+		        if (  queryHelper.compareType( masterType, rel.target )  and not rel.target.uid.equals(rel.source.uid)  ){
+		            var h= rel.targetSideNamesCalculation();
+	
+		            hash.put("sourceMethodName",h.get("targetMethodName"));
+		            hash.put("targetMethodName",h.get("sourceMethodName"));
+		            
+		            hash.put("sourceProperty",h.get("targetProperty"));
+		            hash.put("targetProperty",h.get("sourceProperty") );
+		            
+		            rel.~oppositeSide = true;
+		        
+		        }
 	        }
            %][%=connectedPager(hash)%][%
 		    out.formatWith(f);
             util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , control.~parenType.typeRef.~class+"2"+util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",out.toString());   
 		    out.formatWith(n);
        } 
-    }
-
-	   %][%=beanxml()%][% 
-	   out.formatWith(x);
-	   util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",out.toString());   
-	   out.formatWith(n);
-
-    %][%=elresolver(hash)%][%
-	out.formatWith(f);
-    util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",out.toString());   
-	out.formatWith(n);
-
-
-    hash.put("bfSuffix", "");
-    %][%=beanFactory(hash)%][%
-	out.formatWith(f);
-    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",out.toString());   
-	out.formatWith(n);
-	
-	
-	 %][%=factoryInitProducer(hash)%][%
-	 out.formatWith(f);
-	 util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",out.toString());  
-	 out.formatWith(n);
-
+  
+  
   }
 %]

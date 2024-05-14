@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,14 +21,12 @@ package org.tura.example.ui.simpleform;
 import java.io.File;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.tura.example.ui.hrmanager.AbstractTest;
 import org.tura.example.ui.hrmanager.simpleform.pageobject.TimeLinePageObject;
 import org.tura.platform.selenium.primereact.Repeater;
@@ -40,30 +38,12 @@ public class TimeLinerTest extends AbstractTest {
 	static private String app_url = "/hrmanager/simpleform/timeLine";
 	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
-	@BeforeClass
-	public static void beforeClass() {
-		try {
-
-			service = new ChromeDriverService.Builder()
-					.usingDriverExecutable(new File(driver_location)).usingAnyFreePort()
-					.build();
-
-			service.start();
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
-	}
-
-	@AfterClass
-	public static void createAndStopService() {
-		service.stop();
-	}
 
 	@Before
 	public void createDriver() {
-		driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		ChromeOptions option = new ChromeOptions();
+		option.setBinary(new File(driver_location));
+		driver = new ChromeDriver( new ChromeOptions());
 	}
 
 	@After

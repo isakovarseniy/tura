@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -50,8 +50,24 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
      var relSet = self.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=self );
      
      if (relSet.size() <> 0){
-        var rel =relSet.iterator().next();
+         var rel = relSet -> select(r|(r.master = self   or r.findClassifier( util.getHint(model_mapper,"LoopRelation")))  and r.isTree = true).first();
+         if ( rel <> null and relSet.size() = 1){
+            self.~pagerType="topPager" ; 
+         }
+         if ( rel <> null ){
+           self.~selfRelation = rel;
+           rel.~loopRelation = true;
+         }
+         rel = relSet -> select(r|r.master <> self  and  not r.findClassifier( util.getHint(model_mapper,"LoopRelation")) ).first();
+         self.~inRelation = rel;
+         
+     }else{
+        self.~pagerType="topPager" ; 
+     }
+     
+}
 
+operation form::DataControl initPager(recipe:Recipe, ingredient :Ingredient ,model_mapper:ModelMapper, rel) {
         var pkg = rel.master.baseType.typeRef.eContainer();
 //         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
          var assossiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
@@ -74,12 +90,8 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
         self.~parenType=rel.master.baseType;
         self.~rel=assossiation;
         self.~masterControl = rel.master;
-        
-     }else{
-        self.~pagerType="topPager" ; 
-     }
-     
 }
+
 
 
 
@@ -102,11 +114,11 @@ operation form::ContextParameters processParameters(recipe:Recipe, ingredient :I
         }
 }
 
-operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
-     self.processKeys(recipe,ingredient, null);
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient, model_mapper) { 
+     self.processKeys(recipe,ingredient, null, model_mapper);
 }
 
-operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient , proxyJavaComponent) { 
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient , proxyJavaComponent, model_mapper) { 
 
         var util = new Native('org.tura.metamodel.commons.Util');
         
@@ -121,12 +133,13 @@ operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient , 
         
         var keys = new Native('java.util.ArrayList');
         var operations = new Native('java.util.HashMap');
-        var attributes = new Native('java.util.HashMap');
-        
-        var helper = new Native('org.tura.metamodel.commons.Helper');
-        helper.addOperations(operations, attributes,basetype);
+        var attributes = new Native('java.util.ArrayList');
+        var trackFields = new Native('java.util.ArrayList');
 
-         for (attribute in attributes.values){
+        basetype.addOperations(attributes,true,trackFields,model_mapper);
+        
+
+         for (attribute in attributes){
                if (attribute.pk == true ){
                   keys.add(attribute);
                }
@@ -249,4 +262,33 @@ operation form::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient) 
        base.mappingType2Java(recipe,ingredient,'VIEW');
        return base;
  
+ }
+ 
+ 
+ operation type::TypeElement addOperations(attributes,includepk,trackFields,model_mapper){
+    var tp = self.unwrap();
+    for ( field in tp.attributes){
+         if ( trackFields.contains(field.name)){
+			        continue;
+	      }
+		  trackFields.add(field.name);
+		  
+		  if(field.pk){
+		     if (includepk){
+		        attributes.add(field);
+		     }
+		  }else{
+		     attributes.add(field);
+		  }
+	 }
+     var pkg = tp.eContainer();
+     var interfaces = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = tp.uid);
+     for ( interface in  interfaces ){
+       var ex = interface.target.unwrap();
+       if ( interface.isImplements(model_mapper)){
+          ex.addOperations(attributes, false,trackFields,model_mapper);
+       }else{
+          ex.addOperations(attributes, true,trackFields,model_mapper);
+       }
+     }
  }

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ package org.tura.platform.repository.cpa.storage;
 
 import org.tura.platform.repository.core.AdapterLoader;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.cpa.operation.CatalogObjectControl;
 import org.tura.platform.repository.cpa.operation.CpaControl;
@@ -35,11 +36,13 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 public class CpaCRUDService extends CRUDProvider {
 
 	private CpaStorage cpaStorage;
+	private RegistryProvider registryProvider;
 
 	public CpaCRUDService(SpaObjectRegistry spaRegistry, String registryName, Registry registry,
-			CpaStorage cpaStorage) {
+			CpaStorage cpaStorage, RegistryProvider registryProvider) {
 		super(spaRegistry, registryName, registry);
 		this.cpaStorage = cpaStorage;
+		this.registryProvider = registryProvider;
 	}
 
 	@Override
@@ -143,7 +146,7 @@ public class CpaCRUDService extends CRUDProvider {
 	}
 
 	private void load(SpaControl control, PersistanceMapper mapper) throws Exception {
-		cpaStorage.load(control.getKey(), control.getObject(), control.getTypeClass(), mapper);
+		cpaStorage.load(control.getKey(), control.getObject(), control.getTypeClass(), mapper,registryProvider);
 	}
 
 	private void unload(SpaControl control, PersistanceMapper mapper) throws Exception {
@@ -151,7 +154,7 @@ public class CpaCRUDService extends CRUDProvider {
 	}
 
 	private void create(SpaControl control, PersistanceMapper mapper) throws Exception {
-		cpaStorage.create(control.getKey(), control.getObject(), control.getTypeClass(), mapper);
+		cpaStorage.create(control.getKey(), control.getObject(), control.getTypeClass(), mapper,registryProvider);
 		return;
 	}
 
@@ -183,7 +186,7 @@ public class CpaCRUDService extends CRUDProvider {
 		CpaMapper cpaMapper = (CpaMapper) mapper;
 		Boolean isAttached = cpaMapper.getAttached(control.getObject());
 		if (isAttached != null && cpaMapper.getAttached(control.getObject())) {
-			cpaStorage.remove(control.getKey(), control.getObject(), control.getTypeClass(), mapper);
+			cpaStorage.remove(control.getKey(), control.getObject(), control.getTypeClass(), mapper,registryProvider);
 		} else {
 			cpaStorage.unload(control.getKey(), control.getObject(), control.getTypeClass(), mapper);
 		}
@@ -195,7 +198,7 @@ public class CpaCRUDService extends CRUDProvider {
 	}
 
 	private void insert(SpaControl control, PersistanceMapper mapper) throws Exception {
-		cpaStorage.insert(control.getKey(), control.getObject(), control.getTypeClass(), mapper);
+		cpaStorage.insert(control.getKey(), control.getObject(), control.getTypeClass(), mapper,registryProvider);
 	}
 
 }

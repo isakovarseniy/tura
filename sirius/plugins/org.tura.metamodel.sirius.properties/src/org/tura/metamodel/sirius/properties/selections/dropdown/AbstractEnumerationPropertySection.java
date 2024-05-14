@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -151,8 +151,7 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 		EStructuralFeature[] features = getFeature();
 		if (features != null) {
 			for (int i = 0; i < features.length; i++) {
-				compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],
-						getFeatureValue(features[i], new Object[]{null})));
+				compoundCommand.append(SetCommand.create(editingDomain, getModel(features[i]), features[i],null));
 			}
 			editingDomain.getCommandStack().execute(compoundCommand);
 		}

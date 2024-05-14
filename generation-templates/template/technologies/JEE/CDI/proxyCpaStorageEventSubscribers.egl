@@ -1,0 +1,44 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%@template
+operation  cpaStorageEventSubscribers(component,uipackage,form, suffix) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var dotsuffix =  suffix;
+     if ( not "".equals(suffix)  ){
+     dotsuffix = suffix+".";
+     }
+     
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+    @[%=datacontrol_scope()%]
+    @javax.enterprise.inject.Alternative
+    @javax.annotation.Priority(0)
+
+[%
+%]@org.tura.platform.repository.cdi.ClientProxyCpaStorageEventSubscribers("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
+%]
+
+public class CdiClientProxyCpaStorageEventSubscribers[%=util.mergeAndCapitalize(suffix)%] extends org.tura.platform.repository.cpa.storage.CpaStorageEventSubscribers  implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+}
+[%
+
+}
+%]

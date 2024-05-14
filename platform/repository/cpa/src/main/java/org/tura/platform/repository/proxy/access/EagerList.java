@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,16 +67,21 @@ public abstract class EagerList<T> extends ListOfObjects<T> implements  Closeabl
 		
 		RepoKeyPath path = getParentKeyPath();
 		String  property = getProperty();
-		List<StorageControl> lst =  this.getRepository().getStorageProvider().getStorage().findDependencies(path, property,  this.cpaRelationType);
-		QueryResults queryResults = query.execute(lst);
+		List<StorageControl> lst =  this.getRepository().getStorageProvider().get().findDependencies(path, property,  this.cpaRelationType);
 		
-		List<T> array = new ArrayList<>();
-		for (  Object o : queryResults.getResults()) {
+		List<T> preFiltered = new ArrayList<>();
+		for (  Object o : lst) {
 			StorageControl sc = (StorageControl) o;
 			if ( !ObjectStatus.Created.equals(sc.getStatus())  && !ObjectStatus.Inserted.equals(sc.getStatus()) && !ObjectStatus.Removed.equals(sc.getStatus())   ) {
-				T proxy = (T) getRepository().factory(sc.getObject(), sc.getObject().getClass().getName());
-				array.add(proxy);
+				preFiltered.add(CpaHelper.toObject(sc));
 			}
+		}
+
+		QueryResults queryResults = query.execute(preFiltered);
+		List<T> array = new ArrayList<>();
+		for (  Object o : queryResults.getResults()) {
+			T proxy = (T) getRepository().factory(o, o.getClass().getName());
+			array.add(proxy);
 		}
 		
 		SearchResult<T> result = new SearchResult<>(array, array.size());

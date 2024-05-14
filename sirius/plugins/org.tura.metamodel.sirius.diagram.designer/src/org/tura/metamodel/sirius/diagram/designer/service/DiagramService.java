@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -745,16 +745,18 @@ public class DiagramService {
 			return false;
 		}
 
-		if (relationMapper.getDataControlRef() == null){
-			DataControl dc =   (DataControl) relationMapper.eContainer();
-			if (dc.getBaseType().getTypeRef().getUid().equals(relationMapper.getTypeRef().getUid())){
-				return true;
-			}else{
-				return false;
-			}
-		}else{
-			return false;
-		}
+		return true;
+		
+//		if (relationMapper.getDataControlRef() == null){
+//			DataControl dc =   (DataControl) relationMapper.eContainer();
+//			if (dc.getBaseType().getTypeRef().getUid().equals(relationMapper.getTypeRef().getUid())){
+//				return true;
+//			}else{
+//				return false;
+//			}
+//		}else{
+//			return false;
+//		}
 	}
 	
 
@@ -939,6 +941,25 @@ public class DiagramService {
 		return true;
 	}
 
+	
+	
+	public boolean checkIfSharedContext(DataControl datacontrol){
+		for ( Classifier c :datacontrol.getClassifiers()){
+			if ( c.getHint().getName().equals("SharedScope") && c.getDetails() != null &&  !"".equals(c.getDetails())){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkIfNotSharedContext(DataControl datacontrol){
+		for ( Classifier c :datacontrol.getClassifiers()){
+			if ( c.getHint().getName().equals("SharedScope")){
+				return false;
+			}
+		}
+		return true;
+	}	
 	
 	
 	public boolean checkIfNoInternalRelations(DataControl dc){

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ public abstract class AbstractSingleObjectPagingTest {
 				id = id + 10;
 			}
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().findAny(deparmentClass, 0, Long.MAX_VALUE);
+			List<StorageControl> array = cpaStorageProvider.get().findAny(deparmentClass, 0, Long.MAX_VALUE);
 			assertEquals(7, array.size());
 
 		} catch (Exception e) {
@@ -178,7 +178,7 @@ public abstract class AbstractSingleObjectPagingTest {
 			Long rId = factory.cDept(10l);
 			assertEquals(rId, d1.getObjId());
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().findAny(deparmentClass, 0, Long.MAX_VALUE);
+			List<StorageControl> array = cpaStorageProvider.get().findAny(deparmentClass, 0, Long.MAX_VALUE);
 			assertEquals(8, array.size());
 
 			d1 = null;
@@ -191,7 +191,7 @@ public abstract class AbstractSingleObjectPagingTest {
 				assertEquals(rId, dpt.getObjId());
 				id = id + 10;
 			}
-			array = cpaStorageProvider.getStorage().findAny(deparmentClass, 0, Long.MAX_VALUE);
+			array = cpaStorageProvider.get().findAny(deparmentClass, 0, Long.MAX_VALUE);
 			assertEquals(7, array.size());
 
 		} catch (Exception e) {

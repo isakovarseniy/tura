@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -24,6 +24,7 @@ import java.util.HashMap;
 
 import org.apache.felix.gogo.jline.Shell.Context;
 import org.apache.felix.gogo.jline.ext.ExtensionService;
+import org.apache.felix.gogo.jline.ext.SubmenuExtensionService;
 import org.apache.felix.gogo.jline.utils.CommandsUtil;
 import org.apache.felix.gogo.runtime.CommandProcessorImpl;
 import org.apache.felix.gogo.runtime.threadio.ThreadIOImpl;
@@ -33,6 +34,8 @@ import org.jline.terminal.TerminalBuilder;
 import org.tura.processor.connection.TuraURLStreamHandlerFactory;
 
 public class TuraMain {
+	
+	public static SubmenuExtensionService submenuExtensionService = new SubmenuExtensionService();
 
 	public static void main(String[] args) throws IOException {
 		try (Terminal terminal = TerminalBuilder.builder().name("gogo").system(true).nativeSignals(true)

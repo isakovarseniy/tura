@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -18,6 +18,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.text.StrSubstitutor;
@@ -78,37 +79,45 @@ public class TuraCommand {
 		return module;
 	}
 
-	protected void getConfiguratioin(Configuration conf, HashMap<String, Object> configuration) {
+	protected void getConfiguratioin(List<Configuration> confList, HashMap<String, Object> configuration, String configBranch) {
 		QueryHelper helper = new QueryHelper();
 		try {
-			if (conf != null) {
+			if (confList != null) {
 
 				Map<String, String> values = new HashMap<String, String>();
 				for (Object k : System.getProperties().keySet()) {
 					String key = (String) k;
 					values.put(key, System.getProperty(key));
 				}
-				for (Property prop : conf.getProperties()) {
-					values.put(prop.getConfVarRef().getName(), prop.getValue());
+				for (Configuration conf : confList) {
+					for (Property prop : conf.getProperties()) {
+						values.put(prop.getConfVarRef().getName(), prop.getValue());
+					}
 				}
 
 				StrSubstitutor sub = new StrSubstitutor(values);
 
-				for (Property prop : conf.getProperties()) {
-					configuration.put(prop.getConfVarRef().getName(), sub.replace(prop.getValue()));
+				for (Configuration conf : confList) {
+					for (Property prop : conf.getProperties()) {
+						configuration.put(prop.getConfVarRef().getName(), sub.replace(prop.getValue()));
+					}
 				}
 
-				for (HashProperty prop : conf.getHashProperties()) {
-					HashMap<String, String> hash = new HashMap<String, String>();
+				for (Configuration conf : confList) {
+					for (HashProperty prop : conf.getHashProperties()) {
+						HashMap<String, String> hash = new HashMap<String, String>();
 
-					for (KeyValuePair pair : prop.getHash())
-						hash.put(pair.getKeyCode(), pair.getValue());
+						for (KeyValuePair pair : prop.getHash())
+							hash.put(pair.getKeyCode(), pair.getValue());
 
-					configuration.put(prop.getConfHashRef().getName(), hash);
+						configuration.put(prop.getConfHashRef().getName(), hash);
+					}
 				}
 
-				if (helper.getConfigExtensionUp(conf) != null)
-					getConfiguratioin(helper.getConfigExtensionUp(conf), configuration);
+				for (Configuration conf : confList) {
+					if (helper.getConfigExtensionUp(conf) != null)
+						getConfiguratioin(helper.getBranchedConfigExtensionUp(conf, configBranch), configuration,configBranch);
+				}
 			}
 		} catch (Exception e) {
 

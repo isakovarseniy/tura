@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,17 @@
 
 package org.tura.platform.repository.cpa.storage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
-public class TypeInheritance {
+public class TypeInheritance implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	public Map<Class<?>, List<Class<?>>>  hierarchy = new HashMap<>();
 	
 	public void addInheritance(Class<?> superClass , Class<?> clazz ) {

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,6 +27,12 @@ operation connectedPager(hash){
 	var targetMethodName = hash.get("targetMethodName");
 	var sourceProperty =  hash.get("sourceProperty");
 	var targetProperty =  hash.get("targetProperty");
+	
+	var relationType = rel.type.toString();
+	if ( rel.~oppositeSide and rel.type.toString() == "One2Many"){
+	    relationType = "Many2One";
+	}
+	
 
 %]
 
@@ -62,18 +68,33 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 		   if ( parent  == null){
 		        return null;
 		   }
-			[%=type.~fullName%] obj = ([%=type.~fullName%]) repository.create(datacontrol.getBaseClass());
+		   
+		[%=type.~fullName%] obj = null;
+		org.tura.platform.datacontrol.command.base.CreateTrigger createTrigger = getDataControl().getCreateTrigger(); 
+		if ( createTrigger == null){
+			obj = ([%=type.~fullName%]) getRepository().create(datacontrol.getBaseClass());
+		}else{
+		   obj =  ([%=type.~fullName%]) createTrigger.execute(getRepository());
+		}
+		   
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
 		if (trigger != null){
 		   trigger.execute(datacontrol,obj,((org.tura.platform.repository.core.ObjectControl) obj).getObjectControlAttributes());
 		}
         ((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());		
-        [%  if (rel.type.toString() == "One2Many" ){ %]
+          [%  if (relationType == "One2Many" ){ %]
 	      parent.get[%=sourceMethodName%]().add(i,obj);
 	      [% } %]
-	      [%  if (rel.type.toString() == "One2One" ){ %]
+          [%  if (relationType == "Many2Many" ){ %]
+	      parent.get[%=sourceMethodName%]().add(i,obj);
+	      [% } %]	      
+	      [%  if (relationType == "One2One" ){ %]
+	      parent.set[%=sourceMethodName%](obj);
+          [% } %]
+	      [%  if (relationType == "Many2One" ){ %]
 	      parent.set[%=sourceMethodName%](obj);
         [% } %]
+          
 		return obj;
 		}catch(Exception e){
 		  throw new TuraException(e);
@@ -82,6 +103,9 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 
     @Override
     public void search() throws TuraException {
+        if  ( !prepareQuery()){
+				return;
+        } 	   
        try{
             org.tura.platform.datacontrol.command.base.SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
             prepareParameter(searchObjectParameters.getSearchCriteria());
@@ -94,16 +118,39 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
                 return;
             }
             
-              [%  if (rel.type.toString() == "One2Many" ){ %]
+		    org.tura.platform.datacontrol.command.base.QueryTrigger queryTrigger = getDataControl().getQueryTrigger(); 
+		    if ( queryTrigger != null){
+		      list =  (org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%]>) queryTrigger.execute(getRepository(),this);
+		      return;
+		    }
+            
+              [%  if (relationType == "One2Many" ){ %]
               org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] >  lob = (org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] > )parent.get[%=sourceMethodName%]();
               lob.setSearchCriteria((List<org.tura.platform.datacontrol.commons.SearchCriteria>) searchObjectParameters.getSearchCriteria().getObj());
               lob.setOrderCriteria((List<org.tura.platform.datacontrol.commons.OrderCriteria>) searchObjectParameters.getOrderByCriteria().getObj());
               list = lob;
               [% } %]
-              [%  if (rel.type.toString() == "One2One" ){ %]
-              list = new org.tura.platform.repository.proxy.access.ArrayListWithSearch<>();
-              list.add( ([%=type.~fullName%] ) (([%=parent.~fullName%])getParentObject()).get[%=sourceMethodName%]());
+              [%  if (relationType == "Many2Many" ){ %]
+              org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] >  lob = (org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%] > )parent.get[%=sourceMethodName%]();
+              lob.setSearchCriteria((List<org.tura.platform.datacontrol.commons.SearchCriteria>) searchObjectParameters.getSearchCriteria().getObj());
+              lob.setOrderCriteria((List<org.tura.platform.datacontrol.commons.OrderCriteria>) searchObjectParameters.getOrderByCriteria().getObj());
+              list = lob;
               [% } %]
+              [%  if (relationType == "One2One" ){ %]
+              list = new org.tura.platform.repository.proxy.access.ArrayListWithSearch<>();
+              [%=type.~fullName%] ch = (([%=parent.~fullName%])getParentObject()).get[%=sourceMethodName%]();
+              if ( ch != null){
+                list.add( ch);
+              }
+              [% } %]
+              [%  if (relationType == "Many2One" ){ %]
+              list = new org.tura.platform.repository.proxy.access.ArrayListWithSearch<>();
+              [%=type.~fullName%] ch = (([%=parent.~fullName%])getParentObject()).get[%=sourceMethodName%]();
+              if ( ch != null){
+                list.add( ch);
+              }
+              [% } %]              
+              
             
          }catch(Exception e){
            throw new TuraException(e);
@@ -158,12 +205,18 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 		     return null;
 		}
 	    
-        [%  if (rel.type.toString() == "One2Many" ){ %]
+          [%  if (relationType == "One2Many" ){ %]
 	      [%=type.~fullName%] obj =  parent.get[%=sourceMethodName%]().get(i);
 	      [% } %]
-	      [%  if (rel.type.toString() == "One2One" ){ %]
+          [%  if (relationType == "Many2Many" ){ %]
+	      [%=type.~fullName%] obj =  parent.get[%=sourceMethodName%]().get(i);
+	      [% } %]	      
+	      [%  if (relationType == "One2One" ){ %]
 	      [%=type.~fullName%] obj = parent.get[%=sourceMethodName%]();
-        [% } %]
+          [% } %]
+	      [%  if (relationType == "Many2One" ){ %]
+	      [%=type.~fullName%] obj = parent.get[%=sourceMethodName%]();
+          [% } %]
 	    
 	    
 		org.tura.platform.datacontrol.command.base.PreDeleteTrigger trigger = getDataControl().getPreDeleteTrigger(); 
@@ -171,13 +224,20 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 	      trigger.execute(datacontrol, obj);
 	    }
         ((org.tura.platform.repository.core.ObjectControl) obj).set_SrcId(datacontrol.getId());    
-        [%  if (rel.type.toString() == "One2Many" ){ %]
+          [%  if (relationType == "One2Many" ){ %] 
 	      parent.get[%=sourceMethodName%]().remove(i);
 	      [% } %]
-	      [%  if (rel.type.toString() == "One2One" ){ %]
+          [%  if (relationType == "Many2Many" ){ %] 
+	      parent.get[%=sourceMethodName%]().remove(i);
+	      [% } %]
+	      [%  if (relationType == "One2One" ){ %]
 	      parent.set[%=sourceMethodName%](null);
 	      list = null;
-        [% } %]
+          [% } %]
+	      [%  if (relationType == "Many2One" ){ %]
+	      parent.set[%=sourceMethodName%](null);
+	      list = null;
+          [% } %]
 	    
 	    return obj;
 	}
@@ -219,6 +279,38 @@ public class [%=parent.~class%]2[%=type.~class%]Pager extends org.tura.platform.
 	     }catch( java.io.IOException e){
 	         throw  new TuraException(e);
 	     }   
+	}
+
+
+	protected boolean prepareQuery() throws TuraException {
+     try {
+           com.rits.cloning.Cloner cloner = new com.rits.cloning.Cloner();
+			datacontrol
+					.setSearchCriteria(cloner.deepClone(datacontrol.getDefaultSearchCriteria()));
+
+			datacontrol
+			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
+
+			java.util.Collection<org.tura.platform.datacontrol.commons.SearchCriteria> sc = null;
+
+            org.tura.platform.datacontrol.command.base.PreQueryTrigger trigger = getDataControl().getPreQueryTrigger();
+            if (trigger != null) {
+                trigger.execute(datacontrol);
+            }
+			
+			for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
+				if (criteria .getValue() instanceof String ){
+				   try{
+					  criteria.setValue(resolver((String) criteria .getValue()));
+				   }catch(Exception  e){
+				     return  false;
+				   }
+				}
+			}
+			return true;
+		} catch (Exception  e) {
+			throw new TuraException(e);
+		}
 	}
 
 

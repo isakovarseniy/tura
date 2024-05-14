@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -138,20 +138,20 @@ public class LoadMany2ManyTest {
 			SearchResult<Many2Many1A> result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, Many2Many1A.class);
 			assertEquals(2,result.getSearchResult().size());
 			
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(0, array.size());
 			
 			Many2Many1A o1 =  result.getSearchResult().get(0);
 			Many2Many1B o2 = o1.getMany2Many1B().get(0);
 			assertNotNull(o2);
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
 			
@@ -161,7 +161,7 @@ public class LoadMany2ManyTest {
 			//Second attempt to access object;
 			o2 = o1.getMany2Many1B().get(0);
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(2, array.size());
 			
 			sc = array.get(0);
@@ -187,10 +187,10 @@ public class LoadMany2ManyTest {
 			SearchResult<Many2Many1B> result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, Many2Many1B.class);
 			assertEquals(4,result.getSearchResult().size());
 			
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			List<StorageControl> array = cpaStorageProvider.get().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(4, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(0, array.size());
 			
 			Many2Many1B o1 =  result.getSearchResult().get(0);
@@ -198,10 +198,10 @@ public class LoadMany2ManyTest {
 			assertNotNull(o2);
 			
 			
-			 array = cpaStorageProvider.getStorage().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			 array = cpaStorageProvider.get().find(Many2Many1B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(4, array.size());
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
 			StorageControl sc = array.get(0);
@@ -210,7 +210,7 @@ public class LoadMany2ManyTest {
 			//Second attempt to access object;
 			o2 = o1.getMany2Many1A().get(0);
 			
-			array = cpaStorageProvider.getStorage().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			array = cpaStorageProvider.get().find(Many2Many1A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
 			sc = array.get(0);

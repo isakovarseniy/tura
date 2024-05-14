@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,42 @@
 package org.tura.platform.repository.cpa;
 
 import org.tura.platform.repository.core.CommandStack;
+import org.tura.platform.repository.core.CommandStackEventSubscribers;
+import org.tura.platform.repository.core.CommandStackEventSubscribersProvider;
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public 	class LocalCommadStackProvider implements ProxyCommadStackProvider {
 
 	private static final long serialVersionUID = -6274562158704312054L;
-	private  CommandStack commandStack ;
+	private transient CommandStack commandStack ;
+	private transient CommandStackEventSubscribers commandStackEventSubscribers;
+	private RegistryProvider registryProvider;
 
+	
+	public LocalCommadStackProvider(RegistryProvider registryProvider) {
+		this.registryProvider = registryProvider;
+	}
+	
 	@Override
 	public CommandStack get() {
 		if (commandStack == null) {
 			commandStack = new CommandStack();
+			commandStackEventSubscribers = new CommandStackEventSubscribers();
+			
+			commandStack.setRegistryProvider(registryProvider );
+			commandStack.setEventSubscribersProvider(new CommandStackEventSubscribersProvider() {
+				
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public CommandStackEventSubscribers get() {
+					return commandStackEventSubscribers;
+				}
+			});			
 		}
+
+		
 		return commandStack;
 	}
 

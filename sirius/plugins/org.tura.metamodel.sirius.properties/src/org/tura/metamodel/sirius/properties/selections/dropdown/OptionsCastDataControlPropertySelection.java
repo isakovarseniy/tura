@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,12 +14,13 @@
 
 package org.tura.metamodel.sirius.properties.selections.dropdown;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.OptionSelectionOptionCast;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
-public class OptionsCastDataControlPropertySelection extends DependentAbstractCastPropertySelection{
+public class OptionsCastDataControlPropertySelection extends DependentAbstractCastPropertySelection {
 
 	private SelectionListener listener = new SelectionListener();
 
@@ -27,19 +28,26 @@ public class OptionsCastDataControlPropertySelection extends DependentAbstractCa
 		dropDownDataSupplier = new OptionSelectionOptionCast();
 	}
 
-	
 	@Override
-	public void createControls(Composite parent,
-			final TabbedPropertySheetPage aTabbedPropertySheetPage) {
+	public void createControls(Composite parent, final TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		Bus.getInstance().addEventListner(listener);
-		
-	}	
-	
-	
+
+	}
+
 	@Override
-	public void dispose(){
+	public void dispose() {
 		Bus.getInstance().removeEventListner(listener);
 	}
-		
+
+	@Override
+	public String getObjectId() {
+		return EcoreUtil.getID(getModel());
+	}
+
+	@Override
+	public Scope getScope() {
+		return Scope.OPTION;
+	}
+	
 }

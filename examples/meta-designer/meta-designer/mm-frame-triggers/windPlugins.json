@@ -1,0 +1,197 @@
+{
+  "@class" : "Plugins",
+  "plugins" : [ "java.util.ArrayList", [ {
+    "@class" : "WindPlugin",
+    "pluginType" : "TECHNOLOGIES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.artifacts.technologieswin",
+    "libraryURL" : "/mm-technologies-client",
+    "application" : "MmdesignerTechnologiesTechWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Technologies"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TREE_SELECTION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.recipe.mapperwin.context",
+    "libraryURL" : "/mm-tree-selection-client",
+    "application" : "MmdesignerTreeselectionTreeSelectionWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "applicationId" : "#{applicationId}"
+    },
+    "header" : "Selection"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "VERSIONS_SELECTION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.mapper.mapperwin.version",
+    "libraryURL" : "/mm-mapper-client",
+    "application" : "MmdesignerMapperVersionsSelectionWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "appMappersId" : "#{appMappersId}"
+    },
+    "header" : "Versions"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TECHNOLOGIES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.recipe.mapperwin.classifier",
+    "libraryURL" : "/mm-technologies-client",
+    "application" : "MmdesignerTechnologiesTechWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Technologies"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TECHNOLOGIES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.properties.technologieswin.classifier",
+    "libraryURL" : "/mm-technologies-client",
+    "application" : "MmdesignerTechnologiesTechWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Technologies"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "NAVIGATION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.navigatorwin",
+    "libraryURL" : "/mm-navigator-client",
+    "application" : "MmdesignerNavigatorNavigatorWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Navigator"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "VERSIONS_SELECTION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.recipe.mapperwin.version",
+    "libraryURL" : "/mm-mapper-client",
+    "application" : "MmdesignerMapperVersionsSelectionWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "appMappersId" : "#{appMappersId}"
+    },
+    "header" : "Versions"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "LANGUAGES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-messages-client",
+    "application" : "MmdesignerMessagesLanguages",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "appMessageLibraries" : ""
+    },
+    "header" : "Languages"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "MAPPING_CONFIGURATION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-mapper-client",
+    "application" : "MmdesignerMapperConfigMapperWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "appMappersId" : ""
+    },
+    "header" : "Mapping configuration"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "RECIPE_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-recipe-client",
+    "application" : "MmdesignerRecipeRecipeWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "recipesId" : ""
+    },
+    "header" : "Recipe"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "MAPPING_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-mapper-client",
+    "application" : "MmdesignerMapperMapperWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "mapperId" : ""
+    },
+    "header" : "Mapping"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "ARTIFACT_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-artifacts-client",
+    "application" : "MmdesignerArtifactsArtifactsWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "artifactGroup" : ""
+    },
+    "header" : "Artifacts"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "MESSAGES_LIBRARY_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-messages-client",
+    "application" : "MmdesignerMessagesMessages",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "appMessageLibraries" : "",
+      "libraryId" : ""
+    },
+    "header" : "Messages"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TECHNOLOGIES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-technologies-client",
+    "application" : "MmdesignerTechnologiesTechWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Technologies"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "STYLELIB_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.frame.mainwin",
+    "libraryURL" : "/mm-styles-client",
+    "application" : "MmdesignerStylesStylesLibraryWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "styleLibrary" : ""
+    },
+    "header" : "StyleLibrary"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TREE_SELECTION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.mapper.mapperwin.context",
+    "libraryURL" : "/mm-tree-selection-client",
+    "application" : "MmdesignerTreeselectionTreeSelectionWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "applicationId" : "#{applicationId}"
+    },
+    "header" : "Selection"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "TREE_SELECTION_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.recipe.mapperwin.artifact",
+    "libraryURL" : "/mm-tree-selection-client",
+    "application" : "MmdesignerTreeselectionTreeSelectionWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap",
+      "applicationId" : "#{applicationId}"
+    },
+    "header" : "Selection"
+  }, {
+    "@class" : "WindPlugin",
+    "pluginType" : "PROPERTIES_PLUGIN",
+    "extensionPoint" : "org.tura.model.designer.types.properties",
+    "libraryURL" : "/mm-properties-client",
+    "application" : "MmdesignerPropertiesPropertiesWin",
+    "parameters" : {
+      "@class" : "java.util.HashMap"
+    },
+    "header" : "Properties"
+  } ] ]
+}

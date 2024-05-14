@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,11 @@ public class DataUpdateResponse {
 	private List<ClientCommand> executeClientActions = new ArrayList<ClientCommand>();
 	private List<ClientCommand> fatalClientErrors = new ArrayList<ClientCommand>();
 	private byte[] sessionState;
+	private byte[] sharedSessionState;
 
 	private String uuid = UUID.randomUUID().toString();
 	
+
 	public String getUuid() {
 		return uuid;
 	}
@@ -42,6 +44,13 @@ public class DataUpdateResponse {
 		this.uuid = uuid;
 	}
 
+	public byte[] getSharedSessionState() {
+		return sharedSessionState;
+	}
+
+	public void setSharedSessionState(byte[] sharedSessionState) {
+		this.sharedSessionState = sharedSessionState;
+	}
 
 	public byte[] getSessionState() {
 		return sessionState;

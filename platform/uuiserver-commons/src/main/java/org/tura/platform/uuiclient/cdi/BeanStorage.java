@@ -79,7 +79,7 @@ public class BeanStorage implements Serializable {
 	/**
 	 * Returns the bean identifier of the given type.
 	 */
-	private static String getBeanId(Contextual<?> type) {
+	protected String getBeanId(Contextual<?> type) {
 		return (type instanceof PassivationCapable) ? ((PassivationCapable) type).getId() : type.getClass().getName();
 	}
 

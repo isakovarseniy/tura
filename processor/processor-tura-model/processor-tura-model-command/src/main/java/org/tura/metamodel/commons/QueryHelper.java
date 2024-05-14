@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -152,13 +152,14 @@ public class QueryHelper {
 		return internalEvaluate(m, expression);
 	}
 
-	private Object internalEvaluate(Object obj, final String expression,Map<String, Object> variable) throws Exception {
+	private Object internalEvaluate(Object obj, final String expression, Map<String, Object> variable)
+			throws Exception {
 		ObjectControl oc = (ObjectControl) obj;
 		TuraInstantiator turaInstantiator = new TuraInstantiator();
 		Model m = turaInstantiator.createTuraModel((CpaRepository) oc.getRepository());
-		return internalEvaluate(m, expression,variable);
-	}	
-	
+		return internalEvaluate(m, expression, variable);
+	}
+
 	private Object internalEvaluate(Model model, final String expression) throws Exception {
 		return internalEvaluate(model, expression, new HashMap<>());
 	}
@@ -358,6 +359,79 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
+	public List<Configuration> getBranchedConfiguration(String uid, String configBranch) throws Exception {
+		String query = "var r = recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
+				+ "'); return r;";
+
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
+				query);
+		if ((map != null) && (map.size() != 0))
+			return filteri2c(map, configBranch);
+		else
+			return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Configuration> getBranchedConfigExtensionUp(Configuration config, String configBranch)
+			throws Exception {
+
+		if (getConfigExtensionGard(config)) {
+			throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
+		}
+
+		String query = "var r = recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='" + config.getUid()
+				+ "'); return r;";
+
+		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
+		if ((map != null) && (map.size() != 0))
+			return filterce(map, configBranch);
+		else
+			return null;
+	}
+
+	private List<Configuration> filteri2c(Collection<Infrastructure2Configuration> i2cList, String configBranch) {
+		Infrastructure2Configuration main = null;
+		Infrastructure2Configuration branch = null;
+		for (Infrastructure2Configuration i2c : i2cList) {
+			if (i2c.getConfigBranch() == null) {
+				main = i2c;
+			}
+			if (configBranch != null && configBranch.equals(i2c.getConfigBranch())) {
+				branch = i2c;
+			}
+		}
+		List<Configuration> result = new ArrayList<>();
+		if (main != null) {
+			result.add(main.getTarget());
+		}
+		if (branch != null) {
+			result.add(branch.getTarget());
+		}
+		return result;
+	}
+
+	private List<Configuration> filterce(Collection<ConfigExtension> ceList, String configBranch) {
+		ConfigExtension main = null;
+		ConfigExtension branch = null;
+		for (ConfigExtension ce : ceList) {
+			if (ce.getConfigBranch() == null) {
+				main = ce;
+			}
+			if (configBranch != null && configBranch.equals(ce.getConfigBranch())) {
+				branch = ce;
+			}
+		}
+		List<Configuration> result = new ArrayList<>();
+		if (main != null) {
+			result.add(main.getTarget());
+		}
+		if (branch != null) {
+			result.add(branch.getTarget());
+		}
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
 	public Configuration getConfiguration(String uid) throws Exception {
 		String query = "var r = recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
 				+ "'); return r;";
@@ -488,10 +562,10 @@ public class QueryHelper {
 		Controls controls = frm.getDatacontrols();
 		HashMap<String, Object> var = new HashMap<>();
 		var.put("controls", controls);
-		
+
 		String query = "var r = controls.relations->select(r|r.isTree=true)->collect(w|w.master)->reject(q|controls.relations->select(r|r.isTree=true)->collect(w|w.detail)->includes(q)); return r;";
 
-		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm,query,var);
+		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm, query, var);
 
 		// Remove duplication
 		HashMap<String, DataControl> hash = new HashMap<>();
@@ -501,7 +575,7 @@ public class QueryHelper {
 
 		query = "var r =controls.relations->select(r|r.isTree=true and r.master=r.detail )->collect(w|w.master)->reject(q|controls.relations->select(r|r.isTree=true and r.master <> r.detail )->collect(w|w.detail)->includes(q)); return r;";
 
-		Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm,query,var);
+		Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm, query, var);
 
 		ArrayList<TreeDataControl> ls = new ArrayList<>();
 		for (DataControl dc : hash.values()) {
@@ -913,17 +987,17 @@ public class QueryHelper {
 	@SuppressWarnings("unchecked")
 	public Object[] findRefreshedAeas(Views views, Object obj) throws Exception {
 		try {
-			
+
 			String query = "var r =views.canvases->select(c|c.isKindOf(form::ViewPortHolder))->collect(v|v.viewElement).flatten()->select(q|q.isKindOf(form::ViewArea)); return r;";
 
 			HashMap<String, Object> var = new HashMap<>();
 			var.put("views", views);
-			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(views,query,var);
+			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(views, query, var);
 
 			query = "var r = views.canvases->select(c|c.isKindOf(form::ViewPortHolder))->collect(v|v.viewElement).flatten()->"
 					+ "select(q|q.isKindOf(form::NickNamed) and q.nickname <> null and q.nickname <> ''); return r;";
 
-			Collection<NickNamed> map1 = (Collection<NickNamed>) internalEvaluate(views,query,var);
+			Collection<NickNamed> map1 = (Collection<NickNamed>) internalEvaluate(views, query, var);
 
 			ArrayList<NickNamed> nickNamed = new ArrayList<NickNamed>();
 			ArrayList<AreaRef> remove = new ArrayList<AreaRef>();
@@ -1090,10 +1164,9 @@ public class QueryHelper {
 
 			HashMap<String, Object> var = new HashMap<>();
 			var.put("canvasFrame", canvasFrame);
-			
-			
+
 			@SuppressWarnings("unchecked")
-			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(canvasFrame,query,var);
+			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(canvasFrame, query, var);
 
 			ArrayList<Uielement> list = new ArrayList<Uielement>();
 
@@ -1117,12 +1190,12 @@ public class QueryHelper {
 			TypeGroup pkg = (TypeGroup) ((TypeProxy) type).eContainer();
 			String query = "var r = pkg.relationships->select(r|r.isTypeOf(type::Generalization) and  r.source.uid ='"
 					+ type.getUid() + "'); return r;";
-			
+
 			HashMap<String, Object> var = new HashMap<>();
 			var.put("pkg", pkg);
 
 			@SuppressWarnings("unchecked")
-			Collection<Generalization> list = (Collection<Generalization>) internalEvaluate(type, query,var);
+			Collection<Generalization> list = (Collection<Generalization>) internalEvaluate(type, query, var);
 
 			return list;
 		} catch (Exception e) {
@@ -1131,6 +1204,51 @@ public class QueryHelper {
 		}
 
 	}
+	
+	
+	public boolean compareType (TypeElement baseTypeElement, TypeElement comparedTypeElement ) {
+		Type baseType = unwrap(baseTypeElement);
+		Type comparedType = unwrap(comparedTypeElement);
+		
+		if ( baseType.getUid().equals(comparedType.getUid()) ) {
+			return true;
+		}
+		Collection<TypeElement> list = getExtensions(baseType);
+		if ( list.size() == 0) {
+			return false;
+		}
+		for ( TypeElement tp : list) {
+			if ( compareType(tp, comparedType)) {
+				return true;
+			}
+		}
+		return false;
+	}	
+	
+	
+	public Collection<TypeElement> getExtensions(Type type) {
+		try {
+			Collection<TypeElement> list = new ArrayList<TypeElement>();
+			Collection<Generalization> gls= getTypeExtension( type);
+			for ( Generalization g : gls ) {
+				TypeElement ext = unwrap(g.getTarget());
+				list.add(ext);
+			}
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<TypeElement>();
+		}
+
+	}		
+	
+	public Type unwrap(TypeElement te) {
+		TypeElement result  = te;
+		if ( te instanceof TypeReference) {
+			result = ((TypeReference)te).getTypeRef();
+		}
+		return (Type) result;
+	}	
 
 	@SuppressWarnings({ "unchecked" })
 	public Assosiation getAssosiation(Type typeMaster, Type typeDetail) {

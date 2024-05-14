@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,18 +103,18 @@ public class JpaHiddenAssosiationTest {
 			SearchResult<?> result = repository.find(new ArrayList<>(), new  ArrayList<>(), 0, 100, JPAHideRelationA1.class);
 			assertEquals(1, result.getNumberOfRows());
 			
-			List<StorageControl> array  = cpaStorageProvider.getStorage().find(JPAHideRelationA1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+			List<StorageControl> array  = cpaStorageProvider.get().find(JPAHideRelationA1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 			assertEquals(1, array.size());
 			
 			if ( RepositoryTestSuite.isLazyObjectRepository()) {
-				array  = cpaStorageProvider.getStorage().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+				array  = cpaStorageProvider.get().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 				assertEquals(0, array.size());
 				JPAHideRelationA1 _o1 = (JPAHideRelationA1) result.getSearchResult().get(0);
 				_o1.getJPAHideRelationB1();
-				array  = cpaStorageProvider.getStorage().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+				array  = cpaStorageProvider.get().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 				assertEquals(1, array.size());
 			}else {
-				array  = cpaStorageProvider.getStorage().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
+				array  = cpaStorageProvider.get().find(JPAHideRelationB1.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
 				assertEquals(1, array.size());
 			}
 			

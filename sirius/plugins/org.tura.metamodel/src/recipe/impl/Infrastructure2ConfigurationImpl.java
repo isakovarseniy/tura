@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -40,6 +40,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.Infrastructure2ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.Infrastructure2ConfigurationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link recipe.impl.Infrastructure2ConfigurationImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link recipe.impl.Infrastructure2ConfigurationImpl#getConfigBranch <em>Config Branch</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +85,26 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 	 * @ordered
 	 */
 	protected Configuration target;
+
+	/**
+	 * The default value of the '{@link #getConfigBranch() <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigBranch()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONFIG_BRANCH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConfigBranch() <em>Config Branch</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigBranch()
+	 * @generated
+	 * @ordered
+	 */
+	protected String configBranch = CONFIG_BRANCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,6 +234,29 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 	 * @generated
 	 */
 	@Override
+	public String getConfigBranch() {
+		return configBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setConfigBranch(String newConfigBranch) {
+		String oldConfigBranch = configBranch;
+		configBranch = newConfigBranch;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH, oldConfigBranch, configBranch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__UID:
@@ -223,6 +267,8 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH:
+				return getConfigBranch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +289,9 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 				return;
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__TARGET:
 				setTarget((Configuration)newValue);
+				return;
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH:
+				setConfigBranch((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -265,6 +314,9 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__TARGET:
 				setTarget((Configuration)null);
 				return;
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH:
+				setConfigBranch(CONFIG_BRANCH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -283,6 +335,8 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 				return source != null;
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__TARGET:
 				return target != null;
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH:
+				return CONFIG_BRANCH_EDEFAULT == null ? configBranch != null : !CONFIG_BRANCH_EDEFAULT.equals(configBranch);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -299,6 +353,8 @@ public class Infrastructure2ConfigurationImpl extends EObjectImpl implements Inf
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", configBranch: ");
+		result.append(configBranch);
 		result.append(')');
 		return result.toString();
 	}

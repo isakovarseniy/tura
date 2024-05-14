@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -22,18 +22,20 @@ import org.zeroturnaround.zip.ZipUtil;
 
 public class DownloadChromeSeleniumWebDriver {
 
-	String targetDirectory =ConfigConstants.RESOURCE_HOME;
+	String targetDirectory = ConfigConstants.RESOURCE_HOME;
 	String version;
 	OS os;
 	
 	public DownloadChromeSeleniumWebDriver(){
-		if (OSHelper.isWindows()) {
+		if (OSHelper.isWindows() ) {
 			os = OS.win;
-		} else if (OSHelper.isMac()) {
-			os = OS.mac;
-		} else if (OSHelper.isUnix()) {
+		} else if (OSHelper.isMac() && OSHelper.isX86()) {
+			os = OS.mac_x86;
+		} else if (OSHelper.isMac() && OSHelper.isARM()) {
+			os = OS.mac_arm;
+		}else if (OSHelper.isUnix() ) {
 			os = OS.linux;
-		}		
+		}			
 	}
 	
 	public DownloadChromeSeleniumWebDriver setTargetDirectory(String targetDirectory) {
@@ -66,9 +68,10 @@ public class DownloadChromeSeleniumWebDriver {
 
 	public enum OS {
 		win("https://chromedriver.storage.googleapis.com/${version}/chromedriver_win32.zip","chromedriver_win32.zip"), 
-		mac("https://chromedriver.storage.googleapis.com/${version}/chromedriver_mac64.zip","chromedriver_mac64.zip"), 
+		mac_x86("https://chromedriver.storage.googleapis.com/${version}/chromedriver_mac64.zip","chromedriver_mac64.zip"), 
+		mac_arm("https://chromedriver.storage.googleapis.com/${version}/chromedriver_mac_arm64.zip","chromedriver_mac_arm64.zip"),
 		linux("https://chromedriver.storage.googleapis.com/${version}/chromedriver_linux64.zip","chromedriver_linux64.zip");
-
+		
 		String url;
 		String fileName;
 

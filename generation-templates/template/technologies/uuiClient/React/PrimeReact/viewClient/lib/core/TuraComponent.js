@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -28,7 +28,10 @@ export class TuraComponent extends  React.Component {
         if (typeof props.dependId !== 'undefined'){
             this.dependId = props.dependId;
         }
-
+        this.passDep = null;
+        if (typeof props.passDep !== 'undefined'){
+            this.passDep = props.passDep;
+        }
         this.initializeMainState = this.initializeMainState.bind(this);
         this.menuOnClick = this.menuOnClick.bind(this);
         this.getState = this.getState.bind(this);

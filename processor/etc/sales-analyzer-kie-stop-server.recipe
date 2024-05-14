@@ -1,0 +1,5 @@
+echo Stop sa-kie
+tura:docker stopContainer --name sa-kie
+
+tura:docker removeContainer --name sa-kie
+

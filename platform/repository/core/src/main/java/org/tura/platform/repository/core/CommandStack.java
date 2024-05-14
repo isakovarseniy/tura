@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,35 +22,40 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Stack;
 import java.util.UUID;
 
-import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.repository.data.CloneableCommand;
 import org.tura.platform.repository.data.CommandStackData;
-import org.tura.platform.repository.proxy.ProxyCommandStackEventListener;
 
 public class CommandStack implements Serializable {
 
 	private static final long serialVersionUID = 4088238807395031890L;
 	private Stack<SavePoint> savePoints;
 	private String id = UUID.randomUUID().toString();
-	private Map<String, ProxyCommandStackEventListener> listeners = new HashMap<>();
-
-	public void addProxyCommandStackEventListener(String id, ProxyCommandStackEventListener listener) {
-		if (!listeners.containsKey(id)) {
-			listeners.put(id, listener);
-		}
-	}
-
-	public void removeProxyCommandStackEventListener(String id) {
-		listeners.remove(id);
-	}
+	private CommandStackEventSubscribersProvider eventSubscribersProvider;
+	private RegistryProvider registryProvider;
 
 	public CommandStack() {
+	}
+
+	public CommandStackEventSubscribersProvider getEventSubscribersProvider() {
+		return eventSubscribersProvider;
+	}
+
+	public void setEventSubscribersProvider(CommandStackEventSubscribersProvider eventSubscribersProvider) {
+		this.eventSubscribersProvider = eventSubscribersProvider;
+	}
+
+	
+	public RegistryProvider getRegistryProvider() {
+		return registryProvider;
+	}
+
+	public void setRegistryProvider(RegistryProvider registryProvider) {
+		this.registryProvider = registryProvider;
 	}
 
 	public boolean isSavePoint() {
@@ -77,15 +82,12 @@ public class CommandStack implements Serializable {
 	}
 
 	public void rallbackCommand() throws Exception {
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.beforeRallback();
-		}
+		CommandStackEventSubscribers subscribers = eventSubscribersProvider.get();
+		subscribers.beforeRollback();
 
 		initSavePoint();
 
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.afterRallback();
-		}
+		subscribers.afterRollback();
 
 	}
 
@@ -95,27 +97,25 @@ public class CommandStack implements Serializable {
 			throw new TuraException("No savepoint");
 		}
 
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.beforeRallbackSavePoint();
-		}
+		CommandStackEventSubscribers subscribers = eventSubscribersProvider.get();
+
+		subscribers.beforeRollbackSavePoint();
 
 		savePoints.pop();
 
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.afterRallbackSavePoint();
-		}
+		subscribers.afterRollbackSavePoint();
+
 	}
 
 	public synchronized void commit() throws Exception {
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.beforeCommit();
-		}
+		CommandStackEventSubscribers subscribers = eventSubscribersProvider.get();
+
+		subscribers.beforeCommit();
 
 		commitSavePoint();
 
-		for (ProxyCommandStackEventListener listner : listeners.values()) {
-			listner.afterCommit();
-		}
+		subscribers.afterCommit();
+
 	}
 
 	public synchronized void clear() throws TuraException {
@@ -137,11 +137,14 @@ public class CommandStack implements Serializable {
 	}
 
 	public List<Object> getListOfCommand() {
-			List<Object> array = new ArrayList<>();
-			for (Object obj : getCommandStackData().getTransaction()) {
-				array.add(((CloneableCommand) obj).cloneCmd());
-			}
-			return array;
+		List<Object> array = new ArrayList<>();
+		Registry registry = registryProvider.get();
+		for (Object obj : getCommandStackData().getTransaction()) {
+			CloneableCommand clonable = (CloneableCommand) obj;
+			clonable.setRegistry(registry);
+			array.add(clonable.cloneCmd());
+		}
+		return array;
 	}
 
 	public Object getData(String id) {

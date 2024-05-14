@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ public abstract class ProxyData implements Serializable , CloneableCommand{
 	protected String relationType;
 	protected String masterProperty;
 	protected String detailProperty;
-	protected Registry registry;
+	protected transient Registry registry;
 	protected Map<String,Object> params = new HashMap<>();
 	
 	

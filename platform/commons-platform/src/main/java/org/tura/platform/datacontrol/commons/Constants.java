@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,5 +44,7 @@ public class Constants {
 	public static String JPA_QUERY_MANY2MANY_METHOD = "JPA_QUERY_MANY2MANY_METHOD";
 	
 	
+	public static String  AES_KEY =  "aes_key";
+	public static String  SHARED_CONTEXT =  "shared_context";
 
 }

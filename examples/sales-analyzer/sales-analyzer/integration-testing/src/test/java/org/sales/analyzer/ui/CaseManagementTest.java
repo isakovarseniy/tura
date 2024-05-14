@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -36,10 +34,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.sales.analyzer.process.PostDeployer;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.tura.platform.selenium.DropDownSelection;
 import org.tura.platform.selenium.Messages;
 import org.tura.platform.selenium.OutputText;
@@ -64,30 +61,13 @@ public class CaseManagementTest extends AbstractTest{
 
 	static private String driver_location = System.getProperty("user.home") + "/.tura/resources/"+getChromeDriverName();
 
-	@BeforeClass
-	public static void beforeClass() {
-		try {
 
-			service = new ChromeDriverService.Builder()
-					.usingDriverExecutable(new File(driver_location)).usingAnyFreePort()
-					.build();
-
-			service.start();
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-
-	}
-
-	@AfterClass
-	public static void createAndStopService() {
-		service.stop();
-	}
 
 	@Before
 	public void createDriver() {
-		driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		ChromeOptions option = new ChromeOptions();
+		option.setBinary(new File(driver_location));
+		driver = new ChromeDriver( new ChromeOptions());
 	}
 
 	@After
@@ -97,10 +77,10 @@ public class CaseManagementTest extends AbstractTest{
 
 	private void login() {
 		WebElement el = driver.findElement(By.id("username"));
-		el.sendKeys(PostDeployer.USERNAME);
+		el.sendKeys(AbstractTest.USERNAME);
 
 		el = driver.findElement(By.id("password"));
-		el.sendKeys(PostDeployer.PASSWORD);
+		el.sendKeys(AbstractTest.PASSWORD);
 
 		el = driver.findElement(By.id("kc-login"));
 		el.click();
@@ -244,7 +224,7 @@ public class CaseManagementTest extends AbstractTest{
 		new Repeater() {
 			public void action() {
 				WebElement el = workItemTable.getRow(0).getCell(6);
-				assertEquals(PostDeployer.USERNAME, el.getText());
+				assertEquals(AbstractTest.USERNAME, el.getText());
 			}
 		}.repeat(10);
 
@@ -330,7 +310,7 @@ public class CaseManagementTest extends AbstractTest{
 			public void action() {
 				WriteOutcomePageObject writeOutcome = new WriteOutcomePageObject(driver);
 				OutputText analyst = writeOutcome.getAnalyst();
-				assertEquals(PostDeployer.USERNAME, analyst.getValue());
+				assertEquals(AbstractTest.USERNAME, analyst.getValue());
 			}
 		}.repeat(10);
 
@@ -340,7 +320,7 @@ public class CaseManagementTest extends AbstractTest{
 			public void action() {
 				WriteOutcomePageObject writeOutcome = new WriteOutcomePageObject(driver);
 				OutputText reviewer = writeOutcome.getReviewer();
-				assertEquals(PostDeployer.USERNAME, reviewer.getValue());
+				assertEquals(AbstractTest.USERNAME, reviewer.getValue());
 			}
 		}.repeat(10);
 

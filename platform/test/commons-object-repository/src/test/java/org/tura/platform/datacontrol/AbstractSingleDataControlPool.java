@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -448,8 +448,8 @@ public class AbstractSingleDataControlPool {
 			stackProvider.get().savePoint();
 
 			List<DepartmentType> ls = dc.getScroller();
-			ls.get(0);
-			ls.get(1);
+			System.out.println(  ls.get(0));
+			System.out.println( ls.get(1));
 
 			dc2.forceRefresh();
 			stackProvider.get().rallbackSavePoint();

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,10 @@
 
 package org.tura.platform.uuiclient.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface OptionsModelTrigger {
+public interface OptionsModelTrigger extends Serializable{
 
 	
     public void onSelect(Object obj);

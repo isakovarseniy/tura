@@ -1,0 +1,69 @@
+mr2 = tura:dsl config --mavenRepositoryLocation
+
+tura:docker stopContainer --name sa-kie
+
+tura:docker removeContainer --name sa-kie
+
+tura:docker removeImage --registry tura/jbpm/kieserver --tag 1.0
+
+tura:docker pullImage --registry jboss/wildfly --tag $wildfly_version
+
+tura:docker createNetwork --network sa-net
+
+c = tura:docker config\
+                        --port ${kie_server_http}:8080\
+                        --port ${kie_server_debug}:3333\
+                        --network sa-net\
+                        --var JAVA_OPTS="-server -Xms512m -Xmx2048m" 
+
+v = tura:docker createContainer --registry jboss/wildfly --tag $wildfly_version --var c 
+
+
+tura:dsl copyFile               --container $v\
+                                          --unzip\
+                                          --sourceResource $mr2/org/kie/server/kie-server/${jbpm_version}/kie-server-${jbpm_version}-ee7.war\
+                                          --targetLocation    /opt/jboss/deployment/kie-server\
+                                          --targetName kie-server-${jbpm_version}.war
+
+                                          
+tura:dsl removeFile            --container $v\
+                                          --targetLocation /opt/jboss/deployment/kie-server/kie-server-${jbpm_version}.war
+                                          
+                                          
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \" ln -s /opt/jboss/deployment/kie-server/ /opt/jboss/wildfly/standalone/deployments/kie-server.war \" "
+
+
+tura:docker keycloak doDeployAdapter\
+                     --container $v\
+                     --jboss_home /opt/jboss/wildfly\
+                     --serverType wildfly-$wildfly_version\
+                     --application  sales-analyzer/kie-server\
+                     --cliFile adapter-elytron-install-offline.cli\
+                     --keyCloakAdapter $mr2/org/keycloak/keycloak-wildfly-adapter-dist/${keycloak_version}/keycloak-wildfly-adapter-dist-${keycloak_version}.zip
+
+
+tura:dsl jbossModule  --container $v\
+                      --jboss_home /opt/jboss/wildfly\
+                      --application sales-analyzer/kie-server\
+                      --serverType wildfly-$wildfly_version\
+                      --relativeLocation org/postgresql/main\
+                      --configPath postgres 
+
+tura:dsl copyFile     --container $v\
+                      --targetLocation /opt/jboss/wildfly/modules/org/postgresql/main\
+                      --sourceResource $mr2/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar 
+
+
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss/deployment\" "
+tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss/wildfly\" "
+
+tura:docker stopContainer --id $v
+
+tura:docker commitContainer\
+                --registry tura/jbpm/kieserver\
+                --tag 1.0\
+                --id $v\
+                --cmd "/opt/jboss/wildfly/bin/standalone.sh --debug *:3333 -c standalone-full.xml -b 0.0.0.0"
+                
+                
+tura:docker removeContainer --id $v                

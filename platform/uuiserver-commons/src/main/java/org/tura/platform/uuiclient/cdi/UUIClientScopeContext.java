@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ public class UUIClientScopeContext implements Context {
 	private BeanStorage loadFromStorage(Scope scopeId) {
 		try {
 			if (isScopePresentInStorage(scopeId)) {
-				return this.getStorage().load(scopeId);
+				return (BeanStorage) this.getStorage().load(scopeId);
 			}
 		} catch (Exception e) {
 			logger.info(ExceptionUtils.getStackTrace(e));
@@ -88,7 +88,7 @@ public class UUIClientScopeContext implements Context {
 	}
 
 	public void passivate(Scope scopeId) {
-		writeToStorage(scopeId,cache.get().get());
+		writeToStorage(scopeId, cache.get().get());
 		cache.get().get().destroyBeans();
 		
 		cache.get().set(null);

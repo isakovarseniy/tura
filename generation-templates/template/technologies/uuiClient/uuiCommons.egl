@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -107,15 +107,38 @@ operation form::FlexFields  styleClassExpression(hash) {
 
 
 @template
-operation form::Uielement  rendered(hash){
+operation form::Uielement  rendered(hash,variable){
       var hints = new Native('java.util.HashMap');
       var value = constructExpression(self,'rendered',hints,hash);
       if (value <> null and value <> ""){
-     %]this.rendered=(boolean ) resolve( "[%=value%]", elResolver);[%
+     %][%=variable%].rendered=(boolean ) resolve( "[%=value%]", elResolver);[%
      }else{
-     %]this.rendered=true;[%
+     %][%=variable%].rendered=true;[%
      }
 }
+
+@template
+operation form::MenuItem  rendered( hash,variable){
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'rendered',hints,hash);
+      if (value <> null and value <> ""){
+     %][%=variable%].rendered=(boolean ) resolve( "[%=value%]", elResolver);[%
+     }else{
+     %][%=variable%].rendered=true;[%
+     }
+}
+
+
+@template
+operation form::Uielement  rendered(hash){
+     %][%=self.rendered(hash,'this')%][%
+}
+
+@template
+operation form::MenuItem  rendered(hash){
+     %][%=self.rendered(hash,'this')%][%
+}
+
 
 @template
 operation form::Uielement  labelExpr(hash,field){
@@ -141,7 +164,7 @@ operation form::Uielement  required(hash){
 operation form::Uielement  disabled(hash){
       var hints = new Native('java.util.HashMap');
      if (self.enabled <> null  and  self.enabled.value <> null  ){
-     %]this.disabled=(boolean ) resolve( "[%=buildExpression(self.enabled,hints,hash)%]", elResolver);[%
+     %]this.disabled=!(boolean ) resolve( "[%=buildExpression(self.enabled,hints,hash)%]", elResolver);[%
      }else{
      %]this.disabled=false;[%
      }
@@ -212,6 +235,22 @@ operation form::Uielement  createValue(hash){
      }
 return value;
      
+}
+
+
+@template
+operation form::Uielement  messageHint(hash ){
+       var hints = new Native('java.util.HashMap');
+       var expression = constructExpression(self,'hintMessage',hints, hash);
+       if (expression <> "" ){
+          %]this.hintMessage=(String ) resolve( "[%=expression%]", elResolver);[%
+       }
+}
+
+
+@template
+operation form::Window  initContextTriggers( hash, eventType , parameters){
+            %][%=initContextTriggers(hash, eventType , parameters,self,"getEvents()")%][%
 }
 
 @template
@@ -318,6 +357,16 @@ operation   form::Uielement  refreshProcessArias() {
 @template
 operation   form::Uielement  refreshUpdateArias() {
    %][%=refreshUpdateArias(false,self)%][%
+}
+
+@template
+operation   form::Window  refreshProcessArias() {
+   %]null[%
+}
+
+@template
+operation   form::Window  refreshUpdateArias() {
+   %]null[%
 }
 
 

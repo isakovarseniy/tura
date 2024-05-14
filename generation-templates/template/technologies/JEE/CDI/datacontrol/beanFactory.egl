@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,7 +29,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import javax.inject.Inject;
 
 @javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%][%=bfSuffix%]")
-[%=datacontrol_scope()%]
+@[%=datacontrol_scope()%]
 public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,6 +39,11 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
 
 	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BeanFactory[%=bfSuffix%].class.getName());;
 	
+	
+	@javax.inject.Inject
+	@org.tura.platform.datacontrol.annotations.FormPrm
+    private org.tura.platform.uuiclient.model.FormParameters formParameters;
+     
 	@javax.inject.Inject
 	javax.enterprise.inject.spi.BeanManager bm;	
 	
@@ -73,10 +78,27 @@ public class BeanFactory[%=bfSuffix%]  implements IBeanFactory, java.io.Serializ
 	   }
 	}
 	%]	
+	
+
 	public void init() {
-    	if (section > 0)
+    	if (section > 0){
     		return;
+        }
     	section++;
+    	
+[%
+	      if (root <> null){
+	         for ( frmvar in root.variables){
+	           if (frmvar.paramRef == null){
+	              continue;
+	           }
+%]	    
+	    	 [%=util.mergeAndUnCapitalize(frmvar.name)%] = ( [%=frmvar.typeRef.~fullName%]) formParameters.get("[%=frmvar.paramRef.name%]");
+[%
+            }
+	     }
+
+%]	   	    	
 		try {
 			org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
 			if (trigger != null)

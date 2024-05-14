@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,8 @@ import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
-import org.sales.analyzer.process.PostDeployer;
 import org.sales.analyzer.services.impl.OAuthCredentialsProvider;
+import org.sales.analyzer.ui.AbstractTest;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Mapper;
@@ -58,7 +58,6 @@ import sales.analyzer.api.model.impl.ETLNodeInstanceLog;
 import sales.analyzer.api.model.impl.ETLProcessInstance;
 import sales.analyzer.api.model.impl.ETLTaskInstance;
 import sales.analyzer.api.model.impl.ExtraClasses;
-import sales.analyzer.api.model.impl.JbpmConfiguration;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstance;
 import sales.analyzer.api.model.impl.SalesAnalyzerProcessInstancePK;
 import sales.analyzer.api.model.impl.SalesAnalyzerTaskInstance;
@@ -94,9 +93,9 @@ public class JbpmSearchServiceTest {
 			pref = new UserPreferences();
 			pref.setSuperAdmin(true);
 
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider(AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
@@ -120,7 +119,6 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId1 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
 			SalesAnalyzerProcessInstancePK pk = new SalesAnalyzerProcessInstancePK();
 			pk.setCaseId(caseId);
@@ -181,9 +179,9 @@ public class JbpmSearchServiceTest {
 			pref = new UserPreferences();
 			pref.setSuperAdmin(true);
 
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider(AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
@@ -199,7 +197,6 @@ public class JbpmSearchServiceTest {
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
 
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
 			JbpmSearchService service = new JbpmSearchService(client, provider, spaRegistry,
 					"spa-persistence-repository", registry);
@@ -228,9 +225,9 @@ public class JbpmSearchServiceTest {
 
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
 
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider(AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
@@ -262,8 +259,6 @@ public class JbpmSearchServiceTest {
 			params.put("product", "Product05");
 			@SuppressWarnings("unused")
 			Long procesInsatnceId3 = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, params);
-
-			JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
 			ArrayList<SearchCriteria> searchCriteria = new ArrayList<>();
 			SearchCriteria sc = new SearchCriteria();
@@ -354,14 +349,13 @@ public class JbpmSearchServiceTest {
 	@Test
 	public void t0000_ETLProcessMapper() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider(AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 			Map<String, Object> param = new HashMap<>();
@@ -388,14 +382,13 @@ public class JbpmSearchServiceTest {
 	@Test
 	public void t0000_ETLNodeLogMapper() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(PostDeployer.KIE_SERVER_URL, null,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(AbstractTest.KIE_SERVER_URL, null,
 					null);
-			config.setCredentialsProvider(new OAuthCredentialsProvider(new PostDeployer().getToken()));
+			config.setCredentialsProvider(new OAuthCredentialsProvider(AbstractTest.getToken()));
 			config.addExtraClasses(ExtraClasses.list);
 
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			UserPeferencesProviderImpl provider = new UserPeferencesProviderImpl();
-			JbpmConfiguration.init(client, PostDeployer.JNDI_FOR_JBPM_ACCESS);
 
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 			Long processInstance = processClient.startProcess(Constants.CONTAINER_ID, ETL_PROCESS_ID,

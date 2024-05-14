@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -73,7 +73,7 @@ ${percent}${end}
          
          for (control in controls){
 
-           control.processKeys(recipe,ingredient, proxyJavaComponent);
+           control.processKeys(recipe,ingredient, proxyJavaComponent,model_mapper);
            control.processArtificialFields(recipe,ingredient);
 
            control.processTriggers(recipe,ingredient,hash);

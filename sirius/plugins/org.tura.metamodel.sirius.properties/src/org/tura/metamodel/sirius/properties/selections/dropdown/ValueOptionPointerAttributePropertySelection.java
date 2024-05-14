@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,6 +16,7 @@ package org.tura.metamodel.sirius.properties.selections.dropdown;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -79,5 +80,15 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 		Bus.getInstance().removeEventListner(listener);
 	}
 	
+	@Override
+	public String getObjectId() {
+		return EcoreUtil.getID(getModel());
+	}
+
+	
+	@Override
+	public Scope getScope() {
+		return Scope.OPTION;
+	}
 	
 }

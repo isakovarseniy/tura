@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,10 @@ public class RequestScopeStorage implements ScopeStorage {
 
 	private transient byte[] buffer;
 	private transient SecretKey secretKey;
-	
+
 	@Override
-	public void write(Scope scopeId, BeanStorage map) throws Exception {
+	public void write(Scope scopeId, Object map) throws Exception {
+		
 		ByteArrayOutputStream fos = null;
 		ObjectOutputStream oos = null;
 		try {
@@ -56,14 +57,14 @@ public class RequestScopeStorage implements ScopeStorage {
 	}
 
 	@Override
-	public BeanStorage load(Scope scopeId) throws Exception {
+	public Object load(Scope scopeId) throws Exception {
 		ByteArrayInputStream fos = null;
 		ObjectInputStream oos = null;
 		try {
-			
+
 			fos = new ByteArrayInputStream(buffer);
 			oos = new ObjectInputStream(fos);
-			BeanStorage map = (BeanStorage) oos.readObject();
+			Object map = oos.readObject();
 			return map;
 		} finally {
 			if (oos != null) {
@@ -88,74 +89,73 @@ public class RequestScopeStorage implements ScopeStorage {
 
 	}
 
-
 	@Override
 	public byte[] getState() throws Exception {
-		return  encrypt(compress (buffer)) ;
+		if (buffer != null) {
+			return encrypt(compress(buffer));
+		}
+		return null;
 	}
 
 	@Override
 	public void setState(byte[] state) throws Exception {
-		if ( state != null) {
-			this.buffer=  decompress(decrypt(state)) ;
-			System.out.println("zip langht = "+state.length +" unzip langht =  "+buffer.length);
+		if (state != null) {
+			this.buffer = decompress(decrypt(state));
+			System.out.println("zip langht = " + state.length + " unzip langht =  " + buffer.length);
 		}
 	}
 
 	public static byte[] compress(byte[] in) {
-	    try {
-	        ByteArrayOutputStream out = new ByteArrayOutputStream();
-	        DeflaterOutputStream defl = new DeflaterOutputStream(out);
-	        defl.write(in);
-	        defl.flush();
-	        defl.close();
+		try {
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			DeflaterOutputStream defl = new DeflaterOutputStream(out);
+			defl.write(in);
+			defl.flush();
+			defl.close();
 
-	        return out.toByteArray();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        System.exit(150);
-	        return null;
-	    }
+			return out.toByteArray();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(150);
+			return null;
+		}
 	}
 
 	public static byte[] decompress(byte[] in) {
-	    try {
-	        ByteArrayOutputStream out = new ByteArrayOutputStream();
-	        InflaterOutputStream infl = new InflaterOutputStream(out);
-	        infl.write(in);
-	        infl.flush();
-	        infl.close();
+		try {
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			InflaterOutputStream infl = new InflaterOutputStream(out);
+			infl.write(in);
+			infl.flush();
+			infl.close();
 
-	        return out.toByteArray();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        System.exit(150);
-	        return null;
-	    }
-	}	
-	
-	
-	
-    public  byte[] encrypt(byte[] byteArray) throws Exception {
-    	Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+			return out.toByteArray();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(150);
+			return null;
+		}
+	}
 
-        byte[] cipherText = cipher.doFinal(byteArray);
+	public byte[] encrypt(byte[] byteArray) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
-        return cipherText;
-    }
+		byte[] cipherText = cipher.doFinal(byteArray);
 
-    public  byte[] decrypt(byte[]  cipherBytes) throws Exception {
-    	Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+		return cipherText;
+	}
 
-        return cipher.doFinal(cipherBytes);
-    }
+	public byte[] decrypt(byte[] cipherBytes) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+		cipher.init(Cipher.DECRYPT_MODE, secretKey);
+
+		return cipher.doFinal(cipherBytes);
+	}
 
 	@Override
 	public void setSecretKey(SecretKey secretKey) {
-		this.secretKey =secretKey;
-	}    
-    	
-	
+		this.secretKey = secretKey;
+	}
+
 }

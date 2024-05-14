@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -14,15 +14,27 @@
 
 package org.tura.metamodel.sirius.properties.selections.dropdown;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.SourcesPointerSourceCastExternalIterator;
 
-public class SourceCastPropertySelectionExternalIterator extends AbstractCastPropertySelection{
+public class SourceCastPropertySelectionExternalIterator extends AbstractCastPropertySelection {
 
 	protected String getLabelText() {
 		return "Cast :";//$NON-NLS-1$
-	}	
+	}
 
-	protected void init(){
+	protected void init() {
 		dropDownDataSupplier = new SourcesPointerSourceCastExternalIterator();
 	}
+
+	@Override
+	public String getObjectId() {
+		return EcoreUtil.getID(getModel());
+	}
+
+	@Override
+	public Scope getScope() {
+		return Scope.MAIN;
+	}
+	
 }

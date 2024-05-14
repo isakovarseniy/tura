@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package sales.analyzer.process.commons.rule.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.drools.core.command.impl.GenericCommand;
+import org.kie.api.command.ExecutableCommand;
 import org.drools.core.command.runtime.BatchExecutionCommandImpl;
 import org.drools.core.command.runtime.rule.DeleteObjectCommand;
 import org.drools.core.command.runtime.rule.FireAllRulesCommand;
@@ -50,14 +50,14 @@ public class MonthlyFileRuleServiceImpl {
 
 	public MonthlyFileRuleModel execute(MonthlyFileRuleModel model) {
 		
-	    List<GenericCommand<?>> cmds = new ArrayList<GenericCommand<?>>();
+	    List<ExecutableCommand<?>> cmds = new ArrayList<ExecutableCommand<?>>();
 
 	    cmds.add( new InsertObjectCommand(model));
         cmds.add(new FireAllRulesCommand());
         cmds.add(new DeleteObjectCommand(model,"DEFAULT"));
         
         @SuppressWarnings("unused")
-		ExecutionResults results = rulesService.call(container, new BatchExecutionCommandImpl((List<GenericCommand<?>>) cmds));
+		ExecutionResults results = rulesService.call(container, new BatchExecutionCommandImpl((List<ExecutableCommand<?>>) cmds));
         
 		return model;
 	}

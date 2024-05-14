@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,11 +109,11 @@ public class CommandValidationOne2OneTest {
 			commands = stackProvider.get().getListOfCommand();
 			assertEquals(1, commands.size());
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(JPAObject6.class, 0, Long.MAX_VALUE,
+			List<StorageControl> array = cpaStorageProvider.get().find(JPAObject6.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(JPAObject5.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(JPAObject5.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
@@ -123,15 +123,15 @@ public class CommandValidationOne2OneTest {
 			o1_ = (JPAObject6) repository.create(JPAObject6.class);
 			o2.setJPAObject6(o1_);
 
-			array = cpaStorageProvider.getStorage().find(JPAObject6.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(JPAObject6.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(JPAObject5.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(JPAObject5.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(JPAObject6.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(JPAObject6.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Removed.name() }));
 			assertEquals(1, array.size());
 
@@ -169,11 +169,11 @@ public class CommandValidationOne2OneTest {
 			commands = stackProvider.get().getListOfCommand();
 			assertEquals(1, commands.size());
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(One2One2A.class, 0, Long.MAX_VALUE,
+			List<StorageControl> array = cpaStorageProvider.get().find(One2One2A.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One2B.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One2B.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
@@ -183,15 +183,15 @@ public class CommandValidationOne2OneTest {
 			o1 = (One2One2A) repository.create(One2One2A.class);
 			o2_.setOne2One2A(o1);
 
-			array = cpaStorageProvider.getStorage().find(One2One2A.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One2A.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One2B.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One2B.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One2A.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One2A.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Removed.name() }));
 			assertEquals(1, array.size());
 
@@ -218,11 +218,11 @@ public class CommandValidationOne2OneTest {
 			List<Object> commands = stackProvider.get().getListOfCommand();
 			assertEquals(3, commands.size());
 
-			List<StorageControl> array = cpaStorageProvider.getStorage().find(One2One3A.class, 0, Long.MAX_VALUE,
+			List<StorageControl> array = cpaStorageProvider.get().find(One2One3A.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One3B.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One3B.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
@@ -232,15 +232,15 @@ public class CommandValidationOne2OneTest {
 			One2One3B o2_ = (One2One3B) repository.create(One2One3B.class);
 			o1.setOne2One3B(o2_);
 
-			array = cpaStorageProvider.getStorage().find(One2One3A.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One3A.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(1, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One3B.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One3B.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Inserted.name() }));
 			assertEquals(2, array.size());
 
-			array = cpaStorageProvider.getStorage().find(One2One3B.class, 0, Long.MAX_VALUE,
+			array = cpaStorageProvider.get().find(One2One3B.class, 0, Long.MAX_VALUE,
 					Arrays.asList(new String[] { ObjectStatus.Removed.name() }));
 			assertEquals(0, array.size());
 

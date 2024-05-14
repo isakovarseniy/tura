@@ -43,6 +43,26 @@ tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $
 
 tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/hr-manager/hrform-react-client-triggers --templateLocation examples/hrform-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
 
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-frame-react-client-triggers --templateLocation examples/mm-frame-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-messages-react-client-triggers --templateLocation examples/mm-messages-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-navigator-react-client-triggers --templateLocation examples/mm-navigator-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-technologies-react-client-triggers --templateLocation examples/mm-technologies-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-artifacts-react-client-triggers --templateLocation examples/mm-artifacts-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-styles-react-client-triggers --templateLocation examples/mm-styles-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-tree-selection-react-client-triggers --templateLocation examples/mm-tree-selection-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-recipe-react-client-triggers --templateLocation examples/mm-recipe-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-types-react-client-triggers --templateLocation examples/mm-types-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
+tura:dsl generateArtifact --artifactName package.json --artifactTargetLocation $tura_home/examples/meta-designer/mm-properties-react-client-triggers --templateLocation examples/mm-properties-react-client-triggers/package.json --property TURA_HOME:$tura_home --property USER_HOME:$user_home --property TURA_VERSION:$tura_version
+
 
 echo Generate Hr form recipe
 generateHRApplication

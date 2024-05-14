@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -91,7 +91,14 @@ public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[
 	       search();
 	    }
 		try {
-	    [%=type.~fullName%] obj = ([%=type.~fullName%]) repository.create(datacontrol.getBaseClass());
+		
+		[%=type.~fullName%] obj = null;
+		org.tura.platform.datacontrol.command.base.CreateTrigger createTrigger = getDataControl().getCreateTrigger(); 
+		if ( createTrigger == null){
+	       obj = ([%=type.~fullName%]) getRepository().create(datacontrol.getBaseClass());
+		}else{
+		   obj =  ([%=type.~fullName%]) createTrigger.execute(getRepository());
+		}
 		
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
 		if (trigger != null){
@@ -130,6 +137,13 @@ public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[
 			}
 		}
 	    
+		org.tura.platform.datacontrol.command.base.QueryTrigger queryTrigger = getDataControl().getQueryTrigger(); 
+		if ( queryTrigger != null){
+		   list =  (org.tura.platform.repository.proxy.access.SearchableList<[%=type.~fullName%]>) queryTrigger.execute(getRepository(),this);
+		   return;
+		}
+	
+	    org.tura.platform.repository.cpa.CpaRepository repository = getRepository();
         org.tura.platform.repository.proxy.access.TopLazyList topList = new org.tura.platform.repository.proxy.access.TopLazyList<>(datacontrol.getBaseClass(), repository.getStorageProvider(), repository);
         topList.setSearchCriteria((List<org.tura.platform.datacontrol.commons.SearchCriteria>) searchObjectParameters.getSearchCriteria().getObj());
         topList.setOrderCriteria((List<org.tura.platform.datacontrol.commons.OrderCriteria>) searchObjectParameters.getOrderByCriteria().getObj());
@@ -218,11 +232,11 @@ public class [%=type.~class%]Pager extends org.tura.platform.datacontrol.Pager<[
 			try {
 				TopLazyList<[%=type.~fullName%]> topList = (TopLazyList<[%=type.~fullName%]>) list;
 				topList.close();
-				list = null;
 			} catch (java.io.IOException e) {
 				throw new TuraException(e);
 			}
 		}
+	    list = null;
 	}
 	
 	

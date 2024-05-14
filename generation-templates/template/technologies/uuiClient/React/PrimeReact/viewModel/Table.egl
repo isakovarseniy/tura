@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -263,7 +263,7 @@ operation form::Table createModel(hash) {
 			    
 			    
 			    [%
-				     var selector = "5,10,15";
+				     var selector = "5,10,15,20";
 				     if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){
 				        selector = self.~hintDetails;
 				     }
@@ -352,6 +352,8 @@ operation form::Table createModel(hash) {
 					        }
 					       }
            		       map.put("[%=util.mergeAndUnCapitalize(col.element.valuePointer.name)%]",value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
+			           map.put("columnId[%=util.mergeAndUnCapitalize(col.element.valuePointer.name)%]","[%=col.element.uid%]");
+			           map.put("fieldType[%=util.mergeAndUnCapitalize(col.element.valuePointer.name)%]","[%=type.name%]");
            		       [%
                 }
                   
@@ -402,29 +404,32 @@ operation form::Table createModel(hash) {
 				    }
                     if (col.element.isKindOf(form::InputElement)){
 				        var pointer = util.findSourcePointer(col.element);
+						var type = col.element.valuePointer.typeRef;
 				        var value = util.mergeAndUnCapitalize(col.element.valuePointer.name);
 				        
-	              if (col.element.isKindOf(form::DataTemplate)){
-	                    %]
-	                    map.put("template","template[%=col.mkuid_()%]");
-	                    map.put("type","template");
-	                    [%
-	                    }else{
-	                    %]map.put("field","[%=value%]");[%
-	                    } 
+			              if (col.element.isKindOf(form::DataTemplate)){
+			                    %]
+			                    map.put("template","template[%=col.mkuid_()%]");
+			                    map.put("type","template");
+			                    [%
+			                    }else{
+			                    %]
+			                    map.put("field","[%=value%]");
+			                    [%
+			                    } 
 	                	
-	                 if ( not col.sortable.toString().equals("Not") ){
-	                    %]map.put("sortable",true);[%
-	                    }else{
-	                    %]map.put("sortable",false);[%
-	                    } 
-                 }else{
+			                 if ( not col.sortable.toString().equals("Not") ){
+			                    %]map.put("sortable",true);[%
+			                    }else{
+			                    %]map.put("sortable",false);[%
+			                    } 
+                    }else{
 	%]                    
 	                    map.put("template","template[%=col.mkuid_()%]");
 	                    map.put("type","template");
 		                map.put("sortable",false);
 	[%
-                 }
+                   }
 	%]                    
 	                    this.columns.add(map);    
 	[%
@@ -602,7 +607,17 @@ operation form::Table createModel(hash) {
 					            if (converter != null) {
 					                value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = converter.decode( value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);
 					            } else {
+					               [%
+					                if (type.isTypeOf( type::Enumerator )){
+					                %]
+					               value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] =  [%=type.~fullName%].valueOf(value[%=util.fixArtifField(util.mergeAndCapitalize(value))%].toString());
+					                [%
+					                } else{
+					                %]
 					               value[%=util.fixArtifField(util.mergeAndCapitalize(value))%] = new [%=type.~fullName%](value[%=util.fixArtifField(util.mergeAndCapitalize(value))%].toString());
+					                [%
+					                }
+					               %] 
 					            }
 					        }
 					       elResolver.setValue("#{row.[%=valueExp%]}",value[%=util.fixArtifField(util.mergeAndCapitalize(value))%]);

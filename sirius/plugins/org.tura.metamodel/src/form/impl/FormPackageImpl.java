@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -4807,6 +4807,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		formVariableEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 		dataControlEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		contextParametersObjEClass.getESuperTypes().add(this.getContextParameters());
+		relationEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		internalRelationEClass.getESuperTypes().add(this.getRelation());
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -55,7 +55,7 @@ public class CdiClient[%=util.mergeAndCapitalize(suffix) %]Registry extends Regi
 			
 			SpaObjectRegistry cpaSpaRegistry = new SpaObjectRegistry();
 
-			CpaStorageProvider cpaStorageProvider = new CdiClientCpaStorage[%=util.mergeAndCapitalize(suffix)%]Provider();
+			CpaStorageProvider cpaStorageProvider = new org.tura.platform.repository.cdi.CdiClientCpaStorageProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]");
 
             init.setRegistry(this);
             init.setSpaObjectRegistry(cpaSpaRegistry);
@@ -65,7 +65,7 @@ public class CdiClient[%=util.mergeAndCapitalize(suffix) %]Registry extends Regi
 			init.initRules();
 
 			cpaSpaRegistry.getRegistry(init.getName()).addInstantiator(new CpaServiceInstantiator(
-					cpaSpaRegistry, init.getName(), this, cpaStorageProvider));
+					cpaSpaRegistry, init.getName(), this, cpaStorageProvider, new org.tura.platform.repository.cdi.CdiClientRegistryProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")));
 			
 
 		} catch (Exception e) {

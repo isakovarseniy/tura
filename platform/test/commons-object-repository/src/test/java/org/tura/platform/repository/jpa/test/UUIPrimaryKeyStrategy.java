@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,8 @@ import objects.test.serialazable.jpa.JPAObject7;
 import objects.test.serialazable.jpa.JPAObject8;
 import objects.test.serialazable.jpa.Location;
 import objects.test.serialazable.jpa.LocationMany2ManyCustomerRelation;
+import objects.test.serialazable.jpa.Many2Many1B;
+import objects.test.serialazable.jpa.Many2Many2B;
 import objects.test.serialazable.jpa.Order;
 import objects.test.serialazable.jpa.SPAObject1;
 import objects.test.serialazable.jpa.SPAObject2;
@@ -225,6 +227,16 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 
 		
 		if (o instanceof LocationMany2ManyCustomerRelation){
+			return;
+		}		
+		
+		if (o instanceof Many2Many2B){
+			((Many2Many2B)o).setObjId1(getSequence());
+			return;
+		}		
+		
+		if (o instanceof Many2Many1B){
+			((Many2Many1B)o).setObjId1(getSequence());
 			return;
 		}		
 

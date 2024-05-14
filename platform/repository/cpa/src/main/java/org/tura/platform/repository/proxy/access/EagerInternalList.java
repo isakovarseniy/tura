@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,7 +126,7 @@ public abstract class EagerInternalList<T> extends AbstractList<T>
 
 		RepoKeyPath parentPath = getParentKeyPath();
 
-		T t = storageProvider.getStorage().getObject(parentPath);
+		T t = storageProvider.get().getObject(parentPath);
 		List<T> list = (List<T>) InternalObjectHelper.getValue(t, getProperty());
 		if (list == null) {
 			return new ArrayList<>();

@@ -1,0 +1,15 @@
+if { %(mm_postgres_version == null) } { 
+    mm_postgres_version = "9.6";
+}
+
+if { %(mm_postgres_cnt_name == null) } { 
+    mm_postgres_cnt_name = "mm-pg";
+    mm_postgres_cnt_port = "5001";
+    mm_postgres_alias = "mm-db";
+    mm_network = "mm-net";
+}
+
+
+if { %(mm_wf_cnt_name == null) } { 
+    mm_wf_cnt_name = "mm-wf";
+}

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,9 @@
 package org.tura.platform.repository.cpa.storage;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 
+import org.tura.platform.repository.core.RegistryProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 
 
@@ -30,7 +32,9 @@ public class StorageControl implements Serializable, TimeStampAware{
 	private Object object;
 	private Class<?> type;
 	private long timeStamp;
-	private PersistanceMapper mapper;
+	private transient PersistanceMapper mapper;
+	private RegistryProvider registryProvider;
+	private Class<PersistanceMapper> mapperClass;
 	private long session;
 	private Class<?>  loadedBy;
 	
@@ -43,10 +47,12 @@ public class StorageControl implements Serializable, TimeStampAware{
 		this.type = s.type;
 		this.timeStamp =s.timeStamp ;
 		this.mapper = s.mapper;
+		this.mapperClass = s.mapperClass;
 		this.session = s.session;
 		this.loadedBy = s.loadedBy;
+		this.registryProvider = s.registryProvider;
 		if ( s.object != null) {
-			this.object = s.mapper.copyFromRepository2Persistence(s.object);
+			this.object = s.getMapper().copyFromRepository2Persistence(s.object);
 		}
 	}
 	
@@ -58,6 +64,15 @@ public class StorageControl implements Serializable, TimeStampAware{
 	}	
 	
 	
+	
+	public RegistryProvider getRegistryProvider() {
+		return registryProvider;
+	}
+
+	public void setRegistryProvider(RegistryProvider registryProvider) {
+		this.registryProvider = registryProvider;
+	}
+
 	public long getStorageControlTimeStamp() {
 		return getTimeStamp();
 	}
@@ -68,10 +83,21 @@ public class StorageControl implements Serializable, TimeStampAware{
 	}
 
 	public PersistanceMapper getMapper() {
+		if ( mapper == null) {
+			try {
+				mapper = mapperClass.getDeclaredConstructor().newInstance();
+				mapper.setRegistry(registryProvider.get());
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				throw new RuntimeException(e);
+			}
+		}
 		return mapper;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void setMapper(PersistanceMapper mapper) {
+		this.mapperClass = (Class<PersistanceMapper>) mapper.getClass();
 		this.mapper = mapper;
 	}
 

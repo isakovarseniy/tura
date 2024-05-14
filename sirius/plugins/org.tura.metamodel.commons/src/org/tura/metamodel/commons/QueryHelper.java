@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -353,6 +353,81 @@ public class QueryHelper {
 			return null;
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public List<Configuration> getBranchedConfiguration(EObject obj, String uid, String configBranch) throws Exception {
+		String query = "var r = recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + uid
+				+ "'); return r;";
+
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(obj,
+				query);
+		if ((map != null) && (map.size() != 0))
+			return filteri2c(map,configBranch);
+		else
+			return null;
+	}	
+	
+	@SuppressWarnings("unchecked")
+	public List<Configuration> getBranchedConfigExtensionUp(Configuration config,String configBranch) throws Exception {
+
+		if (getConfigExtensionGard(config)) {
+			throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
+		}
+
+		String query = "var r = recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='" + config.getUid()
+				+ "'); return r;";
+
+		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
+		if ((map != null) && (map.size() != 0))
+			return filterce(map,configBranch);
+		else
+			return null;
+	}	
+	
+	private List<Configuration> filteri2c(Collection<Infrastructure2Configuration> i2cList, String  configBranch){
+		Infrastructure2Configuration main = null;
+		Infrastructure2Configuration branch  = null; 
+		for   (Infrastructure2Configuration i2c :  i2cList) {
+			if ( i2c.getConfigBranch() == null ) {
+				main = i2c;
+			}
+			if (configBranch != null && configBranch.equals(i2c.getConfigBranch()) ) {
+				branch = i2c;
+			}
+		}
+		List<Configuration> result = new ArrayList<>();
+		if ( main != null) {
+			result.add(main.getTarget());
+		}
+		if ( branch != null) {
+			result.add(branch.getTarget());
+		}
+		return result;
+	}
+	
+	private List<Configuration> filterce(Collection<ConfigExtension> ceList, String  configBranch){
+		ConfigExtension main = null;
+		ConfigExtension branch  = null; 
+		for   (ConfigExtension ce :  ceList) {
+			if ( ce.getConfigBranch() == null ) {
+				main = ce;
+			}
+			if (configBranch != null && configBranch.equals(ce.getConfigBranch()) ) {
+				branch = ce;
+			}
+		}
+		List<Configuration> result = new ArrayList<>();
+		if ( main != null) {
+			result.add(main.getTarget());
+		}
+		if ( branch != null) {
+			result.add(branch.getTarget());
+		}
+		return result;
+	}	
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionDown(Configuration config) throws Exception {
 
@@ -1093,6 +1168,50 @@ public class QueryHelper {
 		}
 
 	}
+	
+	public boolean compareType (TypeElement baseTypeElement, TypeElement comparedTypeElement ) {
+		Type baseType = unwrap(baseTypeElement);
+		Type comparedType = unwrap(comparedTypeElement);
+		
+		if ( baseType.getUid().equals(comparedType.getUid()) ) {
+			return true;
+		}
+		Collection<TypeElement> list = getExtensions(baseType);
+		if ( list.size() == 0) {
+			return false;
+		}
+		for ( TypeElement tp : list) {
+			if ( compareType(tp, comparedType)) {
+				return true;
+			}
+		}
+		return false;
+	}	
+	
+	public Collection<TypeElement> getExtensions(Type type) {
+		try {
+			Collection<TypeElement> list = new ArrayList<TypeElement>();
+			Collection<Generalization> gls= getTypeExtension( type);
+			for ( Generalization g : gls ) {
+				TypeElement ext = unwrap(g.getTarget());
+				list.add(ext);
+			}
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<TypeElement>();
+		}
+
+	}	
+	
+	public Type unwrap(TypeElement te) {
+		TypeElement result  = te;
+		if ( te instanceof TypeReference) {
+			result = ((TypeReference)te).getTypeRef();
+		}
+		return (Type) result;
+	}
+	
 
 	@SuppressWarnings({ "unchecked" })
 	public Assosiation getAssosiation(Type typeMaster, Type typeDetail) {

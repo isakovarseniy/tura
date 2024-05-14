@@ -6,19 +6,19 @@ tura:docker removeContainer --name sa-wf
 
 tura:docker removeImage --registry tura/sa/wildfly --tag 1.0
 
-tura:docker pullImage --registry jboss/wildfly --tag 21.0.1.Final
+tura:docker pullImage --registry jboss/wildfly --tag ${wildfly_version}
 
 tura:docker createNetwork --network sa-net
 
 c = tura:docker config --user 0
 
-v = tura:docker createContainer --registry jboss/wildfly --tag 21.0.1.Final --var c
+v = tura:docker createContainer --registry jboss/wildfly --tag ${wildfly_version} --var c
 
  
 tura:dsl jbossModule --container $v\
                      --jboss_home /opt/jboss/wildfly\
                      --application sales-analyzer\
-                     --serverType wildfly-21.0.1.Final\
+                     --serverType wildfly-${wildfly_version}\
                      --relativeLocation config/main\
                      --configPath talend-job-configuration\
                      --property TALEND_JOB_ROOT:/opt/jboss/jobs
@@ -26,7 +26,7 @@ tura:dsl jbossModule --container $v\
 tura:dsl jbossModule  --container $v\
                       --jboss_home /opt/jboss/wildfly\
                       --application sales-analyzer\
-                      --serverType wildfly-21.0.1.Final\
+                      --serverType wildfly-${wildfly_version}\
                       --relativeLocation org/postgresql/main\
                       --configPath postgres/docker 
 
@@ -38,18 +38,18 @@ tura:dsl copyFile     --container $v\
 tura:dsl copyRoles    --container $v\
                       --jboss_home /opt/jboss/wildfly\
                       --application sales-analyzer\
-                      --serverType wildfly-21.0.1.Final
+                      --serverType wildfly-${wildfly_version}
 
 tura:dsl copyUsers    --container $v\
                       --jboss_home /opt/jboss/wildfly\
                       --application sales-analyzer\
-                      --serverType wildfly-21.0.1.Final
+                      --serverType wildfly-${wildfly_version}
 
 tura:dsl wfStartupConfig\
                       --container $v\
                       --jboss_home /opt/jboss/wildfly\
                       --application sales-analyzer\
-                      --serverType wildfly-21.0.1.Final
+                      --serverType wildfly-${wildfly_version}
 
 
 tura:dsl exec --cmd "docker exec -i --user jboss $v sh -c \"/opt/jboss/wildfly/bin/add-user.sh admin qwerty --silent\" "
@@ -58,10 +58,10 @@ tura:dsl exec --cmd "docker exec -i --user jboss $v sh -c \"/opt/jboss/wildfly/b
 tura:docker keycloak doDeployAdapter\
                      --container $v\
                      --jboss_home /opt/jboss/wildfly\
-                     --serverType wildfly-21.0.1.Final\
+                     --serverType wildfly-${wildfly_version}\
                      --application sales-analyzer\
                      --cliFile adapter-elytron-install-offline.cli\
-                     --keyCloakAdapter $mr2/org/keycloak/keycloak-wildfly-adapter-dist/12.0.1/keycloak-wildfly-adapter-dist-12.0.1.zip
+                     --keyCloakAdapter $mr2/org/keycloak/keycloak-wildfly-adapter-dist/${keycloak_version}/keycloak-wildfly-adapter-dist-${keycloak_version}.zip
 
 
 tura:dsl exec --cmd "docker exec -i --user root $v sh -c \"chown -R jboss:jboss /opt/jboss\" "

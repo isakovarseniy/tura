@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -79,6 +79,7 @@ public class Infrastructure2ConfigurationItemProvider
 			addUidPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
+			addConfigBranchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -150,6 +151,28 @@ public class Infrastructure2ConfigurationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Config Branch feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigBranchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Infrastructure2Configuration_configBranch_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Infrastructure2Configuration_configBranch_feature", "_UI_Infrastructure2Configuration_type"),
+				 RecipePackage.Literals.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Infrastructure2Configuration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,6 +211,7 @@ public class Infrastructure2ConfigurationItemProvider
 
 		switch (notification.getFeatureID(Infrastructure2Configuration.class)) {
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__UID:
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION__CONFIG_BRANCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -20,6 +20,7 @@ import java.util.List;
 import org.eclipse.sirius.diagram.ContainerLayout;
 import org.eclipse.sirius.diagram.description.ConditionalContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.ContainerMapping;
+import org.eclipse.sirius.diagram.description.DescriptionFactory;
 import org.eclipse.sirius.diagram.description.style.ContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.style.FlatContainerStyleDescription;
 import org.eclipse.sirius.diagram.description.style.StyleFactory;
@@ -57,15 +58,7 @@ public class DataControlConfigurator implements ContainerConfigurator {
 	}
 
 	public ContainerStyleDescription getStyle() {
-		FlatContainerStyleDescription style = StyleFactory.eINSTANCE.createFlatContainerStyleDescription();
-		style.setLabelExpression("aql:self.name");
-		style.setLabelSize(12);
-		style.setBorderSizeComputationExpression("2");
-		style.setShowIcon(true);
-		SystemColor foregroundColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("green");
-		style.setForegroundColor(foregroundColor);
-
-		return style;
+		return null;
 	}
 
 	public ContainerLayout getContainerLayout() {
@@ -157,6 +150,39 @@ public class DataControlConfigurator implements ContainerConfigurator {
 	}
 
 	public List<ConditionalContainerStyleDescription> getConditionalStyle() {
-		return null;
+		ConditionalContainerStyleDescription conditionalNoAdapter = DescriptionFactory.eINSTANCE
+				.createConditionalContainerStyleDescription();
+		conditionalNoAdapter.setPredicateExpression("service:checkIfNotSharedContext");
+		conditionalNoAdapter.setStyle(getBaseStyle());
+
+		ConditionalContainerStyleDescription conditionalAdapter = DescriptionFactory.eINSTANCE
+				.createConditionalContainerStyleDescription();
+		conditionalAdapter.setPredicateExpression("service:checkIfSharedContext");
+		conditionalAdapter.setStyle(getConditionalShared());
+		
+		ArrayList<ConditionalContainerStyleDescription> ls = new ArrayList<ConditionalContainerStyleDescription>();
+		ls.add(conditionalNoAdapter);
+		ls.add(conditionalAdapter);
+		
+		return ls;
 	}
+	
+	private ContainerStyleDescription getBaseStyle() {
+		FlatContainerStyleDescription style = StyleFactory.eINSTANCE.createFlatContainerStyleDescription();
+		style.setLabelExpression("aql:self.name");
+		style.setLabelSize(12);
+		style.setBorderSizeComputationExpression("2");
+		style.setShowIcon(false);
+		SystemColor foregroundColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("green");
+		style.setForegroundColor(foregroundColor);
+
+		return style;
+	}	
+	
+	private ContainerStyleDescription getConditionalShared() {
+		ContainerStyleDescription style = getBaseStyle();
+		SystemColor borderColor = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");
+		style.setBorderColor(borderColor);
+		return style;
+	}	
 }

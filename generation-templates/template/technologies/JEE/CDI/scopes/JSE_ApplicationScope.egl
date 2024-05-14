@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -16,14 +16,14 @@
 [% @template
 operation  commandstack_scope() {
 %]
-@javax.enterprise.context.ApplicationScoped
+javax.enterprise.context.ApplicationScoped
 [%
 }
 
  @template
 operation  elresolver_scope() {
 %]
-@javax.enterprise.context.ApplicationScoped
+javax.enterprise.context.ApplicationScoped
 [%
 }
 
@@ -31,7 +31,7 @@ operation  elresolver_scope() {
  @template
 operation  datacontrol_scope() {
 %]
-@javax.enterprise.context.ApplicationScoped
+javax.enterprise.context.ApplicationScoped
 [%
 }
 
@@ -39,7 +39,7 @@ operation  datacontrol_scope() {
  @template
 operation  viewmodel_scope() {
 %]
-@javax.enterprise.context.ApplicationScoped
+javax.enterprise.context.ApplicationScoped
 [%
 }
 %]

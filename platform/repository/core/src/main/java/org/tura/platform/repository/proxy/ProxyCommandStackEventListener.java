@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ public class ProxyCommandStackEventListener implements Serializable {
 	
 	private static final long serialVersionUID = -8720677188930311553L;
 
+	
 	public void beforeCommit() throws Exception{
 
 	}
@@ -32,11 +33,11 @@ public class ProxyCommandStackEventListener implements Serializable {
 
 	}
 
-	public void beforeRallback() throws Exception{
+	public void beforeRollback() throws Exception{
 
 	}
 
-	public void afterRallback() throws Exception{
+	public void afterRollback() throws Exception{
 
 	}
 
@@ -48,11 +49,11 @@ public class ProxyCommandStackEventListener implements Serializable {
 
 	}
 
-	public void beforeRallbackSavePoint()throws Exception {
+	public void beforeRollbackSavePoint()throws Exception {
 
 	}
 
-	public void afterRallbackSavePoint() throws Exception{
+	public void afterRollbackSavePoint() throws Exception{
 
 	}
 

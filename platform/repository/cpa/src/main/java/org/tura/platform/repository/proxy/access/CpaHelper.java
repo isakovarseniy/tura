@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,21 +25,28 @@ import org.tura.platform.repository.cpa.storage.StorageControl;
 import org.tura.platform.repository.cpa.storage.StorageControlWrapper;
 
 public class CpaHelper {
-	
-	@SuppressWarnings("unchecked")
-	public static <T> List<T> toObjectList(List<StorageControl> fromList){
+
+	public static <T> List<T> toObjectList(List<StorageControl> fromList) {
 		List<T> toList = new ArrayList<>();
-		if ( fromList != null) {
-			for (StorageControl s : fromList ) {
-				if ( s instanceof StorageControlWrapper) {
-					toList.add((T) ((StorageControlWrapper) s).getInternalObject());
-				}else {
-					toList.add((T) s.getObject());
-				}
+		if (fromList != null) {
+			for (StorageControl s : fromList) {
+				toList.add(toObject(s));
 			}
 			return toList;
-		}else {
+		} else {
 			return new ArrayList<>();
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> T toObject(StorageControl sc) {
+		if (sc instanceof StorageControlWrapper) {
+			StorageControlWrapper scw = (StorageControlWrapper) sc;
+			return (T) scw.getInternalObject();
+		} else {
+			return (T) sc.getObject();
+		}
+
+	}
+
 }

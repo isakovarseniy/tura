@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2023 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,6 +19,7 @@ import {Column} from "primereact/column";
 import {EventExecuter} from "../core/EventExecutor";
 import {ContextMenu} from "primereact/contextmenu";
 import {Transformation} from "../core/Transformation";
+import {registry} from "../plugin/Registry";
 
 export class TTable extends TuraComponent{
     editors = new Map();
@@ -39,6 +40,7 @@ export class TTable extends TuraComponent{
         this.onRowSelect = this.onRowSelect.bind(this);
         this.onRowUnselect = this.onRowUnselect.bind(this);
         this.onContextMenu = this.onContextMenu.bind(this);
+        this.displayValueTransformation = this.displayValueTransformation.bind(this);
 
     }
 
@@ -176,6 +178,27 @@ export class TTable extends TuraComponent{
         return ed(e);
     }
 
+    displayValueTransformation (rowData, col){
+        var value  = rowData[col.field];
+
+        var columnId = rowData['columnId'+col.field];
+        if ( typeof columnId !== "undefined"  && columnId !== null){
+            var toStr = registry.getToStringByComponentId(columnId);
+            if ( typeof toStr !== "undefined" && toStr !== null){
+                return toStr.process(value);
+            }
+         }
+        var rowType = rowData['fieldType'+col.field];
+        if ( typeof rowType !== "undefined"  && rowType !== null){
+           var toStr = registry.getToStringByType(rowType);
+           if ( typeof toStr !== "undefined" && toStr !== null){
+            return toStr.process(value);
+        }
+    }
+
+        return value;
+    }
+
     render() {
         if ( !this.state.rendered ) {
             return (
@@ -194,7 +217,7 @@ export class TTable extends TuraComponent{
                 return <Column  body={this[col.template]} style={ col.style }></Column>;
             }
 
-            return <Column key={col.field} editor={this.editor}  field={col.field} header={col.header} style={ col.style } sortable={col.sortable} loadingBody={this.loadingText} />;
+            return <Column key={col.field} editor={this.editor} body={this.displayValueTransformation}  field={col.field} header={col.header} style={ col.style } sortable={col.sortable} loadingBody={this.loadingText} />;
         });
 
         let contextMenu = new Array();
