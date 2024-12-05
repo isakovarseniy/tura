@@ -31,7 +31,7 @@
 
 	<properties>
 		<wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
-		<junit-version>4.11</junit-version>
+		<junit-version>4.13.1</junit-version>
 		<javaee-api-version>7.0</javaee-api-version>
 		<drools-version>7.48.0.Final</drools-version>
 		<infinispan.version>9.2.4.Final</infinispan.version>
