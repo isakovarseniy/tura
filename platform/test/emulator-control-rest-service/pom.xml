@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
@@ -38,8 +38,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
@@ -50,8 +50,13 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-jaxrs</artifactId>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-jaxrs2-servlet-initializer-v2-jakarta</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-jaxrs2-jakarta</artifactId>
 		</dependency>
 
 	</dependencies>

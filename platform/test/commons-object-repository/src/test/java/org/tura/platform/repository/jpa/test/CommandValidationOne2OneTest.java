@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,30 +18,24 @@
 
 package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-import org.tura.platform.repository.RepositoryProducer;
-import org.tura.platform.repository.core.Repository;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 import org.tura.platform.repository.cpa.storage.ObjectStatus;
 import org.tura.platform.repository.cpa.storage.StorageControl;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.JPAObject5;
@@ -51,45 +45,29 @@ import objects.test.serialazable.jpa.One2One2B;
 import objects.test.serialazable.jpa.One2One3A;
 import objects.test.serialazable.jpa.One2One3B;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class CommandValidationOne2OneTest {
 
-	private static Logger logger;
-	private static Server server;
-	private static RepositoryProducer repositoryProducer;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
-		repositoryProducer = new RepositoryProducer();
-		server = Server.createTcpServer().start();
-
-		logger = Logger.getLogger("InfoLogging");
-		logger.setUseParentHandlers(false);
-
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
-
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		repositoryProducer.em = emf.createEntityManager();
+		storageProvider.startServer();
+		storageProvider.initSession();
 
 	}
 
 	@Test
 	public void t0000_One2OneContainent() {
 		try {
-			Repository transport = repositoryProducer.getJpaRepository();
-			CpaRepository repository = repositoryProducer.getProxyRepository(transport);
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider = repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider = storageProvider.getCpaStorageProvider();
 
 			JPAObject6 o1 = (JPAObject6) repository.create(JPAObject6.class);
 			JPAObject5 o2 = (JPAObject5) repository.create(JPAObject5.class);
@@ -146,10 +124,9 @@ public class CommandValidationOne2OneTest {
 	@Test
 	public void t0001_One2OneContainentOposit() {
 		try {
-			Repository transport = repositoryProducer.getJpaRepository();
-			CpaRepository repository = repositoryProducer.getProxyRepository(transport);
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider = repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider = storageProvider.getCpaStorageProvider();
 
 			One2One2A o1 = (One2One2A) repository.create(One2One2A.class);
 			One2One2B o2 = (One2One2B) repository.create(One2One2B.class);
@@ -206,10 +183,9 @@ public class CommandValidationOne2OneTest {
 	@Test
 	public void t0002_One2OneNonContainent() {
 		try {
-			Repository transport = repositoryProducer.getJpaRepository();
-			CpaRepository repository = repositoryProducer.getProxyRepository(transport);
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider = repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider = storageProvider.getCpaStorageProvider();
 
 			One2One3A o1 = (One2One3A) repository.create(One2One3A.class);
 			One2One3B o2 = (One2One3B) repository.create(One2One3B.class);

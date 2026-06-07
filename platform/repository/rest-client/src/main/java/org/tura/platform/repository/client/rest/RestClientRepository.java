@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.IdDeserializationProblemHandler;
 import org.tura.platform.datacontrol.commons.ObjectMapperBuilder;

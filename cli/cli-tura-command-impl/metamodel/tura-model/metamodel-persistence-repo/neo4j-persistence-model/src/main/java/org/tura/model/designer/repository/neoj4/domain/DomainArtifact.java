@@ -1,0 +1,110 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+package org.tura.model.designer.repository.neoj4.domain;
+
+import java.io.Serializable;
+import org.tura.platform.repository.persistence.TypeAware;
+import org.tura.model.designer.repository.neoj4.metabase.MetaObject;
+import org.neo4j.ogm.annotation.Index;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.NodeEntity;
+
+@NodeEntity
+public class DomainArtifact implements Serializable, TypeAware, MetaObject {
+
+  private static final long serialVersionUID = 1L;
+
+  @org.neo4j.ogm.annotation.Property(name = "SUID")
+  @Index
+  protected String suid = java.util.UUID.randomUUID().toString();
+
+  public Class<?> getTypeClazz() {
+    return org.tura.model.designer.repository.neoj4.domain.DomainArtifact.class;
+  }
+
+  @Id @GeneratedValue Long __id;
+
+  @org.neo4j.ogm.annotation.Version
+  @org.neo4j.ogm.annotation.Property(name = "V_DOMAINARTIFACT")
+  private long vDomainArtifact;
+
+  public long getVdomainArtifact() {
+    return vDomainArtifact;
+  }
+
+  public void setVdomainArtifact(long vDomainArtifact) {
+    this.vDomainArtifact = vDomainArtifact;
+  }
+
+  @Index
+  @org.neo4j.ogm.annotation.Property(name = "UID")
+  private String uid;
+
+  public void setUid(java.lang.String uid) {
+    this.uid = uid;
+  }
+
+  public String getUid() {
+    return uid;
+  }
+
+  @org.neo4j.ogm.annotation.Property(name = "KEY_ID")
+  private String keyId;
+
+  public void setKeyId(java.lang.String keyId) {
+    this.keyId = keyId;
+  }
+
+  public String getKeyId() {
+    return keyId;
+  }
+
+  @org.neo4j.ogm.annotation.Property(name = "NAME")
+  private String name;
+
+  public void setName(java.lang.String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  @Index
+  @org.neo4j.ogm.annotation.Property(name = "REF_DOMAIN_ARTIFACT_DOMAIN_ARTIFACTS")
+  private String refDomainArtifactDomainArtifacts;
+
+  public void setRefDomainArtifactDomainArtifacts(
+      java.lang.String refDomainArtifactDomainArtifacts) {
+    this.refDomainArtifactDomainArtifacts = refDomainArtifactDomainArtifacts;
+  }
+
+  public String getRefDomainArtifactDomainArtifacts() {
+    return refDomainArtifactDomainArtifacts;
+  }
+
+  public void setSuidMetaObject(java.lang.String suid) {}
+
+  public String getSuidMetaObject() {
+    return this.suid;
+  }
+
+  public void setSuid(java.lang.String suid) {}
+
+  public String getSuid() {
+    return this.suid;
+  }
+}

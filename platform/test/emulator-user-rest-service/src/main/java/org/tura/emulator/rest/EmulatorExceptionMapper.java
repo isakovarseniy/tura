@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,11 @@
 
 package org.tura.emulator.rest;
 
-import javax.ws.rs.ext.ExceptionMapper;
-import javax.ws.rs.ext.Provider;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.StatusType;
-import javax.ws.rs.core.Response.Status.Family;
+import jakarta.ws.rs.ext.ExceptionMapper;
+import jakarta.ws.rs.ext.Provider;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.StatusType;
+import jakarta.ws.rs.core.Response.Status.Family;
 
 import org.tura.emulator.cmd.EmulatorException;
 

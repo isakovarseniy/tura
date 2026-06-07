@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,9 +27,9 @@ operation  clientRegistry(component,uipackage,form, suffix) {
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import org.tura.platform.repository.cdi.ClientRegistry;
 import org.tura.platform.repository.core.Registry;

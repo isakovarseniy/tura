@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -25,8 +25,8 @@ package org.tura.test;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 import org.hibernate.boot.MetadataSources;
@@ -37,9 +37,9 @@ import org.hibernate.tool.schema.TargetType;
 public class GenerateSchemaTest {
 
     @Test
-    @Ignore
+    @Disabled
     public  void schemaGeneration() {
-        Map<String, String> settings = new HashMap<>();
+        Map<String, Object> settings = new HashMap<>();
         settings.put("connection.driver_class", "[%=configuration.get("DataBase jdbc driver")%]");
         settings.put("hibernate.dialect", "org.hibernate.dialect.[%=persistence_databasename()%]Dialect");
         settings.put("hibernate.connection.url", "[%=configuration.get("DataBase jdbc url")%]"); //jdbc:postgresql://localhost:5432/postgres

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,15 @@
 
 package org.tura.platform.repository.spa;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.tura.platform.repository.core.ObjectGraph;
 import org.tura.platform.repository.spa.priority.PriorityManager;
 import org.tura.platform.repository.spa.priority.RelationNode;

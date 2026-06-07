@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ package org.tura.platform.uuiclient.rest;
 import java.util.Base64;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.commons.Constants;

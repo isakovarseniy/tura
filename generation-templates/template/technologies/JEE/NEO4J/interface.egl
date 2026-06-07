@@ -1,0 +1,159 @@
+[%
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+*/
+%]
+[%
+ import "tura:/generation-templates/template/commons/typeElementUtil.eol";
+ import "tura:/generation-templates/template/commons/categorizedUtil.eol";
+ import "tura:/generation-templates/template/commons/assosiation.eol";
+ 
+ @template
+ operation interface(hash){
+ 
+    var type =  hash.get("type");
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var path = hash.get("path");
+    var configuration =  hash.get("configuration");    
+ 
+ 
+	 var util = new Native('org.tura.metamodel.commons.Util');
+	 var pkg = type.eContainer();
+     var extensions = pkg.relationships->select(t|t.isTypeOf(type::Generalization) and t.source.uid = type.uid  and not t.isImplements(model_mapper) ).first();
+%]
+
+package [%=type.~package%];  
+@org.neo4j.ogm.annotation.NodeEntity
+
+
+public interface  [%=type.~class%]   extends java.io.Serializable , org.tura.platform.repository.persistence.TypeAware [% 
+if (type.~interface.isDefined()) { 
+	   for ( interface in type.~interface ){
+		   var ex =  interface.unwrap();
+		   if ( not ex.~error.isDefined()  and not ex.isProvidedClass(model_mapper)) {
+        %], [%=ex.~fullName%][%
+	       }
+	   }
+   }
+
+if (extensions <> null ) { 
+   for ( extension in extensions ){
+	   var ex =  extension.target.unwrap();
+		   if ( not ex.~error.isDefined()  and not ex.isProvidedClass(model_mapper)) {
+        %], [%=ex.~fullName%][%
+	   }
+   }
+}   
+
+%]
+{
+
+[%for ( field in type.attributes){
+
+    if (field.findClassifier(util.getHint(model_mapper,"SignalField"))){
+        continue; 
+    }
+     
+    field.typeRef.mappingType2Java(recipe,ingredient);
+
+    %]   
+	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]);
+
+	public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%]();
+	
+[%}
+
+%]
+
+ [%
+	
+//	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation)  and   t.source.uid = type.uid);
+      for (rel in assosiations){
+      
+      
+		if( not alltypes.contains(rel.target.unwrap())){
+               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+               continue;
+		}
+		      
+         if ( not rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               %][%=rel.sourceNoAssociation(recipe,ingredient)%][%
+               continue;
+         }
+      
+        if  ( not rel.type.toString().equals("Many2Many") ){
+            continue;
+        }      
+      
+         var hash = rel.sourceSideNamesCalculation();
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]();[%
+         case "One2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]();[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]();[%
+         }                
+         
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void set[%=hash.get("sourceMethodName")%]([%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%]);[%
+         case "One2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%]);[%
+         case "Many2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%]);[%
+         }                
+         
+      }
+ %]
+
+	[%
+	
+//	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+	  var assosiations = pkg.relationships->select(t|t.isTypeOf(type::Assosiation) and t.target.uid = type.uid);
+      for (rel in assosiations){
+      
+		if( not alltypes.contains(rel.source.unwrap())){
+               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+               continue;
+		}
+      
+         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
+               continue;
+         }
+         
+        if  ( not rel.type.toString().equals("Many2Many") ){
+            continue;
+        }
+                 
+         var hash = rel.targetSideNamesCalculation();
+            
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]();[%
+         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]();[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]();[%
+         }                
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void  set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]);[%
+         case "One2Many" : %] public void set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]);[%
+         case "Many2Many" : %] public  void set[%=hash.get("targetMethodName")%](java.util.Collection<[%=hash.get("source").~fullName%]> [%=hash.get("targetProperty")%]);[%
+         }                
+      
+      }
+  %]
+
+}
+[%
+}
+%]

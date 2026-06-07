@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.eol.EolModule;
 import org.eclipse.epsilon.eol.IEolModule;
@@ -32,6 +31,7 @@ import org.eclipse.epsilon.eol.execute.context.Variable;
 import org.eclipse.epsilon.eol.models.Model;
 import org.eclipse.epsilon.eol.tools.EolSystem;
 import org.eclipse.epsilon.eol.types.AbstractToolNativeTypeDelegate;
+import org.tura.metamodel.commons.preferences.LogUtil;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;

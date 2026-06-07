@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -40,6 +40,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
      var model_mapper = hash.get('model_mapper');
      var util = new Native('org.tura.metamodel.commons.Util');
      var profile = "";
+     var builderlocation="";
      var first = true;
      for (param in model_mapper.findAllClassifiers(util.getHint(model_mapper,"Profile"))){
              if ( not first){
@@ -51,7 +52,10 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
      if (profile <> ""){
         profile = "-P "+profile;
      }
-     
+     var b = configuration.get('Builder location');
+     if ( b <> null and not b.equals("")) {
+        builderlocation = b+"/";
+     }
 
 %]
 #!/bin/sh
@@ -68,7 +72,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
 export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java").substring(i)%]`
 
 cd "[%=path%]"
-"[%=configuration.get('Builder location')%]"/bin/mvn -B clean install [%=profile%]
+"[%=builderlocation%]"mvn -B clean install [%=profile%]
 [%
 }
 

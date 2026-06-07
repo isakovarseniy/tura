@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ public class Registry implements Serializable {
 	private TransactionAdapter transactrionAdapter;
 	private Map<String, AdapterLoader> loaders = new HashMap<>();
 	private CommandLifecycle commandLifecycle;
-	private Map<String, ObjectGraphProfile> profiles = new HashMap<>();
+	private Map<String, Class<? extends ObjectGraphProfile>> profiles = new HashMap<>();
 	private List<Instantiator> instantiators = new ArrayList<>();
 	private Map<String, List<Class<? extends Rule>>> rules = new HashMap<>();
 
@@ -79,7 +79,7 @@ public class Registry implements Serializable {
 		instantiators.add(instantiator);
 	}
 
-	public void addProfile(String profileName, ObjectGraphProfile profile) {
+	public void addProfile(String profileName, Class <? extends ObjectGraphProfile >profile) {
 		profiles.put(profileName, profile);
 	}
 
@@ -224,8 +224,16 @@ public class Registry implements Serializable {
 		return null;
 	}
 
-	public ObjectGraphProfile findProfile(String profileName) {
-		return this.profiles.get(profileName);
+	public ObjectGraphProfile findProfile(String profileName) throws RepositoryException {
+		Class <? extends ObjectGraphProfile> clazz = this.profiles.get(profileName);
+		if (clazz != null) {
+			try {
+				return clazz.getConstructor().newInstance();
+			} catch (Exception  e) {
+				 throw new RepositoryException(e);
+			}
+		}
+		return null;
 	}
 
 	public TransactionAdapter getTransactrionAdapter() {

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package org.tura.emulator.api;
 import java.text.SimpleDateFormat;
 
 import org.tura.emulator.generated.ApiClient;
-import org.tura.emulator.generated.client.ControlFacadeApi;
+import org.tura.emulator.generated.client.DefaultApi;
 import org.tura.emulator.generated.model.CreateExceptionObject;
 import org.tura.emulator.generated.model.CreateReturnObject;
 
@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class EmulatorControlApi {
 
-	private ControlFacadeApi fasade;
+	private DefaultApi fasade;
 	
 	public static String OneTemplate = "OneTemplate";
 	public static String SequenceOfTemplates = "SequenceOfTemplates";
@@ -47,7 +47,7 @@ public class EmulatorControlApi {
 				
 		ApiClient apiClient = new ApiClient();
 		apiClient.setBasePath(basePath);
-		fasade = new ControlFacadeApi(apiClient);
+		fasade = new DefaultApi(apiClient);
 	}
 
 	public void initSession( String sessionType) throws Exception {

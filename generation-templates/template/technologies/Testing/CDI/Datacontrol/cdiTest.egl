@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -19,20 +19,19 @@
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%];  
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.jboss.weld.environment.se.WeldContainer;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.BeanFactory;
 import [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.CompanyArtifitialFieldsAdapter;
 import [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.CompanyDC;
@@ -64,10 +63,8 @@ import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
-
-    protected  WeldContainer weld;
 
     private ArrayList<String> delitedRows = new ArrayList<String>();
 
@@ -108,7 +105,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
             fact.add("Country_"+cCountry(2L));
             fact.add("Company_"+cCompany(2L));
 
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             
             RemoveObjectTracer tracer = new RemoveObjectTracer();
 
@@ -142,7 +139,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a0_getCountryControl() {
         try {
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
 
             CompanyDC companyDC = bf.getCompany();
 
@@ -172,7 +169,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     public void a1_setPath() {
         try {
 
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
@@ -198,7 +195,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a2_dependency() {
         try {
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
@@ -245,7 +242,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 	       CpaRepository repository = getRepository();
 	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
@@ -294,8 +291,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     public void a6_tree_access() {
         try {
 
-            [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].tree2tree.datacontrol.BeanFactory bf = weld
-                    .instance()
+            [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].tree2tree.datacontrol.BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current()
                     .select([%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].tree2tree.datacontrol.BeanFactory.class)
                     .get();
 
@@ -334,7 +330,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 	       CpaRepository repository = getRepository();
 	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
         
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             PopupCompanyDCProviderDC popupDC = bf.getPopupCompanyDCProvider();
             bf.setCmpId(cCompany(1L));
@@ -371,7 +367,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 	       CpaRepository repository = getRepository();
 	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
         
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             GridModel model = new GridModel(companyDC, null, GridType.SingleSelect, UUID.randomUUID().toString());
@@ -393,7 +389,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a9_addNewCompany() {
         try {
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
@@ -418,7 +414,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a9_1addNewCompany() {
         try {
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
@@ -442,7 +438,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
     @Test
     public void a10_addNewCompany() {
         try {
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
@@ -483,7 +479,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
         try {
             CpaRepository repository = getRepository();
         
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
@@ -531,7 +527,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
         try {
             CpaRepository repository = getRepository();
         
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             companyDC.getCurrentObject();
             companyDC.nextObject();
@@ -592,7 +588,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 	       CpaRepository repository = getRepository();
 	       ProxyCommadStackProvider stackProvider = repository.getStackProvider();
         
-            BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+            BeanFactory bf = jakarta.enterprise.inject.spi.CDI.current().select(BeanFactory.class).get();
             CompanyDC companyDC = bf.getCompany();
             TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
             companyDC.getCurrentObject();
@@ -659,7 +655,7 @@ public abstract class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 			return "[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]";
 		}
 	  };
-	  return weld.instance().select(CpaRepository.class,annotation).get();
+	  return jakarta.enterprise.inject.spi.CDI.current().select(CpaRepository.class,annotation).get();
   }
 
 	public Company getNewCompany(CpaRepository repository, Long pk) throws Exception {

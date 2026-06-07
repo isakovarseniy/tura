@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
@@ -35,19 +35,15 @@
 
 	<dependencies>
 
+
 		<dependency>
-			<groupId>de.odysseus.juel</groupId>
-			<artifactId>juel</artifactId>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform.test</groupId>
 			<artifactId>commons-test</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -68,34 +64,17 @@
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
+			<artifactId>hibernate-core</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
+			<artifactId>weld-se-core</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.octo.java.sql</groupId>
 			<artifactId>java-sql-dsl</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-impl</artifactId>
-		</dependency>
-
-
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -117,6 +96,13 @@
 			<groupId>org.tura.platform.repository</groupId>
 			<artifactId>spa</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test</groupId>
+			<artifactId>commons-cdi-weld-el-distribution</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 
 	</dependencies>
 

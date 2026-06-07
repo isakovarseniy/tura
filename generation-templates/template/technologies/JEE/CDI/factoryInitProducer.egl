@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,11 +26,11 @@ operation factoryInitProducer(hash){
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
+import jakarta.enterprise.inject.Produces;
+import jakarta.enterprise.inject.spi.InjectionPoint;
 
-@javax.enterprise.inject.Alternative
-@javax.annotation.Priority(0)
+@jakarta.enterprise.inject.Alternative
+@jakarta.annotation.Priority(0)
 public class FactoryInitializeTriggerProducer {
 
 	@Produces

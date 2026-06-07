@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,16 +18,17 @@
 
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.logging.Logger;
 
 import org.josql.Query;
 import org.josql.QueryResults;
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.tura.platform.repository.proxy.shift.Element;
 import org.tura.platform.repository.proxy.shift.ElementType;
 import org.tura.platform.repository.proxy.shift.ShiftConstants;
@@ -39,7 +40,7 @@ public class ShifterTest {
 	private static Logger logger;
 	private ShiftControlData shifterControlData = new ShiftControlData();
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
@@ -49,7 +50,7 @@ public class ShifterTest {
 //		logger.setLevel(Level.INFO);
 	}
 
-	@After
+	@AfterEach
 	public void afterMethod() {
 		shifterControlData = new ShiftControlData();
 	}

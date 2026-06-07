@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <parent>
      <groupId>org.tura</groupId>
      <artifactId>platform</artifactId>
-     <version>6.1.2</version>
+     <version>6.3.0</version>
   </parent>
 
   <groupId>org.tura.platform</groupId>
@@ -35,15 +35,21 @@
   <modules>
     <module>commons-test-spa-service</module>
     <module>commons-test</module>
+    <module>commons-object-repository-jpa-init</module>
+    <module>commons-object-repository-neo4j-init</module>
     <module>commons-object-repository</module>
+    <module>commons-object-repository-additional-lazy-test</module>
+    <module>commons-cdi-weld-el</module>
     <module>commons-cdi-datacontrol-test</module>
     <module>emulator</module>
     <module>emulator-control-rest-service</module>
     <module>emulator-control-rest-client</module>    
     <module>emulator-user-rest-service</module>
     <module>test-of-generated-domain-objects</module>
-    <module>test-of-generated-object-repository-non-lazy</module>  
-    <module>test-of-generated-object-repository-lazy</module>  
+    <module>test-of-generated-jpa-repository-non-lazy</module>  
+    <module>test-of-generated-jpa-repository-lazy</module>
+    <module>test-of-generated-neo4j-repository-lazy</module>   
+    <module>test-of-generated-neo4j-repository-non-lazy</module>
     <module>test-of-generated-jpa-rest-repository</module>  
     <module>test-of-generated-transformation</module>    
     <module>test-of-generated-datacontrols-discon</module>

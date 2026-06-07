@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+	    <groupId>org.tura.cli</groupId>
+	    <artifactId>cli-tura-command-impl</artifactId>
+		<version>6.3.0</version>
+	</parent>
+
+
+	<properties>
+	</properties>
+
+	<groupId>org.tura.cli</groupId>
+	<artifactId>containers</artifactId>
+
+	<name>Tura :: Platform :: Processor :: Tura :: Containers</name>
+
+	<packaging>pom</packaging>
+
+	<dependencyManagement>
+	<dependencies>
+
+
+
+
+	</dependencies>
+		
+	</dependencyManagement>
+
+
+
+	
+	<modules>
+		<module>docker-containers</module>
+	</modules>
+
+
+</project>

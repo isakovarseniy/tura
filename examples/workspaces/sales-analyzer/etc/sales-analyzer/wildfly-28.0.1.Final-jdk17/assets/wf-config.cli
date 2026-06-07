@@ -1,0 +1,55 @@
+embed-server --server-config=${server.config:standalone-full.xml}
+
+/subsystem=elytron-oidc-client/provider=SAKeycloak/:add
+/subsystem=elytron-oidc-client/provider=SAKeycloak/:write-attribute(name=provider-url,value=http://kc:8080/realms/sales-analyzer)
+/subsystem=elytron-oidc-client/provider=SAKeycloak/:write-attribute(name=ssl-required,value=external)
+/subsystem=elytron-oidc-client/provider=SAKeycloak/:write-attribute(name=principal-attribute,value=preferred_username)
+
+/subsystem=elytron-oidc-client/secure-deployment=sa-admin.war/:add(ssl-required=external)
+/subsystem=elytron-oidc-client/secure-deployment=sa-admin.war/:write-attribute(name=provider,value=SAKeycloak)
+/subsystem=elytron-oidc-client/secure-deployment=sa-admin.war/:write-attribute(name=client-id,value=sa-admin-client-rest)
+/subsystem=elytron-oidc-client/secure-deployment=sa-admin.war/credential=secret/:add(secret=1dd5565e-0f65-43be-8076-6220fd2f1d4f)
+
+
+/subsystem=elytron-oidc-client/secure-deployment=sa-case-manager.war/:add(ssl-required=external)
+/subsystem=elytron-oidc-client/secure-deployment=sa-case-manager.war/:write-attribute(name=provider,value=SAKeycloak)
+/subsystem=elytron-oidc-client/secure-deployment=sa-case-manager.war/:write-attribute(name=client-id,value=sa-admin-client-rest)
+/subsystem=elytron-oidc-client/secure-deployment=sa-case-manager.war/credential=secret/:add(secret=1dd5565e-0f65-43be-8076-6220fd2f1d4f)
+
+/subsystem=elytron-oidc-client/secure-deployment=sa-etl-controller.war/:add(ssl-required=external)
+/subsystem=elytron-oidc-client/secure-deployment=sa-etl-controller.war/:write-attribute(name=provider,value=SAKeycloak)
+/subsystem=elytron-oidc-client/secure-deployment=sa-etl-controller.war/:write-attribute(name=client-id,value=sa-admin-client-rest)
+/subsystem=elytron-oidc-client/secure-deployment=sa-etl-controller.war/credential=secret/:add(secret=1dd5565e-0f65-43be-8076-6220fd2f1d4f)
+
+
+/subsystem=infinispan/cache-container=sa-container/:add
+/subsystem=infinispan/cache-container=sa-container/local-cache=userPreferences:add
+/subsystem=infinispan/cache-container=sa-container/local-cache=userPreferences/component=transaction:add(locking=PESSIMISTIC,mode=FULL_XA)
+/subsystem=infinispan/cache-container=sa-container/local-cache=userPreferences/component=expiration:add(lifespan=-1)
+/subsystem=infinispan/cache-container=sa-container/local-cache=userPreferences/component=locking:add(acquire-timeout=30000,isolation=REPEATABLE_READ)
+
+module add --name=org.postgresql --resources=postgresql-42.1.1.jar --dependencies=javax.api,javax.transaction.api
+
+/subsystem=datasources/jdbc-driver=postgresql-jdbc4:add(driver-name="postgresql-jdbc4",driver-module-name="org.postgresql")
+/subsystem=datasources/data-source=saDS_pool:add(jndi-name=java:jboss/jdbc/SalesAnalyzerDS, connection-url=jdbc:postgresql://sa-pg:5432/postgres ,driver-name=postgresql-jdbc4,driver-class=org.postgresql.Driver ,jta=true , enabled=true, use-java-context=true, use-ccm=true)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=min-pool-size,value=2)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=max-pool-size,value=20)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=check-valid-connection-sql,value="SELECT 1")
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=validate-on-match,value=false)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=background-validation,value=false)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=use-fast-fail,value=false)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=user-name,value=postgres)
+/subsystem=datasources/data-source=saDS_pool:write-attribute(name=password,value=postgres)
+
+
+/system-property=aes_key:add(value="qvDHwQChO/NVvxCYG3yO+w==")
+/system-property=FILE_IMPORT_DIRECTORY:add(value="/opt/jboss/wildfly/files")
+/system-property=keycloak_url:add(value="http://kc:8080")
+/system-property=keycloak_admin_realm:add(value="master")
+/system-property=keycloak_admin_clientid:add(value="realm-management")
+/system-property=client_secret:add(value="0db78c54-d83d-4f11-941a-e945e9631ecc")
+/system-property=keycloak_admin_user:add(value="admin")
+/system-property=keycloak_admin_password:add(value="qwerty")
+/system-property=keycloak_managed_realm:add(value="sales-analyzer")
+/system-property=kie_server_url:add(value="http://kie:8080/kie-server/services/rest/server")
+/system-property=tura.request.file.storage:add(value=true)

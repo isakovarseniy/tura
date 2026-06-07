@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,12 @@
 
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -31,18 +31,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-
 import org.h2.tools.Server;
 import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.example.ui.datacontroladminsimulation.admin.datacontrol.BeanFactory;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
@@ -59,45 +56,46 @@ import org.tura.platform.test.spa.SearchBase;
 import org.tura.platform.uuiclient.model.GridModel;
 import org.tura.platform.uuiclient.model.GridType;
 
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.persistence.EntityManager;
 import objects.test.serialazable.jpa.R1;
 import objects.test.serialazable.jpa.Rref;
 import objects.test.serialazable.jpa.U1;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class CDITest {
 
 	private Weld w;
-	private WeldContainer weld;
 	private static Server server;
 	private Map<Long, Long> roleConverter = new HashMap<Long, Long>();
 
-	@After
+	@AfterEach
 	public void after() {
-		EntityManager em = weld.instance().select(EntityManager.class).get();
+		EntityManager em = CDI.current().select(EntityManager.class).get();
 		if (em.isOpen())
 			em.close();
 
-		weld = null;
 		w.shutdown();
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
 	}
 
-	@Before
+	@BeforeEach
 	public void before() {
 		try {
 			w = new Weld();
-			weld = w.initialize();
+			w.property("org.jboss.weld.se.archive.isolation", false);
+			w.initialize();
 
-			EntityManager em = weld.instance().select(EntityManager.class).get();
+			EntityManager em = CDI.current().select(EntityManager.class).get();
 
 			em.getTransaction().begin();
 			SearchBase.clear();
@@ -119,7 +117,7 @@ public class CDITest {
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			CRUDService.callbacks.put(org.tura.jpa.test.U1.class.getName(), new U1ProcessCallback());
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			DataControl<U1> dcU = bf.getU1();
 			U1 ui = dcU.getCurrentObject();
 			assertEquals(2, ui.getRref().size());
@@ -160,7 +158,7 @@ public class CDITest {
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			CRUDService.callbacks.put(org.tura.jpa.test.U1.class.getName(), new U1ProcessCallback());
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			DataControl<U1> dcU = bf.getU1();
 			U1 ui = dcU.getCurrentObject();
 			DataControl<Rref> dcR = bf.getRref();
@@ -246,7 +244,7 @@ public class CDITest {
 			SearchBase.clear();
 			CRUDService.callbacks.put(org.tura.jpa.test.U1.class.getName(), new U1ProcessWithRemoveCallback());
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			DataControl<U1> dcU = bf.getU1();
 
 			U1 ui = dcU.createObject();
@@ -296,7 +294,7 @@ public class CDITest {
 				return "datacontroladminsimulation.admin";
 			}
 		};
-		return weld.instance().select(CpaRepository.class, annotation).get();
+		return CDI.current().select(CpaRepository.class, annotation).get();
 	}
 
 	public class U1ProcessCallback extends ProcessCallback {

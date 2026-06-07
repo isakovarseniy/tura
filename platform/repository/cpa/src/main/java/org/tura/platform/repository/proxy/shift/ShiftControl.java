@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,8 @@ public abstract class ShiftControl implements Serializable {
 
 	private transient Query SELECT_UPPER_EQ_ELEMENTS_QUERY;
 
+	private transient Query SELECT_FOR_SHIFT_QUERY;
+	
 	public ShiftControl() {
 	}
 
@@ -52,6 +54,10 @@ public abstract class ShiftControl implements Serializable {
 			if (SELECT_UPPER_EQ_ELEMENTS_QUERY == null) {
 				SELECT_UPPER_EQ_ELEMENTS_QUERY = new Query();
 				SELECT_UPPER_EQ_ELEMENTS_QUERY.parse(ShiftConstants.SELECT_UPPER_EQ_ELEMENTS);
+				
+				SELECT_FOR_SHIFT_QUERY = new Query();
+				SELECT_FOR_SHIFT_QUERY.parse(ShiftConstants.SELECT_FOR_SHIFT);
+				
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -161,11 +167,10 @@ public abstract class ShiftControl implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	private void addOperation(int position, Object obj) throws Exception {
-		Query query = new Query();
-		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
-		query.setVariable("position", Integer.valueOf(position));
+		init();
+		SELECT_FOR_SHIFT_QUERY.setVariable("position", Integer.valueOf(position));
 
-		QueryResults result = query.execute(getShiftControlData().getShifterArray());
+		QueryResults result = SELECT_FOR_SHIFT_QUERY.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 		for (AddRulesFactory ruleDef : AddRulesFactory.values()) {
 			Rule rule = ruleDef.getRule();
@@ -183,11 +188,10 @@ public abstract class ShiftControl implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	private void updateOperation(int position, Object obj) throws Exception {
-		Query query = new Query();
-		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
-		query.setVariable("position", Integer.valueOf(position));
+		init();
+		SELECT_FOR_SHIFT_QUERY.setVariable("position", Integer.valueOf(position));
 
-		QueryResults result = query.execute(getShiftControlData().getShifterArray());
+		QueryResults result = SELECT_FOR_SHIFT_QUERY.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 
 		for (UpdateRulesFactory ruleDef : UpdateRulesFactory.values()) {
@@ -206,11 +210,10 @@ public abstract class ShiftControl implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	private void removeOperation(int position) throws Exception {
-		Query query = new Query();
-		query.parse(ShiftConstants.SELECT_FOR_SHIFT);
-		query.setVariable("position", Integer.valueOf(position));
+		init();
+		SELECT_FOR_SHIFT_QUERY.setVariable("position", Integer.valueOf(position));
 
-		QueryResults result = query.execute(getShiftControlData().getShifterArray());
+		QueryResults result = SELECT_FOR_SHIFT_QUERY.execute(getShiftControlData().getShifterArray());
 		boolean processed = false;
 
 		for (RemoveRuleFactory ruleDef : RemoveRuleFactory.values()) {

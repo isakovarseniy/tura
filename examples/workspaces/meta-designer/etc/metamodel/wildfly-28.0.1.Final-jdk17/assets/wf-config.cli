@@ -1,0 +1,7 @@
+embed-server --server-config=${server.config:standalone-full.xml}
+
+/system-property=aes_key:add(value="qvDHwQChO/NVvxCYG3yO+w==")
+/system-property=repo.url:add(value=http://localhost:8080/mm-object-repository/)
+/system-property=plugable.resources:add(value=/opt/jboss/wildfly/windPlugins.json)
+/system-property=ogm.properties.file:add(value=/opt/jboss/wildfly/ogm.properties)
+/system-property=shared_context:add(value="true")

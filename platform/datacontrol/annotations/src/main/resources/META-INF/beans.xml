@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,10 +16,9 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:res="urn:java:net.resourceAuth"
-    xsi:schemaLocation="
-    http://java.sun.com/xml/ns/javaee 
-    http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd"
+       bean-discovery-mode="all">
 
 </beans>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import java.util.Map;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Instantiator;
+import org.tura.platform.repository.core.KeyMapperHelper;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.ObjectGraph;
@@ -123,7 +124,7 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 		object = loader.loader(object, control.getKey(), repositoryClass, new ObjectGraph(), null);
 		ObjectControl oc = (ObjectControl) factory.load(object, repositoryClass);
 
-		addCorrectionCommand(control.getLevel(), oc, factory);
+		addCorrectionCommand(control, oc, factory);
 	}
 
 	private List<SpaControl> fiindNopOperations(List<SpaControl> preparedObjects) {
@@ -261,7 +262,7 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 			}
 		}
 
-		addCorrectionCommand(control.getLevel(), oc, factory);
+		addCorrectionCommand(control, oc, factory);
 	}
 
 	private CRUDProvider findCRUDProvider(SpaControl obj) throws Exception {
@@ -298,7 +299,18 @@ public class StorageUpdater implements StorageCommandProcessor, Serializable {
 		return PathHelper.getPathValue(extendedPk, 1, persistanceObject);
 	}
 
-	private void addCorrectionCommand(OperationLevel level, ObjectControl oc, ProxyFactory factory) throws Exception {
+	private void addCorrectionCommand(SpaControl control, ObjectControl oc, ProxyFactory factory) throws Exception {
+		OperationLevel level = control.getLevel();
+		if ( OperationLevel.CONNECT.equals(level) || OperationLevel.DISCONNECT.equals(level)) {
+			RepositoryHelper helper = new RepositoryHelper(registry);
+			Object pk = new KeyMapperHelper(helper, spaRepositoryData.getKeyMapper()).findPK(control.getKey(), control.getType());
+			if ( !pk.equals(control.getKey())) {
+				return;
+			}
+		}
+
+		
+		
 		if (OperationLevel.INSERT.equals(level) || OperationLevel.UPDATE.equals(level)
 				|| OperationLevel.CONNECT.equals(level) || OperationLevel.DISCONNECT.equals(level)
 				|| OperationLevel.NOP.equals(level) || OperationLevel.OPERATION.equals(level)) {

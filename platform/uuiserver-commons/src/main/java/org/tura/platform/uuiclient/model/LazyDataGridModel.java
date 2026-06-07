@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,6 +52,13 @@ public class LazyDataGridModel<T> implements Serializable {
 	public LazyDataGridModel() {
 	}
 
+	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
 	
 	public LazyDataGridModel(GridModel gridSingleSelectModel) {
 		this.model = gridSingleSelectModel;
@@ -172,7 +179,7 @@ public class LazyDataGridModel<T> implements Serializable {
 			}
 
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		} finally {
 			datacontrol.setPreQueryTrigger(trigger.getTrigger());
 		}

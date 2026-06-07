@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,13 +22,14 @@ import java.lang.annotation.Annotation;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ContextNotActiveException;
-import javax.enterprise.context.spi.Context;
-import javax.enterprise.context.spi.Contextual;
-import javax.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.context.ContextNotActiveException;
+import jakarta.enterprise.context.spi.Context;
+import jakarta.enterprise.context.spi.Contextual;
+import jakarta.enterprise.context.spi.CreationalContext;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.uuiclient.annotations.UUIClientScoped;
+import org.tura.platform.uuiclient.model.LazyDataGridModel;
 
 public class UUIClientScopeContext implements Context {
 
@@ -40,6 +41,15 @@ public class UUIClientScopeContext implements Context {
 	
 	private static final ThreadLocal<AtomicReference<ScopeStorage>> STORAGE_THREAD_LOCAL = ThreadLocal.withInitial( AtomicReference::new );
 
+	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
+	
+	
 	public ScopeStorage getStorage() {
 		return STORAGE_THREAD_LOCAL.get().get();
 	}
@@ -59,7 +69,7 @@ public class UUIClientScopeContext implements Context {
 				return true;
 			}
 		} catch (Exception e) {
-			logger.info(ExceptionUtils.getStackTrace(e));
+			getLogger().info(ExceptionUtils.getStackTrace(e));
 		}
 		return false;
 	}
@@ -70,7 +80,7 @@ public class UUIClientScopeContext implements Context {
 				return (BeanStorage) this.getStorage().load(scopeId);
 			}
 		} catch (Exception e) {
-			logger.info(ExceptionUtils.getStackTrace(e));
+			getLogger().info(ExceptionUtils.getStackTrace(e));
 		}
 
 		// Scope isn't present in storage, return new instance map instead
@@ -83,7 +93,7 @@ public class UUIClientScopeContext implements Context {
 				this.getStorage().write(scopeId, instanceMap);
 			}
 		}catch(Exception e) {
-			logger.info(ExceptionUtils.getStackTrace(e));
+			getLogger().info(ExceptionUtils.getStackTrace(e));
 		}
 	}
 

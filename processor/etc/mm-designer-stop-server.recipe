@@ -1,3 +1,0 @@
-tura:docker stopContainer --name ${mm_wf_cnt_name}
-
-tura:docker removeContainer --name ${mm_wf_cnt_name}

@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
@@ -37,8 +37,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
@@ -53,14 +53,15 @@
 			<artifactId>commons-platform</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>${version.swagger}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
+			<version>${okhttp3-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>logging-interceptor</artifactId>
 			<version>${okhttp3-version}</version>
 		</dependency>
 		<dependency>
@@ -87,24 +88,27 @@
 	</dependencies>
 
 
-	<!-- http://127.0.0.1:8080/emulator-control/rest/swagger.json -->
+	<!-- http://127.0.0.1:8080/emulator-control/rest/openapi.json -->
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-codegen-maven-plugin</artifactId>
-				<version>2.3.1</version>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>7.8.0</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/emulator-control.json</inputSpec>
-							<language>java</language>
+							<inputSpec>
+								${project.basedir}/src/main/resources/emulator-control.json</inputSpec>
+								<skipValidateSpec>true</skipValidateSpec>
+							<generatorName>java</generatorName>
 							<configOptions>
 								<sourceFolder>src/gen/java/main</sourceFolder>
+								<useJakartaEe>true</useJakartaEe>
 							</configOptions>
 							<apiPackage>org.tura.emulator.generated.client</apiPackage>
 							<modelPackage>org.tura.emulator.generated.model</modelPackage>

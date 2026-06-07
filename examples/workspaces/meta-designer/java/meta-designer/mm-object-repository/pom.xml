@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Tura - Application generation solution
+
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.tura.model-designer</groupId>
+		<artifactId>model-designer-parent</artifactId>
+		<version>6.3.0</version>
+	</parent>
+
+	<artifactId>mm-object-repository</artifactId>
+
+	<name>Metamodel designer :: Web application :: Remote Repository</name>
+
+	<packaging>war</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>metamodel-repository-proxy</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>persistence-repository-neo4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.model-designer.repository</groupId>
+			<artifactId>domain-persistence-repository</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cdi-rest</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cdi-persistence-repo-starter-jee</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-bolt-driver</artifactId>
+		</dependency>
+
+
+	</dependencies>
+
+
+</project>

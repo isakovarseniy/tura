@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ package org.tura.platform.test.cdi;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.hr.objects.complex.model.InitJPARepository;
@@ -52,7 +52,7 @@ public class CdiServerRegistry extends Registry {
 			SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
 			
 			this.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-			this.addProfile(AllowEverythingProfile.class.getName(), new AllowEverythingProfile());
+			this.addProfile(AllowEverythingProfile.class.getName(),  AllowEverythingProfile.class);
 			this.addInstantiator(new ProxyRepositoryInstantiator(new CdiServerProxyRepositoryProvider()));
 			this.setTransactrionAdapter(new CdiServerTransactionAdapter(this));
 
@@ -65,7 +65,6 @@ public class CdiServerRegistry extends Registry {
 			init.initProvider();
 			init.initRules();
 			init.initClassMapping();
-			init.initFeldsMapping();
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);

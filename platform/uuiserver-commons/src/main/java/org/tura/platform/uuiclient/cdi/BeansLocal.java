@@ -26,12 +26,12 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.spi.AlterableContext;
-import javax.enterprise.context.spi.Context;
-import javax.enterprise.inject.spi.Annotated;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.CDI;
+import jakarta.enterprise.context.spi.AlterableContext;
+import jakarta.enterprise.context.spi.Context;
+import jakarta.enterprise.inject.spi.Annotated;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.CDI;
 
 /**
  * <p>
@@ -256,7 +256,7 @@ public final class BeansLocal {
 	 * @see Beans#fireEvent(Object, Annotation...)
 	 */
 	public static void fireEvent(BeanManager beanManager, Object event, Annotation... qualifiers) {
-		beanManager.fireEvent(event, qualifiers);
+		beanManager.getEvent().select(qualifiers).fire(event);
 	}
 
 	public static BeanManager getManager() {

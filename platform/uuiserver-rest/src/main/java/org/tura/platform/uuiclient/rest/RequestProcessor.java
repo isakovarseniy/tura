@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.uuiclient.model.LazyDataGridModel;
 import org.tura.platform.uuiclient.rest.client.commands.ContextRef;
 import org.tura.platform.uuiclient.rest.client.commands.ResponseState;
 import org.tura.platform.uuiclient.rest.events.EventProcessor;
@@ -43,6 +44,14 @@ public class RequestProcessor {
 	@Inject
 	ResponseState responseState;
 	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public DataUpdateResponse process( DataUpdateRequest request ) throws Exception {
 		
@@ -51,7 +60,7 @@ public class RequestProcessor {
 		try {
 		   array = restoreObjects(request,responseState);
 		}catch( Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
+			getLogger().log(Level.INFO, e.getMessage(), e);
 			responseState.addFatalValidationError(e);
 			return responseState.getResponse();
 		}
@@ -80,7 +89,7 @@ public class RequestProcessor {
 			return responseState.getResponse();
 			
 		}catch( Exception e) {
-			logger.log(Level.INFO, e.getMessage(), e);
+			getLogger().log(Level.INFO, e.getMessage(), e);
 			responseState.addFatalError(e);
 //			responseState.rollBack();
 			return responseState.getResponse();

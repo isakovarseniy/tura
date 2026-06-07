@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,10 @@
 
 package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.tura.platform.test.ClassStructureTestUtils.findFieldAnnotation;
 import static org.tura.platform.test.ClassStructureTestUtils.findMethod;
 import static org.tura.platform.test.ClassStructureTestUtils.findMethodAnnotation;
@@ -30,22 +30,10 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.logging.Logger;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Id;
-import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.tura.jpa.test.Client;
 import org.tura.jpa.test.File;
 import org.tura.jpa.test.MailAddress;
@@ -53,36 +41,33 @@ import org.tura.jpa.test.Person;
 import org.tura.jpa.test.PersonType;
 import org.tura.jpa.test.Phone;
 import org.tura.jpa.test.PhoneType;
-import org.tura.platform.repository.RepositoryProducer;
 import org.tura.platform.repository.core.annotation.Association;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import objects.test.serialazable.jpa.JPAObject12;
 import objects.test.serialazable.jpa.SPAObject12;
 
 public class JPATest {
 
-	private static Logger logger;
-	private static Server server;
-	private static RepositoryProducer repositoryProducer;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 	
 	
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
-		repositoryProducer = new RepositoryProducer();
-		server = Server.createTcpServer().start();
-
-		logger = Logger.getLogger("InfoLogging");
-		logger.setUseParentHandlers(false);
-
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		repositoryProducer.em = emf.createEntityManager();
+		storageProvider.startServer();
+		storageProvider.initSession();
 	}
 
 	
@@ -113,12 +98,12 @@ public class JPATest {
 	     
 	     
 	     try{
-	    	 repositoryProducer.em.getTransaction().begin();
-	    	 repositoryProducer.em.persist(client);
-	    	 repositoryProducer.em.persist(person);
-	    	 repositoryProducer.em.persist(mail);
-	    	 repositoryProducer.em.persist(phone);
-	    	 repositoryProducer.em.getTransaction().commit();
+	    	 storageProvider.startTransaction();
+	    	 storageProvider.persist(client);
+	    	 storageProvider.persist(person);
+	    	 storageProvider.persist(mail);
+	    	 storageProvider.persist(phone);
+	    	 storageProvider.commitTransaction();
 	     }catch(Exception e){
 	    	 e.printStackTrace();
 	    	 fail();
@@ -158,7 +143,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(21, Person.class.getDeclaredMethods().length);
+		assertEquals(25, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));

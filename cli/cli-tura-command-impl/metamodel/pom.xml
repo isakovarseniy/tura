@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+	    <groupId>org.tura.cli</groupId>
+	    <artifactId>cli-tura-command-impl</artifactId>
+		<version>6.3.0</version>
+	</parent>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<epsilon.version>2.4.0</epsilon.version>
+		<commons-io.version>2.6</commons-io.version>
+		<freemarker.version>2.3.20</freemarker.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
+		<google-java-format.version>1.6</google-java-format.version>
+		<javaparser-verson>3.16.1</javaparser-verson>
+		<version.neo4j.ogm>4.0.16</version.neo4j.ogm>
+		<version.neo4j.db>5.20.0</version.neo4j.db>
+	</properties>
+
+	<groupId>org.tura.cli</groupId>
+	<artifactId>metamodel</artifactId>
+
+	<name>Tura :: Platform :: Processor :: Tura :: Metamodel</name>
+
+	<packaging>pom</packaging>
+
+	<dependencyManagement>
+	<dependencies>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j</artifactId>
+			<version>${version.neo4j.db}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-core</artifactId>
+			<version>${version.neo4j.ogm}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cpa</artifactId>
+			<version>${tura.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.metamodel</groupId>
+			<artifactId>org.tura.metamodel</artifactId>
+			<version>${tura.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-bolt-driver</artifactId>
+			<version>${version.neo4j.ogm}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.googlejavaformat</groupId>
+			<artifactId>google-java-format</artifactId>
+			<version>${google-java-format.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.javaparser</groupId>
+			<artifactId>javaparser-core</artifactId>
+			<version>${javaparser-verson}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.flock.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.epl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.ecl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.egl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.evl.engine</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.epsilon</groupId>
+			<artifactId>org.eclipse.epsilon.common</artifactId>
+			<version>${epsilon.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+        </dependency>
+
+
+	</dependencies>
+		
+	</dependencyManagement>
+
+
+
+	
+	<modules>
+	    <module>commons-model</module>
+		<module>emf-model</module>
+		<module>tura-model</module>
+	</modules>
+
+
+</project>

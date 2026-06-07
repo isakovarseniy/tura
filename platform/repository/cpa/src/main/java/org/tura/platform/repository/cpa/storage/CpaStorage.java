@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -375,8 +375,8 @@ public class CpaStorage implements Serializable {
 	public List<StorageControl> find(Class<?> type, long startTimeStamp, long endTimeStamp, List<String> status)
 			throws Exception {
 
-		Query query = new Query();
-		query.parse(SELECT_OBJECTS_SORTED_ASC);
+		init();
+		Query query = SELECT_OBJECTS_SORTED_ASC_QUERY;
 		query.setVariable(BEGIN_TIME_STAMP, startTimeStamp);
 		query.setVariable(END_TIME_STAMP, endTimeStamp);
 		query.setVariable(STATUS_NAME, status);

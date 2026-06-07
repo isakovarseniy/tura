@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,12 +29,12 @@ operation   scriptGenerator(hash) {
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
 
-@javax.inject.Named("scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+@jakarta.inject.Named("scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class ScriptGenerator{
 
 	private  transient java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ScriptGenerator.class.getName());;
 
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	private org.tura.platform.datacontrol.ELResolver elResolver;
     
     private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Object>();

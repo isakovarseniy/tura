@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,9 @@
 
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.security.SecureRandom;
 import java.util.Base64;
@@ -29,55 +30,42 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.tura.platform.uuiclient.cdi.FileScopeStore;
 import org.tura.platform.uuiclient.cdi.Scope;
 import org.tura.platform.uuiclient.cdi.UUIClientScopeContext;
 
-public class CDIScopeTest {
+import jakarta.enterprise.inject.spi.CDI;
 
+public class CDIScopeTest {
+	
 	static String session = UUID.randomUUID().toString();
 
 	@Test
 	public void activateScopeTest1() {
 		Weld w = new Weld();
+		w.property("org.jboss.weld.se.archive.isolation", false);
+		w.initialize();
+		
 		try {
-			WeldContainer weld = w.initialize();
-
 			UUIClientScopeContext ctx = new UUIClientScopeContext();
 			ctx.setStorage(new FileScopeStore(System.getProperty("java.io.tmpdir")));
 
 			Scope scope = new Scope("application.formname", session);
 			ctx.activate(scope, true);
 
-			TestBean bean = weld.instance().select(TestBean.class).get();
+			TestBean bean = CDI.current().select(TestBean.class).get();
 			bean.setField1("test1");
 
 			ctx.passivate(scope);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		} finally {
-			w.shutdown();
-		}
-
-	}
-
-	@Test
-	public void activateScopeTest2() {
-		Weld w = new Weld();
-		try {
-			WeldContainer weld = w.initialize();
-
-			UUIClientScopeContext ctx = new UUIClientScopeContext();
+			ctx = new UUIClientScopeContext();
 			ctx.setStorage(new FileScopeStore(System.getProperty("java.io.tmpdir")));
 
-			Scope scope = new Scope("application.formname", session);
+			scope = new Scope("application.formname", session);
 			ctx.activate(scope, false);
 
-			TestBean bean = weld.instance().select(TestBean.class).get();
+			bean = CDI.current().select(TestBean.class).get();
 			assertEquals("test1", bean.getField1());
 
 			ctx.passivate(scope);
@@ -85,9 +73,7 @@ public class CDIScopeTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
-		} finally {
-			w.shutdown();
-		}
+		} 
 
 	}
 

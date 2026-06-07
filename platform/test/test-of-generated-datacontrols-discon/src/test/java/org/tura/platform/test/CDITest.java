@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,14 @@ import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-
 import org.h2.tools.Server;
 import org.jboss.weld.environment.se.Weld;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.example.ui.datacontroldisconnectedmodel.hrcontroller.CDITestHRController;
 import org.tura.platform.hr.init.CityInit;
 import org.tura.platform.hr.init.CompanyInit;
@@ -41,7 +39,10 @@ import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.persistence.EntityManager;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class CDITest  extends CDITestHRController {
 
 	private  Weld w;
@@ -55,34 +56,33 @@ public class CDITest  extends CDITestHRController {
 	private Map<Long,Long> employeeConverter   =  new HashMap<Long, Long>();
 
 
-	@After
+	@AfterEach
 	public void after() {
-		EntityManager em = weld.instance().select(EntityManager.class).get();
-		if (em.isOpen())
+		EntityManager em = CDI.current().select(EntityManager.class).get();
+		if (em.isOpen()) {
 			em.close();
-
-		weld = null;
-		w.shutdown();
+		}
+		w.shutdown();		
 	}
 	
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
 	
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
 	}
 	
-	@Before
+	@BeforeEach
 	public void before() {
 		w = new Weld();
-		weld = w.initialize();
-
-		EntityManager em = weld.instance()
-				.select(EntityManager.class).get();
+		w.property("org.jboss.weld.se.archive.isolation", false);
+		w.initialize();
+		
+		EntityManager em = CDI.current().select(EntityManager.class).get();
 
 		em.getTransaction().begin();
 

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,9 @@
 
 package org.tura.jpa;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.net.URL;
@@ -28,8 +29,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.client.rest.RestClientRepository;
@@ -106,10 +107,10 @@ public class RestRepositoryTest {
 			stackProvider.get().commit();
 			
 
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class);
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2One1B.class);
 			assertEquals(1,result.getSearchResult().size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2One1A.class);
 			assertEquals(1,result.getSearchResult().size());
 			
 			SearchCriteria sc = new SearchCriteria();
@@ -118,7 +119,7 @@ public class RestRepositoryTest {
 			sc.setValue(o1.getObjId());
 			ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
 			search.add(sc);
-			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 10, One2One1A.class);
 			assertEquals(1,result.getSearchResult().size());
 
 			
@@ -127,10 +128,10 @@ public class RestRepositoryTest {
 			
 			stackProvider.get().commit();
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2One1B.class);
 			assertEquals(0,result.getSearchResult().size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2One1A.class);
 			assertEquals(0,result.getSearchResult().size());
 
 			
@@ -217,7 +218,7 @@ public class RestRepositoryTest {
 	}	
 
 	@Test
-	@Ignore
+	@Disabled
 	public void t0001_JPAObject11JPAObjectSecondDb() {
 		try {
 			CpaRepository repository = getRepository();

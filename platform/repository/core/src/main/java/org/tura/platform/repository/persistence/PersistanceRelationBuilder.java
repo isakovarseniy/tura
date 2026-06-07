@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import java.util.List;
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Connection;
+import org.tura.platform.repository.core.annotation.Links;
 
 public class PersistanceRelationBuilder {
 
@@ -117,9 +118,15 @@ public class PersistanceRelationBuilder {
 		Method masterMethod = masterClazz.getMethod(masterMethodName);
 		Connection connection = masterMethod.getAnnotation(Connection.class);
 		Association association = masterMethod.getAnnotation(Association.class);
+		Links links = masterMethod.getAnnotation(Links.class);
 		if (connection != null ){
 				 return new ConnectionProcessor(connection,association);
 		}
+		
+		if (links != null ){
+			 return new ConnectionProcessor(links,association);
+    	}
+		
 		return null;
 	}	
 	

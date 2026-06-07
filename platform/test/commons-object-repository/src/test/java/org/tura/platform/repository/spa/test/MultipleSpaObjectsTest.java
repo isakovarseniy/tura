@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,28 +18,22 @@
 
 package org.tura.platform.repository.spa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.RepositoryProducer;
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.test.spa.SearchBase;
 
@@ -51,34 +45,19 @@ import objects.test.serialazable.jpa.F2;
 
 public class MultipleSpaObjectsTest {
 
-	private static Logger logger;
-	private static Server server;
-	private static RepositoryProducer repositoryProducer;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
 	
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 	
 	
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
-		repositoryProducer = new RepositoryProducer();
-		server = Server.createTcpServer().start();
-
-		logger = Logger.getLogger("InfoLogging");
-		logger.setUseParentHandlers(false);
-
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
-
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		repositoryProducer.em = emf.createEntityManager();
+		storageProvider.startServer();
+		storageProvider.initSession();
 	}
 	
 
@@ -87,8 +66,7 @@ public class MultipleSpaObjectsTest {
 		try {
 			SearchBase.base.clear();
 			
-			Repository transport = repositoryProducer.getSpaRepository();
-			CpaRepository repository = repositoryProducer.getProxyRepository(transport);
+			CpaRepository repository = storageProvider.getSpaRepository();
 			ProxyCommadStackProvider stackProvider =  repository.getStackProvider();
 			
 			A1 a1 = (A1) repository.create(A1.class);

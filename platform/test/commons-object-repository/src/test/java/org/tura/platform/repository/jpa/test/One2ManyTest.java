@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,33 +18,27 @@
 
 package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.RepositoryProducer;
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
 import org.tura.platform.repository.cpa.storage.ObjectStatus;
 import org.tura.platform.repository.cpa.storage.StorageControl;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import com.octo.java.sql.exp.Operator;
@@ -52,46 +46,30 @@ import com.octo.java.sql.exp.Operator;
 import objects.test.serialazable.jpa.One2Many3A;
 import objects.test.serialazable.jpa.One2Many3B;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class One2ManyTest {
 
-	private static Logger logger;
-	private static Server server;
-	private static RepositoryProducer repositoryProducer;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 	
 	
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
-		repositoryProducer = new RepositoryProducer();
-		server = Server.createTcpServer().start();
-
-		logger = Logger.getLogger("InfoLogging");
-		logger.setUseParentHandlers(false);
-
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
-
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		repositoryProducer.em = emf.createEntityManager();
+		storageProvider.startServer();
+		storageProvider.initSession();
 
 	}
 
 	@Test
 	public void t0000_One2Many() {
 		try {
-			Repository transport = repositoryProducer.getJpaRepository();
-			CpaRepository repository = repositoryProducer.getProxyRepository(transport);
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider =  repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider  = repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider  = storageProvider.getCpaStorageProvider();
 
 			One2Many3A o1 = (One2Many3A) repository.create(One2Many3A.class);
 
@@ -122,11 +100,11 @@ public class One2ManyTest {
 			assertEquals(2, array.size());
 			
 			
-			SearchResult<?> result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class);
+			SearchResult<?> result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2Many3A.class);
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2Many3B.class);
 			assertEquals(2,result.getSearchResult().size());
 			
 			array = cpaStorageProvider.get().find(One2Many3A.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Loaded.name()}) );
@@ -141,7 +119,7 @@ public class One2ManyTest {
 				assertEquals(o1.getObjId(), o3.getOne2Many3A().getObjId());
 			}
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2Many3A.class);
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
 			
@@ -153,7 +131,7 @@ public class One2ManyTest {
 			sc.setValue(o1.getObjId());
 			sc.setComparator(Operator.EQ.name());
 			
-			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 10, One2Many3B.class);
 			assertEquals(2,result.getSearchResult().size());
 			
 			for (Object o : result.getSearchResult()){
@@ -183,11 +161,11 @@ public class One2ManyTest {
 			array = cpaStorageProvider.get().find(One2Many3B.class, 0, Long.MAX_VALUE, Arrays.asList(new String[] {  ObjectStatus.Removed.name()}) );
 			assertEquals(0, array.size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2Many3A.class);
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2Many3B.class);
 			assertEquals(0,result.getSearchResult().size());
 			
 			o2 = (One2Many3B) repository.create(One2Many3B.class);

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,6 +73,12 @@ public class TreeModel implements Serializable {
 		this.callback = (TreeModelTriggers) callback;
 	}
 	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
 	
 	public TreeDataControl  getTreeDataControl() {
 		return dc;
@@ -252,7 +258,7 @@ public class TreeModel implements Serializable {
 					expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
 					root = null;
 				} catch (Exception e) {
-					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+					getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 			}
 			if (event instanceof ControlRefreshedEvent && event.getSource() instanceof DataControl) {
@@ -260,7 +266,7 @@ public class TreeModel implements Serializable {
 					expandedNodes = TreeProcessor.collectExpandedNodes(getRoot());
 					root = null;
 				} catch (Exception e) {
-					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+					getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 			}
 			if (event instanceof ControlRallbackEvent && event.getSource() instanceof DataControl) {
@@ -271,7 +277,7 @@ public class TreeModel implements Serializable {
 					}
 					root = null;
 				} catch (Exception e) {
-					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+					getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 
 			}
@@ -298,7 +304,7 @@ public class TreeModel implements Serializable {
 					setSelected(getCurrentNode());
 
 				} catch (Exception e) {
-					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+					getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 			}
 			if (event instanceof RowRemovedEvent && event.getSource() instanceof TreeDataControl) {
@@ -321,7 +327,7 @@ public class TreeModel implements Serializable {
 					}
 
 				} catch (Exception e) {
-					logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+					getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 				}
 
 			}

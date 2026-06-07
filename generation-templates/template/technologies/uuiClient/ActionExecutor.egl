@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -31,12 +31,12 @@ import org.tura.platform.datacontrol.ELResolver;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import org.tura.platform.uuiclient.rest.EventDescription;
 
 
-@javax.inject.Named("actionExecutor[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
-@javax.enterprise.context.RequestScoped
+@jakarta.inject.Named("actionExecutor[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+@jakarta.enterprise.context.RequestScoped
 public class ActionExecutor  {
 
 	@Inject
@@ -72,12 +72,12 @@ public class ActionExecutor  {
      
      for ( type in map.values()){
 %]
-	@javax.inject.Inject
-	private transient javax.enterprise.inject.Instance<[%=type.~fullName%]> exec_[%=type.~counter%];
+	@jakarta.inject.Inject
+	private transient jakarta.enterprise.inject.Instance<[%=type.~fullName%]> exec_[%=type.~counter%];
 [%         
       }
 %]
-	@javax.annotation.PostConstruct
+	@jakarta.annotation.PostConstruct
 	public void init() {
 [%      
         for( trigger in  actionTriggers ){

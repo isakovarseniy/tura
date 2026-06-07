@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,86 +18,70 @@
 
 package org.tura.platform.datacontrol;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.lang.reflect.InvocationTargetException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.repository.cpa.CpaRepository;
-import org.tura.platform.repository.init.Factory;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.test.hr.model.DepartmentType;
 
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.QueryException;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class AbstractSingleDataControlPool {
 
-	protected static Factory factory;
-
-	private static Server server;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
 	public static Class<?> deparmentClass;
 	public static Class<?> employeeClass;
 	public static String deparmentString;
 	public static String employeeString;
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 
 	public static void beforeClass() throws Exception {
 		PlatformConfig.TEST_MODE = true;
-		server = Server.createTcpServer().start();
-		factory = new Factory();
+		storageProvider.startServer();
+		storageProvider.initSession();
 
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		Factory.getRepositoryProducer().em = emf.createEntityManager();
-
-		factory.getEntityManager().getTransaction().begin();
-
-		factory.initDB(deparmentString, factory.getEntityManager());
-		try {
-			factory.initDB(employeeString, factory.getEntityManager());
-			factory.getEntityManager().getTransaction().commit();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		storageProvider.startTransaction();
+		storageProvider.initData("InitDB0", deparmentString,employeeString);
+		storageProvider.commitTransaction();
 
 	}
 
-	@Before
+	@BeforeEach
 	public void init() throws Exception {
-		factory.clean();
+		storageProvider.clean();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t1_getApplyCreateModification() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
 
@@ -116,19 +100,20 @@ public class AbstractSingleDataControlPool {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t2_getApplyRemoveModification() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
 
 			repository.remove(row, deparmentClass);
 			row = dc.getCurrentObject();
 			
-			assertEquals(factory.cDept(Long.valueOf(20L)), row.getObjId());
+			assertEquals(storageProvider.cDept(Long.valueOf(20L)), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,13 +121,14 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t3_getApplyUpdateModification() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
@@ -151,12 +137,12 @@ public class AbstractSingleDataControlPool {
 			newrow.setDepartmentName("test dep");
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(10)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(10)));
 			assertEquals(row.getDepartmentName(), "Administration");
 
 			dc.nextObject();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(20L)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(20L)));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 		} catch (Exception e) {
@@ -165,13 +151,14 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t4_getApplyCreateUpdateModification() {
 		try {
 			
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
 			
@@ -188,7 +175,7 @@ public class AbstractSingleDataControlPool {
 			dc.nextObject();
 			row = dc.getCurrentObject();
 
-			assertEquals(row.getObjId(), factory.cDept(10L));
+			assertEquals(row.getObjId(), storageProvider.cDept(10L));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -196,18 +183,19 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t5_savePoint() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
 			DepartmentType row = dc.getCurrentObject();
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
@@ -230,7 +218,7 @@ public class AbstractSingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(factory.cDept(Long.valueOf(20L)), row.getObjId());
+			assertEquals(storageProvider.cDept(Long.valueOf(20L)), row.getObjId());
 
 			stackProvider.get().rallbackSavePoint();
 			dc.prevObject();
@@ -250,7 +238,7 @@ public class AbstractSingleDataControlPool {
 			stackProvider.get().rallbackCommand();
 
 			row = dc.getCurrentObject();
-			assertEquals(factory.cDept(10L), row.getObjId());
+			assertEquals(storageProvider.cDept(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -258,13 +246,14 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t6_commitWithsavePoint() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
 
@@ -278,7 +267,7 @@ public class AbstractSingleDataControlPool {
 
 			row = dc.getCurrentObject();
 
-			assertEquals(factory.cDept(10L), row.getObjId());
+			assertEquals(storageProvider.cDept(10L), row.getObjId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -286,16 +275,17 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t7_updateWithDefaultSearchCriteria() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 			createQuery(dc2, DepartmentType.class.getCanonicalName());
 
@@ -322,17 +312,18 @@ public class AbstractSingleDataControlPool {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t8_updateWithDefaultSearchCriteria() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 			createQuery(dc2, DepartmentType.class.getCanonicalName());
 
@@ -362,15 +353,16 @@ public class AbstractSingleDataControlPool {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t11_pooledDataControl() {
 		try {
-			DataControl<DepartmentType> dc1 = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc1 = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc1.getElResolver().setValue("departments", dc1);
 
 			DepartmentType row1 = dc1.getCurrentObject();
 			
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			DepartmentType row2 = dc2.getCurrentObject();
@@ -386,15 +378,16 @@ public class AbstractSingleDataControlPool {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t11_pooledWithRefresDataCalontrol() {
 		try {
 			
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.getCurrentObject();
 			
@@ -420,17 +413,18 @@ public class AbstractSingleDataControlPool {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t11_pooledWithSavePointDataCalontrol() {
 		try {
 
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
@@ -459,7 +453,7 @@ public class AbstractSingleDataControlPool {
 			
 			stackProvider.get().rallbackSavePoint();
 			d2 = dc.getCurrentObject();
-			assertEquals(d2.getObjId(), factory.cDept(10L));
+			assertEquals(d2.getObjId(), storageProvider.cDept(10L));
 
 
 		} catch (Exception e) {
@@ -470,16 +464,17 @@ public class AbstractSingleDataControlPool {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t13_ParallelRequest() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentType> dc2 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dc2 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 			createQuery(dc2, DepartmentType.class.getCanonicalName());
 			

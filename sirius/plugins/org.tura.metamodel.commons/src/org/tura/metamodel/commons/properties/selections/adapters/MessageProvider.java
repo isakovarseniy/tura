@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -15,10 +15,10 @@
 package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.preferences.LogUtil;
 
 import message.Message;
 

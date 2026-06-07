@@ -1,264 +1,285 @@
 {
-    "swagger": "2.0",
-    "tags": [
-        {
-            "name": "UserFacade"
+  "openapi": "3.0.1",
+  "paths": {
+    "/rest/user/getUser": {
+      "get": {
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          }
         }
-    ],
-    "paths": {
-        "/user/getUser": {
-            "get": {
-                "tags": [
-                    "UserFacade"
-                ],
-                "operationId": "getUser",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "userName",
-                        "in": "query",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/Client"
-                        },
-                        "headers": {}
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "Client": {
-            "type": "object",
-            "required": [
-                "attached",
-                "createDate",
-                "name",
-                "objId",
-                "objectType",
-                "person",
-                "serializationid"
-            ],
-            "properties": {
-                "attached": {
-                    "type": "boolean"
-                },
-                "serializationid": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "objId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "createDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "objectType": {
-                    "type": "string"
-                },
-                "person": {
-                    "$ref": "#/definitions/Person"
-                }
-            }
-        },
-        "File": {
-            "type": "object",
-            "required": [
-                "attached",
-                "file",
-                "fileMaster",
-                "fileName",
-                "objId",
-                "person",
-                "serializationid"
-            ],
-            "properties": {
-                "attached": {
-                    "type": "boolean"
-                },
-                "serializationid": {
-                    "type": "string"
-                },
-                "objId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "fileName": {
-                    "type": "string"
-                },
-                "file": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/File"
-                    }
-                },
-                "person": {
-                    "$ref": "#/definitions/Person"
-                },
-                "fileMaster": {
-                    "$ref": "#/definitions/File"
-                }
-            }
-        },
-        "MailAddress": {
-            "type": "object",
-            "required": [
-                "address",
-                "attached",
-                "createDate",
-                "objId",
-                "objectType",
-                "person",
-                "phoneType",
-                "serializationid"
-            ],
-            "properties": {
-                "attached": {
-                    "type": "boolean"
-                },
-                "serializationid": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "objId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "objectType": {
-                    "type": "string"
-                },
-                "createDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "phoneType": {
-                    "type": "string",
-                    "enum": [
-                        "HOME",
-                        "BUSINESS"
-                    ]
-                },
-                "person": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Person"
-                    }
-                }
-            }
-        },
-        "Person": {
-            "type": "object",
-            "required": [
-                "attached",
-                "client",
-                "createDate",
-                "file",
-                "gender",
-                "mailAddress",
-                "name",
-                "objId",
-                "objectType",
-                "phone",
-                "serializationid"
-            ],
-            "properties": {
-                "attached": {
-                    "type": "boolean"
-                },
-                "serializationid": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "objId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "objectType": {
-                    "type": "string"
-                },
-                "createDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "gender": {
-                    "type": "string",
-                    "enum": [
-                        "FEMALE",
-                        "MALE"
-                    ]
-                },
-                "mailAddress": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MailAddress"
-                    }
-                },
-                "phone": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Phone"
-                    }
-                },
-                "client": {
-                    "$ref": "#/definitions/Client"
-                },
-                "file": {
-                    "$ref": "#/definitions/File"
-                }
-            }
-        },
-        "Phone": {
-            "type": "object",
-            "required": [
-                "attached",
-                "createDate",
-                "objId",
-                "objectType",
-                "person",
-                "phone",
-                "serializationid"
-            ],
-            "properties": {
-                "attached": {
-                    "type": "boolean"
-                },
-                "serializationid": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "objId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "objectType": {
-                    "type": "string"
-                },
-                "createDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "person": {
-                    "$ref": "#/definitions/Person"
-                }
-            }
-        }
+      }
     }
+  },
+  "components": {
+    "schemas": {
+      "Client": {
+        "required": [
+          "@class"
+        ],
+        "type": "object",
+        "properties": {
+          "attached": {
+            "type": "boolean"
+          },
+          "serializationid": {
+            "type": "string"
+          },
+          "cpaid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "objId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "@class": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "@class"
+        }
+      },
+      "File": {
+        "required": [
+          "@class"
+        ],
+        "type": "object",
+        "properties": {
+          "attached": {
+            "type": "boolean"
+          },
+          "serializationid": {
+            "type": "string"
+          },
+          "cpaid": {
+            "type": "string"
+          },
+          "objId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "transientparentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "file": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "fileMaster": {
+            "$ref": "#/components/schemas/File"
+          },
+          "@class": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "@class"
+        }
+      },
+      "MailAddress": {
+        "required": [
+          "@class"
+        ],
+        "type": "object",
+        "properties": {
+          "attached": {
+            "type": "boolean"
+          },
+          "serializationid": {
+            "type": "string"
+          },
+          "cpaid": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "objId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "phoneType": {
+            "type": "string",
+            "enum": [
+              "HOME",
+              "BUSINESS"
+            ]
+          },
+          "person": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            }
+          },
+          "@class": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "@class"
+        }
+      },
+      "Person": {
+        "required": [
+          "@class"
+        ],
+        "type": "object",
+        "properties": {
+          "attached": {
+            "type": "boolean"
+          },
+          "serializationid": {
+            "type": "string"
+          },
+          "cpaid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "transientclientId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "objId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transientrootId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "FEMALE",
+              "MALE"
+            ]
+          },
+          "mailAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MailAddress"
+            }
+          },
+          "phone": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Phone"
+            }
+          },
+          "client": {
+            "$ref": "#/components/schemas/Client"
+          },
+          "file": {
+            "$ref": "#/components/schemas/File"
+          },
+          "@class": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "@class"
+        }
+      },
+      "Phone": {
+        "required": [
+          "@class"
+        ],
+        "type": "object",
+        "properties": {
+          "attached": {
+            "type": "boolean"
+          },
+          "serializationid": {
+            "type": "string"
+          },
+          "cpaid": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "transientpersonId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "objId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "@class": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "@class"
+        }
+      }
+    }
+  }
 }

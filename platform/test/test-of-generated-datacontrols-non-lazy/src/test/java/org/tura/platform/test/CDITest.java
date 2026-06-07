@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -29,17 +29,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-
 import org.h2.tools.Server;
 import org.jboss.weld.environment.se.Weld;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.example.ui.datacontrolnonlazymodel.hrcontroller.CDITestHRController;
 import org.tura.example.ui.datacontrolnonlazymodel.hrcontroller.datacontrol.BeanFactory;
 import org.tura.platform.datacontrol.DataControl;
@@ -58,10 +56,13 @@ import org.tura.platform.hr.objects.serialization.Prospect;
 import org.tura.platform.hr.objects.serialization.Regions;
 import org.tura.platform.hr.objects.serialization.UserKk;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.persistence.EntityManager;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class CDITest extends CDITestHRController {
 
-	private Weld w;
+	private  Weld w;
 	private static Server server;
 	private Map<Long, Long> companyConverter = new HashMap<Long, Long>();
 	private Map<Long, Long> countryConverter = new HashMap<Long, Long>();
@@ -72,34 +73,35 @@ public class CDITest extends CDITestHRController {
 	private Map<Long, Long> employeeConverter = new HashMap<Long, Long>();
 	private Map<Long, Long> userConverter = new HashMap<Long, Long>();
 
-	@After
+	@AfterEach
 	public void after() {
-		EntityManager em = weld.instance().select(EntityManager.class).get();
-		if (em.isOpen())
+		EntityManager em = CDI.current().select(EntityManager.class).get();
+		if (em.isOpen()) {
 			em.close();
-
-		weld = null;
-		w.shutdown();
+		}
+		w.shutdown();		
+		
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
 	}
 
-	@Before
+	@BeforeEach
 	public void before() {
 		try {
-
 			w = new Weld();
-			weld = w.initialize();
+			w.property("org.jboss.weld.se.archive.isolation", false);
+			w.initialize();
+			
 
-			EntityManager em = weld.instance().select(EntityManager.class).get();
+			EntityManager em = CDI.current().select(EntityManager.class).get();
 
 			em.getTransaction().begin();
 
@@ -128,7 +130,7 @@ public class CDITest extends CDITestHRController {
 	public void userPreferences01Test() {
 		try {
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			DataControl<UserKk> dc = bf.getUser();
 			UserKk user = dc.getCurrentObject();
 			bf.getPreference();
@@ -148,18 +150,17 @@ public class CDITest extends CDITestHRController {
 		}
 
 	}
-	
+
 	@Test
 	public void userPreferences02Test() {
 		try {
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			DataControl<UserKk> dc = bf.getUser();
-			DataControl<PreferenceKk> dcPref =bf.getPreference();
-			
+			DataControl<PreferenceKk> dcPref = bf.getPreference();
+
 			dc.removeAll();
 			dcPref.createObject();
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -167,13 +168,12 @@ public class CDITest extends CDITestHRController {
 		}
 
 	}
-	
-	
+
 	@Test
 	public void prospectRegionTest() {
 		try {
 
-			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			BeanFactory bf = CDI.current().select(BeanFactory.class).get();
 			@SuppressWarnings("rawtypes")
 			DataControl dc = bf.getProspect();
 

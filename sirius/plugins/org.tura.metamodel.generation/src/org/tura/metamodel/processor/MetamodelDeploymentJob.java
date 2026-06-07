@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,7 +30,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
@@ -38,7 +37,7 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.tura.metamodel.commons.QueryHelper;
-import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.commons.preferences.LogUtil;
 
 import recipe.Infrastructure;
 import recipe.Recipe;
@@ -48,8 +47,7 @@ public class MetamodelDeploymentJob extends Job {
 	public static String CONSOLE_NAME = "Metamodel output";
 	private IEditorPart editorPart;
 	private Infrastructure infrastructure;
-	private String job1 = Util.turaLocation()+"/processor/tura-gogo.sh";
-	private String job2 = "-c tura:build --recipeId ${recipeId} --infraId ${infraId} --modelFile ${file}";
+	private String job1 = "${TURA_HOME}/cli/tura.${ext} model build type EMF --recipeId ${recipeId} --infraId ${infraId} --source ${file}";
 	
 
 	public IEditorPart getEditorPart() {
@@ -101,16 +99,18 @@ public class MetamodelDeploymentJob extends Job {
 			
 			
 			job1 = job1.replace("${user_home}" , System.getProperty("user.home"));
-			job2 = job2.replace("${recipeId}" , recipe.getUid());
-			job2 = job2.replace("${infraId}" , infrastructure.getUid());
-			job2 = job2.replace("${file}" , path);
+			job1 = job1.replace("${recipeId}" , recipe.getUid());
+			job1 = job1.replace("${infraId}" , infrastructure.getUid());
+			job1 = job1.replace("${file}" , path);
 			
 			
-			System.out.println(job1 +" " + job2 );
 			if (isWindows) {
-				process = Runtime.getRuntime().exec( new String[] {job1,job2} );
+				process = Runtime.getRuntime().exec( new String[] {job1} );
 			} else {
-				process = Runtime.getRuntime().exec(new String[] {job1,job2});
+				job1 = job1.replace("${ext}" , "sh");
+				System.out.println( job1);
+
+				process = Runtime.getRuntime().exec(new String[] {"sh","-c", job1 });
 			}
 
 

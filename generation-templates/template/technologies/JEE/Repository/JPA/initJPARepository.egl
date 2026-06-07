@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -180,53 +180,6 @@
  
   public void initRules() {
 	  registry.addRule(org.tura.platform.repository.core.navigation.NavigationRuleTypes.AddObject_ValidateIsObjectContainment.name(), org.tura.platform.repository.core.navigation.AddObjectsDefaultRule.class);
-  }
- 
- 
-  public void initFeldsMapping() throws Exception{
-         [%
-         for(type in typeCollection){
-		     if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
-		           continue;
-		     }
-		     
-//	       if (type.findClassifier(util.getHint(model_mapper,"Domain Interface")) ){
-//	           continue;
-//	        }
-		     
-		     if (type.isKindOf(type::Enumerator )){
-		          continue;
-		     }
-			if( not types.contains(type)){
-	               continue;
-			}
-		     
-
-	          var tp = type;
-	          while (1 == 1){
-				  for ( field in tp.attributes){
-				  
-				    var column_name=  util.splitByCapitalLatterAndCapitalize(field.name);  
-				    if (field.findClassifier(util.getHint(model_mapper,"Column"))){
-				       column_name=field.~hintDetails;
-				    }
-				  
-				 %]
-				  spaRegistry.getRegistry("[%=component.artifactId%]").addSpaClassFieldMapper([%=t2model.get(type).get("fullName")%].class,"[%=util.mergeAndUnCapitalize(field.name).toLowerCase()%]","[%=column_name%]");
-				  [%
-				  }
-				  if (tp.~extension.isDefined()){
-				       tp = tp.~extension;
-				  }else{
-				       break;
-				 }
-		      }
-	      
-	    }
-
-       %] 
-
-  
   }
  
  

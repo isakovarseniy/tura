@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,23 @@
 
 package org.tura.jpa;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.tura.emulator.api.EmulatorControlApi;
 import org.tura.emulator.users.generated.ApiClient;
 import org.tura.emulator.users.generated.ApiException;
-import org.tura.emulator.users.generated.client.UserFacadeApi;
+import org.tura.emulator.users.generated.client.DefaultApi;
 
 import objects.test.serialazable.jpa.Client;
 import objects.test.serialazable.jpa.Person;
 import objects.test.serialazable.jpa.PersonType;
 
 public class EmulatorTest {
-	String basePath = "http://127.0.0.1:8080/emulator-control/rest";
+	String basePath = "http://127.0.0.1:8080/emulator-control";
 
-	String userBasePath = "http://127.0.0.1:8080/emulator-user/rest";
+	String userBasePath = "http://127.0.0.1:8080/emulator-user";
 
 	@Test
 	public void createTemplateTest() {
@@ -56,7 +56,7 @@ public class EmulatorTest {
 
 			ApiClient apiClient = new ApiClient();
 			apiClient.setBasePath(userBasePath);
-			UserFacadeApi userApi = new UserFacadeApi(apiClient);
+			DefaultApi userApi = new DefaultApi(apiClient);
 			org.tura.emulator.users.generated.model.Client client1 = userApi.getUser("qwerty");
 
 			assertEquals(client.getName(), client1.getName());
@@ -81,7 +81,7 @@ public class EmulatorTest {
 
 			ApiClient apiClient = new ApiClient();
 			apiClient.setBasePath(userBasePath);
-			UserFacadeApi userApi = new UserFacadeApi(apiClient);
+			DefaultApi userApi = new DefaultApi(apiClient);
 			try {
 				userApi.getUserWithHttpInfo("qwerty");
 				fail();

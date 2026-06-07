@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -68,8 +68,8 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
     %] 
 
 
-	@javax.inject.Inject
-	javax.enterprise.inject.spi.BeanManager bm;
+	@jakarta.inject.Inject
+	jakarta.enterprise.inject.spi.BeanManager bm;
     [%
      var pkg = control.eContainer();
 //     var relations = form::Relation.allInstances()->select(r|r.master= control);   
@@ -99,7 +99,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 		super();
 	}
 	
-	@javax.annotation.PostConstruct
+	@jakarta.annotation.PostConstruct
 	public void init() {
      try{
      
@@ -158,7 +158,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
       }
 	}	
 
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setKeys(
 			@org.tura.platform.datacontrol.annotations.Keys(fields = { 
     [%
@@ -175,7 +175,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setArtificialProperties(
 			@org.tura.platform.datacontrol.annotations.ArtificialFields(fields = {
    [%
@@ -194,14 +194,14 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setElResolver(org.tura.platform.datacontrol.ELResolver elResolver) {
 		this.elResolver = elResolver;
 	}
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setCreateObjectParameters(
 			@org.tura.platform.datacontrol.annotations.Create( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = { 
    [%
@@ -227,7 +227,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setSearchObjectParameters(
 			@org.tura.platform.datacontrol.annotations.Search( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
    [%
@@ -250,7 +250,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setQueryTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.CustomQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.QueryTrigger queryTrigger) {
@@ -259,7 +259,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setDeleteTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.CustomDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.DeleteTrigger deleteTrigger) {
@@ -267,7 +267,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 	
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPagerCleanerTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.CustomPagerCleaner("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PagerCleanerTrigger pagerCleanerTrigger) {
@@ -276,7 +276,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPreQueryTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreQueryTrigger preQueryTrigger) {
@@ -284,7 +284,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPostQueryTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostQueryTrigger postQueryTrigger) {
@@ -293,7 +293,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setCreateTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.CustomCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.CreateTrigger createTrigger) {
@@ -302,7 +302,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPostCreateTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostCreateTrigger postCreateTrigger) {
@@ -310,7 +310,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPreDeleteTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreDeleteTrigger preDeleteTrigger) {
@@ -318,7 +318,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPreInsertTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreInsertTrigger preInsertTrigger) {
@@ -326,7 +326,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setPreUpdateTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreUpdateTrigger preUpdateTrigger) {
@@ -335,7 +335,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setArtificialFieldInterceptor(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.ArtificialFieldInterceptor("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.OnChangeArtificialFieldTrigger onChangeArtificialFieldTrigger) {
@@ -396,8 +396,8 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
        
        %]
        if ("[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]".equals(relName)){
-       	javax.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC> bean = (javax.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC>) bm.getBeans( [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC.class).iterator().next();
-    	javax.enterprise.context.spi.CreationalContext<?> ctx = bm.createCreationalContext(bean);
+       	jakarta.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC> bean = (jakarta.enterprise.inject.spi.Bean< [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC>) bm.getBeans( [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC.class).iterator().next();
+    	jakarta.enterprise.context.spi.CreationalContext<?> ctx = bm.createCreationalContext(bean);
         [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer = ([%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC)bm.getReference(bean, [%=dcTreePrefix%][%=util.mergeAndCapitalize(relation.detail.name)%][%=dcSelfSuffix%]DC.class, ctx);
 		dc = [%=util.mergeAndUnCapitalize(relation.detail.name)%]producer;
 		}
@@ -420,7 +420,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
     
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setDefaultSearchCriteria(
 			@org.tura.platform.datacontrol.annotations.DefaultSearchCriterias(criterias = {
  
@@ -454,7 +454,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	}
 	
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setDefaultOrderCriteria(
 			@org.tura.platform.datacontrol.annotations.DefaultOrderBys(orders={
   [%
@@ -484,7 +484,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 	
    [% if ( control.~dependArray.isDefined() and not control.~treeRoot.isDefined()){%]
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setDependency(
 			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
     [%
@@ -503,7 +503,7 @@ public class [%=util.mergeAndCapitalize(control.name)%][%=controlSelfSuffix%]DC 
 [%}%]	
 	
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setAutoCreateObjectRule(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
 			@org.tura.platform.datacontrol.annotations.AutoCreateObject("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.DCRule autoCreateObjectRule) {

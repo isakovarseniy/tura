@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,71 +19,133 @@
 package org.tura.platform.repository.persistence;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Connection;
 import org.tura.platform.repository.core.annotation.Link;
+import org.tura.platform.repository.core.annotation.Links;
 
-public class ConnectionProcessor implements RelOperation{
+import com.octo.java.sql.exp.Operator;
+
+public class ConnectionProcessor implements RelOperation {
 	private static String SRC = "src";
 	public static String MASTER = "MASTER";
 	public static String DETAIL = "DETAIL";
-	
+
 	private Connection connection;
 	private Association association;
+	private Links links;
 
-	public ConnectionProcessor(Connection connection, Association association){
+	public ConnectionProcessor(Connection connection, Association association) {
 		this.connection = connection;
 		this.association = association;
 	}
-	
+
+	public ConnectionProcessor(Links links, Association association) {
+		this.links = links;
+		this.association = association;
+	}
+
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	public void connect(Object obj1, Object obj2) throws Exception {
-		Map<String,Object> h = sortObject(obj1, obj2);
+		Map<String, Object> h = sortObject(obj1, obj2);
 		Object master = h.get(MASTER);
 		Object detail = h.get(DETAIL);
-		
-		for ( Link lnk : connection.links()) {
-			String srcName = "get"+WordUtils.capitalize(lnk.field1());
-			Method srcM = master.getClass().getMethod(srcName, new Class<?>[]{} );
-			Object value = srcM.invoke(master);
-			
-			String trgName = "set"+WordUtils.capitalize(lnk.field2());
-			Method trgM = detail.getClass().getMethod(trgName, new Class<?>[]{srcM.getReturnType()});
-			
-			trgM.invoke(detail, value);
-			
+
+		Link[] con = null;
+		if (connection != null) {
+			con = connection.links();
+		} else {
+			con = links.links();
 		}
-		
+
+		for (Link lnk : con) {
+			String srcName = "get" + WordUtils.capitalize(lnk.field1() + lnk.field1Suffix());
+			Method srcM = master.getClass().getMethod(srcName, new Class<?>[] {});
+			Object value = srcM.invoke(master);
+
+			String trgName = "set" + WordUtils.capitalize(lnk.field2() + lnk.field2Suffix());
+			Method trgM = detail.getClass().getMethod(trgName, new Class<?>[] { srcM.getReturnType() });
+
+			trgM.invoke(detail, value);
+
+		}
+
 	}
-	
+
+	public List<SearchCriteria> buildSearchCriteria(Object obj1) throws Exception {
+		Map<String, Object> h = sortObject(obj1, null);
+
+		List<SearchCriteria> search = new ArrayList<SearchCriteria>();
+
+		Object master = h.get(MASTER);
+		Object detail = h.get(DETAIL);
+
+		Link[] con = links.links();
+
+		for (Link lnk : con) {
+			Object value = null;
+			if (master != null) {
+				String srcName = "get" + WordUtils.capitalize(lnk.field1() + lnk.field1Suffix());
+				Method srcM = master.getClass().getMethod(srcName, new Class<?>[] {});
+				value = srcM.invoke(master);
+
+				if (value != null) {
+					SearchCriteria sc = new SearchCriteria(lnk.field2(), Operator.EQ.name(), value,
+							value.getClass().getName());
+					search.add(sc);
+				}
+
+			} else {
+				String srcName = "get" + WordUtils.capitalize(lnk.field2());
+				Method srcM = detail.getClass().getMethod(srcName, new Class<?>[] {});
+				value = srcM.invoke(detail);
+
+				if (value != null) {
+					SearchCriteria sc = new SearchCriteria(lnk.field1() + lnk.field1Suffix(), Operator.EQ.name(), value,
+							value.getClass().getName());
+					search.add(sc);
+				}
+
+			}
+
+		}
+		return search;
+	}
 
 	public void disconnect(Object obj1, Object obj2) throws Exception {
-		Map<String,Object> h = sortObject(obj1, obj2);
+		Map<String, Object> h = sortObject(obj1, obj2);
 		Object master = h.get(MASTER);
 		Object detail = h.get(DETAIL);
-		
-		for ( Link lnk : connection.links()) {
-			String trgGetName = "get"+WordUtils.capitalize(lnk.field1());
-			Method trgGetM = master.getClass().getMethod(trgGetName, new Class<?>[]{} );
-			
-			String trgSetName = "set"+WordUtils.capitalize(lnk.field2());
-			Method trgM = detail.getClass().getMethod(trgSetName, new Class<?>[]{trgGetM.getReturnType()});
-			trgM.invoke(detail, new Object[] {null});
 
-			
+		Link[] con = null;
+		if (connection != null) {
+			con = connection.links();
+		} else {
+			con = links.links();
+		}
+
+		for (Link lnk : con) {
+			String trgGetName = "get" + WordUtils.capitalize(lnk.field1());
+			Method trgGetM = master.getClass().getMethod(trgGetName, new Class<?>[] {});
+
+			String trgSetName = "set" + WordUtils.capitalize(lnk.field2() + lnk.field2Suffix());
+			Method trgM = detail.getClass().getMethod(trgSetName, new Class<?>[] { trgGetM.getReturnType() });
+			trgM.invoke(detail, new Object[] { null });
+
 		}
 	}
-	
-	
+
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		throw new UnsupportedOperationException();
@@ -94,49 +156,64 @@ public class ConnectionProcessor implements RelOperation{
 		throw new UnsupportedOperationException();
 	}
 
-	private Map<String, Object> sortObject(Object obj1, Object obj2){
-		Map<String,Object> h = new HashMap<>();
-		if (connection.type().equals( SRC)){
+	public Map<String, Object> sortObject(Object obj1, Object obj2) {
+		Map<String, Object> h = new HashMap<>();
+		String contype = null;
+		if (connection != null) {
+			contype = connection.type();
+		} else {
+			contype = links.type();
+		}
+
+		if (contype.equals(SRC)) {
 			if (obj1.getClass().equals(association.mappedBy())) {
 				h.put(MASTER, obj2);
 				h.put(DETAIL, obj1);
 				return h;
-			}else{
+			} else {
 				h.put(MASTER, obj1);
 				h.put(DETAIL, obj2);
 				return h;
 			}
-		}else{
+		} else {
 			if (obj1.getClass().equals(association.mappedBy())) {
 				h.put(MASTER, obj1);
 				h.put(DETAIL, obj2);
 				return h;
-			}else{
+			} else {
 				h.put(MASTER, obj2);
 				h.put(DETAIL, obj1);
 				return h;
 			}
 		}
 	}
-	
-	public Map<String, Class<?>> sortObject(Class<?> obj1, Class<?> obj2){
-		Map<String,Class<?>> h = new HashMap<>();
-		if (connection.type().equals( SRC)){
+
+	public Map<String, Class<?>> sortObject(Class<?> obj1, Class<?> obj2) {
+		Map<String, Class<?>> h = new HashMap<>();
+
+		String contype = null;
+		if (connection != null) {
+			contype = connection.type();
+		} else {
+			contype = links.type();
+		}
+
+		if (contype.equals(SRC)) {
 			if (obj1.equals(association.mappedBy())) {
 				h.put(MASTER, obj2);
 				h.put(DETAIL, obj1);
 				return h;
-			}else{
+			} else {
 				h.put(MASTER, obj1);
 				h.put(DETAIL, obj2);
 				return h;
 			}
-		}else{
+		} else {
 			if (obj1.equals(association.mappedBy())) {
 				h.put(MASTER, obj1);
 				h.put(DETAIL, obj2);
 				return h;
-			}else{
+			} else {
 				h.put(MASTER, obj2);
 				h.put(DETAIL, obj1);
 				return h;
@@ -145,4 +222,3 @@ public class ConnectionProcessor implements RelOperation{
 	}
 
 }
-

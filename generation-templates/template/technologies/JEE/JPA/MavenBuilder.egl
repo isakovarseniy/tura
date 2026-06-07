@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -29,10 +29,10 @@
 
 			<dependencies>
 				<dependency>
-					<groupId>javax</groupId>
-					<artifactId>javaee-api</artifactId>
-					<version>6.0</version>
-					<scope>provided</scope>
+                    <groupId>jakarta.platform</groupId>
+                    <artifactId>jakarta.jakartaee-api</artifactId>
+                    <version>10.0.0</version>
+    				<scope>provided</scope>
 				</dependency>
 
        [% for (type in lib.values()) { %]

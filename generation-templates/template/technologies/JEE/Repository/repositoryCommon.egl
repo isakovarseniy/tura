@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -135,8 +135,15 @@
        }
  } 
  
-  @template
+ 
+   @template
  operation copyLink (type, alltypes, inObj, outObj,model_mapper,recipe,ingredient){
+       %][%=copyLink (type, alltypes, inObj, outObj,model_mapper,recipe,ingredient,false)%][%
+
+ }
+ 
+  @template
+ operation copyLink (type, alltypes, inObj, outObj,model_mapper,recipe,ingredient, forceNotJpa){
  
       var util = new Native('org.tura.metamodel.commons.Util');
       var pkg = type.eContainer();
@@ -155,7 +162,7 @@
                continue;
 		}
 		      
-         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object") )   or forceNotJpa  ){
                %][%=rel.copyLink(recipe,ingredient,inObj, outObj)%][%
                continue;
          }
@@ -175,7 +182,7 @@
       for (interface in interfaces){
          var tp = interface.target.unwrap();
       %]
-      [%=copyLink(tp, alltypes, inObj, outObj,model_mapper,recipe,ingredient)%]
+      [%=copyLink(tp, alltypes, inObj, outObj,model_mapper,recipe,ingredient,forceNotJpa)%]
       [%
       }
       

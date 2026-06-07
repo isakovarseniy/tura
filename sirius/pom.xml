@@ -2,7 +2,7 @@
 <!--
       Tura - Application generation solution
 
-      Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+      Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
 
 
       This project includes software developed by Arseniy Isakov
@@ -20,23 +20,21 @@
 
 	<groupId>org.tura.metamodel</groupId>
 	<artifactId>parent</artifactId>
-	<version>6.1.2</version>
+	<version>6.3.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<tycho.version>3.0.4</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gmf-url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</gmf-url>
-		<qvt-url>http://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</qvt-url>
-
 
 		<!-- Dependency for importing in eclipse to create a new workbanch -->
-		<eclipse-repo.url>https://download.eclipse.org/releases/2023-03/</eclipse-repo.url>
+		<eclipse-repo.url>https://download.eclipse.org/releases/2024-09/</eclipse-repo.url>
 		<emfatic-repo.url>http://download.eclipse.org/emfatic/update/</emfatic-repo.url>
 		<epsilon-repo.url>http://download.eclipse.org/epsilon/updates/2.4/</epsilon-repo.url>
 		<sirius-repo.url>
-			http://download.eclipse.org/sirius/updates/releases/7.1.0/2021-06</sirius-repo.url>
+			http://download.eclipse.org/sirius/updates/releases/7.4.6/2023-03</sirius-repo.url>
 		<!-- Dependency for importing in eclipse to creaye a new workbanch -->
+
 	</properties>
 
 	<repositories>
@@ -62,6 +60,22 @@
 		</repository>
 
 
+		<repository>
+			<id>orbit</id>
+			<url>https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2023-09</url>
+			<layout>p2</layout>
+		</repository>
+
+
+		<repository>
+			<id>javax</id>
+			<url>https://download.eclipse.org/staging/2021-03</url>
+			<layout>p2</layout>
+		</repository>
+
+
+
+
 	</repositories>
 
 	<modules>
@@ -72,6 +86,7 @@
 
 	<build>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
@@ -104,7 +119,7 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
+				<version> 4.0.13</version>
 				<configuration>
 					<environments>
 						<environment>
@@ -121,6 +136,11 @@
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>aarch64</arch>
 						</environment>
 					</environments>
 				</configuration>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 
 package org.tura.platform.test.hrcontrol;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkArtificialProperties;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkConnection;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTrigger;
@@ -48,7 +48,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.tura.example.ui.datacontroldisconnectedmodel.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.datacontroldisconnectedmodel.hrcontroller.datacontrol.EmployeeDC;
 import org.tura.platform.datacontrol.DCRule;

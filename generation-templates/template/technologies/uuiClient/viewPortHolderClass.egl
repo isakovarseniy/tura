@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,7 +26,7 @@ operation  viewPortHolderClass(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].viewmodel;
-@javax.inject.Named("viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+@jakarta.inject.Named("viewPortHolder[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 @[%=viewmodel_scope()%]
 public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHolder, [%}%] java.io.Serializable{
 
@@ -59,10 +59,10 @@ public class ViewPortHolder implements [%if (allPorts.size()<>0 ){%] IViewPortHo
 [%
       for (port in allPorts){
 %]      
-       @javax.inject.Inject
+       @jakarta.inject.Inject
        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
        @org.tura.platform.datacontrol.annotations.ViewPortTrigger("[%=util.mergeAndUnCapitalize(port.name)%]")
-      private  javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.ViewPortCommand>  trigger[%=util.mergeAndCapitalize(port.name)%];
+      private  jakarta.enterprise.inject.Instance<org.tura.platform.datacontrol.command.ViewPortCommand>  trigger[%=util.mergeAndCapitalize(port.name)%];
 [%     
       }
 %]

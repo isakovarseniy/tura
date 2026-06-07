@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -59,14 +59,14 @@ public class TreeRoot[%=util.mergeAndCapitalize(control.name)%]DC extends org.tu
     %] 
 
 
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setRoot([%=util.mergeAndCapitalize(control.name)%]DC root)  {
 		super.setRoot(root);
 		root.setTreeContext(this);
 	}
 
 	@Override
-	@javax.inject.Inject
+	@jakarta.inject.Inject
 	public void setDependency(
 			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
     [%

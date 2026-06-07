@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,13 @@
 
 package org.tura.platform.datacontrol;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,16 +32,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
@@ -54,7 +48,8 @@ import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.cpa.CpaRepository;
-import org.tura.platform.repository.init.Factory;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.uuiclient.model.GridModel;
@@ -63,57 +58,45 @@ import org.tura.platform.uuiclient.model.ModelHelper;
 
 import com.octo.java.sql.exp.Operator;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public abstract class AbstractSingleDataControl {
 
-	protected static Factory factory;
-
-	private static Server server;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
 	public static Class<?> deparmentClass;
 	public static Class<?> employeeClass;
 	public static String deparmentString;
 	public static String employeeString;
 
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 
 	public static void beforeClass() throws Exception {
 		PlatformConfig.TEST_MODE = true;
-		server = Server.createTcpServer().start();
-		factory = new Factory();
+		storageProvider.startServer();
+		storageProvider.initSession();
 
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		Factory.getRepositoryProducer().em = emf.createEntityManager();
-
-		factory.getEntityManager().getTransaction().begin();
-
-		factory.initDB(deparmentString, factory.getEntityManager());
-		try {
-			factory.initDB(employeeString, factory.getEntityManager());
-			factory.getEntityManager().getTransaction().commit();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		storageProvider.startTransaction();
+		storageProvider.initData("InitDB0", deparmentString,employeeString);
+		storageProvider.commitTransaction();
 
 	}
 
-	@Before
+	@BeforeEach
 	public void init() throws Exception {
-		factory.clean();
+		storageProvider.clean();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t1_getObject() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(10L) );
+			assertEquals(row.getObjId(), storageProvider.cDept(10L) );
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,31 +104,32 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t2_scrolling() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			Long id = Long.valueOf(10);
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
+			assertEquals(dc.getCurrentObject().getObjId(), storageProvider.cDept(id));
 
 			id = Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
+			assertEquals(dc.getCurrentObject().getObjId(), storageProvider.cDept(id));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -153,10 +137,11 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t3_defaultSearchCriteriaWithConstant() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
@@ -164,13 +149,13 @@ public abstract class AbstractSingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.GT.name());
-			s.setValue(factory.cDept(Long.valueOf(30)));
+			s.setValue(storageProvider.cDept(Long.valueOf(30)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(40)));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -178,12 +163,13 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t4_defaultSearchCriteriaWithExpression() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
-			dc.getElResolver().setValue("limit", factory.cDept(Long.valueOf(30)));
+			dc.getElResolver().setValue("limit", storageProvider.cDept(Long.valueOf(30)));
 
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
 
@@ -196,7 +182,7 @@ public abstract class AbstractSingleDataControl {
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(40)));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -204,11 +190,12 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t3_randomUpdate() {
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			DepartmentType obj = dc.getCurrentObject();
@@ -236,13 +223,14 @@ public abstract class AbstractSingleDataControl {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t5_removeScrollDownScrollUpCpmmitScrollDown() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			setPreDeleteTrigger(dc);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
@@ -265,34 +253,34 @@ public abstract class AbstractSingleDataControl {
 			Long id = Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
+			assertEquals(dc.getCurrentObject().getObjId(), storageProvider.cDept(id));
 
 			id = Long.valueOf(270);
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id - 10L;
 				dc.prevObject();
 			} while (dc.hasPrev());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
+			assertEquals(dc.getCurrentObject().getObjId(), storageProvider.cDept(id));
 
 			stackProvider.get().commit();
 
 			id = Long.valueOf(50);
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
 			// Check last row
-			assertEquals(dc.getCurrentObject().getObjId(), factory.cDept(id));
+			assertEquals(dc.getCurrentObject().getObjId(), storageProvider.cDept(id));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -302,13 +290,14 @@ public abstract class AbstractSingleDataControl {
 
 	protected abstract void setPreDeleteTrigger(DataControl<DepartmentType> dc);
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t6_defaultSearchCriteriaWithConstantUpdateRequery() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
@@ -316,13 +305,13 @@ public abstract class AbstractSingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(factory.cDept(Long.valueOf(70)));
+			s.setValue(storageProvider.cDept(Long.valueOf(70)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(70)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(70)));
 
 			dc.getCurrentObject().setDepartmentName("test");
 			dc.getCurrentObject().setDepartmentName("qwerty");
@@ -339,16 +328,17 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t7_preQueryPostQueryTriggers() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPreQueryTrigger(new DepartmentDCPreQueryTrigger());
 			dc.setPostQueryTrigger(new DepartmentDCPostQueryTrigger());
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(70)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(70)));
 			assertEquals(row.getDepartmentName(), "test");
 
 		} catch (Exception e) {
@@ -357,13 +347,14 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t8_scrollDownAddCommitScrollDown() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
 
 			dc.getElResolver().setValue("departments", dc);
@@ -395,7 +386,7 @@ public abstract class AbstractSingleDataControl {
 			Long id = 50L;
 			for (int i = 0; i < 4; i++) {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			}
@@ -421,7 +412,7 @@ public abstract class AbstractSingleDataControl {
 			id = 50L;
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				assertEquals(row.getObjId(), factory.cDept(id));
+				assertEquals(row.getObjId(), storageProvider.cDept(id));
 				id = id + 10L;
 				dc.nextObject();
 			} while (dc.hasNext());
@@ -433,8 +424,8 @@ public abstract class AbstractSingleDataControl {
 			id = 50L;
 			do {
 				DepartmentType row = dc.getCurrentObject();
-				if (factory.cDept(id) != null) {
-					assertEquals(row.getObjId(), factory.cDept(id));
+				if (storageProvider.cDept(id) != null) {
+					assertEquals(row.getObjId(), storageProvider.cDept(id));
 				} else {
 					break;
 				}
@@ -459,10 +450,11 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t9_removeLastRow() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			dc.getCurrentObject();
@@ -487,10 +479,11 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t10_seek() {
 		try {
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			DepartmentType o = dc.getCurrentObject();
@@ -514,7 +507,7 @@ public abstract class AbstractSingleDataControl {
 
 				isSet = dc.setCurrentPosition(26);
 				assertEquals(true, isSet);
-				assertEquals((long) (factory.cDept((long) 270)), (long) (dc.getCurrentObject().getObjId()));
+				assertEquals((long) (storageProvider.cDept((long) 270)), (long) (dc.getCurrentObject().getObjId()));
 
 				isSet = dc.setCurrentPosition(-3);
 				assertEquals(false, isSet);
@@ -524,7 +517,7 @@ public abstract class AbstractSingleDataControl {
 
 				isSet = dc.setCurrentPosition(25);
 				assertEquals(true, isSet);
-				assertEquals((long) (factory.cDept((long) 260)), (long) (dc.getCurrentObject().getObjId()));
+				assertEquals((long) (storageProvider.cDept((long) 260)), (long) (dc.getCurrentObject().getObjId()));
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -537,13 +530,14 @@ public abstract class AbstractSingleDataControl {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t11_rallback() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			DepartmentType o = dc.getCurrentObject();
@@ -563,13 +557,14 @@ public abstract class AbstractSingleDataControl {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t12_create() {
 		final int[] createRow = { 0 };
 
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			dc.addEventLiteners(new EventListener() {
@@ -591,18 +586,19 @@ public abstract class AbstractSingleDataControl {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t13_removeWithPositioning() {
 
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
 			dc.setCurrentPosition(24);
 
 			DepartmentType d = dc.getCurrentObject();
-			assertEquals(factory.cDept(Long.valueOf(250)), d.getObjId());
+			assertEquals(storageProvider.cDept(Long.valueOf(250)), d.getObjId());
 
 			dc.removeObject();
 
@@ -616,13 +612,14 @@ public abstract class AbstractSingleDataControl {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t14_defaultSearchCriteriaWithConstant() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
@@ -630,16 +627,16 @@ public abstract class AbstractSingleDataControl {
 			SearchCriteria s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(factory.cDept(Long.valueOf(10)));
+			s.setValue(storageProvider.cDept(Long.valueOf(10)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 			DepartmentType row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(10)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(10)));
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(10)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(10)));
 
 			stackProvider.get().savePoint();
 
@@ -648,21 +645,21 @@ public abstract class AbstractSingleDataControl {
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(factory.cDept(Long.valueOf(20)));
+			s.setValue(storageProvider.cDept(Long.valueOf(20)));
 			sc.add(s);
 
 			dc.setDefaultSearchCriteria(sc);
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(20)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(20)));
 
 			sc = new ArrayList<>();
 
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(factory.cDept(Long.valueOf(30)));
+			s.setValue(storageProvider.cDept(Long.valueOf(30)));
 			sc.add(s);
 			dc.setDefaultSearchCriteria(sc);
 
@@ -671,23 +668,23 @@ public abstract class AbstractSingleDataControl {
 			s = new SearchCriteria();
 			s.setName("objId");
 			s.setComparator(Operator.EQ.name());
-			s.setValue(factory.cDept(Long.valueOf(40)));
+			s.setValue(storageProvider.cDept(Long.valueOf(40)));
 			sc.add(s);
 			dc.setDefaultSearchCriteria(sc);
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(40)));
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(40)));
 
 			stackProvider.get().rallbackSavePoint();
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
-			assertEquals(row.getObjId(), factory.cDept(Long.valueOf(40)));
+			assertEquals(row.getObjId(), storageProvider.cDept(Long.valueOf(40)));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -723,7 +720,7 @@ public abstract class AbstractSingleDataControl {
 				SearchCriteria s = new SearchCriteria();
 				s.setName("objId");
 				s.setComparator(Operator.EQ.name());
-				s.setValue(factory.cDept(Long.valueOf(70)));
+				s.setValue(storageProvider.cDept(Long.valueOf(70)));
 				s.setClassName(Long.class.getName());
 
 				datacontrol.getSearchCriteria().add(s);
@@ -736,11 +733,12 @@ public abstract class AbstractSingleDataControl {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t15_findObjectKey() {
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			
@@ -776,15 +774,16 @@ public abstract class AbstractSingleDataControl {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t16_findObjectKey() {
 		try {
 			
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
 			
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			
@@ -811,11 +810,12 @@ public abstract class AbstractSingleDataControl {
 	}	
 	
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t17_findObjectKey() {
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 			
@@ -845,11 +845,12 @@ public abstract class AbstractSingleDataControl {
 	}	
 
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t18_findObjectKey() {
 		try {
 
-			DataControl<DepartmentType> dc = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dc = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dc.getElResolver().setValue("departments", dc);
 			dc.setPageSize(5);
 

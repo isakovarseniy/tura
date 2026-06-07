@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
@@ -35,41 +35,19 @@
 
 	<dependencies>
 
-
 		<dependency>
 			<groupId>org.tura.platform.test</groupId>
 			<artifactId>commons-test</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.tura.platform.test</groupId>
 			<artifactId>commons-test-spa-service</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>de.odysseus.juel</groupId>
-			<artifactId>juel</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>core</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
 			<scope>compile</scope>
 		</dependency>
 
@@ -91,49 +69,59 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-objects-repository-non-lazy</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-spa-repository-non-lazy</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-objects-repository-proxy-non-lazy</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId>
 		</dependency>
 
+
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-objects-pagers-non-lazy</artifactId>
-			<version>${project.version}</version>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-jpa-repository-non-lazy</artifactId>
+			<version>${project.version}</version>
+			<!-- Must be provided-->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-spa-repository-non-lazy</artifactId>
+			<version>${project.version}</version>
+			<!-- Must be provided-->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-objects-repository-proxy-non-lazy</artifactId>
+			<version>${project.version}</version>
+			<!-- Must be provided-->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-objects-pagers-non-lazy</artifactId>
+			<version>${project.version}</version>
+			<!-- Must be provided-->
+			<scope>provided</scope>
 		</dependency>
 
 

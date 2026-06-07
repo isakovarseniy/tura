@@ -1,3 +1,0 @@
-tura:docker stopContainer --name ${mm_postgres_cnt_name}
-
-tura:docker removeContainer --name ${mm_postgres_cnt_name}

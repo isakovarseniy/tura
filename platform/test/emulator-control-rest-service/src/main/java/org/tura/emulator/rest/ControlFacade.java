@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,41 +18,47 @@
 
 package org.tura.emulator.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
-
 import org.tura.emulator.EmulatorControl;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiParam;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Response;
 
-@Api("ControlFacade")
+
 @Path("control")
 public class ControlFacade {
 
 	@GET
 	@Path("initSession")
-	public void initSession(@QueryParam("serviceName") String serviceName, @QueryParam("methodName") String methodName,
-			@QueryParam("sessionType") String sessionType) throws Exception {
+	public Response initSession(@QueryParam("serviceName") String serviceName,
+			@QueryParam("methodName") String methodName, @QueryParam("sessionType") String sessionType)
+			throws Exception {
 		EmulatorControl control = new EmulatorControl(serviceName, methodName);
 		control.initSession(sessionType);
+		return Response.ok().build();
 	}
 
 	@POST
+	@Consumes("application/json")
 	@Path("createReturnObjectCommand")
-	public void createReturnObjectCommand(CreateReturnObject object) throws Exception {
+	public Response createReturnObjectCommand(CreateReturnObject object) throws Exception {
 		EmulatorControl control = new EmulatorControl(object.getServiceName(), object.getMethodName());
 		control.createReturnObjectCommand(object.getSequence(), object.getType(), object.getPayload(),
 				object.getDalay());
+		return Response.ok().build();
 	}
 
 	@POST
+	@Consumes("application/json")
 	@Path("createExceptionObjectCommand")
-	public void createExceptionObjectCommand(CreateExceptionObject object) throws Exception {
+	public Response createExceptionObjectCommand(CreateExceptionObject object) throws Exception {
 		EmulatorControl control = new EmulatorControl(object.getServiceName(), object.getMethodName());
 		control.createExceptionObjectCommand(object.getSequence(), object.getCode(), object.getMessage());
+		return Response.ok().build();
+
 	}
 
 }

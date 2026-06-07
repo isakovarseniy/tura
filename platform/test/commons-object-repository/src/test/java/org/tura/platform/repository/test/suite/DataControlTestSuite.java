@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,9 @@
 
 package org.tura.platform.repository.test.suite;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
 import org.tura.platform.datacontrol.D1MasterDetailDataControlPoolTest;
 import org.tura.platform.datacontrol.D1MasterDetailTest;
 import org.tura.platform.datacontrol.D1SingleDataControlPoolTest;
@@ -29,8 +30,8 @@ import org.tura.platform.datacontrol.D2MasterDetailTest;
 import org.tura.platform.datacontrol.D2SingleDataControlPoolTest;
 import org.tura.platform.datacontrol.D2SingleDataControlTest;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({ 
+@Suite
+@SelectClasses({ 
 
 	D1SingleDataControlTest.class,
 	D2SingleDataControlTest.class,

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,34 +18,27 @@
 
 package org.tura.platform.datacontrol;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
 
-import java.text.ParseException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.repository.cpa.CpaRepository;
-import org.tura.platform.repository.init.Factory;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public abstract class AbstractMasterDetailDataControlPool {
 
-	protected static Factory factory;
-
-	private static Server server;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 
 	public static Class<?> deparmentClass;
 	public static Class<?> employeeClass;
@@ -55,56 +48,47 @@ public abstract class AbstractMasterDetailDataControlPool {
 	protected abstract void setParent(DepartmentType dep, EmployeeType newrow,CpaRepository repository) throws Exception ;
 	
 	
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 	
 	
 	public static void beforeClass() throws Exception{
 		PlatformConfig.TEST_MODE = true;
-		server = Server.createTcpServer().start();
-		factory = new Factory();
+		storageProvider.startServer();
+		storageProvider.initSession();
+		
 
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		Factory.getRepositoryProducer().em = emf.createEntityManager();
-
-		factory.getEntityManager().getTransaction().begin();
-
-		factory.initDB(deparmentString, factory.getEntityManager());
-		try {
-			factory.initDB(employeeString, factory.getEntityManager());
-			factory.getEntityManager().getTransaction().commit();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		storageProvider.startTransaction();
+		storageProvider.initData("InitDB0", deparmentString,employeeString);
+		storageProvider.commitTransaction();
 
 	}
 	
 	
-	@Before
+	@BeforeEach
 	public void init() throws Exception{
-		factory.clean();
+		storageProvider.clean();
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t1_getApplyCreateModification() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dcd = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dcd = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dcd.getElResolver().setValue("departments", dcd);
 
-			DataControl<DepartmentType> dcd1 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dcd1 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dcd.getElResolver().setValue("Ndepartments", dcd1);
 			
 			
-			DataControl<EmployeeType> dce = factory.initEmployees("",employeeString);
+			DataControl<EmployeeType> dce = (DataControl<EmployeeType>) storageProvider.initEmployees("",employeeString);
 			dce.getElResolver().setValue("employees", dce);
 			
-			factory.setRelatioin(dcd, dce);
+			storageProvider.setRelatioin(dcd, dce);
 
 			DepartmentType dep1 =  dcd1.getCurrentObject();
 			
@@ -125,22 +109,23 @@ public abstract class AbstractMasterDetailDataControlPool {
 	
 	
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t2_getApplyCreateModificationIsolated() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dcd = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dcd = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dcd.getElResolver().setValue("departments", dcd);
 			
 			
-			DataControl<DepartmentType> dcd1 = factory.initDepartments("N", deparmentString);
+			DataControl<DepartmentType> dcd1 = (DataControl<DepartmentType>) storageProvider.initDepartments("N", deparmentString);
 			dcd.getElResolver().setValue("Ndepartments", dcd1);
 			
-			DataControl<EmployeeType> dce = factory.initEmployees("",employeeString);
+			DataControl<EmployeeType> dce = (DataControl<EmployeeType>) storageProvider.initEmployees("",employeeString);
 			dce.getElResolver().setValue("employees", dce);
 
-			factory.setRelatioin(dcd, dce);
+			storageProvider.setRelatioin(dcd, dce);
 			
 			DepartmentType dep1 =  dcd1.getCurrentObject();
 
@@ -166,18 +151,19 @@ public abstract class AbstractMasterDetailDataControlPool {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t3_getApplyCreateModificationMasterIsolated() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dcd = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dcd = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeeType> dce = factory.initEmployees("",employeeString);
+			DataControl<EmployeeType> dce = (DataControl<EmployeeType>) storageProvider.initEmployees("",employeeString);
 			dce.getElResolver().setValue("employees", dce);
 			
-			factory.setRelatioin(dcd, dce);
+			storageProvider.setRelatioin(dcd, dce);
 
 			
 			DepartmentType rowd =  dcd.getCurrentObject();
@@ -209,18 +195,19 @@ public abstract class AbstractMasterDetailDataControlPool {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void t4_getApplyCreateModificationMasterIsolated() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			
-			DataControl<DepartmentType> dcd = factory.initDepartments("", deparmentString);
+			DataControl<DepartmentType> dcd = (DataControl<DepartmentType>) storageProvider.initDepartments("", deparmentString);
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeeType> dce = factory.initEmployees("",employeeString);
+			DataControl<EmployeeType> dce = (DataControl<EmployeeType>) storageProvider.initEmployees("",employeeString);
 			dce.getElResolver().setValue("employees", dce);
 			
-			factory.setRelatioin(dcd, dce);
+			storageProvider.setRelatioin(dcd, dce);
 
 			
 			DepartmentType rowd =  dcd.getCurrentObject();

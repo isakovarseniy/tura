@@ -83,7 +83,7 @@ import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
 
-import javax.servlet.http.Part;
+import jakarta.servlet.http.Part;
 
 /**
  * <p>

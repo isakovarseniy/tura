@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -111,6 +111,7 @@ operation type::TypeElement mappingType2Metamodel( recipe:Recipe, ingredient :In
          self.~metaPackage= "Unable to find Type2Metamodel for type \""+ container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~metaClass= "Unable to find Type2Metamodel";
          self.~metaFullName=self.~metaPackage+"::"+self.~metaClass;
+         self.~error= true;
      }
 }
 
@@ -189,6 +190,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
          self.~class="Unable to find XMLMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~namespace= "Unable to find XMLMapper for type \""+ container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~fullname=self.~namespace+"#"+self.~class;
+         self.~error= true;
      }
 
 }
@@ -302,6 +304,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
          self.~artifactId="Unable to find JavaMapper for type \""+ container+"." + tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~groupId="Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~version= "Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
+         self.~error= true;
          
      }
 } 

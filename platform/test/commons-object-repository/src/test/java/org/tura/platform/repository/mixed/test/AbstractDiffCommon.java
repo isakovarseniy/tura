@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,24 +25,24 @@ import java.util.Map;
 import org.tura.jpa.test.OneWay1A;
 import org.tura.jpa.test.OneWay2A;
 import org.tura.jpa.test.OneWay3A;
-import org.tura.platform.repository.RepositoryProducer;
 import org.tura.platform.repository.cpa.CpaRepository;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.mapper.OneWay1AMapper;
 
 public abstract class AbstractDiffCommon {
 
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
+
 	CpaRepository proxyRepository;
 	ProxyCommadStackProvider sp;
 
-	private static RepositoryProducer repositoryProducer = new RepositoryProducer();
-
 	private void initRepo() {
 		try {
-			proxyRepository = repositoryProducer.getProxyRepository(null);
+			proxyRepository = storageProvider.getMixRepository();
 			sp = proxyRepository.getStackProvider();
-			repositoryProducer.getMixRepository();
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -80,7 +80,7 @@ public abstract class AbstractDiffCommon {
 
 	protected void diff(OneWay1A oneWay1A, objects.test.serialazable.jpa.OneWay1A proxyOneWay1A) throws Exception {
 		OneWay1AMapper mapper = new OneWay1AMapper();
-		mapper.setRegistry(repositoryProducer.registry);
+		mapper.setRegistry(storageProvider.getRegistry());
 		mapper.setProxyFactory(proxyRepository);
 		mapper.copyPKFromPersistence2Repository(oneWay1A , proxyOneWay1A );
 		Object objPk = mapper.getPrimaryKeyFromRepositoryObject(proxyOneWay1A);
@@ -93,7 +93,7 @@ public abstract class AbstractDiffCommon {
 	protected objects.test.serialazable.jpa.OneWay1A getProxyObject(OneWay1A oneWay1A) throws Exception {
 
 		OneWay1AMapper mapper = new OneWay1AMapper();
-		mapper.setRegistry(repositoryProducer.registry);
+		mapper.setRegistry(storageProvider.getRegistry());
 
 		objects.test.serialazable.jpa.OneWay1A oneWay1ACloned = new objects.test.serialazable.jpa.OneWay1A();
 		mapper.copyFromPersistence2Repository(oneWay1A, oneWay1ACloned);

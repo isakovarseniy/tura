@@ -1,135 +1,139 @@
 {
-  "swagger": "2.0",
-  "tags": [
-    {
-      "name": "ControlFacade"
-    }
-  ],
+  "openapi": "3.0.1",
   "paths": {
-    "/control/initSession": {
+    "/rest/control/createExceptionObjectCommand": {
+      "post": {
+        "operationId": "createExceptionObjectCommand",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateExceptionObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/control/createReturnObjectCommand": {
+      "post": {
+        "operationId": "createReturnObjectCommand",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReturnObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/control/initSession": {
       "get": {
-        "tags": [
-          "ControlFacade"
-        ],
         "operationId": "initSession",
         "parameters": [
           {
             "name": "serviceName",
             "in": "query",
-            "required": false,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "methodName",
             "in": "query",
-            "required": false,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "sessionType",
             "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/control/createReturnObjectCommand": {
-      "post": {
-        "tags": [
-          "ControlFacade"
-        ],
-        "operationId": "createReturnObjectCommand",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
             "schema": {
-              "$ref": "#/definitions/CreateReturnObject"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/control/createExceptionObjectCommand": {
-      "post": {
-        "tags": [
-          "ControlFacade"
-        ],
-        "operationId": "createExceptionObjectCommand",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/CreateExceptionObject"
+            "description": "default response",
+            "content": {
+              "*/*": {
+
+              }
             }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "successful operation"
           }
         }
       }
     }
   },
-  "definitions": {
-    "CreateReturnObject": {
-      "type": "object",
-      "properties": {
-        "serviceName": {
-          "type": "string"
-        },
-        "methodName": {
-          "type": "string"
-        },
-        "sequence": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "type": {
-          "type": "string"
-        },
-        "payload": {
-          "type": "string"
-        },
-        "dalay": {
-          "type": "integer",
-          "format": "int64"
+  "components": {
+    "schemas": {
+      "CreateExceptionObject": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string"
+          },
+          "methodName": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
         }
-      }
-    },
-    "CreateExceptionObject": {
-      "type": "object",
-      "properties": {
-        "serviceName": {
-          "type": "string"
-        },
-        "methodName": {
-          "type": "string"
-        },
-        "sequence": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "code": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
+      },
+      "CreateReturnObject": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string"
+          },
+          "methodName": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "string"
+          },
+          "dalay": {
+            "type": "integer",
+            "format": "int64"
+          }
         }
       }
     }

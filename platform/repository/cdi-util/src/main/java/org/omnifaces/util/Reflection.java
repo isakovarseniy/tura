@@ -55,7 +55,7 @@ import java.util.function.Predicate;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-import javax.enterprise.inject.Typed;
+import jakarta.enterprise.inject.Typed;
 
 /**
  * Collection of utility methods for working with reflection.

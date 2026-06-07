@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -92,6 +92,17 @@ package [%=type.~package%];
 		    public void setCpaid(String value) {
 		        this.cpaid = value;
 		    }
+            
+            
+            @com.fasterxml.jackson.annotation.JsonIgnore
+			public boolean isInMemory() {
+				throw new UnsupportedOperationException();
+			}
+		
+		    @com.fasterxml.jackson.annotation.JsonIgnore
+			public [%=type.~class%] inMemory() {
+				throw new UnsupportedOperationException();
+			}            
             
            [%=type.inhClass(model_mapper,trackFields)%] 
 }
@@ -291,7 +302,42 @@ operation type::Assosiation  connectionAnnotation(model_mapper,conType){
 				)
       [%
 
-    } 
+    } else{
+       if (  "Many2Many".equals(self.type.toString()))  {
+          return;
+       }
+      var first = true;
+      var field1Suffix = "";
+      var field2Suffix = "";
+      %]
+			 @org.tura.platform.repository.core.annotation.Links( type="[%=conType%]",
+				links= { 
+        		  [%for ( lnk in self.links) {
+        		  
+				       var masterType = lnk.masterField.eContainer();
+				       if  ( lnk.masterField.pk  and   masterType.isPersistentInterface(model_mapper)){
+				               field1Suffix =  masterType.~class;
+				               field2Suffix = "";
+				       }else{
+					       var detailType = lnk.detailField.eContainer();
+					       if  ( lnk.detailField.pk  and   detailType.isPersistentInterface(model_mapper)){
+				               field1Suffix = "";
+					           field2Suffix =  detailType.~class;
+					       }
+				       }     
+  		  
+        		  %]
+        		  
+        		  
+        		    [%if (not first){ %] ,[%} %]
+				 @org.tura.platform.repository.core.annotation.Link(field1="[%=util.mergeAndUnCapitalize(lnk.masterField.name)%]", field2 ="[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]" , field1Suffix="[%=field1Suffix%]" , field2Suffix="[%=field2Suffix%]")
+		        [%
+                first = false;
+		        }%]
+				 }
+				)
+      [%
+    }
   }
   
   

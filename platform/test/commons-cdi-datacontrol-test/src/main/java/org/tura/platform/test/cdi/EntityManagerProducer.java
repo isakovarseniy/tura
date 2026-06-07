@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,22 +18,25 @@
 
 package org.tura.platform.test.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Disposes;
+import jakarta.enterprise.inject.Produces;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
-import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
-
+@ApplicationScoped
 public class EntityManagerProducer
 {
 	
-	 @Inject
-	 @PersistenceUnitName("UIComponent")
 	 private EntityManagerFactory emf;
-	
+	 
+	 @PostConstruct
+	 public void init() {
+			emf = Persistence.createEntityManagerFactory("UIComponent");
+	 }
+	 
 	 private EntityManager em;
 	 
 	 

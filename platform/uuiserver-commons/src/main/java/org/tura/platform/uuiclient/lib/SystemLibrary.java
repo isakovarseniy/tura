@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,12 @@ package org.tura.platform.uuiclient.lib;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.inject.Inject;
-
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.uuiclient.model.LazyDataGridModel;
+
+import jakarta.inject.Inject;
 
 public class SystemLibrary {
 
@@ -35,11 +36,19 @@ public class SystemLibrary {
 	ELResolver elResolver;
 
     
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
+
+    
 	public void createRow(IDataControl dc) {
 		try {
 			dc.createObject();
 		} catch (TuraException e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			getLogger().log(Level.INFO, e.getMessage(),e);
 		}
 	}
 
@@ -47,7 +56,7 @@ public class SystemLibrary {
 		try {
 			dc.removeObject();
 		} catch (Exception e) {
-			logger.log(Level.INFO, e.getMessage(),e);
+			getLogger().log(Level.INFO, e.getMessage(),e);
 		}
 	}
 

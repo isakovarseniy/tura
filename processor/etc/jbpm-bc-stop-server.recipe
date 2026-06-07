@@ -1,7 +1,0 @@
-echo Stop jbpm-bc
-tura:docker stopContainer --name jbpm-bc
-
-tura:docker removeContainer --name jbpm-bc
-
-tura:docker removeImage --registry tura/jbpm/bc --tag 1.0
-

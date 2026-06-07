@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 package org.tura.platform.datacontrol;
 
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
@@ -29,7 +29,7 @@ import objects.test.serialazable.jpa.Employee1;
 public class D1MasterDetailDataControlPoolTest extends AbstractMasterDetailDataControlPool{
 
 	
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		AbstractMasterDetailDataControlPool.deparmentClass = Department1.class;
 		AbstractMasterDetailDataControlPool.employeeClass = Employee1.class;

@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,14 +25,13 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>test</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
 	<artifactId>test-of-generated-datacontrols-lazy</artifactId>
 
-	<name>Tura :: Platform :: Test :: Generated code :: DataControl :: Lazy
-		Objects</name>
+	<name>Tura :: Platform :: Test :: Generated code :: DataControl :: Lazy Objects</name>
 
 	<dependencies>
 		<dependency>
@@ -41,8 +40,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
 

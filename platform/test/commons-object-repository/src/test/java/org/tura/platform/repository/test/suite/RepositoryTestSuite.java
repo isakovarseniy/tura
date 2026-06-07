@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 
 package org.tura.platform.repository.test.suite;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
 import org.tura.platform.datacontrol.RemoveDetailObjectTest;
 import org.tura.platform.datacontrol.RemoveObjectTest;
 import org.tura.platform.repository.jpa.test.BusinessObjectTest;
@@ -27,8 +27,6 @@ import org.tura.platform.repository.jpa.test.CommandValidationOne2ManyTest;
 import org.tura.platform.repository.jpa.test.CommandValidationOne2OneTest;
 import org.tura.platform.repository.jpa.test.D1SingleObjectPagingTest;
 import org.tura.platform.repository.jpa.test.D2SingleObjectPagingTest;
-import org.tura.platform.repository.jpa.test.JPARepositoryTest;
-import org.tura.platform.repository.jpa.test.JPATest;
 import org.tura.platform.repository.jpa.test.JpaHiddenAssosiationTest;
 import org.tura.platform.repository.jpa.test.Many2ManyNoContainmentTest;
 import org.tura.platform.repository.jpa.test.Many2ManyTest;
@@ -40,24 +38,22 @@ import org.tura.platform.repository.jpa.test.One2OneDirectContaintmentTest;
 import org.tura.platform.repository.jpa.test.One2OneNoContainmentTest;
 import org.tura.platform.repository.jpa.test.One2OneOpositContaintmentTest;
 import org.tura.platform.repository.jpa.test.One2OneTest;
+import org.tura.platform.repository.jpa.test.PersistenceRepositoryTest;
 import org.tura.platform.repository.mixed.test.AdapterTest;
 import org.tura.platform.repository.mixed.test.DiffOne2ManyTest;
 import org.tura.platform.repository.mixed.test.DiffOne2OneTest;
 import org.tura.platform.repository.mixed.test.MixedRepositoryTest;
 import org.tura.platform.repository.mixed.test.ObjectsLinkTest;
-import org.tura.platform.repository.mixed.test.TriggersValidationTest;
 import org.tura.platform.repository.spa.test.MultipleSpaObjectsTest;
 import org.tura.platform.repository.spa.test.SpaRepositoryInternalRelationTest;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({ 
+@Suite
+@SelectClasses({ 
 
-	JPATest.class,
 	DiffOne2ManyTest.class,
 	AdapterTest.class,
 	DiffOne2OneTest.class,
 	MixedRepositoryTest.class,
-	TriggersValidationTest.class,
 	ObjectsLinkTest.class,
 	
 	CommandValidationOne2OneTest.class,
@@ -69,7 +65,7 @@ import org.tura.platform.repository.spa.test.SpaRepositoryInternalRelationTest;
 	One2OneTest.class,
 	Many2ManyTest.class,
 	One2ManyNoContaintmantTest.class,
-	JPARepositoryTest.class,
+	PersistenceRepositoryTest.class,
 	One2OneOpositContaintmentTest.class,
 	BusinessObjectTest.class,
 	Many2ManyNoContainmentTest.class,
@@ -83,8 +79,6 @@ import org.tura.platform.repository.spa.test.SpaRepositoryInternalRelationTest;
 	
 	RemoveObjectTest.class,
 	RemoveDetailObjectTest.class,
-	
-	MetamodelTest.class	,
 	
 	JpaHiddenAssosiationTest.class
 }

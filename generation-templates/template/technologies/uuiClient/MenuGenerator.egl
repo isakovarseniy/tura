@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -219,7 +219,7 @@ operation setAttribute(variable , attribute, value){
   } 
 @template
   operation globalHeader(hash){%]
-@javax.enterprise.context.ApplicationScoped
+@jakarta.enterprise.context.ApplicationScoped
 @org.tura.platform.uuiclient.menu.Eager
   [%
   }
@@ -234,7 +234,7 @@ operation setAttribute(variable , attribute, value){
     var application = uipackage.eContainer().eContainer();
       
   %]
-@javax.enterprise.context.RequestScoped
+@jakarta.enterprise.context.RequestScoped
 @org.tura.platform.uuiclient.menu.Menu(value="[%=util.mergeAndCapitalize(application.name)%].[%=util.mergeAndCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%].[%=util.mergeAndCapitalize(menu.name)%]")
   [%
   }
@@ -254,7 +254,7 @@ operation setAttribute(variable , attribute, value){
 	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger([%=util.mergeAndCapitalize(self.name)%]Menu.class.getName());;
 	
   
-	@javax.annotation.PostConstruct
+	@jakarta.annotation.PostConstruct
 	public void init() {
 	   String elements[] = new String[] { "[%=util.mergeAndCapitalize(application.name)%]", "[%=util.mergeAndCapitalize(uipackage.name)%]","[%=util.mergeAndCapitalize(form.name)%]" };
 		try {
@@ -272,7 +272,7 @@ operation setAttribute(variable , attribute, value){
 		}
 	}
 
-	@javax.annotation.PreDestroy
+	@jakarta.annotation.PreDestroy
 	public void destroy() {
 		String path = "java:global/[%=util.mergeAndCapitalize(application.name)%]/[%=util.mergeAndCapitalize(uipackage.name)%]/[%=util.mergeAndCapitalize(form.name)%]";
 		try {

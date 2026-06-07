@@ -16,8 +16,8 @@ import static org.omnifaces.util.Exceptions.is;
 
 import java.util.regex.Pattern;
 
-import javax.annotation.Resource;
-import javax.faces.application.ProjectStage;
+import jakarta.annotation.Resource;
+import jakarta.faces.application.ProjectStage;
 import javax.naming.InitialContext;
 import javax.naming.NameNotFoundException;
 import javax.naming.NamingException;

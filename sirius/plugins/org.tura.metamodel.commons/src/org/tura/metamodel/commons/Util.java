@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -47,7 +47,6 @@ import javax.crypto.KeyGenerator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.egl.EglTemplateFactoryModuleAdapter;
@@ -59,6 +58,7 @@ import org.eclipse.epsilon.eol.types.EolClasspathNativeTypeDelegate;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
+import org.tura.metamodel.commons.preferences.LogUtil;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import artifact.GenerationHintWithNickName;
@@ -105,16 +105,6 @@ public class Util {
 	}
 	
 	
-	public static String turaLocation() {
-		try {
-			Path path = Paths.get(System.getProperty("user.home") + "/.tura/turaLink");
-			return  new String( Files.readAllBytes(path));
-		} catch (Exception e) {
-			LogUtil.log(e);
-			return System.getProperty("user.home");
-		}
-	}
-
 	public long serialVersionUID() {
 		return Calendar.getInstance().getTimeInMillis();
 	}

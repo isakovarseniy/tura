@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Tura - Application generation solution
+
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>org.tura.cli</groupId>
+		<artifactId>sa-containers</artifactId>
+		<version>6.3.0</version>
+	</parent>
+
+	<properties>
+
+	</properties>
+
+	<groupId>org.tura.cli.sa-containers</groupId>
+	<artifactId>docker-sa-dsl</artifactId>
+
+	<name>Tura :: Platform :: Processor :: Tura :: Sales Analyzer  DSL</name>
+
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.tura.cli</groupId>
+			<artifactId>sa-cli-tura-command-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.cli.containers</groupId>
+			<artifactId>docker-containers</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.cli</groupId>
+			<artifactId>commons-dsl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<outputDirectory>${project.basedir}/../../../../exec/modules</outputDirectory>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+						<manifest>
+						</manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

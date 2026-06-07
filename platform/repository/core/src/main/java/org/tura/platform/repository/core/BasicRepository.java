@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,12 @@
 package org.tura.platform.repository.core;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.tura.platform.datacontrol.commons.ObjectProfileCriteria;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -113,6 +116,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			List<T> records = new ArrayList<>();
 
 			for (Object object : result.getSearchResult()) {
+				profile.setRootObject(object);
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(registry,spaRepositoryData);
 				loader.setOrderCriteria(orderCriteria);
@@ -136,7 +140,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 	}
 
-	private ObjectGraphProfile loadProfile(List<SearchCriteria> searchCriteria) {
+	private ObjectGraphProfile loadProfile(List<SearchCriteria> searchCriteria) throws RepositoryException {
 		ObjectGraphProfile profile = new ObjectGraphProfile();
 		SearchCriteria s = null;
 		for (SearchCriteria sc : searchCriteria) {
@@ -173,8 +177,38 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 
 		return newOrder;
 	}
-
+	
+	
 	public List<Object> applyChanges(List<Object> changes) throws RepositoryException {
+		TransactionAdapter tx = getTransactionAdapter();
+		
+		if (  tx instanceof BulkLoaderTransactionAdapter) {
+			BulkLoaderTransactionAdapter btx = (BulkLoaderTransactionAdapter) tx;
+			if (btx.getPageSize() != null &&  btx.getPageSize() != 0) {
+				List<List<Object>> pages = partitionList(changes, btx.getPageSize());
+//				int pg = 0;
+				for ( List<Object> page : pages) {
+//					long st = Calendar.getInstance().getTimeInMillis();
+//					System.out.println("-------------------------------page = "+pg+ " time = " + st);
+					applyPage(page);
+//					pg++;
+				}
+			}
+			return new ArrayList<Object>();
+		}else {
+			return applyPage(changes);
+		}
+		
+		
+	}	
+	
+	  public static <T> List<List<T>> partitionList(List<T> list, int partitionSize) {
+	        return IntStream.range(0, (list.size() + partitionSize - 1) / partitionSize)
+	                .mapToObj(i -> list.subList(i * partitionSize, Math.min(list.size(), (i + 1) * partitionSize)))
+	                .collect(Collectors.toList());
+	    }	
+
+	private List<Object> applyPage(List<Object> changes) throws RepositoryException {
 		CommandLifecycle cl = getCommandLifecycle();
 		SpaRepositoryData spaRepositoryData = new SpaRepositoryData();
 		

@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -27,14 +27,14 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 
 import java.util.UUID;
 
-import javax.enterprise.inject.Produces;
+import jakarta.enterprise.inject.Produces;
 
 import org.tura.platform.repository.cdi.ClientCpaStorage;
 import org.tura.platform.repository.cpa.storage.CpaStorage;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.cdi.TypeHierarchy;
 import org.tura.platform.repository.cpa.storage.TypeInheritance;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 
 public class CdiClientCpaStorage[%=suffix%]Producer implements java.io.Serializable{

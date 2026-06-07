@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -85,6 +85,14 @@ public class GridModel implements AbstractGridModel, Serializable {
 			dc.addEventLiteners(new MultiRecordListener());
 		}
 	}
+	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
+	
 
 	public GridType getGridType() {
 		return gridType;
@@ -180,7 +188,7 @@ public class GridModel implements AbstractGridModel, Serializable {
 				}
 
 			} catch (TuraException e) {
-				logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+				getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 			}
 		}
 		if (gridType.equals(GridType.MultiSelect)) {
@@ -304,7 +312,7 @@ public class GridModel implements AbstractGridModel, Serializable {
 			return oc;
 
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 			return null;
 		}
 	}

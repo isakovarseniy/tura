@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,13 @@
 
 package org.tura.platform.repository.mixed.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import javax.persistence.EntityManager;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.tura.jpa.test.repo.InitJPARepository;
 import org.tura.platform.repository.core.Registry;
-import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
-import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.spa.ExternalConnectionPreQueryTrigger;
 import org.tura.platform.repository.spa.SkipQueryTrigger;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
@@ -67,36 +61,16 @@ import objects.test.serialazable.jpa2.JPAObjectSecondDb;
 
 public class TriggersValidationTest {
 
-	private static EntityManager em;
-	@SuppressWarnings({ "rawtypes", "unused" })
-	private static List commandStack;
-
 	private Registry registry = new Registry();
 	private SpaObjectRegistry spaRegistry = new SpaObjectRegistry();
-
-	private static EntityManagerProvider emProvider = new EntityManagerProvider() {
-
-		@Override
-		public EntityManager getEntityManager() {
-			return em;
-		}
-
-		@Override
-		public void destroyEntityManager() {
-
-		}
-	};
-
 
 	@Test
 	public void triggersTest() {
 		try {
-			registry.setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-			commandStack = new ArrayList<>();
 
 			InitJPARepository initJpa = new InitJPARepository( registry, spaRegistry);
 			initJpa.initClassMapping();
-			initJpa.initCommandProducer(emProvider,null);
+			initJpa.initCommandProducer(null,null);
 			initJpa.initProvider();
 
 			InitSPARepository initSpa = new InitSPARepository( registry, spaRegistry);

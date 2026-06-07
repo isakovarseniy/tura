@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@
 
 package org.tura.platform.test;
 
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -26,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Named;
+import jakarta.inject.Named;
 
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;

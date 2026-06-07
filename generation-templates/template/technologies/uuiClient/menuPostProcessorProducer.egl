@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -25,14 +25,14 @@ operation menuPostProcessorProducer( hash){
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
 
-@javax.enterprise.inject.Alternative
-@javax.annotation.Priority(0)
+@jakarta.enterprise.inject.Alternative
+@jakarta.annotation.Priority(0)
 public class MenuPostProcessorProducer {
 
-	  @javax.enterprise.inject.Produces
+	  @jakarta.enterprise.inject.Produces
        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
        @org.tura.platform.datacontrol.annotations.MenuPostProcessingTrigger
-	public org.tura.platform.datacontrol.command.MenuPostPocessingCommand produceMenuPostProcessorTrigger(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
+	public org.tura.platform.datacontrol.command.MenuPostPocessingCommand produceMenuPostProcessorTrigger(jakarta.enterprise.inject.spi.InjectionPoint injectionPoint) {
 		return null;
 	}
 }

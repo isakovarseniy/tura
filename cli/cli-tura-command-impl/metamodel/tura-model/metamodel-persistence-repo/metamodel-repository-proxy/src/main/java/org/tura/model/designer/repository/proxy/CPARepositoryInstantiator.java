@@ -1,0 +1,93 @@
+/*
+ *   Tura - Application generation solution
+ *
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *
+ *
+ *   This project includes software developed by Arseniy Isakov
+ *   https://github.com/isakovarseniy/tura
+ *   All rights reserved. This program and the accompanying materials
+ *   are made available under the terms of the Eclipse Public License v2.0
+ *   which accompanies this distribution, and is available at
+ *   http://www.eclipse.org/legal/epl-v20.html
+ */
+
+package org.tura.model.designer.repository.proxy;
+
+import java.util.Arrays;
+import org.tura.platform.repository.core.Instantiator;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.cpa.operation.CpaCommandProducer;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.repository.core.StorageCommandProcessor;
+import org.tura.platform.repository.cpa.CpaStorageUpdater;
+import org.tura.platform.repository.cpa.CommandPostTransformation;
+import org.tura.platform.repository.cpa.operation.CpaStorageControlOperation;
+import java.io.Serializable;
+
+public class CPARepositoryInstantiator implements Instantiator, Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  private Registry registry;
+
+  private SpaObjectRegistry spaRegistry;
+
+  public CPARepositoryInstantiator(Registry registry, SpaObjectRegistry spaRegistry) {
+    this.spaRegistry = spaRegistry;
+    this.registry = registry;
+  }
+
+  private static String[] knownObjects =
+      new String[] {
+        "metamodel-repository-proxy",
+        "metamodel-repository-proxy.CommandProducer",
+        StorageCommandProcessor.class.getName(),
+        CpaStorageControlOperation.class.getName(),
+        CommandPostTransformation.class.getName()
+      };
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public <T> T newInstance(Class<T> clazz) {
+    if (StorageCommandProcessor.class.equals(clazz)) {
+      CpaStorageUpdater updater = new CpaStorageUpdater();
+      updater.setRegistry(spaRegistry, registry);
+      return (T) updater;
+    }
+    if (CpaStorageControlOperation.class.equals(clazz)) {
+      CpaStorageControlOperation comand = new CpaStorageControlOperation(registry, spaRegistry);
+      return (T) comand;
+    }
+    if (CommandPostTransformation.class.equals(clazz)) {
+      CommandPostTransformation processor = new CommandPostTransformation(spaRegistry, registry);
+      return (T) processor;
+    }
+    throw new RuntimeException("Unknown class " + clazz);
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public <T> T newInstance(String className) {
+    if ("metamodel-repository-proxy".equals(className)) {
+      SpaRepository repository = new SpaRepository();
+      repository.setRegistry(spaRegistry, "metamodel-repository-proxy", registry);
+      return (T) repository;
+    }
+    if ("metamodel-repository-proxy.CommandProducer".equals(className)) {
+      return (T) new CpaCommandProducer(spaRegistry, "metamodel-repository-proxy", registry);
+    }
+    throw new RuntimeException("Unknown class " + className);
+  }
+
+  @Override
+  public boolean check(Class<?> clazz) {
+    return check(clazz.getName());
+  }
+
+  @Override
+  public boolean check(String clazzName) {
+    return Arrays.asList(knownObjects).contains(clazzName);
+  }
+}

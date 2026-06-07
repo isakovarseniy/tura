@@ -1,0 +1,83 @@
+/*
+ * Tura - Application generation solution
+ *
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.tura.model.designer.ui.properties.actions;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import jakarta.annotation.Priority;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+import static  org.tura.model.designer.ui.tree.actions.CommonFunctions.fromd;
+
+import org.tura.model.designer.ui.properties.mmdesigner.properties.datacontrol.IBeanFactory;
+import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.annotations.MenuPostProcessingTrigger;
+import org.tura.platform.datacontrol.annotations.Selector;
+import org.tura.platform.datacontrol.command.MenuPostPocessingCommand;
+import org.tura.platform.uuiclient.menu.AbsractMenuProvider;
+import org.tura.platform.uuiclient.menu.DefaultMenuItem;
+import org.tura.platform.uuiclient.menu.DefaultMenuModel;
+import org.tura.platform.uuiclient.menu.MenuElement;
+
+@Alternative
+@Priority(10)
+@Selector("mmdesigner.properties")
+@MenuPostProcessingTrigger
+public class MenuePostProcessor implements MenuPostPocessingCommand, Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private transient Logger logger = Logger.getLogger(MenuePostProcessor.class.getName());
+
+	@Inject
+	@Named("beanFactoryMmdesignerProperties")
+	IBeanFactory bf;
+	
+	@Inject
+	ELResolver elResolver;
+
+
+	@Override
+	public void execute(DefaultMenuModel model, String menuId, AbsractMenuProvider provider) {
+		try {
+			if (menuId.equals( fromd("42cf251d-a65e-449b-9e2a-6f167e4df203"))) {
+				List<MenuElement> array = new ArrayList<MenuElement>();
+				array.addAll(model.getItems());
+				model.getItems().clear();
+				for (MenuElement item : array) {
+					DefaultMenuItem it = (DefaultMenuItem) item;
+					if ( it.isRendered()) {
+						model.addItem(item);
+					}
+				}
+				return;
+			}
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
+	}
+
+}

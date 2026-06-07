@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      Tura - Application generation solution
+
+      Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+
+
+      This project includes software developed by Arseniy Isakov
+      https://github.com/isakovarseniy/tura
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v2.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v20.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>org.tura.cli</groupId>
+		<artifactId>containers</artifactId>
+		<version>6.3.0</version>
+	</parent>
+
+	<groupId>org.tura.cli.containers</groupId>
+	<artifactId>docker-containers</artifactId>
+
+	<name>Tura :: Platform :: Processor :: Tura :: Containers :: Docker containers </name>
+
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<docker-java.version>3.3.4</docker-java.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.tura.cli</groupId>
+			<artifactId>cli-tura-command-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.docker-java</groupId>
+			<artifactId>docker-java</artifactId>
+			<version>${docker-java.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.github.docker-java</groupId>
+			<artifactId>docker-java-transport-httpclient5</artifactId>
+			<version>${docker-java.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.cli</groupId>
+			<artifactId>commons-dsl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<outputDirectory>${project.basedir}/../../../exec/modules</outputDirectory>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+						<manifest>
+						</manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 package org.tura.platform.datacontrol;
 
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.repository.test.suite.DataControlTestSuite;
@@ -29,7 +29,7 @@ import objects.test.serialazable.jpa.Employee2;
 
 public class D2SingleDataControlTest extends  AbstractSingleDataControl{
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		AbstractSingleDataControl.deparmentClass = Department2.class;
 		AbstractSingleDataControl.employeeClass = Employee2.class;

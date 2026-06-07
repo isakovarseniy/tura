@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,14 @@
 
 package org.tura.platform.repository.jpa.test;
 
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 
 import objects.test.serialazable.jpa.Department2;
 import objects.test.serialazable.jpa.Employee2;
 
 public class D2SingleObjectPagingTest extends AbstractSingleObjectPagingTest{
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
 		AbstractSingleObjectPagingTest.deparmentClass = Department2.class;
 		AbstractSingleObjectPagingTest.employeeClass = Employee2.class;

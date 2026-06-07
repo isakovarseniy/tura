@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,9 @@ package org.tura.emulator.rest;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
 
 @ApplicationPath("rest")
@@ -35,10 +36,9 @@ public class RestEmulatorControlApplication extends Application{
         HashSet<Class<?>> set = new HashSet<Class<?>>();
 
         set.add(ControlFacade.class);
-
-        set.add(io.swagger.jaxrs.listing.ApiListingResource.class);
-        set.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
+        set.add( OpenApiResource.class);
 
         return set;
     }
+	
 }

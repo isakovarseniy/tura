@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,10 +26,10 @@ operation   menuProvider(hash) {
  %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu;
      
- @javax.inject.Named("menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+ @jakarta.inject.Named("menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class MenuProvider  implements  org.tura.platform.uuiclient.menu.IMenuProvider, java.io.Serializable {
 
-   @javax.inject.Inject
+   @jakarta.inject.Inject
    @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
    @org.tura.platform.datacontrol.annotations.MenuPostProcessingTrigger
    private org.tura.platform.datacontrol.command.MenuPostPocessingCommand menuPostPocessingCommand;
@@ -40,11 +40,11 @@ public class MenuProvider  implements  org.tura.platform.uuiclient.menu.IMenuPro
 
 	private transient  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuProvider.class.getName());;
 
-    @javax.inject.Inject
+    @jakarta.inject.Inject
     private transient org.tura.platform.datacontrol.ELResolver elResolver;
 
 
-	@javax.annotation.PostConstruct
+	@jakarta.annotation.PostConstruct
 	public void init() {
 [%      
         for( menu in  menuReferences ){

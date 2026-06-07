@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,14 @@ public class FullCalendarModel implements Serializable {
 
 	public FullCalendarModel() {
 	}
+	
+	public Logger getLogger() {
+		if (logger == null) {
+			logger = Logger.getLogger(LazyDataGridModel.class.getName());
+		}
+		return logger;
+	}
+	
 
 	public FullCalendarModel(DataControl<?> dc, Object callback, String modelId) {
 		this.setModelId(modelId);
@@ -107,7 +115,7 @@ public class FullCalendarModel implements Serializable {
 			}
 
 		} catch (TuraException e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 
 	}
@@ -120,7 +128,7 @@ public class FullCalendarModel implements Serializable {
 			}
 
 		} catch (TuraException e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
@@ -132,7 +140,7 @@ public class FullCalendarModel implements Serializable {
 			}
 
 		} catch (TuraException e) {
-			logger.log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
+			getLogger().log(Level.SEVERE, ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 

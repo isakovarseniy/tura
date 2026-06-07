@@ -2,7 +2,7 @@
 <!--
     Tura - Application generation solution
 
-    Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+    Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>org.tura.platform</groupId>
 		<artifactId>repository</artifactId>
-		<version>6.1.2</version>
+		<version>6.3.0</version>
 	</parent>
 
 	<groupId>org.tura.platform.repository</groupId>
@@ -33,12 +33,6 @@
 	<name>Tura :: Platform :: Repository :: CDI Client providers</name>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform.repository</groupId>
@@ -59,6 +53,13 @@
 			<groupId>org.tura.platform.repository</groupId>
 			<artifactId>cdi-util</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 </project>

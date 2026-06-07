@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
+import org.tura.platform.repository.spa.AbstractSearchService;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
@@ -87,7 +88,7 @@ public class JpaUpdateOperation extends SpaRepositoryCommand {
     @Override
     public List<SpaControl> prepare() throws RepositoryException {
         try {
-            JpaSearchService sp = (JpaSearchService) this.providerHash.get(className);
+        	AbstractSearchService sp = (AbstractSearchService) this.providerHash.get(className);
             Object object = sp.find(getPk(), Class.forName(getClassName()));
             String name = "set" + WordUtils.capitalize(getProperty());
             Method m;

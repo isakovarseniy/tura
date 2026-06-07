@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -26,8 +26,8 @@ operation  commandstack(component,uipackage,form, suffix) {
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
     @[%=commandstack_scope()%]
-    @javax.enterprise.inject.Alternative
-    @javax.annotation.Priority(0)
+    @jakarta.enterprise.inject.Alternative
+    @jakarta.annotation.Priority(0)
 
 [%
 %]@org.tura.platform.repository.cdi.ClientCommandStack("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")[%
@@ -37,7 +37,7 @@ public class CdiClientCommandStack[%=util.mergeAndCapitalize(suffix)%] extends o
 	private static final long serialVersionUID = 1L;
 
 
-  @javax.annotation.PostConstruct
+  @jakarta.annotation.PostConstruct
   public void init() {
 	  this.setEventSubscribersProvider(new org.tura.platform.repository.cdi.CdiClientCommandStackEventSubscribersProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]"));
 	  this.setRegistryProvider(new org.tura.platform.repository.cdi.CdiClientRegistryProvider("[%=dotsuffix%][%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]"));

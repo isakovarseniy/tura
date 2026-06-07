@@ -2,7 +2,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -35,12 +35,12 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 import java.lang.reflect.InvocationTargetException;
 
 
-@javax.enterprise.inject.Alternative
-@javax.annotation.Priority(0)
+@jakarta.enterprise.inject.Alternative
+@jakarta.annotation.Priority(0)
 public class [%=util.mergeAndCapitalize(control.name)%]ParameterProducer {
 
- 	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")   @org.tura.platform.datacontrol.annotations.CreateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
-	public org.tura.platform.datacontrol.command.base.CreateObjectParameters getCreateCommand( javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+ 	@jakarta.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")   @org.tura.platform.datacontrol.annotations.CreateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.CreateObjectParameters getCreateCommand( jakarta.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException{
 		org.tura.platform.datacontrol.annotations.Create annotation = injectionPoint.getAnnotated().getAnnotation(
@@ -60,8 +60,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]ParameterProducer {
 	}
 
 
-	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.SearchTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
-	public org.tura.platform.datacontrol.command.base.SearchObjectParameters getSearchCommand(javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+	@jakarta.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.SearchTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.SearchObjectParameters getSearchCommand(jakarta.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException{
 		org.tura.platform.datacontrol.annotations.Search annotation = injectionPoint.getAnnotated().getAnnotation(

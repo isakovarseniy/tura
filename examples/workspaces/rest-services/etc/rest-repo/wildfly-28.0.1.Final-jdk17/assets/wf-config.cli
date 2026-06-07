@@ -1,0 +1,4 @@
+embed-server --server-config=${server.config:standalone-full.xml}
+
+/system-property=basePath:add(value="/opt/jboss/wildfly")
+/system-property=ogm.properties.file:add(value=/opt/jboss/wildfly/ogm.properties)

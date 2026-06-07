@@ -10,7 +10,9 @@ Update hosts file
 127.0.0.1       kc
 127.0.0.1       wf
 ```
-Install jdk 11+
+Install jdk 17+
+
+Install maven
 
 Install docker
 
@@ -31,23 +33,32 @@ cd tura
 git checkout <branch>
 ```
  
-Start tura shell
+ Modify you startup profile
+ 
+ ```bash
+export TURA_HOME="$HOME/< path >/tura"
+source $TURA_HOME/cli/etc/tura_cmd_completion
+source $TURA_HOME/examples/workspaces/rest-services/etc/rest_cmd_completion
+source $TURA_HOME/examples/workspaces/hr-manager/etc/hr_cmd_completion
+source $TURA_HOME/examples/workspaces/sales-analyzer/etc/sa_cmd_completion
+```
+For MacOS 
 
-```bash
-chmod +x ./processor/tura-gogo.sh
-./processor/tura-gogo.sh
+ ```bash
+launchctl setenv TURA_HOME ${HOME}/< path >
+
 ```
 
-Build Eclipse IDE
+
+
+Build Eclipse IDE and tura
 
 ```bash
-shell>closure localbuildPluginAndProcessor
-```
+>cd $TURA_HOME/cli
+>source ./etc/chx.sh 
+>./etc/tura_cmd.sh buildPluginAndProcessor
+>./etc/tura_cmd.sh buildPlatform
 
-Build tura
-
-```bash
-shell>closure buildPlatform
 ```
 
 ## Contributing

@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,22 +18,22 @@
 
 package org.tura.jpa;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
 
-import org.junit.ClassRule;
-import org.junit.rules.ExternalResource;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.platform.suite.api.AfterSuite;
+import org.junit.platform.suite.api.BeforeSuite;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.cpa.CpaRepository;
 
 import objects.test.serialazable.jpa.One2One1B;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({ 
+@Suite
+@SelectClasses({ 
 	RestRepositoryTest.class,
 	EmulatorTest.class
 	}
@@ -49,47 +49,41 @@ public class TestSuite {
 
 	}
 
-	@ClassRule
-	public static ExternalResource resource = new ExternalResource() {
-		
-		@Override
-		protected void before() throws Throwable {
-			try {
-				if ( isWindows()) {
-					RunExternalJob.execute("../../../processor/tura-gogo.bat", "-c","removeAll");
-					RunExternalJob.execute("../../../processor/tura-gogo.bat", "-c","startRestServer");
-				}else{
-					RunExternalJob.execute("../../../processor/tura-gogo.sh", "-c removeAll;startRestServer");
-				}
-				
-				healthCheckt();
-			} catch (Exception e) {
-				fail();
+	@BeforeSuite
+	public static void beforeSuite() {
+		try {
+			if ( isWindows()) {
+				RunExternalJob.execute("../../../examples/workspaces/rest-services/etc/rest_cmd.bat", "startRestServer");
+			}else{
+				RunExternalJob.execute( "sh", "-c", "../../../examples/workspaces/rest-services/etc/rest_cmd.sh startRestServer");
 			}
+			
+			healthCheckt();
+		} catch (Exception e) {
+			fail();
 		}
-
-		@Override
-		protected void after() {
-			try {
-				if ( isWindows()) {
-					RunExternalJob.execute("../../../processor/tura-gogo.bat", "-c","stopRestServer");
-				}else{
-					RunExternalJob.execute("../../../processor/tura-gogo.sh", "-c stopRestServer");
-				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
+	}
+	
+	@AfterSuite
+	public static void afterSuite() {
+		try {
+			if ( isWindows()) {
+				RunExternalJob.execute("../../../examples/workspaces/rest-services/etc/rest_cmd.bat", "removeRestServer");
+			}else{
+				RunExternalJob.execute("sh", "-c", "../../../examples/workspaces/rest-services/etc/rest_cmd.sh removeRestServer");
 			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-	};
-
+	}
 	
 	public static void healthCheckt() throws Exception {
 		for (int i = 0; i < 100; i++) {
 			try {
 				System.out.println("try "+i);
 				CpaRepository repository = RestRepositoryTest.getRepository();
-				repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class);
+				repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 10, One2One1B.class);
 				return;
 			} catch (Exception e) {
 				System.out.println("Error ..."+i);

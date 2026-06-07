@@ -1,7 +1,7 @@
 /*
  * Tura - Application generation solution
  *
- * Copyright 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
+ * Copyright 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com )
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,86 +18,81 @@
 
 package org.tura.platform.datacontrol;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.h2.tools.Server;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.repository.cpa.CpaRepository;
 import org.tura.platform.repository.cpa.storage.CpaStorageProvider;
-import org.tura.platform.repository.init.Factory;
+import org.tura.platform.repository.init.StorageFactory;
+import org.tura.platform.repository.init.StorageProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.proxy.access.TopLazyList;
+
+import com.octo.java.sql.query.SelectQuery.Order;
 
 import objects.test.serialazable.jpa.Department2;
 import objects.test.serialazable.jpa.Employee2;
 
 public class RemoveDetailObjectTest {
 
-	protected static Factory factory;
-
-	private static Server server;
+	private static StorageProvider storageProvider = StorageFactory.getStorage();
 	
 	public static Class<?> deparmentClass =  Department2.class;
 	public static Class<?> employeeClass  = Employee2.class;
 	public static String deparmentString = "Department2";
 	public static String employeeString  = "Employee2";
 	
-	@AfterClass
+	@AfterAll
 	public static void afterClass() throws Exception {
-		server.stop();
+		storageProvider.stopServer();
 	}
 	
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception{
 		
 		PlatformConfig.TEST_MODE = true;
 		PlatformConfig.LOADSTEP = 3;
-		server = Server.createTcpServer().start();
-		factory = new Factory();
+		storageProvider.startServer();
+		storageProvider.initSession();
 
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		Factory.getRepositoryProducer().em = emf.createEntityManager();
+		storageProvider.startTransaction();
 
-		factory.getEntityManager().getTransaction().begin();
-
-		factory.initDB(deparmentString, factory.getEntityManager());
+		storageProvider.initData("InitDB0", deparmentString);
 		try {
-			factory.initDB(employeeString, factory.getEntityManager());
+			storageProvider.initData("InitDB0",employeeString);
+			storageProvider.commitTransaction();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		factory.getEntityManager().getTransaction().commit();
 
 	}
 	
-	@Before
+	@BeforeEach
 	public void init() throws Exception{
-		factory.clean();
+		storageProvider.clean();
 	}	
 	
 	@SuppressWarnings("resource")
 	@Test
 	public void t001_remove() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider = Factory.repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider = storageProvider.getCpaStorageProvider();
 			
 			TopLazyList<?> list = new TopLazyList<>(deparmentClass, cpaStorageProvider, repository);
+			list.setOrderCriteria(getOrderBy());
 			Department2 obj  =  (Department2) list.get(0);
 			
 			List<Employee2>  empList = obj.getEmployee2();
@@ -119,11 +114,12 @@ public class RemoveDetailObjectTest {
 	@SuppressWarnings("resource")
 	public void t002_remove() {
 		try {
-			CpaRepository repository = Factory.getRepository();
+			CpaRepository repository = storageProvider.getRepository();
 			ProxyCommadStackProvider stackProvider = repository.getStackProvider();
-			CpaStorageProvider cpaStorageProvider = Factory.repositoryProducer.cpaStorageProvider;
+			CpaStorageProvider cpaStorageProvider = storageProvider.getCpaStorageProvider();
 			
 			TopLazyList<?> list = new TopLazyList<>(deparmentClass, cpaStorageProvider, repository);
+			list.setOrderCriteria(getOrderBy());
 			Department2 obj  =  (Department2) list.get(0);
 			
 			List<Employee2>  empList = obj.getEmployee2();
@@ -144,4 +140,12 @@ public class RemoveDetailObjectTest {
 		}
 	}
 	
+   
+	private List< OrderCriteria> getOrderBy(){
+		OrderCriteria order = new OrderCriteria("objId",Order.ASC.name());
+		List<OrderCriteria> orders = new ArrayList<OrderCriteria>();
+		orders.add(order);
+		return orders;
+		
+	}   
 }

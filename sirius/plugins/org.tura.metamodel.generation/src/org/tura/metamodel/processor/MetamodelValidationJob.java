@@ -1,7 +1,7 @@
 /*
  *   Tura - Application generation solution
  *
- *   Copyright (C) 2008-2024 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
+ *   Copyright (C) 2008-2026 2182342 Ontario Inc ( arseniy.isakov@turasolutions.com ).
  *
  *
  *   This project includes software developed by Arseniy Isakov
@@ -30,14 +30,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
-import org.tura.metamodel.commons.Util;
+import org.tura.metamodel.commons.preferences.LogUtil;
 
 import recipe.Component;
 import recipe.Infrastructure;
@@ -55,8 +54,7 @@ public class MetamodelValidationJob extends Job {
 	private ModelMapper mapper;
 	private Recipe recipe;
 	private boolean recipeOnly;
-	private String job1 = Util.turaLocation()+"/processor/tura-gogo";
-	private String job2 = "-c tura:validate --infraId ${infraId} --modelFile ${file}";
+	private String job1 = "${TURA_HOME}/cli/tura.${ext}  validate type EMF --infraId ${infraId} --modelFile ${file}";
 
 	
 	public boolean isRecipeOnly() {
@@ -148,35 +146,38 @@ public class MetamodelValidationJob extends Job {
 			
 			
 			job1 = job1.replace("${user_home}" , System.getProperty("user.home"));
-			job2 = job2.replace("${infraId}" , infrastructure.getUid());
-			job2 = job2.replace("${file}" , path);
+			job1 = job1.replace("${infraId}" , infrastructure.getUid());
+			job1 = job1.replace("${file}" , path);
 			
 			if (  recipe != null) {
-				job2 = job2 + " --recipeId "+recipe.getUid();
+				job1 = job1 + " --recipeId "+recipe.getUid();
 			}
 			
 			if (  ingredient != null) {
-				job2 = job2 + " --ingredientId "+ingredient.getUid();
+				job1 = job1 + " --ingredientId "+ingredient.getUid();
 			}
 			
 			if (  component != null) {
-				job2 = job2 + " --componentId "+component.getUid();
+				job1 = job1 + " --componentId "+component.getUid();
 			}
 			
 			if (  mapper != null) {
-				job2 = job2 + " --mapperId "+mapper.getUid();
+				job1 = job1 + " --mapperId "+mapper.getUid();
 			}
 			
 			if (  recipeOnly ) {
-				job2 = job2 + " --recipeOnly";
+				job1 = job1 + " --recipeOnly";
 			}
 
 			if (isWindows) {
-				System.out.println(job1+".bat" +" " + job2 );
-				process = Runtime.getRuntime().exec( new String[] {job1+".bat",job2} );
+				job1 = job1.replace("${ext}" , "bat");
+				System.out.println( job1);
+				process = Runtime.getRuntime().exec( new String[] {job1} );
 			} else {
-				System.out.println(job1+".sh" +" " + job2 );
-				process = Runtime.getRuntime().exec(new String[] {job1+".sh",job2});
+				job1 = job1.replace("${ext}" , "sh");
+				System.out.println( job1);
+
+				process = Runtime.getRuntime().exec(new String[] {"sh","-c", job1 });
 			}
 
 
