@@ -33,6 +33,8 @@
 			
         mvn clean install --f $TURA_HOME/cli/pom.xml 
 
+        mvn clean install -f $TURA_HOME/examples/workspaces/sales-analyzer/sa-cli/pom.xml
+
 		rm -R $TURA_WORKING_DIRECTORY/distrib
 			
 		mkdir -p $TURA_WORKING_DIRECTORY/distrib/eclipse
